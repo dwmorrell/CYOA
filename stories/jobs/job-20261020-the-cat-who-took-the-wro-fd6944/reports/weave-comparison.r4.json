@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "sets": [
+    {
+      "id": "blend-words",
+      "planned": 22,
+      "minimum": 10,
+      "actual": 67,
+      "ok": true
+    },
+    {
+      "id": "closed-syllable-words",
+      "planned": 22,
+      "minimum": 8,
+      "actual": 44,
+      "ok": true
+    },
+    {
+      "id": "ing-words",
+      "planned": 22,
+      "minimum": 8,
+      "actual": 18,
+      "ok": true
+    }
+  ]
+}

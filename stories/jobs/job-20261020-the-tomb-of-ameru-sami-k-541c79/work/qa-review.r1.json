@@ -1,0 +1,40 @@
+{
+  "role": "qa",
+  "reviewer": { "name": "qa-engineer", "kind": "ai-agent", "agent": "qa-engineer" },
+  "revision": 1,
+  "draftSha256": "b25881d0eeedec8eb21459ded7edeebd5e3bf258e6812da7eabaf1c6b2391560",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "Brief limit is 16 words per sentence and validation warns about 2 sentences over it. Candidates: draft line 327 (hall-sleeper: 'The carved Keeper on the wall pointed to the box, then held up a flat hand.') and line 424 (ending-setback: 'Sami sat on the cart and looked at the hill, past the dry bank of the old river.'). Line 427 (ending-setback) is also long. Consider splitting.",
+      "passage": "hall-sleeper"
+    },
+    {
+      "severity": "minor",
+      "message": "Line 424: the same long sentence in ending-setback; split it for a dyslexic reader.",
+      "passage": "ending-setback"
+    },
+    {
+      "severity": "minor",
+      "message": "Line 251: 'Hollis lifted the horn' but hall-song (line 215) says the horn is set in the wall. Make the verb consistent (for example 'Hollis took hold of the horn').",
+      "passage": "song-horn"
+    },
+    {
+      "severity": "minor",
+      "message": "Line 409: 'Sami closed the door with three slow taps' is reached on routes where the reader never saw the tapping card (camp > cart > door-front > door-push). Add a short reminder or soften the line. Not a blocker; the ending still makes sense.",
+      "passage": "ending-seal"
+    },
+    {
+      "severity": "minor",
+      "message": "Lines 175 and 338: the locked hints send the reader to the cart or the water wall, but the story only moves forward, so a reader who skipped them cannot go back. No route is broken (every ending is reachable and open choices exist at every passage), and the hints are fair, but the hint cannot be acted on. Consider rewording the hints as clues about what could have helped, or note that this is by design for a second read.",
+      "passage": "hall-water"
+    }
+  ],
+  "evidence": [
+    { "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/drafts/story.r1.json", "sha256": "b25881d0eeedec8eb21459ded7edeebd5e3bf258e6812da7eabaf1c6b2391560" },
+    { "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/validation.r1.json", "sha256": "2d1310411a87ca2d338644630e998de317e6f903972ddc9416607ed72b806563" },
+    { "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/graph.r1.json", "sha256": "84b1eef667ed323488c258ce0bc33b2841729b3fe0f18fc83b8cd14ed829a2ae" },
+    { "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/brief.json", "sha256": "7443ae1c50cfb230f4a51c5b7d65c0e2dff42faf687006ca909af3addb0e4f0a" }
+  ]
+}

@@ -1,0 +1,384 @@
+{
+  "storyId": "wake-cycle",
+  "version": 1,
+  "start": "wake",
+  "nodes": [
+    {
+      "id": "wake",
+      "title": "Early Wake",
+      "ending": null
+    },
+    {
+      "id": "locker",
+      "title": "The Orange Pack",
+      "ending": null
+    },
+    {
+      "id": "oru-log",
+      "title": "Oru's Log",
+      "ending": null
+    },
+    {
+      "id": "hall",
+      "title": "The Pod Hall",
+      "ending": null
+    },
+    {
+      "id": "bridge",
+      "title": "The Bridge Deck",
+      "ending": null
+    },
+    {
+      "id": "not-yet",
+      "title": "Not Yet",
+      "ending": null
+    },
+    {
+      "id": "captain-wakes",
+      "title": "Captain Holm",
+      "ending": null
+    },
+    {
+      "id": "storm-bridge",
+      "title": "Dust at the Window",
+      "ending": null
+    },
+    {
+      "id": "engine",
+      "title": "The Engine Room",
+      "ending": null
+    },
+    {
+      "id": "dex-lamp",
+      "title": "Lamp Light",
+      "ending": null
+    },
+    {
+      "id": "dex-tools",
+      "title": "Right Tool, Right Time",
+      "ending": null
+    },
+    {
+      "id": "dex-fixed",
+      "title": "The Leak Is Gone",
+      "ending": null
+    },
+    {
+      "id": "dex-chart",
+      "title": "The Paper Chart",
+      "ending": null
+    },
+    {
+      "id": "storm-engine",
+      "title": "The Backup Wheel",
+      "ending": null
+    },
+    {
+      "id": "threshold",
+      "title": "The Wall of Dust",
+      "ending": null
+    },
+    {
+      "id": "climax-lane",
+      "title": "The Thin Lane",
+      "ending": null
+    },
+    {
+      "id": "climax-team",
+      "title": "All Hands",
+      "ending": null
+    },
+    {
+      "id": "ending-1",
+      "title": "The Clear Road",
+      "ending": {
+        "id": "clear-road",
+        "kind": "triumph",
+        "title": "The Clear Road"
+      }
+    },
+    {
+      "id": "ending-2",
+      "title": "Steady Hands",
+      "ending": {
+        "id": "steady-hands",
+        "kind": "triumph",
+        "title": "Steady Hands"
+      }
+    },
+    {
+      "id": "ending-3",
+      "title": "The Sensor Mast",
+      "ending": {
+        "id": "sensor-mast",
+        "kind": "triumph",
+        "title": "The Sensor Mast"
+      }
+    },
+    {
+      "id": "ending-4",
+      "title": "Many Hands",
+      "ending": {
+        "id": "many-hands",
+        "kind": "bittersweet",
+        "title": "Many Hands"
+      }
+    },
+    {
+      "id": "ending-5",
+      "title": "Drifting Quiet",
+      "ending": {
+        "id": "drifting-quiet",
+        "kind": "setback",
+        "title": "Drifting Quiet"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "wake",
+      "to": "locker",
+      "choice": "open-locker",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "wake",
+      "to": "oru-log",
+      "choice": "ask-log",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "locker",
+      "to": "hall",
+      "choice": "to-hall-a",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "oru-log",
+      "to": "hall",
+      "choice": "to-hall-b",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall",
+      "to": "bridge",
+      "choice": "go-bridge",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall",
+      "to": "engine",
+      "choice": "go-engine",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "bridge",
+      "to": "not-yet",
+      "choice": "switch-first",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "bridge",
+      "to": "captain-wakes",
+      "choice": "latch-first",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "bridge",
+      "to": "not-yet",
+      "choice": "hatch-first",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "not-yet",
+      "to": "captain-wakes",
+      "choice": "after-not-yet",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "captain-wakes",
+      "to": "storm-bridge",
+      "choice": "take-rack-pack",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "captain-wakes",
+      "to": "storm-bridge",
+      "choice": "skip-rack-pack",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "storm-bridge",
+      "to": "threshold",
+      "choice": "study-ghosts",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "storm-bridge",
+      "to": "threshold",
+      "choice": "wheel-now-b",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "engine",
+      "to": "dex-lamp",
+      "choice": "hold-lamp",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "engine",
+      "to": "dex-tools",
+      "choice": "pass-tools",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "dex-lamp",
+      "to": "dex-fixed",
+      "choice": "lamp-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "dex-tools",
+      "to": "dex-fixed",
+      "choice": "tools-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "dex-fixed",
+      "to": "dex-chart",
+      "choice": "take-bench-pack",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "dex-fixed",
+      "to": "dex-chart",
+      "choice": "skip-bench-pack",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "dex-chart",
+      "to": "storm-engine",
+      "choice": "copy-lane",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "dex-chart",
+      "to": "storm-engine",
+      "choice": "skip-lane",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "storm-engine",
+      "to": "threshold",
+      "choice": "take-backup-wheel",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "threshold",
+      "to": "climax-lane",
+      "choice": "thin-lane",
+      "locked": true,
+      "requires": {
+        "clues": [
+          "dust-map"
+        ]
+      }
+    },
+    {
+      "from": "threshold",
+      "to": "climax-team",
+      "choice": "shield-sensors",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "threshold",
+      "to": "ending-5",
+      "choice": "cut-engines",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-lane",
+      "to": "ending-1",
+      "choice": "use-clicker",
+      "locked": true,
+      "requires": {
+        "items": [
+          "tool-pack"
+        ]
+      }
+    },
+    {
+      "from": "climax-lane",
+      "to": "ending-2",
+      "choice": "steer-by-eye",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-team",
+      "to": "ending-3",
+      "choice": "send-dex",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-team",
+      "to": "ending-4",
+      "choice": "wake-watch",
+      "locked": false,
+      "requires": null
+    }
+  ],
+  "validation": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "passages": 22,
+      "choices": 30,
+      "endings": [
+        "clear-road",
+        "steady-hands",
+        "sensor-mast",
+        "many-hands",
+        "drifting-quiet"
+      ],
+      "reachableEndings": [
+        "clear-road",
+        "drifting-quiet",
+        "many-hands",
+        "sensor-mast",
+        "steady-hands"
+      ],
+      "exploredStates": 48,
+      "stateSearchComplete": true,
+      "shortestPathToEnding": 8,
+      "longestSimplePathToEnding": 11
+    }
+  }
+}

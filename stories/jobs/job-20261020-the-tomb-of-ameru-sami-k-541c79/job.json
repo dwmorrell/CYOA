@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-tomb-of-ameru-sami-k-541c79",
   "storyId": "the-tomb-of-ameru",
-  "state": "in-review",
+  "state": "awaiting-parent-approval",
   "createdAt": "2026-10-20T23:23:24.018Z",
-  "updatedAt": "2026-10-20T23:27:00.317Z",
+  "updatedAt": "2026-10-20T23:28:05.522Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/request.json",
@@ -68,7 +68,132 @@
       "revision": 1
     }
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 1,
+      "draftSha256": "b25881d0eeedec8eb21459ded7edeebd5e3bf258e6812da7eabaf1c6b2391560",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "minor",
+          "message": "Brief limit is 16 words per sentence and validation warns about 2 sentences over it. Candidates: draft line 327 (hall-sleeper: 'The carved Keeper on the wall pointed to the box, then held up a flat hand.') and line 424 (ending-setback: 'Sami sat on the cart and looked at the hill, past the dry bank of the old river.'). Line 427 (ending-setback) is also long. Consider splitting.",
+          "passage": "hall-sleeper"
+        },
+        {
+          "severity": "minor",
+          "message": "Line 424: the same long sentence in ending-setback; split it for a dyslexic reader.",
+          "passage": "ending-setback"
+        },
+        {
+          "severity": "minor",
+          "message": "Line 251: 'Hollis lifted the horn' but hall-song (line 215) says the horn is set in the wall. Make the verb consistent (for example 'Hollis took hold of the horn').",
+          "passage": "song-horn"
+        },
+        {
+          "severity": "minor",
+          "message": "Line 409: 'Sami closed the door with three slow taps' is reached on routes where the reader never saw the tapping card (camp > cart > door-front > door-push). Add a short reminder or soften the line. Not a blocker; the ending still makes sense.",
+          "passage": "ending-seal"
+        },
+        {
+          "severity": "minor",
+          "message": "Lines 175 and 338: the locked hints send the reader to the cart or the water wall, but the story only moves forward, so a reader who skipped them cannot go back. No route is broken (every ending is reachable and open choices exist at every passage), and the hints are fair, but the hint cannot be acted on. Consider rewording the hints as clues about what could have helped, or note that this is by design for a second read.",
+          "passage": "hall-water"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/drafts/story.r1.json",
+          "sha256": "b25881d0eeedec8eb21459ded7edeebd5e3bf258e6812da7eabaf1c6b2391560"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/validation.r1.json",
+          "sha256": "2d1310411a87ca2d338644630e998de317e6f903972ddc9416607ed72b806563"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/graph.r1.json",
+          "sha256": "84b1eef667ed323488c258ce0bc33b2841729b3fe0f18fc83b8cd14ed829a2ae"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/brief.json",
+          "sha256": "7443ae1c50cfb230f4a51c5b7d65c0e2dff42faf687006ca909af3addb0e4f0a"
+        }
+      ],
+      "id": "review-1-qa",
+      "submittedAt": "2026-10-20T23:27:58.649Z"
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 1,
+      "draftSha256": "b25881d0eeedec8eb21459ded7edeebd5e3bf258e6812da7eabaf1c6b2391560",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "Skills practised: reading the story practises decoding r-controlled words, -ed endings and ng/nk words in connected text, and spotting the recurring word-set words on every route. Following the carved warnings builds sequencing (tap three times, then the order of the five chambers), inference (why the Keeper holds up a flat hand, why a big fire is crossed out) and vocabulary from context (archaeologist, cistern, mummified, ancient). Choices that depend on clues and items also practise careful rereading of details."
+        },
+        {
+          "severity": "minor",
+          "message": "Word-set coverage is sound. Minimums are met (r-controlled 32/10, ed 25/8, ng/nk 21/8), every listed word appears, and each set appears on the shortest route to all five endings. Usage reads naturally, for example 'a ladder with one missing rung' (hall-water) and 'Hollis filled a small tank with water' (cart). Counts and route checks come from the analyzer, and I spot-checked them against the draft text.",
+          "passage": "hall-water"
+        },
+        {
+          "severity": "minor",
+          "message": "'walked' (camp-to-door passages such as door-front, ending-setback) is listed under suffix-ed, but its base 'walk' has the irregular 'al' vowel, so it is not a plain closed-syllable base. 'tapped' also needs the consonant-doubling rule. The ed set has three sounds: /t/ in walked and tapped, /id/ in dusted, rested, lifted and hunted. This suits the pattern, but the parent or tutor should know that 'walked' and 'tapped' go beyond the simplest ed base words.",
+          "passage": "door-front"
+        },
+        {
+          "severity": "minor",
+          "message": "Idioms may slow some readers aged 10 to 13: 'Your card paid off' (door-tap), 'Less is more' (fire-small), 'put that on a mug' (fire-small), 'Old paint does not grow back' (fire-big). The context supports each one, so this is optional polish only. Vocabulary load is otherwise well supported: mummified is explained inline (hall-sleeper), and archaeologist is explained inline (camp). Ancient, mummified, archaeologist and cistern are in the glossary.",
+          "passage": "fire-small"
+        },
+        {
+          "severity": "minor",
+          "message": "Comprehension slip for the narrative designer: hall-song says the bronze horn is 'set in the wall', but song-horn says 'Hollis lifted the horn and blew'. A reader who tracks the detail will notice the mismatch. Separately, in sand-slip 'Sami dusted off his hat' leaves 'his' ambiguous between Sami and Hollis. Neither affects the word sets.",
+          "passage": "song-horn"
+        },
+        {
+          "severity": "minor",
+          "message": "Age fit: average sentence length is 7.1 words and the longest sentence I spotted is 16 words (hall-sleeper), within the brief's cap. Short sentences and a clear structure suit decoding practice, though the register is simple for ages 10 to 13. The themes (care, respect for the past) and the gentle tone with no harm are appropriate. The analyzer's sentence check uses a limit of 20, not the brief's 16, and I did not exhaustively check every sentence against 16.",
+          "passage": "hall-sleeper"
+        },
+        {
+          "severity": "minor",
+          "message": "Limits of automated detection: concept matches are by spelling, not sound (the report lists 'everything', 'finger' and 'going' as ng/nk matches). Word-set words also match -s/-es forms, and route coverage is checked only on the shortest route to each ending. Longer routes were not counted separately. I did not confirm decodability for any individual child's program. A qualified human literacy reviewer should confirm the linguistic claims."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/drafts/story.r1.json",
+          "sha256": "b25881d0eeedec8eb21459ded7edeebd5e3bf258e6812da7eabaf1c6b2391560"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/literacy.r1.json",
+          "sha256": "8bb52b9be4ad87b5541afb9fe90d387d44abe9aac9ed506f8423edaddcadc94d"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/literacy.r1.md",
+          "sha256": "547bb49087544794384168b25b50ae23a15949e4a4552b3fb3a03800420e8ae1"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/weave-comparison.r1.json",
+          "sha256": "ffd230db6df8ac0e6c758e5f2db04a55840f1516b3e3e7c29a164b942b2691d2"
+        }
+      ],
+      "id": "review-2-literacy",
+      "submittedAt": "2026-10-20T23:28:05.522Z"
+    }
+  ],
   "parentDecisions": [],
   "failures": [],
   "history": [
@@ -112,6 +237,16 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 1 (story v1) passed automated validation"
+    },
+    {
+      "at": "2026-10-20T23:28:05.522Z",
+      "from": "in-review",
+      "to": "awaiting-parent-approval",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "All required reviews passed"
     }
   ]
 }

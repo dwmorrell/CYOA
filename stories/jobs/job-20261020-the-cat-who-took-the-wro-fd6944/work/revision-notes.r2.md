@@ -1,0 +1,11 @@
+# Revision notes (r2 -> v3)
+- the-stairs, the-prints, lantern-room, claw-prints clue: marks now lead UP to the Tower and the crab is found at the top, so the clue agrees.
+- ending-the-grab: crab runs under the drum instead of to a wall crack (no wall crack any more).
+- ending-warm-den: scarf and bag removed; lunch box lined with moss from the stairs.
+- ending-warm-den: Lira and Eli speech split into two paragraphs.
+- ending-two-heads: "Lira's warm scarf" changed to "Lira's warm hands".
+- stone-hop: "Eli did not see it" changed to "Eli did not look back".
+- home-too-soon: "the frog" changed to "the marsh" so it is true on both routes.
+- meet-lira: uses "promised" in the prophecy to match the glossary.
+- through-the-gap: one repeated "gave a small hop" replaced; hop words stay well above the minimum elsewhere.
+- Not changed: tower-hall hook/net outcome (minor QA note, loose clue by design); manhole note is for the parent stage. The "3 long sentences" warning was not named in the report (its warnings list was empty).

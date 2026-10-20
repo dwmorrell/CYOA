@@ -4,7 +4,7 @@
   "storyId": "the-derelict-salvage",
   "state": "validation-failed",
   "createdAt": "2026-10-20T23:23:23.408Z",
-  "updatedAt": "2026-10-20T23:27:02.154Z",
+  "updatedAt": "2026-10-20T23:28:23.556Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/request.json",
@@ -133,6 +133,41 @@
         ]
       },
       "revision": 3
+    },
+    {
+      "storyVersion": 4,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/drafts/story.r4.json",
+        "sha256": "105edb313d535ed8161b56313b35a0bbad14115f17dd377e46ce530f0c83e78b"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T23:28:23.556Z",
+      "validation": {
+        "ok": false,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/validation.r4.json",
+          "sha256": "fa3cf6deff9c0c385c379cd79b9be5fa0606ee7171ea7efbf0a71fc0d5ac99c3"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/literacy.r4.json",
+          "sha256": "9474c8164d33ec3371315b5c9cf7f125dcd2b23c88ebf65f0f21c26efb6d228a"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/graph.r4.json",
+          "sha256": "871f592eab692c7db1be27c0b3b3e4b2483a652f65a35c77b5315ab710afa9b3"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: 1 error(s)"
+        ]
+      },
+      "revision": 4
     }
   ],
   "reviews": [],
@@ -160,6 +195,15 @@
       "stage": "validation",
       "error": "Revision 3: ",
       "at": "2026-10-20T23:27:02.154Z",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      }
+    },
+    {
+      "stage": "validation",
+      "error": "Revision 4: word set \"vowel-team-words\" dropped words: moon",
+      "at": "2026-10-20T23:28:23.556Z",
       "actor": {
         "name": "story-cli",
         "kind": "automation"
@@ -229,6 +273,17 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 3 (story v3) failed automated validation"
+    },
+    {
+      "at": "2026-10-20T23:28:23.556Z",
+      "from": "validation-failed",
+      "to": "validation-failed",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 4 (story v4) failed automated validation"
     }
   ]
 }

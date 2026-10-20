@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-cat-who-took-the-wrong-turn",
   "title": "The Cat Who Took the Wrong Turn",
-  "version": 2,
+  "version": 4,
   "metadata": {
     "genre": "Fantasy adventure with a hero from another world",
     "theme": "Courage, kindness to strangers, and finding out who you are",
@@ -53,7 +53,7 @@
     {
       "id": "claw-prints",
       "name": "Tiny wet prints",
-      "description": "Small, wet claw prints led down the stairs from the Tower. They shone with a little glow dust."
+      "description": "Small, wet claw prints led up the stairs to the Tower. They shone with a little glow dust."
     }
   ],
   "passages": [
@@ -79,7 +79,7 @@
         "Eli pushed through the gap. Dry leaves crunched under his shoes.",
         "Behind the fence was a bare yard. The grey cat sat by a round iron lid in the ground.",
         "The lid was off the manhole. Cold air came up from the dark hole.",
-        "The cat gave a small hop and jumped in."
+        "The cat sprang into the dark."
       ],
       "learningTargets": ["detail", "comprehension"],
       "choices": [
@@ -135,7 +135,7 @@
       "paragraphs": [
         "A girl came running down the hill with a small lamp. Her name was Lira. She was a guide in the Lantern Tower.",
         "\"That is Ash,\" she said, and pointed at the cat. \"He brings help when our light is going out.\"",
-        "\"The old songs say a hero will come from another world,\" said Lira. \"A hero who will save our light.\"",
+        "\"The old songs say a hero will come from another world,\" said Lira. \"A hero who was promised to us, to save our light.\"",
         "\"I am not a hero,\" said Eli. \"I was late for school. I want to go home.\"",
         "Lira frowned and looked at his muddy shoes. \"I am not sure you are the hero, either,\" she said. \"But the way home is through the Tower.\"",
         "She drew a quick map in the dust. There was a path through the marsh, and a path up the stone stairs."
@@ -183,7 +183,7 @@
         "Eli began jumping from stone to stone. The first stone was dry. The second stone was wet.",
         "His foot slid. He gave a spin, a trip and a splash, and sat down in the mud again.",
         "Lira laughed, but not in a mean way. She helped him up. \"Mud is just part of Varro,\" she said.",
-        "Behind them, the small frog was still kicking in the reeds. Eli did not see it. They went on to the stairs."
+        "Behind them, the small frog was still kicking in the reeds. Eli did not look back. They went on to the stairs."
       ],
       "learningTargets": ["sequencing", "detail"],
       "choices": [
@@ -197,7 +197,7 @@
         "The stone stairs wound around the hill. Climbing was slow, and Eli's legs began to ache.",
         "Ash waited at every bend, a grey shape in the glowing moss.",
         "On the fifth step, Eli stopped. There were tiny wet marks on the stone. They were like little claws.",
-        "They came down from the Tower and ran to a crack in the wall. Each one shone with a speck of glow dust."
+        "They climbed the stairs, one by one, toward the Tower. Each one shone with a speck of glow dust."
       ],
       "learningTargets": ["detail", "inference"],
       "choices": [
@@ -211,7 +211,7 @@
       "paragraphs": [
         "Eli knelt. The marks were wet, but the air was dry. So whoever made them had just come out of the damp.",
         "They were small, and each pair was close together. Whatever made them was no bigger than a plate.",
-        "The marks went down, not up. Something had left the Tower in a hurry, and been hiding in the wall since.",
+        "The marks went up, not down. Something small had gone up to the Tower, and had not come back.",
         "Eli kept that in his mind and went on up."
       ],
       "effects": { "addClues": ["claw-prints"] },
@@ -278,7 +278,7 @@
         "The lantern room was round, with big dark glass all the way round. In the middle stood a small drum, the twin of the great one below.",
         "Something was hiding behind it. Eli saw two small eyes, and a pair of tiny claws holding a glowing stone.",
         "It was a crab. It was no bigger than a plate, and it was shivering.",
-        "The wet marks on the stairs had come from here. Whatever was in the Tower's heart was not a villain. It was a small, cold creature.",
+        "The wet marks on the stairs had led here. Whatever was in the Tower's heart was not a villain. It was a small, cold creature.",
         "Lira stayed still. \"I do not know what to do,\" she whispered. \"What do you think?\""
       ],
       "learningTargets": ["inference", "comprehension", "vocabulary"],
@@ -300,11 +300,11 @@
       "id": "ending-warm-den",
       "title": "The Warm Den",
       "paragraphs": [
-        "Eli put down his lunch box and opened the lid. He lined it with his scarf from his bag, and left it by the crab.",
+        "Eli put down his lunch box and opened the lid. He lined it with soft moss from the stairs, and left it by the crab.",
         "\"You are cold,\" he said. \"This is warm. You do not have to hide.\"",
-        "The crab crept into the box. It set the glow stone on the drum, and the stone began glowing bright.",
-        "The light ran up the glass and out across the hills. Every lamp in Varro came on at once.",
-        "\"Maybe you are the hero,\" said Lira. \"I am just a boy who followed a cat,\" said Eli. \"But I think I know who I am now.\"",
+        "The crab crept into the box. It set the glow stone on the drum, and the stone began glowing bright. The light ran up the glass and out across the hills. Every lamp in Varro came on at once.",
+        "\"Maybe you are the hero,\" said Lira.",
+        "\"I am just a boy who followed a cat,\" said Eli. \"But I think I know who I am now.\"",
         "Ash led him down to a round door of light. Eli stepped through it into the school yard, with the bell ringing. He was not even late."
       ],
       "learningTargets": ["inference", "comprehension", "engagement"],
@@ -330,10 +330,10 @@
       "id": "ending-the-grab",
       "title": "A Quick Grab",
       "paragraphs": [
-        "Eli reached in and grabbed the stone. The crab gave a small, sad squeak and ran to a crack in the wall.",
+        "Eli reached in and grabbed the stone. The crab gave a small, sad squeak and ran under the drum.",
         "The stone began glowing in his hands. The light rolled out over the hills.",
-        "Lira cheered. But Eli looked at the crack, and felt a lump in his throat. The crab was alone, and cold, and hiding.",
-        "He set a crumb of bread from his lunch box by the crack. Nothing moved.",
+        "Lira cheered. But Eli looked at the drum, and felt a lump in his throat. The crab was alone, and cold, and hiding.",
+        "He set a crumb of bread from his lunch box by the drum. Nothing moved.",
         "Ash led him home, through a round door. In the school yard, Eli thought of the little crab.",
         "Next time, he thought, he would look at the small clues first."
       ],
@@ -348,7 +348,7 @@
         "\"Let us make a plan,\" said Eli. \"I will go slowly. You tell me what you see.\"",
         "\"Its claws are shaking,\" said Lira. \"I think it is afraid, not cruel.\"",
         "So they sat down on the floor, one step from the drum. They shared their lunch crumbs and spoke in soft voices.",
-        "At last the crab put the stone on the drum and crept into Lira's warm scarf.",
+        "At last the crab put the stone on the drum and crept into Lira's warm hands.",
         "The Lantern Tower woke, and the whole land lit up. Lira smiled. \"A hero does not have to do it alone,\" she said.",
         "Eli promised to visit. Ash led him down to a round door, and out into the school yard."
       ],
@@ -364,7 +364,7 @@
         "Lira let out a long sigh, but she nodded. \"I told you I was not sure,\" she said kindly.",
         "Ash led him down the stairs to a round door. Behind him, the Tower stayed dim and grey.",
         "Eli stepped out into the school yard. The bell was ringing, and he was late.",
-        "He looked at his muddy shoes and thought of the frog, the stairs and the dark hatch.",
+        "He looked at his muddy shoes and thought of the marsh, the stairs and the dark hatch.",
         "Perhaps there was a way to be braver. Perhaps the grey cat would be back at the gap tomorrow."
       ],
       "learningTargets": ["comprehension", "engagement"],

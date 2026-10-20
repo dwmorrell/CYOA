@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "sets": [
+    {
+      "id": "vowel-team-words",
+      "planned": 22,
+      "minimum": 10,
+      "actual": 26,
+      "ok": true
+    },
+    {
+      "id": "silent-e-words",
+      "planned": 22,
+      "minimum": 8,
+      "actual": 42,
+      "ok": true
+    },
+    {
+      "id": "th-words",
+      "planned": 22,
+      "minimum": 8,
+      "actual": 48,
+      "ok": true
+    }
+  ]
+}

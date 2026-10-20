@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-wake-cycle-astronaut-jun-3923f7",
   "storyId": "wake-cycle",
-  "state": "planned",
+  "state": "in-review",
   "createdAt": "2026-10-20T23:23:25.399Z",
-  "updatedAt": "2026-10-20T23:23:25.399Z",
+  "updatedAt": "2026-10-20T23:28:14.171Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/request.json",
@@ -31,7 +31,43 @@
       "sha256": "d417ff13a869bd567829fd39268623d3876418a696385c0fc08bef46b2d96ea5"
     }
   },
-  "revisions": [],
+  "revisions": [
+    {
+      "storyVersion": 1,
+      "draft": {
+        "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r1.json",
+        "sha256": "25a4eb0a09a5f5aeb2411c73e023d561ea666d62bd550f9b1487172d69ca373e"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T23:28:14.171Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r1.json",
+          "sha256": "df7a794f0a64b2adbd33de2640d27c6d996cf9a91ca0e885532438b5165a72b5"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r1.json",
+          "sha256": "18f7dd34dfcb736c4fdbc8176a5e5ebd05021d5495ebb54f097c7dd5e1eea16b"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r1.json",
+          "sha256": "fa6fe2f0268e9ac01a1c69c0a786ac545da8e42a047b23293ab4698e0ad1ed8c"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 1
+    }
+  ],
   "reviews": [],
   "parentDecisions": [],
   "failures": [],
@@ -65,6 +101,17 @@
         "kind": "automation"
       },
       "note": "Continuity assessed; outline, Word Weave Plan and generation prompt written"
+    },
+    {
+      "at": "2026-10-20T23:28:14.171Z",
+      "from": "planned",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 1 (story v1) passed automated validation"
     }
   ]
 }

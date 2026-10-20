@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-cat-who-took-the-wro-fd6944",
   "storyId": "the-cat-who-took-the-wrong-turn",
-  "state": "changes-requested",
+  "state": "in-review",
   "createdAt": "2026-10-20T23:23:24.700Z",
-  "updatedAt": "2026-10-20T23:27:21.009Z",
+  "updatedAt": "2026-10-20T23:28:48.065Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/request.json",
@@ -98,6 +98,73 @@
         ]
       },
       "revision": 2
+    },
+    {
+      "storyVersion": 3,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r3.json",
+        "sha256": "97d21b5659db3762feeca3f5b4d00c60f89e1141cae4420de42704609bff1155"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T23:28:39.067Z",
+      "validation": {
+        "ok": false,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/validation.r3.json",
+          "sha256": "dc8231f640d119df2543eb467ae496757ee864a01ba85c9239f5c86b2ae00d38"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/literacy.r3.json",
+          "sha256": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/graph.r3.json",
+          "sha256": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed"
+        },
+        "summary": [
+          "schema: 1 error(s)"
+        ]
+      },
+      "revision": 3
+    },
+    {
+      "storyVersion": 4,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r4.json",
+        "sha256": "2b301c292efdc30b797b3c627cd601a035a21dfb0491d2d923d5d50db89fe36e"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T23:28:48.065Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/validation.r4.json",
+          "sha256": "d7edb3e36c2f5715313cc14beefe6b92856ae481fc94f81d57a3a4f3b60d1a69"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/literacy.r4.json",
+          "sha256": "90b51261fc080688e622eddc111c078a71c5e96ce67cf7f87eee2a0df7c94646"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/graph.r4.json",
+          "sha256": "68a3dec9537c7b0249d3de8a00b91dc6cc285bd8f8f093ac28868a0209e34fee"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 4
     }
   ],
   "reviews": [
@@ -162,7 +229,8 @@
         }
       ],
       "id": "review-1-qa",
-      "submittedAt": "2026-10-20T23:27:09.844Z"
+      "submittedAt": "2026-10-20T23:27:09.844Z",
+      "invalidatedBy": 3
     },
     {
       "role": "literacy",
@@ -231,7 +299,8 @@
         }
       ],
       "id": "review-2-literacy",
-      "submittedAt": "2026-10-20T23:27:21.009Z"
+      "submittedAt": "2026-10-20T23:27:21.009Z",
+      "invalidatedBy": 3
     }
   ],
   "parentDecisions": [],
@@ -240,6 +309,15 @@
       "stage": "validation",
       "error": "Revision 1: /passages/15/paragraphs must NOT have more than 6 items; schema invalid; brief not checked",
       "at": "2026-10-20T23:26:03.234Z",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      }
+    },
+    {
+      "stage": "validation",
+      "error": "Revision 3: /passages/15/paragraphs must NOT have more than 6 items; schema invalid; brief not checked",
+      "at": "2026-10-20T23:28:39.067Z",
       "actor": {
         "name": "story-cli",
         "kind": "automation"
@@ -308,6 +386,28 @@
         "kind": "automation"
       },
       "note": "A reviewer requested changes"
+    },
+    {
+      "at": "2026-10-20T23:28:39.067Z",
+      "from": "changes-requested",
+      "to": "validation-failed",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 3 (story v3) failed automated validation"
+    },
+    {
+      "at": "2026-10-20T23:28:48.065Z",
+      "from": "validation-failed",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 4 (story v4) passed automated validation"
     }
   ]
 }

@@ -1,0 +1,385 @@
+{
+  "schemaVersion": "1.0",
+  "id": "the-cat-who-took-the-wrong-turn",
+  "title": "The Cat Who Took the Wrong Turn",
+  "version": 4,
+  "metadata": {
+    "genre": "Fantasy adventure with a hero from another world",
+    "theme": "Courage, kindness to strangers, and finding out who you are",
+    "premise": "Eli is late for school, so he follows a grey cat through a gap in the fence. He falls down an open manhole into Varro, where the Lantern Tower is going dark and its people say he is the hero they were promised.",
+    "estimatedMinutes": 20,
+    "authorship": {
+      "narrative": "narrative-designer (AI agent)",
+      "origin": "ai-generated"
+    },
+    "createdAt": "2026-10-20"
+  },
+  "literacy": {
+    "targetConcepts": ["initial-blend", "closed-syllable", "suffix-ing"],
+    "wordSets": [
+      {
+        "id": "blend-words",
+        "label": "blend words",
+        "concept": "initial-blend",
+        "words": ["step", "stone", "frog", "plan", "spin", "trip", "crab", "drum"],
+        "minOccurrences": 10
+      },
+      {
+        "id": "closed-syllable-words",
+        "label": "closed syllable words",
+        "concept": "closed-syllable",
+        "words": ["cat", "map", "net", "lid", "hop", "mud", "bus"],
+        "minOccurrences": 8
+      },
+      {
+        "id": "ing-words",
+        "label": "ing words",
+        "concept": "suffix-ing",
+        "words": ["running", "jumping", "hiding", "climbing", "glowing", "ringing"],
+        "minOccurrences": 8
+      }
+    ],
+    "review": { "status": "pending" }
+  },
+  "start": "late-for-school",
+  "items": [
+    {
+      "id": "reed-net",
+      "name": "Reed net",
+      "description": "A light net woven from marsh reeds. It is good for catching and lifting things."
+    }
+  ],
+  "clues": [
+    {
+      "id": "claw-prints",
+      "name": "Tiny wet prints",
+      "description": "Small, wet claw prints led up the stairs to the Tower. They shone with a little glow dust."
+    }
+  ],
+  "passages": [
+    {
+      "id": "late-for-school",
+      "title": "Late for School",
+      "paragraphs": [
+        "Eli was late for school. He was running down Mill Lane with his lunch box banging at his side.",
+        "A grey cat sat on a wall. It looked right at him. Then it gave a hop and trotted off.",
+        "The cat slipped through a gap in the fence. It did not look back.",
+        "Eli's library book had a map in it, and he was meant to show it in class. But he wanted to see where the cat went."
+      ],
+      "learningTargets": ["engagement", "comprehension"],
+      "choices": [
+        { "id": "squeeze-through", "label": "Squeeze through the gap after the cat", "target": "through-the-gap", "learningTargets": ["sequencing"] },
+        { "id": "try-the-gate", "label": "Walk on to the gate, as a good student should", "target": "the-gate", "learningTargets": ["inference"] }
+      ]
+    },
+    {
+      "id": "through-the-gap",
+      "title": "Through the Gap",
+      "paragraphs": [
+        "Eli pushed through the gap. Dry leaves crunched under his shoes.",
+        "Behind the fence was a bare yard. The grey cat sat by a round iron lid in the ground.",
+        "The lid was off the manhole. Cold air came up from the dark hole.",
+        "The cat sprang into the dark."
+      ],
+      "learningTargets": ["detail", "comprehension"],
+      "choices": [
+        { "id": "lean-over", "label": "Lean over the edge to look down", "target": "the-fall" }
+      ]
+    },
+    {
+      "id": "the-gate",
+      "title": "The Gate",
+      "paragraphs": [
+        "Eli took a step toward the gate. It was shut with a heavy chain.",
+        "A bus rumbled by without stopping. Eli sighed. He was late, and the gate was locked.",
+        "He looked back. The grey cat sat by the gap and watched him, as if it had a plan.",
+        "Eli followed it through. His foot caught on a stone and he gave a little trip. The cat sat by a round hole in the yard.",
+        "The lid was off the manhole. The cat hopped in."
+      ],
+      "learningTargets": ["sequencing", "inference"],
+      "choices": [
+        { "id": "lean-over-gate", "label": "Lean over the edge to look down", "target": "the-fall" }
+      ]
+    },
+    {
+      "id": "the-fall",
+      "title": "The Long Fall",
+      "paragraphs": [
+        "The rim was wet. Eli's shoe slid, and down he went.",
+        "He fell in a slow spin, like a leaf on a pond. It was dark, and then it was not.",
+        "He landed in soft, warm mud with a squelch. The mud was deep, but it did not hurt.",
+        "Eli sat up and wiped his eyes. Where was he?"
+      ],
+      "learningTargets": ["sequencing", "engagement"],
+      "choices": [
+        { "id": "look-around", "label": "Stand up and look around", "target": "varro" }
+      ]
+    },
+    {
+      "id": "varro",
+      "title": "The Land of Varro",
+      "paragraphs": [
+        "A purple sky arched over rolling hills. Glowing moss lit the ground like tiny lamps.",
+        "On the tallest hill stood a tower. It was the Lantern Tower. But its top was dim and grey, with only a weak glow.",
+        "The grey cat sat on a flat stone nearby and licked its paw.",
+        "Eli picked up his lunch box and his library book. He was muddy, but not hurt. He wanted to go home."
+      ],
+      "learningTargets": ["detail", "vocabulary"],
+      "choices": [
+        { "id": "meet-lira", "label": "Wave to the girl running down the hill", "target": "meet-lira" }
+      ]
+    },
+    {
+      "id": "meet-lira",
+      "title": "A Guide Named Lira",
+      "paragraphs": [
+        "A girl came running down the hill with a small lamp. Her name was Lira. She was a guide in the Lantern Tower.",
+        "\"That is Ash,\" she said, and pointed at the cat. \"He brings help when our light is going out.\"",
+        "\"The old songs say a hero will come from another world,\" said Lira. \"A hero who was promised to us, to save our light.\"",
+        "\"I am not a hero,\" said Eli. \"I was late for school. I want to go home.\"",
+        "Lira frowned and looked at his muddy shoes. \"I am not sure you are the hero, either,\" she said. \"But the way home is through the Tower.\"",
+        "She drew a quick map in the dust. There was a path through the marsh, and a path up the stone stairs."
+      ],
+      "learningTargets": ["comprehension", "inference", "vocabulary"],
+      "choices": [
+        { "id": "take-marsh", "label": "Take the marsh path where the frogs live", "target": "the-marsh", "learningTargets": ["sequencing"] },
+        { "id": "take-stairs", "label": "Take the stone stairs straight up the hill", "target": "the-stairs" }
+      ]
+    },
+    {
+      "id": "the-marsh",
+      "title": "The Marsh Path",
+      "paragraphs": [
+        "The marsh path was soft with mud. Green frogs sat on flat stones, singing in the damp air.",
+        "One small frog was stuck in a tangle of old reeds. It kicked and kicked, but it could not get free.",
+        "Lira was ahead. She did not see it. Only Eli did.",
+        "A line of stones led on across the water. Eli could hop across it and catch up."
+      ],
+      "learningTargets": ["detail", "engagement"],
+      "choices": [
+        { "id": "help-frog", "label": "Stop and help the small frog", "target": "frog-helped", "learningTargets": ["inference"] },
+        { "id": "hop-stones", "label": "Hop across the stones to catch up with Lira", "target": "stone-hop" }
+      ]
+    },
+    {
+      "id": "frog-helped",
+      "title": "A Small Kindness",
+      "paragraphs": [
+        "Eli knelt in the mud. He pulled the reeds apart, one by one, with slow hands.",
+        "The frog gave a loud croak and made a big hop. It landed on a post, next to a light reed net.",
+        "The net hung there as if it had been left for him. Eli took it. The frog blinked, as if to say yes.",
+        "Then he ran to catch up with Lira. She was waiting at the start of the stairs, and she gave him a small, surprised smile."
+      ],
+      "effects": { "addItems": ["reed-net"] },
+      "learningTargets": ["inference", "sequencing"],
+      "choices": [
+        { "id": "to-stairs-kind", "label": "Follow Lira up the stairs", "target": "the-stairs" }
+      ]
+    },
+    {
+      "id": "stone-hop",
+      "title": "Hop and Trip",
+      "paragraphs": [
+        "Eli began jumping from stone to stone. The first stone was dry. The second stone was wet.",
+        "His foot slid. He gave a spin, a trip and a splash, and sat down in the mud again.",
+        "Lira laughed, but not in a mean way. She helped him up. \"Mud is just part of Varro,\" she said.",
+        "Behind them, the small frog was still kicking in the reeds. Eli did not look back. They went on to the stairs."
+      ],
+      "learningTargets": ["sequencing", "detail"],
+      "choices": [
+        { "id": "to-stairs-fast", "label": "Walk on to the stairs", "target": "the-stairs" }
+      ]
+    },
+    {
+      "id": "the-stairs",
+      "title": "The Stone Stairs",
+      "paragraphs": [
+        "The stone stairs wound around the hill. Climbing was slow, and Eli's legs began to ache.",
+        "Ash waited at every bend, a grey shape in the glowing moss.",
+        "On the fifth step, Eli stopped. There were tiny wet marks on the stone. They were like little claws.",
+        "They climbed the stairs, one by one, toward the Tower. Each one shone with a speck of glow dust."
+      ],
+      "learningTargets": ["detail", "inference"],
+      "choices": [
+        { "id": "study-prints", "label": "Kneel and look at the marks closely", "target": "the-prints", "learningTargets": ["detail"] },
+        { "id": "keep-climbing", "label": "Keep climbing to the top", "target": "tower-hall" }
+      ]
+    },
+    {
+      "id": "the-prints",
+      "title": "Small Marks",
+      "paragraphs": [
+        "Eli knelt. The marks were wet, but the air was dry. So whoever made them had just come out of the damp.",
+        "They were small, and each pair was close together. Whatever made them was no bigger than a plate.",
+        "The marks went up, not down. Something small had gone up to the Tower, and had not come back.",
+        "Eli kept that in his mind and went on up."
+      ],
+      "effects": { "addClues": ["claw-prints"] },
+      "learningTargets": ["inference", "detail"],
+      "choices": [
+        { "id": "up-after-prints", "label": "Climb on to the top", "target": "tower-hall" }
+      ]
+    },
+    {
+      "id": "tower-hall",
+      "title": "The Tower Hall",
+      "paragraphs": [
+        "The great hall was cold and dim. A huge drum sat silent by the wall. Its sound once kept the light alive.",
+        "High above, a round hatch with a heavy lid shut off the lantern room. The glow stone lived up there. It had gone missing three nights ago.",
+        "\"Now the light is nearly gone,\" Lira whispered. \"Can you do something? Anything?\"",
+        "Eli looked at the hatch. A long, old ladder leaned against the wall. A tall hook hung by the hatch lid."
+      ],
+      "learningTargets": ["comprehension", "detail"],
+      "choices": [
+        {
+          "id": "net-the-lid",
+          "label": "Use the reed net to hook the hatch lid",
+          "target": "net-lid",
+          "requires": { "items": ["reed-net"] },
+          "lockedHint": "You need something light and woven to catch the lid.",
+          "learningTargets": ["detail"]
+        },
+        { "id": "climb-ladder", "label": "Climb the old ladder, hand over hand", "target": "ladder-climb" },
+        { "id": "ask-home", "label": "Say you cannot help, and ask to go home", "target": "home-too-soon", "learningTargets": ["engagement"] }
+      ]
+    },
+    {
+      "id": "net-lid",
+      "title": "The Net and the Lid",
+      "paragraphs": [
+        "Eli swung the reed net up. It caught on the lid's iron ring.",
+        "He pulled, and the lid swung open without a sound. Soft dust fell like snow.",
+        "\"I would not have thought of that,\" said Lira. She looked at him in a new way.",
+        "Eli climbed through the hatch with the net on his back. Lira came up behind him, and Ash went first."
+      ],
+      "learningTargets": ["inference", "comprehension"],
+      "choices": [
+        { "id": "up-net", "label": "Step into the lantern room", "target": "lantern-room" }
+      ]
+    },
+    {
+      "id": "ladder-climb",
+      "title": "The Long Ladder",
+      "paragraphs": [
+        "The ladder shook. Eli went up, one rung at a time. Climbing was hard work.",
+        "Halfway, a rung gave a creak. Eli's foot slipped, and he held on tight until it stopped.",
+        "\"Step on the sides!\" called Lira from below. It was good advice.",
+        "At the top he pushed the heavy lid with both hands. It scraped open. Lira and Ash climbed up after him."
+      ],
+      "learningTargets": ["sequencing", "comprehension"],
+      "choices": [
+        { "id": "up-ladder", "label": "Step into the lantern room", "target": "lantern-room" }
+      ]
+    },
+    {
+      "id": "lantern-room",
+      "title": "The Lantern Room",
+      "paragraphs": [
+        "The lantern room was round, with big dark glass all the way round. In the middle stood a small drum, the twin of the great one below.",
+        "Something was hiding behind it. Eli saw two small eyes, and a pair of tiny claws holding a glowing stone.",
+        "It was a crab. It was no bigger than a plate, and it was shivering.",
+        "The wet marks on the stairs had led here. Whatever was in the Tower's heart was not a villain. It was a small, cold creature.",
+        "Lira stayed still. \"I do not know what to do,\" she whispered. \"What do you think?\""
+      ],
+      "learningTargets": ["inference", "comprehension", "vocabulary"],
+      "choices": [
+        {
+          "id": "offer-den",
+          "label": "Open your lunch box, and offer the crab a warm den",
+          "target": "ending-warm-den",
+          "requires": { "clues": ["claw-prints"] },
+          "lockedHint": "Think about the small wet marks you saw on the stairs.",
+          "learningTargets": ["inference"]
+        },
+        { "id": "tap-drum", "label": "Tap the small drum, very softly", "target": "ending-drum-song" },
+        { "id": "grab-stone", "label": "Reach in and grab the glowing stone", "target": "ending-the-grab" },
+        { "id": "ask-lira", "label": "Ask Lira what she thinks, and make a plan together", "target": "ending-two-heads" }
+      ]
+    },
+    {
+      "id": "ending-warm-den",
+      "title": "The Warm Den",
+      "paragraphs": [
+        "Eli put down his lunch box and opened the lid. He lined it with soft moss from the stairs, and left it by the crab.",
+        "\"You are cold,\" he said. \"This is warm. You do not have to hide.\"",
+        "The crab crept into the box. It set the glow stone on the drum, and the stone began glowing bright. The light ran up the glass and out across the hills. Every lamp in Varro came on at once.",
+        "\"Maybe you are the hero,\" said Lira.",
+        "\"I am just a boy who followed a cat,\" said Eli. \"But I think I know who I am now.\"",
+        "Ash led him down to a round door of light. Eli stepped through it into the school yard, with the bell ringing. He was not even late."
+      ],
+      "learningTargets": ["inference", "comprehension", "engagement"],
+      "ending": { "id": "warm-den", "kind": "triumph", "title": "The Warm Den" },
+      "choices": []
+    },
+    {
+      "id": "ending-drum-song",
+      "title": "The Drum Song",
+      "paragraphs": [
+        "Eli tapped the small drum. Tap, tap, tap. The sound was soft, like rain.",
+        "The crab lifted its head. It began to sway, and it set the glow stone down by the drum.",
+        "The ringing grew, and the light grew with it. The glass filled with a golden glow.",
+        "Lira laughed out loud. \"The light needs a song, not a fight!\"",
+        "The crab scuttled to the warm side of the drum and curled up. Eli stayed with it for a while.",
+        "Then Ash led him to a round door. Eli stepped through, and found himself in the school yard. He was not sure if he was a hero. But he knew he had been kind."
+      ],
+      "learningTargets": ["comprehension", "engagement"],
+      "ending": { "id": "drum-song", "kind": "triumph", "title": "The Drum Song" },
+      "choices": []
+    },
+    {
+      "id": "ending-the-grab",
+      "title": "A Quick Grab",
+      "paragraphs": [
+        "Eli reached in and grabbed the stone. The crab gave a small, sad squeak and ran under the drum.",
+        "The stone began glowing in his hands. The light rolled out over the hills.",
+        "Lira cheered. But Eli looked at the drum, and felt a lump in his throat. The crab was alone, and cold, and hiding.",
+        "He set a crumb of bread from his lunch box by the drum. Nothing moved.",
+        "Ash led him home, through a round door. In the school yard, Eli thought of the little crab.",
+        "Next time, he thought, he would look at the small clues first."
+      ],
+      "learningTargets": ["inference", "engagement"],
+      "ending": { "id": "the-grab", "kind": "bittersweet", "title": "A Quick Grab" },
+      "choices": []
+    },
+    {
+      "id": "ending-two-heads",
+      "title": "Two Heads",
+      "paragraphs": [
+        "\"Let us make a plan,\" said Eli. \"I will go slowly. You tell me what you see.\"",
+        "\"Its claws are shaking,\" said Lira. \"I think it is afraid, not cruel.\"",
+        "So they sat down on the floor, one step from the drum. They shared their lunch crumbs and spoke in soft voices.",
+        "At last the crab put the stone on the drum and crept into Lira's warm hands.",
+        "The Lantern Tower woke, and the whole land lit up. Lira smiled. \"A hero does not have to do it alone,\" she said.",
+        "Eli promised to visit. Ash led him down to a round door, and out into the school yard."
+      ],
+      "learningTargets": ["comprehension", "sequencing", "engagement"],
+      "ending": { "id": "two-heads", "kind": "triumph", "title": "Two Heads" },
+      "choices": []
+    },
+    {
+      "id": "home-too-soon",
+      "title": "Home Too Soon",
+      "paragraphs": [
+        "\"I am sorry,\" said Eli. \"I am only a kid. I do not know what to do.\"",
+        "Lira let out a long sigh, but she nodded. \"I told you I was not sure,\" she said kindly.",
+        "Ash led him down the stairs to a round door. Behind him, the Tower stayed dim and grey.",
+        "Eli stepped out into the school yard. The bell was ringing, and he was late.",
+        "He looked at his muddy shoes and thought of the marsh, the stairs and the dark hatch.",
+        "Perhaps there was a way to be braver. Perhaps the grey cat would be back at the gap tomorrow."
+      ],
+      "learningTargets": ["comprehension", "engagement"],
+      "ending": { "id": "home-too-soon", "kind": "setback", "title": "Home Too Soon" },
+      "choices": []
+    }
+  ],
+  "glossary": {
+    "lantern": { "syllables": ["lan", "tern"], "definition": "A lamp in a case that lets the light shine out." },
+    "manhole": { "syllables": ["man", "hole"], "definition": "A round hole in the ground with a heavy lid, used to reach pipes below." },
+    "promised": { "syllables": ["prom", "ised"], "definition": "Told that something would happen for sure." },
+    "marsh": { "syllables": ["marsh"], "definition": "Wet, soft land with reeds and puddles." },
+    "library": { "syllables": ["li", "brar", "y"], "definition": "A place that lends books." },
+    "hatch": { "syllables": ["hatch"], "definition": "A small door in a floor or ceiling." },
+    "villain": { "syllables": ["vil", "lain"], "definition": "A bad person in a story who wants to cause harm." },
+    "creature": { "syllables": ["crea", "ture"], "definition": "A living animal, real or imagined." }
+  }
+}
