@@ -9,6 +9,11 @@
   "definitions": {
     "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,63}$" },
     "idList": { "type": "array", "items": { "$ref": "#/definitions/id" }, "uniqueItems": true },
+    "learningTargets": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "enum": ["comprehension", "inference", "sequencing", "vocabulary", "detail", "engagement"] }
+    },
     "condition": {
       "type": "object",
       "additionalProperties": false,
@@ -51,7 +56,8 @@
         "target": { "$ref": "#/definitions/id" },
         "requires": { "$ref": "#/definitions/condition" },
         "effects": { "$ref": "#/definitions/effects" },
-        "lockedHint": { "type": "string", "maxLength": 90 }
+        "lockedHint": { "type": "string", "maxLength": 90 },
+        "learningTargets": { "$ref": "#/definitions/learningTargets" }
       }
     },
     "passage": {
@@ -68,6 +74,20 @@
           "items": { "type": "string", "minLength": 1, "maxLength": 600 }
         },
         "effects": { "$ref": "#/definitions/effects" },
+        "learningTargets": { "$ref": "#/definitions/learningTargets" },
+        "puzzle": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "prompt", "answers", "successText"],
+          "properties": {
+            "id": { "$ref": "#/definitions/id" },
+            "prompt": { "type": "string", "minLength": 1, "maxLength": 200 },
+            "answers": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "maxLength": 40 } },
+            "hint": { "type": "string", "maxLength": 120 },
+            "successText": { "type": "string", "minLength": 1, "maxLength": 300 },
+            "effects": { "$ref": "#/definitions/effects" }
+          }
+        },
         "choices": { "type": "array", "maxItems": 4, "items": { "$ref": "#/definitions/choice" } },
         "ending": {
           "type": "object",
@@ -172,7 +192,8 @@
         "required": ["syllables"],
         "properties": {
           "syllables": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
-          "hint": { "type": "string", "maxLength": 120 }
+          "hint": { "type": "string", "maxLength": 120 },
+          "definition": { "type": "string", "maxLength": 200 }
         }
       }
     }

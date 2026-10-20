@@ -18,6 +18,10 @@ export interface Effects {
   setFlags?: string[];
 }
 
+/** Master spec section 3: the comprehension-first learning objectives. */
+export type LearningTarget = 'comprehension' | 'inference' | 'sequencing' | 'vocabulary' | 'detail' | 'engagement';
+export const LEARNING_TARGETS: LearningTarget[] = ['comprehension', 'inference', 'sequencing', 'vocabulary', 'detail', 'engagement'];
+
 export interface Choice {
   id: string;
   label: string;
@@ -26,6 +30,21 @@ export interface Choice {
   effects?: Effects;
   /** Shown instead of hiding the choice when requirements are not met. */
   lockedHint?: string;
+  learningTargets?: LearningTarget[];
+}
+
+/**
+ * Optional typing mini-game. Never timed and never blocking: the reader can
+ * always carry on without solving it, so a story must not depend on it.
+ */
+export interface TypingPuzzle {
+  id: string;
+  prompt: string;
+  /** Accepted answers, compared case-insensitively with spaces trimmed. */
+  answers: string[];
+  hint?: string;
+  successText: string;
+  effects?: Effects;
 }
 
 export type EndingKind = 'triumph' | 'bittersweet' | 'setback';
@@ -43,6 +62,8 @@ export interface Passage {
   effects?: Effects;
   choices: Choice[];
   ending?: Ending;
+  puzzle?: TypingPuzzle;
+  learningTargets?: LearningTarget[];
 }
 
 export interface Collectible {
@@ -64,6 +85,8 @@ export interface WordSet {
 export interface GlossaryEntry {
   syllables: string[];
   hint?: string;
+  /** Plain-language meaning shown by optional word help. */
+  definition?: string;
 }
 
 export interface LiteracyReviewRecord {
@@ -117,5 +140,6 @@ export interface GameState {
   flags: string[];
   history: string[];
   endingsSeen: string[];
+  puzzlesSolved: string[];
   updatedAt: string;
 }

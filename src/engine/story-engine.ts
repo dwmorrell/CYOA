@@ -44,6 +44,7 @@ export function newGame(story: Story, now: Date = new Date()): GameState {
     flags: [],
     history: [story.start],
     endingsSeen: [],
+    puzzlesSolved: [],
     updatedAt: now.toISOString(),
   };
   return enterPassage(story, base, story.start, now);
@@ -81,8 +82,30 @@ export function choose(story: Story, state: GameState, choiceId: string, now: Da
 
 /** Restart from the beginning while remembering which endings were found. */
 export function restart(story: Story, state: GameState, now: Date = new Date()): GameState {
+  // Endings found carry over to the next playthrough; puzzles reset with the story.
   const fresh = newGame(story, now);
   return { ...fresh, endingsSeen: uniq([...state.endingsSeen, ...fresh.endingsSeen]) };
+}
+
+export const normalizeAnswer = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ');
+
+export interface PuzzleResult {
+  state: GameState;
+  solved: boolean;
+}
+
+/**
+ * Check a typing-puzzle answer. There is no timer and no limit on attempts;
+ * a wrong answer changes nothing.
+ */
+export function solvePuzzle(story: Story, state: GameState, answer: string, now: Date = new Date()): PuzzleResult {
+  const puzzle = passageById(story, state.current).puzzle;
+  if (!puzzle) throw new Error(`Passage "${state.current}" has no puzzle`);
+  if (state.puzzlesSolved.includes(puzzle.id)) return { state, solved: true };
+  const ok = puzzle.answers.some((a) => normalizeAnswer(a) === normalizeAnswer(answer));
+  if (!ok) return { state, solved: false };
+  const next = applyEffects({ ...state, puzzlesSolved: [...state.puzzlesSolved, puzzle.id], updatedAt: now.toISOString() }, puzzle.effects);
+  return { state: next, solved: true };
 }
 
 export function isEnding(story: Story, state: GameState): boolean {

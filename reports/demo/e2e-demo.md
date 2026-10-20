@@ -1,6 +1,6 @@
 # End-to-end story workflow demonstration
 
-Run at 2026-10-20T00:55:46.132Z in a temporary sandbox; the repository is not modified.
+Run at 2026-10-20T20:23:39.924Z in a temporary sandbox; the repository is not modified.
 Source: real job job-20261020-the-fog-over-pebble-bay-ec899d, revision 4 by narrative-designer (ai-agent).
 
 ## 1. Structured request to planned job (executable)

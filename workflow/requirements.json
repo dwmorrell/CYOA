@@ -5,129 +5,437 @@
       "id": "R1",
       "title": "Immersive CYOA RPG with choices, clues, inventory and multiple endings",
       "status": "implemented",
-      "evidence": ["src/engine/story-engine.ts", "src/ui/reader.ts", "stories/jobs"],
-      "tests": ["locks choices until requirements are met", "reaches multiple distinct endings and remembers them across restarts", "shows an ending with endings found and play again"],
-      "gaps": ["One sample story so far; immersion (art, sound) not yet designed"]
+      "evidence": [
+        "src/engine/story-engine.ts",
+        "src/ui/Reader.tsx",
+        "stories/jobs"
+      ],
+      "tests": [
+        "locks choices until requirements are met",
+        "reaches multiple distinct endings and remembers them across restarts",
+        "shows an ending with endings found and play again"
+      ],
+      "gaps": [
+        "One sample story so far; immersion (art, sound) not yet designed"
+      ]
     },
     {
       "id": "R2",
       "title": "Dyslexia-informed reading presentation and optional reading support",
       "status": "partial",
-      "evidence": ["src/styles.css", "src/ui/prefs.ts", "src/ui/reader.ts", "docs/UI_SPEC.md"],
-      "tests": ["applies preferences as CSS variables and data attributes", "glossary words reveal syllables"],
-      "gaps": ["Not yet tested with dyslexic readers or on devices", "Read-to-me uses device speech voices only"]
+      "evidence": [
+        "src/styles.css",
+        "src/ui/prefs.ts",
+        "src/ui/Reader.tsx",
+        "src/ui/Settings.tsx",
+        "docs/UI_SPEC.md"
+      ],
+      "tests": [
+        "applies preferences as CSS variables and data attributes",
+        "word help shows syllables and a meaning, and logs the look-up"
+      ],
+      "gaps": [
+        "Not yet tested with dyslexic readers or on devices",
+        "Read-to-me uses device speech voices only"
+      ]
     },
     {
       "id": "R3",
       "title": "Program-flexible OG / structured-literacy terminology",
       "status": "implemented",
-      "evidence": ["src/literacy/taxonomy.ts", "config/literacy-profiles.json", "docs/LITERACY_MODEL.md"],
-      "tests": ["every profile labels only known concepts", "falls back to the neutral description without a profile"],
-      "gaps": ["The family's actual program and its terms are not yet known (master specification missing)"]
+      "evidence": [
+        "src/literacy/taxonomy.ts",
+        "config/literacy-profiles.json",
+        "docs/LITERACY_MODEL.md"
+      ],
+      "tests": [
+        "every profile labels only known concepts",
+        "falls back to the neutral description without a profile"
+      ],
+      "gaps": [
+        "The family's actual program and its terms are not yet known"
+      ]
     },
     {
       "id": "R4",
       "title": "Recurring word sets woven naturally through stories",
       "status": "implemented",
-      "evidence": ["src/literacy/analyzer.ts", "src/production/plan.ts"],
-      "tests": ["counts word-set words, routes and target concepts", "fails checks when a word set misses its minimum or a word is missing"],
-      "gaps": ["'Naturally' is judged by reviewers, not by code"]
+      "evidence": [
+        "src/literacy/analyzer.ts",
+        "src/production/plan.ts"
+      ],
+      "tests": [
+        "counts word-set words, routes and target concepts",
+        "fails checks when a word set misses its minimum or a word is missing"
+      ],
+      "gaps": [
+        "'Naturally' is judged by reviewers, not by code"
+      ]
     },
     {
       "id": "R5",
       "title": "Verifiable literacy reports and story-path validation",
       "status": "implemented",
-      "evidence": ["src/validation/graph.ts", "src/literacy/analyzer.ts", "src/util/hash.ts", "scripts/validate-stories.ts"],
-      "tests": ["passes the fixture and proves every ending reachable", "finds soft-locks where every choice is locked", "is reproducible: the same story gives the same report and hash", "matches known vectors"],
-      "gaps": ["Spelling-pattern detectors are heuristics; human literacy review still required"]
+      "evidence": [
+        "src/validation/graph.ts",
+        "src/literacy/analyzer.ts",
+        "src/util/hash.ts",
+        "scripts/validate-stories.ts"
+      ],
+      "tests": [
+        "passes the fixture and proves every ending reachable",
+        "finds soft-locks where every choice is locked",
+        "is reproducible: the same story gives the same report and hash",
+        "matches known vectors"
+      ],
+      "gaps": [
+        "Spelling-pattern detectors are heuristics; human literacy review still required"
+      ]
     },
     {
       "id": "R6",
       "title": "Parent-controlled story editing, versioning and publishing",
       "status": "partial",
-      "evidence": ["src/ui/parent.ts", "scripts/story-cli.ts", "src/production/gates.ts"],
-      "tests": ["saves local versions without duplicates", "only a human parent can approve, and AI agents cannot publish", "requires a higher story version for each revision and after publication"],
-      "gaps": ["Approval and publishing are CLI-only; no in-app publishing yet", "Parent gate is not authentication"]
+      "evidence": [
+        "src/ui/parent/ParentHome.tsx",
+        "src/ui/parent/StoryEditor.tsx",
+        "src/storage/repo.ts",
+        "scripts/story-cli.ts",
+        "src/production/gates.ts"
+      ],
+      "tests": [
+        "never overwrites an approved version; edits need a higher version",
+        "a draft is hidden from the child until approved in the editor",
+        "editing an approved story saves a new version and keeps the child on the old one",
+        "only a human parent can approve, and AI agents cannot publish",
+        "requires a higher story version for each revision and after publication"
+      ],
+      "gaps": [
+        "In-app approval puts a story in this device's child library only; it does not touch the repository's human literacy and publication gates",
+        "Parent gate is a PIN convenience lock, not authentication"
+      ]
     },
     {
       "id": "R7",
       "title": "Series-level learning progression",
       "status": "partial",
-      "evidence": ["src/production/continuity.ts", "docs/LITERACY_MODEL.md"],
-      "tests": ["records a missing prequel as a planning failure and recovers on re-plan"],
-      "gaps": ["No sequel exists yet; no child progress model across books"]
+      "evidence": [
+        "src/production/continuity.ts",
+        "docs/LITERACY_MODEL.md"
+      ],
+      "tests": [
+        "records a missing prequel as a planning failure and recovers on re-plan"
+      ],
+      "gaps": [
+        "No sequel exists yet; no child progress model across books"
+      ]
     },
     {
       "id": "R8",
       "title": "Android phones and tablets (including Android 15) and Chromebooks",
       "status": "partial",
-      "evidence": ["vite.config.ts", "public/manifest.webmanifest", "docs/ACCESSIBILITY_AND_COMPATIBILITY.md"],
+      "evidence": [
+        "vite.config.ts",
+        "public/manifest.webmanifest",
+        "src/main.tsx",
+        "docs/ACCESSIBILITY_AND_COMPATIBILITY.md"
+      ],
       "tests": [],
-      "gaps": ["Not tested on any real device or emulator", "No offline caching (service worker) yet"]
+      "gaps": [
+        "Not tested on any real Android device, tablet or Chromebook (pending)",
+        "Offline behaviour of the service worker is configured but not tested on a device"
+      ]
     },
     {
       "id": "R9",
-      "title": "Local-first persistence, no mandatory runtime AI service",
+      "title": "Local-first persistence in IndexedDB, no mandatory runtime AI service",
       "status": "implemented",
-      "evidence": ["src/engine/persistence.ts", "package.json"],
-      "tests": ["round-trips a saved game", "reports failure when storage throws (quota or blocked storage)"],
-      "gaps": ["No save export or backup"]
+      "evidence": [
+        "src/storage/kv.ts",
+        "src/storage/repo.ts",
+        "src/engine/persistence.ts",
+        "package.json"
+      ],
+      "tests": [
+        "round-trips values and lists keys by prefix",
+        "IndexedDB data survives reopening the database",
+        "ignores corrupt saves instead of crashing"
+      ],
+      "gaps": [
+        "No save export or backup of progress yet"
+      ]
     },
     {
       "id": "R10",
       "title": "Reusable AI story-generation requests and specialist review gates",
       "status": "implemented",
-      "evidence": ["prompts/new-story.md", "stories/requests/fog-over-pebble-bay.json", "src/production/gates.ts"],
-      "tests": ["creates a planned job with all planning artifacts on disk", "a request for changes blocks progress until a new revision"],
+      "evidence": [
+        "prompts/new-story.md",
+        "stories/requests/fog-over-pebble-bay.json",
+        "src/production/gates.ts"
+      ],
+      "tests": [
+        "creates a planned job with all planning artifacts on disk",
+        "a request for changes blocks progress until a new revision"
+      ],
       "gaps": []
     },
     {
       "id": "R11",
       "title": "Accessible UI, low-bandwidth considerations, automated testing, controlled deployment",
       "status": "partial",
-      "evidence": [".github/workflows/ci.yml", ".github/workflows/deploy-prepare.yml", "docs/DEPLOYMENT.md", "reports/accessibility"],
-      "tests": ["renders a passage with heading, paragraphs, choices and packs", "shows locked choices with a described hint and ignores presses"],
-      "gaps": ["Accessibility audit is code review only; no automated axe/Lighthouse run", "Hosting not selected"]
+      "evidence": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/deploy-prepare.yml",
+        "docs/DEPLOYMENT.md",
+        "reports/accessibility",
+        "tests/browser/smoke.cjs"
+      ],
+      "tests": [
+        "renders a passage with heading, choices and packs, and focuses the heading",
+        "locked choices stay visible with a hint and do nothing when pressed"
+      ],
+      "gaps": [
+        "Accessibility audit is code review only; no automated axe/Lighthouse run in CI",
+        "Playwright smoke script is not run in CI",
+        "Hosting not selected"
+      ]
     },
     {
       "id": "R12",
-      "title": "Eight operational specialist agents with contracts and verified invocation",
+      "title": "Nine operational specialist agents with contracts and verified invocation",
       "status": "implemented",
-      "evidence": [".claude/agents", "scripts/agents.ts", "reports/agents/invocation-smoke.md", "docs/AGENTS_AND_WORKFLOW.md"],
-      "tests": ["defines exactly the eight specialist agents", "the narrative designer is barred from reviewing or approving its own work"],
-      "gaps": ["Agents are started by a person or a Claude session; no unattended chaining"]
+      "evidence": [
+        ".claude/agents",
+        "scripts/agents.ts",
+        "scripts/lib/agents.ts",
+        "reports/agents/invocation-smoke.md",
+        "docs/AGENTS_AND_WORKFLOW.md"
+      ],
+      "tests": [
+        "defines exactly the nine specialist agents",
+        "the narrative designer is barred from reviewing or approving its own work"
+      ],
+      "gaps": [
+        "Invocation smoke test for the orchestrator is not yet re-run after this change",
+        "Agents are started by a person or a Claude session; no unattended chaining"
+      ]
     },
     {
       "id": "R13",
       "title": "Orchestrated workflow passing structured artifacts between stages",
       "status": "partial",
-      "evidence": ["scripts/orchestrate.ts", "workflow/work-items.json", "reports/orchestration"],
-      "tests": ["work items reference real artifacts and agents", "orders work items by dependency"],
-      "gaps": ["The orchestrator checks and sequences work; it does not spawn agents itself"]
+      "evidence": [
+        "scripts/orchestrate.ts",
+        "workflow/work-items.json",
+        "reports/orchestration"
+      ],
+      "tests": [
+        "work items reference real artifacts and agents",
+        "orders work items by dependency"
+      ],
+      "gaps": [
+        "The orchestrator checks and sequences work; it does not spawn agents itself"
+      ]
     },
     {
       "id": "R14",
       "title": "Separate software and story production workflows",
       "status": "implemented",
-      "evidence": ["scripts/story-cli.ts", "scripts/orchestrate.ts", "docs/AGENTS_AND_WORKFLOW.md"],
-      "tests": ["moves through validation, review, parent approval and publication"],
-      "gaps": ["Parent-facing story studio does not yet start production jobs"]
+      "evidence": [
+        "scripts/story-cli.ts",
+        "scripts/orchestrate.ts",
+        "docs/AGENTS_AND_WORKFLOW.md"
+      ],
+      "tests": [
+        "moves through validation, review, parent approval and publication"
+      ],
+      "gaps": [
+        "Parent-facing story studio does not yet start production jobs"
+      ]
     },
     {
       "id": "R15",
       "title": "Review and publishing gates: no self-approval, human parent approval, no auto-publish",
       "status": "implemented",
-      "evidence": ["src/production/gates.ts", "scripts/lib/production.ts", ".claude/settings.json", "config/publication-policy.json"],
-      "tests": ["does not let the narrative author review their own draft", "never publishes just because validation passed", "refuses to publish a draft whose file was edited after review", "rejects a story that claims a passed literacy review nobody recorded"],
-      "gaps": ["Human identity is attested by whoever runs the CLI, not verified"]
+      "evidence": [
+        "src/production/gates.ts",
+        "scripts/lib/production.ts",
+        ".claude/settings.json",
+        "config/publication-policy.json"
+      ],
+      "tests": [
+        "does not let the narrative author review their own draft",
+        "never publishes just because validation passed",
+        "refuses to publish a draft whose file was edited after review",
+        "rejects a story that claims a passed literacy review nobody recorded"
+      ],
+      "gaps": [
+        "Human identity is attested by whoever runs the CLI, not verified"
+      ]
     },
     {
       "id": "R16",
       "title": "Automated tests for the full story workflow and an end-to-end demonstration",
       "status": "implemented",
-      "evidence": ["tests/unit/production.test.ts", "scripts/demo-e2e.ts", "reports/demo/e2e-demo.md"],
-      "tests": ["validates required fields and literacy concepts", "allows only listed transitions", "records unparseable agent output as a stage failure and accepts a retry", "invalidates reviews and parent approval when a new revision arrives"],
-      "gaps": ["Human steps in the demonstration are simulated"]
+      "evidence": [
+        "tests/unit/production.test.ts",
+        "scripts/demo-e2e.ts",
+        "reports/demo/e2e-demo.md"
+      ],
+      "tests": [
+        "validates required fields and literacy concepts",
+        "allows only listed transitions",
+        "records unparseable agent output as a stage failure and accepts a retry",
+        "invalidates reviews and parent approval when a new revision arrives"
+      ],
+      "gaps": [
+        "Human steps in the demonstration are simulated"
+      ]
+    },
+    {
+      "id": "R17",
+      "title": "Typing mini-games that are balanced, optional and never block the story",
+      "status": "partial",
+      "evidence": [
+        "src/engine/story-engine.ts",
+        "src/ui/Reader.tsx",
+        "src/literacy/analyzer.ts"
+      ],
+      "tests": [
+        "accepts any listed answer, ignoring case and extra spaces",
+        "a story that depends on solving a puzzle is a soft-lock",
+        "the reader, engine and storage code never schedule timers"
+      ],
+      "gaps": [
+        "No packaged story has a typing puzzle yet",
+        "Typing balance is an advisory rule (1 per 4 pages) to tune with the Dyslexic Reading specialist"
+      ]
+    },
+    {
+      "id": "R18",
+      "title": "Progression that rewards reading without timers",
+      "status": "partial",
+      "evidence": [
+        "src/storage/repo.ts",
+        "src/ui/AdventureLog.tsx"
+      ],
+      "tests": [
+        "records endings, clues, puzzles, words and pages"
+      ],
+      "gaps": [
+        "Badges are a first set; no progression across stories or readers' levels yet"
+      ]
+    },
+    {
+      "id": "R19",
+      "title": "Parent and child profiles on one device, with parent controls apart from play",
+      "status": "implemented",
+      "evidence": [
+        "src/storage/repo.ts",
+        "src/ui/ParentGate.tsx",
+        "src/ui/App.tsx",
+        "src/ui/Setup.tsx"
+      ],
+      "tests": [
+        "keeps the grown-up area behind the PIN",
+        "keeps each child’s preferences separate and clamped",
+        "creates one parent and one child, and checks the PIN"
+      ],
+      "gaps": [
+        "The PIN is a convenience lock, not security"
+      ]
+    },
+    {
+      "id": "R20",
+      "title": "Each save tied to the story version it started with",
+      "status": "implemented",
+      "evidence": [
+        "src/storage/repo.ts",
+        "src/ui/Library.tsx"
+      ],
+      "tests": [
+        "resumes in the original snapshot after the story changes",
+        "starting the new version keeps endings already found"
+      ],
+      "gaps": [
+        "Old story snapshots are kept indefinitely; no clean-up yet"
+      ]
+    },
+    {
+      "id": "R21",
+      "title": "No timers on reading activities",
+      "status": "implemented",
+      "evidence": [
+        "src/ui",
+        "src/engine",
+        "src/storage"
+      ],
+      "tests": [
+        "the reader, engine and storage code never schedule timers"
+      ],
+      "gaps": [
+        "Checked by a static scan of source files, not by a browser run"
+      ]
+    },
+    {
+      "id": "R22",
+      "title": "In-app story editor with import and export",
+      "status": "partial",
+      "evidence": [
+        "src/ui/parent/StoryEditor.tsx",
+        "src/storage/transfer.ts"
+      ],
+      "tests": [
+        "round-trips through an export bundle; approval does not carry over",
+        "accepts a plain story file and rejects invalid ones",
+        "a blank editor story is valid structurally"
+      ],
+      "gaps": [
+        "Needs and effects are edited in the JSON tab, not in forms",
+        "The editor has not been exercised on a device"
+      ]
+    },
+    {
+      "id": "R23",
+      "title": "A complete 15 to 25 minute adventure, validated",
+      "status": "pending",
+      "evidence": [],
+      "tests": [],
+      "gaps": [
+        "Only short sample stories exist; none has been written or validated at full length",
+        "The sample story is pitched younger and is phonics-heavy, not the 10 to 13 comprehension-first target"
+      ]
+    },
+    {
+      "id": "R24",
+      "title": "Research of classic choose-your-own-adventure books for pacing, suspense and replayability",
+      "status": "pending",
+      "evidence": [],
+      "tests": [],
+      "gaps": [
+        "Not started"
+      ]
+    },
+    {
+      "id": "R25",
+      "title": "Installable PWA packaged and tested on Android phones, tablets and a Chromebook",
+      "status": "pending",
+      "evidence": [],
+      "tests": [],
+      "gaps": [
+        "Not tested on any real device; install prompt and offline play unverified"
+      ]
+    },
+    {
+      "id": "R26",
+      "title": "The Whispering Vault starter pack",
+      "status": "blocked",
+      "evidence": [],
+      "tests": [],
+      "gaps": [
+        "The starter ZIP was not provided to this repository and no link was supplied; it is not accessible from this session, so nothing from it has been used"
+      ]
     }
   ]
 }

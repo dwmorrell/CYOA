@@ -15,7 +15,7 @@ workflow that produces its stories.
   trackable job with a brief, continuity check, outline, Word Weave Plan,
   draft, automated validation, specialist reviews and parent approval.
   Stories never reach children on validation alone.
-- **Eight specialist Claude Code agents** with contracts in `.claude/agents/`.
+- **Nine specialist Claude Code agents** (orchestrator plus eight) with contracts in `.claude/agents/`.
 
 ## Quick start
 
@@ -40,7 +40,7 @@ the preview shelf is empty.)
 | Story schema, graph and literacy validation | Working, unit tested |
 | Story production CLI, gates, versioning, recovery | Working, unit tested, demonstrated (`reports/demo/e2e-demo.md`) |
 | Sample story *The Fog over Pebble Bay* | Drafted by the narrative-designer agent, revised after two QA change requests (revision 4); QA agent pass and AI literacy pre-review recorded; **human literacy review pending; not approved; not published** |
-| Agents | Eight definitions; invocation verified (`reports/agents/invocation-smoke.md`); started by a person or Claude session, not chained automatically |
+| Agents | Nine definitions; invocation verified (`reports/agents/invocation-smoke.md`); started by a person or Claude session, not chained automatically |
 | Browser check | Headless Chromium at phone and Chromebook sizes: all 3 endings reached, no errors (`reports/compatibility/headless-browser-check-2026-10-20.md`) |
 | Real-device and screen-reader testing | **Not done** |
 | Hosting and production deployment | **Not selected; nothing deployed** |

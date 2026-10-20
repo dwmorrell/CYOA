@@ -17,7 +17,7 @@ child's program without changing code.
 | `suffix-ing`, `suffix-ed` | Common suffixes | 6 |
 
 Stages are a suggested teaching order used for series progression warnings.
-Programs differ; a tutor's order wins. **(needs master spec / tutor input)**
+Programs differ; a tutor's order wins. **(pending: the family's programme is not named in the master specification; needs tutor input)**
 
 ## Word sets and the Word Weave Plan
 

@@ -14,6 +14,7 @@ export const REQUIRED_SECTIONS = [
 ];
 
 export const EXPECTED_AGENTS = [
+  'orchestrator',
   'product-architect',
   'ux-designer',
   'literacy-specialist',

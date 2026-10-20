@@ -121,15 +121,19 @@
       "stage": 4,
       "title": "Story engine, persistence and reading interface",
       "agent": "app-engineer",
-      "producedBy": "bootstrap Claude Code session acting as app-engineer and ux-designer",
+      "producedBy": "bootstrap Claude Code session acting as app-engineer and ux-designer; code rewritten in React by the orchestrating session, so earlier reviews no longer apply and the item must be re-reviewed",
       "artifacts": [
         "src/engine/story-engine.ts",
         "src/engine/persistence.ts",
-        "src/ui/reader.ts",
+        "src/ui/Reader.tsx",
         "src/ui/prefs.ts",
-        "src/ui/parent.ts",
-        "src/main.ts",
-        "src/styles.css"
+        "src/ui/parent/ParentHome.tsx",
+        "src/main.tsx",
+        "src/styles.css",
+        "src/ui/parent/StoryEditor.tsx",
+        "src/storage/repo.ts",
+        "src/storage/kv.ts",
+        "src/storage/transfer.ts"
       ],
       "dependsOn": [
         "WI-03"
@@ -141,21 +145,11 @@
         "Parent preview and validation screen exists"
       ],
       "checks": [
-        "npx vitest run tests/unit/engine.test.ts tests/unit/persistence.test.ts tests/unit/ui.test.ts",
+        "npx vitest run tests/unit/engine.test.ts tests/unit/storage.test.ts tests/unit/ui.test.tsxx",
         "npm run build"
       ],
-      "status": "in-review",
-      "review": {
-        "reviewer": "qa-engineer",
-        "verdict": "pass",
-        "evidence": [
-          "npx vitest run tests/unit/engine.test.ts tests/unit/persistence.test.ts tests/unit/ui.test.ts: PASS, 3 files / 18 tests (choices, locks, items, clues, endings; save round-trip and corrupt saves; passage render, locked hints, ending, restore, glossary, preferences as CSS variables, studio validation view)",
-          "npm run build: PASS inside npm run check (vite build, separate parent chunk 144.94 kB). A standalone npm run build was refused by the sandbox",
-          "Typography controls: tests/unit/ui.test.ts 'applies preferences as CSS variables and data attributes'. Related open accessibility defects A11Y-10 and A11Y-11 are tracked under WI-12",
-          "Not done because dependency WI-03 is not done"
-        ],
-        "at": "2026-10-20"
-      },
+      "status": "ready-for-review",
+      "review": null,
       "defects": []
     },
     {
@@ -270,14 +264,18 @@
       "stage": 7,
       "title": "Fix accessibility review findings",
       "agent": "ux-designer",
-      "producedBy": "bootstrap Claude Code session acting as ux-designer and app-engineer, from reports/accessibility/a11y-review-2026-10-20.md",
+      "producedBy": "bootstrap Claude Code session acting as ux-designer and app-engineer, from reports/accessibility/a11y-review-2026-10-20.md; code rewritten in React by the orchestrating session, so earlier reviews no longer apply and the item must be re-reviewed",
       "artifacts": [
         "src/styles.css",
-        "src/main.ts",
-        "src/ui/reader.ts",
+        "src/main.tsx",
+        "src/ui/Reader.tsx",
         "src/ui/prefs.ts",
-        "src/ui/parent.ts",
-        "index.html"
+        "src/ui/parent/ParentHome.tsx",
+        "index.html",
+        "src/ui/parent/StoryEditor.tsx",
+        "src/storage/repo.ts",
+        "src/storage/kv.ts",
+        "src/storage/transfer.ts"
       ],
       "dependsOn": [
         "WI-07"
@@ -288,18 +286,11 @@
         "Fixes are checked with TalkBack and ChromeVox"
       ],
       "checks": [
-        "npx vitest run tests/unit/ui.test.ts",
+        "npx vitest run tests/unit/ui.test.tsx",
         "npm run build"
       ],
-      "status": "in-review",
-      "review": {
-        "reviewer": "accessibility-compatibility-reviewer",
-        "verdict": "changes-requested",
-        "evidence": [
-          "reports/accessibility/a11y-review-2026-10-20.md#re-review-of-fixes"
-        ],
-        "at": "2026-10-20"
-      },
+      "status": "ready-for-review",
+      "review": null,
       "defects": [
         {
           "id": "A11Y-01",
@@ -538,6 +529,44 @@
         "Report separates executable functionality from planned automation"
       ],
       "checks": [],
+      "status": "ready-for-review",
+      "review": null,
+      "defects": []
+    },
+    {
+      "id": "WI-13",
+      "stage": 11,
+      "title": "Close master specification gaps: React PWA, saves by version, profiles, editor, progression",
+      "agent": "app-engineer",
+      "producedBy": "bootstrap Claude Code session acting as app-engineer, from docs/MASTER_SPEC.md",
+      "artifacts": [
+        "docs/MASTER_SPEC.md",
+        "src/storage/repo.ts",
+        "src/storage/kv.ts",
+        "src/storage/transfer.ts",
+        "src/ui/App.tsx",
+        "src/ui/parent/StoryEditor.tsx",
+        "src/main.tsx",
+        "vite.config.ts",
+        "tests/unit/storage.test.ts",
+        "tests/unit/ui.test.tsx",
+        "tests/unit/learning.test.ts"
+      ],
+      "dependsOn": [
+        "WI-04"
+      ],
+      "acceptance": [
+        "React, TypeScript and Vite PWA with IndexedDB saves and settings",
+        "Each save bound to the story version it started with",
+        "Parent and child profiles on one device, parent controls separate from play",
+        "In-app story editor with import and export",
+        "Balanced typing puzzles and progression",
+        "No timers on reading activities",
+        "The 15 to 25 minute adventure, research and real-device tests are tracked as pending requirements, not claimed here"
+      ],
+      "checks": [
+        "npm run check"
+      ],
       "status": "ready-for-review",
       "review": null,
       "defects": []

@@ -17,7 +17,7 @@
                 ┌──────────── browser on Android / ChromeOS ────────────┐
                 │ index.html + JS bundle (Vite)                         │
                 │  library ◄─ catalog.json (published only, hash-checked)│
-                │  reader  ─ story engine ─ localStorage saves          │
+                │  reader  ─ story engine ─ IndexedDB saves             │
                 │  parent studio (lazy-loaded) ─ validators in-browser  │
                 └───────────────────────────────────────────────────────┘
 ```
@@ -32,14 +32,17 @@ different CI jobs. See `docs/DEPLOYMENT.md`.
 | --- | --- | --- |
 | `src/engine/types.ts` | Story and game-state types (mirror of the schema) | both |
 | `src/engine/story-engine.ts` | Pure engine: new game, choices, conditions, effects, endings | both |
-| `src/engine/persistence.ts` | Guarded localStorage, save validation, reading preferences | browser |
+| `src/engine/persistence.ts` | Pure save validation, reading preferences and their clamps | browser |
+| `src/storage/kv.ts` | Async key-value store on IndexedDB, memory fallback | browser |
+| `src/storage/repo.ts` | Profiles and PIN, preferences, story snapshots, saves by version, device library, progression | browser |
+| `src/storage/transfer.ts` | Story export and import, blank story template | browser |
 | `src/validation/schema.ts` | Ajv validation against `schemas/story.schema.json` | both |
 | `src/validation/graph.ts` | Link checks plus full state-space search for reachability, soft-locks and traps | both |
 | `src/literacy/taxonomy.ts` | Program-neutral concepts with spelling detectors and teaching stage | both |
 | `src/literacy/analyzer.ts` | Literacy report: word sets, routes, concepts, readability | both |
 | `src/production/*` | Request, brief, continuity, plan, job state machine, gates, draft validation | both |
 | `src/util/hash.ts` | Dependency-free SHA-256 and canonical JSON | both |
-| `src/ui/*`, `src/main.ts` | Screens; `ui/parent.ts` is loaded on demand | browser |
+| `src/ui/*.tsx`, `src/main.tsx` | React screens and the entry point; `ui/parent/` (grown-up area and story editor) is loaded on demand | browser |
 | `scripts/lib/repo.ts`, `scripts/lib/production.ts` | Filesystem job store, job lock and production operations | Node |
 | `scripts/lib/agents.ts`, `scripts/agents.ts` | Agent definition checks (`agents:check`) and live invocation smoke test (`agents:smoke`) | Node |
 | `scripts/lib/workflow.ts` | Work-item ordering and checks used by the orchestrator | Node |
@@ -76,17 +79,17 @@ different CI jobs. See `docs/DEPLOYMENT.md`.
 
 ## Platform choices
 
-- Vanilla TypeScript and DOM, no UI framework, to keep the child bundle small.
+- React and TypeScript, built with Vite. The grown-up area and editor are lazy-loaded so the child's first load stays small.
 - Build target `es2020` / Chrome 90 so older Chromebooks on extended updates
   still run it.
-- System fonts only; no web fonts to download.
+- System fonts by default; the OpenDyslexic font is bundled and cached offline.
 - `base: './'` so the build can be served from any static path.
 - The parent studio and Ajv load on demand, so a child's first load does not
   download the validator.
 
 ## Known limits
 
-- localStorage is per browser profile; clearing site data erases progress.
+- IndexedDB is per browser profile; clearing site data erases progress. The app asks the browser to keep saves and warns if it cannot.
   There is no export of saves yet.
 - No service worker yet, so the app needs the network for first load and for
   new stories. Offline caching is the next milestone (see README).

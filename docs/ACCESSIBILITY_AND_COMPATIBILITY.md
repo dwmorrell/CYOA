@@ -14,19 +14,19 @@
 | --- | --- | --- |
 | Typography | System sans-serif default, size 90–220%, line spacing 1.4–2.6, letter and word spacing, left-aligned, max 62ch line, no italics | `src/styles.css`, `src/ui/prefs.ts` |
 | Colour | Cream, soft blue, grey and dark themes; dark-grey text, not pure black | `src/styles.css` |
-| Reading supports | Tap-to-see syllables, one-paragraph focus, read-to-me via the browser's speech engine | `src/ui/reader.ts` |
+| Reading supports | Tap-to-see syllables, one-paragraph focus, read-to-me via the browser's speech engine | `src/ui/Reader.tsx` |
 | Targets | Buttons at least 48×48 CSS px | `.btn` in `src/styles.css` |
-| Focus | Visible 3px focus ring; heading focused on each new page | `src/styles.css`, `src/ui/dom.ts` |
+| Focus | Visible 3px focus ring; heading focused on each new page | `src/styles.css`, `src/ui/Reader.tsx` |
 | Screen readers | Real buttons and headings, focus moved to each new page heading, targeted live regions only, locked choices use `aria-disabled` plus a described hint, decorative symbols hidden | `src/ui/` |
 | Motion | No animation beyond a short fade, removed under `prefers-reduced-motion` | `src/styles.css` |
-| Bandwidth | No framework, no web fonts, no images in stories, parent studio and validator loaded only when opened, stories are small JSON | `vite.config.ts`, `src/main.ts` |
+| Bandwidth | React and Vite; the OpenDyslexic font is bundled; no images in stories; grown-up area and editor loaded only when opened; stories are small JSON; the app shell works offline once cached | `vite.config.ts`, `src/main.tsx` |
 | Old devices | Build target ES2020 / Chrome 90 | `vite.config.ts` |
 
 ## Verification status
 
 | Check | Status |
 | --- | --- |
-| DOM tests for reader semantics and preference CSS variables | Automated (`tests/unit/ui.test.ts`) |
+| DOM tests for reader semantics and preference CSS variables | Automated (`tests/unit/ui.test.tsx`) |
 | Bundle size | Printed by `npm run build`; recorded in the compatibility report |
 | Code-review accessibility audit | `reports/accessibility/a11y-review-2026-10-20.md` (20 findings, all code-review). High findings A11Y-01 to 05 fixed in code; fixes not yet re-reviewed or tested on a device |
 | Screen reader (TalkBack, ChromeVox) | **Not yet tested** |

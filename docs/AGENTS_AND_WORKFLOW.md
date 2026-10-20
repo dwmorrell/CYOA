@@ -1,6 +1,6 @@
 # Agents and workflow
 
-## The eight specialist agents
+## The nine specialist agents
 
 Agent definitions live in `.claude/agents/*.md` in the Claude Code subagent
 format (YAML front matter with `name`, `description`, `tools`, `model`, then
@@ -11,12 +11,13 @@ relevant files.
 
 | Agent | Owns | Produces | May not |
 | --- | --- | --- | --- |
+| `orchestrator` | Sequencing, handoffs, conflicts between requirements | `workflow/`, `reports/orchestration/`, handoff notes | Review, approve or publish anything; write prose or code |
 | `product-architect` | Specs, schema, interfaces, traceability | `docs/PRODUCT_SPEC.md`, `docs/ARCHITECTURE.md`, `schemas/`, `workflow/requirements.json` | Write stories, approve, add runtime AI |
 | `ux-designer` | Reading UI and presentation | `docs/UI_SPEC.md`, `src/ui/`, `src/styles.css` | Claim accessibility conformance |
-| `literacy-specialist` | Taxonomy, word sets, analyzer, AI literacy pre-review | `src/literacy/`, `config/literacy-profiles.json`, literacy review files | Count as the human literacy review; write prose |
-| `narrative-designer` | Story drafts | `stories/jobs/<id>/work/draft.json` via `story submit-draft` | Review or approve own work |
-| `app-engineer` | Engine, persistence, validators, CLI | `src/engine/`, `src/validation/`, `src/production/`, `scripts/`, tests | Weaken gates |
-| `qa-engineer` | Independent QA of software and stories | QA review files, tests, work-item reviews | Review own work; fix prose |
+| `literacy-specialist` (the Dyslexic Reading specialist) | Comprehension design, age fit (10 to 13), OG-style patterns, taxonomy, word sets, analyzer, AI literacy pre-review | `src/literacy/`, `config/literacy-profiles.json`, literacy review files | Count as the human literacy review; write prose |
+| `narrative-designer` (the CYOA author) | Story drafts, puzzles, learning objectives | `stories/jobs/<id>/work/draft.json` via `story submit-draft` | Review or approve own work |
+| `app-engineer` (the app developer) | Engine, storage, React UI, validators, CLI | `src/engine/`, `src/validation/`, `src/production/`, `scripts/`, tests | Weaken gates |
+| `qa-engineer` | Independent QA of software, stories, saves and device behaviour | QA review files, tests, work-item reviews | Review own work; fix prose |
 | `accessibility-compatibility-reviewer` | A11y and device audits | `reports/accessibility/`, `reports/compatibility/` | Claim untested devices pass |
 | `release-manager` | CI, deployment preparation, releases | `.github/workflows/`, `docs/DEPLOYMENT.md`, `CHANGELOG.md` | Deploy to production without chosen hosting; publish stories |
 
@@ -144,3 +145,19 @@ actual current files.
 - A sequel whose prequel is missing records a `continuity` failure and leaves
   the job `briefed`; `npm run story -- plan <jobId>` retries.
 - Concurrent CLI calls on one job are serialized with a lock folder.
+
+## Master specification roles
+
+`docs/MASTER_SPEC.md` names five roles. They map to the nine files above:
+
+| Master spec role | Agent file |
+| --- | --- |
+| Orchestrator | `orchestrator` |
+| Dyslexic Reading specialist | `literacy-specialist` |
+| CYOA author | `narrative-designer` |
+| App developer | `app-engineer` |
+| QA engineer (story branches, saves, accessibility, device behaviour) | `qa-engineer` |
+
+The other four files are supporting roles from the bootstrap. They are
+definitions and workflow instructions. Running them is still a manual step
+(`claude --agent <name>`); the orchestrator does not start agents itself.

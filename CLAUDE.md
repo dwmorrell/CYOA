@@ -42,7 +42,7 @@ npm run agents:smoke       # invoke each agent via `claude -p --agent` (needs si
 
 ## Agents
 
-Eight specialists in `.claude/agents/`: `product-architect`, `ux-designer`,
+Nine specialists in `.claude/agents/`: `orchestrator`, `product-architect`, `ux-designer`,
 `literacy-specialist`, `narrative-designer`, `app-engineer`, `qa-engineer`,
 `accessibility-compatibility-reviewer`, `release-manager`. Delegate to the
 one that owns the files you are changing. Work passes between agents through

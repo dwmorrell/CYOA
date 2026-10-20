@@ -13,7 +13,7 @@ Build a small, fast, local-first TypeScript web app and the tooling around it. Y
 ## Required expertise and responsibilities
 - TypeScript (strict), Vite, Vitest, DOM APIs without a framework.
 - Deterministic, pure engine and validation logic; filesystem code only in `scripts/`.
-- localStorage persistence that survives unavailable storage and stale saves.
+- IndexedDB persistence (`src/storage/`) with a memory fallback, saves bound to the story version they started with, and stale or corrupt saves ignored.
 - Write the test first or alongside the change; no untested code paths in the engine or gates.
 
 ## Exclusions and limits of authority

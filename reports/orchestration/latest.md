@@ -1,6 +1,6 @@
 # Orchestration report
 
-Generated 2026-10-20T00:56:16.209Z by `npm run orchestrate`.
+Generated 2026-10-20T20:23:39.186Z by `npm run orchestrate -- --trace`.
 
 ## Software work items (dependency order)
 
@@ -9,15 +9,16 @@ Generated 2026-10-20T00:56:16.209Z by `npm run orchestrate`.
 | WI-01 Inspect requirements and repository state | 1 | product-architect | in-review | pass by qa-engineer | D-01 | none |
 | WI-02 UI, architecture and literacy specifications | 2 | product-architect | in-review | changes-requested by qa-engineer | none | none |
 | WI-03 Story schema and interfaces | 3 | product-architect | in-review | pass by qa-engineer | none | not run |
-| WI-04 Story engine, persistence and reading interface | 4 | app-engineer | in-review | pass by qa-engineer | none | not run |
+| WI-04 Story engine, persistence and reading interface | 4 | app-engineer | ready-for-review | none | none | not run |
 | WI-06 Deterministic story validation and literacy analysis | 6 | app-engineer | in-review | pass by qa-engineer | none | not run |
 | WI-05 Original sample story and Word Weave Plan | 5 | narrative-designer | in-review | see stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/job.json | D-02, D-03 | not run |
 | WI-07 Narrative, literacy, accessibility and compatibility reviews | 7 | qa-engineer | in-review | story reviews: stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/job.json; UI: reports/accessibility/a11y-review-2026-10-20.md | none | none |
-| WI-12 Fix accessibility review findings | 7 | ux-designer | in-review | changes-requested by accessibility-compatibility-reviewer | A11Y-02, A11Y-10, A11Y-11, A11Y-14, A11Y-15, A11Y-16, A11Y-17, A11Y-19, A11Y-20, A11Y-21 | not run |
+| WI-12 Fix accessibility review findings | 7 | ux-designer | ready-for-review | none | A11Y-02, A11Y-10, A11Y-11, A11Y-14, A11Y-15, A11Y-16, A11Y-17, A11Y-19, A11Y-20, A11Y-21 | not run |
 | WI-08 Story production workflow, gates and workflow tests | 8 | app-engineer | in-review | changes-requested by qa-engineer | D-QA-2 | not run |
 | WI-09 CI and deployment preparation | 8 | release-manager | in-review | pass by qa-engineer | D-05 | none |
 | WI-10 Requirements traceability report | 9 | product-architect | ready-for-review | none | none | not run |
 | WI-11 Report implemented, pending and unverified work | 10 | release-manager | ready-for-review | none | none | none |
+| WI-13 Close master specification gaps: React PWA, saves by version, profiles, editor, progression | 11 | app-engineer | ready-for-review | none | none | not run |
 
 ## Next work (dependencies satisfied, not done)
 

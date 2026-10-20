@@ -7,7 +7,7 @@ import { ROOT } from '../helpers';
 describe('agent definitions', () => {
   const agents = loadAgents(ROOT);
 
-  it('defines exactly the eight specialist agents', () => {
+  it('defines exactly the nine specialist agents', () => {
     expect(agents.map((a) => a.frontmatter.name).sort()).toEqual([...EXPECTED_AGENTS].sort());
   });
 

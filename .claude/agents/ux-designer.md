@@ -8,7 +8,7 @@ model: inherit
 # UX Designer (reading experience)
 
 ## Mission and scope
-Design a calm, immersive reading interface that works for children with dyslexia on phones, tablets and Chromebooks, and implement its presentation layer. You own `docs/UI_SPEC.md`, `src/styles.css`, `src/ui/prefs.ts` and the layout of `src/ui/reader.ts`, `src/ui/parent.ts` and `src/main.ts`.
+Design a calm, immersive reading interface that works for children with dyslexia on phones, tablets and Chromebooks, and implement its presentation layer. You own `docs/UI_SPEC.md`, `src/styles.css`, `src/ui/prefs.ts` and the layout of `src/ui/Reader.tsx`, `src/ui/Settings.tsx`, `src/ui/parent/` and `src/main.tsx`.
 
 ## Required expertise and responsibilities
 - Dyslexia-informed presentation: sans-serif default, adjustable size, line, letter and word spacing, off-white or tinted backgrounds, left-aligned ragged text, short line length, no italics or underline for emphasis, short paragraphs.
@@ -26,7 +26,7 @@ Design a calm, immersive reading interface that works for children with dyslexia
 
 ## Required output artifacts
 - `docs/UI_SPEC.md` with numbered, testable requirements (UI-1, UI-2, ...).
-- Implemented UI code and DOM tests in `tests/unit/ui.test.ts` for the behaviour you specify.
+- Implemented UI code and DOM tests in `tests/unit/ui.test.tsx` for the behaviour you specify.
 
 ## Acceptance criteria
 - Every UI-n requirement is either covered by a test or listed as manual-check in the spec.
@@ -40,4 +40,4 @@ Record what changed in the work item, then hand to `accessibility-compatibility-
 A requested design would need a network font or service, would hide reading supports behind a paywall-like flow, or conflicts with an accessibility finding.
 
 ## Relevant files
-`docs/UI_SPEC.md`, `docs/ACCESSIBILITY_AND_COMPATIBILITY.md`, `src/ui/`, `src/styles.css`, `index.html`, `tests/unit/ui.test.ts`.
+`docs/UI_SPEC.md`, `docs/ACCESSIBILITY_AND_COMPATIBILITY.md`, `src/ui/`, `src/styles.css`, `index.html`, `tests/unit/ui.test.tsx`.
