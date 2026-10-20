@@ -6,12 +6,14 @@ import type { Catalog } from './catalog';
 import { AppContext, type AppCtx } from './context';
 import { Library } from './Library';
 import { ParentGate } from './ParentGate';
+import { isHardwareKey, pointerSuggestsKeyboard } from './keyboard';
 import { applyPrefs } from './prefs';
 import { PlayChild, PlayPreview } from './Play';
 import { parseRoute, type Route } from './routes';
 import { Settings } from './Settings';
 import { Setup } from './Setup';
 import { stopSpeaking } from './speech';
+import { TypingPractice } from './TypingPractice';
 
 // The parent area (editor, validators) is loaded only when a parent opens it,
 // so the child's first load stays small.
@@ -25,10 +27,24 @@ export function App({ repo, catalog }: { repo: Repo; catalog: Catalog }) {
   const [childId, setChildId] = useState<string | null>(null);
   const [prefs, setPrefsState] = useState<ReadingPrefs | null>(null);
   const [parentUnlocked, setParentUnlocked] = useState(false);
+  const [keyboardSeen, setKeyboardSeen] = useState(false);
   const [route, setRoute] = useState<Route>(() => parseRoute(location.hash));
 
   const reloadProfiles = useCallback(async () => setProfiles(await repo.profiles()), [repo]);
   useEffect(() => void reloadProfiles(), [reloadProfiles]);
+
+  useEffect(() => void repo.keyboardSeen().then(setKeyboardSeen), [repo]);
+  // The first real key press from a keyboard is remembered, so typing practice stays offered.
+  useEffect(() => {
+    if (keyboardSeen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (!isHardwareKey(e)) return;
+      setKeyboardSeen(true);
+      void repo.markKeyboardSeen();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [repo, keyboardSeen]);
 
   useEffect(() => {
     const onHash = () => {
@@ -86,6 +102,7 @@ export function App({ repo, catalog }: { repo: Repo; catalog: Catalog }) {
       void repo.setPrefs(child.id, p);
     },
     catalog,
+    keyboard: keyboardSeen || pointerSuggestsKeyboard(),
     reloadProfiles,
     go,
   };
@@ -97,6 +114,7 @@ export function App({ repo, catalog }: { repo: Repo; catalog: Catalog }) {
   else if (route.view === 'preview') view = <PlayPreview key={`${route.source}:${route.id}`} source={route.source} storyId={route.id} />;
   else if (route.view === 'settings') view = <Settings />;
   else if (route.view === 'log') view = <AdventureLog />;
+  else if (route.view === 'typing') view = <TypingPractice />;
   else if (route.view === 'parent') view = <ParentHome />;
   else if (route.view === 'edit') view = <StoryEditor key={route.id} storyId={route.id} />;
   else view = <Library />;

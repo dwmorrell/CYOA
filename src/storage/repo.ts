@@ -2,6 +2,7 @@ import { clampPrefs, DEFAULT_PREFS, isGameState, isReadingPrefs, type ReadingPre
 import { newGame } from '../engine/story-engine';
 import type { GameState, Story } from '../engine/types';
 import { contentHash, sha256 } from '../util/hash';
+import { addScore, MAX_WORDS, WORD_PATTERN, type ScoreEntry, type TypingList } from '../typing/engine';
 import type { KvStore } from './kv';
 
 // Everything the app keeps on the device, on top of the async KV store.
@@ -12,6 +13,9 @@ import type { KvStore } from './kv';
 //   save:<profileId>:<storyId>    Save (points at a snapshot by hash)
 //   library                       LibraryEntry[] (parent-managed stories)
 //   progress:<profileId>          Progress
+//   typing:lists                  TypingList[] (typing practice add-on, not story data)
+//   typing:scores:<listId>        ScoreEntry[], the high scores for one word list
+//   keyboard:seen                 true once a hardware key was pressed on this device
 
 export interface Profile {
   id: string;
@@ -23,6 +27,12 @@ export interface Profile {
 }
 
 export const PIN_PATTERN = /^\d{4,8}$/;
+const SCORES_PREFIX = 'typing:scores:';
+
+/** Shown until a grown-up writes their own lists. */
+export const DEFAULT_TYPING_LISTS: TypingList[] = [
+  { id: 'starter', name: 'Starter words', words: ['cat', 'dog', 'sun', 'map', 'net', 'fog', 'bell', 'ship', 'stone', 'river'] },
+];
 
 function randomId(prefix: string): string {
   const bytes = new Uint8Array(8);
@@ -93,6 +103,50 @@ export class Repo {
 
   async setPrefs(profileId: string, prefs: ReadingPrefs): Promise<void> {
     await this.kv.set(`prefs:${profileId}`, clampPrefs(prefs));
+  }
+
+  // ---------- typing practice add-on (kept apart from stories and progress) ----------
+  async typingLists(): Promise<TypingList[]> {
+    return (await this.kv.get<TypingList[]>('typing:lists')) ?? DEFAULT_TYPING_LISTS;
+  }
+
+  /** Saves the grown-up's lists. Every list needs a name and at least one valid word. */
+  async saveTypingLists(lists: TypingList[]): Promise<void> {
+    const ids = new Set<string>();
+    for (const list of lists) {
+      if (!list.name.trim()) throw new Error('Each word list needs a name');
+      if (ids.has(list.id)) throw new Error(`The word list "${list.name}" appears twice`);
+      ids.add(list.id);
+      if (list.words.length === 0) throw new Error(`"${list.name}" needs at least one word`);
+      if (list.words.length > MAX_WORDS) throw new Error(`"${list.name}" can hold up to ${MAX_WORDS} words`);
+      if (list.words.some((w) => !WORD_PATTERN.test(w))) throw new Error(`"${list.name}" has a word with characters other than letters, apostrophes or hyphens`);
+    }
+    // A removed list takes its high scores with it.
+    for (const key of await this.kv.keys(SCORES_PREFIX)) {
+      if (!ids.has(key.slice(SCORES_PREFIX.length))) await this.kv.delete(key);
+    }
+    await this.kv.set('typing:lists', lists.map((l) => ({ id: l.id, name: l.name.trim(), words: l.words })));
+  }
+
+  /** The best laps on one word list, best first. */
+  async highScores(listId: string): Promise<ScoreEntry[]> {
+    return (await this.kv.get<ScoreEntry[]>(`${SCORES_PREFIX}${listId}`)) ?? [];
+  }
+
+  /** Records a finished lap and returns the updated list. */
+  async recordHighScore(listId: string, entry: ScoreEntry): Promise<ScoreEntry[]> {
+    const next = addScore(await this.highScores(listId), entry);
+    await this.kv.set(`${SCORES_PREFIX}${listId}`, next);
+    return next;
+  }
+
+  /** True once a hardware key has been pressed on this device. Sticky: it is never cleared. */
+  async keyboardSeen(): Promise<boolean> {
+    return (await this.kv.get<boolean>('keyboard:seen')) === true;
+  }
+
+  async markKeyboardSeen(): Promise<void> {
+    await this.kv.set('keyboard:seen', true);
   }
 
   // ---------- immutable story snapshots ----------

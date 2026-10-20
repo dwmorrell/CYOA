@@ -20,3 +20,5 @@ needs a person or device.
 | UI-13 | The studio runs schema, graph and literacy checks, shows word-set counts, saves local versions and downloads the file. | `ui.test.tsx` "a draft is hidden from the child until approved in the editor"; download is manual |
 | UI-14 | Layout works from 320 CSS px wide to desktop with no horizontal scrolling. | manual |
 | UI-15 | Buttons are at least 48×48 CSS px; checkboxes, radios and glossary words have 24px or larger targets inside 48px-tall labels (WCAG 2.5.8). Open finding A11Y-17 asks to raise these. | manual (CSS `--tap`) |
+| UI-16 | Typing practice is offered in the library only when a keyboard is likely (a fine pointer, or a key pressed on this device). | `ui.test.tsx` "is not offered in the library until a keyboard is likely"; `ui.test.tsx` "is offered in the library once a hardware key has been pressed on this device" |
+| UI-17 | The typing screen shows a track with a car, a speed gauge and an accuracy readout, with no colour needed. Each finished lap is ranked on that word list's high scores. | `ui.test.tsx` "types the words from the list, shows speed and accuracy, and finishes the lap"; manual for visuals |

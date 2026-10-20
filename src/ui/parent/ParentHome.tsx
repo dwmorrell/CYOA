@@ -5,6 +5,7 @@ import { slugify } from '../../production/request';
 import { fetchStory } from '../catalog';
 import { Page } from '../common';
 import { useApp } from '../context';
+import { TypingLists } from './TypingLists';
 
 export default function ParentHome() {
   const { repo, profiles, catalog, go, lockParent, reloadProfiles } = useApp();
@@ -188,6 +189,8 @@ export default function ParentHome() {
           </ul>
         </>
       )}
+
+      <TypingLists />
 
       <h2>Readers</h2>
       <ul>

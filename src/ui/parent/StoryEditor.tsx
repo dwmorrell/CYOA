@@ -203,48 +203,6 @@ function PassageEditor({ story, passage, onChange, onDelete }: { story: Story; p
             Add a choice
           </button>
 
-          <h3>Typing puzzle (optional)</h3>
-          <p className="muted">Never timed. Readers can always carry on without solving it, so no choice may depend on it.</p>
-          {passage.puzzle ? (
-            <fieldset className="form">
-              <legend>Puzzle</legend>
-              <Field id={`${pid}-pz-prompt`} label="Question">
-                {(id) => <input id={id} className="input" value={passage.puzzle!.prompt} onChange={(e) => onChange({ ...passage, puzzle: { ...passage.puzzle!, prompt: e.target.value } })} />}
-              </Field>
-              <Field id={`${pid}-pz-answers`} label="Accepted answers (comma separated)">
-                {(id) => (
-                  <input
-                    id={id}
-                    className="input"
-                    value={passage.puzzle!.answers.join(', ')}
-                    onChange={(e) => onChange({ ...passage, puzzle: { ...passage.puzzle!, answers: e.target.value.split(',').map((s) => s.trim()).filter(Boolean) } })}
-                  />
-                )}
-              </Field>
-              <Field id={`${pid}-pz-hint`} label="Hint">
-                {(id) => <input id={id} className="input" value={passage.puzzle!.hint ?? ''} onChange={(e) => onChange({ ...passage, puzzle: { ...passage.puzzle!, hint: e.target.value || undefined } })} />}
-              </Field>
-              <Field id={`${pid}-pz-success`} label="Shown when solved">
-                {(id) => <input id={id} className="input" value={passage.puzzle!.successText} onChange={(e) => onChange({ ...passage, puzzle: { ...passage.puzzle!, successText: e.target.value } })} />}
-              </Field>
-              <button type="button" className="btn small" onClick={() => onChange({ ...passage, puzzle: undefined })}>
-                Remove puzzle
-              </button>
-            </fieldset>
-          ) : (
-            <button
-              type="button"
-              className="btn"
-              onClick={() =>
-                onChange({
-                  ...passage,
-                  puzzle: { id: uniqueId(`${passage.id}-puzzle`, story.passages.flatMap((p) => (p.puzzle ? [p.puzzle.id] : []))), prompt: 'Type the missing word.', answers: ['answer'], successText: 'You got it!' },
-                })
-              }
-            >
-              Add a puzzle
-            </button>
-          )}
         </>
       )}
       {story.start !== passage.id && (

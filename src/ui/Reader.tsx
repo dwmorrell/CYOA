@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { choicesFor, choose, passageById, restart, solvePuzzle } from '../engine/story-engine';
-import type { GameState, Passage, Story } from '../engine/types';
+import { useEffect, useRef, useState } from 'react';
+import { choicesFor, choose, passageById, restart } from '../engine/story-engine';
+import type { GameState, Story } from '../engine/types';
 import { Icon } from './common';
 import { useApp } from './context';
 import { canSpeak, pageSpeech, speak, stopSpeaking } from './speech';
@@ -60,50 +60,6 @@ function Paragraph({ text, story, wordHelp, focused, onFocus, onLookUp }: { text
   );
 }
 
-/** Optional typing puzzle. No timer, unlimited tries, and the story never depends on solving it. */
-function Puzzle({ passage, state, story, onSolved }: { passage: Passage; state: GameState; story: Story; onSolved: (s: GameState) => void }) {
-  const puzzle = passage.puzzle!;
-  const [answer, setAnswer] = useState('');
-  const [message, setMessage] = useState('');
-  const [showHint, setShowHint] = useState(false);
-  const solved = state.puzzlesSolved.includes(puzzle.id);
-  const submit = (e: FormEvent) => {
-    e.preventDefault();
-    const r = solvePuzzle(story, state, answer);
-    if (r.solved) onSolved(r.state);
-    else setMessage('Not quite. Try again, or carry on without it.');
-  };
-  if (solved)
-    return (
-      <section className="puzzle solved" aria-label="Typing puzzle, solved">
-        <p>{puzzle.successText}</p>
-      </section>
-    );
-  return (
-    <section className="puzzle" aria-label="Typing puzzle, optional">
-      <form onSubmit={submit}>
-        <p className="muted">Optional. You can skip this and carry on.</p>
-        <label id={`pz-${puzzle.id}`} htmlFor={`pz-in-${puzzle.id}`}>
-          {puzzle.prompt}
-        </label>
-        <input id={`pz-in-${puzzle.id}`} className="input" value={answer} onChange={(e) => setAnswer(e.target.value)} autoComplete="off" autoCapitalize="none" spellCheck={false} />
-        <div className="row">
-          <button type="submit" className="btn primary">
-            Try it
-          </button>
-          {puzzle.hint && !showHint && (
-            <button type="button" className="btn" onClick={() => setShowHint(true)}>
-              Hint
-            </button>
-          )}
-        </div>
-        {showHint && <p className="muted">{puzzle.hint}</p>}
-        <p role="status">{message}</p>
-      </form>
-    </section>
-  );
-}
-
 export function Reader({ story, state, onState, onExit, exitLabel = 'Library', banner }: ReaderProps) {
   const { prefs } = useApp();
   const passage = passageById(story, state.current);
@@ -135,8 +91,7 @@ export function Reader({ story, state, onState, onExit, exitLabel = 'Library', b
       setSpeaking(false);
     } else {
       setSpeaking(true);
-      const openPrompt = passage.puzzle && !ending && !state.puzzlesSolved.includes(passage.puzzle.id) ? passage.puzzle.prompt : undefined;
-      speak(pageSpeech(passage.title, passage.paragraphs, openPrompt), () => setSpeaking(false));
+      speak(pageSpeech(passage.title, passage.paragraphs), () => setSpeaking(false));
     }
   };
   // "Story so far" supports sequencing: the places visited, in order.
@@ -193,7 +148,6 @@ export function Reader({ story, state, onState, onExit, exitLabel = 'Library', b
           </div>
         )}
       </article>
-      {passage.puzzle && !ending && <Puzzle key={passage.puzzle.id} passage={passage} state={state} story={story} onSolved={go} />}
       {ending ? (
         <section className="ending" aria-label="Ending">
           <p className={`ending-kind ${ending.kind}`}>{ENDING_WORDS[ending.kind] ?? 'The end'}</p>

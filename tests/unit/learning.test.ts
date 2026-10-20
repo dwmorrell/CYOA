@@ -83,18 +83,15 @@ describe('learning design report', () => {
     expect(r.missingTargets).toEqual(['sequencing', 'vocabulary', 'engagement']);
   });
 
-  it('checks typing balance: neither absent nor overused', () => {
-    expect(learningDesign(fixture()).typing.balanced).toBe(false);
-    expect(learningDesign(withPuzzle()).typing.balanced).toBe(true);
-    const many = withPuzzle();
-    for (const id of ['hill', 'shed', 'top']) many.passages.find((p) => p.id === id)!.puzzle = { id: `pz-${id}`, prompt: 'p', answers: ['a'], successText: 's' };
-    expect(learningDesign(many).typing.balanced).toBe(false);
-  });
-
   it('is advisory: it never fails the literacy checks on its own', () => {
     const report = analyzeStory(fixture());
     expect(report.learningDesign.advisories.some((a) => !a.ok)).toBe(true);
+  });
+
+  it('typing is not part of the story checks: no typing-balance check or advisory', () => {
+    const report = analyzeStory(fixture());
     expect(report.automatedChecks.map((c) => c.id)).not.toContain('typing-balance');
+    expect(report.learningDesign.advisories.map((a) => a.id)).not.toContain('typing-balance');
   });
 });
 
@@ -105,8 +102,8 @@ describe('no timers on reading activities', () => {
       return statSync(p).isDirectory() ? files(p) : /\.tsx?$/.test(f) ? [p] : [];
     });
 
-  it('the reader, engine and storage code never schedule timers', () => {
-    const offenders = ['src/ui', 'src/engine', 'src/storage']
+  it('the reader, engine, storage and typing code never schedule timers', () => {
+    const offenders = ['src/ui', 'src/engine', 'src/storage', 'src/typing']
       .flatMap((d) => files(join(ROOT, d)))
       .filter((f) => /\b(setTimeout|setInterval|requestAnimationFrame)\s*\(/.test(readFileSync(f, 'utf8')));
     expect(offenders).toEqual([]);

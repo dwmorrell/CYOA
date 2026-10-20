@@ -16,12 +16,7 @@ export function speak(text: string, onDone: () => void): void {
   window.speechSynthesis.speak(u);
 }
 
-/**
- * Text read aloud for a page: the title, the paragraphs, and any typing prompt
- * still open. The prompt is read so a child using read-aloud hears what to type,
- * and the word "optional" is spoken with it.
- */
-export function pageSpeech(title: string | undefined, paragraphs: string[], openPuzzlePrompt?: string): string {
-  const puzzle = openPuzzlePrompt ? `Optional typing: ${openPuzzlePrompt} You can skip this and carry on.` : '';
-  return [title ?? '', ...paragraphs, puzzle].filter(Boolean).join(' ');
+/** Text read aloud for a page: its title and paragraphs. Choices are not read. */
+export function pageSpeech(title: string | undefined, paragraphs: string[]): string {
+  return [title ?? '', ...paragraphs].filter(Boolean).join(' ');
 }

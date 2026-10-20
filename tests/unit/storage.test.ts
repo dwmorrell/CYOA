@@ -246,3 +246,47 @@ describe('story import and export', () => {
     expect(v.graph?.ok).toBe(true);
   });
 });
+
+describe('typing practice add-on: word lists and the keyboard flag', () => {
+  it('starts with a starter list, kept apart from stories and progress', async () => {
+    const repo = new Repo(memoryKv());
+    const lists = await repo.typingLists();
+    expect(lists.map((l) => l.name)).toEqual(['Starter words']);
+    expect(lists[0]!.words.length).toBeGreaterThan(0);
+    expect(await repo.library()).toEqual([]);
+  });
+
+  it('saves a grown-up list and reads it back', async () => {
+    const repo = new Repo(memoryKv());
+    await repo.saveTypingLists([{ id: 'sea', name: '  Sea words ', words: ['sea', 'boat'] }]);
+    expect(await repo.typingLists()).toEqual([{ id: 'sea', name: 'Sea words', words: ['sea', 'boat'] }]);
+  });
+
+  it('refuses a list with no name, no words, or a word with other characters', async () => {
+    const repo = new Repo(memoryKv());
+    await expect(repo.saveTypingLists([{ id: 'a', name: ' ', words: ['sea'] }])).rejects.toThrow(/needs a name/);
+    await expect(repo.saveTypingLists([{ id: 'a', name: 'Sea', words: [] }])).rejects.toThrow(/at least one word/);
+    await expect(repo.saveTypingLists([{ id: 'a', name: 'Sea', words: ['3d'] }])).rejects.toThrow(/other than letters/);
+    expect(await repo.typingLists()).toHaveLength(1);
+  });
+
+  it('remembers that a hardware key was pressed, and never clears it', async () => {
+    const repo = new Repo(memoryKv());
+    expect(await repo.keyboardSeen()).toBe(false);
+    await repo.markKeyboardSeen();
+    expect(await repo.keyboardSeen()).toBe(true);
+  });
+
+  it('keeps a high score list for each word list, and drops it when the list is removed', async () => {
+    const repo = new Repo(memoryKv());
+    await repo.saveTypingLists([
+      { id: 'sea', name: 'Sea', words: ['sea'] },
+      { id: 'farm', name: 'Farm', words: ['cow'] },
+    ]);
+    await repo.recordHighScore('sea', { name: 'Ada', wpm: 20, accuracy: 0.9, lapSeconds: 30, at: 'a' });
+    expect(await repo.highScores('farm')).toEqual([]);
+    expect((await repo.highScores('sea')).map((s) => s.name)).toEqual(['Ada']);
+    await repo.saveTypingLists([{ id: 'farm', name: 'Farm', words: ['cow'] }]);
+    expect(await repo.highScores('sea')).toEqual([]);
+  });
+});

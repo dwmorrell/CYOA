@@ -9,7 +9,6 @@ const BADGES: { id: string; name: string; earned: (p: Progress) => boolean; how:
   { id: 'first-ending', name: 'First Ending', earned: (p) => Object.values(p.endings).some((e) => e.length > 0), how: 'Reach any ending' },
   { id: 'explorer', name: 'Path Explorer', earned: (p) => Object.values(p.endings).some((e) => e.length >= 2), how: 'Find two endings in one adventure' },
   { id: 'sharp-eyes', name: 'Sharp Eyes', earned: (p) => p.clues.length >= 3, how: 'Find three clues' },
-  { id: 'codebreaker', name: 'Codebreaker', earned: (p) => p.puzzles.length >= 1, how: 'Solve a typed puzzle' },
   { id: 'word-collector', name: 'Word Collector', earned: (p) => p.words.length >= 5, how: 'Look up five words' },
   { id: 'page-turner', name: 'Page Turner', earned: (p) => p.pagesRead >= 50, how: 'Read fifty pages' },
 ];
@@ -30,7 +29,6 @@ export function AdventureLog() {
             <li>Pages read: {p.pagesRead}</li>
             <li>Endings found: {Object.values(p.endings).reduce((n, e) => n + e.length, 0)}</li>
             <li>Clues found: {p.clues.length}</li>
-            <li>Puzzles solved: {p.puzzles.length}</li>
             <li>Words looked up: {p.words.length}</li>
           </ul>
           <h2>Badges</h2>

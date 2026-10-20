@@ -15,6 +15,8 @@ export interface AppCtx {
   prefs: ReadingPrefs;
   setPrefs: (p: ReadingPrefs) => void;
   catalog: Catalog;
+  /** Typing practice is offered when a keyboard is likely connected. */
+  keyboard: boolean;
   reloadProfiles: () => Promise<void>;
   go: (hash: string) => void;
 }

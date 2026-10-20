@@ -424,7 +424,7 @@ main:focus {
   }
 }
 
-/* ---------- Phase 2: forms, editor, puzzles, progression ---------- */
+/* ---------- Phase 2: forms, editor, progression ---------- */
 .form {
   display: flex;
   flex-direction: column;
@@ -497,16 +497,6 @@ textarea.input {
 }
 .footer-row {
   margin-top: 24px;
-}
-.puzzle {
-  margin: 24px 0;
-  padding: 16px;
-  border: 2px dashed var(--accent);
-  border-radius: 16px;
-  background: var(--surface);
-}
-.puzzle.solved {
-  border-style: solid;
 }
 .definition {
   font-style: italic;

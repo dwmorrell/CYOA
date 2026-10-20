@@ -33,11 +33,11 @@
       "tests": [
         "applies preferences as CSS variables and data attributes",
         "word help shows syllables and a meaning, and logs the look-up",
-        "read-aloud speaks the page and an open typing prompt, marked optional"
+        "speaks the title and paragraphs of a page, and nothing else"
       ],
       "gaps": [
         "Not yet tested with dyslexic readers or on devices",
-        "Read-to-me speaks the title, paragraphs and any open typing prompt, but not the choices",
+        "Read-to-me speaks the title and paragraphs of a page, and never the choices",
         "Read-to-me uses device speech voices only"
       ]
     },
@@ -302,24 +302,36 @@
     },
     {
       "id": "R17",
-      "title": "Typing mini-games that are balanced, optional and never block the story",
+      "title": "Typing practice add-on: optional, separate from the stories, uses grown-up word lists, offered only when a keyboard is likely",
       "status": "partial",
       "evidence": [
-        "src/engine/story-engine.ts",
-        "src/ui/Reader.tsx",
-        "src/ui/speech.ts",
-        "src/literacy/analyzer.ts",
-        "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r7.json"
+        "src/typing/engine.ts",
+        "src/ui/TypingPractice.tsx",
+        "src/ui/keyboard.ts",
+        "src/ui/parent/TypingLists.tsx",
+        "src/storage/repo.ts",
+        "src/engine/story-engine.ts"
       ],
       "tests": [
         "accepts any listed answer, ignoring case and extra spaces",
         "a story that depends on solving a puzzle is a soft-lock",
-        "the reader, engine and storage code never schedule timers",
-        "the typing puzzle says it is optional on screen, before any try"
+        "is not offered in the library until a keyboard is likely",
+        "is offered in the library once a hardware key has been pressed on this device",
+        "types the words from the list, shows speed and accuracy, and finishes the lap",
+        "a grown-up writes a word list, and words with other characters are reported and left out",
+        "starts with a starter list, kept apart from stories and progress",
+        "saves a grown-up list and reads it back",
+        "refuses a list with no name, no words, or a word with other characters",
+        "remembers that a hardware key was pressed, and never clears it",
+        "splits on spaces, commas, semicolons and new lines, lower-cases, and drops duplicates",
+        "keeps apostrophes and hyphens, and reports anything else",
+        "holds at most forty words and reports the rest"
       ],
       "gaps": [
-        "Typing balance is an advisory rule (1 per 4 pages); the Fog draft has one optional puzzle on threshold",
-        "Typing accuracy and speed reports are not built (see R28)"
+        "Story-embedded puzzle data still exists in the schema and in the Fog draft (r8). The reader no longer shows it. Removing it needs a decision and a new revision",
+        "Keyboard detection is a guess: a fine pointer, or a key pressed on this device. After a keyboard is unplugged the option can stay visible",
+        "Typing practice keeps no progress yet and is not linked to badges or meta-progression (planned for later)",
+        "Not tested with a real keyboard, Android tablet or Chromebook (R25)"
       ]
     },
     {
@@ -379,10 +391,11 @@
       "evidence": [
         "src/ui",
         "src/engine",
-        "src/storage"
+        "src/storage",
+        "src/typing"
       ],
       "tests": [
-        "the reader, engine and storage code never schedule timers"
+        "the reader, engine, storage and typing code never schedule timers"
       ],
       "gaps": [
         "Checked by a static scan of source files, not by a browser run"
@@ -460,13 +473,25 @@
     },
     {
       "id": "R28",
-      "title": "Typing mini-game reports accuracy and speed, kept apart from reading",
-      "status": "pending",
-      "evidence": [],
-      "tests": [],
+      "title": "Typing practice reports accuracy and speed, kept apart from reading",
+      "status": "partial",
+      "evidence": [
+        "src/typing/engine.ts",
+        "src/ui/TypingPractice.tsx"
+      ],
+      "tests": [
+        "gross words a minute is keystrokes over five, per minute up to the latest key",
+        "a mistake lowers net speed: speed is gross words a minute times accuracy",
+        "a faster speed gives a shorter lap, for the same words",
+        "a faster typist finishes the same lap in less time",
+        "keeps a high score list for each word list, and drops it when the list is removed",
+        "types the words from the list, shows speed and accuracy, and finishes the lap"
+      ],
       "gaps": [
-        "Not built; typing speed must never be reported as reading fluency",
-        "No timer is planned for reading; any typing timer must be off by default and never affect reading"
+        "Speed is measured to the latest key, so it does not fall while the reader pauses",
+        "Speed appears only on the typing screen and in its high scores; it is never reported as reading fluency",
+        "Speed is not recorded in progress and does not feed skill evidence (R27)",
+        "No timer ends or limits a lap; a timer for typing, if ever added, must be off by default and never affect reading"
       ]
     },
     {

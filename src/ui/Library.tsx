@@ -10,7 +10,7 @@ interface Row {
 }
 
 export function Library() {
-  const { repo, catalog, child, profiles, setChild, go } = useApp();
+  const { repo, catalog, child, profiles, setChild, go, keyboard } = useApp();
   const [rows, setRows] = useState<Row[] | null>(null);
   const [error, setError] = useState('');
 
@@ -94,6 +94,11 @@ export function Library() {
         <button type="button" className="btn" onClick={() => go('#/settings')}>
           Reading settings
         </button>
+        {keyboard && (
+          <button type="button" className="btn" onClick={() => go('#/typing')}>
+            Typing practice
+          </button>
+        )}
         <button type="button" className="btn" onClick={() => go('#/parent')}>
           Grown-ups
         </button>

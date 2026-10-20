@@ -17,7 +17,7 @@ export function sentences(text: string): string[] {
 export function passageText(story: Story, passageId: string): string {
   const p = story.passages.find((x) => x.id === passageId);
   if (!p) return '';
-  return [p.title ?? '', ...p.paragraphs, p.puzzle?.prompt ?? '', p.puzzle?.successText ?? '', ...p.choices.map((c) => c.label)].join(' ');
+  return [p.title ?? '', ...p.paragraphs, ...p.choices.map((c) => c.label)].join(' ');
 }
 
 /** A word-set word matches itself plus simple -s / -es endings. */
@@ -83,16 +83,10 @@ export interface LearningDesignReport {
   targets: Record<LearningTarget, number>;
   passagesTagged: number;
   missingTargets: LearningTarget[];
-  typing: { puzzles: number; passages: number; balanced: boolean; detail: string };
   glossaryWithDefinitions: number;
   advisories: { id: string; ok: boolean; detail: string }[];
 }
 
-/**
- * Typing should be "neither overused nor entirely absent" (master spec 4).
- * Working rule: at least one puzzle, and no more than one per four non-ending
- * passages. Tune with the reading specialist.
- */
 export function learningDesign(story: Story): LearningDesignReport {
   const targets = Object.fromEntries(LEARNING_TARGETS.map((t) => [t, 0])) as Record<LearningTarget, number>;
   let tagged = 0;
@@ -102,21 +96,14 @@ export function learningDesign(story: Story): LearningDesignReport {
     for (const t of here) targets[t]++;
   }
   const missingTargets = LEARNING_TARGETS.filter((t) => targets[t] === 0);
-  const puzzles = story.passages.filter((p) => p.puzzle).length;
-  const passages = story.passages.filter((p) => !p.ending).length;
-  const maxPuzzles = Math.max(1, Math.floor(passages / 4));
-  const balanced = puzzles >= 1 && puzzles <= maxPuzzles;
-  const typingDetail = `${puzzles} typing puzzle(s) in ${passages} non-ending passages (aim: 1 to ${maxPuzzles})`;
   const glossaryWithDefinitions = Object.values(story.glossary ?? {}).filter((g) => g.definition).length;
   return {
     targets,
     passagesTagged: tagged,
     missingTargets,
-    typing: { puzzles, passages, balanced, detail: typingDetail },
     glossaryWithDefinitions,
     advisories: [
       { id: 'learning-targets-tagged', ok: missingTargets.length === 0, detail: missingTargets.length ? `no moments tagged for: ${missingTargets.join(', ')}` : 'every learning objective has tagged moments' },
-      { id: 'typing-balance', ok: balanced, detail: typingDetail },
       { id: 'word-help-definitions', ok: glossaryWithDefinitions > 0, detail: `${glossaryWithDefinitions} glossary word(s) with a definition` },
     ],
   };

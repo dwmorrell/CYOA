@@ -13,7 +13,7 @@ import { AppContext, type AppCtx } from '../../src/ui/context';
 import { applyPrefs } from '../../src/ui/prefs';
 import { pageSpeech } from '../../src/ui/speech';
 import { Reader } from '../../src/ui/Reader';
-import { clone, fixture } from '../helpers';
+import { fixture } from '../helpers';
 
 const story = fixture();
 const emptyCatalog: Catalog = { catalogVersion: 1, published: [], previews: [] };
@@ -227,41 +227,61 @@ describe('reader', () => {
     expect(word.parentElement!.textContent).toContain('a small lake');
     expect(states).toHaveLength(2);
   });
+});
 
-  it('typing puzzles are optional, untimed and allow unlimited tries', () => {
-    const s = clone(story);
-    s.passages.find((p) => p.id === 'pond')!.puzzle = { id: 'pz', prompt: 'Type the word: kite', answers: ['kite'], hint: 'It flies.', successText: 'Well typed!' };
-    const { states, rerender } = renderReader(s, { ...newGame(s), current: 'pond' });
-    expect(button('Run to the top')).toBeTruthy();
-    const input = screen.getByLabelText('Type the word: kite');
-    fireEvent.change(input, { target: { value: 'kit' } });
-    fireEvent.click(button('Try it'));
-    expect(screen.getByText(/Not quite. Try again, or carry on without it./)).toBeTruthy();
-    fireEvent.click(button('Hint'));
-    expect(screen.getByText('It flies.')).toBeTruthy();
-    fireEvent.change(input, { target: { value: ' KITE ' } });
-    fireEvent.click(button('Try it'));
-    rerender();
-    expect(states.at(-1)!.puzzlesSolved).toEqual(['pz']);
-    expect(screen.getByText('Well typed!')).toBeTruthy();
+describe('read-aloud', () => {
+  it('speaks the title and paragraphs of a page, and nothing else', () => {
+    expect(pageSpeech('The shed', ['A dusty room.'])).toBe('The shed A dusty room.');
   });
 });
 
-describe('read-aloud and optional typing', () => {
-  it('read-aloud speaks the page and an open typing prompt, marked optional', () => {
-    const text = pageSpeech('The shed', ['A dusty room.'], 'Type the word: wick.');
-    expect(text).toBe('The shed A dusty room. Optional typing: Type the word: wick. You can skip this and carry on.');
+describe('typing practice add-on', () => {
+  const target = 'cat dog sun map net fog bell ship stone river';
+
+  it('is not offered in the library until a keyboard is likely', async () => {
+    const repo = await readyRepo();
+    render(<App repo={repo} catalog={emptyCatalog} />);
+    await screen.findByText(/Hi Ada/);
+    expect(screen.queryByRole('button', { name: 'Typing practice' })).toBeNull();
   });
 
-  it('read-aloud leaves out the typing prompt once it is solved or absent', () => {
-    expect(pageSpeech('The shed', ['A dusty room.'])).toBe('The shed A dusty room.');
+  it('is offered in the library once a hardware key has been pressed on this device', async () => {
+    const repo = await readyRepo();
+    await repo.markKeyboardSeen();
+    render(<App repo={repo} catalog={emptyCatalog} />);
+    await screen.findByText(/Hi Ada/);
+    fireEvent.click(button('Typing practice'));
+    expect(await screen.findByRole('heading', { name: 'Typing practice' })).toBeTruthy();
   });
 
-  it('the typing puzzle says it is optional on screen, before any try', () => {
-    const s = clone(story);
-    s.passages.find((p) => p.id === 'pond')!.puzzle = { id: 'pz2', prompt: 'Type it.', answers: ['x'], successText: 'Done.' };
-    renderReader(s, { ...newGame(s), current: 'pond' });
-    expect(screen.getByText('Optional. You can skip this and carry on.')).toBeTruthy();
+  it('types the words from the list, shows speed and accuracy, and finishes the lap', async () => {
+    const repo = await readyRepo();
+    render(<App repo={repo} catalog={emptyCatalog} />);
+    await navigate('#/typing');
+    const input = await screen.findByLabelText('Type here');
+    expect(screen.getByLabelText(`Words to type: ${target}`)).toBeTruthy();
+    fireEvent.change(input, { target: { value: 'cax' } });
+    expect(screen.getByText(/Accuracy 67 percent/)).toBeTruthy();
+    fireEvent.change(input, { target: { value: 'ca' } });
+    fireEvent.change(input, { target: { value: target } });
+    expect(screen.getByText(/Lap 1 done in \d+:\d\d/)).toBeTruthy();
+    expect(input.hasAttribute('readonly')).toBe(true);
+    expect(await screen.findByText(/That is place 1 on this track/)).toBeTruthy();
+    expect(screen.getByText(/Ada: \d+ words a minute, \d+ percent accurate, lap \d+:\d\d/)).toBeTruthy();
+    expect((await repo.highScores('starter')).map((x) => x.name)).toEqual(['Ada']);
+  });
+
+  it('a grown-up writes a word list, and words with other characters are reported and left out', async () => {
+    const repo = await readyRepo();
+    render(<App repo={repo} catalog={emptyCatalog} />);
+    await screen.findByText(/Hi Ada/);
+    await navigate('#/parent');
+    fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
+    fireEvent.click(button('Open'));
+    fireEvent.change(await screen.findByLabelText('Words'), { target: { value: 'Pebble, sea, boat, 3d, cove' } });
+    fireEvent.click(button('Save word lists'));
+    expect(await screen.findByText(/Left out: 3d/)).toBeTruthy();
+    expect((await repo.typingLists())[0]!.words).toEqual(['pebble', 'sea', 'boat', 'cove']);
   });
 });
 
