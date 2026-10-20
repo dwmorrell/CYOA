@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-rain-courier",
   "title": "The Rain Courier",
-  "version": 7,
+  "version": 8,
   "metadata": {
     "genre": "Cyberpunk delivery adventure",
     "theme": "Trust, choosing who to believe, and keeping a promise",
@@ -64,11 +64,11 @@
       "title": "The Cab Stand",
       "paragraphs": [
         "Rain fell on the old cab stand. It had been raining for as long as Mara could remember.",
-        "Mara sat on her patched old bike. Her coat was soaked and a chill sat on the handlebars.",
+        "Mara sat on her patched old bike. Her coat was soaked, and she felt a chill.",
         "Vex waited under a dripping roof. He was a broker, and he wore a grey mask. No courier had ever seen his face.",
         "\"One job, Mara,\" he said. \"Take this bag to the old rail bridge. Be there by midnight.\"",
         "Inside the bag lay a small black chip. It was sealed in a hard shell. \"Do not open it. Do not lose it. Do not stop for anyone,\" said Vex.",
-        "Mara tucked the bag under her coat. Far off, the tower lights were blinking through the fog. Then a tiny voice spoke from the bag. \"Hello, Mara,\" it said. \"I have been waiting for you.\""
+        "Mara tucked the bag under her coat. Far off, the tower lights were blinking through the fog. Then a tiny voice spoke from the bag. \"Hello, Mara,\" it said. \"My name is Nine. Your aunt Ila made me. I have been waiting for you.\""
       ],
       "learningTargets": ["detail", "engagement"],
       "choices": [
@@ -118,7 +118,7 @@
         "He looked at the humming bag. \"That voice. Does it know you?\"",
         "\"It said my name,\" said Mara.",
         "\"Then listen close,\" said Tam. \"But do not trust it or anyone too much. Check what they tell you.\"",
-        "Mara put the pick set in her pocket. She waved and rode out into the rain."
+        "Mara put the pick set in her pocket. She waved and rode out into the rain. Down the row, a dark alley caught her eye."
       ],
       "learningTargets": ["inference", "vocabulary"],
       "effects": {
@@ -127,8 +127,8 @@
       "choices": [
         {
           "id": "pick-onward",
-          "label": "Ride on to the tower lights",
-          "target": "gathering"
+          "label": "Turn into the dark alley",
+          "target": "alley"
         }
       ]
     },
@@ -139,8 +139,8 @@
         "The alley was narrow and dark. Water ran down the walls in thin streams.",
         "Mara stopped her bike in the shade of a fire stair. She took the chip from the bag.",
         "It glowed a soft blue. \"My name is Nine,\" said the voice. \"I know you from long ago.\"",
-        "\"Who made you?\" asked Mara.",
-        "\"Your aunt Ila. She made me to keep a secret safe. Look at my shell, Mara. Do not just take my word.\""
+        "\"Why did Ila make you?\" asked Mara.",
+        "\"To keep a secret safe. Look at my shell, Mara. Do not just take my word.\""
       ],
       "learningTargets": ["comprehension", "engagement"],
       "choices": [
@@ -250,7 +250,7 @@
       "title": "The Fast Way",
       "paragraphs": [
         "Mara pushed hard and made her dash. Her old bike rattled over the stones.",
-        "A drone swung round, and its flash lit the whole street. The chain on her bike sang as she turned. A chill ran over the handlebars, but her tyre held. She pressed the chip to her chest.",
+        "A drone swung round, and its flash lit the whole street. The chain on her bike sang as she turned. A chill ran down her back, but her wheel held. She pressed the chip to her chest.",
         "She cut into a tunnel and the hum fell behind her. Her heart was pounding.",
         "\"That was loud,\" said Nine. \"They may be waiting at the bridge now.\""
       ],
@@ -283,7 +283,7 @@
             "items": ["lock-pick"],
             "clues": ["flood-stamp"]
           },
-          "lockedHint": "You need Tam's pick set and the clue about the stamp on the chip."
+          "lockedHint": "Find Tam's pick set at the shop and the chip's stamp in the alley."
         },
         {
           "id": "ask-nine-hack",
@@ -391,7 +391,7 @@
         "Mara gave the chip to Vex. He took it with a nod and dropped a coin pouch in her hand.",
         "The bell stopped. The drones flew off with him, and the bridge fell quiet.",
         "Nine said nothing more. The tiny voice had gone silent.",
-        "By morning, the low streets stood deep in water. Tam's repair shop was shut for a week.",
+        "By morning, the low streets stood deep in water. The market shops were shut for a week.",
         "No one was hurt, but Mara felt the weight of her choice. She had not checked the clue.",
         "She kept the pouch and the old bike. Next time, she would ask who she should believe."
       ],
@@ -411,7 +411,7 @@
         "Halfway over, the chain on her bike snapped. The bike slid sideways and fell into the river with a splash.",
         "Mara ran the last of the way on foot, with the bag held tight.",
         "At the far end, a woman in a lit booth pulled her inside and shut the door. It was Aunt Ila.",
-        "The chip went into its slot. Far below, the flood gate groaned and closed.",
+        "The chip went into its slot. Far below, a huge gate groaned and closed. The flood water stopped rising.",
         "Mara had lost her old bike. But the city was safe, and she had kept her promise."
       ],
       "learningTargets": ["comprehension", "engagement"],
@@ -429,9 +429,9 @@
         "Mara waved at the drone. Its white flash locked on her.",
         "A cold voice said, \"Courier. Hand over the bag.\" A metal arm lowered and lifted the bag out of her hands.",
         "The drone rose into the fog and was gone. Mara stood in the rain with empty hands.",
-        "Nobody was hurt. But the bag, the chip and Nine had all been taken.",
-        "She walked back to Tam's shop. He gave her hot soup and a seat by the fire.",
-        "\"You can try again,\" said Tam. \"This time, listen to the little voice, and check what you see.\""
+        "Nobody was hurt, but it had cost her much. Now the bag, the chip and Nine had all been taken.",
+        "She walked to the market. Old Tam ran a repair shop there. He gave her hot soup, some lunch from his sack and a seat by the fire.",
+        "\"You can try again,\" said Tam. \"This time, listen close, and check what you see.\""
       ],
       "learningTargets": ["comprehension", "inference"],
       "choices": [],

@@ -1,0 +1,53 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 7,
+  "draftSha256": "88ff452364a34e6e48284215cb5e73b809b64614f7df7eb53487079a8fa24ecd",
+  "verdict": "changes-requested",
+  "findings": [
+    {
+      "severity": "major",
+      "message": "Backtracking is required for the best endings. 'pick-the-lock' (threshold) needs both lock-pick (only from shop-pick) and flood-stamp (only from alley-clue). No single forward path visits both shop-pick and alley-clue. The only way is start > shop > shop-pick > gathering > 'gather-alley' > alley > alley-clue > gathering > drone-street (or the mirror order). That forces the reader to reread 'gathering' (draft lines 181-207, choices 'Ride back to Tam's shop' / 'Ride back to the dark alley') and, via the alley, pass a stop they may have seen. Endings 1 and 2 are only reachable this way. This is a route that goes back over pages already read to collect an item.",
+      "passage": "gathering"
+    },
+    {
+      "severity": "minor",
+      "message": "Continuity on short routes. ending-5 (line 433) says 'She walked back to Tam's shop. He gave her hot soup', and Tam says 'listen to the little voice'. A reader who went start > alley > gathering > lane never met Tam or had soup. The reader who skipped the alley never heard of Aunt Ila, yet ending-4 (line 413) says 'It was Aunt Ila' and 'the flood gate' with no setup. ending-3 (line 394) mentions Tam's shop shut, which is also unexplained on the alley route.",
+      "passage": "ending-5"
+    },
+    {
+      "severity": "minor",
+      "message": "Validation brief check warns that 1 sentence exceeds the brief's 16-word limit (validation.r7.json brief.warnings). Likely the long sentences in dash-past line 253 ('A drone swung round, and its flash lit the whole street...') or ending-1 line 356. Literacy reviewer should confirm.",
+      "passage": "dash-past"
+    },
+    {
+      "severity": "minor",
+      "message": "lockedHint on 'pick-the-lock' (line 286) tells the reader what is needed but not where to find it. With the backtracking problem above, a reader who locked out has no pointer to the shop or alley. Consider hinting at the places. Fair, but weak.",
+      "passage": "threshold"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/drafts/story.r7.json",
+      "sha256": "88ff452364a34e6e48284215cb5e73b809b64614f7df7eb53487079a8fa24ecd"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/validation.r7.json",
+      "sha256": "4d7591992135387ede63fd724ea4722c54e3906257f316c7ae1afc673a847434"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/graph.r7.json",
+      "sha256": "7cd7cca886aafc5af1ee7d7cb2b011622a37c820399e56fb7cba6130c12a3573"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/brief.json",
+      "sha256": "1653592bbed568e759c73b0747e1583d95a46dc6036f41ea5e72cb8bd792a2e8"
+    }
+  ],
+  "id": "review-1-qa",
+  "submittedAt": "2026-10-20T23:37:19.734Z"
+}

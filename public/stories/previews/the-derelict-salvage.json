@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-derelict-salvage",
   "title": "The Derelict Salvage",
-  "version": 5,
+  "version": 6,
   "metadata": {
     "genre": "Space salvage adventure",
     "theme": "Working as a team, reading the evidence, and deciding what is worth the risk",
@@ -21,7 +21,7 @@
         "id": "vowel-team-words",
         "label": "vowel team words",
         "concept": "vowel-team",
-        "words": ["rain", "sail", "boat", "road", "team", "moon", "deep"],
+        "words": ["rain", "sail", "boat", "road", "team", "keep", "deep"],
         "minOccurrences": 10
       },
       {

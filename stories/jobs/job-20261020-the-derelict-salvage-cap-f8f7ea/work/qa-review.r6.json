@@ -1,0 +1,36 @@
+{
+  "role": "qa",
+  "reviewer": { "name": "qa-engineer", "kind": "ai-agent", "agent": "qa-engineer" },
+  "revision": 6,
+  "draftSha256": "53cab9802e1f709b5a215a972da3cc3a66764eeeac17aa1f808416ad4ea54df3",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "Two different things are called 'the note'. In the locker, Ivy takes 'the note' off the tag (story.r6.json, passage locker, paragraph 4). The locked hint and choice label at threshold say 'the last log note'. A young reader could mix them up. Suggest 'the tag' in the locker.",
+      "passage": "locker"
+    },
+    {
+      "severity": "minor",
+      "message": "The locked choice 'open-careful' has a hint ('Find a long pole and read the last log note first.'), but by that point no route lets the reader go back. They must replay from the start. That is fair for a replayable story, and nothing forces backtracking, but the hint could say it is for the next read.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "minor",
+      "message": "The passage title 'The Door Hisses' differs from the ending title 'Too Fast' (passage title, and ending.title in ending-rush). Cosmetic; make them match.",
+      "passage": "ending-rush"
+    },
+    {
+      "severity": "minor",
+      "message": "I could not run 'npm run check' here; the shell refused it for approval. The pass rests on the validation report (schema ok, 5/5 endings reachable, literacy checks ok, brief ok) and my own reading of the JSON. Run 'npm run check' before relying on this review.",
+      "passage": null
+    }
+  ],
+  "notes": "Traced by hand in drafts/story.r6.json. ending-garden: start>scan>log-read (late-log)>tube>locker (hook-pole)>inside>dome>nib>threshold>open-careful>climax-careful>cool-first>hold-open>step-in>ending-garden. ending-carry and ending-tow: ...>threshold>open-team>climax-team>carry-moths/tow-lark. ending-rush: threshold>open-rush (also climax-careful>lift-first). ending-closed: threshold>leave-shut. All 5 endings match the brief's endingTarget of 5 (3 triumph, 1 bittersweet, 1 setback). The routes differ, so a second read has real choices: scan or tube, log or hull, locker or lit path, dome or engine room, then four options at threshold. Every choice target is a later passage and no route re-reads a page. The only gate is open-careful, and its item and clue can both be gathered in one forward pass. Content: no sex, violence or gore, self-harm, or real religion. In ending-rush 'No one was hurt'. The torch option is only a lock-cutting tool. Items and clues stay consistent (hook-pole, late-log). Dates fit: the Lark went silent 11 years ago; the note is 4 days old; Nib wrote it. Endings fit the setup. The story looks original, with characters from the brief. Not checked: a literacy review (not mine) and any real device or app play-through.",
+  "evidence": [
+    { "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/drafts/story.r6.json", "sha256": "53cab9802e1f709b5a215a972da3cc3a66764eeeac17aa1f808416ad4ea54df3" },
+    { "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/validation.r6.json", "sha256": "73a68e7c2a66fad9fc6e640fc7b2ade2e06fd763589e2db5db352d4daa6d49a8" },
+    { "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/graph.r6.json", "sha256": "0e20a1de39578fb20f35423708ffa6c443b745913cacda34b8dfbf64711f6c43" },
+    { "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/brief.json", "sha256": "e9174c367099452e01fb068a43750c1b898737c5fff8b809be808174c20ed1be" }
+  ]
+}

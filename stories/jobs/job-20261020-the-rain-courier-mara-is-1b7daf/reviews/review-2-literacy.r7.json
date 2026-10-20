@@ -1,0 +1,65 @@
+{
+  "role": "literacy",
+  "reviewer": {
+    "name": "literacy-specialist",
+    "kind": "ai-agent",
+    "agent": "literacy-specialist"
+  },
+  "revision": 7,
+  "draftSha256": "88ff452364a34e6e48284215cb5e73b809b64614f7df7eb53487079a8fa24ecd",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Skills practised: Reading this story practises decoding closed-syllable words (bag, lock, pick, dash), sh words (shop, shade, flash) and ch words (chip, chain, chill) in running text, plus -ing endings (blinking, pounding, watching). The reader sequences events (the gathering passage and Nine's 'first the gate, then the track, then the far light'), infers who to trust from clues (the flood stamp, the grey mask) and works out meaning of words such as broker, drone and courier from context and the glossary. Choices and endings reward checking evidence before acting, which supports comprehension and inference."
+    },
+    {
+      "severity": "note",
+      "message": "Word sets meet their minimums on every route: closed-syllable-words 41/10, sh-words 27/8, ch-words 26/8 (literacy.r7). Every listed word appears in the draft. Each word-set word carries its declared pattern by spelling: cab/bag/pick/lock/mask/sack/dash/hack are closed syllables; shop/shade/shot/shut/flash/shell begin or end with sh; chip/chase/chill/much/lunch/chain all contain ch. 'patch' (tch) was correctly removed in r7."
+    },
+    {
+      "severity": "note",
+      "message": "Age fit (10 to 13): average sentence length is 7.4 words, no sentence is over the 16-word limit, no word is estimated at 4+ syllables, and passages are 141 words or fewer. The theme (who to trust, checking a claim) suits the age, the peril is mild ('Nobody was hurt'), and the vocabulary (broker, courier, crouched, eased) is supported by context. The prose is very plain for ages 12 to 13, but this suits the decoding goals."
+    },
+    {
+      "severity": "minor",
+      "message": "word-weave-plan.json is stale. It still lists 'patch' in ch-words (placements 'path-a', 'path-b', 'ending-2', 'ending-3'), but brief.json and the r7 draft use 'chill'. The r7 revision notes call this a 'brief change' made while revising. Please regenerate or update the plan so the plan, brief and draft agree, and have the orchestrator or parent confirm the brief change. The weave comparison passes only because it counts set totals.",
+      "passage": "dash-past"
+    },
+    {
+      "severity": "minor",
+      "message": "'chill' reads as forced. In 'start', 'a chill sat on the handlebars' is an odd image. In 'dash-past', 'A chill ran over the handlebars, but her tyre held' is a non sequitur, because a chill has no link to the tyre, and a reader may stumble on the meaning. Suggest a natural use such as 'The rain was cold and she felt a chill' to narrative-designer.",
+      "passage": "dash-past"
+    },
+    {
+      "severity": "minor",
+      "message": "Several set words appear only once in the story text, on one branch only: 'lunch' and 'sack' (shop), 'chase' (drone-street), 'much' (shop-pick), 'shot' (drone-street). The set totals pass, but these words get little repetition. The plan wanted two or more placements per word. Consider a second natural use of each, for example 'lunch' or 'much' at Tam's or in an ending, so the reader meets them again.",
+      "passage": "shop"
+    },
+    {
+      "severity": "minor",
+      "message": "'tyre' (dash-past) has an irregular, British spelling and is not a decodable word, though the rest of the story uses it consistently ('grey', 'tyre'). It is the only odd spelling in an otherwise regular passage. Consider 'wheel' or 'tire' for a dyslexic reader, or keep it and accept it as a tricky word.",
+      "passage": "dash-past"
+    },
+    {
+      "severity": "note",
+      "message": "Limits of this review: the analyzer detects spelling, not sound, so counts include false positives (for example 'the', 'she', 'ch' in 'choice' and inflected forms). It does not judge decodability, vocabulary level or story quality. I checked the word sets and patterns by reading the draft. I did not check sound-level pronunciation, and I did not test the story with a child. A qualified literacy reviewer or the parent should confirm these claims. This AI review is the literacy gate only; the parent decides on approval."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/drafts/story.r7.json",
+      "sha256": "88ff452364a34e6e48284215cb5e73b809b64614f7df7eb53487079a8fa24ecd"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/literacy.r7.json",
+      "sha256": "0e91eaed6301f65a446e9defe9b46dbf6dbfe17ff82b284baedf353e1acd9374"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/literacy.r7.md",
+      "sha256": "bb2603f611531bb5dc730fa23016714452a9a503d31c777be86e41fae41ebe2c"
+    }
+  ],
+  "id": "review-2-literacy",
+  "submittedAt": "2026-10-20T23:37:26.005Z"
+}

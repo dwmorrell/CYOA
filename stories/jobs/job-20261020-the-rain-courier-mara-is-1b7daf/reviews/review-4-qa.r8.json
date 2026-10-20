@@ -1,0 +1,53 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 8,
+  "draftSha256": "800917eaee556c43c0d8f32866b6a046d17076e53f5a6594623561a96635f79d",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "Optional rereading on the alley-first route. A reader who goes start > alley > alley-clue > gathering has the stamp but not the pick set. Getting the pick means gathering > shop > shop-pick > alley > alley-clue > gathering, which rereads the alley (lines 136-180). This is not required: endings 1 and 2 are reachable forward with no repeat via start > shop > shop-pick > alley > alley-clue > gathering > drone-street > (hide-shade or dash-past) > threshold > pick-the-lock (lines 281-286, hint names both places). The earlier major (r7) is fixed. Reported as minor because the reread is only for a second read.",
+      "passage": "gathering"
+    },
+    {
+      "severity": "minor",
+      "message": "Gathering choices name places some readers have not seen. 'Ride back to Tam's shop' (line 193) shows for a reader who took start > alley and never met Tam. 'Ride back to the dark alley' (line 198) shows for a reader who took shop > leave-shop and never saw the alley. Consider neutral labels such as 'Ride to Tam's shop' and 'Ride to the dark alley'.",
+      "passage": "gathering"
+    },
+    {
+      "severity": "minor",
+      "message": "Small plot gap. At threshold (lines 270-274) the gate is shut and Mara picks the lock, then closes the gate behind her (line 305). Vex then 'stepped out of the fog' halfway across the bridge (line 307) with no explanation of how he got past the gate. Cab engine behind her (line 273) suggests he followed, so a line about a side path or his own key would fix it.",
+      "passage": "climax-gate"
+    },
+    {
+      "severity": "minor",
+      "message": "Validation report brief.warnings (validation.r8.json line 530) says 1 sentence exceeds the 16-word limit, but literacy.longSentences is empty (line 455) and I could not find it by hand count. The longest I counted is 16 words (ending-5, line 433, 'He gave her hot soup, some lunch from his sack and a seat by the fire.'). Literacy reviewer should locate it.",
+      "passage": "ending-5"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/drafts/story.r8.json",
+      "sha256": "800917eaee556c43c0d8f32866b6a046d17076e53f5a6594623561a96635f79d"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/validation.r8.json",
+      "sha256": "a9f7ccfa70624b7944f53094a68050a108c1944ddfbb134cd87ad55a8338a1da"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/graph.r8.json",
+      "sha256": "24f860c45e80cb81f76ad85fee7b6beee3278bba41c9a5c666b27ae31d2ebb5f"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/brief.json",
+      "sha256": "1653592bbed568e759c73b0747e1583d95a46dc6036f41ea5e72cb8bd792a2e8"
+    }
+  ],
+  "id": "review-4-qa",
+  "submittedAt": "2026-10-20T23:39:48.506Z"
+}
