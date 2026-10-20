@@ -1,0 +1,264 @@
+{
+  "sets": [
+    {
+      "id": "wh-words",
+      "label": "wh words",
+      "minOccurrences": 10,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "when",
+            "white"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "white",
+            "whisper"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "whisper",
+            "wheel"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "wheel",
+            "whistle"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "whistle",
+            "whip"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "whip",
+            "when"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "when",
+            "white"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "white",
+            "whisper"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "whisper",
+            "wheel"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "wheel",
+            "whistle"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "whistle",
+            "whip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ck-words",
+      "label": "ck words",
+      "minOccurrences": 8,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "back",
+            "deck"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "deck",
+            "click"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "click",
+            "neck"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "neck",
+            "pack"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "pack",
+            "rock"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "rock",
+            "back"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "back",
+            "deck"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "deck",
+            "click"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "click",
+            "neck"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "neck",
+            "pack"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "pack",
+            "rock"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tch-words",
+      "label": "tch words",
+      "minOccurrences": 8,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "catch",
+            "match"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "match",
+            "latch"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "latch",
+            "hatch"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "hatch",
+            "watch"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "watch",
+            "switch"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "switch",
+            "catch"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "catch",
+            "match"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "match",
+            "latch"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "latch",
+            "hatch"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "hatch",
+            "watch"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "watch",
+            "switch"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "Words must read naturally in context: no lists of target words and no forced rhymes.",
+    "Each set should appear on every route to an ending, not only on one branch.",
+    "Choice labels count as reading, so use set words there too when it fits."
+  ]
+}

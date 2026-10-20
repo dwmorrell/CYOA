@@ -1,0 +1,264 @@
+{
+  "sets": [
+    {
+      "id": "r-controlled-words",
+      "label": "r-controlled words",
+      "minOccurrences": 10,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "dark",
+            "far"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "far",
+            "cart"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "cart",
+            "card"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "card",
+            "dirt"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "dirt",
+            "horn"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "horn",
+            "burn"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "burn",
+            "dark"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "dark",
+            "far"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "far",
+            "cart"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "cart",
+            "card"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "card",
+            "dirt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ed-endings",
+      "label": "ed endings",
+      "minOccurrences": 8,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "walked",
+            "dusted"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "dusted",
+            "rested"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "rested",
+            "lifted"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "lifted",
+            "hunted"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "hunted",
+            "tapped"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "tapped",
+            "walked"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "walked",
+            "dusted"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "dusted",
+            "rested"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "rested",
+            "lifted"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "lifted",
+            "hunted"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "hunted",
+            "tapped"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ng-and-nk-words",
+      "label": "ng and nk words",
+      "minOccurrences": 8,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "long",
+            "sing"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "sing",
+            "bank"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "bank",
+            "sink"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "sink",
+            "tank"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "tank",
+            "rung"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "rung",
+            "long"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "long",
+            "sing"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "sing",
+            "bank"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "bank",
+            "sink"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "sink",
+            "tank"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "tank",
+            "rung"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "Words must read naturally in context: no lists of target words and no forced rhymes.",
+    "Each set should appear on every route to an ending, not only on one branch.",
+    "Choice labels count as reading, so use set words there too when it fits."
+  ]
+}

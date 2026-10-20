@@ -1,0 +1,24 @@
+{
+  "genre": "Tomb and archaeology adventure",
+  "theme": "Curiosity with care, reading clues closely, and respecting the past",
+  "premise": "The Tomb of Ameru. Sami Kade leads a small archaeology team into a sealed tomb in the desert ruins of Ameru, where the carved walls warn that the sleeper in the stone box must not be woken.",
+  "targetMinutes": 25,
+  "literacy": {
+    "profile": "structured-literacy",
+    "targetConcepts": ["r-controlled", "suffix-ed", "glued-ng-nk"],
+    "maxSentenceWords": 16
+  },
+  "wordSettings": {
+    "sets": [
+      { "label": "r-controlled words", "concept": "r-controlled", "words": ["dark", "far", "cart", "card", "dirt", "horn", "burn"], "minOccurrences": 10 },
+      { "label": "ed endings", "concept": "suffix-ed", "words": ["walked", "dusted", "rested", "lifted", "hunted", "tapped"], "minOccurrences": 8 },
+      { "label": "ng and nk words", "concept": "glued-ng-nk", "words": ["long", "sing", "bank", "sink", "tank", "rung"], "minOccurrences": 8 }
+    ]
+  },
+  "continuity": {
+    "characters": ["Sami Kade, the team's lead archaeologist, patient and careful", "Ren, a student who is good with maps and notes", "Hollis, the team's driver and cook, who tells bad jokes", "A carved Keeper on the tomb wall, who warns the team in pictures"],
+    "facts": ["Ameru is a fictional desert city, with no link to any real culture or religion", "The tomb has five chambers, and each has a carved warning", "A mummified sleeper lies in a stone box at the centre"],
+    "avoid": ["violence, gore or anyone being badly hurt", "real brands, companies, places or real people", "sex, romance or suicide", "any real religion, god or sacred rite", "the sleeper is never shown harming anyone"]
+  },
+  "requestedBy": "Davis (project owner)"
+}

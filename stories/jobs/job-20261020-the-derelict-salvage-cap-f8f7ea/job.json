@@ -1,0 +1,70 @@
+{
+  "jobVersion": 1,
+  "id": "job-20261020-the-derelict-salvage-cap-f8f7ea",
+  "storyId": "the-derelict-salvage",
+  "state": "planned",
+  "createdAt": "2026-10-20T23:23:23.408Z",
+  "updatedAt": "2026-10-20T23:23:23.408Z",
+  "artifacts": {
+    "request": {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/request.json",
+      "sha256": "eaeb88edf8928e7608c2db83d86671df4402d7d7d512c4521aadc557fbaf9ec3"
+    },
+    "brief": {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/brief.json",
+      "sha256": "1f2a85bb43dcafb1a5acb117aafa0b6169d1cd750d342d836c37a197e2740db5"
+    },
+    "continuity": {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/continuity.json",
+      "sha256": "96f1323d411472e1a8899e33d136bff5a8facc889a7f3e0180ca8be5841af575"
+    },
+    "outline": {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/outline.json",
+      "sha256": "10bd0126d7e056f0a0ade66782332fab2e3e7249a3c8d2a92833b215d224abdd"
+    },
+    "weavePlan": {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/word-weave-plan.json",
+      "sha256": "729a16bda1b54d93152095838dbb3abe07992d3ab51cad9987199443c2b32b2d"
+    },
+    "generationPrompt": {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/generation-prompt.md",
+      "sha256": "7c42b6f8c12c254ab22e1c2226adf6a3d29fa1f3d85b985effe3ed4f3e070ce5"
+    }
+  },
+  "revisions": [],
+  "reviews": [],
+  "parentDecisions": [],
+  "failures": [],
+  "history": [
+    {
+      "at": "2026-10-20T23:23:23.408Z",
+      "from": null,
+      "to": "requested",
+      "actor": {
+        "name": "Davis (project owner)",
+        "kind": "human"
+      },
+      "note": "Story request recorded"
+    },
+    {
+      "at": "2026-10-20T23:23:23.408Z",
+      "from": "requested",
+      "to": "briefed",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Request validated and normalized into a brief"
+    },
+    {
+      "at": "2026-10-20T23:23:23.408Z",
+      "from": "briefed",
+      "to": "planned",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Continuity assessed; outline, Word Weave Plan and generation prompt written"
+    }
+  ]
+}

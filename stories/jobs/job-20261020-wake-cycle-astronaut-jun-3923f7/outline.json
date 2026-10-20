@@ -1,0 +1,100 @@
+{
+  "briefTitle": "Wake Cycle",
+  "beats": [
+    {
+      "id": "opening",
+      "purpose": "Hook: introduce the hero, the place and the problem.",
+      "next": [
+        "path-a",
+        "path-b"
+      ]
+    },
+    {
+      "id": "path-a",
+      "purpose": "First branch. Find an item that matters later.",
+      "next": [
+        "gathering"
+      ],
+      "mechanic": "item"
+    },
+    {
+      "id": "path-b",
+      "purpose": "Second branch. Learn a clue.",
+      "next": [
+        "gathering"
+      ],
+      "mechanic": "clue"
+    },
+    {
+      "id": "gathering",
+      "purpose": "Paths meet. The hero may go back for what was missed.",
+      "next": [
+        "path-a",
+        "path-b",
+        "threshold"
+      ]
+    },
+    {
+      "id": "threshold",
+      "purpose": "A choice that is locked without the item or clue, with a hint, plus an open alternative.",
+      "next": [
+        "climax",
+        "ending-5"
+      ],
+      "mechanic": "locked-choice"
+    },
+    {
+      "id": "climax",
+      "purpose": "The big moment. Choices lead to different endings.",
+      "next": [
+        "ending-1",
+        "ending-2",
+        "ending-3",
+        "ending-4"
+      ]
+    },
+    {
+      "id": "ending-1",
+      "purpose": "Best ending: earned with clue and item.",
+      "next": [],
+      "mechanic": "ending"
+    },
+    {
+      "id": "ending-2",
+      "purpose": "Different, satisfying ending.",
+      "next": [],
+      "mechanic": "ending"
+    },
+    {
+      "id": "ending-3",
+      "purpose": "Different, satisfying ending.",
+      "next": [],
+      "mechanic": "ending"
+    },
+    {
+      "id": "ending-4",
+      "purpose": "Different, satisfying ending.",
+      "next": [],
+      "mechanic": "ending"
+    },
+    {
+      "id": "ending-5",
+      "purpose": "Gentle setback ending that invites another try.",
+      "next": [],
+      "mechanic": "ending"
+    }
+  ],
+  "endings": 5,
+  "notes": [
+    "Aim for 20-50 passages and 5 endings.",
+    "Keep sentences at or under 16 words.",
+    "Every ending must be reachable; no passage may trap the reader.",
+    "Continuity fact: The colony ship Meridian Hope carries four hundred sleepers and is ten years from home",
+    "Continuity fact: The anomaly is a dust storm that bends the ship's sensors",
+    "Avoid: violence, gore or anyone being badly hurt",
+    "Avoid: real brands, companies, places or real people",
+    "Avoid: sex, romance or suicide",
+    "Avoid: any real religion, god or sacred rite",
+    "Avoid: no crew member dies on the page; any danger is a problem to solve, not a fight"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "genre": "Fantasy adventure with a hero from another world",
+  "theme": "Courage, kindness to strangers, and finding out who you are",
+  "premise": "The Cat Who Took the Wrong Turn. Eli is late for school, so he follows a grey cat through a gap in the fence. He falls down an open manhole and lands in a land where the Lantern Tower is going dark, and its people say he is the hero they were promised.",
+  "targetMinutes": 20,
+  "literacy": {
+    "profile": "structured-literacy",
+    "targetConcepts": ["initial-blend", "closed-syllable", "suffix-ing"],
+    "maxSentenceWords": 16
+  },
+  "wordSettings": {
+    "sets": [
+      { "label": "blend words", "concept": "initial-blend", "words": ["step", "stone", "frog", "plan", "spin", "trip", "crab", "drum"], "minOccurrences": 10 },
+      { "label": "closed syllable words", "concept": "closed-syllable", "words": ["cat", "map", "net", "lid", "hop", "mud", "bus"], "minOccurrences": 8 },
+      { "label": "ing words", "concept": "suffix-ing", "words": ["running", "jumping", "hiding", "climbing", "glowing", "ringing"], "minOccurrences": 8 }
+    ]
+  },
+  "continuity": {
+    "characters": ["Eli, a curious ten-year-old on the way to school, with a lunch box and a library book", "Ash, a grey cat who seems to know the way", "Lira, a guide in the Lantern Tower who is not sure Eli is the hero", "The Lantern Tower, a tall tower that holds the land's light"],
+    "facts": ["The land is called Varro, and its light comes from the Lantern Tower", "Eli is not sure how he got there, and he wants to go home"],
+    "avoid": ["violence, gore or anyone being badly hurt", "real brands, companies, places or real people", "sex, romance or suicide", "any real religion, god or sacred rite", "any danger is gentle, and no one is badly hurt"]
+  },
+  "requestedBy": "Davis (project owner)"
+}

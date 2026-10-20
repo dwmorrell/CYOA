@@ -1,0 +1,89 @@
+{
+  "title": "The Derelict Salvage",
+  "genre": "Space salvage adventure",
+  "theme": "Working as a team, reading the evidence, and deciding what is worth the risk",
+  "premise": "The Derelict Salvage. Captain Odessa Rin and her four-person salvage crew find a drifting ship with no signal, a sealed cargo hold, and a last log entry written after the ship was lost.",
+  "targetMinutes": 22,
+  "passageTarget": {
+    "min": 18,
+    "max": 44
+  },
+  "endingTarget": 5,
+  "maxSentenceWords": 16,
+  "profile": "structured-literacy",
+  "targetConcepts": [
+    "vowel-team",
+    "silent-e",
+    "digraph-th"
+  ],
+  "reviewConcepts": [],
+  "wordSets": [
+    {
+      "id": "vowel-team-words",
+      "label": "vowel team words",
+      "concept": "vowel-team",
+      "words": [
+        "rain",
+        "sail",
+        "boat",
+        "road",
+        "team",
+        "moon",
+        "deep"
+      ],
+      "minOccurrences": 10
+    },
+    {
+      "id": "silent-e-words",
+      "label": "silent e words",
+      "concept": "silent-e",
+      "words": [
+        "cave",
+        "dome",
+        "tube",
+        "note",
+        "hope",
+        "pole"
+      ],
+      "minOccurrences": 8
+    },
+    {
+      "id": "th-words",
+      "label": "th words",
+      "concept": "digraph-th",
+      "words": [
+        "thin",
+        "that",
+        "them",
+        "thud",
+        "path",
+        "moth"
+      ],
+      "minOccurrences": 8
+    }
+  ],
+  "continuity": {
+    "characters": [
+      "Odessa Rin, the captain of the salvage tug Kestrel",
+      "Bo, the engineer who is good with machines and small spaces",
+      "Tam, the navigator who keeps a hand-drawn star map",
+      "Ivy, a young crew member on her first trip"
+    ],
+    "facts": [
+      "The tug Kestrel is old and noisy but reliable",
+      "The derelict ship is named the Lark and went silent eleven years ago"
+    ],
+    "avoid": [
+      "violence, gore or anyone being badly hurt",
+      "real brands, companies, places or real people",
+      "sex, romance or suicide",
+      "any real religion, god or sacred rite"
+    ]
+  },
+  "requiredMechanics": [
+    "choices",
+    "clues",
+    "inventory",
+    "multiple-endings"
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "jobVersion": 1,
+  "id": "job-20261020-the-rain-courier-mara-is-1b7daf",
+  "storyId": "the-rain-courier",
+  "state": "validation-failed",
+  "createdAt": "2026-10-20T23:23:22.800Z",
+  "updatedAt": "2026-10-20T23:26:00.264Z",
+  "artifacts": {
+    "request": {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/request.json",
+      "sha256": "a3aa5a75abde00506ce799e7b7d49dc0168c92b96704c57a0f2084df678b8c06"
+    },
+    "brief": {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/brief.json",
+      "sha256": "6c6bb3956113ff3cdfdb9439d8cb19c273f3c4b414d4ba0e5976133158deff35"
+    },
+    "continuity": {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/continuity.json",
+      "sha256": "96f1323d411472e1a8899e33d136bff5a8facc889a7f3e0180ca8be5841af575"
+    },
+    "outline": {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/outline.json",
+      "sha256": "597a4e0404ee350d4b6f584a62ee59136d7358bd3288e0accecf0c13501df81e"
+    },
+    "weavePlan": {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/word-weave-plan.json",
+      "sha256": "904c49daff5f62a55d6535578026af85dd78c0a13ddfa82ab94d15e908e9aefb"
+    },
+    "generationPrompt": {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/generation-prompt.md",
+      "sha256": "e79839db97890ce45118db3003d411ed06dd5ad7923a917d4a9f81920c1b2a4b"
+    }
+  },
+  "revisions": [
+    {
+      "storyVersion": 1,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/drafts/story.r1.json",
+        "sha256": "9312dfc223ce4620d768d9abc4514fae5245044709be4f3660d478960f9eac66"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T23:26:00.264Z",
+      "validation": {
+        "ok": false,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/validation.r1.json",
+          "sha256": "0081cd82dc8bb2b933f6317264ffb0362c569e6783cb1cfca57fe1a2d90180e6"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/literacy.r1.json",
+          "sha256": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/graph.r1.json",
+          "sha256": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed"
+        },
+        "summary": [
+          "schema: 3 error(s)"
+        ]
+      },
+      "revision": 1
+    }
+  ],
+  "reviews": [],
+  "parentDecisions": [],
+  "failures": [
+    {
+      "stage": "validation",
+      "error": "Revision 1: /passages/0/paragraphs must NOT have more than 6 items; /passages/9/choices/0/lockedHint must NOT have more than 90 characters; /passages/12/paragraphs must NOT have more than 6 items; schema invalid; brief not checked",
+      "at": "2026-10-20T23:26:00.264Z",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      }
+    }
+  ],
+  "history": [
+    {
+      "at": "2026-10-20T23:23:22.800Z",
+      "from": null,
+      "to": "requested",
+      "actor": {
+        "name": "Davis (project owner)",
+        "kind": "human"
+      },
+      "note": "Story request recorded"
+    },
+    {
+      "at": "2026-10-20T23:23:22.800Z",
+      "from": "requested",
+      "to": "briefed",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Request validated and normalized into a brief"
+    },
+    {
+      "at": "2026-10-20T23:23:22.800Z",
+      "from": "briefed",
+      "to": "planned",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Continuity assessed; outline, Word Weave Plan and generation prompt written"
+    },
+    {
+      "at": "2026-10-20T23:26:00.264Z",
+      "from": "planned",
+      "to": "validation-failed",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 1 (story v1) failed automated validation"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "genre": "Space survival mystery",
+  "theme": "Staying calm under pressure, working with others, and thinking a problem through",
+  "premise": "Wake Cycle. Astronaut Jun Adair wakes early from a sleep pod on the colony ship Meridian Hope. The crew are not answering, and the ship is drifting toward a dangerous dust anomaly.",
+  "targetMinutes": 25,
+  "literacy": {
+    "profile": "structured-literacy",
+    "targetConcepts": ["digraph-wh", "digraph-ck", "trigraph-tch"],
+    "maxSentenceWords": 16
+  },
+  "wordSettings": {
+    "sets": [
+      { "label": "wh words", "concept": "digraph-wh", "words": ["when", "white", "whisper", "wheel", "whistle", "whip"], "minOccurrences": 10 },
+      { "label": "ck words", "concept": "digraph-ck", "words": ["back", "deck", "click", "neck", "pack", "rock"], "minOccurrences": 8 },
+      { "label": "tch words", "concept": "trigraph-tch", "words": ["catch", "match", "latch", "hatch", "watch", "switch"], "minOccurrences": 8 }
+    ]
+  },
+  "continuity": {
+    "characters": ["Jun Adair, a navigator with a steady head", "Captain Ines Holm, asleep in the bridge pod", "Oru, the ship's computer, which speaks in short sentences", "Dex, a young engineer who is awake and working in the engine room"],
+    "facts": ["The colony ship Meridian Hope carries four hundred sleepers and is ten years from home", "The anomaly is a dust storm that bends the ship's sensors"],
+    "avoid": ["violence, gore or anyone being badly hurt", "real brands, companies, places or real people", "sex, romance or suicide", "any real religion, god or sacred rite", "no crew member dies on the page; any danger is a problem to solve, not a fight"]
+  },
+  "requestedBy": "Davis (project owner)"
+}

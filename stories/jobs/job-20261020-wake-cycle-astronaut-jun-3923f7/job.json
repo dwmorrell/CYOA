@@ -1,0 +1,70 @@
+{
+  "jobVersion": 1,
+  "id": "job-20261020-wake-cycle-astronaut-jun-3923f7",
+  "storyId": "wake-cycle",
+  "state": "planned",
+  "createdAt": "2026-10-20T23:23:25.399Z",
+  "updatedAt": "2026-10-20T23:23:25.399Z",
+  "artifacts": {
+    "request": {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/request.json",
+      "sha256": "61b0ba8e497d02c8fe99ed52ff5af63d5bed675a2dd016530c97bb1dedc42a9a"
+    },
+    "brief": {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/brief.json",
+      "sha256": "fdc2fc24ea875ea8f0988d268e7bd726581042613ee246fcd7d0b15c5976e318"
+    },
+    "continuity": {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/continuity.json",
+      "sha256": "96f1323d411472e1a8899e33d136bff5a8facc889a7f3e0180ca8be5841af575"
+    },
+    "outline": {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/outline.json",
+      "sha256": "631c68f42811d47fc267155cc8439bad9b867f15775e6e1330d5af8489901cef"
+    },
+    "weavePlan": {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/word-weave-plan.json",
+      "sha256": "03250eab3c1de7b5e1a80fa951b54d49969c867e0723025d1ba7486ce7d16c0f"
+    },
+    "generationPrompt": {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/generation-prompt.md",
+      "sha256": "d417ff13a869bd567829fd39268623d3876418a696385c0fc08bef46b2d96ea5"
+    }
+  },
+  "revisions": [],
+  "reviews": [],
+  "parentDecisions": [],
+  "failures": [],
+  "history": [
+    {
+      "at": "2026-10-20T23:23:25.399Z",
+      "from": null,
+      "to": "requested",
+      "actor": {
+        "name": "Davis (project owner)",
+        "kind": "human"
+      },
+      "note": "Story request recorded"
+    },
+    {
+      "at": "2026-10-20T23:23:25.399Z",
+      "from": "requested",
+      "to": "briefed",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Request validated and normalized into a brief"
+    },
+    {
+      "at": "2026-10-20T23:23:25.399Z",
+      "from": "briefed",
+      "to": "planned",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Continuity assessed; outline, Word Weave Plan and generation prompt written"
+    }
+  ]
+}

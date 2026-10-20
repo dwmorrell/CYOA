@@ -1,0 +1,264 @@
+{
+  "sets": [
+    {
+      "id": "closed-syllable-words",
+      "label": "closed syllable words",
+      "minOccurrences": 10,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "cab",
+            "bag"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "bag",
+            "pick"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "pick",
+            "lock"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "lock",
+            "mask"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "mask",
+            "sack"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "sack",
+            "dash"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "dash",
+            "hack"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "hack",
+            "cab"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "cab",
+            "bag"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "bag",
+            "pick"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "pick",
+            "lock"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sh-words",
+      "label": "sh words",
+      "minOccurrences": 8,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "shop",
+            "shade"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "shade",
+            "shot"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "shot",
+            "shut"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "shut",
+            "flash"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "flash",
+            "shell"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "shell",
+            "shop"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "shop",
+            "shade"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "shade",
+            "shot"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "shot",
+            "shut"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "shut",
+            "flash"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "flash",
+            "shell"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch-words",
+      "label": "ch words",
+      "minOccurrences": 8,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "chip",
+            "chase"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "chase",
+            "patch"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "patch",
+            "much"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "much",
+            "lunch"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "lunch",
+            "chain"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "chain",
+            "chip"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "chip",
+            "chase"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "chase",
+            "patch"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "patch",
+            "much"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "much",
+            "lunch"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "lunch",
+            "chain"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "Words must read naturally in context: no lists of target words and no forced rhymes.",
+    "Each set should appear on every route to an ending, not only on one branch.",
+    "Choice labels count as reading, so use set words there too when it fits."
+  ]
+}

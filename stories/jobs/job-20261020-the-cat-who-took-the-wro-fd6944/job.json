@@ -1,0 +1,124 @@
+{
+  "jobVersion": 1,
+  "id": "job-20261020-the-cat-who-took-the-wro-fd6944",
+  "storyId": "the-cat-who-took-the-wrong-turn",
+  "state": "validation-failed",
+  "createdAt": "2026-10-20T23:23:24.700Z",
+  "updatedAt": "2026-10-20T23:26:03.234Z",
+  "artifacts": {
+    "request": {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/request.json",
+      "sha256": "4a4daed811df4787872c4774c70245c6f8f6b7689dcf85568e954236dc2e20c6"
+    },
+    "brief": {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/brief.json",
+      "sha256": "081e7b2afa16a7f4188de600bb0ab98a6f522a9d5d6ad1a0676282e1147bddd5"
+    },
+    "continuity": {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/continuity.json",
+      "sha256": "96f1323d411472e1a8899e33d136bff5a8facc889a7f3e0180ca8be5841af575"
+    },
+    "outline": {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/outline.json",
+      "sha256": "c5af25fa5614afdc0cd5661e754072fbe15ee3d01a6f794fd31c8ff64c73c679"
+    },
+    "weavePlan": {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/word-weave-plan.json",
+      "sha256": "6f6334af05d26d09004716d74f9662ddff18f3eb7a2522f9f4ac8c76654b3dba"
+    },
+    "generationPrompt": {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/generation-prompt.md",
+      "sha256": "636f1434abb76f4c569a33ced1034932db680bdbf64a43f5fb029c6819ded203"
+    }
+  },
+  "revisions": [
+    {
+      "storyVersion": 1,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r1.json",
+        "sha256": "645e20eb1a06417e28961b6954cb1c7399da04288d6c8658147b78396c57e2f9"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T23:26:03.234Z",
+      "validation": {
+        "ok": false,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/validation.r1.json",
+          "sha256": "dc8231f640d119df2543eb467ae496757ee864a01ba85c9239f5c86b2ae00d38"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/literacy.r1.json",
+          "sha256": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/graph.r1.json",
+          "sha256": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed"
+        },
+        "summary": [
+          "schema: 1 error(s)"
+        ]
+      },
+      "revision": 1
+    }
+  ],
+  "reviews": [],
+  "parentDecisions": [],
+  "failures": [
+    {
+      "stage": "validation",
+      "error": "Revision 1: /passages/15/paragraphs must NOT have more than 6 items; schema invalid; brief not checked",
+      "at": "2026-10-20T23:26:03.234Z",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      }
+    }
+  ],
+  "history": [
+    {
+      "at": "2026-10-20T23:23:24.700Z",
+      "from": null,
+      "to": "requested",
+      "actor": {
+        "name": "Davis (project owner)",
+        "kind": "human"
+      },
+      "note": "Story request recorded"
+    },
+    {
+      "at": "2026-10-20T23:23:24.700Z",
+      "from": "requested",
+      "to": "briefed",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Request validated and normalized into a brief"
+    },
+    {
+      "at": "2026-10-20T23:23:24.700Z",
+      "from": "briefed",
+      "to": "planned",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Continuity assessed; outline, Word Weave Plan and generation prompt written"
+    },
+    {
+      "at": "2026-10-20T23:26:03.234Z",
+      "from": "planned",
+      "to": "validation-failed",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 1 (story v1) failed automated validation"
+    }
+  ]
+}

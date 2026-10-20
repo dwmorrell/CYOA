@@ -1,0 +1,264 @@
+{
+  "sets": [
+    {
+      "id": "blend-words",
+      "label": "blend words",
+      "minOccurrences": 10,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "step",
+            "stone"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "stone",
+            "frog"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "frog",
+            "plan"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "plan",
+            "spin"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "spin",
+            "trip"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "trip",
+            "crab"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "crab",
+            "drum"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "drum",
+            "step"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "step",
+            "stone"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "stone",
+            "frog"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "frog",
+            "plan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "closed-syllable-words",
+      "label": "closed syllable words",
+      "minOccurrences": 8,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "cat",
+            "map"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "map",
+            "net"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "net",
+            "lid"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "lid",
+            "hop"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "hop",
+            "mud"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "mud",
+            "bus"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "bus",
+            "cat"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "cat",
+            "map"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "map",
+            "net"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "net",
+            "lid"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "lid",
+            "hop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ing-words",
+      "label": "ing words",
+      "minOccurrences": 8,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "running",
+            "jumping"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "jumping",
+            "hiding"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "hiding",
+            "climbing"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "climbing",
+            "glowing"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "glowing",
+            "ringing"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "ringing",
+            "running"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "running",
+            "jumping"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "jumping",
+            "hiding"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "hiding",
+            "climbing"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "climbing",
+            "glowing"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "glowing",
+            "ringing"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "Words must read naturally in context: no lists of target words and no forced rhymes.",
+    "Each set should appear on every route to an ending, not only on one branch.",
+    "Choice labels count as reading, so use set words there too when it fits."
+  ]
+}

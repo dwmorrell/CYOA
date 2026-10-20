@@ -1,0 +1,70 @@
+{
+  "jobVersion": 1,
+  "id": "job-20261020-the-tomb-of-ameru-sami-k-541c79",
+  "storyId": "the-tomb-of-ameru",
+  "state": "planned",
+  "createdAt": "2026-10-20T23:23:24.018Z",
+  "updatedAt": "2026-10-20T23:23:24.018Z",
+  "artifacts": {
+    "request": {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/request.json",
+      "sha256": "9d3c9946f0700e74bbf6da6bada33ccefa3e9477eef0483cd26452d7f6d25a27"
+    },
+    "brief": {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/brief.json",
+      "sha256": "7443ae1c50cfb230f4a51c5b7d65c0e2dff42faf687006ca909af3addb0e4f0a"
+    },
+    "continuity": {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/continuity.json",
+      "sha256": "96f1323d411472e1a8899e33d136bff5a8facc889a7f3e0180ca8be5841af575"
+    },
+    "outline": {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/outline.json",
+      "sha256": "485ca37140248e59e7476ab50b023f8fd03f04f19601032be0aadce5d5ae3f42"
+    },
+    "weavePlan": {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/word-weave-plan.json",
+      "sha256": "43c68addac071379303bbf18df470f4d57df32cd4cfa15e227c3881cff14b8cf"
+    },
+    "generationPrompt": {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/generation-prompt.md",
+      "sha256": "b39c5c4517e4598b5487813672a5cd3bf64b820d8955cd18ae76dc46834a7d63"
+    }
+  },
+  "revisions": [],
+  "reviews": [],
+  "parentDecisions": [],
+  "failures": [],
+  "history": [
+    {
+      "at": "2026-10-20T23:23:24.018Z",
+      "from": null,
+      "to": "requested",
+      "actor": {
+        "name": "Davis (project owner)",
+        "kind": "human"
+      },
+      "note": "Story request recorded"
+    },
+    {
+      "at": "2026-10-20T23:23:24.018Z",
+      "from": "requested",
+      "to": "briefed",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Request validated and normalized into a brief"
+    },
+    {
+      "at": "2026-10-20T23:23:24.018Z",
+      "from": "briefed",
+      "to": "planned",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Continuity assessed; outline, Word Weave Plan and generation prompt written"
+    }
+  ]
+}

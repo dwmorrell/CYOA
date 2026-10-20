@@ -1,0 +1,264 @@
+{
+  "sets": [
+    {
+      "id": "vowel-team-words",
+      "label": "vowel team words",
+      "minOccurrences": 10,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "rain",
+            "sail"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "sail",
+            "boat"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "boat",
+            "road"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "road",
+            "team"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "team",
+            "moon"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "moon",
+            "deep"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "deep",
+            "rain"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "rain",
+            "sail"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "sail",
+            "boat"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "boat",
+            "road"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "road",
+            "team"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "silent-e-words",
+      "label": "silent e words",
+      "minOccurrences": 8,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "cave",
+            "dome"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "dome",
+            "tube"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "tube",
+            "note"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "note",
+            "hope"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "hope",
+            "pole"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "pole",
+            "cave"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "cave",
+            "dome"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "dome",
+            "tube"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "tube",
+            "note"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "note",
+            "hope"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "hope",
+            "pole"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "th-words",
+      "label": "th words",
+      "minOccurrences": 8,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "thin",
+            "that"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "that",
+            "them"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "them",
+            "thud"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "thud",
+            "path"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "path",
+            "moth"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "moth",
+            "thin"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "thin",
+            "that"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "that",
+            "them"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "them",
+            "thud"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "thud",
+            "path"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "path",
+            "moth"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "Words must read naturally in context: no lists of target words and no forced rhymes.",
+    "Each set should appear on every route to an ending, not only on one branch.",
+    "Choice labels count as reading, so use set words there too when it fits."
+  ]
+}

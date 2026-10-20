@@ -1,0 +1,21 @@
+{
+  "ok": false,
+  "schema": {
+    "ok": false,
+    "errors": [
+      "/passages/0/paragraphs must NOT have more than 6 items",
+      "/passages/9/choices/0/lockedHint must NOT have more than 90 characters",
+      "/passages/12/paragraphs must NOT have more than 6 items"
+    ]
+  },
+  "brief": {
+    "ok": false,
+    "errors": [
+      "schema invalid; brief not checked"
+    ],
+    "warnings": []
+  },
+  "summary": [
+    "schema: 3 error(s)"
+  ]
+}

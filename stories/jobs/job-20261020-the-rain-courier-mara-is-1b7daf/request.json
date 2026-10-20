@@ -1,0 +1,79 @@
+{
+  "genre": "Cyberpunk delivery adventure",
+  "theme": "Trust, choosing who to believe, and keeping a promise",
+  "premise": "The Rain Courier. Mara is a rain-soaked courier, paid to carry a sealed data chip across the flooded city before the midnight handover. Gangs and corporate drones want the chip too, and a voice inside it seems to know her name.",
+  "targetMinutes": 20,
+  "literacy": {
+    "profile": "structured-literacy",
+    "targetConcepts": [
+      "closed-syllable",
+      "digraph-sh",
+      "digraph-ch",
+      "suffix-ing"
+    ],
+    "maxSentenceWords": 16
+  },
+  "wordSettings": {
+    "sets": [
+      {
+        "label": "closed syllable words",
+        "concept": "closed-syllable",
+        "words": [
+          "cab",
+          "bag",
+          "pick",
+          "lock",
+          "mask",
+          "sack",
+          "dash",
+          "hack"
+        ],
+        "minOccurrences": 10
+      },
+      {
+        "label": "sh words",
+        "concept": "digraph-sh",
+        "words": [
+          "shop",
+          "shade",
+          "shot",
+          "shut",
+          "flash",
+          "shell"
+        ],
+        "minOccurrences": 8
+      },
+      {
+        "label": "ch words",
+        "concept": "digraph-ch",
+        "words": [
+          "chip",
+          "chase",
+          "patch",
+          "much",
+          "lunch",
+          "chain"
+        ],
+        "minOccurrences": 8
+      }
+    ]
+  },
+  "continuity": {
+    "characters": [
+      "Mara, a courier who rides a patched old bike",
+      "Vex, a broker who pays the couriers and keeps his face hidden",
+      "Nine, the voice inside the chip, who knows Mara's name"
+    ],
+    "facts": [
+      "The city is always raining, and the tower lights blink through the fog",
+      "The midnight handover is at the old rail bridge"
+    ],
+    "avoid": [
+      "violence, gore or anyone being badly hurt",
+      "real brands, companies, places or real people",
+      "sex, romance or suicide",
+      "any real religion, god or sacred rite"
+    ]
+  },
+  "requestedBy": "Davis (project owner)"
+}
