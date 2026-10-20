@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-cat-who-took-the-wro-fd6944",
   "storyId": "the-cat-who-took-the-wrong-turn",
-  "state": "validation-failed",
+  "state": "in-review",
   "createdAt": "2026-10-20T23:23:24.700Z",
-  "updatedAt": "2026-10-20T23:26:03.234Z",
+  "updatedAt": "2026-10-20T23:26:11.532Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/request.json",
@@ -63,6 +63,41 @@
         ]
       },
       "revision": 1
+    },
+    {
+      "storyVersion": 2,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r2.json",
+        "sha256": "58d08f4e7d909bc20bc9a6ee0db2d2a6e1b1f212ce041ef239a01a53a31fc789"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T23:26:11.532Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/validation.r2.json",
+          "sha256": "3363fb3e3305a8f52bce1eed73286382a6c076971f075e1b7e694e72a2a2caf1"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/literacy.r2.json",
+          "sha256": "bf2119a700c838c0c4996f7c9a01d200c5b85efc1855c45e9a41d5af561f02a0"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/graph.r2.json",
+          "sha256": "9328a6234e4f160ed461746205b1a93380350a0458f7c6063ed7354e192ed30a"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 2
     }
   ],
   "reviews": [],
@@ -119,6 +154,17 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 1 (story v1) failed automated validation"
+    },
+    {
+      "at": "2026-10-20T23:26:11.532Z",
+      "from": "validation-failed",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 2 (story v2) passed automated validation"
     }
   ]
 }

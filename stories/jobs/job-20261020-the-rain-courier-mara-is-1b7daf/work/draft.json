@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-rain-courier",
   "title": "The Rain Courier",
-  "version": 2,
+  "version": 3,
   "metadata": {
     "genre": "Cyberpunk delivery adventure",
     "theme": "Trust, choosing who to believe, and keeping a promise",
@@ -68,8 +68,7 @@
         "Vex waited under a dripping roof. He was a broker, and he wore a grey mask. No courier had ever seen his face.",
         "\"One job, Mara,\" he said. \"Take this bag to the old rail bridge. Be there by midnight.\"",
         "Inside the bag lay a small black chip. It was sealed in a hard shell. \"Do not open it. Do not lose it. Do not stop for anyone,\" said Vex.",
-        "Mara tucked the bag under her coat. Far off, the tower lights were blinking through the fog.",
-        "Then a tiny voice spoke from the bag. \"Hello, Mara,\" it said. \"I have been waiting for you.\""
+        "Mara tucked the bag under her coat. Far off, the tower lights were blinking through the fog. Then a tiny voice spoke from the bag. \"Hello, Mara,\" it said. \"I have been waiting for you.\""
       ],
       "learningTargets": ["detail", "engagement"],
       "choices": [
