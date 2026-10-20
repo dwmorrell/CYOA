@@ -1,0 +1,114 @@
+{
+  "role": "literacy",
+  "reviewer": {
+    "name": "literacy-specialist",
+    "kind": "ai-agent",
+    "agent": "literacy-specialist"
+  },
+  "revision": 5,
+  "draftSha256": "c8ddc2a8fd1ec35d58a9dc0232e23f337ea8f354bb4b6261dba8d39b723ef59f",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "AI review of revision 5. It is NOT the human literacy review the publication policy requires; literacy.review.status stays \"pending\" in the story file and a qualified human must still review. A 'pass' here only means I found no blocker or major finding. Automated checks cannot judge: spelling patterns are matched, not sound; syllable counts are estimates from vowel groups; readability figures (report r5: 690 words, average sentence 7.6 words, longest passage start at 82 words, 0 sentences over 20) are estimates and say nothing about how this child will read it; the analyzer does not judge vocabulary, clue clarity, definition quality or story quality. I could not run a script over the text (the command needed approval and was not run), so I checked sentence lengths by reading every sentence by eye. The longest I found is 14 words (start: \"Gran Tull, the old lamp keeper, sat on the bench by the tower door.\"), under the brief's maxSentenceWords of 16, but this is a hand check, not a count by script. I cannot hear the text or test it with a child, and I did not run the app."
+    },
+    {
+      "severity": "note",
+      "message": "R4 FINDING 1 (major, shed-chest: word help had no definitions): FIXED. All 18 glossary entries now have a definition (the report says 18; I read 18 keys in the file). Checked in context: shed-chest \"A grey moth fluttered out\" -> fluttered: \"Flew with quick, light flaps of the wings.\" (plain, correct). ending-beam \"toward the harbour\" -> harbour: \"A safe place by the sea where boats come to rest.\" (correct). bench-clue \"Matches, to light the wick again.\" -> matches: \"Thin sticks that make a small flame when you strike them.\" and wick: \"The string in a lamp that burns and gives the flame.\" (correct for this lamp). mirror: \"A shiny part that bounces light. In the lamp room, it makes the light bright.\" is correct in context. Two small wording points are listed in a separate minor finding.",
+      "passage": "shed-chest"
+    },
+    {
+      "severity": "note",
+      "message": "R4 FINDING 2 (major, bench-clue: four words for one idea): FIXED. The part to wipe is 'the mirror' throughout: bench \"Look at the mirror, not the flame.\"; bench-clue \"It leaves wet mist on the brass mirror.\" and \"A misty mirror makes the light dim. Wipe the mirror clean and the lamp will shine.\"; threshold \"The brass mirror stood dull and misty.\"; climax \"The mist wiped away\"; the damp-mirror clue \"Fog leaves wet mist on the brass mirror.\"; the choice label \"Ask Gran Tull what the mirror can tell you\". 'Glass' and 'film' no longer appear in the passages. 'Mist' is now the single word for the wet cloudiness and is explained by \"Fog is wet air.\" This was fixed in the way I suggested, and it works.",
+      "passage": "bench-clue"
+    },
+    {
+      "severity": "note",
+      "message": "R4 FINDING 3 (major, gathering: who and where for Gran Tull): FIXED. start now introduces her before the first choice: \"Gran Tull, the old lamp keeper, sat on the bench by the tower door.\" She stays on the bench: bench-clue \"I will stay here on the bench.\"; ending-beam \"Fen ran down to the bench.\"; ending-help \"Gran Tull heard from the bench.\"; ending-dock \"Gran Tull walked down the path from the bench.\" gathering no longer places her at the door. The author also made the stairs line in bench-clue (\"My knees are slow on stairs.\") match ending-help (\"She climbed up, one slow step at a time.\"), which helps the reader. The new remaining who/where points are minor and listed below.",
+      "passage": "gathering"
+    },
+    {
+      "severity": "note",
+      "message": "R4 minor findings, status. Hard words without help (threshold): FIXED, wick, brass, beam, gust, stairs, knees and steady are all in the glossary with a definition. Paragraph load (bench-clue, ending-help, ending-dock, climax): MOSTLY FIXED. bench-clue now has the tin (\"Matches, to light the wick again.\") and the knees line (\"My knees are slow on stairs...\") as separate paragraphs, and ending-help and ending-dock paragraphs are one to two sentences; climax paragraph 3 is still three sentences with a side detail (see minor finding). Sentence length (ending-help, ending-dock): FIXED, \"She climbed up, one slow step at a time. Then she put a hand on the chain.\" and \"Fen waved and waved. A ship horn answered. But no boat came in.\" Locked hint (threshold): FIXED. Clue order (climax): FIXED, threshold now shows \"A gust of wind came in through the open window.\" first, then Fen thinks \"The wind must have put out the wick.\"; bench-clue no longer gives the answer first. Time pressure (threshold): FIXED in the passage, \"There was not much time.\" is gone and the paragraph ends \"Fen took a slow breath and looked at the mirror.\" Capital 'Matches' (bench-clue): FIXED on reading the code, see the app-settings finding. Earlier r4 notes (word sets, 'chain' as a vowel-team word, low exposure of 'shell') still stand and are not repeated.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "minor",
+      "message": "The revision notes give the locked hint as 78 characters. I matched it in the file with a pattern for exactly 76 characters and it matched once, and a pattern for 91 or more characters did not match. So threshold lockedHint \"You need a cloth from the shed chest, and matches and a clue from Gran Tull.\" is 76 characters, within the schema limit of 90 (schemas/story.schema.json, lockedHint maxLength 90). The notes' figure is slightly off; it does not matter for validity. The hint is fair: it names all three requirements (soft-cloth, match-tin, damp-mirror clue) and where each comes from, and it gives no answer away.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "minor",
+      "message": "Who is 'she' in start. Paragraph 3 is about Gran Tull (\"She wore a thick wool coat.\"). Paragraph 4 then begins \"Pip the gull hopped onto the bench. She tapped a shell with her beak, tap, tap, tap.\" The beak makes it Pip, but a shaky reader sees 'She' straight after Gran Tull and may think Gran Tull tapped. Using 'Pip' (or 'The gull') in the second sentence would remove the doubt. Narrative designer to decide.",
+      "passage": "start"
+    },
+    {
+      "severity": "minor",
+      "message": "Where is Pip at the end of the help route. ending-help says \"Pip snapped at a moth.\" and \"Fen sat on the step with Pip and Gran Tull.\" Pip was last placed on the step at the foot of the tower (gathering: \"Pip sat on the step.\"), and the moth is in the lamp room (climax: \"A moth circled the glow and flew off.\"). The reader is not told Pip came up. Also \"Gran Tull heard from the bench\" when Fen \"called down the stairs\" from the lamp room is a long way to hear; it works as story logic but a careful reader may stop on it. Neither blocks the story.",
+      "passage": "ending-help"
+    },
+    {
+      "severity": "minor",
+      "message": "Paragraph 3 of climax holds three sentences and two ideas: \"The mirror caught the flame. A bright beam shot out into the thick fog. A moth circled the glow and flew off.\" (about 22 words by hand count). In paragraph focus mode (UI-9) the moth line is a side detail inside the key moment. Splitting it into its own paragraph, or moving it, would keep one idea per screen.",
+      "passage": "climax"
+    },
+    {
+      "severity": "minor",
+      "message": "Glossary wording is plain and correct in context, with two small points. knees: \"The joints in the middle of your legs. They bend.\" uses 'joints', which is a harder word than 'knees'. steady: \"Smooth and even, with no jerks.\" uses 'even' and 'jerks', which are abstract for a word that appears once (ending-beam: \"slow and steady\"). match: \"strike it\" in the definition is the same word used in climax (\"Fen struck a match\"), which helps. Simpler wording for knees (for example 'The bend in the middle of your leg') is suggested. Narrative designer to decide.",
+      "passage": "ending-beam"
+    },
+    {
+      "severity": "minor",
+      "message": "Learning-target tagging is absent. The master spec (section 5) asks for learning targets associated with relevant moments, and the report's learning-design section says \"NEEDS WORK learning-targets-tagged: no moments tagged for: comprehension, inference, sequencing, vocabulary, detail, engagement\" (all six counts 0). The report marks this advisory. Good candidate moments are bench-clue (inference: mist -> dim lamp -> wipe), threshold (inference: \"The wind must have put out the wick.\"; and detail: the locked choice depends on the clue, cloth and tin) and gathering (sequencing: \"Was there more to find first?\"). I did not review this in r4 and should have; it is raised now.",
+      "passage": "bench-clue"
+    },
+    {
+      "severity": "minor",
+      "message": "Typing balance. Master spec section 4 asks for typing mini-games that are neither overused nor entirely absent. The report says \"NEEDS WORK typing-balance: 0 typing puzzle(s) in 8 non-ending passages (aim: 1 to 2)\". The draft has none, so typing is entirely absent, and this was also true in r4 where I only noted that none existed. Typing must stay optional and never block a route; one optional typing moment (for example copying a clue word at the lamp room door) would meet the spec. The report marks it advisory. For the narrative designer and the human reviewer to decide; not required for this verdict.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "note",
+      "message": "Readability check (estimate, by eye plus report figures). Sentences are short and paragraphs are one to three sentences, 1 to 5 paragraphs per passage; the longest passage is start at 82 words (report). Each passage says who, what and where: start (Fen, path by the lighthouse, dark lamp in fog, Gran Tull and Pip on the bench); shed (shed door, chest); shed-chest (cloth); bench and bench-clue (Gran Tull, mirror, tin); gathering (tower door, Pip on the step); threshold (lamp room, window, mirror, wick); climax (lamp lit, chain, choice); the three endings each say what happened and where Fen is. Vocabulary load is moderate, the report finds no words of 4 or more syllables, and the harder words (wick, brass, beam, gust, stairs, knees, steady, fluttered, harbour) now have word help. The cause chain fog -> mist -> dim lamp -> wipe is stated in plain steps in bench-clue. I count this as acceptable for ages 10 to 13 pending the human review. Decodability of the digraph sets: the report shows sh 20/10, ch 23/8, th 16/8, every word used, on every route, no spelling mismatches (spelling, not sound).",
+      "passage": "start"
+    },
+    {
+      "severity": "note",
+      "message": "App settings (MASTER_SPEC sections 3 to 5, UI_SPEC), checked from the text and the code; I did not render the app. MEANING WITHOUT LAYOUT: no lists, tables, bold, italics, colour words, 'see above' or 'on the left'; dialogue uses quotation marks and 'said'; it should survive large text, wide spacing and the dyslexia font by wrapping (UI-7, UI-14). READ-ALOUD (UI-10): nothing exists only visually; sounds are written as words (start: \"tap, tap, tap\"; gathering: \"a ship horn gave a low, sad call\"). 'Tull' and the British 'harbour' may be mispronounced by a voice; a human should listen on the device (not run). WORD HELP OPTIONAL (UI-8): the passages read without it, because each hard word is either explained by context (wick by \"Matches, to light the wick again\"; mist by \"Fog is wet air\") or is not needed for the plot. src/ui/Reader.tsx lowercases each word before the glossary lookup (line 27: glossary[part.toLowerCase()]) and splits on whole words, so \"Matches\" in bench-clue finds the key 'matches' and \"match\" in climax finds 'match'. This is from reading the code, not from running the app. Word help applies to paragraph text; I did not see it applied to choice labels, so \"light the wick\" in the threshold choice has no word help (the word is explained earlier). NO TIME OR SPEED IN ANY CHOICE: no timer; no choice mentions speed; threshold no longer says time is short; \"twice as fast\" (ending-help) is an outcome, not a choice. The premise \"before the fishing boats come home\" in metadata is a mild deadline; the human reviewer may wish to soften it. TYPING PUZZLES: none, so none block a route (see the minor finding on balance). LOCKED CHOICE (UI-3): 'Wipe the mirror and light the wick' (threshold) stays in the choice list with a hint of 76 characters, within the 90 limit, and is reachable by both the shed-first and bench-first routes via gathering; two non-locked choices (run-to-dock, go-down) mean the child is never stuck.",
+      "passage": "threshold"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r5.json",
+      "sha256": "c8ddc2a8fd1ec35d58a9dc0232e23f337ea8f354bb4b6261dba8d39b723ef59f"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r5.json",
+      "sha256": "175ce1164226326fbd4bd8c7c50ee20955a163e409627a1f2ca1f401da3d1960"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r5.md",
+      "sha256": "058bf4cd3064059f885bc2f4e1e8fa032bb7cd5d86b05fade4bd92c5d7f3bb66"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/weave-comparison.r5.json",
+      "sha256": "f0c49c2bedba7cd85ce784f3510634d6feb113a6049141caf619c5bdd74c6a89"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json",
+      "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/word-weave-plan.json",
+      "sha256": "fe0edfb2ee6cbe863d05fe16f8be8b997b92afd901d67755f8670bd0cb36cf9a"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/work/revision-notes.r5.md",
+      "sha256": "b3881aaa49fea25802c7981b637a381c4865b37ae8989cba58e56ac8e25b2605"
+    }
+  ],
+  "id": "review-8-literacy",
+  "submittedAt": "2026-10-20T21:23:47.089Z"
+}

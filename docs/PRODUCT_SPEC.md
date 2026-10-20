@@ -143,23 +143,27 @@ which holds the current status of each one.
 6. Preview a draft in memory. Previews never touch a child's save or progress.
 7. Export a story file.
 8. Approve for the reader's library. Approval needs a saved draft, passing
-   automated checks, and an acknowledgement when no human literacy review is
-   recorded. See the decision note below.
+   automated checks, and a human literacy review recorded in the story itself
+   (status `passed`, reviewer kind `human`, reviewer name and date). An AI
+   pre-review never counts. The editor cannot write that record: saving keeps
+   the stored record, and the JSON tab cannot change it.
 
-### Decision for the owner: in-app approval
+### Decided: in-app approval
 
-The master specification asks for parent approval in the app. The repository's
-story workflow keeps a human literacy review and a CLI publication step. These
-do not yet meet, so the in-app approval:
+Owner decision, 2026-10-20: a human literacy review must be recorded before any
+story can be approved. There is no acknowledgement-only path.
+
+In-app approval:
 
 - puts a story in this device's child library only; it does not publish to the
-  repository or to other devices;
-- requires passing automated checks;
-- records whether a human literacy review exists, and asks the parent to
-  acknowledge when none does.
+  repository or to other devices, and it writes nothing to the repository;
+- requires passing automated checks and a recorded human literacy review;
+- records the reviewer and review date on the approved version.
 
-Davis can change this, for example by requiring a recorded human literacy review
-before any in-app approval.
+Limit: the human review record lives in the story file, so whoever imports a
+file can write one into it. The app checks that the record is present; it does
+not verify who wrote it. The repository's CLI publication gates remain the
+authoritative route for stories that will reach other devices.
 
 ## 8. Out of scope for the first version
 

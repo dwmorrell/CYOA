@@ -6,10 +6,12 @@ import { newGame } from '../../src/engine/story-engine';
 import type { GameState, Story } from '../../src/engine/types';
 import { memoryKv } from '../../src/storage/kv';
 import { Repo } from '../../src/storage/repo';
+
 import { App } from '../../src/ui/App';
 import type { Catalog } from '../../src/ui/catalog';
 import { AppContext, type AppCtx } from '../../src/ui/context';
 import { applyPrefs } from '../../src/ui/prefs';
+import { pageSpeech } from '../../src/ui/speech';
 import { Reader } from '../../src/ui/Reader';
 import { clone, fixture } from '../helpers';
 
@@ -75,38 +77,75 @@ describe('first run and profiles', () => {
 });
 
 describe('parent approval controls the child library', () => {
-  it('a draft is hidden from the child until approved in the editor', async () => {
+  const reviewedByHuman = (x: Story): Story => ({ ...x, literacy: { ...x.literacy, review: { status: 'passed', reviewer: 'Dr Rowan Ellis', reviewerKind: 'human', date: '2026-10-20' } } });
+
+  async function openEditor(repo: Repo, id: string) {
+    location.hash = '#/parent';
+    render(<App repo={repo} catalog={emptyCatalog} />);
+    fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
+    fireEvent.click(button('Open'));
+    fireEvent.click(await screen.findByRole('button', { name: `Edit ${story.title}` }));
+    await screen.findByText('All automated checks pass.');
+    void id;
+  }
+
+  it('a draft without a human literacy review cannot be approved in the editor', async () => {
     const repo = await readyRepo();
     await repo.saveDraft(story, 'Sam', 'import');
     render(<App repo={repo} catalog={emptyCatalog} />);
     expect(await screen.findByText('No adventures yet')).toBeTruthy();
-
     await navigate('#/parent');
     fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
     fireEvent.click(button('Open'));
     fireEvent.click(await screen.findByRole('button', { name: `Edit ${story.title}` }));
-    expect(await screen.findByText('All automated checks pass.')).toBeTruthy();
+    expect(await screen.findByText(/A human literacy review must be recorded/)).toBeTruthy();
+    expect((screen.getByRole('button', { name: 'Approve version 1' }) as HTMLButtonElement).disabled).toBe(true);
+    expect(screen.queryByLabelText(/no reading specialist/)).toBeNull();
+  });
 
+  it('a human-reviewed draft is approved in the editor and then offered to the child', async () => {
+    const repo = await readyRepo();
+    await repo.saveDraft(reviewedByHuman(story), 'Sam', 'import');
+    render(<App repo={repo} catalog={emptyCatalog} />);
+    await screen.findByText('No adventures yet');
+    await navigate('#/parent');
+    fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
+    fireEvent.click(button('Open'));
+    fireEvent.click(await screen.findByRole('button', { name: `Edit ${story.title}` }));
+    expect(await screen.findByText(/Literacy review recorded by Dr Rowan Ellis on 2026-10-20/)).toBeTruthy();
     const approve = await screen.findByRole('button', { name: 'Approve version 1' });
-    expect((approve as HTMLButtonElement).disabled).toBe(true);
-    fireEvent.click(screen.getByLabelText(/no reading specialist has reviewed this story/));
     expect((approve as HTMLButtonElement).disabled).toBe(false);
     fireEvent.click(approve);
     expect(await screen.findByText(/is now in the reader’s library/)).toBeTruthy();
-    const entry = (await repo.library())[0]!;
-    expect(entry.approved?.acknowledgedPendingLiteracyReview).toBe(true);
-    expect(entry.approved?.literacyReviewStatus).toBe('pending');
-
+    expect((await repo.library())[0]?.approved?.literacyReview.reviewer).toBe('Dr Rowan Ellis');
     await navigate('#/');
     expect(await screen.findByRole('button', { name: `Start ${story.title}` })).toBeTruthy();
+  });
+
+  it('the editor cannot change the literacy review record, even through the JSON tab', async () => {
+    const repo = await readyRepo();
+    await repo.saveDraft(story, 'Sam', 'import');
+    await openEditor(repo, story.id);
+    fireEvent.click(screen.getByRole('tab', { name: 'JSON' }));
+    const box = document.getElementById('ed-json') as HTMLTextAreaElement;
+    const edited = JSON.parse(box.value) as Story;
+    edited.title = 'The Lost Kite, edited';
+    edited.literacy.review = { status: 'passed', reviewer: 'Me', reviewerKind: 'human', date: '2026-10-20' };
+    fireEvent.change(box, { target: { value: JSON.stringify(edited) } });
+    fireEvent.click(button('Apply JSON'));
+    fireEvent.click(button('Save draft'));
+    expect(await screen.findByText(/Changes to the literacy review record were ignored/)).toBeTruthy();
+    const stored = await repo.draft(story.id);
+    expect(stored?.literacy.review.status).toBe('pending');
+    expect(stored?.title).toBe('The Lost Kite, edited');
   });
 
   it('editing an approved story saves a new version and keeps the child on the old one', async () => {
     const repo = await readyRepo();
     const child = (await repo.profiles()).find((p) => p.kind === 'child')!;
-    await repo.saveDraft(story, 'Sam', 'import');
-    await repo.approve(story.id, { by: 'Sam', at: 'now', literacyReviewStatus: 'pending', acknowledgedPendingLiteracyReview: true });
-    await repo.startGame(child.id, story);
+    await repo.saveDraft(reviewedByHuman(story), 'Sam', 'import');
+    await repo.approve(story.id, { by: 'Sam', at: 'now' });
+    await repo.startGame(child.id, reviewedByHuman(story));
 
     location.hash = '#/parent';
     render(<App repo={repo} catalog={emptyCatalog} />);
@@ -116,7 +155,6 @@ describe('parent approval controls the child library', () => {
     fireEvent.change(await screen.findByLabelText('Title'), { target: { value: 'The Lost Kite, revised' } });
     fireEvent.click(button('Save draft'));
     expect(await screen.findByText('Draft saved as version 2.')).toBeTruthy();
-    fireEvent.click(screen.getByLabelText(/no reading specialist/));
     fireEvent.click(await screen.findByRole('button', { name: 'Approve version 2' }));
     await screen.findByText(/Version 2 is now in the reader’s library/);
 
@@ -206,6 +244,24 @@ describe('reader', () => {
     rerender();
     expect(states.at(-1)!.puzzlesSolved).toEqual(['pz']);
     expect(screen.getByText('Well typed!')).toBeTruthy();
+  });
+});
+
+describe('read-aloud and optional typing', () => {
+  it('read-aloud speaks the page and an open typing prompt, marked optional', () => {
+    const text = pageSpeech('The shed', ['A dusty room.'], 'Type the word: wick.');
+    expect(text).toBe('The shed A dusty room. Optional typing: Type the word: wick. You can skip this and carry on.');
+  });
+
+  it('read-aloud leaves out the typing prompt once it is solved or absent', () => {
+    expect(pageSpeech('The shed', ['A dusty room.'])).toBe('The shed A dusty room.');
+  });
+
+  it('the typing puzzle says it is optional on screen, before any try', () => {
+    const s = clone(story);
+    s.passages.find((p) => p.id === 'pond')!.puzzle = { id: 'pz2', prompt: 'Type it.', answers: ['x'], successText: 'Done.' };
+    renderReader(s, { ...newGame(s), current: 'pond' });
+    expect(screen.getByText('Optional. You can skip this and carry on.')).toBeTruthy();
   });
 });
 

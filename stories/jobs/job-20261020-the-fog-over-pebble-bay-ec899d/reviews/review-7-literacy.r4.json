@@ -1,0 +1,115 @@
+{
+  "role": "literacy",
+  "reviewer": {
+    "name": "literacy-specialist",
+    "kind": "ai-agent",
+    "agent": "literacy-specialist"
+  },
+  "revision": 4,
+  "draftSha256": "dc3b653927bafe7c50ada8d08239f49db59049df90f9ae9778970730e9785a4c",
+  "verdict": "changes-requested",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "AI review of readability and app-settings fit, requested by the owner. It is NOT the human literacy review the publication policy requires; literacy.review.status stays \"pending\" in the story file. Automated checks cannot judge: spelling patterns are matched, not sound; syllable counts are estimates from vowel groups; readability figures (average sentence length 8.1 words, 682 words, longest passage ending-dock at 85 words) are estimates and say nothing about how this child will actually read it; the analyzer does not judge vocabulary, clue clarity or story quality. I could not run a script over sentence lengths (the command was refused), so I counted the longest sentences by hand and did not count every sentence. I cannot hear the text or test it with a child. A qualified human must confirm all of it."
+    },
+    {
+      "severity": "major",
+      "message": "Word help has no definitions. All 10 glossary entries (lighthouse, harbour, mirror, tower, window, answer, afraid, pocket, fluttered, matches) have syllables only; none has the 'definition' field the schema and types allow. UI-8 and the owner's requirement are syllables plus a plain meaning. Plain definitions are needed, for example for 'fluttered' (shed-chest: \"A grey moth fluttered out\"), 'harbour' (ending-beam: \"turned toward the harbour\") and 'matches' (bench-clue: \"Matches, for the wick\"). Definitions must be short and use words easier than the word itself. Narrative designer to write them.",
+      "passage": "shed-chest"
+    },
+    {
+      "severity": "major",
+      "message": "The key clue uses four different words for one idea, and one is ambiguous. bench says \"Look at the glass, not the flame\". bench-clue then says \"It leaves a film on the brass mirror\", then \"the misty mirror made the light dim\". The clue text says \"wet film\" and \"damp\". A dyslexic reader who is shaky on comprehension must connect glass = mirror = the thing to wipe. 'Film' is also commonly read as a movie. The locked choice 'Wipe the mirror and light the wick' (threshold) depends on this chain. Ask the narrative designer to use one word for the part to be wiped, and to say what the film is in plain terms (for example mist or wet cloudiness). Also note that the lamp-room mirror is never described as 'glass' (threshold: \"The brass mirror stood dull and misty\").",
+      "passage": "bench-clue"
+    },
+    {
+      "severity": "major",
+      "message": "Who and where are unclear on the shed-first route (start, shed, shed-chest, gathering). start offers the choice \"Sit on the bench and ask Gran Tull\" before she is introduced, and gathering says \"Gran Tull sat by the door\" to a child who has not met her. If that child then picks 'Go back to the bench and Gran Tull', bench says \"Gran Tull sat on the bench\", so she is in two places. bench-clue then has her say \"I will wait at the tower door\". ending-dock also has \"Gran Tull came down the path in her thick coat\" for a child who may never have met her. A reader who loses track of a character is likely to lose the plot. Narrative designer should introduce Gran Tull in start and make her position in gathering and ending-dock match what the child has seen on that route. This also covers the continuity note in the earlier r4 review.",
+      "passage": "gathering"
+    },
+    {
+      "severity": "minor",
+      "message": "Hard words without glossary help that carry the plot or are likely stumbling blocks: 'wick' (threshold: \"the wick sat cold in its dish\"; also in the locked choice label \"Wipe the mirror and light the wick\"), 'brass' (shed-chest, bench-clue, threshold), 'beam' (climax: \"A bright beam shot out\"), 'gust' (threshold), 'stairs' and 'knees' (bench-clue), 'steady' (ending-beam). Context explains 'wick' only partly. Suggest adding at least wick, beam and brass with definitions. This reverses my earlier r4 note that no more glossary words were needed; the owner's readability request makes them worth adding.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "minor",
+      "message": "Paragraph load for the one-paragraph focus mode (UI-9). STORY_AUTHORING asks for one idea per paragraph, one to three sentences. Longest paragraphs by hand count: ending-help paragraph 1 (about 28 words: calling down the stairs, Gran Tull hearing, climbing, touching the chain), ending-dock paragraph 3 (about 28 words: she arrives, speaks, and gives the hint \"The lamp room has the answer.\"), bench-clue paragraph 3 (about 27 words: gives the tin, then explains why she will wait), climax paragraph 4 (about 25 words: the rule, the chain, the choice), and bench-clue paragraph 2 (about 21 words: cause, effect and instruction in one block). Each is workable but holds two or three ideas. Suggest splitting these into separate paragraphs so each focus-mode screen holds one idea.",
+      "passage": "bench-clue"
+    },
+    {
+      "severity": "minor",
+      "message": "Sentence length is within the brief's 16-word maximum on the sentences I counted, but two sit exactly at 16, above the 8 to 12 aim in STORY_AUTHORING: \"She climbed up, one slow step at a time, and put a hand on the chain.\" (ending-help) and \"Gran Tull came down the path in her thick coat and put an arm around Fen.\" (ending-dock). The report only states 0 sentences over 20 words, which does not show the brief's limit of 16 was met; I did not verify every sentence against 16. Also \"A ship horn answered, but Fen could not see much, and no boat came in.\" (ending-dock, 15 words) packs three clauses. Splitting each into two sentences would help fluency.",
+      "passage": "ending-help"
+    },
+    {
+      "severity": "minor",
+      "message": "The locked-choice hint is fair but not fully matched to the child's state. threshold 'Wipe the mirror and light the wick' needs soft-cloth, match-tin and the damp-mirror clue. lockedHint says \"Look for a cloth in the shed chest. Ask Gran Tull on the bench.\" That covers all three requirements (the cloth is in the chest; Gran Tull gives the tin and the clue), and the places are named in start. But a child who already has the cloth is still told to look for a cloth, and the hint does not say the tin or the clue come from Gran Tull. Consider wording such as: \"You need a cloth from the shed chest, and matches and a clue from Gran Tull.\" The hint is 63 characters, so there is room within the 120-character limit.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "minor",
+      "message": "Clue ordering is mostly good: the cloth is described as for the brass mirror before it is needed (items: soft-cloth), and the clue arrives in bench-clue before the lamp room. But in threshold the child learns the window was open (\"A gust of wind came in through the open window\") only after Gran Tull has already said \"The wind put out the wick\" (bench-clue), so the explanation arrives before the evidence. This is acceptable. The chain is introduced only in climax (\"A chain by the mirror turns it\"), at the moment of the choice; that is fair because the choice is not locked and both options are explained in the same paragraph.",
+      "passage": "climax"
+    },
+    {
+      "severity": "minor",
+      "message": "Time pressure in the wording only. threshold: \"There was not much time.\" and the premise 'before the fishing boats come home'. No choice depends on speed and there is no timer, so the 'no timers' rule holds. For an anxious reader the line may feel like pressure; the human reviewer may wish to soften it.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "minor",
+      "message": "The glossary key 'matches' is lower case but the text has \"Matches, for the wick\" with a capital M at the start of a quoted sentence (bench-clue), and 'match' (singular) appears in climax (\"struck a match\"). I did not check whether the app matches glossary words case-insensitively or by plural stem. If it does not, 'Matches' may not show word help. QA or app-engineer should check this; I did not run the app.",
+      "passage": "bench-clue"
+    },
+    {
+      "severity": "note",
+      "message": "App settings, layout: no meaning is carried by layout. I found no lists, tables, italics, bold, colour words, indentation, line breaks inside paragraphs, or phrases such as 'see above' or 'on the left'. Dialogue is carried by quotation marks and 'said'. The text should survive large text, wide letter spacing and the OpenDyslexic font by wrapping. Choice labels are up to 9 words (for example \"Ask Gran Tull what the glass can tell you\", bench) and will wrap to several lines at large size; they stay readable. I did not render the app, so this is from reading the text only.",
+      "passage": "start"
+    },
+    {
+      "severity": "note",
+      "message": "Read-aloud: no meaning exists only visually. Sounds are written in words (start: \"tap, tap, tap\"; gathering: \"a ship horn gave a low, sad call\"). Names are phonetic enough (Fen, Pip, Gran Tull). One risk for text-to-speech: 'Tull' and 'harbour' (British spelling) may be mispronounced by a voice; the human reviewer should listen on the target device. I did not run text-to-speech.",
+      "passage": "gathering"
+    },
+    {
+      "severity": "note",
+      "message": "Typing puzzles: the draft contains none, so no route needs typing. No choice depends on time or speed. Word help is optional only if the text is understandable without it; it mostly is, apart from the 'film'/'glass' clue chain and the unexplained 'wick' in the findings above.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "note",
+      "message": "Earlier r4 literacy findings still stand and are not repeated: word sets meet minimums and carry their patterns (report r4: sh 20/10, ch 20/8, th 17/8), 'chain' is a vowel-team word and not a closed syllable, per-word exposure for 'shell' is low, and the revision note about 'shut' appearing 4 times is inaccurate (the report gives 3). The decodability limits and detector false positives in that review also still apply.",
+      "passage": "start"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r4.json",
+      "sha256": "dc3b653927bafe7c50ada8d08239f49db59049df90f9ae9778970730e9785a4c"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r4.json",
+      "sha256": "7302a08f262dbf94249e83db86b424bd7763fe6c98dfd7cc886787253bb24ac1"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r4.md",
+      "sha256": "a3656494c19bbbacd48086ea97bac7883e80e75de7fa73b3ab9952941a1a20c3"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/weave-comparison.r4.json",
+      "sha256": "61a0bec2d26d95181af36508bcb625134f9bbb4d6221794eb21ff9ecc268ce2e"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json",
+      "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/word-weave-plan.json",
+      "sha256": "fe0edfb2ee6cbe863d05fe16f8be8b997b92afd901d67755f8670bd0cb36cf9a"
+    }
+  ],
+  "id": "review-7-literacy",
+  "submittedAt": "2026-10-20T21:18:43.022Z"
+}

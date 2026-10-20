@@ -1,0 +1,212 @@
+{
+  "storyId": "the-fog-over-pebble-bay",
+  "version": 8,
+  "start": "start",
+  "nodes": [
+    {
+      "id": "start",
+      "title": "The Fog Rolls In",
+      "ending": null
+    },
+    {
+      "id": "shed",
+      "title": "The Garden Shed",
+      "ending": null
+    },
+    {
+      "id": "shed-chest",
+      "title": "Inside the Chest",
+      "ending": null
+    },
+    {
+      "id": "bench",
+      "title": "Gran Tull on the Bench",
+      "ending": null
+    },
+    {
+      "id": "bench-clue",
+      "title": "A Small Detail",
+      "ending": null
+    },
+    {
+      "id": "gathering",
+      "title": "The Foot of the Tower",
+      "ending": null
+    },
+    {
+      "id": "threshold",
+      "title": "The Lamp Room Door",
+      "ending": null
+    },
+    {
+      "id": "climax",
+      "title": "The Dark Lamp",
+      "ending": null
+    },
+    {
+      "id": "ending-beam",
+      "title": "The Bay Shines",
+      "ending": {
+        "id": "ending-beam",
+        "kind": "triumph",
+        "title": "The Lamp Keeper"
+      }
+    },
+    {
+      "id": "ending-help",
+      "title": "Two Pairs of Hands",
+      "ending": {
+        "id": "ending-help",
+        "kind": "triumph",
+        "title": "Two Keepers"
+      }
+    },
+    {
+      "id": "ending-dock",
+      "title": "A Small Light",
+      "ending": {
+        "id": "ending-dock",
+        "kind": "setback",
+        "title": "A Brave Try"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "start",
+      "to": "shed",
+      "choice": "to-shed",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "start",
+      "to": "bench",
+      "choice": "to-bench",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "shed",
+      "to": "shed-chest",
+      "choice": "open-chest",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "shed",
+      "to": "gathering",
+      "choice": "shed-back",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "shed-chest",
+      "to": "gathering",
+      "choice": "chest-to-tower",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "bench",
+      "to": "bench-clue",
+      "choice": "ask-more",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "bench-clue",
+      "to": "gathering",
+      "choice": "clue-to-tower",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "gathering",
+      "to": "shed",
+      "choice": "gather-shed",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "gathering",
+      "to": "bench",
+      "choice": "gather-bench",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "gathering",
+      "to": "threshold",
+      "choice": "gather-climb",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "threshold",
+      "to": "climax",
+      "choice": "wipe-mirror",
+      "locked": true,
+      "requires": {
+        "items": [
+          "soft-cloth",
+          "match-tin"
+        ],
+        "clues": [
+          "damp-mirror"
+        ]
+      }
+    },
+    {
+      "from": "threshold",
+      "to": "ending-dock",
+      "choice": "run-to-dock",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "threshold",
+      "to": "gathering",
+      "choice": "go-down",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax",
+      "to": "ending-beam",
+      "choice": "turn-mirror",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax",
+      "to": "ending-help",
+      "choice": "call-gran",
+      "locked": false,
+      "requires": null
+    }
+  ],
+  "validation": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "passages": 11,
+      "choices": 15,
+      "endings": [
+        "ending-beam",
+        "ending-help",
+        "ending-dock"
+      ],
+      "reachableEndings": [
+        "ending-beam",
+        "ending-dock",
+        "ending-help"
+      ],
+      "exploredStates": 55,
+      "stateSearchComplete": true,
+      "shortestPathToEnding": 5,
+      "longestSimplePathToEnding": 7
+    }
+  }
+}

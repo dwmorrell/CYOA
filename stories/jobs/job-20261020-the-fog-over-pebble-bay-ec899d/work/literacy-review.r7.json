@@ -1,0 +1,100 @@
+{
+  "role": "literacy",
+  "reviewer": { "name": "literacy-specialist", "kind": "ai-agent", "agent": "literacy-specialist" },
+  "revision": 7,
+  "draftSha256": "bd7e42730b219352dee0446fdbea2e9d9ff30895822614e261c15afe57d24129",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "AI review of revision 7. It is NOT the human literacy review the publication policy requires. literacy.review.status stays \"pending\" in the story file and a qualified human must still review. 'pass' here only means I found no blocker or major finding; there are minor findings below. Automated checks cannot judge: spelling patterns are matched, not sound; syllable counts are estimates from vowel groups; readability figures (report r7: 713 words, average sentence 7.8 words, longest passage ending-help at 99 words, 0 sentences over 20, no words estimated at 4+ syllables) are estimates and say nothing about how a particular child will read it; the analyzer does not judge vocabulary, clue clarity, definition quality, whether a learning tag is real practice, or story quality. I did not run the app, listen to the read-aloud voice, or test with a child. Everything about the app is from reading src/ui/Reader.tsx and src/engine/story-engine.ts. The `npm run story -- evidence` command needed approval and was not run; the hashes below are `sha256sum` of the files (the same method gives the r5 draft hash recorded in my r5 review, c8ddc2a8...).",
+      "passage": "start"
+    },
+    {
+      "severity": "note",
+      "message": "WORD SETS (from report literacy.r7.md): sh-words 20/10, ch-words 23/8, th-words 16/8; every word used; each set appears on the shortest route to all three endings (ending-beam, ending-help, ending-dock); word-set-concepts-match-spelling: no mismatches; target concepts present (closed-syllable, digraph-sh, digraph-ch, digraph-th). No minimum is missed, no target pattern is absent, no word-set word fails its declared pattern (by spelling). 'chain' is a vowel-team word as well as a ch word (earlier note, unchanged). validation.r7.json: schema ok, graph ok, 3 of 3 endings reachable, state search complete.",
+      "passage": "shed"
+    },
+    {
+      "severity": "note",
+      "message": "R5 MINOR 'locked hint length' (threshold): CONFIRMED, no change needed. lockedHint \"You need a cloth from the shed chest, and matches and a clue from Gran Tull.\" matched a pattern for exactly 76 characters once in story.r7.json; the schema limit is 90 (lockedHint maxLength). The hint is fair: it names all three requirements (soft-cloth, match-tin, damp-mirror clue) and where each comes from, and gives no answer away. The locked choice 'Wipe the mirror and light the wick' stays visible with this hint (Reader.tsx renders locked-hint text for any locked choice). Two unlocked choices (run-to-dock, go-down) remain, so the child is never stuck.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "note",
+      "message": "R5 MINOR 'Who is she in start': FIXED. start paragraph 4 now reads \"Pip the gull hopped onto the bench. Pip tapped a shell with her beak, tap, tap, tap.\" Pip is named in the second sentence, so Gran Tull (\"She wore a thick wool coat.\" in paragraph 3) is not the tapper.",
+      "passage": "start"
+    },
+    {
+      "severity": "minor",
+      "message": "R5 MINOR 'Where is Pip / Gran Tull heard from the bench' (ending-help): PARTLY FIXED. Fixed: \"Gran Tull heard from the bench\" is gone; Pip now carries the message (\"Pip flew down to the bench and tapped Gran Tull's arm.\"), and \"Fen sat by the lamp with Pip and Gran Tull.\" now fits the lamp room. Still open: (1) the reader was last told Pip was on the step at the foot of the tower (gathering: \"Pip sat on the step.\"), so \"Pip flew down to the bench\" does not say how Pip came to be up by the lamp; (2) NEW from r6: \"Fen called out of the open window\" contradicts threshold \"Fen shut the window.\" (the only window in the story). A shaky reader may stop on 'open window' after having read that Fen shut it. Narrative designer to decide how to make the window and Pip's place agree; I am not writing the fix. Also note ending-help paragraph 2 holds three sentences, with \"She climbed the stairs, one slow step at a time, with Pip on her arm.\" at 15 words, the longest sentence in the story by my regex check (under the brief's maxSentenceWords of 16, but with one word to spare), and ending-help is now the longest passage at 99 words (report).",
+      "passage": "ending-help"
+    },
+    {
+      "severity": "note",
+      "message": "R5 same finding on the dock route (ending-dock): FIXED. \"Pip flew to the bench with a loud call. Gran Tull walked down the path and put an arm around Fen.\" explains how Gran Tull knows to come, and she was already told to stay on the bench (bench-clue \"I will stay here on the bench.\"). Sentences are 8 to 15 words.",
+      "passage": "ending-dock"
+    },
+    {
+      "severity": "note",
+      "message": "R5 MINOR 'climax paragraph 3 holds two ideas': FIXED. \"A moth circled the glow and flew off.\" is now its own paragraph (paragraph 4 of 6); paragraph 3 is \"The mirror caught the flame. A bright beam shot out into the thick fog.\" The passage has 6 paragraphs, the schema maximum (paragraphs maxItems 6), so there is no room to add another paragraph in a later revision without merging.",
+      "passage": "climax"
+    },
+    {
+      "severity": "note",
+      "message": "R5 MINOR 'glossary wording': FIXED. knees: \"The bend in the middle of your leg.\" ('joints' is gone). steady: \"Slow and calm, not shaking.\" ('even' and 'jerks' are gone), and it fits ending-beam \"Fen pulled the chain, slow and steady.\" Report: 18 glossary words with a definition.",
+      "passage": "ending-beam"
+    },
+    {
+      "severity": "note",
+      "message": "R5 MINOR 'learning-target tagging absent': FIXED in the data. Report r7: learning-targets-tagged ok; tagged moments comprehension 2, inference 2, sequencing 1, vocabulary 1, detail 2, engagement 1. I diffed story.r6.json against story.r7.json: only version (6 to 7), bench-clue learningTargets (now [\"inference\", \"comprehension\"]) and climax learningTargets ([\"comprehension\"]) changed; no text, choice, clue, item, glossary or puzzle changed, as revision-notes.r7.md says. Quality of each tag is judged in the next findings. One honest limit: no tag asks the child to do anything in the app. A tag only means the moment gives the reader a chance to practise, and the app does not test it.",
+      "passage": "bench-clue"
+    },
+    {
+      "severity": "minor",
+      "message": "r7 TAGS, bench-clue: comprehension is REAL; inference is THIN. Comprehension: the passage is a short chain the reader has to follow and hold: \"Fog is wet air\" -> \"It leaves wet mist on the brass mirror\" -> \"A misty mirror makes the light dim\" -> \"Wipe the mirror clean and the lamp will shine.\" The same chain is repeated in the clue notebook (damp-mirror: \"A misty mirror makes a dim lamp.\"), and the climax needs it. Inference: on re-reading, every link in that chain is stated in words, so the reader does not infer it. (I suggested this tag in r5 and was too generous.) The real inference moment is the question before it, in bench: \"Look at the mirror, not the flame.\", where the reader can wonder why before bench-clue answers, but bench carries no tag. The tag is not decoration, but I would count it as comprehension rather than inference. Narrative designer to decide whether to keep it or move the inference tag to bench.",
+      "passage": "bench-clue"
+    },
+    {
+      "severity": "minor",
+      "message": "r7 TAG, climax comprehension: ACCEPTABLE but light. Real part: the reader sees the explanation from bench-clue carried out, with the same words: \"The mist wiped away, and the brass shone.\" then \"The mirror caught the flame. A bright beam shot out into the thick fog.\" That links cause (mist) and result (shine, beam), and the brief's 'noticing small details' theme is paid off. Light part: the passage states the result and then moves on to a choice about pulling the chain alone or calling Gran Tull (\"Fen could pull it alone, or call Gran Tull.\"), which tests helping, not understanding. I would not add more tags to climax. The author was right to leave ending-help untagged (revision-notes.r7.md), because that choice is about help, not about working something out.",
+      "passage": "climax"
+    },
+    {
+      "severity": "note",
+      "message": "Other tags, checked in the text. threshold inference+detail: REAL. Inference: \"A gust of wind came in through the open window.\" then \"The wind must have put out the wick.\" (the reader joins gust to the cold wick; the text half-states it with 'must have'). Detail: the locked choice depends on three earlier details (cloth, tin, clue), and the puzzle asks the reader to find \"wick\" in the text. gathering sequencing: REAL, \"Fen looked at the path and the stairs. Was there more to find first?\" with the shed, bench and stairs choices, and the lock on the lamp room choice answers it. shed-chest vocabulary: REAL but small, \"A grey moth fluttered out and zipped away.\" has a context clue (zipped away) and a glossary definition (\"Flew with quick, light flaps of the wings.\"); it is one word. start detail: ACCEPTABLE, the reader is shown the bench, the tower door, the dark lamp and Gran Tull, and later has to go back to \"the bench\"; \"She wore a thick wool coat.\" is atmosphere, not a needed detail. ending-beam engagement: ACCEPTABLE, a payoff moment (\"Soon the dock rang with happy shouts\"), but engagement is a feeling and nothing can be checked; I would not call it practice.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "note",
+      "message": "OPTIONAL TYPING PUZZLE 'name-the-wick' (threshold): NEVER GATES. Checked: (1) the puzzle has no effects (no addItems, addClues or flags in the file); (2) no choice, clue or ending 'requires' refers to a puzzle (wipe-mirror requires only soft-cloth, match-tin, damp-mirror); (3) src/ui/Reader.tsx shows the choices whether or not the puzzle is solved, and solvePuzzle in story-engine.ts changes nothing on a wrong answer, with no timer and no attempt limit; (4) src/validation/graph.ts explores both the solved and unsolved states of a puzzle, and validation.r7.json reports 3 of 3 endings reachable with the state search complete. So every route is finishable without it. It is also real practice: prompt \"Type the word for the cold string in the dish.\" matches the text \"The wick sat cold in its dish.\" (joining 'string' to 'wick' is small inference), and the child types a ck word that is already in the passage (copying, not recall). Answers \"wick\" and \"wicks\" are both accepted and the check ignores capitals and spaces. The hint (\"It has four letters. It starts with w.\") is on a button, not forced. Report: typing-balance ok, 1 puzzle in 8 non-ending passages.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "minor",
+      "message": "Typing puzzle wording, threshold prompt: \"Type the word for the cold string in the dish. It is in the text above.\" 'Above' points at the page layout. In the app the paragraphs are rendered above the puzzle, so it is true on screen, but the 'Read to me' button reads only the title and paragraphs (Reader.tsx toggleSpeech), not the puzzle prompt, so a child using read-aloud hears nothing that says what to type unless a screen reader reads the form label. Also, the word 'optional' exists for the child only as an aria-label (\"Typing puzzle, optional\"); the visible prompt does not say that it can be skipped, and 'Try again, or carry on without it' only appears after a wrong try. The choices below are not blocked, but a child may think they must type first. Suggestions: the narrative designer could swap 'above' for 'in the story' (a wording change for them to make); the app-engineer could show a visible 'Optional' label and include the puzzle prompt in read-aloud. All from reading the code, not from running the app.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "note",
+      "message": "READABILITY for ages 10 to 13 with dyslexia (estimate, by report figures plus reading every passage). Sentences are short; the longest in a passage is 15 words (ending-help, \"She climbed the stairs, one slow step at a time, with Pip on her arm.\"), next 14 (start, \"Gran Tull, the old lamp keeper, sat on the bench by the tower door.\"); both are under the brief's maxSentenceWords of 16 (my regex check; a hand check, not an exact count). Paragraphs are one to three sentences, 3 to 6 paragraphs per passage. Each passage says who, where and what happened. Vocabulary load is moderate; the report finds no words of 4 or more syllables, and the harder words (wick, brass, beam, gust, stairs, knees, steady, fluttered, harbour, matches) have word help. The cause chain fog -> mist -> dim lamp -> wipe is stated in plain steps in bench-clue. Dialogue uses quotation marks and 'said'. I count this as acceptable for the age range pending the human review. The ages-10-to-13 fit of the story's tone (a small, gentle seaside mystery, no cruelty or injury, per the brief's avoid list) is my reading, not a test.",
+      "passage": "start"
+    },
+    {
+      "severity": "note",
+      "message": "APP SETTINGS, checked from the text and the code (the app was not run). NO MEANING THROUGH LAYOUT: no lists, tables, bold, italics, colour words, 'on the left' or 'see below' in any passage; the only layout pointer is 'the text above' in the puzzle prompt (see minor finding). READ-ALOUD: story paragraphs hold all the meaning; sounds are words (start \"tap, tap, tap\"; gathering \"a ship horn gave a low, sad call\"). 'Tull' and the British spelling 'harbour' may be mispronounced by a voice; a human should listen on the device (not done). WORD HELP OPTIONAL: Reader.tsx only builds word buttons when prefs.wordHelp is on and looks up glossary[part.toLowerCase()], so \"Matches\" and \"match\" both find a key; each hard word is also explained by context or not needed for the plot. Word help applies to paragraphs only, not to choice labels, the puzzle prompt or locked hints; \"light the wick\" in the threshold choice has no word help (the word is explained in the passage above it). NO TIME OR SPEED: no timer and no choice mentions speed or hurry; threshold has no 'not much time' line; \"twice as fast\" (ending-help) is a result, not a choice. The premise in metadata (\"before the fishing boats come home\") is a mild deadline that the reader never sees as a countdown; left for the human reviewer, unchanged since r5. OPTIONAL TYPING: see the puzzle findings. LOCKED CHOICE: hint 76 characters of a 90 maximum, fair (see above).",
+      "passage": "threshold"
+    }
+  ],
+  "evidence": [
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r7.json", "sha256": "bd7e42730b219352dee0446fdbea2e9d9ff30895822614e261c15afe57d24129" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r7.json", "sha256": "7b5b36e9d1561b14ebf9da8fe381ad1f011dc495177e791f0b42afe64983561a" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r7.md", "sha256": "f73911f16a119b613c8879cc3d30c553215846bae40407930c0ceabaa7a60b74" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/weave-comparison.r7.json", "sha256": "f0c49c2bedba7cd85ce784f3510634d6feb113a6049141caf619c5bdd74c6a89" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json", "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/word-weave-plan.json", "sha256": "fe0edfb2ee6cbe863d05fe16f8be8b997b92afd901d67755f8670bd0cb36cf9a" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/work/revision-notes.r6.md", "sha256": "7e48a7220c07693f2418e405853e5e861bfd3739db965a2139f789d846d22c43" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/work/revision-notes.r7.md", "sha256": "af80d276e1c156a4e2167102315c2bc3de2a0b64146b43315f06e89a647c6fe7" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/work/literacy-review.r5.json", "sha256": "faeaa1a53b0a3f990b014db1954f4da8c9ff010cf341d94882b6ae8045f4b461" }
+  ]
+}

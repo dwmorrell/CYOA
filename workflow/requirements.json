@@ -32,10 +32,12 @@
       ],
       "tests": [
         "applies preferences as CSS variables and data attributes",
-        "word help shows syllables and a meaning, and logs the look-up"
+        "word help shows syllables and a meaning, and logs the look-up",
+        "read-aloud speaks the page and an open typing prompt, marked optional"
       ],
       "gaps": [
         "Not yet tested with dyslexic readers or on devices",
+        "Read-to-me speaks the title, paragraphs and any open typing prompt, but not the choices",
         "Read-to-me uses device speech voices only"
       ]
     },
@@ -104,14 +106,19 @@
         "src/production/gates.ts"
       ],
       "tests": [
-        "never overwrites an approved version; edits need a higher version",
-        "a draft is hidden from the child until approved in the editor",
+        "refuses approval while the story has no human literacy review",
+        "an AI pre-review, even one marked passed, never counts as the human review",
+        "a draft without a human literacy review cannot be approved in the editor",
+        "a human-reviewed draft is approved in the editor and then offered to the child",
+        "the editor cannot change the literacy review record, even through the JSON tab",
         "editing an approved story saves a new version and keeps the child on the old one",
+        "never overwrites an approved version; edits need a higher version",
         "only a human parent can approve, and AI agents cannot publish",
         "requires a higher story version for each revision and after publication"
       ],
       "gaps": [
-        "In-app approval puts a story in this device's child library only; it does not touch the repository's human literacy and publication gates",
+        "In-app approval needs a recorded human literacy review; it writes only to this device's library, never to the repository",
+        "The human review record is checked for presence, not verified as written by that person",
         "Parent gate is a PIN convenience lock, not authentication"
       ]
     },
@@ -300,16 +307,19 @@
       "evidence": [
         "src/engine/story-engine.ts",
         "src/ui/Reader.tsx",
-        "src/literacy/analyzer.ts"
+        "src/ui/speech.ts",
+        "src/literacy/analyzer.ts",
+        "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r7.json"
       ],
       "tests": [
         "accepts any listed answer, ignoring case and extra spaces",
         "a story that depends on solving a puzzle is a soft-lock",
-        "the reader, engine and storage code never schedule timers"
+        "the reader, engine and storage code never schedule timers",
+        "the typing puzzle says it is optional on screen, before any try"
       ],
       "gaps": [
-        "No packaged story has a typing puzzle yet",
-        "Typing balance is an advisory rule (1 per 4 pages) to tune with the Dyslexic Reading specialist"
+        "Typing balance is an advisory rule (1 per 4 pages); the Fog draft has one optional puzzle on threshold",
+        "Typing accuracy and speed reports are not built (see R28)"
       ]
     },
     {
@@ -435,6 +445,48 @@
       "tests": [],
       "gaps": [
         "The starter ZIP was not provided to this repository and no link was supplied; it is not accessible from this session, so nothing from it has been used"
+      ]
+    },
+    {
+      "id": "R27",
+      "title": "Skill evidence kept apart from completion: exposure, practice, demonstration and transfer",
+      "status": "pending",
+      "evidence": [],
+      "tests": [],
+      "gaps": [
+        "Not built; progress does not yet record these evidence types",
+        "Completion, time and speed must never count as mastery"
+      ]
+    },
+    {
+      "id": "R28",
+      "title": "Typing mini-game reports accuracy and speed, kept apart from reading",
+      "status": "pending",
+      "evidence": [],
+      "tests": [],
+      "gaps": [
+        "Not built; typing speed must never be reported as reading fluency",
+        "No timer is planned for reading; any typing timer must be off by default and never affect reading"
+      ]
+    },
+    {
+      "id": "R29",
+      "title": "Draft-to-published version diff",
+      "status": "pending",
+      "evidence": [],
+      "tests": [],
+      "gaps": [
+        "Not built; the editor can show the saved draft but not a diff against the approved version"
+      ]
+    },
+    {
+      "id": "R30",
+      "title": "Validator checks that every required clue or item is obtainable on each path that needs it",
+      "status": "pending",
+      "evidence": [],
+      "tests": [],
+      "gaps": [
+        "Not built: the graph check finds stuck states and unreachable endings, but not clue or item obtainability per route"
       ]
     }
   ]

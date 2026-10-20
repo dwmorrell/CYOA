@@ -179,13 +179,20 @@ export class Repo {
     return hash ? this.snapshot(storyId, hash) : undefined;
   }
 
-  /** Parent approval puts the current draft in the child library. */
-  async approve(storyId: string, approval: Omit<Approval, 'hash' | 'version'>): Promise<LibraryEntry> {
+  /**
+   * Parent approval puts the current draft in the child library. It requires a
+   * human literacy review recorded in the story itself (status passed, reviewer
+   * kind human). An AI pre-review never counts, and the app never records one.
+   */
+  async approve(storyId: string, decision: { by: string; at: string }): Promise<LibraryEntry> {
     const entry = (await this.library()).find((e) => e.storyId === storyId);
     if (!entry?.draftHash) throw new Error('There is no draft to approve');
     const story = await this.snapshot(storyId, entry.draftHash);
     if (!story) throw new Error('The draft could not be found');
-    const updated: LibraryEntry = { ...entry, draftHash: undefined, approved: { ...approval, hash: entry.draftHash, version: story.version } };
+    const review = humanLiteracyReview(story);
+    if (!review) throw new Error(NO_HUMAN_REVIEW);
+    const approved: Approval = { hash: entry.draftHash, version: story.version, by: decision.by, at: decision.at, literacyReview: review };
+    const updated: LibraryEntry = { ...entry, draftHash: undefined, approved };
     await this.putEntry(updated);
     return updated;
   }
@@ -238,14 +245,28 @@ export interface VersionRecord {
   source: 'import' | 'editor' | 'bundled-copy' | 'workshop-draft';
 }
 
+/** A human literacy review, as recorded in the story's own literacy.review record. */
+export interface HumanLiteracyReview {
+  reviewer: string;
+  date: string;
+}
+
 export interface Approval {
   hash: string;
   version: number;
   by: string;
   at: string;
-  literacyReviewStatus: string;
-  /** The parent chose to approve although no human literacy review is recorded. */
-  acknowledgedPendingLiteracyReview: boolean;
+  /** Always present: approval is refused without a recorded human literacy review. */
+  literacyReview: HumanLiteracyReview;
+}
+
+export const NO_HUMAN_REVIEW = 'A human literacy review must be recorded in the story before it can be approved. Ask the literacy reviewer to record it.';
+
+/** The human literacy review recorded in the story, or undefined. AI pre-reviews never qualify. */
+export function humanLiteracyReview(story: Story): HumanLiteracyReview | undefined {
+  const r = story.literacy.review;
+  if (r.status !== 'passed' || r.reviewerKind !== 'human' || !r.reviewer?.trim() || !r.date?.trim()) return undefined;
+  return { reviewer: r.reviewer.trim(), date: r.date.trim() };
 }
 
 export interface LibraryEntry {

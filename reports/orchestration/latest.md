@@ -1,6 +1,6 @@
 # Orchestration report
 
-Generated 2026-10-20T20:23:39.186Z by `npm run orchestrate -- --trace`.
+Generated 2026-10-20T21:34:28.027Z by `npm run orchestrate -- --trace`.
 
 ## Software work items (dependency order)
 
@@ -19,6 +19,7 @@ Generated 2026-10-20T20:23:39.186Z by `npm run orchestrate -- --trace`.
 | WI-10 Requirements traceability report | 9 | product-architect | ready-for-review | none | none | not run |
 | WI-11 Report implemented, pending and unverified work | 10 | release-manager | ready-for-review | none | none | none |
 | WI-13 Close master specification gaps: React PWA, saves by version, profiles, editor, progression | 11 | app-engineer | ready-for-review | none | none | not run |
+| WI-14 Approval needs a human literacy review; starter pack reconciled; Fog text reviewed by the literacy specialist | 12 | app-engineer | ready-for-review | none | none | not run |
 
 ## Next work (dependencies satisfied, not done)
 
@@ -26,10 +27,10 @@ Generated 2026-10-20T20:23:39.186Z by `npm run orchestrate -- --trace`.
 
 ## Story production jobs
 
-- job-20261020-the-fog-over-pebble-bay-ec899d: **in-review**, 4 revision(s)
-  - pass: draft-exists, Revision 4, story v4
+- job-20261020-the-fog-over-pebble-bay-ec899d: **in-review**, 8 revision(s)
+  - pass: draft-exists, Revision 8, story v8
   - pass: automated-validation, schema: ok; graph: ok, 3/3 endings reachable; literacy checks: ok; brief: ok
-  - pass: review:qa, qa passed by qa-engineer (ai-agent)
+  - waiting: review:qa, No qa review on revision 8
   - waiting: review:literacy, literacy review passed only by ai-agent; policy requires a human literacy reviewer
   - pass: story-literacy-claim, Story literacy review is "pending"
   - waiting: parent-approval, Waiting for a parent decision

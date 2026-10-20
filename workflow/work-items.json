@@ -570,6 +570,36 @@
       "status": "ready-for-review",
       "review": null,
       "defects": []
+    },
+    {
+      "id": "WI-14",
+      "stage": 12,
+      "title": "Approval needs a human literacy review; starter pack reconciled; Fog text reviewed by the literacy specialist",
+      "agent": "app-engineer",
+      "producedBy": "bootstrap Claude Code session acting as app-engineer; story revisions by narrative-designer and reviews by literacy-specialist through the CLI",
+      "artifacts": [
+        "src/storage/repo.ts",
+        "src/ui/parent/StoryEditor.tsx",
+        "src/ui/Reader.tsx",
+        "src/ui/speech.ts",
+        "docs/STARTER_PACK_RECONCILIATION.md",
+        "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/work/literacy-review.r8.json"
+      ],
+      "dependsOn": [
+        "WI-13"
+      ],
+      "acceptance": [
+        "Approval is refused without a human literacy review, and the editor cannot change that record",
+        "Read-to-me includes an open typing prompt marked optional",
+        "The starter pack is reconciled against the master spec, and the sample is not imported without checks",
+        "The Fog draft has an AI literacy review on its current revision; the human literacy review and the QA review are still required and pending"
+      ],
+      "checks": [
+        "npm run check"
+      ],
+      "status": "ready-for-review",
+      "review": null,
+      "defects": []
     }
   ]
 }

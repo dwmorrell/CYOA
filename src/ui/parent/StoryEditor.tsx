@@ -1,7 +1,7 @@
 import { useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react';
 import { LEARNING_TARGETS, type Choice, type Collectible, type EndingKind, type LearningTarget, type Passage, type Story } from '../../engine/types';
 import { validateDraft } from '../../production/validate-draft';
-import type { LibraryEntry } from '../../storage/repo';
+import { humanLiteracyReview, NO_HUMAN_REVIEW, type LibraryEntry } from '../../storage/repo';
 import { downloadJson, exportStory } from '../../storage/transfer';
 import { contentHash } from '../../util/hash';
 import { Page } from '../common';
@@ -267,7 +267,6 @@ export default function StoryEditor({ storyId }: { storyId: string }) {
   const [jsonText, setJsonText] = useState('');
   const [jsonError, setJsonError] = useState('');
   const [message, setMessage] = useState('');
-  const [ack, setAck] = useState(false);
   const [missing, setMissing] = useState(false);
 
   const load = useCallback(async () => {
@@ -297,8 +296,9 @@ export default function StoryEditor({ storyId }: { storyId: string }) {
   const dirty = contentHash(story) !== contentHash(saved);
   const approvedVersion = entry.approved?.version ?? 0;
   const savedIsApproved = entry.approved?.hash === contentHash(saved) && !entry.draftHash;
-  const review = story.literacy.review;
-  const humanLiteracyPassed = review.status === 'passed' && review.reviewerKind === 'human';
+  // The literacy review record belongs to the reviewer, not the editor. The
+  // approval gate reads the stored draft, and saving keeps that record as it is.
+  const humanReview = humanLiteracyReview(saved);
   const edit = (next: Story) => {
     setStory(next);
     setMessage('');
@@ -307,12 +307,14 @@ export default function StoryEditor({ storyId }: { storyId: string }) {
   const save = async () => {
     try {
       // Changing an approved story needs a new version number, so the approved one is kept.
-      const next = contentHash(story) !== entry.approved?.hash && story.version <= approvedVersion ? { ...story, version: approvedVersion + 1 } : story;
+      const bumped = contentHash(story) !== entry.approved?.hash && story.version <= approvedVersion ? { ...story, version: approvedVersion + 1 } : story;
+      const recordChanged = JSON.stringify(bumped.literacy.review) !== JSON.stringify(saved.literacy.review);
+      const next: Story = { ...bumped, literacy: { ...bumped.literacy, review: saved.literacy.review } };
       const updated = await repo.saveDraft(next, parentName, 'editor');
       setEntry(updated);
       setSaved(next);
       setStory(next);
-      setMessage(`Draft saved as version ${next.version}.`);
+      setMessage(`Draft saved as version ${next.version}.${recordChanged ? ' Changes to the literacy review record were ignored: only the literacy reviewer can record it.' : ''}`);
     } catch (e) {
       setMessage(e instanceof Error ? e.message : String(e));
     }
@@ -320,14 +322,8 @@ export default function StoryEditor({ storyId }: { storyId: string }) {
 
   const approve = async () => {
     try {
-      const updated = await repo.approve(storyId, {
-        by: parentName,
-        at: new Date().toISOString(),
-        literacyReviewStatus: humanLiteracyPassed ? 'passed (human)' : review.status,
-        acknowledgedPendingLiteracyReview: !humanLiteracyPassed,
-      });
+      const updated = await repo.approve(storyId, { by: parentName, at: new Date().toISOString() });
       setEntry(updated);
-      setAck(false);
       setMessage(`Version ${saved.version} is now in the reader’s library.`);
     } catch (e) {
       setMessage(e instanceof Error ? e.message : String(e));
@@ -412,8 +408,8 @@ export default function StoryEditor({ storyId }: { storyId: string }) {
               )}
             </Field>
             <p className="muted">
-              Literacy review: {review.status}
-              {review.reviewerKind ? ` (${review.reviewerKind === 'human' ? 'by a person' : 'AI pre-review only'})` : ''}.
+              Literacy review: {story.literacy.review.status}
+              {story.literacy.review.reviewerKind ? ` (${story.literacy.review.reviewerKind === 'human' ? 'by a person' : 'AI pre-review only'})` : ''}. The editor cannot change this record.
             </p>
           </div>
         )}
@@ -567,13 +563,12 @@ export default function StoryEditor({ storyId }: { storyId: string }) {
         <p>This version is already in the reader’s library.</p>
       ) : (
         <div className="form">
-          {!humanLiteracyPassed && (
-            <label className="check">
-              <input type="checkbox" checked={ack} onChange={(e) => setAck(e.target.checked)} />
-              I understand no reading specialist has reviewed this story, and I have read it myself.
-            </label>
-          )}
-          <button type="button" className="btn primary" disabled={dirty || !validation?.ok || (!humanLiteracyPassed && !ack)} onClick={() => void approve()}>
+          <p className="muted">
+            {humanReview
+              ? `Literacy review recorded by ${humanReview.reviewer} on ${humanReview.date}.`
+              : NO_HUMAN_REVIEW}
+          </p>
+          <button type="button" className="btn primary" disabled={dirty || !validation?.ok || !humanReview} onClick={() => void approve()}>
             Approve version {saved.version}
           </button>
           <p className="muted">{dirty ? 'Save your changes first.' : !validation?.ok ? 'Fix the problems above first.' : ''}</p>

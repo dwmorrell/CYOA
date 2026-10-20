@@ -1,0 +1,13 @@
+# Revision notes r6 (response to literacy review r5)
+
+- start, "Who is 'she' in start": paragraph 4 now reads "Pip tapped a shell with her beak". Pip is named, so Gran Tull is not the tapper.
+- ending-help, "Where is Pip at the end of the help route": Pip now flies down to the bench and taps Gran Tull's arm, then goes up the stairs with her. Pip is in the lamp room for the moth and the final scene. The last line now says "Fen sat by the lamp with Pip and Gran Tull", because the old "on the step" no longer fits.
+- ending-help, "Gran Tull heard from the bench": removed. Fen calls out of the window, and Pip carries the message to the bench. The story logic is unchanged: Fen asks for help and Gran Tull comes.
+- ending-dock (same Pip/distance finding): Pip flies to the bench with a loud call, then Gran Tull walks down the path. This puts Pip in a clear place and explains why Gran Tull knows to come.
+- climax, "Paragraph 3 holds two ideas": split. The moth line is now its own paragraph. The old paragraph 4 and 5 text is unchanged, but the passage now has 6 paragraphs, which is the schema maximum.
+- ending-beam, "Glossary wording" (knees, steady): knees is now "The bend in the middle of your leg." steady is now "Slow and calm, not shaking." "Joints", "even" and "jerks" are gone. The `match` entry was a note that it helps, so I left it.
+- bench-clue, "Learning-target tagging is absent": tags added: start = detail; shed-chest = vocabulary (the glossary word "fluttered" is used in context); bench-clue = inference; gathering = sequencing; threshold = inference and detail; ending-beam = engagement. comprehension is not tagged. I did not tag a moment that does not clearly practise it, so the report may still list comprehension as missing. The brief asked for the other five. (The review's list had six values; the task listed no place for comprehension.)
+- threshold, "Typing balance": one optional puzzle added on threshold ("name-the-wick", answers "wick" and "wicks", with a hint and successText). It has no effects and gates nothing. The locked choice, the other choices and all three endings work without it.
+- Notes and the r4 status notes (hard words, locked hint length 76 vs notes' 78, the "before the boats come home" premise, voice mispronunciation of "Tull"/"harbour"): no change. They need no edit. The hint-length figure was a mistake in my r5 notes. The premise deadline is left for the human reviewer.
+
+Unchanged: story id, title, three endings, literacy word sets and minimums, and literacy.review = {"status": "pending"}. Validation from the CLI: schema ok, graph ok (3/3 endings reachable), literacy checks ok, brief ok.

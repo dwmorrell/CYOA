@@ -3,7 +3,7 @@ import { choicesFor, choose, passageById, restart, solvePuzzle } from '../engine
 import type { GameState, Passage, Story } from '../engine/types';
 import { Icon } from './common';
 import { useApp } from './context';
-import { canSpeak, speak, stopSpeaking } from './speech';
+import { canSpeak, pageSpeech, speak, stopSpeaking } from './speech';
 
 const ENDING_WORDS: Record<string, string> = { triumph: 'A bright ending', bittersweet: 'A quiet ending', setback: 'Not the end yet' };
 
@@ -82,6 +82,7 @@ function Puzzle({ passage, state, story, onSolved }: { passage: Passage; state: 
   return (
     <section className="puzzle" aria-label="Typing puzzle, optional">
       <form onSubmit={submit}>
+        <p className="muted">Optional. You can skip this and carry on.</p>
         <label id={`pz-${puzzle.id}`} htmlFor={`pz-in-${puzzle.id}`}>
           {puzzle.prompt}
         </label>
@@ -134,7 +135,8 @@ export function Reader({ story, state, onState, onExit, exitLabel = 'Library', b
       setSpeaking(false);
     } else {
       setSpeaking(true);
-      speak([passage.title ?? '', ...passage.paragraphs].join(' '), () => setSpeaking(false));
+      const openPrompt = passage.puzzle && !ending && !state.puzzlesSolved.includes(passage.puzzle.id) ? passage.puzzle.prompt : undefined;
+      speak(pageSpeech(passage.title, passage.paragraphs, openPrompt), () => setSpeaking(false));
     }
   };
   // "Story so far" supports sequencing: the places visited, in order.

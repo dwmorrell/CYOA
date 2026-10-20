@@ -8,6 +8,7 @@ import { blankStory, EXPORT_FORMAT, exportStory, parseImport } from '../../src/s
 import { validateDraft } from '../../src/production/validate-draft';
 import { contentHash } from '../../src/util/hash';
 import { clone, fixture } from '../helpers';
+import type { Story } from '../../src/engine/types';
 
 const story = fixture();
 let dbCount = 0;
@@ -147,23 +148,52 @@ describe('saves are tied to the story version they started with', () => {
   });
 });
 
+/** The story as the literacy reviewer records it after a human review. */
+const reviewedByHuman = (s: Story): Story => ({ ...s, literacy: { ...s.literacy, review: { status: 'passed', reviewer: 'Dr Rowan Ellis', reviewerKind: 'human', date: '2026-10-20' } } });
+const approve = (repo: Repo, id: string) => repo.approve(id, { by: 'Sam', at: '2026-10-20T10:00:00Z' });
+
 describe('device library: drafts and parent approval', () => {
   it('a draft is not approved until the parent approves it', async () => {
     const { repo } = await setUp();
-    const entry = await repo.saveDraft(story, 'Sam', 'import');
+    const entry = await repo.saveDraft(reviewedByHuman(story), 'Sam', 'import');
     expect(entry.approved).toBeUndefined();
-    const approved = await repo.approve(story.id, { by: 'Sam', at: 'now', literacyReviewStatus: 'pending', acknowledgedPendingLiteracyReview: true });
+    const approved = await approve(repo, story.id);
     expect(approved.approved?.version).toBe(1);
     expect(approved.draftHash).toBeUndefined();
-    await expect(repo.approve(story.id, { by: 'Sam', at: 'now', literacyReviewStatus: 'pending', acknowledgedPendingLiteracyReview: true })).rejects.toThrow(/no draft/);
+    await expect(approve(repo, story.id)).rejects.toThrow(/no draft/);
+  });
+
+  it('refuses approval while the story has no human literacy review', async () => {
+    const { repo } = await setUp();
+    await repo.saveDraft(story, 'Sam', 'import');
+    await expect(approve(repo, story.id)).rejects.toThrow(/human literacy review must be recorded/);
+    expect((await repo.library())[0]?.approved).toBeUndefined();
+  });
+
+  it('an AI pre-review, even one marked passed, never counts as the human review', async () => {
+    const { repo } = await setUp();
+    const aiPassed = { ...story, literacy: { ...story.literacy, review: { status: 'passed' as const, reviewer: 'literacy-specialist', reviewerKind: 'ai-agent' as const, date: '2026-10-20' } } };
+    await repo.saveDraft(aiPassed, 'Sam', 'import');
+    await expect(approve(repo, story.id)).rejects.toThrow(/human literacy review must be recorded/);
+    const pendingHuman = { ...story, literacy: { ...story.literacy, review: { status: 'pending' as const, reviewer: 'Dr Rowan Ellis', reviewerKind: 'human' as const, date: '2026-10-20' } } };
+    await repo.saveDraft(pendingHuman, 'Sam', 'editor', new Date('2026-10-21'));
+    await expect(approve(repo, story.id)).rejects.toThrow(/human literacy review must be recorded/);
+  });
+
+  it('records the human reviewer on the approved version', async () => {
+    const { repo } = await setUp();
+    await repo.saveDraft(reviewedByHuman(story), 'Sam', 'import');
+    const approved = await approve(repo, story.id);
+    expect(approved.approved?.literacyReview).toEqual({ reviewer: 'Dr Rowan Ellis', date: '2026-10-20' });
+    expect(approved.approved).not.toHaveProperty('acknowledgedPendingLiteracyReview');
   });
 
   it('never overwrites an approved version; edits need a higher version', async () => {
     const { repo } = await setUp();
-    await repo.saveDraft(story, 'Sam', 'editor');
-    await repo.approve(story.id, { by: 'Sam', at: 'now', literacyReviewStatus: 'pending', acknowledgedPendingLiteracyReview: true });
+    await repo.saveDraft(reviewedByHuman(story), 'Sam', 'editor');
+    await approve(repo, story.id);
     await expect(repo.saveDraft({ ...story, title: 'Changed' }, 'Sam', 'editor')).rejects.toThrow(/already approved/);
-    const entry = await repo.saveDraft({ ...story, title: 'Changed', version: 2 }, 'Sam', 'editor');
+    const entry = await repo.saveDraft({ ...reviewedByHuman(story), title: 'Changed', version: 2 }, 'Sam', 'editor');
     expect(entry.approved?.version).toBe(1);
     expect((await repo.snapshot(story.id, entry.approved!.hash))?.title).toBe(story.title);
     expect((await repo.draft(story.id))?.title).toBe('Changed');
@@ -172,8 +202,8 @@ describe('device library: drafts and parent approval', () => {
 
   it('withdraw removes a story from the child library but keeps it as a draft', async () => {
     const { repo } = await setUp();
-    await repo.saveDraft(story, 'Sam', 'editor');
-    await repo.approve(story.id, { by: 'Sam', at: 'now', literacyReviewStatus: 'pending', acknowledgedPendingLiteracyReview: true });
+    await repo.saveDraft(reviewedByHuman(story), 'Sam', 'editor');
+    await approve(repo, story.id);
     await repo.withdraw(story.id);
     const [entry] = await repo.library();
     expect(entry?.approved).toBeUndefined();
@@ -196,7 +226,7 @@ describe('progression', () => {
 
 describe('story import and export', () => {
   it('round-trips through an export bundle; approval does not carry over', () => {
-    const bundle = exportStory(story, { hash: 'h', version: 1, by: 'Sam', at: 'now', literacyReviewStatus: 'pending', acknowledgedPendingLiteracyReview: true });
+    const bundle = exportStory(story, { hash: 'h', version: 1, by: 'Sam', at: 'now', literacyReview: { reviewer: 'Dr Rowan Ellis', date: '2026-10-20' } });
     expect(bundle.format).toBe(EXPORT_FORMAT);
     const result = parseImport(JSON.stringify(bundle));
     expect(result.ok && result.story).toEqual(story);
