@@ -54,10 +54,7 @@ and submit again. Do not edit files in `drafts/` or `reports/` by hand.
   which things happened.
 - Add vocabulary through context and a `glossary` entry with a short plain
   `definition` (under 200 characters) for each key word.
-- Typing puzzles are optional: at most one per four non-ending passages, at least
-  one in the story. Each has a `prompt`, accepted `answers`, a `hint` and a
-  `successText`. A puzzle never gates a choice or ending; if a route needs
-  something a puzzle gives, offer the same thing another way too.
+- Do not add typing puzzles. Typing is a separate add-on that uses grown-up word lists, not story pages.
 - No timers, countdowns or "hurry" mechanics on any page.
 
 ## Hard rules

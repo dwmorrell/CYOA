@@ -14,7 +14,7 @@ import type { KvStore } from './kv';
 //   library                       LibraryEntry[] (parent-managed stories)
 //   progress:<profileId>          Progress
 //   typing:lists                  TypingList[] (typing practice add-on, not story data)
-//   typing:scores:<listId>        ScoreEntry[], the high scores for one word list
+//   typing:scores:<trackId>       ScoreEntry[], the high scores for one race track
 //   keyboard:seen                 true once a hardware key was pressed on this device
 
 export interface Profile {
@@ -121,22 +121,18 @@ export class Repo {
       if (list.words.length > MAX_WORDS) throw new Error(`"${list.name}" can hold up to ${MAX_WORDS} words`);
       if (list.words.some((w) => !WORD_PATTERN.test(w))) throw new Error(`"${list.name}" has a word with characters other than letters, apostrophes or hyphens`);
     }
-    // A removed list takes its high scores with it.
-    for (const key of await this.kv.keys(SCORES_PREFIX)) {
-      if (!ids.has(key.slice(SCORES_PREFIX.length))) await this.kv.delete(key);
-    }
     await this.kv.set('typing:lists', lists.map((l) => ({ id: l.id, name: l.name.trim(), words: l.words })));
   }
 
-  /** The best laps on one word list, best first. */
-  async highScores(listId: string): Promise<ScoreEntry[]> {
-    return (await this.kv.get<ScoreEntry[]>(`${SCORES_PREFIX}${listId}`)) ?? [];
+  /** The best laps on one race track, best first. */
+  async highScores(trackId: string): Promise<ScoreEntry[]> {
+    return (await this.kv.get<ScoreEntry[]>(`${SCORES_PREFIX}${trackId}`)) ?? [];
   }
 
-  /** Records a finished lap and returns the updated list. */
-  async recordHighScore(listId: string, entry: ScoreEntry): Promise<ScoreEntry[]> {
-    const next = addScore(await this.highScores(listId), entry);
-    await this.kv.set(`${SCORES_PREFIX}${listId}`, next);
+  /** Records a finished lap on a race track and returns the updated list. */
+  async recordHighScore(trackId: string, entry: ScoreEntry): Promise<ScoreEntry[]> {
+    const next = addScore(await this.highScores(trackId), entry);
+    await this.kv.set(`${SCORES_PREFIX}${trackId}`, next);
     return next;
   }
 
@@ -234,18 +230,18 @@ export class Repo {
   }
 
   /**
-   * Parent approval puts the current draft in the child library. It requires a
-   * human literacy review recorded in the story itself (status passed, reviewer
-   * kind human). An AI pre-review never counts, and the app never records one.
+   * Parent approval puts the current draft in the child library. The parent
+   * confirms that the AI literacy review and the AI QA review passed for this
+   * version. The app cannot read those review records, so the confirmation is
+   * the parent's own, and the approval records when it was given.
    */
-  async approve(storyId: string, decision: { by: string; at: string }): Promise<LibraryEntry> {
+  async approve(storyId: string, decision: { by: string; at: string; aiReviewsPassed: boolean }): Promise<LibraryEntry> {
     const entry = (await this.library()).find((e) => e.storyId === storyId);
     if (!entry?.draftHash) throw new Error('There is no draft to approve');
     const story = await this.snapshot(storyId, entry.draftHash);
     if (!story) throw new Error('The draft could not be found');
-    const review = humanLiteracyReview(story);
-    if (!review) throw new Error(NO_HUMAN_REVIEW);
-    const approved: Approval = { hash: entry.draftHash, version: story.version, by: decision.by, at: decision.at, literacyReview: review };
+    if (decision.aiReviewsPassed !== true) throw new Error(AI_REVIEWS_NOT_CONFIRMED);
+    const approved: Approval = { hash: entry.draftHash, version: story.version, by: decision.by, at: decision.at, aiReviewsConfirmedAt: decision.at };
     const updated: LibraryEntry = { ...entry, draftHash: undefined, approved };
     await this.putEntry(updated);
     return updated;
@@ -271,7 +267,6 @@ export class Repo {
     const next: Progress = {
       endings: { ...p.endings, [storyId]: add(p.endings[storyId] ?? [], state.endingsSeen) },
       clues: add(p.clues, state.clues.map((c) => `${storyId}:${c}`)),
-      puzzles: add(p.puzzles, state.puzzlesSolved.map((x) => `${storyId}:${x}`)),
       words: extra.wordLookedUp ? add(p.words, [extra.wordLookedUp]) : p.words,
       pagesRead: p.pagesRead + (extra.wordLookedUp ? 0 : 1),
     };
@@ -299,29 +294,16 @@ export interface VersionRecord {
   source: 'import' | 'editor' | 'bundled-copy' | 'workshop-draft';
 }
 
-/** A human literacy review, as recorded in the story's own literacy.review record. */
-export interface HumanLiteracyReview {
-  reviewer: string;
-  date: string;
-}
-
 export interface Approval {
   hash: string;
   version: number;
   by: string;
   at: string;
-  /** Always present: approval is refused without a recorded human literacy review. */
-  literacyReview: HumanLiteracyReview;
+  /** When the parent confirmed that the AI literacy and AI QA reviews passed for this version. Always present. */
+  aiReviewsConfirmedAt: string;
 }
 
-export const NO_HUMAN_REVIEW = 'A human literacy review must be recorded in the story before it can be approved. Ask the literacy reviewer to record it.';
-
-/** The human literacy review recorded in the story, or undefined. AI pre-reviews never qualify. */
-export function humanLiteracyReview(story: Story): HumanLiteracyReview | undefined {
-  const r = story.literacy.review;
-  if (r.status !== 'passed' || r.reviewerKind !== 'human' || !r.reviewer?.trim() || !r.date?.trim()) return undefined;
-  return { reviewer: r.reviewer.trim(), date: r.date.trim() };
-}
+export const AI_REVIEWS_NOT_CONFIRMED = 'Confirm that the AI literacy review and the AI QA review passed for this version before approving it.';
 
 export interface LibraryEntry {
   storyId: string;
@@ -335,9 +317,8 @@ export interface LibraryEntry {
 export interface Progress {
   endings: Record<string, string[]>;
   clues: string[];
-  puzzles: string[];
   words: string[];
   pagesRead: number;
 }
 
-export const EMPTY_PROGRESS: Progress = { endings: {}, clues: [], puzzles: [], words: [], pagesRead: 0 };
+export const EMPTY_PROGRESS: Progress = { endings: {}, clues: [], words: [], pagesRead: 0 };

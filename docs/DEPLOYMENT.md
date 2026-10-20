@@ -7,7 +7,7 @@
 2. **Application deployment and story publication are separate.**
    - Story publication changes `public/stories/catalog.json` and adds a file
      under `public/stories/published/`. It happens only through
-     `npm run story -- publish` after QA review, human literacy review and
+     `npm run story -- publish` after the AI QA and AI literacy reviews and
      parent approval, and lands through a reviewed pull request.
    - Application deployment ships whatever code and catalog are on `main`. It
      never changes a story's status.

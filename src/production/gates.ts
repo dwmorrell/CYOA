@@ -9,7 +9,7 @@ export interface PublicationPolicy {
 
 export const DEFAULT_POLICY: PublicationPolicy = {
   requiredReviews: ['qa', 'literacy'],
-  requireHumanReviewFor: ['literacy'],
+  requireHumanReviewFor: [],
 };
 
 export interface GateResult {

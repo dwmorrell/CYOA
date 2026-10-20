@@ -8,7 +8,6 @@ import { blankStory, EXPORT_FORMAT, exportStory, parseImport } from '../../src/s
 import { validateDraft } from '../../src/production/validate-draft';
 import { contentHash } from '../../src/util/hash';
 import { clone, fixture } from '../helpers';
-import type { Story } from '../../src/engine/types';
 
 const story = fixture();
 let dbCount = 0;
@@ -142,20 +141,18 @@ describe('saves are tied to the story version they started with', () => {
     expect(await repo.saves(other.id)).toHaveLength(0);
   });
 
-  it('requires puzzlesSolved in a saved state', () => {
-    const { puzzlesSolved: _p, ...old } = { storyId: 'a', storyVersion: 1, current: 'x', items: [], clues: [], flags: [], history: [], endingsSeen: [], puzzlesSolved: [], startedAt: '', updatedAt: '' };
-    expect(isGameState(old)).toBe(false);
+  it('reads a save made before typing was removed, with its old puzzlesSolved field', () => {
+    const old = { storyId: 'a', storyVersion: 1, current: 'x', items: [], clues: [], flags: [], history: [], endingsSeen: [], puzzlesSolved: [], startedAt: '', updatedAt: '' };
+    expect(isGameState(old)).toBe(true);
   });
 });
 
-/** The story as the literacy reviewer records it after a human review. */
-const reviewedByHuman = (s: Story): Story => ({ ...s, literacy: { ...s.literacy, review: { status: 'passed', reviewer: 'Dr Rowan Ellis', reviewerKind: 'human', date: '2026-10-20' } } });
-const approve = (repo: Repo, id: string) => repo.approve(id, { by: 'Sam', at: '2026-10-20T10:00:00Z' });
+const approve = (repo: Repo, id: string, aiReviewsPassed = true) => repo.approve(id, { by: 'Sam', at: '2026-10-20T10:00:00Z', aiReviewsPassed });
 
 describe('device library: drafts and parent approval', () => {
   it('a draft is not approved until the parent approves it', async () => {
     const { repo } = await setUp();
-    const entry = await repo.saveDraft(reviewedByHuman(story), 'Sam', 'import');
+    const entry = await repo.saveDraft(story, 'Sam', 'import');
     expect(entry.approved).toBeUndefined();
     const approved = await approve(repo, story.id);
     expect(approved.approved?.version).toBe(1);
@@ -163,37 +160,36 @@ describe('device library: drafts and parent approval', () => {
     await expect(approve(repo, story.id)).rejects.toThrow(/no draft/);
   });
 
-  it('refuses approval while the story has no human literacy review', async () => {
+  it('refuses approval until the parent confirms the AI literacy and AI QA reviews passed', async () => {
     const { repo } = await setUp();
     await repo.saveDraft(story, 'Sam', 'import');
-    await expect(approve(repo, story.id)).rejects.toThrow(/human literacy review must be recorded/);
+    await expect(approve(repo, story.id, false)).rejects.toThrow(/Confirm that the AI literacy review and the AI QA review/);
     expect((await repo.library())[0]?.approved).toBeUndefined();
   });
 
-  it('an AI pre-review, even one marked passed, never counts as the human review', async () => {
+  it('the story file’s own literacy record does not decide approval, and the app never writes it', async () => {
     const { repo } = await setUp();
-    const aiPassed = { ...story, literacy: { ...story.literacy, review: { status: 'passed' as const, reviewer: 'literacy-specialist', reviewerKind: 'ai-agent' as const, date: '2026-10-20' } } };
-    await repo.saveDraft(aiPassed, 'Sam', 'import');
-    await expect(approve(repo, story.id)).rejects.toThrow(/human literacy review must be recorded/);
-    const pendingHuman = { ...story, literacy: { ...story.literacy, review: { status: 'pending' as const, reviewer: 'Dr Rowan Ellis', reviewerKind: 'human' as const, date: '2026-10-20' } } };
-    await repo.saveDraft(pendingHuman, 'Sam', 'editor', new Date('2026-10-21'));
-    await expect(approve(repo, story.id)).rejects.toThrow(/human literacy review must be recorded/);
+    const pending = { ...story, literacy: { ...story.literacy, review: { status: 'pending' as const } } };
+    await repo.saveDraft(pending, 'Sam', 'import');
+    const approved = await approve(repo, story.id);
+    expect(approved.approved?.version).toBe(1);
+    expect((await repo.draft(story.id))?.literacy.review.status).toBe('pending');
   });
 
-  it('records the human reviewer on the approved version', async () => {
+  it('records when the parent confirmed the AI reviews on the approved version', async () => {
     const { repo } = await setUp();
-    await repo.saveDraft(reviewedByHuman(story), 'Sam', 'import');
+    await repo.saveDraft(story, 'Sam', 'editor');
     const approved = await approve(repo, story.id);
-    expect(approved.approved?.literacyReview).toEqual({ reviewer: 'Dr Rowan Ellis', date: '2026-10-20' });
-    expect(approved.approved).not.toHaveProperty('acknowledgedPendingLiteracyReview');
+    expect(approved.approved?.aiReviewsConfirmedAt).toBe('2026-10-20T10:00:00Z');
+    expect(approved.approved).not.toHaveProperty('literacyReview');
   });
 
   it('never overwrites an approved version; edits need a higher version', async () => {
     const { repo } = await setUp();
-    await repo.saveDraft(reviewedByHuman(story), 'Sam', 'editor');
+    await repo.saveDraft(story, 'Sam', 'editor');
     await approve(repo, story.id);
     await expect(repo.saveDraft({ ...story, title: 'Changed' }, 'Sam', 'editor')).rejects.toThrow(/already approved/);
-    const entry = await repo.saveDraft({ ...reviewedByHuman(story), title: 'Changed', version: 2 }, 'Sam', 'editor');
+    const entry = await repo.saveDraft({ ...story, title: 'Changed', version: 2 }, 'Sam', 'editor');
     expect(entry.approved?.version).toBe(1);
     expect((await repo.snapshot(story.id, entry.approved!.hash))?.title).toBe(story.title);
     expect((await repo.draft(story.id))?.title).toBe('Changed');
@@ -202,7 +198,7 @@ describe('device library: drafts and parent approval', () => {
 
   it('withdraw removes a story from the child library but keeps it as a draft', async () => {
     const { repo } = await setUp();
-    await repo.saveDraft(reviewedByHuman(story), 'Sam', 'editor');
+    await repo.saveDraft(story, 'Sam', 'editor');
     await approve(repo, story.id);
     await repo.withdraw(story.id);
     const [entry] = await repo.library();
@@ -212,13 +208,12 @@ describe('device library: drafts and parent approval', () => {
 });
 
 describe('progression', () => {
-  it('records endings, clues, puzzles, words and pages', async () => {
+  it('records endings, clues, words and pages', async () => {
     const { repo, child } = await setUp();
-    await repo.recordProgress(child.id, story.id, { ...(await repo.startGame(child.id, story)).save.state, endingsSeen: ['win'], clues: ['red-thread'], puzzlesSolved: ['p1'] });
+    await repo.recordProgress(child.id, story.id, { ...(await repo.startGame(child.id, story)).save.state, endingsSeen: ['win'], clues: ['red-thread'] });
     const p = await repo.recordProgress(child.id, story.id, (await repo.loadSave(child.id, story.id))!.save.state, { wordLookedUp: 'pond' });
     expect(p.endings[story.id]).toEqual(['win']);
     expect(p.clues).toEqual([`${story.id}:red-thread`]);
-    expect(p.puzzles).toEqual([`${story.id}:p1`]);
     expect(p.words).toEqual(['pond']);
     expect(p.pagesRead).toBe(1);
   });
@@ -226,7 +221,7 @@ describe('progression', () => {
 
 describe('story import and export', () => {
   it('round-trips through an export bundle; approval does not carry over', () => {
-    const bundle = exportStory(story, { hash: 'h', version: 1, by: 'Sam', at: 'now', literacyReview: { reviewer: 'Dr Rowan Ellis', date: '2026-10-20' } });
+    const bundle = exportStory(story, { hash: 'h', version: 1, by: 'Sam', at: 'now', aiReviewsConfirmedAt: 'now' });
     expect(bundle.format).toBe(EXPORT_FORMAT);
     const result = parseImport(JSON.stringify(bundle));
     expect(result.ok && result.story).toEqual(story);
@@ -277,16 +272,10 @@ describe('typing practice add-on: word lists and the keyboard flag', () => {
     expect(await repo.keyboardSeen()).toBe(true);
   });
 
-  it('keeps a high score list for each word list, and drops it when the list is removed', async () => {
+  it('keeps a high score list for each race track, separate from the others', async () => {
     const repo = new Repo(memoryKv());
-    await repo.saveTypingLists([
-      { id: 'sea', name: 'Sea', words: ['sea'] },
-      { id: 'farm', name: 'Farm', words: ['cow'] },
-    ]);
-    await repo.recordHighScore('sea', { name: 'Ada', wpm: 20, accuracy: 0.9, lapSeconds: 30, at: 'a' });
-    expect(await repo.highScores('farm')).toEqual([]);
-    expect((await repo.highScores('sea')).map((s) => s.name)).toEqual(['Ada']);
-    await repo.saveTypingLists([{ id: 'farm', name: 'Farm', words: ['cow'] }]);
-    expect(await repo.highScores('sea')).toEqual([]);
+    await repo.recordHighScore('harbour-oval', { name: 'Ada', wpm: 20, accuracy: 0.9, lapSeconds: 30, at: 'a' });
+    expect(await repo.highScores('harbour-loop')).toEqual([]);
+    expect((await repo.highScores('harbour-oval')).map((s) => s.name)).toEqual(['Ada']);
   });
 });

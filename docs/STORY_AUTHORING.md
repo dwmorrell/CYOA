@@ -42,8 +42,9 @@ Concept ids are listed in `src/literacy/taxonomy.ts` and
 - `requires` on a choice locks it until the reader has the listed items,
   clues or flags. Locked choices stay visible with `lockedHint`.
 - `glossary` words show tap-to-reveal syllables.
-- `literacy.review.status` stays `"pending"` until a human literacy review
-  is recorded. Validation fails a story that claims `"passed"` without one.
+- `literacy.review.status` stays `"pending"`. The AI reviews are recorded in the
+  job, not in the story file. Validation fails a story that claims `"passed"`
+  without a recorded review.
 - Raise `version` for every revision.
 
 ## Writing guidance for readers with dyslexia

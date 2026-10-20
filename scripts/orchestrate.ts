@@ -74,7 +74,7 @@ const md: string[] = [
   '## Executable today vs planned',
   '',
   '- Executable: work-item and requirement checks, check commands (`--run`), story job status, traceability generation.',
-  '- Manual: starting each agent (`claude --agent <name>`), human literacy review, parent decisions and publishing.',
+  '- Manual: starting each agent (`claude --agent <name>`), parent decisions and publishing.',
   '- Planned: spawning agents automatically for the next work item, and a parent-facing studio that starts production jobs.',
   '',
 ];

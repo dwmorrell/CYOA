@@ -1,6 +1,6 @@
 # Orchestration report
 
-Generated 2026-10-20T22:22:38.223Z by `npm run orchestrate -- --trace`.
+Generated 2026-10-20T22:53:10.977Z by `npm run orchestrate -- --trace`.
 
 ## Software work items (dependency order)
 
@@ -27,11 +27,11 @@ Generated 2026-10-20T22:22:38.223Z by `npm run orchestrate -- --trace`.
 
 ## Story production jobs
 
-- job-20261020-the-fog-over-pebble-bay-ec899d: **in-review**, 8 revision(s)
-  - pass: draft-exists, Revision 8, story v8
+- job-20261020-the-fog-over-pebble-bay-ec899d: **awaiting-parent-approval**, 9 revision(s)
+  - pass: draft-exists, Revision 9, story v9
   - pass: automated-validation, schema: ok; graph: ok, 3/3 endings reachable; literacy checks: ok; brief: ok
-  - waiting: review:qa, No qa review on revision 8
-  - waiting: review:literacy, literacy review passed only by ai-agent; policy requires a human literacy reviewer
+  - pass: review:qa, qa passed by qa-engineer (ai-agent)
+  - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
   - pass: story-literacy-claim, Story literacy review is "pending"
   - waiting: parent-approval, Waiting for a parent decision
 
@@ -42,5 +42,5 @@ None.
 ## Executable today vs planned
 
 - Executable: work-item and requirement checks, check commands (`--run`), story job status, traceability generation.
-- Manual: starting each agent (`claude --agent <name>`), human literacy review, parent decisions and publishing.
+- Manual: starting each agent (`claude --agent <name>`), parent decisions and publishing.
 - Planned: spawning agents automatically for the next work item, and a parent-facing studio that starts production jobs.

@@ -64,7 +64,7 @@ starter pack is an input to be checked against it, not a standard.
 | M1 Story engine | Done (passages, choices, conditions, effects, clues, items, flags, endings). |
 | M2 Persistence and profiles | Done (IndexedDB, profiles, PIN, version-bound saves). Real-device reload not tested. |
 | M3 Reading experience | Partly. Typography, word help, read-aloud and focus done. "Safe pre-authored variants" not built. |
-| M4 Parent story studio | Partly. Editor, versions, import and export done. Version diff not built (R29). Approval needs a human literacy review. |
+| M4 Parent story studio | Partly. Editor, versions, import and export done. Version diff not built (R29). Approval is the parent's, after the AI literacy and AI QA reviews. |
 | M5 Progress and mini-games | Partly. Progress and badges done. Skill evidence, typing accuracy and speed not built (R27, R28). |
 | M6 Complete first adventure | Pending (R23). |
 | M7 Packaging | Partly. PWA, icons, service worker built. Android and Chromebook tests pending (R25). |

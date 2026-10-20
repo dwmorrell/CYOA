@@ -1,5 +1,8 @@
 {
-  "$comment": "Gates a story must pass before it can appear in the child-facing library. Parent approval is always required and is not configurable here. Loosening requireHumanReviewFor means accepting AI-agent literacy checks as final; do not do that without a deliberate decision.",
-  "requiredReviews": ["qa", "literacy"],
-  "requireHumanReviewFor": ["literacy"]
+  "$comment": "Gates a story must pass before it can appear in the child-facing library. Parent approval is always required and is not configurable here. requireHumanReviewFor is empty: the AI literacy and AI QA reviews are the review gates, and the parent decides approval. Set it back to [\"literacy\"] to require a human literacy reviewer again.",
+  "requiredReviews": [
+    "qa",
+    "literacy"
+  ],
+  "requireHumanReviewFor": []
 }

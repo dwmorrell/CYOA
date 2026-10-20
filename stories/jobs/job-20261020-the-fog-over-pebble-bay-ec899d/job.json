@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-fog-over-pebble-bay-ec899d",
   "storyId": "the-fog-over-pebble-bay",
-  "state": "in-review",
+  "state": "awaiting-parent-approval",
   "createdAt": "2026-10-20T00:24:37.550Z",
-  "updatedAt": "2026-10-20T21:32:59.345Z",
+  "updatedAt": "2026-10-20T22:49:10.350Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/request.json",
@@ -308,6 +308,41 @@
         ]
       },
       "revision": 8
+    },
+    {
+      "storyVersion": 9,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r9.json",
+        "sha256": "64c600e572453fbcb17f77d32033514ca0bf90bda800054f27672ab3d933058d"
+      },
+      "author": {
+        "name": "app-engineer",
+        "kind": "ai-agent",
+        "agent": "app-engineer"
+      },
+      "submittedAt": "2026-10-20T22:46:42.442Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/validation.r9.json",
+          "sha256": "e707df1d35950e07ad24e9f433e79bb26e04e388c255981bddd5dcb1181a9a83"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r9.json",
+          "sha256": "f8500873bd6d7876e19ce6f0480c21b2a8b6f23f84eb20e3739f06db70e5ba79"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/graph.r9.json",
+          "sha256": "ca9cfa26eb50ba6e524f4200d9cbb24001b756e367537c2a8db6a66a528aedb5"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 3/3 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 9
     }
   ],
   "reviews": [
@@ -1295,7 +1330,156 @@
         }
       ],
       "id": "review-10-literacy",
-      "submittedAt": "2026-10-20T21:32:59.345Z"
+      "submittedAt": "2026-10-20T21:32:59.345Z",
+      "invalidatedBy": 9
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 9,
+      "draftSha256": "64c600e572453fbcb17f77d32033514ca0bf90bda800054f27672ab3d933058d",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "AI review of revision 9. It is NOT the human literacy review the publication policy requires. literacy.review.status stays \"pending\" in the story file (I did not change it) and a qualified human must still review. 'pass' here only means I found no blocker, major or minor finding. Automated checks cannot judge: spelling patterns are matched, not sound; syllable counts are estimates from vowel groups; readability figures are estimates and say nothing about how a particular child will read the text; the analyzer does not judge vocabulary, clue clarity, definition quality, whether a learning tag is real practice, or story quality. Sentence lengths I quote are my own hand counts, not analyzer output. I did not run the app, listen to the read-aloud voice, or test with a child; app behaviour is not judged here.",
+          "passage": "start"
+        },
+        {
+          "severity": "note",
+          "message": "CHECK 1, TEXT UNCHANGED APART FROM THE PUZZLE - CONFIRMED. I diffed story.r8.json against story.r9.json and then read both drafts side by side. The raw diff is noisy because r9 is pretty-printed (arrays and objects spread over lines), so I compared the content by eye, passage by passage, not with a machine-normalised diff (I could not run a script here). Real differences: (a) \"version\" 8 to 9; (b) the whole \"puzzle\" object (id name-the-wick, prompt, answers wick/wicks, hint, successText) is gone from the threshold passage. Everything else I compared is the same: all 11 passage ids and titles; every paragraph in start, shed, shed-chest, bench, bench-clue, gathering, threshold, climax, ending-beam, ending-help and ending-dock; every choice id, label and target; the wipe-mirror requires and lockedHint; learningTargets on every passage (threshold keeps [\"inference\", \"detail\"]); effects; endings; items; clues; word sets and minimums; and the 18 glossary entries. The report agrees: word counts are still 714 words, average sentence 7.8, longest passage ending-help at 100 words, and the word-set totals are unchanged (sh 20/10, ch 23/8, th 16/8). The pattern match counts dropped a little (closed-syllable 404 to 391, digraph-sh 42 to 41, digraph-th 165 to 157) because the analyzer counted the removed prompt, hint and success text; that is expected and not a story change. Note: validation shows r9 was made by app-engineer, not the narrative designer; I did not write or edit any of it, so there is no self-review issue.",
+          "passage": "threshold"
+        },
+        {
+          "severity": "note",
+          "message": "CHECK 2, NO LEFTOVER REFERENCE TO A TYPING PROMPT OR UNSEEN QUESTION - CONFIRMED. I read every paragraph, title, choice label, lockedHint, item and clue description, and glossary definition in story.r9.json. Nothing says type, word, spell, answer-box, 'the story you just read', 'Optional', or asks the reader to name something. The threshold now ends \"Down in the bay, a ship horn called again. Fen took a slow breath and looked at the mirror.\", which reads as a complete beat that leads to the three choices. The only echo of the old puzzle is the glossary entry for \"answer\": \"What solves a puzzle or a question.\" It is attached to \"answer\" in ending-dock (\"The lamp room has the answer.\"), where it explains a plain noun, and it does not point at a typing puzzle. Fine as is. A re-word to \"What solves a problem or a question\" would be tidier but is not needed; it is a suggestion for the narrative designer, not a finding. Also checked: the item \"match-tin\" and clue text mention matches and the wick but nothing about a typed word. Because the puzzle had no effects and no choice required it, no route and no required item or clue depended on it (wipe-mirror requires only soft-cloth, match-tin and the damp-mirror clue).",
+          "passage": "threshold"
+        },
+        {
+          "severity": "note",
+          "message": "REPORT FIGURES (from reports/literacy.r9.md and validation.r9.json): all automated literacy checks pass. word-set-minimums sh-words 20/10, ch-words 23/8, th-words 16/8; every word used; each set on the shortest route to all three endings (sh: beam 14, help 15, dock 13; ch: 10, 10, 7; th: 8, 9, 8); word-set-concepts-match-spelling: no mismatches; target concepts present (closed-syllable 391, digraph-sh 41, digraph-ch 24, digraph-th 157 matches); sentence-length: 0 sentences over 20 words; readability 714 words, no words estimated at 4+ syllables; 18 glossary words with a definition; tagged moments comprehension 2, inference 3, sequencing 1, vocabulary 1, detail 2, engagement 1 (unchanged from r8, so the threshold inference/detail tag never rested on the puzzle). Validation overall ok, 3 of 3 endings reachable. No word-set minimum is missed, no target pattern is absent, and no word-set word fails its declared pattern (by spelling).",
+          "passage": "shed"
+        },
+        {
+          "severity": "note",
+          "message": "THRESHOLD STILL TEACHES WITHOUT THE PUZZLE. The inference moment is carried by the passage: \"The wind must have put out the wick.\" next to \"The brass mirror stood dull and misty. The wick sat cold in its dish.\" and the closing \"looked at the mirror\" nudges the reader to link Gran Tull's clue to what Fen sees. The detail moment (cold wick, misty mirror) is stated in words. The choices are reachable by the reader without any extra step: \"Wipe the mirror and light the wick\" keeps its hint (\"You need a cloth from the shed chest, and matches and a clue from Gran Tull.\", 76 characters, limit 90, names all three needs and gives nothing away); \"Run down to the dock and wave\" and \"Go back down the stairs to look for help\" are never locked, so the child cannot get stuck, and gathering still offers the shed, the bench and the stairs.",
+          "passage": "threshold"
+        },
+        {
+          "severity": "note",
+          "message": "CHECK 3, APP SETTINGS (story text only). MEANING NOT CARRIED BY LAYOUT: no lists, tables, bold, colour words, 'on the left/right', 'above' or 'see below' in any passage, choice or hint; the last layout-style pointer was in the old puzzle prompt and is gone with it. READ-ALOUD READS THE WORDS: every clue to the story is in the paragraph words, and sounds are written as words (start \"tap, tap, tap\"; gathering \"a ship horn gave a low, sad call\"); with the puzzle gone there is no prompt that could be skipped or read out of order, so the read-aloud text is just title, paragraphs and choice labels. Whether the voice actually reads them, and how it says 'Tull' or British 'harbour', is untested and belongs to the app engineer. OPTIONAL WORD HELP: the 18 glossary entries are keyed to words in the paragraphs and each hard word is also clear from context; choice labels and hints depend on no glossary word. NO TIME OR SPEED: no timer, and no choice or hint mentions hurry; \"twice as fast\" (ending-help) is a result, not a choice. OPTIONAL TYPING: none left in the story (typing-balance is no longer in play, and the story has no puzzle). FAIR LOCKED-CHOICE HINT: see above.",
+          "passage": "threshold"
+        },
+        {
+          "severity": "note",
+          "message": "CHECK 4, READABILITY for ages 10 to 13 with dyslexia (an estimate from report figures and a full read of all 11 passages). Sentences are short (about 14 to 15 words at most by my hand count, e.g. start \"Gran Tull, the old lamp keeper, sat on the bench by the tower door.\" and ending-dock \"Next time, Fen would look at the mirror first, and ask for help.\"), paragraphs are one to three sentences, each passage says who, where and what happened, dialogue uses quotation marks with 'said', and the harder words (wick, brass, beam, gust, stairs, knees, steady, fluttered, harbour, matches, window, mirror) have glossary help. The cause chain fog, mist, dim lamp, wipe is given in plain steps in bench-clue. ending-help is the longest passage (100 words) but rests on five short paragraphs, not long sentences. Removing the puzzle makes threshold shorter to act on and removes a spelling demand, so reading load goes down, not up. Tone is a gentle seaside mystery with no cruelty or injury. Acceptable for the age range, pending the human review. Carried over, unchanged and not blocking: the bench-clue 'inference' tag is thin because each link is stated outright (the honest count of real inference moments is two, threshold and bench); the metadata premise (\"before the fishing boats come home\") is a mild deadline the reader never sees as a countdown; ending-help uses past perfect \"had hopped\" once. Left for the human reviewer.",
+          "passage": "ending-help"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r9.json",
+          "sha256": "64c600e572453fbcb17f77d32033514ca0bf90bda800054f27672ab3d933058d"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r9.json",
+          "sha256": "f8500873bd6d7876e19ce6f0480c21b2a8b6f23f84eb20e3739f06db70e5ba79"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r9.md",
+          "sha256": "0571a4b47ac6ecbcbbcd266e5856255200256dc804f986298c11d616632f672b"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/weave-comparison.r9.json",
+          "sha256": "f0c49c2bedba7cd85ce784f3510634d6feb113a6049141caf619c5bdd74c6a89"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/validation.r9.json",
+          "sha256": "e707df1d35950e07ad24e9f433e79bb26e04e388c255981bddd5dcb1181a9a83"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json",
+          "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/word-weave-plan.json",
+          "sha256": "fe0edfb2ee6cbe863d05fe16f8be8b997b92afd901d67755f8670bd0cb36cf9a"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reviews/review-10-literacy.r8.json",
+          "sha256": "7576b25e870c298f9e61210724757676ba601050d94e0aa19465c8fd5129768d"
+        }
+      ],
+      "id": "review-11-literacy",
+      "submittedAt": "2026-10-20T22:48:13.060Z"
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 9,
+      "draftSha256": "64c600e572453fbcb17f77d32033514ca0bf90bda800054f27672ab3d933058d",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "passage": "threshold",
+          "message": "Puzzle removal confirmed (story.r9.json lines 238-277). The threshold page has no puzzle field. A search of story.r9.json for 'puzzle' finds one hit, at line 400, which is the glossary definition of 'answer' ('What solves a puzzle or a question.'). That is prose, not a field. A diff of r8 to r9 shows the only content changes are version 8 to 9 and the removal of the r8 'name-the-wick' puzzle block, plus reformatting. The 'wick' word still appears in threshold lines 242-243 and has a glossary entry (line 436), so nothing is left dangling. schemas/story.schema.json and src/ contain no 'puzzle' reference. tests/unit/learning.test.ts line 10 asserts the schema rejects a puzzle on a page, and storage.test.ts line 145 covers old saves that carry puzzlesSolved. I did not run those tests."
+        },
+        {
+          "severity": "note",
+          "message": "Automated validation. `npm run story -- status` shows revision 9 validation=ok. Gate automated-validation PASS: 'schema: ok; graph: ok, 3/3 endings reachable; literacy checks: ok; brief: ok'. validation.r9.json: 11 passages, 15 choices, 28 states explored, search complete, shortest path 5, longest simple path 7, no graph warnings, 0 long sentences. Word-set minimums are met: sh 20/10, ch 23/8, th 16/8, and each set appears on the shortest route to every ending."
+        },
+        {
+          "severity": "note",
+          "message": "Routes traced by hand in story.r9.json. ending-dock (setback, no requirements): start -> to-shed -> shed -> shed-back -> gathering -> gather-climb -> threshold -> run-to-dock -> ending-dock. ending-beam (triumph): start -> to-shed -> shed -> open-chest -> shed-chest [+soft-cloth] -> chest-to-tower -> gathering -> gather-bench -> bench -> ask-more -> bench-clue [+damp-mirror, +match-tin] -> clue-to-tower -> gathering -> gather-climb -> threshold -> wipe-mirror (needs soft-cloth, match-tin, damp-mirror, all held) -> climax -> turn-mirror -> ending-beam. ending-help (triumph): the same route to climax, then call-gran -> ending-help. The bench-first order also works. All 3 endings are reachable. Every non-ending passage has at least one choice (threshold has 3, with go-down returning to gathering), and every ending has choices: [] plus an ending block. Every choice target (shed, bench, gathering, shed-chest, bench-clue, threshold, climax, ending-dock, ending-beam, ending-help) is an existing passage id. Every item and clue has exactly one reachable source."
+        },
+        {
+          "severity": "note",
+          "passage": "threshold",
+          "message": "lockedHint on wipe-mirror (story.r9.json line 264) reads 'You need a cloth from the shed chest, and matches and a clue from Gran Tull.' (76 characters, under the 90 limit). It matches the requirements at lines 255-263: soft-cloth comes from shed-chest (the chest in the shed), and match-tin and damp-mirror both come from bench-clue (Gran Tull). The hint is fair and names both places to look. Other choices carry no requires, so no other hint is needed."
+        },
+        {
+          "severity": "note",
+          "message": "Content integrity. Continuity holds: Gran Tull stays on the bench (bench-clue line 185), and the ending-beam and ending-help passages are consistent with that. Item and clue ids are defined and used consistently. Tone is age-appropriate and the story appears original. The setback ending is fair and points back to the clue. literacy.review.status is still 'pending', which is correct. I did not edit any story file. The literacy review (passed on r9) and the parent decision are outside this review."
+        },
+        {
+          "severity": "minor",
+          "passage": "shed-chest",
+          "message": "Optional observation, not blocking (story.r9.json lines 136-158). The chest can be reopened by revisiting the shed, which re-adds soft-cloth. The effect is harmless because items are a set, and the text still reads fine. No change needed."
+        },
+        {
+          "severity": "note",
+          "message": "NOT RUN: I tried `npm run check` three times and the sandbox refused to run it without approval, so I have no result for it and I claim none. I also did not run `npm test`. For this review I relied on `npm run story -- status`, validation.r9.json, graph.r9.json, direct reading of the draft JSON, a diff of r8 and r9, and a grep of schema and src. `npm run check` must be run by a person or CI before publication. This is a structural and integrity review only, not literacy or parent approval."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r9.json",
+          "sha256": "64c600e572453fbcb17f77d32033514ca0bf90bda800054f27672ab3d933058d"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/validation.r9.json",
+          "sha256": "e707df1d35950e07ad24e9f433e79bb26e04e388c255981bddd5dcb1181a9a83"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/graph.r9.json",
+          "sha256": "ca9cfa26eb50ba6e524f4200d9cbb24001b756e367537c2a8db6a66a528aedb5"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json",
+          "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a"
+        }
+      ],
+      "id": "review-12-qa",
+      "submittedAt": "2026-10-20T22:49:10.350Z"
     }
   ],
   "parentDecisions": [],
@@ -1469,6 +1653,27 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 8 (story v8) passed automated validation"
+    },
+    {
+      "at": "2026-10-20T22:46:42.442Z",
+      "from": "in-review",
+      "to": "in-review",
+      "actor": {
+        "name": "app-engineer",
+        "kind": "ai-agent",
+        "agent": "app-engineer"
+      },
+      "note": "Revision 9 (story v9) passed automated validation"
+    },
+    {
+      "at": "2026-10-20T22:49:10.350Z",
+      "from": "in-review",
+      "to": "awaiting-parent-approval",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "All required reviews passed"
     }
   ]
 }

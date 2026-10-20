@@ -13,10 +13,10 @@ import {
   netWpm,
   parseWordList,
   startLap,
-  trackPoint,
   typeInto,
   type Lap,
 } from '../../src/typing/engine';
+import { startLine, TRACKS, trackPointAt } from '../../src/typing/tracks';
 
 const WORDS = ['cat', 'dog'];
 const TARGET = 'cat dog';
@@ -157,13 +157,37 @@ describe('the car on the track', () => {
     expect(carProgress(typeInto(startLap(WORDS), TARGET, 0))).toBe(1);
   });
 
-  it('runs clockwise from the top of the track', () => {
-    const top = trackPoint(0);
-    expect(top.x).toBeCloseTo(0);
-    expect(top.y).toBeCloseTo(-1);
-    const right = trackPoint(0.25);
-    expect(right.x).toBeCloseTo(1);
-    expect(right.y).toBeCloseTo(0);
+});
+
+describe('race tracks', () => {
+  const oval = TRACKS.find((t) => t.id === 'harbour-oval')!;
+
+  it('every track has its own id, so each keeps its own high scores', () => {
+    const ids = TRACKS.map((t) => t.id);
+    expect(new Set(ids).size).toBe(ids.length);
+    expect(TRACKS.length).toBeGreaterThan(1);
+  });
+
+  it('the car starts on the line at the top and runs clockwise on screen', () => {
+    const top = trackPointAt(oval, 0);
+    expect(top.x).toBeCloseTo(120);
+    expect(top.y).toBeCloseTo(20);
+    const right = trackPointAt(oval, 0.25);
+    expect(right.x).toBeCloseTo(220);
+    expect(right.y).toBeCloseTo(80);
+  });
+
+  it('a finished lap leaves the car back on the start line', () => {
+    const finish = trackPointAt(oval, carProgress(typeInto(startLap(WORDS), TARGET, 0)));
+    expect(finish.x).toBeCloseTo(trackPointAt(oval, 0).x);
+    expect(finish.y).toBeCloseTo(trackPointAt(oval, 0).y);
+  });
+
+  it('the start and finish line crosses the course at its first point', () => {
+    const [a, b] = startLine(oval);
+    expect((a.x + b.x) / 2).toBeCloseTo(oval.points[0]!.x);
+    expect((a.y + b.y) / 2).toBeCloseTo(oval.points[0]!.y);
+    expect(Math.hypot(b.x - a.x, b.y - a.y)).toBeCloseTo(18);
   });
 });
 

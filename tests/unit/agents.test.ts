@@ -21,8 +21,8 @@ describe('agent definitions', () => {
     expect(a.body).toMatch(/may not review, pass or approve your own work/);
   });
 
-  it('reviewing agents are told their AI reviews are not human approval', () => {
-    expect(agents.find((x) => x.frontmatter.name === 'literacy-specialist')!.body).toMatch(/never counts as the human literacy review/);
+  it('reviewing agents are told their AI reviews are gates, and that the parent decides approval', () => {
+    expect(agents.find((x) => x.frontmatter.name === 'literacy-specialist')!.body).toMatch(/the parent makes the approval decision/);
     expect(agents.find((x) => x.frontmatter.name === 'qa-engineer')!.body).toMatch(/cannot review work you wrote/);
   });
 

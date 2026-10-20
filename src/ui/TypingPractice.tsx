@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
-import { accuracy, carProgress, correctLength, formatLapTime, lapSeconds, lapTimeSeconds, netWpm, scoreFor, startLap, trackPoint, typeInto, type Lap, type ScoreEntry, type TypingList } from '../typing/engine';
+import { accuracy, carProgress, correctLength, formatLapTime, lapSeconds, lapTimeSeconds, netWpm, scoreFor, startLap, typeInto, type Lap, type ScoreEntry, type TypingList } from '../typing/engine';
+import { startLine, TRACKS, trackPointAt, type Track } from '../typing/tracks';
 import { BackBar, Page } from './common';
 import { useApp } from './context';
 
 // Typing practice is a separate add-on. Words come from the grown-up's lists,
 // there is no countdown, and a lap ends only when the words are typed.
 // The gauge, the car and the high scores use words a minute after mistakes.
-// Each word list is a track with its own high score list.
+// Each race track has its own high score list.
 const GAUGE_MAX_WPM = 60;
 
 /** Speedometer: a half-circle dial with a needle at the current speed. */
@@ -30,14 +31,16 @@ function Gauge({ wpm }: { wpm: number }) {
   );
 }
 
-/** Track: an oval with the car on it. The car moves as correct letters are typed. */
-function Track({ progress }: { progress: number }) {
-  const car = trackPoint(progress);
+/** Race track: the course as a closed loop, with its start and finish line. The car moves round it as correct letters are typed. */
+function TrackView({ track, progress }: { track: Track; progress: number }) {
+  const [from, to] = startLine(track);
+  const car = trackPointAt(track, progress);
+  const course = `M ${track.points.map((p) => `${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' L ')} Z`;
   return (
     <svg className="track" viewBox="0 0 240 160" aria-hidden="true" focusable="false">
-      <ellipse cx="120" cy="80" rx="100" ry="60" fill="none" stroke="currentColor" strokeWidth="14" strokeOpacity="0.25" />
-      <line x1="120" y1="14" x2="120" y2="32" stroke="currentColor" strokeWidth="3" />
-      <circle cx={120 + 100 * car.x} cy={80 + 60 * car.y} r="7" fill="currentColor" />
+      <path d={course} fill="none" stroke="currentColor" strokeWidth="14" strokeOpacity="0.25" />
+      <line x1={from.x} y1={from.y} x2={to.x} y2={to.y} stroke="currentColor" strokeWidth="3" />
+      <circle cx={car.x} cy={car.y} r="7" fill="currentColor" />
     </svg>
   );
 }
@@ -57,6 +60,7 @@ export function TypingPractice() {
   const { repo, child } = useApp();
   const [lists, setLists] = useState<TypingList[] | null>(null);
   const [listId, setListId] = useState('');
+  const [trackId, setTrackId] = useState(TRACKS[0]!.id);
   const [lap, setLap] = useState<Lap | null>(null);
   const [laps, setLaps] = useState<Lap[]>([]);
   const [scores, setScores] = useState<ScoreEntry[]>([]);
@@ -77,24 +81,31 @@ export function TypingPractice() {
     };
   }, [repo]);
 
-  // The high scores shown are those of the track on screen.
+  // The high scores shown are those of the race track on screen.
   useEffect(() => {
-    if (!listId) return;
     let live = true;
-    void repo.highScores(listId).then((all) => {
+    void repo.highScores(trackId).then((all) => {
       if (live) setScores(all);
     });
     return () => {
       live = false;
     };
-  }, [repo, listId]);
+  }, [repo, trackId]);
 
   const current = lists?.find((l) => l.id === listId);
+  const track = TRACKS.find((t) => t.id === trackId) ?? TRACKS[0]!;
   const chooseList = (id: string) => {
     const next = lists?.find((l) => l.id === id);
     if (!next) return;
     setListId(id);
     setLap(startLap(next.words));
+    setLaps([]);
+    setPlace(null);
+  };
+  const chooseTrack = (id: string) => {
+    if (!current) return;
+    setTrackId(id);
+    setLap(startLap(current.words));
     setLaps([]);
     setPlace(null);
   };
@@ -110,7 +121,7 @@ export function TypingPractice() {
       setLaps((all) => [...all, next]);
       const entry = scoreFor(next, child.name, new Date().toISOString());
       if (entry)
-        void repo.recordHighScore(current.id, entry).then((all) => {
+        void repo.recordHighScore(track.id, entry).then((all) => {
           setScores(all);
           const index = all.indexOf(entry);
           setPlace(index >= 0 ? index + 1 : null);
@@ -124,7 +135,7 @@ export function TypingPractice() {
 
   return (
     <Page title="Typing practice" nav={<BackBar />} className="library typing">
-      <p>Type each word as it appears. Your speed and your accuracy move the car round the track. Typing practice is separate from the story, and there is no time limit.</p>
+      <p>Type each word as it appears. Your speed and your accuracy move the car round the race track, from the start line back to it. Typing practice is separate from the story, and there is no time limit.</p>
       {lists === null && <p role="status">Loading…</p>}
       {lists?.length === 0 && (
         <div className="empty">
@@ -144,9 +155,19 @@ export function TypingPractice() {
               ))}
             </select>
           </div>
+          <div className="row">
+            <label htmlFor="typing-track">Race track</label>
+            <select id="typing-track" className="input" value={trackId} onChange={(e) => chooseTrack(e.target.value)}>
+              {TRACKS.map((t) => (
+                <option key={t.id} value={t.id}>
+                  {t.name}
+                </option>
+              ))}
+            </select>
+          </div>
 
           <section className="typing-car" aria-label="Track and speed">
-            <Track progress={carProgress(lap)} />
+            <TrackView track={track} progress={carProgress(lap)} />
             <Gauge wpm={wpm} />
             <p className="typing-readout" role="status">
               Speed {Math.round(wpm)} words a minute. Accuracy {Math.round(accuracy(lap) * 100)} percent.{' '}
@@ -195,7 +216,7 @@ export function TypingPractice() {
           )}
 
           <section className="typing-scores" aria-labelledby="typing-scores-title">
-            <h2 id="typing-scores-title">High scores: {current.name}</h2>
+            <h2 id="typing-scores-title">High scores: {track.name}</h2>
             {scores.length === 0 ? (
               <p className="muted">No laps finished on this track yet.</p>
             ) : (

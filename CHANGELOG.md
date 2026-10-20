@@ -1,14 +1,20 @@
 # Changelog
 
-## Unreleased: typing practice add-on
+## Unreleased: race tracks, typing and approval
 
+- Approval: the parent approves or denies a story in the app, after confirming
+  that the AI literacy review and the AI QA review passed for that revision. The
+  publication policy no longer requires a human literacy review. The app cannot
+  check the AI review records itself.
 - Typing is separate from the stories. The typing puzzle is removed from the
-  reader, the story editor and the literacy checks; story data keeps its puzzle
-  field until a decision is made.
+  reader, the story editor, the literacy checks and the story schema. The Fog
+  story drops its puzzle in revision 9. Old saves that hold a puzzle count still load.
 - Typing practice is an optional add-on, offered in the library only when a
   keyboard is likely connected. It types words from grown-up word lists, with a
   car on a track, a speed gauge and a lap time. There is no countdown.
-- Each word list has its own high score list, kept on this device.
+- Each race track has its own high score list, kept on this device. The car
+  drives round the track from a start and finish line, and a lap ends back on it.
+  Changing track starts a new lap.
 - Grown-up area: edit typing word lists. The starter list is the default.
 - The Codebreaker badge and "Puzzles solved" count are removed from the log.
 

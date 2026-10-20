@@ -85,9 +85,8 @@ describe('job state transitions', () => {
     const { paths, job } = setup();
     expect(submit(paths, job).job.state).toBe('in-review');
     expect(review(paths, job.id, 'qa', qaAgent).state).toBe('in-review');
-    // AI literacy pre-check alone is not enough under the default policy.
-    expect(review(paths, job.id, 'literacy', litAgent).state).toBe('in-review');
-    expect(review(paths, job.id, 'literacy', litHuman).state).toBe('awaiting-parent-approval');
+    // The AI literacy and AI QA reviews are the review gates; the parent decides approval.
+    expect(review(paths, job.id, 'literacy', litAgent).state).toBe('awaiting-parent-approval');
     expect(decide(paths, job.id, { parent, decision: 'approved', at: T(9).toISOString() }).state).toBe('approved');
     const published = publish(paths, job.id, parent, T(10));
     expect(published.state).toBe('published');
@@ -199,7 +198,7 @@ describe('revision invalidation and versioning', () => {
     expect(publishedRevisionGates(r2.job).every((g) => g.ok)).toBe(true);
   });
 
-  it('CI gate check fails for a job published without a human literacy review', () => {
+  it('CI gate check fails for a job published without its QA and literacy reviews', () => {
     const { paths, job } = setup();
     submit(paths, job, 1);
     const j = loadJob(paths, job.id);

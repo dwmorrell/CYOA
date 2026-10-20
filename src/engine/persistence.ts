@@ -17,7 +17,6 @@ export function isGameState(v: unknown): v is GameState {
     isStringArray(s.flags) &&
     isStringArray(s.history) &&
     isStringArray(s.endingsSeen) &&
-    isStringArray(s.puzzlesSolved) &&
     typeof s.updatedAt === 'string'
   );
 }

@@ -146,12 +146,6 @@ export function correctLength(lap: Lap): number {
   return n;
 }
 
-/** Point on a unit circle for a track position. 0 is the top, and the lap runs clockwise. */
-export function trackPoint(progress: number): { x: number; y: number } {
-  const angle = -Math.PI / 2 + 2 * Math.PI * progress;
-  return { x: Math.cos(angle), y: Math.sin(angle) };
-}
-
 /** The score for a finished lap, or undefined while the lap is still being typed. */
 export function scoreFor(lap: Lap, name: string, at: string): ScoreEntry | undefined {
   const lapTime = lapTimeSeconds(lap);

@@ -50,7 +50,6 @@ export function validateGraph(story: Story): GraphReport {
   const collectFlags = (e?: Effects) => e?.setFlags?.forEach((f) => flagsSet.add(f));
   story.passages.forEach((p) => {
     collectFlags(p.effects);
-    collectFlags(p.puzzle?.effects);
     p.choices.forEach((c) => collectFlags(c.effects));
   });
 
@@ -65,15 +64,8 @@ export function validateGraph(story: Story): GraphReport {
 
   const endingIds = new Map<string, number>();
   let choiceCount = 0;
-  const puzzleIds = new Set<string>();
   for (const p of story.passages) {
     checkRefs(p.id, undefined, p.effects);
-    if (p.puzzle) {
-      checkRefs(p.id, undefined, p.puzzle.effects);
-      if (puzzleIds.has(p.puzzle.id)) errors.push({ code: 'duplicate-puzzle', message: `Puzzle id "${p.puzzle.id}" repeats`, passage: p.id });
-      puzzleIds.add(p.puzzle.id);
-      if (p.ending) errors.push({ code: 'puzzle-on-ending', message: 'Endings cannot hold a puzzle', passage: p.id });
-    }
     const choiceIds = new Set<string>();
     for (const c of p.choices) {
       choiceCount++;
@@ -115,9 +107,9 @@ export function validateGraph(story: Story): GraphReport {
   if (errors.length > 0) return { ok: false, errors, warnings, stats };
 
   // State-space exploration with real conditions and effects.
-  const keyOf = (s: GameState) => `${s.current}|${[...s.items].sort()}|${[...s.clues].sort()}|${[...s.flags].sort()}|${[...s.puzzlesSolved].sort()}`;
+  const keyOf = (s: GameState) => `${s.current}|${[...s.items].sort()}|${[...s.clues].sort()}|${[...s.flags].sort()}`;
   const initial = applyEffects(
-    { storyId: story.id, storyVersion: story.version, current: story.start, items: [], clues: [], flags: [], history: [], endingsSeen: [], puzzlesSolved: [], updatedAt: '' },
+    { storyId: story.id, storyVersion: story.version, current: story.start, items: [], clues: [], flags: [], history: [], endingsSeen: [], updatedAt: '' },
     passages.get(story.start)!.effects,
   );
   const seen = new Map<string, GameState>([[keyOf(initial), initial]]);
@@ -152,10 +144,6 @@ export function validateGraph(story: Story): GraphReport {
         queue.push(next);
       }
     };
-    // A puzzle is optional: explore the state where the reader solves it too.
-    if (passage.puzzle && !state.puzzlesSolved.includes(passage.puzzle.id)) {
-      enqueue(applyEffects({ ...state, puzzlesSolved: [...state.puzzlesSolved, passage.puzzle.id] }, passage.puzzle.effects), 0);
-    }
     const open = passage.choices.filter((c) => meetsCondition(state, c.requires));
     if (open.length === 0) {
       errors.push({ code: 'soft-lock', message: `All choices are locked when holding items [${state.items}] clues [${state.clues}] flags [${state.flags}]`, passage: passage.id });

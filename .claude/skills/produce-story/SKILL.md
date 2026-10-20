@@ -10,4 +10,4 @@ description: Run the story production workflow for one story request - create th
 3. Delegate `qa-engineer` and `literacy-specialist` reviews on the current revision. They record reviews with `npm run story -- review`.
 4. If any review requests changes, send the review files back to `narrative-designer` for a new revision, then repeat step 3 (earlier reviews become stale automatically).
 5. `npm run story -- preview <jobId>` so the parent can play it in the app.
-6. Tell the parent what remains: a human literacy review, then `story decide` and `story publish` in their own terminal. You must not run those.
+6. Tell the parent what remains: once the AI QA and AI literacy reviews have passed, the parent approves or denies the story in the app (or with `story decide` in their own terminal), then `story publish`. You must not run those.

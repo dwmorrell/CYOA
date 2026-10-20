@@ -1,7 +1,7 @@
 import { useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react';
 import { LEARNING_TARGETS, type Choice, type Collectible, type EndingKind, type LearningTarget, type Passage, type Story } from '../../engine/types';
 import { validateDraft } from '../../production/validate-draft';
-import { humanLiteracyReview, NO_HUMAN_REVIEW, type LibraryEntry } from '../../storage/repo';
+import { AI_REVIEWS_NOT_CONFIRMED, type LibraryEntry } from '../../storage/repo';
 import { downloadJson, exportStory } from '../../storage/transfer';
 import { contentHash } from '../../util/hash';
 import { Page } from '../common';
@@ -137,7 +137,7 @@ function PassageEditor({ story, passage, onChange, onDelete }: { story: Story; p
           type="checkbox"
           checked={Boolean(passage.ending)}
           onChange={(e) =>
-            onChange(e.target.checked ? { ...passage, choices: [], puzzle: undefined, ending: { id: passage.id, kind: 'triumph', title: passage.title ?? 'The end' } } : { ...passage, ending: undefined })
+            onChange(e.target.checked ? { ...passage, choices: [], ending: { id: passage.id, kind: 'triumph', title: passage.title ?? 'The end' } } : { ...passage, ending: undefined })
           }
         />
         This page is an ending
@@ -226,6 +226,7 @@ export default function StoryEditor({ storyId }: { storyId: string }) {
   const [jsonError, setJsonError] = useState('');
   const [message, setMessage] = useState('');
   const [missing, setMissing] = useState(false);
+  const [aiReviewsConfirmed, setAiReviewsConfirmed] = useState(false);
 
   const load = useCallback(async () => {
     const e = (await repo.library()).find((x) => x.storyId === storyId);
@@ -254,9 +255,8 @@ export default function StoryEditor({ storyId }: { storyId: string }) {
   const dirty = contentHash(story) !== contentHash(saved);
   const approvedVersion = entry.approved?.version ?? 0;
   const savedIsApproved = entry.approved?.hash === contentHash(saved) && !entry.draftHash;
-  // The literacy review record belongs to the reviewer, not the editor. The
-  // approval gate reads the stored draft, and saving keeps that record as it is.
-  const humanReview = humanLiteracyReview(saved);
+  // The literacy review record belongs to the reviewer, not the editor. Saving
+  // keeps that record as it is; approval asks the parent to confirm the AI reviews.
   const edit = (next: Story) => {
     setStory(next);
     setMessage('');
@@ -280,8 +280,9 @@ export default function StoryEditor({ storyId }: { storyId: string }) {
 
   const approve = async () => {
     try {
-      const updated = await repo.approve(storyId, { by: parentName, at: new Date().toISOString() });
+      const updated = await repo.approve(storyId, { by: parentName, at: new Date().toISOString(), aiReviewsPassed: aiReviewsConfirmed });
       setEntry(updated);
+      setAiReviewsConfirmed(false);
       setMessage(`Version ${saved.version} is now in the reader’s library.`);
     } catch (e) {
       setMessage(e instanceof Error ? e.message : String(e));
@@ -521,15 +522,15 @@ export default function StoryEditor({ storyId }: { storyId: string }) {
         <p>This version is already in the reader’s library.</p>
       ) : (
         <div className="form">
-          <p className="muted">
-            {humanReview
-              ? `Literacy review recorded by ${humanReview.reviewer} on ${humanReview.date}.`
-              : NO_HUMAN_REVIEW}
-          </p>
-          <button type="button" className="btn primary" disabled={dirty || !validation?.ok || !humanReview} onClick={() => void approve()}>
+          <label className="toggle">
+            <input type="checkbox" checked={aiReviewsConfirmed} onChange={(e) => setAiReviewsConfirmed(e.target.checked)} />
+            <span>The AI literacy review and the AI QA review for this version have passed.</span>
+          </label>
+          <p className="muted">The app cannot read the review records, so check them in the workshop before you confirm.</p>
+          <button type="button" className="btn primary" disabled={dirty || !validation?.ok || !aiReviewsConfirmed} onClick={() => void approve()}>
             Approve version {saved.version}
           </button>
-          <p className="muted">{dirty ? 'Save your changes first.' : !validation?.ok ? 'Fix the problems above first.' : ''}</p>
+          <p className="muted">{dirty ? 'Save your changes first.' : !validation?.ok ? 'Fix the problems above first.' : !aiReviewsConfirmed ? AI_REVIEWS_NOT_CONFIRMED : ''}</p>
         </div>
       )}
       <p role="status">{message}</p>

@@ -1,0 +1,58 @@
+{
+  "role": "qa",
+  "reviewer": { "name": "qa-engineer", "kind": "ai-agent", "agent": "qa-engineer" },
+  "revision": 9,
+  "draftSha256": "64c600e572453fbcb17f77d32033514ca0bf90bda800054f27672ab3d933058d",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "passage": "threshold",
+      "message": "Puzzle removal confirmed (story.r9.json lines 238-277). The threshold page has no puzzle field. A search of story.r9.json for 'puzzle' finds one hit, at line 400, which is the glossary definition of 'answer' ('What solves a puzzle or a question.'). That is prose, not a field. A diff of r8 to r9 shows the only content changes are version 8 to 9 and the removal of the r8 'name-the-wick' puzzle block, plus reformatting. The 'wick' word still appears in threshold lines 242-243 and has a glossary entry (line 436), so nothing is left dangling. schemas/story.schema.json and src/ contain no 'puzzle' reference. tests/unit/learning.test.ts line 10 asserts the schema rejects a puzzle on a page, and storage.test.ts line 145 covers old saves that carry puzzlesSolved. I did not run those tests."
+    },
+    {
+      "severity": "note",
+      "message": "Automated validation. `npm run story -- status` shows revision 9 validation=ok. Gate automated-validation PASS: 'schema: ok; graph: ok, 3/3 endings reachable; literacy checks: ok; brief: ok'. validation.r9.json: 11 passages, 15 choices, 28 states explored, search complete, shortest path 5, longest simple path 7, no graph warnings, 0 long sentences. Word-set minimums are met: sh 20/10, ch 23/8, th 16/8, and each set appears on the shortest route to every ending."
+    },
+    {
+      "severity": "note",
+      "message": "Routes traced by hand in story.r9.json. ending-dock (setback, no requirements): start -> to-shed -> shed -> shed-back -> gathering -> gather-climb -> threshold -> run-to-dock -> ending-dock. ending-beam (triumph): start -> to-shed -> shed -> open-chest -> shed-chest [+soft-cloth] -> chest-to-tower -> gathering -> gather-bench -> bench -> ask-more -> bench-clue [+damp-mirror, +match-tin] -> clue-to-tower -> gathering -> gather-climb -> threshold -> wipe-mirror (needs soft-cloth, match-tin, damp-mirror, all held) -> climax -> turn-mirror -> ending-beam. ending-help (triumph): the same route to climax, then call-gran -> ending-help. The bench-first order also works. All 3 endings are reachable. Every non-ending passage has at least one choice (threshold has 3, with go-down returning to gathering), and every ending has choices: [] plus an ending block. Every choice target (shed, bench, gathering, shed-chest, bench-clue, threshold, climax, ending-dock, ending-beam, ending-help) is an existing passage id. Every item and clue has exactly one reachable source."
+    },
+    {
+      "severity": "note",
+      "passage": "threshold",
+      "message": "lockedHint on wipe-mirror (story.r9.json line 264) reads 'You need a cloth from the shed chest, and matches and a clue from Gran Tull.' (76 characters, under the 90 limit). It matches the requirements at lines 255-263: soft-cloth comes from shed-chest (the chest in the shed), and match-tin and damp-mirror both come from bench-clue (Gran Tull). The hint is fair and names both places to look. Other choices carry no requires, so no other hint is needed."
+    },
+    {
+      "severity": "note",
+      "message": "Content integrity. Continuity holds: Gran Tull stays on the bench (bench-clue line 185), and the ending-beam and ending-help passages are consistent with that. Item and clue ids are defined and used consistently. Tone is age-appropriate and the story appears original. The setback ending is fair and points back to the clue. literacy.review.status is still 'pending', which is correct. I did not edit any story file. The literacy review (passed on r9) and the parent decision are outside this review."
+    },
+    {
+      "severity": "minor",
+      "passage": "shed-chest",
+      "message": "Optional observation, not blocking (story.r9.json lines 136-158). The chest can be reopened by revisiting the shed, which re-adds soft-cloth. The effect is harmless because items are a set, and the text still reads fine. No change needed."
+    },
+    {
+      "severity": "note",
+      "message": "NOT RUN: I tried `npm run check` three times and the sandbox refused to run it without approval, so I have no result for it and I claim none. I also did not run `npm test`. For this review I relied on `npm run story -- status`, validation.r9.json, graph.r9.json, direct reading of the draft JSON, a diff of r8 and r9, and a grep of schema and src. `npm run check` must be run by a person or CI before publication. This is a structural and integrity review only, not literacy or parent approval."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r9.json",
+      "sha256": "64c600e572453fbcb17f77d32033514ca0bf90bda800054f27672ab3d933058d"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/validation.r9.json",
+      "sha256": "e707df1d35950e07ad24e9f433e79bb26e04e388c255981bddd5dcb1181a9a83"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/graph.r9.json",
+      "sha256": "ca9cfa26eb50ba6e524f4200d9cbb24001b756e367537c2a8db6a66a528aedb5"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json",
+      "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a"
+    }
+  ]
+}

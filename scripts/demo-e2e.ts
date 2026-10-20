@@ -3,7 +3,7 @@
 // Runs in a throwaway sandbox so the real repository is never changed. It
 // replays the real sample request, the narrative-designer agent's real draft
 // and the real agent reviews from stories/jobs/, then shows the gates. The
-// human steps (literacy review, parent approval, publish) are SIMULATED and
+// parent steps (approval, publish) and the literacy review result are SIMULATED and
 // labelled as such: no person took part in this run.
 
 import { cpSync, mkdtempSync, rmSync } from 'node:fs';
@@ -76,16 +76,16 @@ for (const rv of realReviews) {
 gateLines(job.id).forEach(log);
 
 log();
-log('## 5. Human steps (SIMULATED in this sandbox; no person took part)');
-const simulatedLiteracy: Actor = { name: 'Literacy tutor (SIMULATED)', kind: 'human' };
+log('## 5. Parent steps and literacy result (SIMULATED in this sandbox; no person took part)');
+const simulatedLiteracy: Actor = { name: 'Literacy specialist (SIMULATED)', kind: 'ai-agent' };
 const simulatedParent: Actor = { name: 'Parent (SIMULATED)', kind: 'human' };
 job = loadJob(sb, job.id);
 const qaPassed = job.reviews.some((x) => x.role === 'qa' && x.verdict === 'pass' && !x.invalidatedBy);
 if (!qaPassed) {
-  log('  The real QA review has not passed this revision, so the story stays blocked. Simulated human steps skipped.');
+  log('  The real QA review has not passed this revision, so the story stays blocked. Simulated steps skipped.');
 } else {
   job = recordReview(sb, job.id, { role: 'literacy', reviewer: simulatedLiteracy, revision: rev.revision, draftSha256: rev.draft.sha256, verdict: 'pass', findings: [{ severity: 'note', message: 'SIMULATED review for the demonstration only' }], evidence });
-  log(`  simulated human literacy review: pass -> ${job.state}`);
+  log(`  simulated AI literacy review: pass -> ${job.state}`);
   job = decide(sb, job.id, { parent: simulatedParent, decision: 'approved', note: 'SIMULATED approval for the demonstration only', at: new Date().toISOString() });
   log(`  simulated parent decision: approved -> ${job.state}`);
   job = publish(sb, job.id, simulatedParent);
@@ -112,7 +112,7 @@ try {
 log();
 log('## Limits of this demonstration');
 log('- Story drafting and the QA and literacy pre-reviews were done by Claude Code agents before this run; the demo replays their recorded output.');
-log('- The human literacy review, parent approval and publication above are simulated in a sandbox. In the real repository the sample story remains unpublished with its literacy review pending.');
+log('- The literacy review result, parent approval and publication above are simulated in a sandbox. In the real repository the sample story remains unpublished, waiting for the parent\'s decision.');
 
 writeTextFile(join(ROOT, 'reports', 'demo', 'e2e-demo.md'), `${out.join('\n')}\n`);
 rmSync(sandboxDir, { recursive: true, force: true });

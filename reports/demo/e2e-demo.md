@@ -1,7 +1,7 @@
 # End-to-end story workflow demonstration
 
-Run at 2026-10-20T22:23:04.477Z in a temporary sandbox; the repository is not modified.
-Source: real job job-20261020-the-fog-over-pebble-bay-ec899d, revision 8 by narrative-designer (ai-agent).
+Run at 2026-10-20T22:53:20.273Z in a temporary sandbox; the repository is not modified.
+Source: real job job-20261020-the-fog-over-pebble-bay-ec899d, revision 9 by app-engineer (ai-agent).
 
 ## 1. Structured request to planned job (executable)
   job job-20261020-the-fog-over-pebble-bay-ec899d: requested -> briefed -> planned
@@ -23,28 +23,31 @@ Source: real job job-20261020-the-fog-over-pebble-bay-ec899d, revision 8 by narr
     -> Parent approval needs all reviews to pass first (job is "in-review")
 
 ## 4. Specialist agent reviews (executable; real reviews replayed from the repository)
-  literacy review by literacy-specialist (ai-agent): pass, 11 finding(s) -> job in-review
-    PASS draft-exists: Revision 1, story v8
+  literacy review by literacy-specialist (ai-agent): pass, 7 finding(s) -> job in-review
+  qa review by qa-engineer (ai-agent): pass, 7 finding(s) -> job awaiting-parent-approval
+    PASS draft-exists: Revision 1, story v9
     PASS automated-validation: schema: ok; graph: ok, 3/3 endings reachable; literacy checks: ok; brief: ok
-    WAIT review:qa: No qa review on revision 1
-    WAIT review:literacy: literacy review passed only by ai-agent; policy requires a human literacy reviewer
+    PASS review:qa: qa passed by qa-engineer (ai-agent)
+    PASS review:literacy: literacy passed by literacy-specialist (ai-agent)
     PASS story-literacy-claim: Story literacy review is "pending"
     WAIT parent-approval: Waiting for a parent decision
 
-## 5. Human steps (SIMULATED in this sandbox; no person took part)
-  The real QA review has not passed this revision, so the story stays blocked. Simulated human steps skipped.
-    PASS draft-exists: Revision 1, story v8
+## 5. Parent steps and literacy result (SIMULATED in this sandbox; no person took part)
+  simulated AI literacy review: pass -> awaiting-parent-approval
+  simulated parent decision: approved -> approved
+  publish into the sandbox catalog: published; sandbox catalog has 1 published story
+    PASS draft-exists: Revision 1, story v9
     PASS automated-validation: schema: ok; graph: ok, 3/3 endings reachable; literacy checks: ok; brief: ok
-    WAIT review:qa: No qa review on revision 1
-    WAIT review:literacy: literacy review passed only by ai-agent; policy requires a human literacy reviewer
+    PASS review:qa: qa passed by qa-engineer (ai-agent)
+    PASS review:literacy: literacy passed by Literacy specialist (SIMULATED) (ai-agent)
     PASS story-literacy-claim: Story literacy review is "pending"
-    WAIT parent-approval: Waiting for a parent decision
+    PASS parent-approval: approved by Parent (SIMULATED) on revision 1
 
 ## 6. Revision invalidation (executable)
-  new revision 2 (story v9) -> in-review
-  stale reviews: 1 of 1; stale parent decisions: 0
-  child library still shows version (none) until the new revision passes every gate
+  new revision 2 (story v10) -> in-review
+  stale reviews: 3 of 3; stale parent decisions: 1
+  child library still shows version 9 until the new revision passes every gate
 
 ## Limits of this demonstration
 - Story drafting and the QA and literacy pre-reviews were done by Claude Code agents before this run; the demo replays their recorded output.
-- The human literacy review, parent approval and publication above are simulated in a sandbox. In the real repository the sample story remains unpublished with its literacy review pending.
+- The literacy review result, parent approval and publication above are simulated in a sandbox. In the real repository the sample story remains unpublished, waiting for the parent's decision.

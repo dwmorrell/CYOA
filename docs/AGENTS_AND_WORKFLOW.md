@@ -14,8 +14,8 @@ relevant files.
 | `orchestrator` | Sequencing, handoffs, conflicts between requirements | `workflow/`, `reports/orchestration/`, handoff notes | Review, approve or publish anything; write prose or code |
 | `product-architect` | Specs, schema, interfaces, traceability | `docs/PRODUCT_SPEC.md`, `docs/ARCHITECTURE.md`, `schemas/`, `workflow/requirements.json` | Write stories, approve, add runtime AI |
 | `ux-designer` | Reading UI and presentation | `docs/UI_SPEC.md`, `src/ui/`, `src/styles.css` | Claim accessibility conformance |
-| `literacy-specialist` (the Dyslexic Reading specialist) | Comprehension design, age fit (10 to 13), OG-style patterns, taxonomy, word sets, analyzer, AI literacy pre-review | `src/literacy/`, `config/literacy-profiles.json`, literacy review files | Count as the human literacy review; write prose |
-| `narrative-designer` (the CYOA author) | Story drafts, puzzles, learning objectives | `stories/jobs/<id>/work/draft.json` via `story submit-draft` | Review or approve own work |
+| `literacy-specialist` (the Dyslexic Reading specialist) | Comprehension design, age fit (10 to 13), OG-style patterns, taxonomy, word sets, analyzer, AI literacy review | `src/literacy/`, `config/literacy-profiles.json`, literacy review files | The AI literacy review is the literacy gate; write prose |
+| `narrative-designer` (the CYOA author) | Story drafts, learning objectives | `stories/jobs/<id>/work/draft.json` via `story submit-draft` | Review or approve own work |
 | `app-engineer` (the app developer) | Engine, storage, React UI, validators, CLI | `src/engine/`, `src/validation/`, `src/production/`, `scripts/`, tests | Weaken gates |
 | `qa-engineer` | Independent QA of software, stories, saves and device behaviour | QA review files, tests, work-item reviews | Review own work; fix prose |
 | `accessibility-compatibility-reviewer` | A11y and device audits | `reports/accessibility/`, `reports/compatibility/` | Claim untested devices pass |
@@ -59,8 +59,8 @@ smoke test needs a signed-in Claude Code and is not run in CI.
   submitted the sample story, and `qa-engineer` and `literacy-specialist`
   reviewed it through the CLI. Their logs and outputs are in the job folder.
 - **Enforced by code, not by trust:** an author cannot review their own draft;
-  reviews must hash-match the current draft; AI literacy reviews never satisfy
-  the human literacy gate; parent decisions and publishing refuse to run in a
+  reviews must hash-match the current draft; the parent's approval needs the AI
+  literacy and AI QA reviews of that draft; parent decisions and publishing refuse to run in a
   Claude Code session (`CLAUDECODE` is set there) and are also denied in
   `.claude/settings.json`.
 - **Not automated yet:** nothing chains agents together on its own. A person
@@ -107,7 +107,7 @@ claude --agent narrative-designer "Draft the story for job <jobId> following its
 npm run story -- status <jobId>
 claude --agent qa-engineer "QA-review job <jobId>"
 claude --agent literacy-specialist "Literacy pre-review job <jobId>"
-# human literacy reviewer writes a review file with "kind": "human" and records it:
+# each AI reviewer records its review with its own kind (never "human"):
 npm run story -- review <jobId> --file <review.json>
 npm run story -- preview <jobId>        # parent-only shelf in the app
 # parent, in their own terminal (blocked in agent sessions):

@@ -91,7 +91,7 @@
         "matches known vectors"
       ],
       "gaps": [
-        "Spelling-pattern detectors are heuristics; human literacy review still required"
+        "Spelling-pattern detectors are heuristics; the AI literacy review is the literacy gate and the parent decides approval"
       ]
     },
     {
@@ -106,19 +106,21 @@
         "src/production/gates.ts"
       ],
       "tests": [
-        "refuses approval while the story has no human literacy review",
-        "an AI pre-review, even one marked passed, never counts as the human review",
-        "a draft without a human literacy review cannot be approved in the editor",
-        "a human-reviewed draft is approved in the editor and then offered to the child",
+        "refuses approval until the parent confirms the AI literacy and AI QA reviews passed",
+        "the story file’s own literacy record does not decide approval, and the app never writes it",
+        "a draft is not approved in the editor until the parent confirms the AI reviews",
+        "a draft the parent confirms against the AI reviews is approved in the editor and then offered to the child",
+        "records when the parent confirmed the AI reviews on the approved version",
+        "reviewing agents are told their AI reviews are gates, and that the parent decides approval",
         "the editor cannot change the literacy review record, even through the JSON tab",
+        "only a human parent can approve, and AI agents cannot publish",
         "editing an approved story saves a new version and keeps the child on the old one",
         "never overwrites an approved version; edits need a higher version",
-        "only a human parent can approve, and AI agents cannot publish",
         "requires a higher story version for each revision and after publication"
       ],
       "gaps": [
-        "In-app approval needs a recorded human literacy review; it writes only to this device's library, never to the repository",
-        "The human review record is checked for presence, not verified as written by that person",
+        "In-app approval asks the parent to confirm that the AI literacy and AI QA reviews passed; it writes only to this device’s library, never to the repository",
+        "The app records the parent’s confirmation but cannot verify the AI review records, which are kept in the job files",
         "Parent gate is a PIN convenience lock, not authentication"
       ]
     },
@@ -313,8 +315,8 @@
         "src/engine/story-engine.ts"
       ],
       "tests": [
-        "accepts any listed answer, ignoring case and extra spaces",
-        "a story that depends on solving a puzzle is a soft-lock",
+        "the schema rejects a typing puzzle on a page",
+        "typing is not part of the story checks: no typing-balance check or advisory",
         "is not offered in the library until a keyboard is likely",
         "is offered in the library once a hardware key has been pressed on this device",
         "types the words from the list, shows speed and accuracy, and finishes the lap",
@@ -328,7 +330,6 @@
         "holds at most forty words and reports the rest"
       ],
       "gaps": [
-        "Story-embedded puzzle data still exists in the schema and in the Fog draft (r8). The reader no longer shows it. Removing it needs a decision and a new revision",
         "Keyboard detection is a guess: a fine pointer, or a key pressed on this device. After a keyboard is unplugged the option can stay visible",
         "Typing practice keeps no progress yet and is not linked to badges or meta-progression (planned for later)",
         "Not tested with a real keyboard, Android tablet or Chromebook (R25)"
@@ -343,7 +344,7 @@
         "src/ui/AdventureLog.tsx"
       ],
       "tests": [
-        "records endings, clues, puzzles, words and pages"
+        "records endings, clues, words and pages"
       ],
       "gaps": [
         "Badges are a first set; no progression across stories or readers' levels yet"
@@ -484,8 +485,11 @@
         "a mistake lowers net speed: speed is gross words a minute times accuracy",
         "a faster speed gives a shorter lap, for the same words",
         "a faster typist finishes the same lap in less time",
-        "keeps a high score list for each word list, and drops it when the list is removed",
-        "types the words from the list, shows speed and accuracy, and finishes the lap"
+        "keeps a high score list for each race track, separate from the others",
+        "types the words from the list, shows speed and accuracy, and finishes the lap",
+        "the car starts on the line at the top and runs clockwise on screen",
+        "a finished lap leaves the car back on the start line",
+        "each race track keeps its own high scores, and changing track starts a new lap"
       ],
       "gaps": [
         "Speed is measured to the latest key, so it does not fall while the reader pauses",

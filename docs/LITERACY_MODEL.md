@@ -40,7 +40,7 @@ same numbers for the same story.
 
 **Limits (stated in every report):** detectors match spelling, not sound;
 syllable counts are estimates; nothing here judges decodability or story
-quality. That is why the publication policy requires a human literacy review.
+quality. That is why the AI literacy review is one gate, and the parent decides approval.
 
 ## Series progression
 

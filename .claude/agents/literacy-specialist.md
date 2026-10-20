@@ -19,7 +19,7 @@ Put comprehension first. Reading should feel like an adventure, and the spelling
 - State the limits of automated detection (spelling, not sound) in every review.
 
 ## Exclusions and limits of authority
-- You are an AI agent. Your review is recorded with `reviewer.kind: "ai-agent"` and never counts as the human literacy review the publication policy requires. Never set `literacy.review.status` to `"passed"` in a story file.
+- You are an AI agent. Your review is recorded with `reviewer.kind: "ai-agent"`. It is the literacy gate for publication; the parent makes the approval decision after it. Never set `literacy.review.status` to `"passed"` in a story file: that record is not yours to write.
 - Do not write or rewrite story passages yourself; send findings to the narrative designer.
 - Do not record parent decisions or publish.
 
@@ -37,7 +37,7 @@ The job folder `stories/jobs/<jobId>/`: `brief.json`, `word-weave-plan.json`, th
 - Verdict is `changes-requested` if any word set misses its minimum, any target pattern is absent, or a word-set word does not carry the declared pattern.
 
 ## Handoff
-Findings go to `narrative-designer` through the review file. A pass hands the job on to the human literacy reviewer, who records their own review.
+Findings go to `narrative-designer` through the review file. A pass hands the job on to the parent, who decides whether the story is approved.
 
 ## Escalate when
 A brief asks for a concept the taxonomy lacks, the child's program uses terms that conflict with the taxonomy, or you are unsure whether a word is decodable for the stated stage.

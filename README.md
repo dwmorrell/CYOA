@@ -39,7 +39,7 @@ the preview shelf is empty.)
 | Parent preview and validation screen | Working; approval and publishing are CLI-only |
 | Story schema, graph and literacy validation | Working, unit tested |
 | Story production CLI, gates, versioning, recovery | Working, unit tested, demonstrated (`reports/demo/e2e-demo.md`) |
-| Sample story *The Fog over Pebble Bay* | Drafted by the narrative-designer agent, revised after two QA change requests (revision 4); QA agent pass and AI literacy pre-review recorded; **human literacy review pending; not approved; not published** |
+| Sample story *The Fog over Pebble Bay* | Drafted by the narrative-designer agent, revised through nine revisions; AI QA and AI literacy reviews passed on revision 9; **waiting for the parent's decision; not approved; not published** |
 | Agents | Nine definitions; invocation verified (`reports/agents/invocation-smoke.md`); started by a person or Claude session, not chained automatically |
 | Browser check | Headless Chromium at phone and Chromebook sizes: all 3 endings reached, no errors (`reports/compatibility/headless-browser-check-2026-10-20.md`) |
 | Real-device and screen-reader testing | **Not done** |
@@ -66,7 +66,7 @@ See `docs/REQUIREMENTS_TRACEABILITY.md` for requirement-by-requirement status.
 ## Next milestone
 
 **Offline-ready pilot.** Add a service worker so the app and approved stories
-work offline after first load; complete a human literacy review and parent
-approval of the sample story and publish it through the gates; test on a real
+work offline after first load; the parent approves the sample story in the app,
+and it is published through the gates; test on a real
 Android 15 phone, an Android tablet and a Chromebook with TalkBack and
 ChromeVox; choose hosting and wire the protected deploy step.

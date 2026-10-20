@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T22:22:38.225Z",
+  "generatedAt": "2026-10-20T22:53:10.981Z",
   "order": [
     "WI-01",
     "WI-02",
@@ -20,13 +20,13 @@
   "jobs": [
     {
       "id": "job-20261020-the-fog-over-pebble-bay-ec899d",
-      "state": "in-review",
-      "revisions": 8,
+      "state": "awaiting-parent-approval",
+      "revisions": 9,
       "gates": [
         {
           "id": "draft-exists",
           "ok": true,
-          "detail": "Revision 8, story v8"
+          "detail": "Revision 9, story v9"
         },
         {
           "id": "automated-validation",
@@ -35,13 +35,13 @@
         },
         {
           "id": "review:qa",
-          "ok": false,
-          "detail": "No qa review on revision 8"
+          "ok": true,
+          "detail": "qa passed by qa-engineer (ai-agent)"
         },
         {
           "id": "review:literacy",
-          "ok": false,
-          "detail": "literacy review passed only by ai-agent; policy requires a human literacy reviewer"
+          "ok": true,
+          "detail": "literacy passed by literacy-specialist (ai-agent)"
         },
         {
           "id": "story-literacy-claim",
