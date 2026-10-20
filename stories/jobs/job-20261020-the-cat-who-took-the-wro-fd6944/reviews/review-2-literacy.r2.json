@@ -1,0 +1,69 @@
+{
+  "role": "literacy",
+  "reviewer": {
+    "name": "literacy-specialist",
+    "kind": "ai-agent",
+    "agent": "literacy-specialist"
+  },
+  "revision": 2,
+  "draftSha256": "58d08f4e7d909bc20bc9a6ee0db2d2a6e1b1f212ce041ef239a01a53a31fc789",
+  "verdict": "changes-requested",
+  "findings": [
+    {
+      "severity": "major",
+      "message": "The clue chain that gates the best ending contradicts itself. In 'the-stairs' the claw marks 'came down from the Tower and ran to a crack in the wall'. In 'the-prints' the reader is told something 'had left the Tower in a hurry, and been hiding in the wall since'. But in 'lantern-room' the crab is at the top of the Tower behind the small drum, and the text says 'The wet marks on the stairs had come from here.' A reader who follows the clue is led to expect a creature in the wall, then finds it upstairs, so the inference is muddled exactly where 'offer-den' (requires claw-prints) depends on it. Ask the narrative designer to make the marks and the crab's hiding place agree (for example, marks lead UP to the Tower, or the crab is seen going back up).",
+      "passage": "the-prints"
+    },
+    {
+      "severity": "minor",
+      "message": "Contradiction about what Eli saw. In 'the-marsh' the narration says of the stuck frog 'Only Eli did' see it, and Eli chooses to hop on. In 'stone-hop' it says 'Eli did not see it.' That reads as an error and may confuse a reader tracking who knows what. Suggest 'Eli did not look back' or similar.",
+      "passage": "stone-hop"
+    },
+    {
+      "severity": "minor",
+      "message": "Unestablished object and speaker confusion. 'He lined it with his scarf from his bag' introduces a scarf and bag that Eli was never given (continuity lists only a lunch box and library book). In the same paragraph Lira says 'Maybe you are the hero' and Eli replies ('I am just a boy who followed a cat') with no paragraph break, which makes speaker tracking harder for a reader with dyslexia. Split into two paragraphs. 'two-heads' also adds 'Lira's warm scarf' without setup.",
+      "passage": "ending-warm-den"
+    },
+    {
+      "severity": "minor",
+      "message": "Ending recalls the frog on every route. 'He looked at his muddy shoes and thought of the frog, the stairs and the dark hatch.' A child who took the 'hop-stones' path never helped the frog and was told 'Eli did not see it'. Consider 'thought of the marsh' so the line is true on both routes.",
+      "passage": "home-too-soon"
+    },
+    {
+      "severity": "minor",
+      "message": "Glossary 'promised' (defined as 'Told that something would happen for sure') does not match its only use in the text, 'Eli promised to visit' in 'ending-two-heads', which means 'gave his word'. The sense in the definition appears only in the premise, which the child does not read in play. Either use the word in the 'meet-lira' prophecy ('a hero who was promised') or change the definition.",
+      "passage": "ending-two-heads"
+    },
+    {
+      "severity": "minor",
+      "message": "Word-set fit, observed by reading the draft: every blend-set word (step, stone, frog, plan, spin, trip, crab, drum) opens with a consonant blend; every closed-syllable word (cat, map, net, lid, hop, mud, bus) is a single short vowel closed by a consonant; every ing word (running, jumping, hiding, climbing, glowing, ringing) is a base plus -ing. Notes for the parent's program: 'stone' is a blend word but also a silent-e word, not a closed syllable; 'running' doubles the consonant and 'hiding' drops the silent e, so the ing set mixes three spelling conventions. These are fine for ages 10 to 13 but should be mapped deliberately. All words appear on every route (report: blend 11 to 22, closed-syllable 19 to 28, ing 8 to 12 per ending route, against minimums of 10, 8 and 8). Most uses read naturally; 'gave a hop' / 'gave a small hop' / 'made a big hop' is repeated enough to read as drilling in 'through-the-gap', 'the-gate' and 'frog-helped'.",
+      "passage": "late-for-school"
+    },
+    {
+      "severity": "minor",
+      "message": "Limits of the automated report, which this review relies on only partly. Detection is by spelling, not sound. The 'Suffix -ing' count of 34 includes 'anything' and 'nothing', which are not the suffix. The closed-syllable count of 786 and the 'ea' in 'bread' type matches overcount. The report does not judge decodability, vocabulary or story quality. This AI review is not a certified literacy review. Reading level, age fit and decodability judgements are mine from the text; I did not test with a reader.",
+      "passage": "varro"
+    },
+    {
+      "severity": "note",
+      "message": "Skills practised: reading this story, a child decodes in context short words with consonant blends (step, frog, trip, crab, drum), closed-syllable words (cat, map, mud, hop) and -ing words (running, climbing, glowing, ringing), meeting each often on every route. They follow cause and effect and sequence through the fall, the marsh and the climb, infer from clues (the wet marks, the shivering crab) and the choices that depend on them, track who is speaking in dialogue, and pick up vocabulary from context (lantern, marsh, hatch, creature). The age fit for 10 to 13 is good: short sentences (average 8.1 words), no violence, and a theme of kindness and courage that does not talk down.",
+      "passage": "late-for-school"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r2.json",
+      "sha256": "58d08f4e7d909bc20bc9a6ee0db2d2a6e1b1f212ce041ef239a01a53a31fc789"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/literacy.r2.json",
+      "sha256": "bf2119a700c838c0c4996f7c9a01d200c5b85efc1855c45e9a41d5af561f02a0"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/weave-comparison.r2.json",
+      "sha256": "f0b5e67635a4f2284bb4d1bc381cf28751eafa0fa247d284df8528d422db3360"
+    }
+  ],
+  "id": "review-2-literacy",
+  "submittedAt": "2026-10-20T23:27:21.009Z"
+}
