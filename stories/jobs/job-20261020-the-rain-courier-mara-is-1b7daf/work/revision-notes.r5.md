@@ -1,0 +1,4 @@
+- Raised version to 5.
+- ch-words: tried replacing "patch" (spelled tch, not the ch digraph) with "chest" to clear word-set-concepts-match-spelling.
+- Added one sentence in the flash passage using "chest": "She pressed the chip to her chest."
+- Result: literacy checks ok, but brief conformance now fails because the brief requires "patch" in ch-words. The brief conflicts with itself, so this needs an orchestrator or parent decision (change the brief word, or relax the concept check). No QA or literacy review files existed for r4.

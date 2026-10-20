@@ -1,0 +1,542 @@
+{
+  "schemaVersion": "1.0",
+  "id": "the-derelict-salvage",
+  "title": "The Derelict Salvage",
+  "version": 2,
+  "metadata": {
+    "genre": "Space salvage adventure",
+    "theme": "Working as a team, reading the evidence, and deciding what is worth the risk",
+    "premise": "Captain Odessa Rin and her salvage crew find a drifting ship with no signal, a sealed cargo hold, and a last log note written years after the ship was lost.",
+    "estimatedMinutes": 22,
+    "authorship": {
+      "narrative": "narrative-designer (AI agent)",
+      "origin": "ai-generated"
+    },
+    "createdAt": "2026-10-20"
+  },
+  "literacy": {
+    "targetConcepts": ["vowel-team", "silent-e", "digraph-th"],
+    "wordSets": [
+      {
+        "id": "vowel-team-words",
+        "label": "vowel team words",
+        "concept": "vowel-team",
+        "words": ["rain", "sail", "boat", "road", "team", "moon", "deep"],
+        "minOccurrences": 10
+      },
+      {
+        "id": "silent-e-words",
+        "label": "silent e words",
+        "concept": "silent-e",
+        "words": ["cave", "dome", "tube", "note", "hope", "pole"],
+        "minOccurrences": 8
+      },
+      {
+        "id": "th-words",
+        "label": "th words",
+        "concept": "digraph-th",
+        "words": ["thin", "that", "them", "thud", "path", "moth"],
+        "minOccurrences": 8
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  },
+  "start": "start",
+  "items": [
+    {
+      "id": "hook-pole",
+      "name": "Hook-pole",
+      "description": "A long, light pole with a hook on the end. The tag says it is for high latches."
+    }
+  ],
+  "clues": [
+    {
+      "id": "late-log",
+      "name": "The late log note",
+      "description": "The Lark's last log note is only four days old. It says: slow air, slow door."
+    }
+  ],
+  "passages": [
+    {
+      "id": "start",
+      "title": "A Dark Ship in the Deep",
+      "paragraphs": [
+        "The tug Kestrel was old and noisy. But she was reliable, and she knew the deep road between the stars.",
+        "Captain Odessa Rin stood at the front window. Ahead, a dark ship drifted, silent and still.",
+        "\"That is the Lark,\" said Tam, the navigator. \"She went silent eleven years ago.\"",
+        "Bo, the engineer, tapped a screen. \"No signal. No lights. Only a thin hum.\"",
+        "Ivy hugged her bag. This was her first trip. \"What if someone is still in there?\"",
+        "Captain Rin smiled. \"Good question. Let us work as a team and find out.\""
+      ],
+      "learningTargets": ["comprehension", "detail", "engagement"],
+      "choices": [
+        {
+          "id": "to-scan",
+          "label": "Study the Lark's scan with Tam",
+          "target": "scan"
+        },
+        {
+          "id": "to-tube",
+          "label": "Link the dock tube with Bo",
+          "target": "tube"
+        }
+      ]
+    },
+    {
+      "id": "scan",
+      "title": "Tam's Star Map",
+      "paragraphs": [
+        "Tam spread her hand-drawn star map on the table. She marked the Lark in red ink.",
+        "Ivy leaned in. \"Look at that big sail,\" she said. \"It is torn, but it is folded neat.\"",
+        "Fine rain of ice dust tapped the Kestrel's hull. Tap, tap, tap.",
+        "On the screen, a round door sat at the back of the Lark. A seal was stuck across it.",
+        "\"That is the cargo hold,\" said Tam. \"Someone sealed it by hand, on purpose.\"",
+        "Tam looked up. \"Now we must choose. Read the ship's log, or look at the hull?\""
+      ],
+      "learningTargets": ["detail", "vocabulary"],
+      "choices": [
+        {
+          "id": "read-log",
+          "label": "Open the Lark's log with Ivy",
+          "target": "log-read"
+        },
+        {
+          "id": "check-hull",
+          "label": "Check the hull with Tam",
+          "target": "hull-check"
+        }
+      ]
+    },
+    {
+      "id": "log-read",
+      "title": "The Last Note",
+      "paragraphs": [
+        "Ivy opened the Lark's log. Most of it was old and dull. Days of dust and work.",
+        "The last note stood alone at the end. Ivy read it out loud.",
+        "\"Slow air, slow door. The moths need it. I hope someone comes.\"",
+        "Then Ivy gasped. \"The date is only four days old! The Lark went silent eleven years ago.\"",
+        "Tam tapped the screen. \"So the Lark was lost. But somebody wrote that note.\"",
+        "Captain Rin nodded. \"Bo, dock the tube. We go in as one team.\""
+      ],
+      "learningTargets": ["inference", "sequencing", "detail"],
+      "effects": {
+        "addClues": ["late-log"]
+      },
+      "choices": [
+        {
+          "id": "log-dock",
+          "label": "Dock the tube and step aboard",
+          "target": "inside"
+        }
+      ]
+    },
+    {
+      "id": "hull-check",
+      "title": "Scratches on the Hull",
+      "paragraphs": [
+        "Tam sent a small camera out along the hull. It hummed past the torn sail.",
+        "The hull was not wrecked. It had thin scratches, soft as chalk, and no dents.",
+        "\"Nothing hit her,\" said Tam. \"The Lark was not smashed. She was left behind.\"",
+        "Then the camera caught a glow. Far inside the dome, a blue light blinked on. Then off.",
+        "Ivy let out a breath. \"That is a sign. I hope it is a friendly one.\"",
+        "Captain Rin nodded. \"Bo, dock the tube. We go in as one team.\""
+      ],
+      "learningTargets": ["inference", "detail"],
+      "choices": [
+        {
+          "id": "hull-dock",
+          "label": "Dock the tube and step aboard",
+          "target": "inside"
+        }
+      ]
+    },
+    {
+      "id": "tube",
+      "title": "Through the Tube",
+      "paragraphs": [
+        "Bo slid the long tube from the Kestrel to the Lark. Clunk. It locked on tight.",
+        "Ivy followed him through. The tube was thin, and the air smelled of old dust.",
+        "Bo hummed as he crawled. He loved small, tight places.",
+        "At the end stood a hatch. A tool locker sat beside it. A strip of soft light ran off down a path."
+      ],
+      "learningTargets": ["sequencing", "vocabulary"],
+      "choices": [
+        {
+          "id": "open-locker",
+          "label": "Open the tool locker",
+          "target": "locker"
+        },
+        {
+          "id": "follow-path",
+          "label": "Follow the lit path",
+          "target": "lit-path"
+        }
+      ]
+    },
+    {
+      "id": "locker",
+      "title": "The Tool Locker",
+      "paragraphs": [
+        "The locker door stuck, then gave way. Inside lay one long hook-pole, light as a reed.",
+        "A tag hung from it. \"For high latches. Use it slow.\"",
+        "Bo spun the pole in his hands. \"That might help us with a stuck door,\" he said.",
+        "Ivy took the note off the tag. She tucked it in her bag, just in case."
+      ],
+      "learningTargets": ["detail", "vocabulary"],
+      "effects": {
+        "addItems": ["hook-pole"]
+      },
+      "choices": [
+        {
+          "id": "locker-on",
+          "label": "Climb through the hatch",
+          "target": "inside"
+        }
+      ]
+    },
+    {
+      "id": "lit-path",
+      "title": "The Lit Path",
+      "paragraphs": [
+        "Ivy followed the soft strip of light. It glowed like a path of tiny stars.",
+        "Bo came close behind her. Their boots made no sound on the thin floor mat.",
+        "Thud! Something knocked on a wall, far off. Ivy froze.",
+        "Bo grinned. \"Old pipes. Old ships talk when they warm up.\"",
+        "The lit path ended at the hatch. Ivy let out a breath and climbed through."
+      ],
+      "learningTargets": ["engagement", "inference"],
+      "choices": [
+        {
+          "id": "path-on",
+          "label": "Meet the others in the corridor",
+          "target": "inside"
+        }
+      ]
+    },
+    {
+      "id": "inside",
+      "title": "The Quiet Corridor",
+      "paragraphs": [
+        "The whole team met in a long, cool corridor. Captain Rin checked the air. It was safe to breathe.",
+        "Two doors stood open. One led to a glass dome. One led to the engine room.",
+        "At the far end stood the cargo hold door. It was huge, and shut tight.",
+        "\"Let us look around before we choose,\" said Captain Rin."
+      ],
+      "learningTargets": ["comprehension", "detail"],
+      "choices": [
+        {
+          "id": "to-dome",
+          "label": "Visit the glass dome with Ivy",
+          "target": "dome"
+        },
+        {
+          "id": "to-engine",
+          "label": "Check the engine room with Bo",
+          "target": "engine"
+        }
+      ]
+    },
+    {
+      "id": "dome",
+      "title": "The Glass Dome",
+      "paragraphs": [
+        "The dome was a garden under glass. Dry grey leaves hung from every shelf.",
+        "Beyond the glass, a pale moon hung in the deep dark.",
+        "In the middle of the dome, one small lamp glowed. A grey moth sat on it. Its wings shone like silver.",
+        "\"A moth,\" whispered Ivy. \"Alive. After eleven years!\"",
+        "The moth fluttered up. Something round rolled out from behind a dry plant."
+      ],
+      "learningTargets": ["inference", "vocabulary", "engagement"],
+      "choices": [
+        {
+          "id": "dome-on",
+          "label": "Kneel down to see what it is",
+          "target": "nib"
+        }
+      ]
+    },
+    {
+      "id": "engine",
+      "title": "The Engine Room",
+      "paragraphs": [
+        "The engine room was warm. Most lights were dark. Bo ran his hand along a pipe.",
+        "\"Strange,\" he said. \"Almost all the power is off. But one thin cable stays live.\"",
+        "The cable ran along the floor and out the door, straight toward the cargo hold.",
+        "\"Someone saved every drop of power for that door,\" said Bo. \"For eleven years.\"",
+        "Then a small light rolled out of the dark and bumped his boot. Bump."
+      ],
+      "learningTargets": ["inference", "detail"],
+      "choices": [
+        {
+          "id": "engine-on",
+          "label": "Look down at the small light",
+          "target": "nib"
+        }
+      ]
+    },
+    {
+      "id": "nib",
+      "title": "Nib",
+      "paragraphs": [
+        "The bot was no taller than Ivy's knee. A name was painted on its side: Nib.",
+        "Nib held up a chalk board and wrote slowly. \"The crew left in the boat. I stayed to keep the moths safe.\"",
+        "Ivy knelt down. \"You wrote the last note, didn't you?\" Nib bobbed up and down.",
+        "Then Nib drew three steps on the wall in chalk.",
+        "One: cool the lock with the blue tube. Two: turn the valve, slow and slow. Three: lift the door.",
+        "Ivy read them twice. The order mattered, she thought."
+      ],
+      "learningTargets": ["comprehension", "sequencing", "inference"],
+      "choices": [
+        {
+          "id": "to-door",
+          "label": "Go with Nib to the cargo door",
+          "target": "threshold"
+        }
+      ]
+    },
+    {
+      "id": "threshold",
+      "title": "The Cargo Door",
+      "paragraphs": [
+        "The cargo door was tall and grey. Thin silver light leaked from the edge.",
+        "Behind it lay a cave of dark, deep and wide.",
+        "Bo put his hand on the cold seal. \"It hums,\" he said. \"Like it is full of life.\"",
+        "Captain Rin looked at each of them. \"This is a risk. We choose it together.\""
+      ],
+      "learningTargets": ["inference", "engagement"],
+      "choices": [
+        {
+          "id": "open-careful",
+          "label": "Open it slow with the hook-pole and the last log note",
+          "target": "climax-careful",
+          "requires": {
+            "items": ["hook-pole"],
+            "clues": ["late-log"]
+          },
+          "lockedHint": "Find a long pole and read the last log note first.",
+          "learningTargets": ["detail", "inference"]
+        },
+        {
+          "id": "open-team",
+          "label": "Ask Nib and the whole team to open it together",
+          "target": "climax-team"
+        },
+        {
+          "id": "open-rush",
+          "label": "Cut the lock fast with Bo's torch",
+          "target": "ending-rush"
+        },
+        {
+          "id": "leave-shut",
+          "label": "Leave the door shut and take Nib's story home",
+          "target": "ending-closed"
+        }
+      ]
+    },
+    {
+      "id": "climax-careful",
+      "title": "Three Steps",
+      "paragraphs": [
+        "Bo held the hook-pole. Ivy read the last note aloud. \"Slow air, slow door.\"",
+        "Nib's chalk steps shone on the wall. One, two, three.",
+        "Captain Rin stood beside the door. \"The order matters. What do we do first?\""
+      ],
+      "learningTargets": ["sequencing", "detail"],
+      "choices": [
+        {
+          "id": "cool-first",
+          "label": "Cool the lock with the blue tube first",
+          "target": "hold-open",
+          "learningTargets": ["sequencing"]
+        },
+        {
+          "id": "lift-first",
+          "label": "Lift the door first, to see inside",
+          "target": "ending-rush"
+        }
+      ]
+    },
+    {
+      "id": "hold-open",
+      "title": "Slow and Slow",
+      "paragraphs": [
+        "Bo cooled the lock with the blue tube. Frost spread over the seal, white and thin.",
+        "Tam turned the valve. Air hissed out, slow and soft, like a sigh.",
+        "Last, Bo hooked the pole under the latch. The big door lifted, inch by inch.",
+        "Nobody breathed. Then silver light poured out over their faces."
+      ],
+      "learningTargets": ["sequencing", "comprehension"],
+      "choices": [
+        {
+          "id": "step-in",
+          "label": "Step inside",
+          "target": "ending-garden"
+        }
+      ]
+    },
+    {
+      "id": "climax-team",
+      "title": "A Plan Together",
+      "paragraphs": [
+        "The team stood in a ring. Tam spoke first. \"Nib has the steps. We follow them.\"",
+        "Bo took the blue tube and cooled the lock. Tam turned the valve, slow and slow.",
+        "Ivy had an idea. \"Let me hold the lamp low. The moths may fly to the light.\"",
+        "Together they lifted the door with their hands. A soft rain of silver light fell.",
+        "Hundreds of moths drifted out. Each one glowed like a tiny moon.",
+        "Nib spun in a happy circle. Now the team had to choose what came next."
+      ],
+      "learningTargets": ["comprehension", "sequencing", "engagement"],
+      "choices": [
+        {
+          "id": "carry-moths",
+          "label": "Carry the moths home in the Kestrel's dome",
+          "target": "ending-carry"
+        },
+        {
+          "id": "tow-lark",
+          "label": "Tow the whole Lark home, with Nib at the wheel",
+          "target": "ending-tow"
+        }
+      ]
+    },
+    {
+      "id": "ending-garden",
+      "title": "The Moon Garden",
+      "paragraphs": [
+        "Inside, the hold was not a cave of crates. It was a garden of glass shelves.",
+        "Hundreds of moths slept on green leaves. They woke, and their wings lit the room like tiny moons.",
+        "Nib rolled down the aisle, humming. It had kept them safe for eleven years.",
+        "Tam found a second note taped to a shelf. It told where the Lark's crew now lived, safe on a far station.",
+        "\"We will take them home,\" said Captain Rin. \"The moths, and Nib, and the news.\"",
+        "Ivy smiled at the glowing wings. Reading closely had paid off. Going slow had saved the garden."
+      ],
+      "learningTargets": ["comprehension", "inference"],
+      "choices": [],
+      "ending": {
+        "id": "ending-garden",
+        "kind": "triumph",
+        "title": "The Moon Garden"
+      }
+    },
+    {
+      "id": "ending-carry",
+      "title": "Moths on the Kestrel",
+      "paragraphs": [
+        "The crew packed the moths into the Kestrel's dome, shelf by shelf.",
+        "Nib rolled aboard last. It sat by Ivy's feet, and she did not mind one bit.",
+        "The Lark stayed behind, with a bright beacon on her hull. Anyone could find her now.",
+        "Tam set the Kestrel's sail to catch the star wind. The old tug rattled and groaned all the way home.",
+        "Ivy thought it was the best sound in the world. On the road through the deep, the moths glowed on their shelves.",
+        "The team had saved something that mattered."
+      ],
+      "learningTargets": ["comprehension", "engagement"],
+      "choices": [],
+      "ending": {
+        "id": "ending-carry",
+        "kind": "triumph",
+        "title": "Moths on the Kestrel"
+      }
+    },
+    {
+      "id": "ending-tow",
+      "title": "The Long Road Home",
+      "paragraphs": [
+        "Bo locked a thick line from the Kestrel to the Lark. The old tug groaned.",
+        "Nib took the Lark's wheel with one small arm. It beeped, proud and steady.",
+        "The long road home was slow. The Kestrel puffed and rattled, but she did not give up.",
+        "Weeks later, a small boat met them at the dock. Out stepped the Lark's old crew, with happy tears.",
+        "Nib held up its chalk board. \"I had hope that you would come.\"",
+        "Captain Rin tipped her cap. A salvage crew finds old things. That day, they brought a ship and its friends home."
+      ],
+      "learningTargets": ["comprehension", "sequencing"],
+      "choices": [],
+      "ending": {
+        "id": "ending-tow",
+        "kind": "triumph",
+        "title": "The Long Road Home"
+      }
+    },
+    {
+      "id": "ending-closed",
+      "title": "The Door That Stayed Shut",
+      "paragraphs": [
+        "Captain Rin put her hand on the door. \"Some risks are not ours to take today,\" she said.",
+        "Ivy looked at Nib. \"We will not leave you alone,\" she said.",
+        "Bo fixed a small radio to the wall. Now Nib could call for help any time.",
+        "They took the log and the last note back to the Kestrel. Tam marked the Lark on her star map in bright ink.",
+        "The door stayed shut, and the moths stayed safe. But the team had a promise to keep.",
+        "Next time, they would bring more hope, a good plan, and a long pole."
+      ],
+      "learningTargets": ["comprehension", "inference"],
+      "choices": [],
+      "ending": {
+        "id": "ending-closed",
+        "kind": "bittersweet",
+        "title": "The Door That Stayed Shut"
+      }
+    },
+    {
+      "id": "ending-rush",
+      "title": "The Door Hisses",
+      "paragraphs": [
+        "The team rushed the lock. The door gave a long hiss, and red lights blinked on.",
+        "A cold mist poured into the corridor. Thud, thud, thud went the door as it locked itself tight.",
+        "No one was hurt. The Lark was only keeping the moths safe.",
+        "\"We went too fast,\" said Captain Rin. \"Let us try again with a better plan.\"",
+        "Back on the Kestrel, Tam pinned a new note to the map. Look for steps. Look for a clue. Go slow.",
+        "Ivy smiled. \"Next time we will do it right.\" The Lark would wait."
+      ],
+      "learningTargets": ["sequencing", "comprehension"],
+      "choices": [],
+      "ending": {
+        "id": "ending-rush",
+        "kind": "setback",
+        "title": "Too Fast"
+      }
+    }
+  ],
+  "glossary": {
+    "derelict": {
+      "syllables": ["der", "e", "lict"],
+      "definition": "A ship that was left behind and is drifting with no crew."
+    },
+    "salvage": {
+      "syllables": ["sal", "vage"],
+      "definition": "To rescue things from a lost or empty ship so they can be used again."
+    },
+    "navigator": {
+      "syllables": ["nav", "i", "ga", "tor"],
+      "definition": "The person who plans the route and reads the maps."
+    },
+    "engineer": {
+      "syllables": ["en", "gi", "neer"],
+      "definition": "A person who builds, fixes and runs machines."
+    },
+    "reliable": {
+      "syllables": ["re", "li", "a", "ble"],
+      "definition": "Something you can trust to work every time."
+    },
+    "corridor": {
+      "syllables": ["cor", "ri", "dor"],
+      "definition": "A long, narrow hall inside a building or ship."
+    },
+    "cargo": {
+      "syllables": ["car", "go"],
+      "definition": "Goods and things that a ship carries."
+    },
+    "valve": {
+      "syllables": ["valve"],
+      "definition": "A part that opens and closes to let air or water flow."
+    },
+    "beacon": {
+      "syllables": ["bea", "con"],
+      "definition": "A bright light or signal that helps others find a place."
+    },
+    "fluttered": {
+      "syllables": ["flut", "tered"],
+      "definition": "Flew with quick, light flaps of the wings."
+    }
+  }
+}

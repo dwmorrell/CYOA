@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-tomb-of-ameru-sami-k-541c79",
   "storyId": "the-tomb-of-ameru",
-  "state": "planned",
+  "state": "in-review",
   "createdAt": "2026-10-20T23:23:24.018Z",
-  "updatedAt": "2026-10-20T23:23:24.018Z",
+  "updatedAt": "2026-10-20T23:27:00.317Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/request.json",
@@ -31,7 +31,43 @@
       "sha256": "b39c5c4517e4598b5487813672a5cd3bf64b820d8955cd18ae76dc46834a7d63"
     }
   },
-  "revisions": [],
+  "revisions": [
+    {
+      "storyVersion": 1,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/drafts/story.r1.json",
+        "sha256": "b25881d0eeedec8eb21459ded7edeebd5e3bf258e6812da7eabaf1c6b2391560"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T23:27:00.317Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/validation.r1.json",
+          "sha256": "2d1310411a87ca2d338644630e998de317e6f903972ddc9416607ed72b806563"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/literacy.r1.json",
+          "sha256": "8bb52b9be4ad87b5541afb9fe90d387d44abe9aac9ed506f8423edaddcadc94d"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/graph.r1.json",
+          "sha256": "84b1eef667ed323488c258ce0bc33b2841729b3fe0f18fc83b8cd14ed829a2ae"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 1
+    }
+  ],
   "reviews": [],
   "parentDecisions": [],
   "failures": [],
@@ -65,6 +101,17 @@
         "kind": "automation"
       },
       "note": "Continuity assessed; outline, Word Weave Plan and generation prompt written"
+    },
+    {
+      "at": "2026-10-20T23:27:00.317Z",
+      "from": "planned",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 1 (story v1) passed automated validation"
     }
   ]
 }

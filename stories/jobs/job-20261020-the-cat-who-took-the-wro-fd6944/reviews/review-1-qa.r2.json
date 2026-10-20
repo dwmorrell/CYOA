@@ -1,0 +1,63 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 2,
+  "draftSha256": "58d08f4e7d909bc20bc9a6ee0db2d2a6e1b1f212ce041ef239a01a53a31fc789",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "passage": "the-prints",
+      "message": "Paragraph 3 says the marks went down from the Tower to a crack in the wall and something 'had been hiding in the wall since'. In lantern-room paragraph 4 the crab is found behind the small drum at the top, so the crack and the 'hiding in the wall' line do not match. Pick one place for the hiding spot, or say the crab went back up."
+    },
+    {
+      "severity": "minor",
+      "passage": "ending-warm-den",
+      "message": "Paragraph 1 lines the lunch box with 'his scarf from his bag'. No scarf or bag was set up earlier. Paragraph 5 also puts two speakers (Lira and Eli) in one paragraph, which is hard to follow for a struggling reader. Split it into two paragraphs."
+    },
+    {
+      "severity": "minor",
+      "passage": "ending-two-heads",
+      "message": "Paragraph 4 refers to 'Lira's warm scarf', which was never mentioned. Introduce it earlier (for example in meet-lira) or drop it."
+    },
+    {
+      "severity": "minor",
+      "passage": "tower-hall",
+      "message": "Paragraph 4 sets up 'a tall hook hung by the hatch lid' but no choice uses it. The reed net route (net-lid) and the ladder route (ladder-climb) both end at lantern-room with no difference in outcome, so the net item and the frog choice do not change which endings can be reached. This is a loose clue, not a defect."
+    },
+    {
+      "severity": "minor",
+      "passage": "late-for-school",
+      "message": "The validation report's brief block warns that 3 sentences exceed the brief's 16-word limit (validation.r2.json, brief.warnings). The report does not name them. The author should find them and shorten them."
+    },
+    {
+      "severity": "minor",
+      "passage": "the-fall",
+      "message": "A child falls down an open manhole and is unhurt. It is gentle and fantasy framed, and it is not violence. A parent may still want to know that the story shows a child following an animal into a manhole. Flagged for the parent stage only."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r2.json",
+      "sha256": "58d08f4e7d909bc20bc9a6ee0db2d2a6e1b1f212ce041ef239a01a53a31fc789"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/validation.r2.json",
+      "sha256": "3363fb3e3305a8f52bce1eed73286382a6c076971f075e1b7e694e72a2a2caf1"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/graph.r2.json",
+      "sha256": "9328a6234e4f160ed461746205b1a93380350a0458f7c6063ed7354e192ed30a"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/brief.json",
+      "sha256": "081e7b2afa16a7f4188de600bb0ab98a6f522a9d5d6ad1a0676282e1147bddd5"
+    }
+  ],
+  "id": "review-1-qa",
+  "submittedAt": "2026-10-20T23:27:09.844Z"
+}

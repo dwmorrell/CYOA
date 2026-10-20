@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-rain-courier",
   "title": "The Rain Courier",
-  "version": 3,
+  "version": 5,
   "metadata": {
     "genre": "Cyberpunk delivery adventure",
     "theme": "Trust, choosing who to believe, and keeping a promise",
@@ -35,7 +35,7 @@
         "id": "ch-words",
         "label": "ch words",
         "concept": "digraph-ch",
-        "words": ["chip", "chase", "patch", "much", "lunch", "chain"],
+        "words": ["chip", "chase", "chest", "much", "lunch", "chain"],
         "minOccurrences": 8
       }
     ],
@@ -209,8 +209,8 @@
       "id": "drone-street",
       "title": "The Drone Lane",
       "paragraphs": [
-        "A drone hummed over the lane. Its white flash swept the wet street, back and forth.",
-        "Two more drones followed. They were looking for any courier with a sealed chip.",
+        "A drone hummed over the lane. It shot a white flash over the wet street, back and forth.",
+        "Two more drones followed. They were on a chase for any courier with a sealed chip.",
         "Mara pulled up her rain mask. Nine whispered, \"Do not be seen.\""
       ],
       "learningTargets": ["engagement", "vocabulary"],
@@ -250,7 +250,7 @@
       "title": "The Fast Way",
       "paragraphs": [
         "Mara pushed hard and made her dash. Her old bike rattled over the stones.",
-        "A drone swung round, and its flash lit the whole street. The chain on her bike sang as she turned.",
+        "A drone swung round, and its flash lit the whole street. The chain on her bike sang as she turned. The patch on her tyre held. She pressed the chip to her chest.",
         "She cut into a tunnel and the hum fell behind her. Her heart was pounding.",
         "\"That was loud,\" said Nine. \"They may be waiting at the bridge now.\""
       ],

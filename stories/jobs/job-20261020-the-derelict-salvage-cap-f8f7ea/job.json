@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-derelict-salvage-cap-f8f7ea",
   "storyId": "the-derelict-salvage",
-  "state": "planned",
+  "state": "validation-failed",
   "createdAt": "2026-10-20T23:23:23.408Z",
-  "updatedAt": "2026-10-20T23:23:23.408Z",
+  "updatedAt": "2026-10-20T23:27:02.154Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/request.json",
@@ -31,10 +31,141 @@
       "sha256": "7c42b6f8c12c254ab22e1c2226adf6a3d29fa1f3d85b985effe3ed4f3e070ce5"
     }
   },
-  "revisions": [],
+  "revisions": [
+    {
+      "storyVersion": 1,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/drafts/story.r1.json",
+        "sha256": "8ef474beaf441f38241a28ecb7573db5595632dc4b88cd622c5b9f5755b639dd"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T23:26:34.470Z",
+      "validation": {
+        "ok": false,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/validation.r1.json",
+          "sha256": "efad767f59028b7064e077eaec4b8ad85d2c547382b5dae2b49915bdfd772462"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/literacy.r1.json",
+          "sha256": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/graph.r1.json",
+          "sha256": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed"
+        },
+        "summary": [
+          "schema: 1 error(s)"
+        ]
+      },
+      "revision": 1
+    },
+    {
+      "storyVersion": 2,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/drafts/story.r2.json",
+        "sha256": "cb1dfd2c8dd8d14cd1b87cc48c631f54c5d5ecde8a3ef76ba587bfd6bc207a78"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T23:26:43.126Z",
+      "validation": {
+        "ok": false,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/validation.r2.json",
+          "sha256": "5d064e42883a04a4f0049b3b904ad20b1abf62f4164d9b2a31744bb703634635"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/literacy.r2.json",
+          "sha256": "6c268e3d8edab47077c3f8c21ce8d2d2fd5c4d958d22897148478065014e4734"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/graph.r2.json",
+          "sha256": "fd036d984c6a291d478632ee728f1472a9a67ffab07a769809c94c316fdcf2e7"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: 1 error(s), 4/5 endings reachable",
+          "literacy checks: word-set-concepts-match-spelling failed",
+          "brief: ok"
+        ]
+      },
+      "revision": 2
+    },
+    {
+      "storyVersion": 3,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/drafts/story.r3.json",
+        "sha256": "f08bef2317db6f884e855953e8d8f465d583f28b7072ddb36d5837e92cfb6850"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T23:27:02.154Z",
+      "validation": {
+        "ok": false,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/validation.r3.json",
+          "sha256": "2cd619c942d4c3d1a25c8d51465aee4e2e0cf4eb21d05d13be968105bf504474"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/literacy.r3.json",
+          "sha256": "abc146042db3ef7846c239e3938a6acd775f680af31a0947979a6cfe4be73e92"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/graph.r3.json",
+          "sha256": "6d288b39d0e0da6ecf69bde147a8886fc2ad2f1ad2b6c69d387f3574a4f5a292"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: word-set-concepts-match-spelling failed",
+          "brief: ok"
+        ]
+      },
+      "revision": 3
+    }
+  ],
   "reviews": [],
   "parentDecisions": [],
-  "failures": [],
+  "failures": [
+    {
+      "stage": "validation",
+      "error": "Revision 1: /passages/10/paragraphs must NOT have more than 6 items; schema invalid; brief not checked",
+      "at": "2026-10-20T23:26:34.470Z",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      }
+    },
+    {
+      "stage": "validation",
+      "error": "Revision 2: unreachable-ending ",
+      "at": "2026-10-20T23:26:43.126Z",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      }
+    },
+    {
+      "stage": "validation",
+      "error": "Revision 3: ",
+      "at": "2026-10-20T23:27:02.154Z",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      }
+    }
+  ],
   "history": [
     {
       "at": "2026-10-20T23:23:23.408Z",
@@ -65,6 +196,39 @@
         "kind": "automation"
       },
       "note": "Continuity assessed; outline, Word Weave Plan and generation prompt written"
+    },
+    {
+      "at": "2026-10-20T23:26:34.470Z",
+      "from": "planned",
+      "to": "validation-failed",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 1 (story v1) failed automated validation"
+    },
+    {
+      "at": "2026-10-20T23:26:43.126Z",
+      "from": "validation-failed",
+      "to": "validation-failed",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 2 (story v2) failed automated validation"
+    },
+    {
+      "at": "2026-10-20T23:27:02.154Z",
+      "from": "validation-failed",
+      "to": "validation-failed",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 3 (story v3) failed automated validation"
     }
   ]
 }

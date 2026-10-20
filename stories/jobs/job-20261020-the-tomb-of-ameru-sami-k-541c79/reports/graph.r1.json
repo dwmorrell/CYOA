@@ -1,0 +1,417 @@
+{
+  "storyId": "the-tomb-of-ameru",
+  "version": 1,
+  "start": "camp",
+  "nodes": [
+    {
+      "id": "camp",
+      "title": "Dawn at Ameru",
+      "ending": null
+    },
+    {
+      "id": "cart",
+      "title": "The Cart",
+      "ending": null
+    },
+    {
+      "id": "map-nook",
+      "title": "Ren's Map",
+      "ending": null
+    },
+    {
+      "id": "door-front",
+      "title": "The Sealed Door",
+      "ending": null
+    },
+    {
+      "id": "door-tap",
+      "title": "Tap, Tap, Tap",
+      "ending": null
+    },
+    {
+      "id": "door-push",
+      "title": "The Groaning Door",
+      "ending": null
+    },
+    {
+      "id": "hall-sand",
+      "title": "The Hall of Sand",
+      "ending": null
+    },
+    {
+      "id": "sand-slip",
+      "title": "A Slippery Floor",
+      "ending": null
+    },
+    {
+      "id": "hall-water",
+      "title": "The Hall of Water",
+      "ending": null
+    },
+    {
+      "id": "water-dusted",
+      "title": "Under the Dust",
+      "ending": null
+    },
+    {
+      "id": "water-skip",
+      "title": "Over the Ladder",
+      "ending": null
+    },
+    {
+      "id": "hall-song",
+      "title": "The Hall of Song",
+      "ending": null
+    },
+    {
+      "id": "song-hum",
+      "title": "One Low Note",
+      "ending": null
+    },
+    {
+      "id": "song-horn",
+      "title": "The Big Blow",
+      "ending": null
+    },
+    {
+      "id": "fork",
+      "title": "A Quiet Moment",
+      "ending": null
+    },
+    {
+      "id": "hall-fire",
+      "title": "The Hall of Lamps",
+      "ending": null
+    },
+    {
+      "id": "fire-small",
+      "title": "A Small Flame",
+      "ending": null
+    },
+    {
+      "id": "fire-big",
+      "title": "Too Much Fire",
+      "ending": null
+    },
+    {
+      "id": "hall-sleeper",
+      "title": "The Sleeper",
+      "ending": null
+    },
+    {
+      "id": "sleeper-read",
+      "title": "The Last Warning",
+      "ending": null
+    },
+    {
+      "id": "ending-keeper",
+      "title": "The Keeper Speaks",
+      "ending": {
+        "id": "keeper-friend",
+        "kind": "triumph",
+        "title": "Friends of the Keeper"
+      }
+    },
+    {
+      "id": "ending-lid",
+      "title": "The Open Lid",
+      "ending": {
+        "id": "open-lid",
+        "kind": "bittersweet",
+        "title": "A Peek Too Soon"
+      }
+    },
+    {
+      "id": "ending-notes",
+      "title": "Every Line Counted",
+      "ending": {
+        "id": "every-line",
+        "kind": "triumph",
+        "title": "Every Line Counted"
+      }
+    },
+    {
+      "id": "ending-seal",
+      "title": "The Door Sealed Again",
+      "ending": {
+        "id": "door-sealed",
+        "kind": "bittersweet",
+        "title": "The Door Sealed Again"
+      }
+    },
+    {
+      "id": "ending-setback",
+      "title": "Another Day",
+      "ending": {
+        "id": "another-day",
+        "kind": "setback",
+        "title": "Another Day"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "camp",
+      "to": "cart",
+      "choice": "camp-cart",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "camp",
+      "to": "map-nook",
+      "choice": "camp-map",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "cart",
+      "to": "map-nook",
+      "choice": "cart-map",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "cart",
+      "to": "door-front",
+      "choice": "cart-door",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "map-nook",
+      "to": "door-front",
+      "choice": "map-door",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "door-front",
+      "to": "door-tap",
+      "choice": "door-tap",
+      "locked": true,
+      "requires": {
+        "clues": [
+          "tap-card"
+        ]
+      }
+    },
+    {
+      "from": "door-front",
+      "to": "door-push",
+      "choice": "door-push",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "door-tap",
+      "to": "hall-sand",
+      "choice": "tap-in",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "door-push",
+      "to": "hall-sand",
+      "choice": "push-in",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall-sand",
+      "to": "hall-water",
+      "choice": "sand-pale",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall-sand",
+      "to": "sand-slip",
+      "choice": "sand-dark",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "sand-slip",
+      "to": "hall-water",
+      "choice": "slip-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall-water",
+      "to": "water-dusted",
+      "choice": "water-brush",
+      "locked": true,
+      "requires": {
+        "items": [
+          "soft-brush"
+        ]
+      }
+    },
+    {
+      "from": "hall-water",
+      "to": "water-skip",
+      "choice": "water-skip",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "water-dusted",
+      "to": "hall-song",
+      "choice": "dusted-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "water-skip",
+      "to": "hall-song",
+      "choice": "skip-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall-song",
+      "to": "song-hum",
+      "choice": "song-hum",
+      "locked": true,
+      "requires": {
+        "clues": [
+          "low-note"
+        ]
+      }
+    },
+    {
+      "from": "hall-song",
+      "to": "song-horn",
+      "choice": "song-horn",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "song-hum",
+      "to": "fork",
+      "choice": "hum-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "song-horn",
+      "to": "fork",
+      "choice": "horn-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "fork",
+      "to": "hall-fire",
+      "choice": "fork-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "fork",
+      "to": "ending-setback",
+      "choice": "fork-leave",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall-fire",
+      "to": "fire-small",
+      "choice": "fire-small",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall-fire",
+      "to": "fire-big",
+      "choice": "fire-big",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "fire-small",
+      "to": "hall-sleeper",
+      "choice": "small-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "fire-big",
+      "to": "hall-sleeper",
+      "choice": "big-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall-sleeper",
+      "to": "ending-keeper",
+      "choice": "sleeper-brush",
+      "locked": true,
+      "requires": {
+        "items": [
+          "soft-brush"
+        ],
+        "clues": [
+          "low-note"
+        ]
+      }
+    },
+    {
+      "from": "hall-sleeper",
+      "to": "sleeper-read",
+      "choice": "sleeper-read",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall-sleeper",
+      "to": "ending-lid",
+      "choice": "sleeper-lift",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "sleeper-read",
+      "to": "ending-notes",
+      "choice": "read-notes",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "sleeper-read",
+      "to": "ending-seal",
+      "choice": "read-seal",
+      "locked": false,
+      "requires": null
+    }
+  ],
+  "validation": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "passages": 25,
+      "choices": 31,
+      "endings": [
+        "keeper-friend",
+        "open-lid",
+        "every-line",
+        "door-sealed",
+        "another-day"
+      ],
+      "reachableEndings": [
+        "another-day",
+        "door-sealed",
+        "every-line",
+        "keeper-friend",
+        "open-lid"
+      ],
+      "exploredStates": 90,
+      "stateSearchComplete": true,
+      "shortestPathToEnding": 11,
+      "longestSimplePathToEnding": 17
+    }
+  }
+}
