@@ -3,7 +3,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { createJob, decide, evidenceFor, gatesFor, planJob, preview, publish, recordReview, StageError, submitDraft, type ReviewInput } from '../../scripts/lib/production';
 import { loadCatalog, loadJob, type Paths } from '../../scripts/lib/repo';
-import { MIN_ENDINGS, normalizeRequest, validateRequest } from '../../src/production/request';
+import { ENDING_TARGET, normalizeRequest, validateRequest } from '../../src/production/request';
 import { publishedRevisionGates } from '../../src/production/gates';
 import { newJob, transition, TRANSITIONS, TransitionError, type Actor, type Job } from '../../src/production/job';
 import { draftFor, request, sandbox, writeDraft } from '../production-helpers';
@@ -57,10 +57,10 @@ describe('story request creation', () => {
     expect(b.title).toBe('The Lost Kite');
   });
 
-  it('asks every new story for at least five endings, short or long', () => {
-    expect(MIN_ENDINGS).toBe(5);
-    expect(normalizeRequest({ ...request(), targetMinutes: 10 }).endingTarget).toBe(MIN_ENDINGS);
-    expect(normalizeRequest({ ...request(), targetMinutes: 40 }).endingTarget).toBe(MIN_ENDINGS);
+  it('asks every new story for a target of five endings, short or long', () => {
+    expect(ENDING_TARGET).toBe(5);
+    expect(normalizeRequest({ ...request(), targetMinutes: 10 }).endingTarget).toBe(ENDING_TARGET);
+    expect(normalizeRequest({ ...request(), targetMinutes: 40 }).endingTarget).toBe(ENDING_TARGET);
   });
 
   it('creates a planned job with all planning artifacts on disk', () => {

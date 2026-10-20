@@ -86,8 +86,8 @@ export const slugify = (s: string) =>
 const clean = (s: string) => s.trim().replace(/\s+/g, ' ');
 const uniqLower = (xs: string[]) => [...new Set(xs.map((x) => x.trim().toLowerCase()).filter(Boolean))];
 
-/** The parent's rule for every new story: at least this many endings. */
-export const MIN_ENDINGS = 5;
+/** The ending target for every new story. A story may fall short when its branches still give a different route on a second read. */
+export const ENDING_TARGET = 5;
 
 /** Deterministic normalization: same request in, same brief out. */
 export function normalizeRequest(r: StoryRequest): NormalizedBrief {
@@ -103,7 +103,7 @@ export function normalizeRequest(r: StoryRequest): NormalizedBrief {
     sequelTo: r.sequelTo,
     targetMinutes: r.targetMinutes,
     passageTarget: { min, max },
-    endingTarget: MIN_ENDINGS,
+    endingTarget: ENDING_TARGET,
     maxSentenceWords: r.literacy.maxSentenceWords ?? 16,
     profile: r.literacy.profile ?? 'structured-literacy',
     targetConcepts: uniqLower(r.literacy.targetConcepts),

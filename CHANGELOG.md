@@ -12,7 +12,7 @@
 - Typing practice is an optional add-on, offered in the library only when a
   keyboard is likely connected. It types words from grown-up word lists, with a
   car on a track, a speed gauge and a lap time. There is no countdown.
-- New stories: at least five endings, longer stories allowed, items and clues
+- New stories: a target of five endings, with enough branches to re-read; longer stories allowed; items and clues
   as easter eggs rather than the main mechanic, and mature themes within limits
   (no sex, violence or gore, suicide, or specific religions). The literacy review
   writes one whole-story note on the skills the story practises.
