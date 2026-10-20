@@ -32,6 +32,9 @@ For a story job: `stories/jobs/<jobId>/drafts/story.r<N>.json`, `reports/validat
 - Every finding names a passage id or file and line.
 - Verdict is `changes-requested` if any blocker or major finding exists.
 - Evidence hashes match the current revision (the CLI rejects anything else).
+- A story with fewer endings than the brief's `endingTarget` (five for new stories) is a major finding.
+- A route that makes the reader go back over pages already read, to collect an item or reach an ending, is a major finding.
+- Content with sexual material, violence or gore, suicide or self-harm, or references to specific religions is a blocker.
 
 ## Handoff
 Changes requested go back to the author through the review file. A pass hands the story to the literacy and parent stages, or marks the software work item `done`.

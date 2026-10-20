@@ -12,6 +12,10 @@
 - Typing practice is an optional add-on, offered in the library only when a
   keyboard is likely connected. It types words from grown-up word lists, with a
   car on a track, a speed gauge and a lap time. There is no countdown.
+- New stories: at least five endings, longer stories allowed, items and clues
+  as easter eggs rather than the main mechanic, and mature themes within limits
+  (no sex, violence or gore, suicide, or specific religions). The literacy review
+  writes one whole-story note on the skills the story practises.
 - Each race track has its own high score list, kept on this device. The car
   drives round the track from a start and finish line, and a lap ends back on it.
   Changing track starts a new lap.

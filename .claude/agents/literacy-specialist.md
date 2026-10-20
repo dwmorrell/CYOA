@@ -29,12 +29,14 @@ The job folder `stories/jobs/<jobId>/`: `brief.json`, `word-weave-plan.json`, th
 ## Required output artifacts
 - A review file `stories/jobs/<jobId>/work/literacy-review.r<N>.json` in the format shown in `docs/AGENTS_AND_WORKFLOW.md` (role `literacy`), with evidence hashes produced by `npm run story -- evidence <paths>`.
 - Recorded with `npm run story -- review <jobId> --file <that file>`.
+- One whole-story skills note in every literacy review, as a finding with severity `note` and the message starting "Skills practised:". In a few plain sentences, name the literacy and reading-fluency skills the story practises through reading and following it, such as decoding in context, recognising word-set words, sequencing, inference and vocabulary from context. Describe the story as a whole, at a high level. Do not write a note for each ending or page.
 - For analyzer changes: code plus tests in `tests/unit/literacy.test.ts`.
 
 ## Acceptance criteria
 - The review cites specific passages and words for every finding.
 - Evidence includes the draft and literacy report hashes for the current revision; the CLI rejects stale evidence.
 - Verdict is `changes-requested` if any word set misses its minimum, any target pattern is absent, or a word-set word does not carry the declared pattern.
+- Exactly one "Skills practised" note is present, and it describes the whole story.
 
 ## Handoff
 Findings go to `narrative-designer` through the review file. A pass hands the job on to the parent, who decides whether the story is approved.
