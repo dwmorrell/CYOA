@@ -45,90 +45,6 @@
       "updatedAt": "2026-10-20T22:49:56.450Z"
     },
     {
-      "id": "the-rain-courier",
-      "title": "The Rain Courier",
-      "version": 5,
-      "path": "previews/the-rain-courier.json",
-      "sha256": "b17bab74aa2c36918d19d1ec3b9dc073ebc775d8f84e0ae9702633309e13f4aa",
-      "jobId": "job-20261020-the-rain-courier-mara-is-1b7daf",
-      "jobState": "validation-failed",
-      "gates": [
-        {
-          "id": "draft-exists",
-          "ok": true,
-          "detail": "Revision 5, story v5"
-        },
-        {
-          "id": "automated-validation",
-          "ok": false,
-          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: 1 error(s)"
-        },
-        {
-          "id": "review:qa",
-          "ok": false,
-          "detail": "No qa review on revision 5"
-        },
-        {
-          "id": "review:literacy",
-          "ok": false,
-          "detail": "No literacy review on revision 5"
-        },
-        {
-          "id": "story-literacy-claim",
-          "ok": true,
-          "detail": "Story literacy review is \"pending\""
-        },
-        {
-          "id": "parent-approval",
-          "ok": false,
-          "detail": "Waiting for a parent decision"
-        }
-      ],
-      "updatedAt": "2026-10-20T23:32:12.366Z"
-    },
-    {
-      "id": "the-derelict-salvage",
-      "title": "The Derelict Salvage",
-      "version": 4,
-      "path": "previews/the-derelict-salvage.json",
-      "sha256": "105edb313d535ed8161b56313b35a0bbad14115f17dd377e46ce530f0c83e78b",
-      "jobId": "job-20261020-the-derelict-salvage-cap-f8f7ea",
-      "jobState": "validation-failed",
-      "gates": [
-        {
-          "id": "draft-exists",
-          "ok": true,
-          "detail": "Revision 4, story v4"
-        },
-        {
-          "id": "automated-validation",
-          "ok": false,
-          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: 1 error(s)"
-        },
-        {
-          "id": "review:qa",
-          "ok": false,
-          "detail": "No qa review on revision 4"
-        },
-        {
-          "id": "review:literacy",
-          "ok": false,
-          "detail": "No literacy review on revision 4"
-        },
-        {
-          "id": "story-literacy-claim",
-          "ok": true,
-          "detail": "Story literacy review is \"pending\""
-        },
-        {
-          "id": "parent-approval",
-          "ok": false,
-          "detail": "Waiting for a parent decision"
-        }
-      ],
-      "updatedAt": "2026-10-20T23:32:12.988Z"
-    },
-    {
       "id": "the-tomb-of-ameru",
       "title": "The Tomb of Ameru",
       "version": 1,
@@ -253,6 +169,90 @@
         }
       ],
       "updatedAt": "2026-10-20T23:32:15.004Z"
+    },
+    {
+      "id": "the-rain-courier",
+      "title": "The Rain Courier",
+      "version": 6,
+      "path": "previews/the-rain-courier.json",
+      "sha256": "e349303a988177355b3085650f4fb1453ba33e24f5991d80fdfaf4efb69d55cc",
+      "jobId": "job-20261020-the-rain-courier-mara-is-1b7daf",
+      "jobState": "validation-failed",
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": true,
+          "detail": "Revision 6, story v6"
+        },
+        {
+          "id": "automated-validation",
+          "ok": false,
+          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: word-set-concepts-match-spelling failed; brief: ok"
+        },
+        {
+          "id": "review:qa",
+          "ok": false,
+          "detail": "No qa review on revision 6"
+        },
+        {
+          "id": "review:literacy",
+          "ok": false,
+          "detail": "No literacy review on revision 6"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ],
+      "updatedAt": "2026-10-20T23:35:27.122Z"
+    },
+    {
+      "id": "the-derelict-salvage",
+      "title": "The Derelict Salvage",
+      "version": 5,
+      "path": "previews/the-derelict-salvage.json",
+      "sha256": "e387132a1700772565027c20e6166a314015a43472e3889a96d670592e115a55",
+      "jobId": "job-20261020-the-derelict-salvage-cap-f8f7ea",
+      "jobState": "validation-failed",
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": true,
+          "detail": "Revision 5, story v5"
+        },
+        {
+          "id": "automated-validation",
+          "ok": false,
+          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: word-set-concepts-match-spelling failed; brief: ok"
+        },
+        {
+          "id": "review:qa",
+          "ok": false,
+          "detail": "No qa review on revision 5"
+        },
+        {
+          "id": "review:literacy",
+          "ok": false,
+          "detail": "No literacy review on revision 5"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ],
+      "updatedAt": "2026-10-20T23:35:27.772Z"
     }
   ]
 }

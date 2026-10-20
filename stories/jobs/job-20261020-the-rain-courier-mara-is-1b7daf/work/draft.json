@@ -35,7 +35,7 @@
         "id": "ch-words",
         "label": "ch words",
         "concept": "digraph-ch",
-        "words": ["chip", "chase", "patch", "much", "lunch", "chain"],
+        "words": ["chip", "chase", "chill", "much", "lunch", "chain"],
         "minOccurrences": 8
       }
     ],
@@ -250,7 +250,7 @@
       "title": "The Fast Way",
       "paragraphs": [
         "Mara pushed hard and made her dash. Her old bike rattled over the stones.",
-        "A drone swung round, and its flash lit the whole street. The chain on her bike sang as she turned. The patch on her tyre held. She pressed the chip to her chest.",
+        "A drone swung round, and its flash lit the whole street. The chain on her bike sang as she turned. A chill ran over the handlebars, but her tyre held. She pressed the chip to her chest.",
         "She cut into a tunnel and the hum fell behind her. Her heart was pounding.",
         "\"That was loud,\" said Nine. \"They may be waiting at the bridge now.\""
       ],

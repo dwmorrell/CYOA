@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-rain-courier",
   "title": "The Rain Courier",
-  "version": 5,
+  "version": 6,
   "metadata": {
     "genre": "Cyberpunk delivery adventure",
     "theme": "Trust, choosing who to believe, and keeping a promise",
@@ -35,7 +35,7 @@
         "id": "ch-words",
         "label": "ch words",
         "concept": "digraph-ch",
-        "words": ["chip", "chase", "chest", "much", "lunch", "chain"],
+        "words": ["chip", "chase", "patch", "much", "lunch", "chain"],
         "minOccurrences": 8
       }
     ],

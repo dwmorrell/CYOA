@@ -21,7 +21,7 @@
         "id": "vowel-team-words",
         "label": "vowel team words",
         "concept": "vowel-team",
-        "words": ["rain", "sail", "boat", "road", "team", "moon", "deep"],
+        "words": ["rain", "sail", "boat", "road", "team", "keep", "deep"],
         "minOccurrences": 10
       },
       {

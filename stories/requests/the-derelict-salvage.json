@@ -10,7 +10,7 @@
   },
   "wordSettings": {
     "sets": [
-      { "label": "vowel team words", "concept": "vowel-team", "words": ["rain", "sail", "boat", "road", "team", "moon", "deep"], "minOccurrences": 10 },
+      { "label": "vowel team words", "concept": "vowel-team", "words": ["rain", "sail", "boat", "road", "team", "keep", "deep"], "minOccurrences": 10 },
       { "label": "silent e words", "concept": "silent-e", "words": ["cave", "dome", "tube", "note", "hope", "pole"], "minOccurrences": 8 },
       { "label": "th words", "concept": "digraph-th", "words": ["thin", "that", "them", "thud", "path", "moth"], "minOccurrences": 8 }
     ]

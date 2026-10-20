@@ -12,7 +12,7 @@
     "sets": [
       { "label": "closed syllable words", "concept": "closed-syllable", "words": ["cab", "bag", "pick", "lock", "mask", "sack", "dash", "hack"], "minOccurrences": 10 },
       { "label": "sh words", "concept": "digraph-sh", "words": ["shop", "shade", "shot", "shut", "flash", "shell"], "minOccurrences": 8 },
-      { "label": "ch words", "concept": "digraph-ch", "words": ["chip", "chase", "patch", "much", "lunch", "chain"], "minOccurrences": 8 }
+      { "label": "ch words", "concept": "digraph-ch", "words": ["chip", "chase", "chill", "much", "lunch", "chain"], "minOccurrences": 8 }
     ]
   },
   "continuity": {
