@@ -1,0 +1,331 @@
+{
+  "storyId": "the-derelict-salvage",
+  "version": 5,
+  "start": "start",
+  "nodes": [
+    {
+      "id": "start",
+      "title": "A Dark Ship in the Deep",
+      "ending": null
+    },
+    {
+      "id": "scan",
+      "title": "Tam's Star Map",
+      "ending": null
+    },
+    {
+      "id": "log-read",
+      "title": "The Last Note",
+      "ending": null
+    },
+    {
+      "id": "hull-check",
+      "title": "Scratches on the Hull",
+      "ending": null
+    },
+    {
+      "id": "tube",
+      "title": "Through the Tube",
+      "ending": null
+    },
+    {
+      "id": "locker",
+      "title": "The Tool Locker",
+      "ending": null
+    },
+    {
+      "id": "lit-path",
+      "title": "The Lit Path",
+      "ending": null
+    },
+    {
+      "id": "inside",
+      "title": "The Quiet Corridor",
+      "ending": null
+    },
+    {
+      "id": "dome",
+      "title": "The Glass Dome",
+      "ending": null
+    },
+    {
+      "id": "engine",
+      "title": "The Engine Room",
+      "ending": null
+    },
+    {
+      "id": "nib",
+      "title": "Nib",
+      "ending": null
+    },
+    {
+      "id": "threshold",
+      "title": "The Cargo Door",
+      "ending": null
+    },
+    {
+      "id": "climax-careful",
+      "title": "Three Steps",
+      "ending": null
+    },
+    {
+      "id": "hold-open",
+      "title": "Slow and Slow",
+      "ending": null
+    },
+    {
+      "id": "climax-team",
+      "title": "A Plan Together",
+      "ending": null
+    },
+    {
+      "id": "ending-garden",
+      "title": "The Moon Garden",
+      "ending": {
+        "id": "ending-garden",
+        "kind": "triumph",
+        "title": "The Moon Garden"
+      }
+    },
+    {
+      "id": "ending-carry",
+      "title": "Moths on the Kestrel",
+      "ending": {
+        "id": "ending-carry",
+        "kind": "triumph",
+        "title": "Moths on the Kestrel"
+      }
+    },
+    {
+      "id": "ending-tow",
+      "title": "The Long Road Home",
+      "ending": {
+        "id": "ending-tow",
+        "kind": "triumph",
+        "title": "The Long Road Home"
+      }
+    },
+    {
+      "id": "ending-closed",
+      "title": "The Door That Stayed Shut",
+      "ending": {
+        "id": "ending-closed",
+        "kind": "bittersweet",
+        "title": "The Door That Stayed Shut"
+      }
+    },
+    {
+      "id": "ending-rush",
+      "title": "The Door Hisses",
+      "ending": {
+        "id": "ending-rush",
+        "kind": "setback",
+        "title": "Too Fast"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "start",
+      "to": "scan",
+      "choice": "to-scan",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "start",
+      "to": "tube",
+      "choice": "to-tube",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "scan",
+      "to": "log-read",
+      "choice": "read-log",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "scan",
+      "to": "hull-check",
+      "choice": "check-hull",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "log-read",
+      "to": "tube",
+      "choice": "log-dock",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hull-check",
+      "to": "tube",
+      "choice": "hull-dock",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "tube",
+      "to": "locker",
+      "choice": "open-locker",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "tube",
+      "to": "lit-path",
+      "choice": "follow-path",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "locker",
+      "to": "inside",
+      "choice": "locker-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "lit-path",
+      "to": "inside",
+      "choice": "path-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "inside",
+      "to": "dome",
+      "choice": "to-dome",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "inside",
+      "to": "engine",
+      "choice": "to-engine",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "dome",
+      "to": "nib",
+      "choice": "dome-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "engine",
+      "to": "nib",
+      "choice": "engine-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "nib",
+      "to": "threshold",
+      "choice": "to-door",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "threshold",
+      "to": "climax-careful",
+      "choice": "open-careful",
+      "locked": true,
+      "requires": {
+        "items": [
+          "hook-pole"
+        ],
+        "clues": [
+          "late-log"
+        ]
+      }
+    },
+    {
+      "from": "threshold",
+      "to": "climax-team",
+      "choice": "open-team",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "threshold",
+      "to": "ending-rush",
+      "choice": "open-rush",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "threshold",
+      "to": "ending-closed",
+      "choice": "leave-shut",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-careful",
+      "to": "hold-open",
+      "choice": "cool-first",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-careful",
+      "to": "ending-rush",
+      "choice": "lift-first",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hold-open",
+      "to": "ending-garden",
+      "choice": "step-in",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-team",
+      "to": "ending-carry",
+      "choice": "carry-moths",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-team",
+      "to": "ending-tow",
+      "choice": "tow-lark",
+      "locked": false,
+      "requires": null
+    }
+  ],
+  "validation": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "passages": 20,
+      "choices": 24,
+      "endings": [
+        "ending-garden",
+        "ending-carry",
+        "ending-tow",
+        "ending-closed",
+        "ending-rush"
+      ],
+      "reachableEndings": [
+        "ending-carry",
+        "ending-closed",
+        "ending-garden",
+        "ending-rush",
+        "ending-tow"
+      ],
+      "exploredStates": 53,
+      "stateSearchComplete": true,
+      "shortestPathToEnding": 8,
+      "longestSimplePathToEnding": 12
+    }
+  }
+}

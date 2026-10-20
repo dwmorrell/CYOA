@@ -1,0 +1,302 @@
+{
+  "storyId": "the-rain-courier",
+  "version": 6,
+  "start": "start",
+  "nodes": [
+    {
+      "id": "start",
+      "title": "The Cab Stand",
+      "ending": null
+    },
+    {
+      "id": "shop",
+      "title": "Tam's Repair Shop",
+      "ending": null
+    },
+    {
+      "id": "shop-pick",
+      "title": "The Tin Box",
+      "ending": null
+    },
+    {
+      "id": "alley",
+      "title": "The Dark Alley",
+      "ending": null
+    },
+    {
+      "id": "alley-clue",
+      "title": "The Little Stamp",
+      "ending": null
+    },
+    {
+      "id": "gathering",
+      "title": "Under the Tower Lights",
+      "ending": null
+    },
+    {
+      "id": "drone-street",
+      "title": "The Drone Lane",
+      "ending": null
+    },
+    {
+      "id": "hide-shade",
+      "title": "Still as Stone",
+      "ending": null
+    },
+    {
+      "id": "dash-past",
+      "title": "The Fast Way",
+      "ending": null
+    },
+    {
+      "id": "threshold",
+      "title": "The Bridge Gate",
+      "ending": null
+    },
+    {
+      "id": "climax-gate",
+      "title": "Click",
+      "ending": null
+    },
+    {
+      "id": "climax-hack",
+      "title": "The Loud Bell",
+      "ending": null
+    },
+    {
+      "id": "ending-1",
+      "title": "The Promise Kept",
+      "ending": {
+        "id": "ending-1",
+        "kind": "triumph",
+        "title": "The Promise Kept"
+      }
+    },
+    {
+      "id": "ending-2",
+      "title": "Nine Takes Control",
+      "ending": {
+        "id": "ending-2",
+        "kind": "triumph",
+        "title": "A Courier and Her Voice"
+      }
+    },
+    {
+      "id": "ending-3",
+      "title": "The Quiet Chip",
+      "ending": {
+        "id": "ending-3",
+        "kind": "bittersweet",
+        "title": "The Weight of a Choice"
+      }
+    },
+    {
+      "id": "ending-4",
+      "title": "Across the Bridge",
+      "ending": {
+        "id": "ending-4",
+        "kind": "bittersweet",
+        "title": "A Promise and a Lost Bike"
+      }
+    },
+    {
+      "id": "ending-5",
+      "title": "The Drone's Light",
+      "ending": {
+        "id": "ending-5",
+        "kind": "setback",
+        "title": "Try Again Tomorrow"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "start",
+      "to": "shop",
+      "choice": "to-shop",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "start",
+      "to": "alley",
+      "choice": "to-alley",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "shop",
+      "to": "shop-pick",
+      "choice": "ask-tam",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "shop",
+      "to": "gathering",
+      "choice": "leave-shop",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "shop-pick",
+      "to": "gathering",
+      "choice": "pick-onward",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "alley",
+      "to": "alley-clue",
+      "choice": "turn-chip",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "alley",
+      "to": "gathering",
+      "choice": "alley-leave",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "alley-clue",
+      "to": "gathering",
+      "choice": "clue-onward",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "gathering",
+      "to": "shop",
+      "choice": "gather-shop",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "gathering",
+      "to": "alley",
+      "choice": "gather-alley",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "gathering",
+      "to": "drone-street",
+      "choice": "gather-lane",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "drone-street",
+      "to": "hide-shade",
+      "choice": "hide-in-shade",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "drone-street",
+      "to": "dash-past",
+      "choice": "dash-past",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hide-shade",
+      "to": "threshold",
+      "choice": "shade-onward",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "dash-past",
+      "to": "threshold",
+      "choice": "dash-onward",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "threshold",
+      "to": "climax-gate",
+      "choice": "pick-the-lock",
+      "locked": true,
+      "requires": {
+        "items": [
+          "lock-pick"
+        ],
+        "clues": [
+          "flood-stamp"
+        ]
+      }
+    },
+    {
+      "from": "threshold",
+      "to": "climax-hack",
+      "choice": "ask-nine-hack",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "threshold",
+      "to": "ending-5",
+      "choice": "call-drone",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-gate",
+      "to": "ending-1",
+      "choice": "walk-to-light",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-gate",
+      "to": "ending-2",
+      "choice": "nine-hacks-drones",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-hack",
+      "to": "ending-3",
+      "choice": "give-to-vex",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-hack",
+      "to": "ending-4",
+      "choice": "dash-over-bridge",
+      "locked": false,
+      "requires": null
+    }
+  ],
+  "validation": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "passages": 17,
+      "choices": 22,
+      "endings": [
+        "ending-1",
+        "ending-2",
+        "ending-3",
+        "ending-4",
+        "ending-5"
+      ],
+      "reachableEndings": [
+        "ending-1",
+        "ending-2",
+        "ending-3",
+        "ending-4",
+        "ending-5"
+      ],
+      "exploredStates": 52,
+      "stateSearchComplete": true,
+      "shortestPathToEnding": 7,
+      "longestSimplePathToEnding": 9
+    }
+  }
+}

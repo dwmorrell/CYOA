@@ -1,8 +1,7 @@
-# Revision notes r5 (NOT submitted)
+# Revision notes r5 (submitted, validation FAILED)
 
-No qa-review or literacy-review files exist for r4. The only finding is automated validation.
-
-- Finding: brief check says `vowel-team-words` dropped "moon". Literacy check `word-set-concepts-match-spelling` fails if "moon" is in the set, because the vowel-team detector (src/literacy/taxonomy.ts) has no "oo".
-- Change: none. The two checks contradict each other, so no draft can pass both. Story text already uses "moon" and meets all word-set minimums (26/10, 42/8, 48/8). Graph is ok, 5/5 endings reachable.
-- Not submitted: resubmitting would only repeat the r3 or r4 failure.
-- ESCALATION: needs a brief change (swap "moon" for e.g. "moan" or "peak") or an app-engineer work item to add "oo" to the vowel-team detector.
+- Added "moon" back to `literacy.wordSets` `vowel-team-words` so it matches the brief exactly. Brief check is now ok.
+- Bumped version to 5. Passages unchanged; "moon" is already used naturally (three passages).
+- Result: schema ok, graph ok (5/5 endings), brief ok, but literacy check `word-set-concepts-match-spelling` fails. The vowel-team detector (src/literacy/taxonomy.ts) has no "oo", so "moon" is not accepted as a vowel-team word.
+- The brief check and the literacy check contradict each other for this word, so no draft can pass both.
+- ESCALATION: either change the brief (swap "moon" for e.g. "moan" or "peak") or file an app-engineer work item to add "oo" to the vowel-team detector. I did not change app code.

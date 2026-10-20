@@ -4,7 +4,7 @@
   "storyId": "the-derelict-salvage",
   "state": "validation-failed",
   "createdAt": "2026-10-20T23:23:23.408Z",
-  "updatedAt": "2026-10-20T23:28:23.556Z",
+  "updatedAt": "2026-10-20T23:33:43.036Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/request.json",
@@ -168,6 +168,41 @@
         ]
       },
       "revision": 4
+    },
+    {
+      "storyVersion": 5,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/drafts/story.r5.json",
+        "sha256": "e387132a1700772565027c20e6166a314015a43472e3889a96d670592e115a55"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T23:33:43.036Z",
+      "validation": {
+        "ok": false,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/validation.r5.json",
+          "sha256": "eadb7b16b4574cb8821f8f366c9ff6aa43c9ed9169028ebc43a3c77ad5dcf8a3"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/literacy.r5.json",
+          "sha256": "8c47f8507bd9b58960f9637fbeeca8166f5c98e33b2136b9a25e5ba8284d0eb5"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/graph.r5.json",
+          "sha256": "d74d752e48a3804cd04994bae8175dfa596ddbe2fbe995ec360a99b4c0a059ec"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: word-set-concepts-match-spelling failed",
+          "brief: ok"
+        ]
+      },
+      "revision": 5
     }
   ],
   "reviews": [],
@@ -204,6 +239,15 @@
       "stage": "validation",
       "error": "Revision 4: word set \"vowel-team-words\" dropped words: moon",
       "at": "2026-10-20T23:28:23.556Z",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      }
+    },
+    {
+      "stage": "validation",
+      "error": "Revision 5: ",
+      "at": "2026-10-20T23:33:43.036Z",
       "actor": {
         "name": "story-cli",
         "kind": "automation"
@@ -284,6 +328,17 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 4 (story v4) failed automated validation"
+    },
+    {
+      "at": "2026-10-20T23:33:43.036Z",
+      "from": "validation-failed",
+      "to": "validation-failed",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 5 (story v5) failed automated validation"
     }
   ]
 }

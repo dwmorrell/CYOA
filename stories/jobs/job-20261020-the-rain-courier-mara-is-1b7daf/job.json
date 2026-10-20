@@ -4,7 +4,7 @@
   "storyId": "the-rain-courier",
   "state": "validation-failed",
   "createdAt": "2026-10-20T23:23:22.800Z",
-  "updatedAt": "2026-10-20T23:27:06.347Z",
+  "updatedAt": "2026-10-20T23:33:48.787Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/request.json",
@@ -200,6 +200,41 @@
         ]
       },
       "revision": 5
+    },
+    {
+      "storyVersion": 6,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/drafts/story.r6.json",
+        "sha256": "e349303a988177355b3085650f4fb1453ba33e24f5991d80fdfaf4efb69d55cc"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T23:33:48.787Z",
+      "validation": {
+        "ok": false,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/validation.r6.json",
+          "sha256": "5472d9a4267b010a8dea12ef99ee8745d810046a4f0c903ce57c5c989676c910"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/literacy.r6.json",
+          "sha256": "72554d7b83f9167b6ceaeb31b14f21e180bc1ba03eb34d16c9ebcf1df5e52e60"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/graph.r6.json",
+          "sha256": "8c4cd5bb768824a3e0182a086ae206c96f091bd2945c4cd0ce4f5a0a330825e6"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: word-set-concepts-match-spelling failed",
+          "brief: ok"
+        ]
+      },
+      "revision": 6
     }
   ],
   "reviews": [],
@@ -245,6 +280,15 @@
       "stage": "validation",
       "error": "Revision 5: word set \"ch-words\" dropped words: patch",
       "at": "2026-10-20T23:27:06.347Z",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      }
+    },
+    {
+      "stage": "validation",
+      "error": "Revision 6: ",
+      "at": "2026-10-20T23:33:48.787Z",
       "actor": {
         "name": "story-cli",
         "kind": "automation"
@@ -336,6 +380,17 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 5 (story v5) failed automated validation"
+    },
+    {
+      "at": "2026-10-20T23:33:48.787Z",
+      "from": "validation-failed",
+      "to": "validation-failed",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 6 (story v6) failed automated validation"
     }
   ]
 }
