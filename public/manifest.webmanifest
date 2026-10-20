@@ -1,0 +1,12 @@
+{
+  "name": "Story Quest",
+  "short_name": "Story Quest",
+  "description": "Choose-your-own-adventure reading game designed for readers with dyslexia.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f7f1e3",
+  "theme_color": "#f7f1e3",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

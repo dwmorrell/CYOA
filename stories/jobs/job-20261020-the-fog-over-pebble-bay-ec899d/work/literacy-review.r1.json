@@ -1,0 +1,66 @@
+{
+  "role": "literacy",
+  "reviewer": { "name": "literacy-specialist", "kind": "ai-agent", "agent": "literacy-specialist" },
+  "revision": 1,
+  "draftSha256": "9a2c629a7a66acee726224b2b25cae9efcb86d6d4c0f8505b7ad039f1df5e032",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "AI pre-review only. It is NOT the human literacy review the publication policy requires. Automated detection matches spelling, not sound, and I cannot hear or test the text with a child. A qualified human must confirm every linguistic claim below."
+    },
+    {
+      "severity": "note",
+      "message": "Word sets carry their declared pattern. sh: ship, shell, fish, shed, shut all have initial or final sh and are closed syllables. ch: chest, chain, bench, much all have the /ch/ digraph. th: path, thick, moth, cloth all have voiceless th. Minimums are met: sh 18/10, ch 15/8, th 19/8. Every word is used at least twice, and each set appears on the shortest route to all three endings."
+    },
+    {
+      "severity": "minor",
+      "message": "'chain' carries the ch digraph but is a vowel-team syllable (ai), not a closed syllable. It will not support closed-syllable practice, and a reader still learning vowel teams may find it harder than chest/bench/much. It appears only twice (shed: 'Fen lifted the chain and pushed'; ending-help: 'the chain that turns the mirror'), so the weave plan's four-plus placements (opening, path-a, threshold, climax) were not realised. Consider swapping it for a closed-syllable ch word such as 'chop' or 'chip', or adding exposures.",
+      "passage": "shed"
+    },
+    {
+      "severity": "minor",
+      "message": "Low exposure for some words: chain 2, shut 2, moth 2. For a new reader, two exposures is thin. The weave comparison reports ok because only set totals are checked: ch actual 15 vs planned 18. Per-word repetition is not checked."
+    },
+    {
+      "severity": "minor",
+      "message": "The 'per ending route' counts overstate what a child reads. The analyzer counts passage titles and every choice label, including options on branches not taken and locked choices. Example: on the shortest route to ending-lantern (start, bench, bench-clue, gathering, threshold), 'chest' appears only in the gathering label 'Go back to the shed and the chest'. 'chain' never appears there. 'Bench' is counted once from the title 'Gran Tull on the Bench'. The ch set still appears on every route (bench, much), but with fewer exposures than the 8 reported for ending-lantern.",
+      "passage": "gathering"
+    },
+    {
+      "severity": "minor",
+      "message": "Natural-weave check: most uses read naturally ('Out at sea, every ship and fishing boat needed that light', 'Gran Tull sat on the bench in a thick wool coat', 'The shed door was shut'). A few look placed to hit the plan. 'A moth tapped on the window. Pip chased it down the path.' is tacked onto the clue passage and does nothing for the plot. 'Gran Tull ... gave Fen a shell from her coat' is unmotivated. 'A wipe will fix it, and much faster than you think' is slightly stiff. Narrative designer may wish to smooth these; I am not rewriting passages.",
+      "passage": "bench-clue"
+    },
+    {
+      "severity": "note",
+      "message": "False positive for parents (digraph-th, 149 matches): most of this count is the high-frequency voiced-th words the, that, than, their, then, there, they, thing, think, with. These are real th spellings but a different sound from the voiceless th in path/thick/moth/cloth. 'lighthouse' is a false positive: the t and h belong to separate syllables (light-house) and are not a digraph. 'thought' ('Fen thought about the path', gathering) matches th but is an irregular -ough word and is not decodable at this stage.",
+      "passage": "gathering"
+    },
+    {
+      "severity": "note",
+      "message": "False positives for parents (closed-syllable, 366 matches): the detector accepts any word with one vowel letter and 6 letters or fewer ending in a consonant. That wrongly includes 'bright', 'might', 'night' (igh vowel team); 'call', 'small', 'wall', 'all' (a before ll sounds /aw/); and 'far', 'dark', 'for', 'her', 'first' (r-controlled). It also includes 'old', 'told', 'kind', 'wild' (long vowel by pattern) and 'what', 'was' (irregular). True short-vowel closed syllables in the text include ship, shed, shut, chest, bench, much, path, thick, moth, cloth, fish, shell, dim, wick, tap, and, kept, hung, step, dock, glass and brass."
+    },
+    {
+      "severity": "note",
+      "message": "Other detector notes: 'shelf', 'shines', 'shone', 'dish', 'fresh', 'pushed' and 'shouts' are real sh digraphs and are not false positives. 'sure' is the reverse case: it says /sh/ but has no sh spelling, so the detector misses it, and it is irregular. 'whole' (digraph-wh, untargeted) is a false positive: it is pronounced /h/. 'pushed' and 'chased' read as -ed suffix words (/t/ sounds). 'shell', 'small', 'smell', 'tell', 'brass' and 'glass' are FLOSS, which is fine."
+    },
+    {
+      "severity": "minor",
+      "message": "Vocabulary load for an early reader on sh/ch/th and closed syllables. Multisyllable or irregular words that are not decodable at this stage: lighthouse, harbour (British -our), lantern, mirror, tower, window, pocket, fluttered, folded, across, afraid, again, every, answer, thought, know/knew, meant, many, years, coat, wool, brave, wipe, flame, gave, came, home, shone (silent-e), and stairs, air, beam, boat (vowel teams). The glossary covers only lighthouse, lantern, harbour, mirror. Words such as tower, window, answer, thought and across are not covered. Highest-frequency sight words (the, was, said, you, to, of, one, they, her, she, could, would, were, do) are expected. The text is probably better read with an adult or as a stretch text than as a fully decodable reader. The sentences are short (average 7.6 words, none over 20), which helps. Whether this fits the child's stage is a judgement for the human reviewer."
+    },
+    {
+      "severity": "note",
+      "message": "Locked-choice labels ('Wipe the mirror with the soft cloth', 'Turn the mirror with the cloth and sweep the bay') carry 'cloth' even when the child cannot select them. The analyzer counts them as reading. The locked hints are not counted, which is correct. The child sees this text, so the exposure is real, but the narrative designer should know it inflates cloth (7) on routes that never obtain the cloth.",
+      "passage": "threshold"
+    }
+  ],
+  "evidence": [
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r1.json", "sha256": "9a2c629a7a66acee726224b2b25cae9efcb86d6d4c0f8505b7ad039f1df5e032" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r1.json", "sha256": "75c15cb74bea24637262dcecdcc1b97e60bfcd2e73e03406c56a8ed7cebcc124" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r1.md", "sha256": "c57d5092f74c3417b7e639322a4b48790c4c34c6179f6300cfc3c5d385991597" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/weave-comparison.r1.json", "sha256": "1c0e90cf96b2775ffcb38893b7ac13aadbbedd8930ab5f1c25446546d4b9fbc2" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json", "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/word-weave-plan.json", "sha256": "fe0edfb2ee6cbe863d05fe16f8be8b997b92afd901d67755f8670bd0cb36cf9a" }
+  ]
+}

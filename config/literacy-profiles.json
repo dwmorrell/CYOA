@@ -1,0 +1,70 @@
+{
+  "$comment": "Terminology profiles map neutral concept ids (src/literacy/taxonomy.ts) to the words a family's program uses. Add a profile for your program; no code change is needed. Labels here are generic examples, not quotations from any commercial program.",
+  "default": "structured-literacy",
+  "profiles": [
+    {
+      "id": "structured-literacy",
+      "name": "Structured literacy (general)",
+      "labels": {
+        "closed-syllable": "Closed syllable",
+        "digraph-sh": "Digraph sh",
+        "digraph-ch": "Digraph ch",
+        "digraph-th": "Digraph th",
+        "digraph-wh": "Digraph wh",
+        "digraph-ck": "ck spelling",
+        "floss": "FLOSS rule (ff, ll, ss, zz)",
+        "initial-blend": "Beginning blend",
+        "glued-ng-nk": "ng / nk units",
+        "trigraph-tch": "tch spelling",
+        "silent-e": "Vowel-consonant-e syllable",
+        "vowel-team": "Vowel team syllable",
+        "r-controlled": "R-controlled syllable",
+        "suffix-ing": "Suffix -ing",
+        "suffix-ed": "Suffix -ed"
+      }
+    },
+    {
+      "id": "og-classic",
+      "name": "Orton-Gillingham style (classic terms)",
+      "note": "Common OG-tradition wording. Individual OG programs differ; edit to match your tutor.",
+      "labels": {
+        "closed-syllable": "Closed syllable (short vowel)",
+        "digraph-sh": "Consonant digraph /sh/",
+        "digraph-ch": "Consonant digraph /ch/",
+        "digraph-th": "Consonant digraph /th/",
+        "digraph-wh": "Consonant digraph /wh/",
+        "digraph-ck": "-ck rule",
+        "floss": "Floss rule",
+        "initial-blend": "Initial consonant blend",
+        "glued-ng-nk": "Welded / glued sounds",
+        "trigraph-tch": "-tch rule",
+        "silent-e": "Magic e / VCe syllable",
+        "vowel-team": "Vowel digraph / vowel team",
+        "r-controlled": "Bossy r / r-controlled vowel",
+        "suffix-ing": "Vowel suffix -ing",
+        "suffix-ed": "Vowel suffix -ed"
+      }
+    },
+    {
+      "id": "kid-friendly",
+      "name": "Kid-friendly",
+      "labels": {
+        "closed-syllable": "Short vowel word",
+        "digraph-sh": "sh team",
+        "digraph-ch": "ch team",
+        "digraph-th": "th team",
+        "digraph-wh": "wh team",
+        "digraph-ck": "ck at the end",
+        "floss": "Double letter ending",
+        "initial-blend": "Blend at the start",
+        "glued-ng-nk": "ng and nk",
+        "trigraph-tch": "tch ending",
+        "silent-e": "Sneaky e",
+        "vowel-team": "Vowel buddies",
+        "r-controlled": "Bossy r",
+        "suffix-ing": "-ing ending",
+        "suffix-ed": "-ed ending"
+      }
+    }
+  ]
+}

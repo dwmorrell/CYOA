@@ -1,0 +1,41 @@
+{
+  "name": "cyoa-reading-rpg",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Dyslexia-informed choose-your-own-adventure reading RPG with a parent-controlled story production workflow.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "validate:stories": "tsx scripts/validate-stories.ts",
+    "story": "tsx scripts/story-cli.ts",
+    "orchestrate": "tsx scripts/orchestrate.ts",
+    "demo:e2e": "tsx scripts/demo-e2e.ts",
+    "check": "npm run lint && npm run typecheck && npm test && npm run validate:stories && npm run agents:check && npm run build",
+    "agents:check": "tsx scripts/agents.ts check",
+    "agents:smoke": "tsx scripts/agents.ts smoke"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.20.5",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0",
+    "jsdom": "^30.1.3",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.72.0",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.5"
+  },
+  "dependencies": {
+    "ajv": "^8.20.0"
+  }
+}

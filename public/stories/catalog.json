@@ -1,0 +1,48 @@
+{
+  "catalogVersion": 1,
+  "published": [],
+  "previews": [
+    {
+      "id": "the-fog-over-pebble-bay",
+      "title": "The Fog over Pebble Bay",
+      "version": 4,
+      "path": "previews/the-fog-over-pebble-bay.json",
+      "sha256": "dc3b653927bafe7c50ada8d08239f49db59049df90f9ae9778970730e9785a4c",
+      "jobId": "job-20261020-the-fog-over-pebble-bay-ec899d",
+      "jobState": "in-review",
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": true,
+          "detail": "Revision 4, story v4"
+        },
+        {
+          "id": "automated-validation",
+          "ok": true,
+          "detail": "schema: ok; graph: ok, 3/3 endings reachable; literacy checks: ok; brief: ok"
+        },
+        {
+          "id": "review:qa",
+          "ok": true,
+          "detail": "qa passed by qa-engineer (ai-agent)"
+        },
+        {
+          "id": "review:literacy",
+          "ok": false,
+          "detail": "literacy review passed only by ai-agent; policy requires a human literacy reviewer"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ],
+      "updatedAt": "2026-10-20T00:42:26.482Z"
+    }
+  ]
+}

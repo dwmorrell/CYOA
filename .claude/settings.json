@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(npm run story -- decide:*)",
+      "Bash(npm run story -- publish:*)",
+      "Bash(npx tsx scripts/story-cli.ts decide:*)",
+      "Bash(npx tsx scripts/story-cli.ts publish:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)"
+    ]
+  }
+}

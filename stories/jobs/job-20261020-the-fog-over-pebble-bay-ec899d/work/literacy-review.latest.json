@@ -1,0 +1,64 @@
+{
+  "role": "literacy",
+  "reviewer": { "name": "literacy-specialist", "kind": "ai-agent", "agent": "literacy-specialist" },
+  "revision": 4,
+  "draftSha256": "dc3b653927bafe7c50ada8d08239f49db59049df90f9ae9778970730e9785a4c",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "AI pre-review only. It is NOT the human literacy review the publication policy requires, and literacy.review.status stays \"pending\" in the story file. The analyzer matches spelling, not sound. I cannot hear the text or test it with a child. A qualified human must confirm every linguistic claim below."
+    },
+    {
+      "severity": "note",
+      "message": "Word sets meet their minimums and carry their declared patterns (report r4: sh 20/10, ch 20/8, th 17/8; no missing words; word-set-concepts-match-spelling shows no mismatches). sh: ship, shell, fish, shed, shut have /sh/ and are short-vowel closed syllables. ch: chest, bench, much have /ch/ and are closed syllables. th: path, thick, moth, cloth have voiceless /th/ and are closed syllables. All three patterns and the closed-syllable target are present. Each set appears on the shortest route to all three endings. I read the draft text and the counts match what I see in it."
+    },
+    {
+      "severity": "note",
+      "message": "Earlier r3 notes acted on and confirmed in the r4 text: 'across' is gone (ending-beam now says 'swept over the bay'); 'much' now appears 4 times (start 'help much more', gathering 'much too thick', threshold 'not much time', ending-dock 'could not see much'), each natural; 'moth' appears 3 times (shed-chest, climax, ending-help 'Pip snapped at a moth'); 'shut' appears in shed, shed-chest and threshold. The r3 stairs continuity problem is addressed in bench-clue ('My knees are slow on stairs, so I will wait at the tower door')."
+    },
+    {
+      "severity": "minor",
+      "message": "Revision notes r4 say 'shut' appears 4 times. The report and my reading of the draft both give 3 (shed 'The shed door was shut', shed-chest 'Fen shut the lid', threshold 'Fen shut the window'). Not a minimum failure, but the notes are inaccurate. Please correct them.",
+      "passage": "shed-chest"
+    },
+    {
+      "severity": "minor",
+      "message": "Low per-word exposure remains for 'shell' (2: start, shed) and 'shut'/'moth' (3 each). It is acceptable because the set totals are well over the minimum. The weave comparison checks set totals only, so it cannot show this. Optional: one more natural use of 'shell' (for example on a beach or the dock) in a later passage.",
+      "passage": "start"
+    },
+    {
+      "severity": "minor",
+      "message": "'chain' carries the ch digraph but is a vowel-team syllable (ai), not a closed syllable. It does not support closed-syllable practice and is harder than chest, bench and much. It has six exposures (shed, climax, ending-beam, ending-help and others). The brief names it, so I accept it. Flag it to the human reviewer: the child should already have met vowel teams.",
+      "passage": "climax"
+    },
+    {
+      "severity": "minor",
+      "message": "Per-route counts in the report (for example ending-dock: sh 13, ch 7, th 8) count titles and every choice label, including labels on branches the child did not take. In passage text alone, the bench route to ending-dock (start, bench, bench-clue, gathering, threshold, ending-dock) meets sh only in start, threshold and ending-dock ('ship', 'shell', 'shut'); bench-clue has no word-set word of the sh set. All three patterns are still present on every route, so the 'every route' requirement holds. Do not read the route totals as what a child reads.",
+      "passage": "ending-dock"
+    },
+    {
+      "severity": "minor",
+      "message": "Words that are not decodable at this stage (expected for an adventure text, so use as a read-with-adult or stretch text): lighthouse, harbour (British -our), mirror, tower, window, pocket, fluttered, folded, answer, afraid, again, every, stairs, knees, wool, coat, climb (silent b), brave, wipe, flame, gave, came, home, beam, boat, twice, years. High-frequency irregular words are expected: the, was, said, you, one, they, her, she, could, were. The glossary covers lighthouse, harbour, mirror, tower, window, answer, afraid, pocket, fluttered and matches. It does not cover stairs, knees, climb or wool. I agree with the designer's choice not to add them, because their syllable breaks add nothing. Average sentence length is 8.1 words with none over 20 by the analyzer; the brief asks for at most 16, and I did not check this by hand. Whether the load suits the child's stage is for the human reviewer."
+    },
+    {
+      "severity": "note",
+      "message": "Detector false positives for parents. digraph-th (150 matches): most are voiced-th function words (the, that, their, then, there, they, thing), which differ from the voiceless /th/ in path, thick, moth, cloth; 'lighthouse' (light-house) is not a digraph. closed-syllable (379) matches by spelling and wrongly accepts r-controlled words (dark, far, her), -all words (call, small, Tull), igh words (bright), long-vowel patterns (old, told, kind) and irregular words (was, what). The true short-vowel closed syllables are the practice words plus tap, dim, wick, step, hung, dock, glass, brass, flat, lamp, tin, and, at. 'whole' (wh count) is pronounced /h/. A /sh/ sound spelled without sh (for example 'sure') would be missed; I did not find one. 'match' and 'matches' (tch) are real and have short vowels. 'each' in the ch count is a vowel team, not a closed syllable."
+    },
+    {
+      "severity": "note",
+      "message": "Outside my remit, referred to the narrative designer and QA. Gran Tull's position depends on route order. gathering says 'Gran Tull sat by the door' even when the child came from the shed and has not yet met her at the bench. A child who then goes to the bench finds her 'on the bench' (bench), which contradicts the door. Similarly ending-dock has her arrive without being met on a shed-only route. This is a continuity issue, not a literacy one.",
+      "passage": "gathering"
+    }
+  ],
+  "evidence": [
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r4.json", "sha256": "dc3b653927bafe7c50ada8d08239f49db59049df90f9ae9778970730e9785a4c" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r4.json", "sha256": "7302a08f262dbf94249e83db86b424bd7763fe6c98dfd7cc886787253bb24ac1" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r4.md", "sha256": "a3656494c19bbbacd48086ea97bac7883e80e75de7fa73b3ab9952941a1a20c3" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/weave-comparison.r4.json", "sha256": "61a0bec2d26d95181af36508bcb625134f9bbb4d6221794eb21ff9ecc268ce2e" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json", "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/word-weave-plan.json", "sha256": "fe0edfb2ee6cbe863d05fe16f8be8b997b92afd901d67755f8670bd0cb36cf9a" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/work/literacy-review.r3.json", "sha256": "97828b27d8678592464c782bcfe570502eb3f3e8bbc1d7bb299fe29b7ae38f37" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/work/revision-notes.r4.md", "sha256": "ca749a2c7009d304613b09a7dc8786202fcd0bd08d42ff2fd88c65a76f7220bc" }
+  ]
+}

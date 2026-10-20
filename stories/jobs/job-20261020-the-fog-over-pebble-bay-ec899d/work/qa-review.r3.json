@@ -1,0 +1,58 @@
+{
+  "role": "qa",
+  "reviewer": { "name": "qa-engineer", "kind": "ai-agent", "agent": "qa-engineer" },
+  "revision": 3,
+  "draftSha256": "14c233a19173f5f1df29ae61a5ccf48fc9003ac377e1fb2979bb3ce216a456b9",
+  "verdict": "changes-requested",
+  "findings": [
+    {
+      "severity": "major",
+      "passage": "bench-clue",
+      "message": "New continuity contradiction caused by the match-tin fix. In bench-clue (story.r3.json line 90) Gran Tull says 'My knees are too old for those stairs.' But ending-beam (line 153) says 'Gran Tull came up the stairs and gave Fen a hug', and ending-help (line 162) says 'Gran Tull climbed up, slow but sure, and put a hand on the chain.' Both triumph endings undo the reason she gave for not climbing. Fix: change ending-beam so Gran Tull meets Fen at the foot of the tower or on the path. Change ending-help so Fen goes down to get her, or so she gives the reason a different way (for example, she climbs 'one slow step at a time' after saying it would be worth it), or drop the knees line in bench-clue and give another reason for the match tin."
+    },
+    {
+      "severity": "minor",
+      "passage": "ending-help",
+      "message": "In ending-help (lines 162-165) the call-gran choice says Fen 'called down the stairs', but Gran Tull was last seen on the bench outside. She can hear a call from the lamp room only if she is at the tower door. Related to the major finding. Say that she waits at the foot of the tower, or that Pip fetches her."
+    },
+    {
+      "severity": "minor",
+      "passage": "start",
+      "message": "Dark versus dim. The premise and start (line 61) say the lamp is dark. The clue (damp-mirror, line 36, and bench-clue line 89) explains a dim lamp. In threshold (line 117) the wick is simply cold and unlit, so the mirror is not what made it 'go dark'. The story still works, because Fen cleans the mirror and lights the wick. One line in threshold or bench-clue that says the wick went out in the wind and the mirror made it worse would close this cleanly."
+    },
+    {
+      "severity": "minor",
+      "passage": "ending-lantern",
+      "message": "The ending id 'ending-lantern' (line 177) and the 'run-to-dock' choice are left over from the removed lantern. This is cosmetic and affects only authors and reports. The setback ending itself is consistent: Fen runs to the dock, there is no lantern, and Gran Tull walks down the path to meet Fen."
+    },
+    {
+      "severity": "minor",
+      "passage": "start",
+      "message": "Literacy-adjacent note for the literacy stage, not a QA blocker: 'much' occurs once in the whole draft (start, line 65; validation.r3.json line 80), against chain 6, chest 5 and bench 5. The revision notes say 'much is still used elsewhere', which is wrong. The set totals are met (sh 19/10, ch 17/8, th 16/8), but one exposure is thin. 'moth' is 2, 'shut' is 2 and 'shell' is 2."
+    },
+    {
+      "severity": "note",
+      "message": "Earlier QA findings checked against the draft itself (not the notes). (1) MAJOR dead lock on turn-mirror: FIXED. The climax choices turn-mirror and call-gran (lines 137-138) now have no requires, so there is no dead lock. The real gate is wipe-mirror in threshold (lines 122-126), which needs soft-cloth, match-tin and damp-mirror. All three are granted only by shed-chest (soft-cloth) and bench-clue (match-tin, damp-mirror). (2) Mixed message on asking for help: FIXED. ending-help is a triumph with 'Asking for help had been brave, and it had worked'. (3) No way back from threshold: FIXED. 'go-down' (line 129) targets gathering, and the lockedHint (line 126) names the shed chest and Gran Tull on the bench (63 characters, under the 90 limit that failed r2). (4) Lamp lit with no light source: FIXED. Gran Tull gives a match tin (item match-tin), the window is shut in threshold, and Fen strikes a match in climax (line 133). The fix produced the 'knees' contradiction above. (5) Cloth/chain inconsistency: FIXED. The cloth only wipes (climax), and the choices say 'Pull the chain' with the chain introduced in climax (line 137) and shed. (6) Lantern and Gran Tull on the dock: FIXED. The lantern is removed and Gran Tull walks down the path (ending-lantern line 183)."
+    },
+    {
+      "severity": "note",
+      "message": "Routes traced in the JSON (choice ids; item and clue gating checked). ending-lantern (setback): start -> to-bench -> ask-more? not needed. Shortest: start --to-shed--> shed --shed-back--> gathering --gather-climb--> threshold --run-to-dock--> ending-lantern. This choice has no requires, so it is always open. ending-beam (triumph): start --to-shed--> shed --open-chest--> shed-chest [+soft-cloth] --chest-to-tower--> gathering --gather-bench--> bench --ask-more--> bench-clue [+damp-mirror, +match-tin] --clue-to-tower--> gathering --gather-climb--> threshold --wipe-mirror (all 3 held)--> climax --turn-mirror--> ending-beam. ending-help (triumph): the same prefix, then climax --call-gran--> ending-help. The bench-first order also works (start -> to-bench -> bench -> ask-more -> bench-clue -> gathering -> gather-shed -> shed -> open-chest -> shed-chest -> gathering -> gather-climb -> threshold -> wipe-mirror). Threshold -> go-down returns to gathering, so there is no dead end. All 11 passages are reachable, all non-ending passages have choices, and every ending has choices:[]. The result matches graph.r3 and validation.r3 (3/3 endings reachable, state search complete, 28 states, shortest path 5, longest simple path 7). All three endings match the brief's endingTarget of 3, and the passage count of 11 is within 10-24."
+    },
+    {
+      "severity": "note",
+      "message": "Content integrity: the story appears original (no borrowed characters or text). It is age-appropriate, with no drowning, injury or cruel villain, so the brief's 'avoid' list is respected. Characters match the brief (Fen, Gran Tull, Pip) and the continuity facts (oil wick and brass mirror) are used consistently. Items and clue ids (soft-cloth, match-tin, damp-mirror) are defined and used consistently. The brief's required mechanics (choices, clues, inventory, multiple endings) are all present. The theme (courage, noticing small details, asking for help) is clear. The two triumph endings and the one kind setback are fair, because the setback needs no items and its end text points back at the clue. Sentences are short, with none visibly over the brief's 16-word limit."
+    },
+    {
+      "severity": "note",
+      "message": "I could not run `npm run check` in this session, so no result from it is claimed. This review relies on reading validation.r3.json (ok: true, schema ok, graph ok, literacy ok, brief ok), graph.r3.json and the draft JSON by hand. `npm run check` must be run before publication. The literacy review and the parent decision are outside this QA review."
+    }
+  ],
+  "evidence": [
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r3.json", "sha256": "14c233a19173f5f1df29ae61a5ccf48fc9003ac377e1fb2979bb3ce216a456b9" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/validation.r3.json", "sha256": "600b09ae1e417ef6c44e7ccbc90f9a7b56cd85766c627711c9a062de5251dce8" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/graph.r3.json", "sha256": "6a9171616bb05d8451c949b6a86fe1b0ee08b49b0e3de72db904290c418b12ad" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json", "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reviews/review-1-qa.r1.json", "sha256": "7ba622e8ac4b6461dcefead4b5af9f64b62926fbbdeb5bfa3d87adfd3723e0f5" },
+    { "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/work/revision-notes.r2.md", "sha256": "4268450e15461da7d3d513efdc039b879c721562f76af79444a60aede95a6a02" }
+  ]
+}

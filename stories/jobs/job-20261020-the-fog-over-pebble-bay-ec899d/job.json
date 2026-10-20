@@ -1,0 +1,798 @@
+{
+  "jobVersion": 1,
+  "id": "job-20261020-the-fog-over-pebble-bay-ec899d",
+  "storyId": "the-fog-over-pebble-bay",
+  "state": "in-review",
+  "createdAt": "2026-10-20T00:24:37.550Z",
+  "updatedAt": "2026-10-20T00:39:40.299Z",
+  "artifacts": {
+    "request": {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/request.json",
+      "sha256": "d5a249c03099e5211be8e7914c850ef444884e9143ef0da73cb41359a292f18f"
+    },
+    "brief": {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json",
+      "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a"
+    },
+    "continuity": {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/continuity.json",
+      "sha256": "96f1323d411472e1a8899e33d136bff5a8facc889a7f3e0180ca8be5841af575"
+    },
+    "outline": {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/outline.json",
+      "sha256": "6edcd2b0e5d8cf0c1a85db70753b6118016320a26ede1f9b51ae262a31d08ef7"
+    },
+    "weavePlan": {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/word-weave-plan.json",
+      "sha256": "fe0edfb2ee6cbe863d05fe16f8be8b997b92afd901d67755f8670bd0cb36cf9a"
+    },
+    "generationPrompt": {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/generation-prompt.md",
+      "sha256": "08ee72bedaa5554c5e8ca24acfe767cccb78a0b03e17f53b4eb8172df7e6543b"
+    }
+  },
+  "revisions": [
+    {
+      "storyVersion": 1,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r1.json",
+        "sha256": "9a2c629a7a66acee726224b2b25cae9efcb86d6d4c0f8505b7ad039f1df5e032"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T00:25:58.190Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/validation.r1.json",
+          "sha256": "eac9d9ca6d02538ab46f07c6d35fe88ac059467b7fc3587d2d154ef296004f69"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r1.json",
+          "sha256": "75c15cb74bea24637262dcecdcc1b97e60bfcd2e73e03406c56a8ed7cebcc124"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/graph.r1.json",
+          "sha256": "7ccea90d6f1564d0514071dd97b46d5418c475b16c9a3ac6a518adc015e354a6"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 3/3 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 1
+    },
+    {
+      "storyVersion": 2,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r2.json",
+        "sha256": "5591f962cc9727ac142a4c95a10273446828ba817d0ed8a191f2e3a213fdc2ce"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T00:32:03.289Z",
+      "validation": {
+        "ok": false,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/validation.r2.json",
+          "sha256": "c1adc8576aed95676eb14f9f2bae6a934bfc46e8007ca5a96fdf2bc37ccd36ee"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r2.json",
+          "sha256": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/graph.r2.json",
+          "sha256": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed"
+        },
+        "summary": [
+          "schema: 1 error(s)"
+        ]
+      },
+      "revision": 2
+    },
+    {
+      "storyVersion": 3,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r3.json",
+        "sha256": "14c233a19173f5f1df29ae61a5ccf48fc9003ac377e1fb2979bb3ce216a456b9"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T00:32:11.485Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/validation.r3.json",
+          "sha256": "600b09ae1e417ef6c44e7ccbc90f9a7b56cd85766c627711c9a062de5251dce8"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r3.json",
+          "sha256": "b279205aa035b6352bc1a079ddc63b8b5b9cb42675c3366871a88f3df573d154"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/graph.r3.json",
+          "sha256": "6a9171616bb05d8451c949b6a86fe1b0ee08b49b0e3de72db904290c418b12ad"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 3/3 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 3
+    },
+    {
+      "storyVersion": 4,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r4.json",
+        "sha256": "dc3b653927bafe7c50ada8d08239f49db59049df90f9ae9778970730e9785a4c"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T00:37:27.965Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/validation.r4.json",
+          "sha256": "f5544dbd58bcc708ac4ab215cb94e1a3cdb04e9a3794c9b57bb3f38aedfadafd"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r4.json",
+          "sha256": "7302a08f262dbf94249e83db86b424bd7763fe6c98dfd7cc886787253bb24ac1"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/graph.r4.json",
+          "sha256": "6caf11796dbb4155021761e7b6044c6b5ffe72501a7b5e38cdc8ef9cce02581a"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 3/3 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 4
+    }
+  ],
+  "reviews": [
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 1,
+      "draftSha256": "9a2c629a7a66acee726224b2b25cae9efcb86d6d4c0f8505b7ad039f1df5e032",
+      "verdict": "changes-requested",
+      "findings": [
+        {
+          "severity": "major",
+          "passage": "climax",
+          "message": "Choice 'turn-mirror' (story.r1.json lines 140-146) can never be locked. Its requirement (soft-cloth + damp-mirror) is identical to 'wipe-mirror' on 'threshold' (lines 120-126), which is the only way into 'climax', and no passage uses removeItems or any effect that removes an item or clue. Every player who reaches 'climax' already holds both, so the lock and its lockedHint are dead. As a result ending-beam vs ending-help is a free choice, not a reward for finding the cloth and clue. Fix: remove the redundant requirement, or give 'climax' a genuinely different gate (for example a second clue or item found in the story)."
+        },
+        {
+          "severity": "minor",
+          "passage": "climax",
+          "message": "Mixed message with the theme 'asking for help'. ending-help (lines 162-172) is framed as the lesser result ('It took much longer', boats come home late, kind bittersweet). The text in bench-clue and ending-help says asking for help is right and brave. Consider making the help ending clearly good, or making the beam ending depend on a different skill."
+        },
+        {
+          "severity": "minor",
+          "passage": "threshold",
+          "message": "A player who climbs without the cloth or the clue has no way back from 'threshold' (lines 119-128). The only open choice is 'run-with-lantern', which leads to the setback ending. The lockedHint ('You need a soft cloth and a clue about the mirror.', line 125) does not say where to look, and the player cannot go back to look. Add a 'go back down' choice to gathering, or make the hint point to the shed and to Gran Tull."
+        },
+        {
+          "severity": "minor",
+          "passage": "climax",
+          "message": "Logic gap. The premise says the lamp 'went dark', but the clue ('damp-mirror') explains a dim lamp. The wick is cold and unlit in 'threshold' (line 116). In 'climax' (line 135) Fen lights the wick with no match, taper or other item. A short line saying who left the lamp unlit, or where the light comes from, would close this. Gran Tull is a retired keeper who sits on a bench while the boats are lost. That is a mild plausibility issue."
+        },
+        {
+          "severity": "minor",
+          "passage": "climax",
+          "message": "Item use is inconsistent. The label for 'turn-mirror' says 'Turn the mirror with the cloth' (line 142) but the cloth is for wiping. The hint says the cloth and clue let Fen 'turn it well' (line 145), which nothing in the story supports."
+        },
+        {
+          "severity": "minor",
+          "passage": "ending-lantern",
+          "message": "The 'small lantern' in 'run-with-lantern' (line 127) and ending-lantern is not an item or earlier object. It appears from nowhere. In the same passage Gran Tull is suddenly on the dock, although she was last on the bench. Both are small continuity slips."
+        },
+        {
+          "severity": "note",
+          "message": "Routes traced in the JSON. (1) ending-lantern: start -> to-shed or to-bench -> ... -> gathering -> gather-climb -> threshold -> run-with-lantern, which is open with no items. (2) ending-help: start -> to-shed -> open-chest (soft-cloth) -> chest-to-tower -> gather-bench -> ask-more (damp-mirror) -> clue-to-tower -> gather-climb -> wipe-mirror -> climax -> call-gran. (3) ending-beam: the same prefix, then turn-mirror. The mirror route needs both the shed and the bench, and the gathering hub allows this. All 11 passages are reachable, there are no dead ends, and the three endings match the brief's endingTarget of 3. Item and clue ids (soft-cloth, damp-mirror) are defined and used consistently."
+        },
+        {
+          "severity": "note",
+          "message": "Content integrity: the story appears original. It is age-appropriate, with no drowning, harm or cruel villain, which matches the brief's avoid list. The theme (courage, noticing small details, asking for help) is present. Sentences are short, and the validation literacy checks show no long sentences. The graph validator reports no warning for the unlockable lock in 'climax', so this defect is not caught by the tooling."
+        },
+        {
+          "severity": "note",
+          "message": "I could not run `npm run check` in this session, so no result from it is claimed. This review relies on reading validation.r1.json (ok: true, 3/3 endings reachable, state search complete), graph.r1.json and the draft JSON by hand. Someone needs to run `npm run check` before publication. The literacy review is still pending and is outside this QA review."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r1.json",
+          "sha256": "9a2c629a7a66acee726224b2b25cae9efcb86d6d4c0f8505b7ad039f1df5e032"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/validation.r1.json",
+          "sha256": "eac9d9ca6d02538ab46f07c6d35fe88ac059467b7fc3587d2d154ef296004f69"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/graph.r1.json",
+          "sha256": "7ccea90d6f1564d0514071dd97b46d5418c475b16c9a3ac6a518adc015e354a6"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json",
+          "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a"
+        }
+      ],
+      "id": "review-1-qa",
+      "submittedAt": "2026-10-20T00:29:55.615Z",
+      "invalidatedBy": 2
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 1,
+      "draftSha256": "9a2c629a7a66acee726224b2b25cae9efcb86d6d4c0f8505b7ad039f1df5e032",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "AI pre-review only. It is NOT the human literacy review the publication policy requires. Automated detection matches spelling, not sound, and I cannot hear or test the text with a child. A qualified human must confirm every linguistic claim below."
+        },
+        {
+          "severity": "note",
+          "message": "Word sets carry their declared pattern. sh: ship, shell, fish, shed, shut all have initial or final sh and are closed syllables. ch: chest, chain, bench, much all have the /ch/ digraph. th: path, thick, moth, cloth all have voiceless th. Minimums are met: sh 18/10, ch 15/8, th 19/8. Every word is used at least twice, and each set appears on the shortest route to all three endings."
+        },
+        {
+          "severity": "minor",
+          "message": "'chain' carries the ch digraph but is a vowel-team syllable (ai), not a closed syllable. It will not support closed-syllable practice, and a reader still learning vowel teams may find it harder than chest/bench/much. It appears only twice (shed: 'Fen lifted the chain and pushed'; ending-help: 'the chain that turns the mirror'), so the weave plan's four-plus placements (opening, path-a, threshold, climax) were not realised. Consider swapping it for a closed-syllable ch word such as 'chop' or 'chip', or adding exposures.",
+          "passage": "shed"
+        },
+        {
+          "severity": "minor",
+          "message": "Low exposure for some words: chain 2, shut 2, moth 2. For a new reader, two exposures is thin. The weave comparison reports ok because only set totals are checked: ch actual 15 vs planned 18. Per-word repetition is not checked."
+        },
+        {
+          "severity": "minor",
+          "message": "The 'per ending route' counts overstate what a child reads. The analyzer counts passage titles and every choice label, including options on branches not taken and locked choices. Example: on the shortest route to ending-lantern (start, bench, bench-clue, gathering, threshold), 'chest' appears only in the gathering label 'Go back to the shed and the chest'. 'chain' never appears there. 'Bench' is counted once from the title 'Gran Tull on the Bench'. The ch set still appears on every route (bench, much), but with fewer exposures than the 8 reported for ending-lantern.",
+          "passage": "gathering"
+        },
+        {
+          "severity": "minor",
+          "message": "Natural-weave check: most uses read naturally ('Out at sea, every ship and fishing boat needed that light', 'Gran Tull sat on the bench in a thick wool coat', 'The shed door was shut'). A few look placed to hit the plan. 'A moth tapped on the window. Pip chased it down the path.' is tacked onto the clue passage and does nothing for the plot. 'Gran Tull ... gave Fen a shell from her coat' is unmotivated. 'A wipe will fix it, and much faster than you think' is slightly stiff. Narrative designer may wish to smooth these; I am not rewriting passages.",
+          "passage": "bench-clue"
+        },
+        {
+          "severity": "note",
+          "message": "False positive for parents (digraph-th, 149 matches): most of this count is the high-frequency voiced-th words the, that, than, their, then, there, they, thing, think, with. These are real th spellings but a different sound from the voiceless th in path/thick/moth/cloth. 'lighthouse' is a false positive: the t and h belong to separate syllables (light-house) and are not a digraph. 'thought' ('Fen thought about the path', gathering) matches th but is an irregular -ough word and is not decodable at this stage.",
+          "passage": "gathering"
+        },
+        {
+          "severity": "note",
+          "message": "False positives for parents (closed-syllable, 366 matches): the detector accepts any word with one vowel letter and 6 letters or fewer ending in a consonant. That wrongly includes 'bright', 'might', 'night' (igh vowel team); 'call', 'small', 'wall', 'all' (a before ll sounds /aw/); and 'far', 'dark', 'for', 'her', 'first' (r-controlled). It also includes 'old', 'told', 'kind', 'wild' (long vowel by pattern) and 'what', 'was' (irregular). True short-vowel closed syllables in the text include ship, shed, shut, chest, bench, much, path, thick, moth, cloth, fish, shell, dim, wick, tap, and, kept, hung, step, dock, glass and brass."
+        },
+        {
+          "severity": "note",
+          "message": "Other detector notes: 'shelf', 'shines', 'shone', 'dish', 'fresh', 'pushed' and 'shouts' are real sh digraphs and are not false positives. 'sure' is the reverse case: it says /sh/ but has no sh spelling, so the detector misses it, and it is irregular. 'whole' (digraph-wh, untargeted) is a false positive: it is pronounced /h/. 'pushed' and 'chased' read as -ed suffix words (/t/ sounds). 'shell', 'small', 'smell', 'tell', 'brass' and 'glass' are FLOSS, which is fine."
+        },
+        {
+          "severity": "minor",
+          "message": "Vocabulary load for an early reader on sh/ch/th and closed syllables. Multisyllable or irregular words that are not decodable at this stage: lighthouse, harbour (British -our), lantern, mirror, tower, window, pocket, fluttered, folded, across, afraid, again, every, answer, thought, know/knew, meant, many, years, coat, wool, brave, wipe, flame, gave, came, home, shone (silent-e), and stairs, air, beam, boat (vowel teams). The glossary covers only lighthouse, lantern, harbour, mirror. Words such as tower, window, answer, thought and across are not covered. Highest-frequency sight words (the, was, said, you, to, of, one, they, her, she, could, would, were, do) are expected. The text is probably better read with an adult or as a stretch text than as a fully decodable reader. The sentences are short (average 7.6 words, none over 20), which helps. Whether this fits the child's stage is a judgement for the human reviewer."
+        },
+        {
+          "severity": "note",
+          "message": "Locked-choice labels ('Wipe the mirror with the soft cloth', 'Turn the mirror with the cloth and sweep the bay') carry 'cloth' even when the child cannot select them. The analyzer counts them as reading. The locked hints are not counted, which is correct. The child sees this text, so the exposure is real, but the narrative designer should know it inflates cloth (7) on routes that never obtain the cloth.",
+          "passage": "threshold"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r1.json",
+          "sha256": "9a2c629a7a66acee726224b2b25cae9efcb86d6d4c0f8505b7ad039f1df5e032"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r1.json",
+          "sha256": "75c15cb74bea24637262dcecdcc1b97e60bfcd2e73e03406c56a8ed7cebcc124"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r1.md",
+          "sha256": "c57d5092f74c3417b7e639322a4b48790c4c34c6179f6300cfc3c5d385991597"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/weave-comparison.r1.json",
+          "sha256": "1c0e90cf96b2775ffcb38893b7ac13aadbbedd8930ab5f1c25446546d4b9fbc2"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json",
+          "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/word-weave-plan.json",
+          "sha256": "fe0edfb2ee6cbe863d05fe16f8be8b997b92afd901d67755f8670bd0cb36cf9a"
+        }
+      ],
+      "id": "review-2-literacy",
+      "submittedAt": "2026-10-20T00:30:10.160Z",
+      "invalidatedBy": 2
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 3,
+      "draftSha256": "14c233a19173f5f1df29ae61a5ccf48fc9003ac377e1fb2979bb3ce216a456b9",
+      "verdict": "changes-requested",
+      "findings": [
+        {
+          "severity": "major",
+          "passage": "bench-clue",
+          "message": "New continuity contradiction caused by the match-tin fix. In bench-clue (story.r3.json line 90) Gran Tull says 'My knees are too old for those stairs.' But ending-beam (line 153) says 'Gran Tull came up the stairs and gave Fen a hug', and ending-help (line 162) says 'Gran Tull climbed up, slow but sure, and put a hand on the chain.' Both triumph endings undo the reason she gave for not climbing. Fix: change ending-beam so Gran Tull meets Fen at the foot of the tower or on the path. Change ending-help so Fen goes down to get her, or so she gives the reason a different way (for example, she climbs 'one slow step at a time' after saying it would be worth it), or drop the knees line in bench-clue and give another reason for the match tin."
+        },
+        {
+          "severity": "minor",
+          "passage": "ending-help",
+          "message": "In ending-help (lines 162-165) the call-gran choice says Fen 'called down the stairs', but Gran Tull was last seen on the bench outside. She can hear a call from the lamp room only if she is at the tower door. Related to the major finding. Say that she waits at the foot of the tower, or that Pip fetches her."
+        },
+        {
+          "severity": "minor",
+          "passage": "start",
+          "message": "Dark versus dim. The premise and start (line 61) say the lamp is dark. The clue (damp-mirror, line 36, and bench-clue line 89) explains a dim lamp. In threshold (line 117) the wick is simply cold and unlit, so the mirror is not what made it 'go dark'. The story still works, because Fen cleans the mirror and lights the wick. One line in threshold or bench-clue that says the wick went out in the wind and the mirror made it worse would close this cleanly."
+        },
+        {
+          "severity": "minor",
+          "passage": "ending-lantern",
+          "message": "The ending id 'ending-lantern' (line 177) and the 'run-to-dock' choice are left over from the removed lantern. This is cosmetic and affects only authors and reports. The setback ending itself is consistent: Fen runs to the dock, there is no lantern, and Gran Tull walks down the path to meet Fen."
+        },
+        {
+          "severity": "minor",
+          "passage": "start",
+          "message": "Literacy-adjacent note for the literacy stage, not a QA blocker: 'much' occurs once in the whole draft (start, line 65; validation.r3.json line 80), against chain 6, chest 5 and bench 5. The revision notes say 'much is still used elsewhere', which is wrong. The set totals are met (sh 19/10, ch 17/8, th 16/8), but one exposure is thin. 'moth' is 2, 'shut' is 2 and 'shell' is 2."
+        },
+        {
+          "severity": "note",
+          "message": "Earlier QA findings checked against the draft itself (not the notes). (1) MAJOR dead lock on turn-mirror: FIXED. The climax choices turn-mirror and call-gran (lines 137-138) now have no requires, so there is no dead lock. The real gate is wipe-mirror in threshold (lines 122-126), which needs soft-cloth, match-tin and damp-mirror. All three are granted only by shed-chest (soft-cloth) and bench-clue (match-tin, damp-mirror). (2) Mixed message on asking for help: FIXED. ending-help is a triumph with 'Asking for help had been brave, and it had worked'. (3) No way back from threshold: FIXED. 'go-down' (line 129) targets gathering, and the lockedHint (line 126) names the shed chest and Gran Tull on the bench (63 characters, under the 90 limit that failed r2). (4) Lamp lit with no light source: FIXED. Gran Tull gives a match tin (item match-tin), the window is shut in threshold, and Fen strikes a match in climax (line 133). The fix produced the 'knees' contradiction above. (5) Cloth/chain inconsistency: FIXED. The cloth only wipes (climax), and the choices say 'Pull the chain' with the chain introduced in climax (line 137) and shed. (6) Lantern and Gran Tull on the dock: FIXED. The lantern is removed and Gran Tull walks down the path (ending-lantern line 183)."
+        },
+        {
+          "severity": "note",
+          "message": "Routes traced in the JSON (choice ids; item and clue gating checked). ending-lantern (setback): start -> to-bench -> ask-more? not needed. Shortest: start --to-shed--> shed --shed-back--> gathering --gather-climb--> threshold --run-to-dock--> ending-lantern. This choice has no requires, so it is always open. ending-beam (triumph): start --to-shed--> shed --open-chest--> shed-chest [+soft-cloth] --chest-to-tower--> gathering --gather-bench--> bench --ask-more--> bench-clue [+damp-mirror, +match-tin] --clue-to-tower--> gathering --gather-climb--> threshold --wipe-mirror (all 3 held)--> climax --turn-mirror--> ending-beam. ending-help (triumph): the same prefix, then climax --call-gran--> ending-help. The bench-first order also works (start -> to-bench -> bench -> ask-more -> bench-clue -> gathering -> gather-shed -> shed -> open-chest -> shed-chest -> gathering -> gather-climb -> threshold -> wipe-mirror). Threshold -> go-down returns to gathering, so there is no dead end. All 11 passages are reachable, all non-ending passages have choices, and every ending has choices:[]. The result matches graph.r3 and validation.r3 (3/3 endings reachable, state search complete, 28 states, shortest path 5, longest simple path 7). All three endings match the brief's endingTarget of 3, and the passage count of 11 is within 10-24."
+        },
+        {
+          "severity": "note",
+          "message": "Content integrity: the story appears original (no borrowed characters or text). It is age-appropriate, with no drowning, injury or cruel villain, so the brief's 'avoid' list is respected. Characters match the brief (Fen, Gran Tull, Pip) and the continuity facts (oil wick and brass mirror) are used consistently. Items and clue ids (soft-cloth, match-tin, damp-mirror) are defined and used consistently. The brief's required mechanics (choices, clues, inventory, multiple endings) are all present. The theme (courage, noticing small details, asking for help) is clear. The two triumph endings and the one kind setback are fair, because the setback needs no items and its end text points back at the clue. Sentences are short, with none visibly over the brief's 16-word limit."
+        },
+        {
+          "severity": "note",
+          "message": "I could not run `npm run check` in this session, so no result from it is claimed. This review relies on reading validation.r3.json (ok: true, schema ok, graph ok, literacy ok, brief ok), graph.r3.json and the draft JSON by hand. `npm run check` must be run before publication. The literacy review and the parent decision are outside this QA review."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r3.json",
+          "sha256": "14c233a19173f5f1df29ae61a5ccf48fc9003ac377e1fb2979bb3ce216a456b9"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/validation.r3.json",
+          "sha256": "600b09ae1e417ef6c44e7ccbc90f9a7b56cd85766c627711c9a062de5251dce8"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/graph.r3.json",
+          "sha256": "6a9171616bb05d8451c949b6a86fe1b0ee08b49b0e3de72db904290c418b12ad"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json",
+          "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reviews/review-1-qa.r1.json",
+          "sha256": "7ba622e8ac4b6461dcefead4b5af9f64b62926fbbdeb5bfa3d87adfd3723e0f5"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/work/revision-notes.r2.md",
+          "sha256": "4268450e15461da7d3d513efdc039b879c721562f76af79444a60aede95a6a02"
+        }
+      ],
+      "id": "review-3-qa",
+      "submittedAt": "2026-10-20T00:34:06.836Z",
+      "invalidatedBy": 4
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 3,
+      "draftSha256": "14c233a19173f5f1df29ae61a5ccf48fc9003ac377e1fb2979bb3ce216a456b9",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "AI pre-review only. It is NOT the human literacy review the publication policy requires, and literacy.review.status stays \"pending\" in the story file. The analyzer matches spelling, not sound. I cannot hear the text or test it with a child. A qualified human must confirm every linguistic claim below."
+        },
+        {
+          "severity": "note",
+          "message": "Word sets carry their declared patterns and meet their minimums (report r3: sh 19/10, ch 17/8, th 16/8; word-set-concepts-match-spelling shows no mismatches). sh: ship, shell, fish, shed, shut have the /sh/ digraph and are short-vowel closed syllables. ch: chest, bench, much have /ch/ and are closed syllables. th: path, thick, moth, cloth have voiceless /th/ and are closed syllables. Every word is used at least once. Each set appears on every ending route."
+        },
+        {
+          "severity": "note",
+          "message": "Earlier notes acted on: (1) 'thought' is gone and no -ough word remains. (2) The placed moth/Pip lines in bench-clue and the unmotivated shell gift are gone. (3) 'chain' went from 2 to 4 passages (shed, climax, ending-beam, ending-help). (4) 'moth' now appears in shed-chest and climax, and 'shut' in shed and threshold. (5) The glossary now covers tower, window, answer, afraid, pocket, fluttered and matches, with sound syllable breaks. (6) The locked-label inflation of 'cloth' is gone because the locked label is now 'Wipe the mirror and light the wick'. 'lantern' survives only as the ending id 'ending-lantern', not in reader-facing text."
+        },
+        {
+          "severity": "minor",
+          "message": "Revision notes r2 say 'much is still used elsewhere'. That is not true. In the draft, 'much' occurs once in the story text ('Fen wanted to help much more', start). The ch total of 17 comes mostly from bench, chest and chain. 'much' is the only word in its set that a child meets once, and it is not on the weave plan's later placements. Consider one more natural use, for example 'not much light' or 'much too thick' in gathering, threshold or an ending. This is a repetition issue, not a minimum failure.",
+          "passage": "start"
+        },
+        {
+          "severity": "minor",
+          "message": "Low per-word exposure: 'much' 1, 'shut' 2, 'moth' 2. The weave comparison checks set totals only, so it cannot show this. The planned ending-2 and ending-3 placements of 'much' were not realised.",
+          "passage": "gathering"
+        },
+        {
+          "severity": "minor",
+          "message": "'chain' carries the ch digraph but is a vowel-team syllable (ai), not a closed syllable. It is harder than chest/bench/much and does not support closed-syllable practice. It now has four exposures and the brief names it, so I accept it. Flag it to the human reviewer: the child should have met vowel teams before this story.",
+          "passage": "shed"
+        },
+        {
+          "severity": "minor",
+          "message": "Revision notes r2 say 'across' is no longer in the text. It is still there: 'The beam swept across the bay' (ending-beam). It is a two-syllable word with a schwa and is not decodable at this stage. Either add it to the glossary (a-cross) or reword (for example 'over the bay'). The ending-help phrase 'swept the bay' already avoids it.",
+          "passage": "ending-beam"
+        },
+        {
+          "severity": "minor",
+          "message": "Per-route counts in the report (ending-lantern: ch 8, th 8, sh 14) still count titles and every choice label, including labels on branches not taken. In the passage text on the bench route to ending-lantern (start, bench, bench-clue, gathering, threshold, ending-lantern), ch is met only as 'bench' (start, bench) and 'much' (start); 'chest' occurs only in a gathering label and 'chain' not at all. All three patterns are still present on that route, so the 'every route' requirement holds. Do not read 8 as what a child reads.",
+          "passage": "ending-lantern"
+        },
+        {
+          "severity": "minor",
+          "message": "Words that are not decodable at this stage (expected for an adventure text, so use as a read-with-adult or stretch text): lighthouse, harbour (British -our), mirror, tower, window, pocket, fluttered, folded, answer, afraid, again, every, stairs, years, coat, wool, knees, climb (silent b), brave, wipe, flame, gave, came, home, shone, beam, boat. Irregular or high-frequency words are expected: the, was, said, you, one, they, her, she, could, were. Sentences are short (average 7.9 words, none over 20 by the analyzer; the brief asks for at most 16, which I did not recheck by hand). The glossary does not cover stairs, knees, climb or wool. Whether the load suits the child's stage is for the human reviewer."
+        },
+        {
+          "severity": "note",
+          "message": "Detector false positives for parents. digraph-th (143 matches): most are voiced-th function words (the, that, their, then, there, they, thing) that differ from the voiceless /th/ in path, thick, moth, cloth; 'lighthouse' (light-house) is not a digraph. closed-syllable (353): the detector matches by spelling and wrongly accepts r-controlled (dark, far, her), -all words (call, small, Tull), igh words (bright), long-vowel patterns (old, told, kind) and irregular words (was, what). The true short-vowel closed syllables are the practice words plus tap, dim, wick, step, hung, dock, glass, brass, flat, lamp, tin, and and at. 'whole' (wh count) is pronounced /h/. 'sure' would be missed (a /sh/ sound with no sh spelling); I did not find it in r3. 'tch' words (match, matches) are real, with a short vowel."
+        },
+        {
+          "severity": "note",
+          "message": "Outside my remit, but noticed: in ending-beam 'Gran Tull came up the stairs', yet bench-clue says her knees are too old for those stairs. ending-help repeats this ('Gran Tull climbed up, slow but sure'). Refer to the narrative designer and QA for continuity.",
+          "passage": "ending-beam"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r3.json",
+          "sha256": "14c233a19173f5f1df29ae61a5ccf48fc9003ac377e1fb2979bb3ce216a456b9"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r3.json",
+          "sha256": "b279205aa035b6352bc1a079ddc63b8b5b9cb42675c3366871a88f3df573d154"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r3.md",
+          "sha256": "adece7123c058b8af94566a94e9655db14c3c2423b3a676182f2ee2c2307647a"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/weave-comparison.r3.json",
+          "sha256": "5347bc19f3af107118d7f069ce489e70774883e94d52a048f5d64b29e70f5ea5"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json",
+          "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/word-weave-plan.json",
+          "sha256": "fe0edfb2ee6cbe863d05fe16f8be8b997b92afd901d67755f8670bd0cb36cf9a"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reviews/review-2-literacy.r1.json",
+          "sha256": "a3b25e011f64a80e038b946c7e356bdee232be281baa8551dcd115bc93e3122f"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/work/revision-notes.r2.md",
+          "sha256": "4268450e15461da7d3d513efdc039b879c721562f76af79444a60aede95a6a02"
+        }
+      ],
+      "id": "review-4-literacy",
+      "submittedAt": "2026-10-20T00:34:16.788Z",
+      "invalidatedBy": 4
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 4,
+      "draftSha256": "dc3b653927bafe7c50ada8d08239f49db59049df90f9ae9778970730e9785a4c",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "AI pre-review only. It is NOT the human literacy review the publication policy requires, and literacy.review.status stays \"pending\" in the story file. The analyzer matches spelling, not sound. I cannot hear the text or test it with a child. A qualified human must confirm every linguistic claim below."
+        },
+        {
+          "severity": "note",
+          "message": "Word sets meet their minimums and carry their declared patterns (report r4: sh 20/10, ch 20/8, th 17/8; no missing words; word-set-concepts-match-spelling shows no mismatches). sh: ship, shell, fish, shed, shut have /sh/ and are short-vowel closed syllables. ch: chest, bench, much have /ch/ and are closed syllables. th: path, thick, moth, cloth have voiceless /th/ and are closed syllables. All three patterns and the closed-syllable target are present. Each set appears on the shortest route to all three endings. I read the draft text and the counts match what I see in it."
+        },
+        {
+          "severity": "note",
+          "message": "Earlier r3 notes acted on and confirmed in the r4 text: 'across' is gone (ending-beam now says 'swept over the bay'); 'much' now appears 4 times (start 'help much more', gathering 'much too thick', threshold 'not much time', ending-dock 'could not see much'), each natural; 'moth' appears 3 times (shed-chest, climax, ending-help 'Pip snapped at a moth'); 'shut' appears in shed, shed-chest and threshold. The r3 stairs continuity problem is addressed in bench-clue ('My knees are slow on stairs, so I will wait at the tower door')."
+        },
+        {
+          "severity": "minor",
+          "message": "Revision notes r4 say 'shut' appears 4 times. The report and my reading of the draft both give 3 (shed 'The shed door was shut', shed-chest 'Fen shut the lid', threshold 'Fen shut the window'). Not a minimum failure, but the notes are inaccurate. Please correct them.",
+          "passage": "shed-chest"
+        },
+        {
+          "severity": "minor",
+          "message": "Low per-word exposure remains for 'shell' (2: start, shed) and 'shut'/'moth' (3 each). It is acceptable because the set totals are well over the minimum. The weave comparison checks set totals only, so it cannot show this. Optional: one more natural use of 'shell' (for example on a beach or the dock) in a later passage.",
+          "passage": "start"
+        },
+        {
+          "severity": "minor",
+          "message": "'chain' carries the ch digraph but is a vowel-team syllable (ai), not a closed syllable. It does not support closed-syllable practice and is harder than chest, bench and much. It has six exposures (shed, climax, ending-beam, ending-help and others). The brief names it, so I accept it. Flag it to the human reviewer: the child should already have met vowel teams.",
+          "passage": "climax"
+        },
+        {
+          "severity": "minor",
+          "message": "Per-route counts in the report (for example ending-dock: sh 13, ch 7, th 8) count titles and every choice label, including labels on branches the child did not take. In passage text alone, the bench route to ending-dock (start, bench, bench-clue, gathering, threshold, ending-dock) meets sh only in start, threshold and ending-dock ('ship', 'shell', 'shut'); bench-clue has no word-set word of the sh set. All three patterns are still present on every route, so the 'every route' requirement holds. Do not read the route totals as what a child reads.",
+          "passage": "ending-dock"
+        },
+        {
+          "severity": "minor",
+          "message": "Words that are not decodable at this stage (expected for an adventure text, so use as a read-with-adult or stretch text): lighthouse, harbour (British -our), mirror, tower, window, pocket, fluttered, folded, answer, afraid, again, every, stairs, knees, wool, coat, climb (silent b), brave, wipe, flame, gave, came, home, beam, boat, twice, years. High-frequency irregular words are expected: the, was, said, you, one, they, her, she, could, were. The glossary covers lighthouse, harbour, mirror, tower, window, answer, afraid, pocket, fluttered and matches. It does not cover stairs, knees, climb or wool. I agree with the designer's choice not to add them, because their syllable breaks add nothing. Average sentence length is 8.1 words with none over 20 by the analyzer; the brief asks for at most 16, and I did not check this by hand. Whether the load suits the child's stage is for the human reviewer."
+        },
+        {
+          "severity": "note",
+          "message": "Detector false positives for parents. digraph-th (150 matches): most are voiced-th function words (the, that, their, then, there, they, thing), which differ from the voiceless /th/ in path, thick, moth, cloth; 'lighthouse' (light-house) is not a digraph. closed-syllable (379) matches by spelling and wrongly accepts r-controlled words (dark, far, her), -all words (call, small, Tull), igh words (bright), long-vowel patterns (old, told, kind) and irregular words (was, what). The true short-vowel closed syllables are the practice words plus tap, dim, wick, step, hung, dock, glass, brass, flat, lamp, tin, and, at. 'whole' (wh count) is pronounced /h/. A /sh/ sound spelled without sh (for example 'sure') would be missed; I did not find one. 'match' and 'matches' (tch) are real and have short vowels. 'each' in the ch count is a vowel team, not a closed syllable."
+        },
+        {
+          "severity": "note",
+          "message": "Outside my remit, referred to the narrative designer and QA. Gran Tull's position depends on route order. gathering says 'Gran Tull sat by the door' even when the child came from the shed and has not yet met her at the bench. A child who then goes to the bench finds her 'on the bench' (bench), which contradicts the door. Similarly ending-dock has her arrive without being met on a shed-only route. This is a continuity issue, not a literacy one.",
+          "passage": "gathering"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r4.json",
+          "sha256": "dc3b653927bafe7c50ada8d08239f49db59049df90f9ae9778970730e9785a4c"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r4.json",
+          "sha256": "7302a08f262dbf94249e83db86b424bd7763fe6c98dfd7cc886787253bb24ac1"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r4.md",
+          "sha256": "a3656494c19bbbacd48086ea97bac7883e80e75de7fa73b3ab9952941a1a20c3"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/weave-comparison.r4.json",
+          "sha256": "61a0bec2d26d95181af36508bcb625134f9bbb4d6221794eb21ff9ecc268ce2e"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json",
+          "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/word-weave-plan.json",
+          "sha256": "fe0edfb2ee6cbe863d05fe16f8be8b997b92afd901d67755f8670bd0cb36cf9a"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/work/literacy-review.r3.json",
+          "sha256": "97828b27d8678592464c782bcfe570502eb3f3e8bbc1d7bb299fe29b7ae38f37"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/work/revision-notes.r4.md",
+          "sha256": "ca749a2c7009d304613b09a7dc8786202fcd0bd08d42ff2fd88c65a76f7220bc"
+        }
+      ],
+      "id": "review-5-literacy",
+      "submittedAt": "2026-10-20T00:39:40.197Z"
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 4,
+      "draftSha256": "dc3b653927bafe7c50ada8d08239f49db59049df90f9ae9778970730e9785a4c",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "minor",
+          "passage": "gathering",
+          "message": "Small continuity wobble (story.r4.json lines 104, 108, 76). gathering says Gran Tull 'sat by the door' and bench-clue (line 90) says she will wait at the tower door, but the choice gather-bench (line 108) says 'Go back to the bench and Gran Tull' and the bench passage (line 76) says she 'sat on the bench'. A player who revisits the bench after bench-clue finds her back on the bench. It does not block any route or ending. Suggest the author change the gathering text or the bench passage in a later revision, for example 'Gran Tull sat on the bench near the door'. Not a blocker."
+        },
+        {
+          "severity": "minor",
+          "passage": "ending-help",
+          "message": "Line 165: 'Fen sat on the step with Pip and Gran Tull' follows Gran Tull climbing to the lamp room (line 162), so the 'step' is ambiguous. It could mean the tower door step where Pip sat in gathering. Minor wording issue only."
+        },
+        {
+          "severity": "note",
+          "message": "Earlier QA findings checked against the r4 draft itself, not the notes. r1 major (dead lock on turn-mirror): still fixed, because climax choices (lines 142-143) have no requires and the real gate is wipe-mirror (lines 122-127). r1 minors (mixed message about asking for help, no way back from threshold, lamp lit with no light, cloth/chain inconsistency, lantern on dock): still fixed. ending-help is a triumph (line 165), go-down (line 129) returns to gathering, lockedHint (line 126) names the chest and Gran Tull and is 63 characters (under the 90 limit that failed in r2), match-tin comes from Gran Tull (line 90) and is struck in climax (line 137), and the lantern is gone. r3 major (Gran Tull knees vs. climbing stairs): FIXED. bench-clue line 90 now says 'My knees are slow on stairs, so I will wait at the tower door.' ending-beam (line 153) has Fen run down to the tower door, so she never climbs. In ending-help (line 162) she climbs 'one slow step at a time', which fits 'slow'. r3 minor (call from the lamp room): FIXED, since she 'heard from the tower door'. r3 minor (dark vs dim): FIXED. bench-clue line 89 says the wind put out the wick and the misty mirror made the light dim, which matches the cold wick and open window in threshold (lines 116-117). r3 minor (ending-lantern id): FIXED. The id is ending-dock in the passage id, in ending.id (line 180) and in the run-to-dock target (line 128). No ending-lantern remains in the r4 draft. r3 minor (much used once): FIXED. validation.r4 counts much as 4 (start, gathering, threshold, ending-dock), and moth 3, shut 3."
+        },
+        {
+          "severity": "note",
+          "message": "Routes traced in the JSON. ending-dock (setback, no requirements): start -> to-shed -> shed -> shed-back -> gathering -> gather-climb -> threshold -> run-to-dock -> ending-dock. ending-beam (triumph): start -> to-shed -> shed -> open-chest -> shed-chest [+soft-cloth] -> chest-to-tower -> gathering -> gather-bench -> bench -> ask-more -> bench-clue [+damp-mirror, +match-tin] -> clue-to-tower -> gathering -> gather-climb -> threshold -> wipe-mirror (needs soft-cloth, match-tin, damp-mirror; all held) -> climax -> turn-mirror -> ending-beam. ending-help (triumph): the same route to climax, then call-gran -> ending-help. Bench-first order also works: start -> to-bench -> bench -> ask-more -> bench-clue -> gathering -> gather-shed -> shed -> open-chest -> shed-chest -> gathering -> gather-climb -> threshold -> wipe-mirror. Every item and clue has a source, and the only source of each is reachable from start. A player with only some of the three cannot pass wipe-mirror, but the lockedHint points at both places, and go-down gives a way back, so there is no dead end. All 11 passages are reachable, every non-ending passage has choices, every ending has choices: [] and an ending block. This matches validation.r4 (ok true; schema ok; graph ok with 3/3 endings reachable; 28 states; state search complete; shortest 5, longest simple 7; no warnings) and graph.r4."
+        },
+        {
+          "severity": "note",
+          "message": "Content integrity. The story appears original, with no borrowed characters or text. It is age-appropriate: no drowning, injury or cruel villain, so the brief's avoid list is respected. Characters (Fen, Gran Tull, Pip) and the continuity facts (oil wick, brass mirror) match the brief, and the lamp is lit by wick and mirror in climax. Item and clue ids (soft-cloth, match-tin, damp-mirror) are defined and used consistently. Required mechanics (choices, clues, inventory, multiple endings) are present. 11 passages is within 10-24 and 3 endings matches endingTarget 3. The theme is clear and the setback ending is fair: it needs no items and its last line points back to the clue (look at the glass, ask for help). Word-set minimums are met per validation.r4: sh 20/10, ch 20/8, th 17/8, with every listed word present. I read no sentence over the 16-word limit by eye, and validation.r4 raises no long-sentence warnings. Literacy.review.status remains 'pending', which is correct. The literacy and parent stages are outside this review."
+        },
+        {
+          "severity": "note",
+          "message": "I could not run `npm run check` in this session, so no result from it is claimed. This review relies on reading validation.r4.json (ok: true), graph.r4.json and the draft JSON by hand. `npm run check` must be run before publication. This is a structural and integrity review only, not a literacy or parent approval."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r4.json",
+          "sha256": "dc3b653927bafe7c50ada8d08239f49db59049df90f9ae9778970730e9785a4c"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/validation.r4.json",
+          "sha256": "f5544dbd58bcc708ac4ab215cb94e1a3cdb04e9a3794c9b57bb3f38aedfadafd"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/graph.r4.json",
+          "sha256": "6caf11796dbb4155021761e7b6044c6b5ffe72501a7b5e38cdc8ef9cce02581a"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json",
+          "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reviews/review-1-qa.r1.json",
+          "sha256": "7ba622e8ac4b6461dcefead4b5af9f64b62926fbbdeb5bfa3d87adfd3723e0f5"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reviews/review-3-qa.r3.json",
+          "sha256": "ba437fe03dd6bb7e072685637aa64937a4b592e05035bd8392de8efb9bf41098"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/work/revision-notes.r4.md",
+          "sha256": "ca749a2c7009d304613b09a7dc8786202fcd0bd08d42ff2fd88c65a76f7220bc"
+        }
+      ],
+      "id": "review-6-qa",
+      "submittedAt": "2026-10-20T00:39:40.299Z"
+    }
+  ],
+  "parentDecisions": [],
+  "failures": [
+    {
+      "stage": "validation",
+      "error": "Revision 2: /passages/6/choices/0/lockedHint must NOT have more than 90 characters; schema invalid; brief not checked",
+      "at": "2026-10-20T00:32:03.289Z",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      }
+    }
+  ],
+  "history": [
+    {
+      "at": "2026-10-20T00:24:37.550Z",
+      "from": null,
+      "to": "requested",
+      "actor": {
+        "name": "Davis (project owner)",
+        "kind": "human"
+      },
+      "note": "Story request recorded"
+    },
+    {
+      "at": "2026-10-20T00:24:37.550Z",
+      "from": "requested",
+      "to": "briefed",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Request validated and normalized into a brief"
+    },
+    {
+      "at": "2026-10-20T00:24:37.550Z",
+      "from": "briefed",
+      "to": "planned",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Continuity assessed; outline, Word Weave Plan and generation prompt written"
+    },
+    {
+      "at": "2026-10-20T00:25:58.190Z",
+      "from": "planned",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 1 (story v1) passed automated validation"
+    },
+    {
+      "at": "2026-10-20T00:29:55.615Z",
+      "from": "in-review",
+      "to": "changes-requested",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "A reviewer requested changes"
+    },
+    {
+      "at": "2026-10-20T00:32:03.289Z",
+      "from": "changes-requested",
+      "to": "validation-failed",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 2 (story v2) failed automated validation"
+    },
+    {
+      "at": "2026-10-20T00:32:11.485Z",
+      "from": "validation-failed",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 3 (story v3) passed automated validation"
+    },
+    {
+      "at": "2026-10-20T00:34:06.836Z",
+      "from": "in-review",
+      "to": "changes-requested",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "A reviewer requested changes"
+    },
+    {
+      "at": "2026-10-20T00:37:27.965Z",
+      "from": "changes-requested",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 4 (story v4) passed automated validation"
+    }
+  ]
+}

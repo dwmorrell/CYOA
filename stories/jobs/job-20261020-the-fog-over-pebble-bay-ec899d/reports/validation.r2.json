@@ -1,0 +1,19 @@
+{
+  "ok": false,
+  "schema": {
+    "ok": false,
+    "errors": [
+      "/passages/6/choices/0/lockedHint must NOT have more than 90 characters"
+    ]
+  },
+  "brief": {
+    "ok": false,
+    "errors": [
+      "schema invalid; brief not checked"
+    ],
+    "warnings": []
+  },
+  "summary": [
+    "schema: 1 error(s)"
+  ]
+}

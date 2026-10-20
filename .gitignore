@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+.vite/
+# Scratch output from the e2e demo; committed demo evidence lives in stories/jobs/
+tmp/
+.claude/settings.local.json

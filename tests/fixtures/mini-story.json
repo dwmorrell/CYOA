@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0",
+  "id": "the-lost-kite",
+  "title": "The Lost Kite",
+  "version": 1,
+  "metadata": {
+    "genre": "Test fixture",
+    "theme": "Looking carefully",
+    "premise": "Max has lost a red kite on a windy hill.",
+    "estimatedMinutes": 3,
+    "authorship": { "narrative": "test fixture", "origin": "human" },
+    "createdAt": "2026-10-20"
+  },
+  "literacy": {
+    "targetConcepts": ["digraph-sh", "closed-syllable"],
+    "wordSets": [{ "id": "sh-words", "label": "sh words", "concept": "digraph-sh", "words": ["shed", "fish", "shut"], "minOccurrences": 4 }],
+    "review": { "status": "pending" }
+  },
+  "start": "hill",
+  "items": [{ "id": "net", "name": "Net", "description": "A fish net with a long stick." }],
+  "clues": [{ "id": "red-thread", "name": "Red thread", "description": "A bit of red thread on the shed door." }],
+  "passages": [
+    {
+      "id": "hill",
+      "title": "The windy hill",
+      "paragraphs": ["Max ran up the hill. His red kite was gone!", "He could see a shed and a pond."],
+      "choices": [
+        { "id": "go-shed", "label": "Look in the shed", "target": "shed" },
+        { "id": "go-pond", "label": "Go to the fish pond", "target": "pond" }
+      ]
+    },
+    {
+      "id": "shed",
+      "title": "The shed",
+      "paragraphs": ["The shed door was shut. A red thread hung on it."],
+      "effects": { "addClues": ["red-thread"] },
+      "choices": [{ "id": "back-hill", "label": "Go back up the hill", "target": "top" }]
+    },
+    {
+      "id": "pond",
+      "title": "The pond",
+      "paragraphs": ["A net sat by the fish pond. Max got the net."],
+      "effects": { "addItems": ["net"] },
+      "choices": [{ "id": "to-top", "label": "Run to the top", "target": "top" }]
+    },
+    {
+      "id": "top",
+      "title": "The tree",
+      "paragraphs": ["The kite was stuck in a tall tree."],
+      "choices": [
+        { "id": "use-net", "label": "Use the net to get the kite", "target": "win", "requires": { "items": ["net"] }, "lockedHint": "Something long could reach it." },
+        { "id": "follow-thread", "label": "Follow the red thread", "target": "friend", "requires": { "clues": ["red-thread"] }, "lockedHint": "Is there a clue nearby?" },
+        { "id": "give-up", "label": "Go home", "target": "home" },
+        { "id": "look-again", "label": "Look around the hill", "target": "hill" }
+      ]
+    },
+    { "id": "win", "title": "Got it!", "paragraphs": ["Max got the kite with the net."], "choices": [], "ending": { "id": "kite-back", "kind": "triumph", "title": "The kite is back" } },
+    { "id": "friend", "title": "A new friend", "paragraphs": ["The thread led to Sam, who had a kite to share."], "choices": [], "ending": { "id": "new-friend", "kind": "bittersweet", "title": "A shared kite" } },
+    { "id": "home", "title": "Home", "paragraphs": ["Max went home. Maybe he can try again."], "choices": [], "ending": { "id": "home-again", "kind": "setback", "title": "Try again" } }
+  ],
+  "glossary": { "kite": { "syllables": ["kite"], "hint": "silent e" } }
+}

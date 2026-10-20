@@ -1,0 +1,222 @@
+{
+  "sets": [
+    {
+      "id": "sh-words",
+      "label": "sh words",
+      "minOccurrences": 10,
+      "plannedOccurrences": 18,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "ship",
+            "shell"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "shell",
+            "fish"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "fish",
+            "shed"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "shed",
+            "shut"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "shut",
+            "ship"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "ship",
+            "shell"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "shell",
+            "fish"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "fish",
+            "shed"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "shed",
+            "shut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch-words",
+      "label": "ch words",
+      "minOccurrences": 8,
+      "plannedOccurrences": 18,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "chest",
+            "chain"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "chain",
+            "bench"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "bench",
+            "much"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "much",
+            "chest"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "chest",
+            "chain"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "chain",
+            "bench"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "bench",
+            "much"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "much",
+            "chest"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "chest",
+            "chain"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "th-words",
+      "label": "th words",
+      "minOccurrences": 8,
+      "plannedOccurrences": 18,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "path",
+            "thick"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "thick",
+            "moth"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "moth",
+            "cloth"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "cloth",
+            "path"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "path",
+            "thick"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "thick",
+            "moth"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "moth",
+            "cloth"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "cloth",
+            "path"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "path",
+            "thick"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "Words must read naturally in context: no lists of target words and no forced rhymes.",
+    "Each set should appear on every route to an ending, not only on one branch.",
+    "Choice labels count as reading, so use set words there too when it fits."
+  ]
+}

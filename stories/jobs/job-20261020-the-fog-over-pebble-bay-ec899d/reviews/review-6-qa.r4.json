@@ -1,0 +1,71 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 4,
+  "draftSha256": "dc3b653927bafe7c50ada8d08239f49db59049df90f9ae9778970730e9785a4c",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "passage": "gathering",
+      "message": "Small continuity wobble (story.r4.json lines 104, 108, 76). gathering says Gran Tull 'sat by the door' and bench-clue (line 90) says she will wait at the tower door, but the choice gather-bench (line 108) says 'Go back to the bench and Gran Tull' and the bench passage (line 76) says she 'sat on the bench'. A player who revisits the bench after bench-clue finds her back on the bench. It does not block any route or ending. Suggest the author change the gathering text or the bench passage in a later revision, for example 'Gran Tull sat on the bench near the door'. Not a blocker."
+    },
+    {
+      "severity": "minor",
+      "passage": "ending-help",
+      "message": "Line 165: 'Fen sat on the step with Pip and Gran Tull' follows Gran Tull climbing to the lamp room (line 162), so the 'step' is ambiguous. It could mean the tower door step where Pip sat in gathering. Minor wording issue only."
+    },
+    {
+      "severity": "note",
+      "message": "Earlier QA findings checked against the r4 draft itself, not the notes. r1 major (dead lock on turn-mirror): still fixed, because climax choices (lines 142-143) have no requires and the real gate is wipe-mirror (lines 122-127). r1 minors (mixed message about asking for help, no way back from threshold, lamp lit with no light, cloth/chain inconsistency, lantern on dock): still fixed. ending-help is a triumph (line 165), go-down (line 129) returns to gathering, lockedHint (line 126) names the chest and Gran Tull and is 63 characters (under the 90 limit that failed in r2), match-tin comes from Gran Tull (line 90) and is struck in climax (line 137), and the lantern is gone. r3 major (Gran Tull knees vs. climbing stairs): FIXED. bench-clue line 90 now says 'My knees are slow on stairs, so I will wait at the tower door.' ending-beam (line 153) has Fen run down to the tower door, so she never climbs. In ending-help (line 162) she climbs 'one slow step at a time', which fits 'slow'. r3 minor (call from the lamp room): FIXED, since she 'heard from the tower door'. r3 minor (dark vs dim): FIXED. bench-clue line 89 says the wind put out the wick and the misty mirror made the light dim, which matches the cold wick and open window in threshold (lines 116-117). r3 minor (ending-lantern id): FIXED. The id is ending-dock in the passage id, in ending.id (line 180) and in the run-to-dock target (line 128). No ending-lantern remains in the r4 draft. r3 minor (much used once): FIXED. validation.r4 counts much as 4 (start, gathering, threshold, ending-dock), and moth 3, shut 3."
+    },
+    {
+      "severity": "note",
+      "message": "Routes traced in the JSON. ending-dock (setback, no requirements): start -> to-shed -> shed -> shed-back -> gathering -> gather-climb -> threshold -> run-to-dock -> ending-dock. ending-beam (triumph): start -> to-shed -> shed -> open-chest -> shed-chest [+soft-cloth] -> chest-to-tower -> gathering -> gather-bench -> bench -> ask-more -> bench-clue [+damp-mirror, +match-tin] -> clue-to-tower -> gathering -> gather-climb -> threshold -> wipe-mirror (needs soft-cloth, match-tin, damp-mirror; all held) -> climax -> turn-mirror -> ending-beam. ending-help (triumph): the same route to climax, then call-gran -> ending-help. Bench-first order also works: start -> to-bench -> bench -> ask-more -> bench-clue -> gathering -> gather-shed -> shed -> open-chest -> shed-chest -> gathering -> gather-climb -> threshold -> wipe-mirror. Every item and clue has a source, and the only source of each is reachable from start. A player with only some of the three cannot pass wipe-mirror, but the lockedHint points at both places, and go-down gives a way back, so there is no dead end. All 11 passages are reachable, every non-ending passage has choices, every ending has choices: [] and an ending block. This matches validation.r4 (ok true; schema ok; graph ok with 3/3 endings reachable; 28 states; state search complete; shortest 5, longest simple 7; no warnings) and graph.r4."
+    },
+    {
+      "severity": "note",
+      "message": "Content integrity. The story appears original, with no borrowed characters or text. It is age-appropriate: no drowning, injury or cruel villain, so the brief's avoid list is respected. Characters (Fen, Gran Tull, Pip) and the continuity facts (oil wick, brass mirror) match the brief, and the lamp is lit by wick and mirror in climax. Item and clue ids (soft-cloth, match-tin, damp-mirror) are defined and used consistently. Required mechanics (choices, clues, inventory, multiple endings) are present. 11 passages is within 10-24 and 3 endings matches endingTarget 3. The theme is clear and the setback ending is fair: it needs no items and its last line points back to the clue (look at the glass, ask for help). Word-set minimums are met per validation.r4: sh 20/10, ch 20/8, th 17/8, with every listed word present. I read no sentence over the 16-word limit by eye, and validation.r4 raises no long-sentence warnings. Literacy.review.status remains 'pending', which is correct. The literacy and parent stages are outside this review."
+    },
+    {
+      "severity": "note",
+      "message": "I could not run `npm run check` in this session, so no result from it is claimed. This review relies on reading validation.r4.json (ok: true), graph.r4.json and the draft JSON by hand. `npm run check` must be run before publication. This is a structural and integrity review only, not a literacy or parent approval."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r4.json",
+      "sha256": "dc3b653927bafe7c50ada8d08239f49db59049df90f9ae9778970730e9785a4c"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/validation.r4.json",
+      "sha256": "f5544dbd58bcc708ac4ab215cb94e1a3cdb04e9a3794c9b57bb3f38aedfadafd"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/graph.r4.json",
+      "sha256": "6caf11796dbb4155021761e7b6044c6b5ffe72501a7b5e38cdc8ef9cce02581a"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json",
+      "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reviews/review-1-qa.r1.json",
+      "sha256": "7ba622e8ac4b6461dcefead4b5af9f64b62926fbbdeb5bfa3d87adfd3723e0f5"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reviews/review-3-qa.r3.json",
+      "sha256": "ba437fe03dd6bb7e072685637aa64937a4b592e05035bd8392de8efb9bf41098"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/work/revision-notes.r4.md",
+      "sha256": "ca749a2c7009d304613b09a7dc8786202fcd0bd08d42ff2fd88c65a76f7220bc"
+    }
+  ],
+  "id": "review-6-qa",
+  "submittedAt": "2026-10-20T00:39:40.299Z"
+}

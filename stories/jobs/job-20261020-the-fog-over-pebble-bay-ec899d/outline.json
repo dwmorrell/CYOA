@@ -1,0 +1,83 @@
+{
+  "briefTitle": "The Fog over Pebble Bay",
+  "beats": [
+    {
+      "id": "opening",
+      "purpose": "Hook: introduce the hero, the place and the problem.",
+      "next": [
+        "path-a",
+        "path-b"
+      ]
+    },
+    {
+      "id": "path-a",
+      "purpose": "First branch. Find an item that matters later.",
+      "next": [
+        "gathering"
+      ],
+      "mechanic": "item"
+    },
+    {
+      "id": "path-b",
+      "purpose": "Second branch. Learn a clue.",
+      "next": [
+        "gathering"
+      ],
+      "mechanic": "clue"
+    },
+    {
+      "id": "gathering",
+      "purpose": "Paths meet. The hero may go back for what was missed.",
+      "next": [
+        "path-a",
+        "path-b",
+        "threshold"
+      ]
+    },
+    {
+      "id": "threshold",
+      "purpose": "A choice that is locked without the item or clue, with a hint, plus an open alternative.",
+      "next": [
+        "climax",
+        "ending-3"
+      ],
+      "mechanic": "locked-choice"
+    },
+    {
+      "id": "climax",
+      "purpose": "The big moment. Choices lead to different endings.",
+      "next": [
+        "ending-1",
+        "ending-2"
+      ]
+    },
+    {
+      "id": "ending-1",
+      "purpose": "Best ending: earned with clue and item.",
+      "next": [],
+      "mechanic": "ending"
+    },
+    {
+      "id": "ending-2",
+      "purpose": "Different, satisfying ending.",
+      "next": [],
+      "mechanic": "ending"
+    },
+    {
+      "id": "ending-3",
+      "purpose": "Gentle setback ending that invites another try.",
+      "next": [],
+      "mechanic": "ending"
+    }
+  ],
+  "endings": 3,
+  "notes": [
+    "Aim for 10-24 passages and 3 endings.",
+    "Keep sentences at or under 16 words.",
+    "Every ending must be reachable; no passage may trap the reader.",
+    "Continuity fact: This is book 1 of the Pebble Bay series",
+    "Continuity fact: The lighthouse lamp is lit by an oil wick and a brass mirror",
+    "Avoid: anyone drowning or being badly hurt",
+    "Avoid: villains who are cruel"
+  ]
+}

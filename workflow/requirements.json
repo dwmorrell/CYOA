@@ -1,0 +1,133 @@
+{
+  "$comment": "Source for docs/REQUIREMENTS_TRACEABILITY.md (npm run orchestrate -- --trace). Status: implemented | partial | pending | blocked. Evidence paths must exist; the orchestrator checks them. 'tests' names test titles that must appear in tests/.",
+  "requirements": [
+    {
+      "id": "R1",
+      "title": "Immersive CYOA RPG with choices, clues, inventory and multiple endings",
+      "status": "implemented",
+      "evidence": ["src/engine/story-engine.ts", "src/ui/reader.ts", "stories/jobs"],
+      "tests": ["locks choices until requirements are met", "reaches multiple distinct endings and remembers them across restarts", "shows an ending with endings found and play again"],
+      "gaps": ["One sample story so far; immersion (art, sound) not yet designed"]
+    },
+    {
+      "id": "R2",
+      "title": "Dyslexia-informed reading presentation and optional reading support",
+      "status": "partial",
+      "evidence": ["src/styles.css", "src/ui/prefs.ts", "src/ui/reader.ts", "docs/UI_SPEC.md"],
+      "tests": ["applies preferences as CSS variables and data attributes", "glossary words reveal syllables"],
+      "gaps": ["Not yet tested with dyslexic readers or on devices", "Read-to-me uses device speech voices only"]
+    },
+    {
+      "id": "R3",
+      "title": "Program-flexible OG / structured-literacy terminology",
+      "status": "implemented",
+      "evidence": ["src/literacy/taxonomy.ts", "config/literacy-profiles.json", "docs/LITERACY_MODEL.md"],
+      "tests": ["every profile labels only known concepts", "falls back to the neutral description without a profile"],
+      "gaps": ["The family's actual program and its terms are not yet known (master specification missing)"]
+    },
+    {
+      "id": "R4",
+      "title": "Recurring word sets woven naturally through stories",
+      "status": "implemented",
+      "evidence": ["src/literacy/analyzer.ts", "src/production/plan.ts"],
+      "tests": ["counts word-set words, routes and target concepts", "fails checks when a word set misses its minimum or a word is missing"],
+      "gaps": ["'Naturally' is judged by reviewers, not by code"]
+    },
+    {
+      "id": "R5",
+      "title": "Verifiable literacy reports and story-path validation",
+      "status": "implemented",
+      "evidence": ["src/validation/graph.ts", "src/literacy/analyzer.ts", "src/util/hash.ts", "scripts/validate-stories.ts"],
+      "tests": ["passes the fixture and proves every ending reachable", "finds soft-locks where every choice is locked", "is reproducible: the same story gives the same report and hash", "matches known vectors"],
+      "gaps": ["Spelling-pattern detectors are heuristics; human literacy review still required"]
+    },
+    {
+      "id": "R6",
+      "title": "Parent-controlled story editing, versioning and publishing",
+      "status": "partial",
+      "evidence": ["src/ui/parent.ts", "scripts/story-cli.ts", "src/production/gates.ts"],
+      "tests": ["saves local versions without duplicates", "only a human parent can approve, and AI agents cannot publish", "requires a higher story version for each revision and after publication"],
+      "gaps": ["Approval and publishing are CLI-only; no in-app publishing yet", "Parent gate is not authentication"]
+    },
+    {
+      "id": "R7",
+      "title": "Series-level learning progression",
+      "status": "partial",
+      "evidence": ["src/production/continuity.ts", "docs/LITERACY_MODEL.md"],
+      "tests": ["records a missing prequel as a planning failure and recovers on re-plan"],
+      "gaps": ["No sequel exists yet; no child progress model across books"]
+    },
+    {
+      "id": "R8",
+      "title": "Android phones and tablets (including Android 15) and Chromebooks",
+      "status": "partial",
+      "evidence": ["vite.config.ts", "public/manifest.webmanifest", "docs/ACCESSIBILITY_AND_COMPATIBILITY.md"],
+      "tests": [],
+      "gaps": ["Not tested on any real device or emulator", "No offline caching (service worker) yet"]
+    },
+    {
+      "id": "R9",
+      "title": "Local-first persistence, no mandatory runtime AI service",
+      "status": "implemented",
+      "evidence": ["src/engine/persistence.ts", "package.json"],
+      "tests": ["round-trips a saved game", "reports failure when storage throws (quota or blocked storage)"],
+      "gaps": ["No save export or backup"]
+    },
+    {
+      "id": "R10",
+      "title": "Reusable AI story-generation requests and specialist review gates",
+      "status": "implemented",
+      "evidence": ["prompts/new-story.md", "stories/requests/fog-over-pebble-bay.json", "src/production/gates.ts"],
+      "tests": ["creates a planned job with all planning artifacts on disk", "a request for changes blocks progress until a new revision"],
+      "gaps": []
+    },
+    {
+      "id": "R11",
+      "title": "Accessible UI, low-bandwidth considerations, automated testing, controlled deployment",
+      "status": "partial",
+      "evidence": [".github/workflows/ci.yml", ".github/workflows/deploy-prepare.yml", "docs/DEPLOYMENT.md", "reports/accessibility"],
+      "tests": ["renders a passage with heading, paragraphs, choices and packs", "shows locked choices with a described hint and ignores presses"],
+      "gaps": ["Accessibility audit is code review only; no automated axe/Lighthouse run", "Hosting not selected"]
+    },
+    {
+      "id": "R12",
+      "title": "Eight operational specialist agents with contracts and verified invocation",
+      "status": "implemented",
+      "evidence": [".claude/agents", "scripts/agents.ts", "reports/agents/invocation-smoke.md", "docs/AGENTS_AND_WORKFLOW.md"],
+      "tests": ["defines exactly the eight specialist agents", "the narrative designer is barred from reviewing or approving its own work"],
+      "gaps": ["Agents are started by a person or a Claude session; no unattended chaining"]
+    },
+    {
+      "id": "R13",
+      "title": "Orchestrated workflow passing structured artifacts between stages",
+      "status": "partial",
+      "evidence": ["scripts/orchestrate.ts", "workflow/work-items.json", "reports/orchestration"],
+      "tests": ["work items reference real artifacts and agents", "orders work items by dependency"],
+      "gaps": ["The orchestrator checks and sequences work; it does not spawn agents itself"]
+    },
+    {
+      "id": "R14",
+      "title": "Separate software and story production workflows",
+      "status": "implemented",
+      "evidence": ["scripts/story-cli.ts", "scripts/orchestrate.ts", "docs/AGENTS_AND_WORKFLOW.md"],
+      "tests": ["moves through validation, review, parent approval and publication"],
+      "gaps": ["Parent-facing story studio does not yet start production jobs"]
+    },
+    {
+      "id": "R15",
+      "title": "Review and publishing gates: no self-approval, human parent approval, no auto-publish",
+      "status": "implemented",
+      "evidence": ["src/production/gates.ts", "scripts/lib/production.ts", ".claude/settings.json", "config/publication-policy.json"],
+      "tests": ["does not let the narrative author review their own draft", "never publishes just because validation passed", "refuses to publish a draft whose file was edited after review", "rejects a story that claims a passed literacy review nobody recorded"],
+      "gaps": ["Human identity is attested by whoever runs the CLI, not verified"]
+    },
+    {
+      "id": "R16",
+      "title": "Automated tests for the full story workflow and an end-to-end demonstration",
+      "status": "implemented",
+      "evidence": ["tests/unit/production.test.ts", "scripts/demo-e2e.ts", "reports/demo/e2e-demo.md"],
+      "tests": ["validates required fields and literacy concepts", "allows only listed transitions", "records unparseable agent output as a stage failure and accepts a retry", "invalidates reviews and parent approval when a new revision arrives"],
+      "gaps": ["Human steps in the demonstration are simulated"]
+    }
+  ]
+}

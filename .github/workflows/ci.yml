@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - name: Validate stories and published catalog gates
+        run: npm run validate:stories
+      - name: Check agent definitions
+        run: npm run agents:check
+      - name: Check work items and traceability evidence
+        run: npm run orchestrate
+      - run: npm run build
+      - name: Bundle size summary
+        run: |
+          echo "### Build output" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          find dist -type f \( -name '*.js' -o -name '*.css' \) -exec sh -c 'printf "%8d bytes gzip  %s\n" "$(gzip -c "$1" | wc -c)" "$1"' _ {} \; >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"

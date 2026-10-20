@@ -1,0 +1,99 @@
+{
+  "role": "literacy",
+  "reviewer": {
+    "name": "literacy-specialist",
+    "kind": "ai-agent",
+    "agent": "literacy-specialist"
+  },
+  "revision": 3,
+  "draftSha256": "14c233a19173f5f1df29ae61a5ccf48fc9003ac377e1fb2979bb3ce216a456b9",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "AI pre-review only. It is NOT the human literacy review the publication policy requires, and literacy.review.status stays \"pending\" in the story file. The analyzer matches spelling, not sound. I cannot hear the text or test it with a child. A qualified human must confirm every linguistic claim below."
+    },
+    {
+      "severity": "note",
+      "message": "Word sets carry their declared patterns and meet their minimums (report r3: sh 19/10, ch 17/8, th 16/8; word-set-concepts-match-spelling shows no mismatches). sh: ship, shell, fish, shed, shut have the /sh/ digraph and are short-vowel closed syllables. ch: chest, bench, much have /ch/ and are closed syllables. th: path, thick, moth, cloth have voiceless /th/ and are closed syllables. Every word is used at least once. Each set appears on every ending route."
+    },
+    {
+      "severity": "note",
+      "message": "Earlier notes acted on: (1) 'thought' is gone and no -ough word remains. (2) The placed moth/Pip lines in bench-clue and the unmotivated shell gift are gone. (3) 'chain' went from 2 to 4 passages (shed, climax, ending-beam, ending-help). (4) 'moth' now appears in shed-chest and climax, and 'shut' in shed and threshold. (5) The glossary now covers tower, window, answer, afraid, pocket, fluttered and matches, with sound syllable breaks. (6) The locked-label inflation of 'cloth' is gone because the locked label is now 'Wipe the mirror and light the wick'. 'lantern' survives only as the ending id 'ending-lantern', not in reader-facing text."
+    },
+    {
+      "severity": "minor",
+      "message": "Revision notes r2 say 'much is still used elsewhere'. That is not true. In the draft, 'much' occurs once in the story text ('Fen wanted to help much more', start). The ch total of 17 comes mostly from bench, chest and chain. 'much' is the only word in its set that a child meets once, and it is not on the weave plan's later placements. Consider one more natural use, for example 'not much light' or 'much too thick' in gathering, threshold or an ending. This is a repetition issue, not a minimum failure.",
+      "passage": "start"
+    },
+    {
+      "severity": "minor",
+      "message": "Low per-word exposure: 'much' 1, 'shut' 2, 'moth' 2. The weave comparison checks set totals only, so it cannot show this. The planned ending-2 and ending-3 placements of 'much' were not realised.",
+      "passage": "gathering"
+    },
+    {
+      "severity": "minor",
+      "message": "'chain' carries the ch digraph but is a vowel-team syllable (ai), not a closed syllable. It is harder than chest/bench/much and does not support closed-syllable practice. It now has four exposures and the brief names it, so I accept it. Flag it to the human reviewer: the child should have met vowel teams before this story.",
+      "passage": "shed"
+    },
+    {
+      "severity": "minor",
+      "message": "Revision notes r2 say 'across' is no longer in the text. It is still there: 'The beam swept across the bay' (ending-beam). It is a two-syllable word with a schwa and is not decodable at this stage. Either add it to the glossary (a-cross) or reword (for example 'over the bay'). The ending-help phrase 'swept the bay' already avoids it.",
+      "passage": "ending-beam"
+    },
+    {
+      "severity": "minor",
+      "message": "Per-route counts in the report (ending-lantern: ch 8, th 8, sh 14) still count titles and every choice label, including labels on branches not taken. In the passage text on the bench route to ending-lantern (start, bench, bench-clue, gathering, threshold, ending-lantern), ch is met only as 'bench' (start, bench) and 'much' (start); 'chest' occurs only in a gathering label and 'chain' not at all. All three patterns are still present on that route, so the 'every route' requirement holds. Do not read 8 as what a child reads.",
+      "passage": "ending-lantern"
+    },
+    {
+      "severity": "minor",
+      "message": "Words that are not decodable at this stage (expected for an adventure text, so use as a read-with-adult or stretch text): lighthouse, harbour (British -our), mirror, tower, window, pocket, fluttered, folded, answer, afraid, again, every, stairs, years, coat, wool, knees, climb (silent b), brave, wipe, flame, gave, came, home, shone, beam, boat. Irregular or high-frequency words are expected: the, was, said, you, one, they, her, she, could, were. Sentences are short (average 7.9 words, none over 20 by the analyzer; the brief asks for at most 16, which I did not recheck by hand). The glossary does not cover stairs, knees, climb or wool. Whether the load suits the child's stage is for the human reviewer."
+    },
+    {
+      "severity": "note",
+      "message": "Detector false positives for parents. digraph-th (143 matches): most are voiced-th function words (the, that, their, then, there, they, thing) that differ from the voiceless /th/ in path, thick, moth, cloth; 'lighthouse' (light-house) is not a digraph. closed-syllable (353): the detector matches by spelling and wrongly accepts r-controlled (dark, far, her), -all words (call, small, Tull), igh words (bright), long-vowel patterns (old, told, kind) and irregular words (was, what). The true short-vowel closed syllables are the practice words plus tap, dim, wick, step, hung, dock, glass, brass, flat, lamp, tin, and and at. 'whole' (wh count) is pronounced /h/. 'sure' would be missed (a /sh/ sound with no sh spelling); I did not find it in r3. 'tch' words (match, matches) are real, with a short vowel."
+    },
+    {
+      "severity": "note",
+      "message": "Outside my remit, but noticed: in ending-beam 'Gran Tull came up the stairs', yet bench-clue says her knees are too old for those stairs. ending-help repeats this ('Gran Tull climbed up, slow but sure'). Refer to the narrative designer and QA for continuity.",
+      "passage": "ending-beam"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r3.json",
+      "sha256": "14c233a19173f5f1df29ae61a5ccf48fc9003ac377e1fb2979bb3ce216a456b9"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r3.json",
+      "sha256": "b279205aa035b6352bc1a079ddc63b8b5b9cb42675c3366871a88f3df573d154"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r3.md",
+      "sha256": "adece7123c058b8af94566a94e9655db14c3c2423b3a676182f2ee2c2307647a"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/weave-comparison.r3.json",
+      "sha256": "5347bc19f3af107118d7f069ce489e70774883e94d52a048f5d64b29e70f5ea5"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json",
+      "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/word-weave-plan.json",
+      "sha256": "fe0edfb2ee6cbe863d05fe16f8be8b997b92afd901d67755f8670bd0cb36cf9a"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reviews/review-2-literacy.r1.json",
+      "sha256": "a3b25e011f64a80e038b946c7e356bdee232be281baa8551dcd115bc93e3122f"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/work/revision-notes.r2.md",
+      "sha256": "4268450e15461da7d3d513efdc039b879c721562f76af79444a60aede95a6a02"
+    }
+  ],
+  "id": "review-4-literacy",
+  "submittedAt": "2026-10-20T00:34:16.788Z"
+}

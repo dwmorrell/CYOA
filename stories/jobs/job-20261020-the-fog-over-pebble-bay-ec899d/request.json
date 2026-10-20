@@ -1,0 +1,70 @@
+{
+  "genre": "Seaside mystery adventure",
+  "theme": "Courage, noticing small details, and asking for help",
+  "premise": "The Fog over Pebble Bay. When thick fog swallows the harbour, young lamp keeper Fen must find out why the old lighthouse lamp went dark before the fishing boats come home.",
+  "targetMinutes": 12,
+  "literacy": {
+    "profile": "structured-literacy",
+    "targetConcepts": [
+      "digraph-sh",
+      "digraph-ch",
+      "digraph-th",
+      "closed-syllable"
+    ],
+    "maxSentenceWords": 16
+  },
+  "wordSettings": {
+    "sets": [
+      {
+        "label": "sh words",
+        "concept": "digraph-sh",
+        "words": [
+          "ship",
+          "shell",
+          "fish",
+          "shed",
+          "shut"
+        ],
+        "minOccurrences": 10
+      },
+      {
+        "label": "ch words",
+        "concept": "digraph-ch",
+        "words": [
+          "chest",
+          "chain",
+          "bench",
+          "much"
+        ],
+        "minOccurrences": 8
+      },
+      {
+        "label": "th words",
+        "concept": "digraph-th",
+        "words": [
+          "path",
+          "thick",
+          "moth",
+          "cloth"
+        ],
+        "minOccurrences": 8
+      }
+    ]
+  },
+  "continuity": {
+    "characters": [
+      "Fen, a ten-year-old lamp keeper's helper",
+      "Gran Tull, the retired lamp keeper",
+      "Pip, a small grey gull"
+    ],
+    "facts": [
+      "This is book 1 of the Pebble Bay series",
+      "The lighthouse lamp is lit by an oil wick and a brass mirror"
+    ],
+    "avoid": [
+      "anyone drowning or being badly hurt",
+      "villains who are cruel"
+    ]
+  },
+  "requestedBy": "Davis (project owner)"
+}

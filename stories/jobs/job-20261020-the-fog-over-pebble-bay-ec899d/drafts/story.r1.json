@@ -1,0 +1,193 @@
+{
+  "schemaVersion": "1.0",
+  "id": "the-fog-over-pebble-bay",
+  "title": "The Fog over Pebble Bay",
+  "version": 1,
+  "metadata": {
+    "genre": "Seaside mystery adventure",
+    "theme": "Courage, noticing small details, and asking for help",
+    "premise": "When thick fog swallows the harbour, young lamp keeper Fen must find out why the old lighthouse lamp went dark before the fishing boats come home.",
+    "estimatedMinutes": 12,
+    "authorship": { "narrative": "narrative-designer (AI agent)", "origin": "ai-generated" },
+    "createdAt": "2026-10-20"
+  },
+  "literacy": {
+    "targetConcepts": ["digraph-sh", "digraph-ch", "digraph-th", "closed-syllable"],
+    "wordSets": [
+      { "id": "sh-words", "label": "sh words", "concept": "digraph-sh", "words": ["ship", "shell", "fish", "shed", "shut"], "minOccurrences": 10 },
+      { "id": "ch-words", "label": "ch words", "concept": "digraph-ch", "words": ["chest", "chain", "bench", "much"], "minOccurrences": 8 },
+      { "id": "th-words", "label": "th words", "concept": "digraph-th", "words": ["path", "thick", "moth", "cloth"], "minOccurrences": 8 }
+    ],
+    "review": { "status": "pending" }
+  },
+  "start": "start",
+  "items": [
+    { "id": "soft-cloth", "name": "Soft cloth", "description": "A soft cloth from the old chest. It is made for wiping the brass mirror." }
+  ],
+  "clues": [
+    { "id": "damp-mirror", "name": "Damp mirror", "description": "Fog leaves a wet film on the brass mirror. A dim mirror makes a dim lamp." }
+  ],
+  "passages": [
+    {
+      "id": "start",
+      "title": "The Fog Rolls In",
+      "paragraphs": [
+        "Fen stood on the path by the old lighthouse. The fog was thick and grey.",
+        "The lamp at the top was dark. Out at sea, every ship and fishing boat needed that light.",
+        "Pip the gull hopped onto a bench. She tapped a shell with her beak, tap, tap, tap.",
+        "Fen felt a bit afraid. But Fen wanted to help much more."
+      ],
+      "choices": [
+        { "id": "to-shed", "label": "Look in the shed for a lamp tool", "target": "shed" },
+        { "id": "to-bench", "label": "Sit on the bench and ask Gran Tull", "target": "bench" }
+      ]
+    },
+    {
+      "id": "shed",
+      "title": "The Garden Shed",
+      "paragraphs": [
+        "The shed door was shut. Fen lifted the chain and pushed.",
+        "The door creaked wide. Inside, fish nets hung from the wall.",
+        "An old chest sat under the shelf. A dry shell lay on the lid."
+      ],
+      "choices": [
+        { "id": "open-chest", "label": "Open the chest", "target": "shed-chest" },
+        { "id": "shed-back", "label": "Go back to the tower", "target": "gathering" }
+      ]
+    },
+    {
+      "id": "shed-chest",
+      "title": "Inside the Chest",
+      "paragraphs": [
+        "Fen lifted the lid of the chest. A grey moth fluttered out and zipped away.",
+        "Under the lid lay a soft cloth, folded flat. It smelled of lamp oil and brass.",
+        "Fen tucked the cloth in a pocket. It might help with the lamp."
+      ],
+      "effects": { "addItems": ["soft-cloth"] },
+      "choices": [
+        { "id": "chest-to-tower", "label": "Take the cloth to the tower", "target": "gathering" }
+      ]
+    },
+    {
+      "id": "bench",
+      "title": "Gran Tull on the Bench",
+      "paragraphs": [
+        "Gran Tull sat on the bench in a thick wool coat. She had kept the lamp for many years.",
+        "\"The lamp is not broken, Fen,\" she said. \"Look at the glass, not the flame.\"",
+        "Fen did not know what she meant. Fen asked her to tell more."
+      ],
+      "choices": [
+        { "id": "ask-more", "label": "Ask Gran Tull what the glass can tell you", "target": "bench-clue" }
+      ]
+    },
+    {
+      "id": "bench-clue",
+      "title": "A Small Detail",
+      "paragraphs": [
+        "\"Fog is wet air,\" said Gran Tull. \"It leaves a film on the brass mirror.\"",
+        "\"A mist on the mirror makes the light dim. A wipe will fix it, and much faster than you think.\"",
+        "Fen smiled. Asking for help had been the right thing to do.",
+        "A moth tapped on the window. Pip chased it down the path."
+      ],
+      "effects": { "addClues": ["damp-mirror"] },
+      "choices": [
+        { "id": "clue-to-tower", "label": "Go to the foot of the tower", "target": "gathering" }
+      ]
+    },
+    {
+      "id": "gathering",
+      "title": "The Foot of the Tower",
+      "paragraphs": [
+        "Fen stood at the tower door. The fog was so thick that the shed was hard to see.",
+        "Pip sat on the step. Far off, a ship horn gave a low, sad call.",
+        "Fen thought about the path ahead. Was there more to find first?"
+      ],
+      "choices": [
+        { "id": "gather-shed", "label": "Go back to the shed and the chest", "target": "shed" },
+        { "id": "gather-bench", "label": "Go back to the bench and Gran Tull", "target": "bench" },
+        { "id": "gather-climb", "label": "Climb the stairs to the lamp room", "target": "threshold" }
+      ]
+    },
+    {
+      "id": "threshold",
+      "title": "The Lamp Room Door",
+      "paragraphs": [
+        "At the top of the stairs, Fen pushed the lamp room door. It was not shut tight.",
+        "The brass mirror stood dull and misty. The wick sat cold in its dish.",
+        "Down in the bay, a ship horn called again. Time was short."
+      ],
+      "choices": [
+        {
+          "id": "wipe-mirror",
+          "label": "Wipe the mirror with the soft cloth",
+          "target": "climax",
+          "requires": { "items": ["soft-cloth"], "clues": ["damp-mirror"] },
+          "lockedHint": "You need a soft cloth and a clue about the mirror."
+        },
+        { "id": "run-with-lantern", "label": "Run down the path with a small lantern", "target": "ending-lantern" }
+      ]
+    },
+    {
+      "id": "climax",
+      "title": "The Dark Lamp",
+      "paragraphs": [
+        "Fen rubbed the brass mirror with the cloth. The mist wiped away, and the brass shone.",
+        "Then Fen lit the wick. A small gold flame woke up and danced.",
+        "The mirror caught the flame. A bright beam shot out into the thick fog.",
+        "But the beam must sweep the whole bay. Fen could turn the mirror alone, or call Gran Tull."
+      ],
+      "choices": [
+        {
+          "id": "turn-mirror",
+          "label": "Turn the mirror with the cloth and sweep the bay",
+          "target": "ending-beam",
+          "requires": { "items": ["soft-cloth"], "clues": ["damp-mirror"] },
+          "lockedHint": "Fen needs the cloth and the mirror clue to turn it well."
+        },
+        { "id": "call-gran", "label": "Call Gran Tull to help turn the mirror", "target": "ending-help" }
+      ]
+    },
+    {
+      "id": "ending-beam",
+      "title": "The Bay Shines",
+      "paragraphs": [
+        "Fen turned the clean mirror, slow and steady. The beam swept across the bay.",
+        "One by one, the boats saw the light. Each ship turned toward the harbour.",
+        "Soon the dock rang with happy shouts and the smell of fresh fish.",
+        "Gran Tull came up the stairs and gave Fen a shell from her coat. \"You noticed the small thing,\" she said."
+      ],
+      "choices": [],
+      "ending": { "id": "ending-beam", "kind": "triumph", "title": "The Lamp Keeper" }
+    },
+    {
+      "id": "ending-help",
+      "title": "Two Pairs of Hands",
+      "paragraphs": [
+        "Gran Tull climbed the stairs, slow but sure. She put a hand on the chain that turns the mirror.",
+        "Together they swept the beam across the bay. It took much longer, and the cloth got damp.",
+        "The boats came home late, with their fish and a few sleepy shouts.",
+        "Fen sat on the step with Pip. Asking for help had been brave, too."
+      ],
+      "choices": [],
+      "ending": { "id": "ending-help", "kind": "bittersweet", "title": "Two Keepers" }
+    },
+    {
+      "id": "ending-lantern",
+      "title": "A Small Light",
+      "paragraphs": [
+        "Fen ran down the path with a small lantern. The fog hid the light after ten steps.",
+        "On the dock, Fen waved and waved. A ship horn answered, but no boat came in.",
+        "Gran Tull wrapped a thick coat around Fen. \"Brave try,\" she said. \"The lamp room has the answer.\"",
+        "Fen looked up at the dark tower. Next time, Fen would look at the glass first."
+      ],
+      "choices": [],
+      "ending": { "id": "ending-lantern", "kind": "setback", "title": "A Brave Try" }
+    }
+  ],
+  "glossary": {
+    "lighthouse": { "syllables": ["light", "house"] },
+    "lantern": { "syllables": ["lan", "tern"] },
+    "harbour": { "syllables": ["har", "bour"] },
+    "mirror": { "syllables": ["mir", "ror"] }
+  }
+}

@@ -1,0 +1,546 @@
+{
+  "$comment": "Software and content work items in dependency order. Checked by npm run orchestrate. An item is 'done' only when its artifacts exist, its dependencies are done, and review.reviewer differs from the responsible agent. producedBy says who actually did the work.",
+  "items": [
+    {
+      "id": "WI-01",
+      "stage": 1,
+      "title": "Inspect requirements and repository state",
+      "agent": "product-architect",
+      "producedBy": "bootstrap Claude Code session acting as product-architect",
+      "artifacts": [
+        "docs/PRODUCT_SPEC.md",
+        "workflow/requirements.json"
+      ],
+      "dependsOn": [],
+      "acceptance": [
+        "Every bootstrap requirement has an id in workflow/requirements.json",
+        "Decisions that depend on the missing master specification are marked"
+      ],
+      "checks": [],
+      "status": "in-review",
+      "review": {
+        "reviewer": "qa-engineer",
+        "verdict": "pass",
+        "evidence": [
+          "npm run check: PASS (lint, typecheck, vitest 8 files / 99 tests, validate:stories, agents:check, build)",
+          "docs/PRODUCT_SPEC.md: lines 5-10 state the missing master spec; decisions marked '(needs master spec)' at lines 62, 70, 75",
+          "workflow/requirements.json: 16 requirement ids R1-R16",
+          "Not verifiable: completeness against the original bootstrap request text, which is not in the repository",
+          "Not done because D-01 is open and the owner must supply the master specification"
+        ],
+        "at": "2026-10-20"
+      },
+      "defects": [
+        {
+          "id": "D-01",
+          "description": "Master specification referenced by the owner is not in the repository; spec rebuilt from the bootstrap request",
+          "status": "open"
+        }
+      ]
+    },
+    {
+      "id": "WI-02",
+      "stage": 2,
+      "title": "UI, architecture and literacy specifications",
+      "agent": "product-architect",
+      "producedBy": "bootstrap Claude Code session acting as product-architect, ux-designer and literacy-specialist",
+      "artifacts": [
+        "docs/ARCHITECTURE.md",
+        "docs/UI_SPEC.md",
+        "docs/LITERACY_MODEL.md",
+        "docs/ACCESSIBILITY_AND_COMPATIBILITY.md"
+      ],
+      "dependsOn": [
+        "WI-01"
+      ],
+      "acceptance": [
+        "UI requirements are numbered and name their verification",
+        "Architecture lists every module and enforced rule"
+      ],
+      "checks": [],
+      "status": "in-review",
+      "review": {
+        "reviewer": "qa-engineer",
+        "verdict": "changes-requested",
+        "evidence": [
+          "npm run check: PASS (vitest 8 files / 99 tests)",
+          "docs/UI_SPEC.md: UI-1 to UI-15 numbered, each with a verification column (several are 'manual': UI-9, UI-10, UI-11, UI-12, UI-14, UI-15)",
+          "docs/ARCHITECTURE.md Modules table (lines 29-47): scripts/agents.ts and scripts/lib/{agents,workflow,repo}.ts are not listed individually; only scripts/lib/* as a group, and scripts/agents.ts is missing",
+          "Also depends on WI-01, which is not done"
+        ],
+        "at": "2026-10-20"
+      },
+      "defects": [
+        {
+          "id": "D-QA-1",
+          "description": "docs/ARCHITECTURE.md Modules table omits scripts/agents.ts (the agents:check command) and does not name scripts/lib/agents.ts, workflow.ts or repo.ts, so 'lists every module' is not met. Documentation fix only Fixed after review (not yet re-reviewed).",
+          "status": "fixed"
+        }
+      ]
+    },
+    {
+      "id": "WI-03",
+      "stage": 3,
+      "title": "Story schema and interfaces",
+      "agent": "product-architect",
+      "producedBy": "bootstrap Claude Code session acting as product-architect",
+      "artifacts": [
+        "schemas/story.schema.json",
+        "src/engine/types.ts",
+        "src/production/job.ts",
+        "src/production/request.ts"
+      ],
+      "dependsOn": [
+        "WI-02"
+      ],
+      "acceptance": [
+        "Schema rejects publication status in story files",
+        "Fixture and sample story validate"
+      ],
+      "checks": [
+        "npm run typecheck",
+        "npx vitest run tests/unit/schema-and-graph.test.ts"
+      ],
+      "status": "in-review",
+      "review": {
+        "reviewer": "qa-engineer",
+        "verdict": "pass",
+        "evidence": [
+          "npx vitest run tests/unit/schema-and-graph.test.ts: PASS, 1 file / 10 tests (incl. 'does not let a story carry a publication status field', 'accepts the fixture story')",
+          "npm run check (typecheck step): PASS. A standalone npm run typecheck was refused by the sandbox",
+          "npm run validate:stories: PASS (sample preview and tests/fixtures/mini-story.json pass schema and graph)",
+          "schemas/story.schema.json line 5 states publication status is never in the story file",
+          "Not done because dependency WI-02 is not done"
+        ],
+        "at": "2026-10-20"
+      },
+      "defects": []
+    },
+    {
+      "id": "WI-04",
+      "stage": 4,
+      "title": "Story engine, persistence and reading interface",
+      "agent": "app-engineer",
+      "producedBy": "bootstrap Claude Code session acting as app-engineer and ux-designer",
+      "artifacts": [
+        "src/engine/story-engine.ts",
+        "src/engine/persistence.ts",
+        "src/ui/reader.ts",
+        "src/ui/prefs.ts",
+        "src/ui/parent.ts",
+        "src/main.ts",
+        "src/styles.css"
+      ],
+      "dependsOn": [
+        "WI-03"
+      ],
+      "acceptance": [
+        "Choices, clues, inventory and endings work",
+        "Progress persists locally",
+        "Typography controls apply",
+        "Parent preview and validation screen exists"
+      ],
+      "checks": [
+        "npx vitest run tests/unit/engine.test.ts tests/unit/persistence.test.ts tests/unit/ui.test.ts",
+        "npm run build"
+      ],
+      "status": "in-review",
+      "review": {
+        "reviewer": "qa-engineer",
+        "verdict": "pass",
+        "evidence": [
+          "npx vitest run tests/unit/engine.test.ts tests/unit/persistence.test.ts tests/unit/ui.test.ts: PASS, 3 files / 18 tests (choices, locks, items, clues, endings; save round-trip and corrupt saves; passage render, locked hints, ending, restore, glossary, preferences as CSS variables, studio validation view)",
+          "npm run build: PASS inside npm run check (vite build, separate parent chunk 144.94 kB). A standalone npm run build was refused by the sandbox",
+          "Typography controls: tests/unit/ui.test.ts 'applies preferences as CSS variables and data attributes'. Related open accessibility defects A11Y-10 and A11Y-11 are tracked under WI-12",
+          "Not done because dependency WI-03 is not done"
+        ],
+        "at": "2026-10-20"
+      },
+      "defects": []
+    },
+    {
+      "id": "WI-05",
+      "stage": 5,
+      "title": "Original sample story and Word Weave Plan",
+      "agent": "narrative-designer",
+      "producedBy": "narrative-designer agent (claude -p --agent narrative-designer), revisions 1 to 3",
+      "artifacts": [
+        "stories/requests/fog-over-pebble-bay.json",
+        "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/word-weave-plan.json",
+        "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r3.json"
+      ],
+      "dependsOn": [
+        "WI-03",
+        "WI-06"
+      ],
+      "acceptance": [
+        "Automated validation passes",
+        "Independent QA review passes",
+        "Literacy review status stays pending until a human review"
+      ],
+      "checks": [
+        "npm run validate:stories"
+      ],
+      "status": "in-review",
+      "review": "see stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/job.json",
+      "defects": [
+        {
+          "id": "D-02",
+          "description": "Human literacy review has not taken place",
+          "status": "open"
+        },
+        {
+          "id": "D-03",
+          "description": "Parent approval has not taken place",
+          "status": "open"
+        }
+      ]
+    },
+    {
+      "id": "WI-06",
+      "stage": 6,
+      "title": "Deterministic story validation and literacy analysis",
+      "agent": "app-engineer",
+      "producedBy": "bootstrap Claude Code session acting as app-engineer and literacy-specialist",
+      "artifacts": [
+        "src/validation/graph.ts",
+        "src/validation/schema.ts",
+        "src/literacy/analyzer.ts",
+        "src/literacy/taxonomy.ts",
+        "src/production/validate-draft.ts",
+        "scripts/validate-stories.ts"
+      ],
+      "dependsOn": [
+        "WI-03"
+      ],
+      "acceptance": [
+        "Finds broken links, dead ends, soft-locks, traps and unreachable endings",
+        "Literacy report is reproducible and hashed"
+      ],
+      "checks": [
+        "npx vitest run tests/unit/schema-and-graph.test.ts tests/unit/literacy.test.ts",
+        "npm run validate:stories"
+      ],
+      "status": "in-review",
+      "review": {
+        "reviewer": "qa-engineer",
+        "verdict": "pass",
+        "evidence": [
+          "npx vitest run tests/unit/schema-and-graph.test.ts tests/unit/literacy.test.ts: PASS, 2 files / 40 tests (broken links, dead ends, item-locked unreachable endings, soft-locks, loops with no exit; literacy 'is reproducible: the same story gives the same report and hash')",
+          "npm run validate:stories: PASS (0 published, 1 preview, 1 job)",
+          "D-04 is fixed and covered by the literacy tests",
+          "Not done because dependency WI-03 is not done"
+        ],
+        "at": "2026-10-20"
+      },
+      "defects": [
+        {
+          "id": "D-04",
+          "description": "Closed-syllable detector counted igh, r-controlled and a+ll words (found by literacy-specialist pre-review of revision 1)",
+          "status": "fixed"
+        }
+      ]
+    },
+    {
+      "id": "WI-07",
+      "stage": 7,
+      "title": "Narrative, literacy, accessibility and compatibility reviews",
+      "agent": "qa-engineer",
+      "producedBy": "qa-engineer, literacy-specialist and accessibility-compatibility-reviewer agents; review stage completed: QA agent passed revision 4 after two change requests, literacy agent pre-review passed (AI only), accessibility audit and re-review written",
+      "artifacts": [
+        "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reviews",
+        "reports/accessibility/a11y-review-2026-10-20.md",
+        "reports/compatibility/compat-review-2026-10-20.md"
+      ],
+      "dependsOn": [
+        "WI-04",
+        "WI-05"
+      ],
+      "acceptance": [
+        "Reviews inspect the actual artifacts with hash evidence",
+        "Untested devices are reported as untested"
+      ],
+      "checks": [],
+      "status": "in-review",
+      "review": "story reviews: stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/job.json; UI: reports/accessibility/a11y-review-2026-10-20.md",
+      "defects": []
+    },
+    {
+      "id": "WI-12",
+      "stage": 7,
+      "title": "Fix accessibility review findings",
+      "agent": "ux-designer",
+      "producedBy": "bootstrap Claude Code session acting as ux-designer and app-engineer, from reports/accessibility/a11y-review-2026-10-20.md",
+      "artifacts": [
+        "src/styles.css",
+        "src/main.ts",
+        "src/ui/reader.ts",
+        "src/ui/prefs.ts",
+        "src/ui/parent.ts",
+        "index.html"
+      ],
+      "dependsOn": [
+        "WI-07"
+      ],
+      "acceptance": [
+        "Each High finding is fixed in code",
+        "accessibility-compatibility-reviewer re-reviews the fixes",
+        "Fixes are checked with TalkBack and ChromeVox"
+      ],
+      "checks": [
+        "npx vitest run tests/unit/ui.test.ts",
+        "npm run build"
+      ],
+      "status": "in-review",
+      "review": {
+        "reviewer": "accessibility-compatibility-reviewer",
+        "verdict": "changes-requested",
+        "evidence": [
+          "reports/accessibility/a11y-review-2026-10-20.md#re-review-of-fixes"
+        ],
+        "at": "2026-10-20"
+      },
+      "defects": [
+        {
+          "id": "A11Y-01",
+          "description": "Skip link changed the route",
+          "status": "fixed"
+        },
+        {
+          "id": "A11Y-02",
+          "description": "Settings lost focus on every change. Partly fixed per re-review: focus restored, value change not reliably announced",
+          "status": "open"
+        },
+        {
+          "id": "A11Y-03",
+          "description": "Locked choice text contrast below 4.5:1",
+          "status": "fixed"
+        },
+        {
+          "id": "A11Y-04",
+          "description": "Dimmed paragraphs below 4.5:1",
+          "status": "fixed"
+        },
+        {
+          "id": "A11Y-05",
+          "description": "Read-to-me had no stop and kept talking across pages. Re-review found speech continued after Back; now also stopped on hashchange and pagehide (not yet re-reviewed)",
+          "status": "fixed"
+        },
+        {
+          "id": "A11Y-06",
+          "description": "Control borders below 3:1",
+          "status": "fixed"
+        },
+        {
+          "id": "A11Y-07",
+          "description": "File button had no visible focus",
+          "status": "fixed"
+        },
+        {
+          "id": "A11Y-08",
+          "description": "Whole app was a live region",
+          "status": "fixed"
+        },
+        {
+          "id": "A11Y-09",
+          "description": "Library buttons all named Read",
+          "status": "fixed"
+        },
+        {
+          "id": "A11Y-10",
+          "description": "Reading settings did not reach all reading text. Partly fixed per re-review: library text and .ending-kind ignore preferences",
+          "status": "open"
+        },
+        {
+          "id": "A11Y-11",
+          "description": "Paragraph focus not exposed or scrolled. Partly fixed per re-review: focus-nav not sticky, position not announced",
+          "status": "open"
+        },
+        {
+          "id": "A11Y-12",
+          "description": "No loading state or retry. Re-review found no loading state before a story loads; added (not yet re-reviewed)",
+          "status": "fixed"
+        },
+        {
+          "id": "A11Y-13",
+          "description": "Studio editor did not move focus or confirm saves",
+          "status": "fixed"
+        },
+        {
+          "id": "A11Y-14",
+          "description": "Arithmetic parent gate may exclude some parents",
+          "status": "open"
+        },
+        {
+          "id": "A11Y-15",
+          "description": "No feedback when pressing a locked choice",
+          "status": "open"
+        },
+        {
+          "id": "A11Y-16",
+          "description": "Glossary underline cue and inline reflow",
+          "status": "open"
+        },
+        {
+          "id": "A11Y-17",
+          "description": "Some targets smaller than 48px",
+          "status": "open"
+        },
+        {
+          "id": "A11Y-18",
+          "description": "Emoji and arrows read aloud",
+          "status": "fixed"
+        },
+        {
+          "id": "A11Y-19",
+          "description": "Forced colours and OS dark mode not handled",
+          "status": "open"
+        },
+        {
+          "id": "A11Y-20",
+          "description": "Reflow and text-spacing override untested",
+          "status": "open"
+        },
+        {
+          "id": "A11Y-21",
+          "description": "Studio textarea border, repeated studio button names, unannounced studio errors, check-mark symbols read aloud (new low items from re-review)",
+          "status": "open"
+        }
+      ]
+    },
+    {
+      "id": "WI-08",
+      "stage": 8,
+      "title": "Story production workflow, gates and workflow tests",
+      "agent": "app-engineer",
+      "producedBy": "bootstrap Claude Code session acting as app-engineer",
+      "artifacts": [
+        "scripts/story-cli.ts",
+        "scripts/lib/production.ts",
+        "src/production/gates.ts",
+        "src/production/continuity.ts",
+        "src/production/plan.ts",
+        "tests/unit/production.test.ts",
+        "scripts/demo-e2e.ts"
+      ],
+      "dependsOn": [
+        "WI-06"
+      ],
+      "acceptance": [
+        "Tests cover request creation, transitions, validation, graph integrity, literacy reports, revision invalidation, versioning, publication gates and failure recovery",
+        "End-to-end demo runs"
+      ],
+      "checks": [
+        "npx vitest run tests/unit/production.test.ts",
+        "npm run demo:e2e"
+      ],
+      "status": "in-review",
+      "review": {
+        "reviewer": "qa-engineer",
+        "verdict": "changes-requested",
+        "evidence": [
+          "npx vitest run tests/unit/production.test.ts: PASS, 1 file / 25 tests (request creation, transitions, validation recovery, revision invalidation, versioning, gates, failure recovery). Graph integrity and literacy reports are covered by schema-and-graph.test.ts and literacy.test.ts (40 tests, PASS)",
+          "npm run demo:e2e: NOT RUN. The sandbox refused to run it without approval (also npx tsx scripts/demo-e2e.ts). reports/demo/e2e-demo.md exists but is not evidence from this review",
+          "npm run check: PASS (99 tests overall)",
+          "Not done because dependency WI-06 is not done"
+        ],
+        "at": "2026-10-20"
+      },
+      "defects": [
+        {
+          "id": "D-QA-2",
+          "description": "Acceptance 'End-to-end demo runs' is unverified by the reviewer: npm run demo:e2e was not run. Re-run with permission and record the result. No test in tests/unit covers scripts/demo-e2e.ts Note: npm run orchestrate -- --run executed npm run demo:e2e successfully in the bootstrap session (reports/demo/e2e-demo.md); still needs the reviewer to run it.",
+          "status": "open"
+        }
+      ]
+    },
+    {
+      "id": "WI-09",
+      "stage": 8,
+      "title": "CI and deployment preparation",
+      "agent": "release-manager",
+      "producedBy": "bootstrap Claude Code session acting as release-manager",
+      "artifacts": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/deploy-prepare.yml",
+        "docs/DEPLOYMENT.md"
+      ],
+      "dependsOn": [
+        "WI-04"
+      ],
+      "acceptance": [
+        "CI runs lint, typecheck, tests, story validation and build",
+        "Deploy workflow builds an artifact and does not publish"
+      ],
+      "checks": [],
+      "status": "in-review",
+      "review": {
+        "reviewer": "qa-engineer",
+        "verdict": "pass",
+        "evidence": [
+          ".github/workflows/ci.yml: runs npm ci, lint, typecheck, test, validate:stories, agents:check, orchestrate, build",
+          ".github/workflows/deploy-prepare.yml: manual dispatch, read-only permissions, runs npm run check, uploads dist/ as an artifact; no deploy step and no 'story decide' or 'story publish'",
+          "npm run check: PASS (the same steps run locally). The workflows themselves were not run on GitHub (not run)",
+          "Not done because D-05 and D-QA-3 are open and dependency WI-04 is not done"
+        ],
+        "at": "2026-10-20"
+      },
+      "defects": [
+        {
+          "id": "D-QA-3",
+          "description": "deploy-prepare.yml writes ${{ github.event.inputs.note }} straight into a shell script (Record build provenance step), which allows shell injection by anyone who can dispatch the workflow. Low severity; pass it through an env variable instead Fixed after review (not yet re-reviewed).",
+          "status": "fixed"
+        },
+        {
+          "id": "D-05",
+          "description": "Hosting not selected; no production deployment",
+          "status": "open"
+        }
+      ]
+    },
+    {
+      "id": "WI-10",
+      "stage": 9,
+      "title": "Requirements traceability report",
+      "agent": "product-architect",
+      "producedBy": "generated by npm run orchestrate -- --trace",
+      "artifacts": [
+        "docs/REQUIREMENTS_TRACEABILITY.md"
+      ],
+      "dependsOn": [
+        "WI-07",
+        "WI-08",
+        "WI-12"
+      ],
+      "acceptance": [
+        "Every requirement lists status, evidence and gaps; evidence paths and test names exist"
+      ],
+      "checks": [
+        "npm run orchestrate -- --trace"
+      ],
+      "status": "ready-for-review",
+      "review": null,
+      "defects": []
+    },
+    {
+      "id": "WI-11",
+      "stage": 10,
+      "title": "Report implemented, pending and unverified work",
+      "agent": "release-manager",
+      "producedBy": "generated by npm run orchestrate",
+      "artifacts": [
+        "reports/orchestration/latest.md"
+      ],
+      "dependsOn": [
+        "WI-10"
+      ],
+      "acceptance": [
+        "Report separates executable functionality from planned automation"
+      ],
+      "checks": [],
+      "status": "ready-for-review",
+      "review": null,
+      "defects": []
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+name: Prepare deployment (no publish)
+
+# Builds a release artifact only. Hosting has not been selected, so there is
+# deliberately no deploy step. Story publication is a separate, gated process
+# (npm run story -- publish) and is never performed by any workflow.
+
+on:
+  workflow_dispatch:
+    inputs:
+      note:
+        description: Why this build is being prepared
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - name: Record build provenance
+        env:
+          NOTE: ${{ github.event.inputs.note }}
+        run: |
+          {
+            echo "commit=${GITHUB_SHA}"
+            echo "built_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "note=${NOTE}"
+          } > dist/BUILD_INFO.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: story-quest-dist-${{ github.sha }}
+          path: dist/
+          retention-days: 30
+      # When hosting is chosen: add a job here with `environment: production`
+      # (protected, required reviewers) that deploys the uploaded artifact.
