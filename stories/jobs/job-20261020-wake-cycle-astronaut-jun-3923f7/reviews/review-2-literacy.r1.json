@@ -1,0 +1,86 @@
+{
+  "role": "literacy",
+  "reviewer": {
+    "name": "literacy-specialist",
+    "kind": "ai-agent",
+    "agent": "literacy-specialist"
+  },
+  "revision": 1,
+  "draftSha256": "25a4eb0a09a5f5aeb2411c73e023d561ea666d62bd550f9b1487172d69ca373e",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Skills practised: Reading and following this story practises decoding wh, ck and tch words in meaningful context, and recognising the same word-set words again on every route. It builds sequencing (latch, switch, hatch; tools in order), inference (green and amber pod lights, a map that does not match bent sensors), and vocabulary from context (sensors, coolant, navigator). Choices and locked hints ask the reader to track clues and items, so they also practise comprehension monitoring and cause-and-effect reasoning."
+    },
+    {
+      "severity": "note",
+      "message": "Word sets meet their minimums with wide margins (wh 35/10, ck 35/8, tch 30/8) and every listed word is used. Every word carries its declared pattern: when, white, whisper, wheel, whistle, whip (wh); back, deck, click, neck, pack, rock (ck); catch, match, latch, hatch, watch, switch (tch). Each set appears on the shortest route to all five endings (per-ending counts 10 to 23). Most uses read naturally, for example 'A soft click woke Jun Adair' (wake), 'The latch gave a click' (captain-wakes) and 'Dust whispered along the hull' (storm-bridge).",
+      "passage": "wake"
+    },
+    {
+      "severity": "minor",
+      "message": "'He gave a whip of his wrist and the clamp snapped tight' is the least natural set-word use. 'Whip' as a noun for a quick flick is unusual for a 10 to 13 reader. A common word such as 'flick' would read more easily, but 'whip' is already used elsewhere in the wh set. Consider whether another wh word fits better here.",
+      "passage": "dex-tools"
+    },
+    {
+      "severity": "minor",
+      "message": "'Watch' is a tch word whose vowel is not the short a of 'hatch' or 'match' (it follows the w-a pattern). It is also used as a noun in 'watch crew'. The spelling pattern is correct, but a learner may need support with the vowel sound. 'Whistle' has a silent t and a -le syllable, and 'wheel' and 'white' contain vowel teams or silent e. The brief names no decodability stage, so I could not judge whether these fit the child's current level.",
+      "passage": "ending-4"
+    },
+    {
+      "severity": "minor",
+      "message": "Left and right carry the key clue ('left of the big rock'). Ending 3 says 'The big rock showed on the left' and then 'Now I see the lane'. That sits oddly with the lane being left of the rock (climax-lane puts the rock on the right). Left/right confusion is common for dyslexic readers. Narrative-designer: fix the ending-3 direction and consider a landmark cue, such as the rock's colour or shape, alongside left.",
+      "passage": "ending-3"
+    },
+    {
+      "severity": "minor",
+      "message": "Ending 5 refers to 'the thin gap on the map and the tool pack by the wheel'. The cut-engines choice has no requirements, so a reader who never found the map clue or the pack meets items they do not have. Ending 2 says 'a clicker light and a good map would help', although reaching climax-lane required the map clue. Both lines can confuse a reader's picture of what they hold.",
+      "passage": "ending-5"
+    },
+    {
+      "severity": "minor",
+      "message": "Dex's voice 'crackled from the engine room' in storm-bridge, but captain-wakes says the comm panel is dark and 'Our calls cannot get out'. A reader may not see why Dex can speak to the bridge when no one else could. Say that the ship's inside speaker still works, or that only outside calls fail.",
+      "passage": "storm-bridge"
+    },
+    {
+      "severity": "minor",
+      "message": "The glossary entry 'anomaly' is never used in passage text. It appears only in the premise metadata, so word help will never show it in the story. Either use the word in a passage, for example when Oru names the dust, or drop the entry. The other eight glossary words are used.",
+      "passage": "oru-log"
+    },
+    {
+      "severity": "minor",
+      "message": "The story is about 1,477 words in total, with an average sentence of 6 words. A route is roughly 500 to 700 words, which is much shorter than the stated 25 minutes. The very short sentences also read young for ages 10 to 13, though the themes (calm under pressure, teamwork, delayed consequences in ending 4) suit that age and no passage is heavy. Consider telling the parent the real reading time, or having the narrative-designer add a little more varied sentence length in a later revision.",
+      "passage": "captain-wakes"
+    },
+    {
+      "severity": "note",
+      "message": "Sentence length: the brief asks for 16 words or fewer and the analyzer threshold is 20. The report finds none over 20. In my read-through the longest sentences I noticed ran to about 16 words (for example 'Jun looked at the thin gap on the map and the tool pack by the wheel' in ending-5). I did not run a script for the stricter 16-word limit, so this is a manual check, not a measured one.",
+      "passage": "ending-5"
+    },
+    {
+      "severity": "note",
+      "message": "Limits of this review: the analyzer matches spelling, not sound, and only checks the shortest route to each ending, not every possible route. It also does not judge decodability, vocabulary level or story quality. I am an AI agent and this review does not replace a qualified human literacy reviewer. Whether the 'watch', 'whistle' and 'wheel' vowel patterns suit the child's program stage needs the parent or tutor to confirm."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r1.json",
+      "sha256": "25a4eb0a09a5f5aeb2411c73e023d561ea666d62bd550f9b1487172d69ca373e"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r1.json",
+      "sha256": "18f7dd34dfcb736c4fdbc8176a5e5ebd05021d5495ebb54f097c7dd5e1eea16b"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r1.md",
+      "sha256": "a6d7e2ad79203275f9e9d4499c6e1cbd5e5ddc12a2b08b50a8c9938a09e7d541"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/weave-comparison.r1.json",
+      "sha256": "1a038cbc1929a6b353c7b949f06e720e1ec04798b3634ff50d4bb3bbb0f6b412"
+    }
+  ],
+  "id": "review-2-literacy",
+  "submittedAt": "2026-10-20T23:29:37.900Z"
+}

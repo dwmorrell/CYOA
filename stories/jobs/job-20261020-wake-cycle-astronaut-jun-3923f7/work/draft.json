@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "wake-cycle",
   "title": "Wake Cycle",
-  "version": 1,
+  "version": 3,
   "metadata": {
     "genre": "Space survival mystery",
     "theme": "Staying calm under pressure, working with others, and thinking a problem through",
@@ -64,7 +64,7 @@
       "title": "Oru's Log",
       "paragraphs": [
         "Oru lit a white screen on the wall. Lines of dust crawled across it.",
-        "\"Dust storm,\" said Oru. \"It bends the sensors. Maps may not match what is real.\"",
+        "\"Dust storm,\" said Oru. \"A strange anomaly. It bends the sensors. Maps may not match what is real.\"",
         "Jun watched the screen. The dust came in waves. Between two waves, a thin gap stayed clear.",
         "\"Where is that gap?\" asked Jun. \"Left of the big rock,\" said Oru.",
         "Jun made a note. When sensors lie, a clear lane could save the ship."
@@ -125,13 +125,13 @@
         "Captain Holm blinked at the white lamps. She rubbed her neck and sat up.",
         "\"Jun? Why am I awake?\" Jun told her about the silent crew and the dust.",
         "The Captain tapped the comm panel. It stayed dark. She looked at the thin white haze outside and nodded.",
-        "\"Our calls cannot get out. That is why no one answered.\"",
-        "She pointed to a rack on the wall. A spare tool pack hung there. \"Dex built these. Take one.\""
+        "\"Calls to far decks cannot get through. That is why no one answered.\"",
+        "She pointed to a rack on the wall. A spare tool pack hung there. \"Dex built these. Take one if you have no pack yet.\""
       ],
       "learningTargets": ["inference", "comprehension"],
       "choices": [
         { "id": "take-rack-pack", "label": "Take the spare pack from the rack", "target": "storm-bridge", "effects": { "addItems": ["tool-pack"] }, "learningTargets": ["detail"] },
-        { "id": "skip-rack-pack", "label": "Go to the wheel without it", "target": "storm-bridge" }
+        { "id": "skip-rack-pack", "label": "Go to the wheel, no pack needed", "target": "storm-bridge" }
       ]
     },
     {
@@ -141,9 +141,9 @@
         "A hard shudder ran through the deck. The screens turned to white static.",
         "Dust whispered along the hull like sand on glass.",
         "\"Sensors bent,\" said Oru. \"Maps lie.\"",
-        "Dex's voice crackled from the engine room. \"The leak is patched. Engines are ready!\"",
+        "Dex's voice crackled from the ship's inside speaker. \"The leak is patched. Engines are ready!\"",
         "Captain Holm gripped the rail. \"Jun, you take the wheel. I will watch the screens.\"",
-        "On the big screen, ghost shapes flickered. Between two dust waves ran a thin dark lane."
+        "On the big screen, ghost shapes flickered. Between two dust waves ran a thin, clear lane."
       ],
       "learningTargets": ["vocabulary", "comprehension"],
       "choices": [
@@ -177,7 +177,7 @@
         "\"Now,\" said Jun. \"It stopped when you turned it left.\""
       ],
       "learningTargets": ["sequencing", "detail"],
-      "choices": [{ "id": "lamp-on", "label": "Smile at Dex", "target": "dex-fixed" }]
+      "choices": [{ "id": "lamp-on", "label": "Ask Dex what is next", "target": "dex-fixed" }]
     },
     {
       "id": "dex-tools",
@@ -189,7 +189,7 @@
         "\"Tools in order,\" said Dex. \"That is how you catch a leak.\""
       ],
       "learningTargets": ["sequencing", "comprehension"],
-      "choices": [{ "id": "tools-on", "label": "Smile at Dex", "target": "dex-fixed" }]
+      "choices": [{ "id": "tools-on", "label": "Ask Dex what is next", "target": "dex-fixed" }]
     },
     {
       "id": "dex-fixed",
@@ -198,12 +198,12 @@
         "The pipe stopped hissing. Dex wiped his hands and grinned.",
         "\"Thanks, Jun. The engines can steer now. But our sensors are bent.\"",
         "\"Then we use what we can see,\" said Jun. Dex nodded. \"Good thinking.\"",
-        "He opened a bench drawer. \"I lost my pack in the shake. Take this spare one. It has a clicker light.\""
+        "He opened a bench drawer. \"This spare pack has a clicker light. Take it if you have no pack yet.\""
       ],
       "learningTargets": ["inference"],
       "choices": [
         { "id": "take-bench-pack", "label": "Take the spare pack", "target": "dex-chart", "effects": { "addItems": ["tool-pack"] }, "learningTargets": ["detail"] },
-        { "id": "skip-bench-pack", "label": "Thank Dex and move on", "target": "dex-chart" }
+        { "id": "skip-bench-pack", "label": "Thank Dex, no pack needed", "target": "dex-chart" }
       ]
     },
     {
@@ -261,7 +261,7 @@
       "title": "The Thin Lane",
       "paragraphs": [
         "Jun turned the wheel slowly to the left. The big rock loomed on the right, dark and rough.",
-        "Dust whispered on every side. The lane glowed faintly white.",
+        "Dust whispered on every side. The clear lane glowed faintly.",
         "\"Lane found,\" said Oru. \"Sensors still bent.\"",
         "Jun kept calm. Breath in. Breath out.",
         "Jun knew a clicker light could cut through dust. It lived in a tool pack."
@@ -273,7 +273,7 @@
           "label": "Use the clicker light from the tool pack",
           "target": "ending-1",
           "requires": { "items": ["tool-pack"] },
-          "lockedHint": "You need a tool pack with a clicker light.",
+          "lockedHint": "Find a tool pack: the locker, the Captain's rack or Dex's bench.",
           "learningTargets": ["detail"]
         },
         { "id": "steer-by-eye", "label": "Steer by eye and hand alone", "target": "ending-2", "learningTargets": ["engagement"] }
@@ -316,7 +316,7 @@
         "The ship scraped the edge of the dust with a rattle. Then it rolled out into clear space.",
         "Some sensors stayed bent. Dex would need a day to fix them. He would not mind.",
         "Jun let out a long breath. A steady head and steady hands were enough, this time.",
-        "Next time, Jun thought, a clicker light and a good map would help even more."
+        "Next time, Jun thought, a clear plan and the right tools would help even more."
       ],
       "learningTargets": ["inference"],
       "choices": [],
@@ -328,8 +328,8 @@
       "paragraphs": [
         "Dex clipped his safety line to the rail and climbed the sensor mast. Jun held the wheel and watched the screen.",
         "At the top, Dex found a bent arm. He pushed it back with a click.",
-        "The sensors woke. The screens shifted from white to clear. The big rock showed on the left.",
-        "\"Now I see the lane,\" said Jun. \"It does match the chart!\"",
+        "The sensors woke. The screens shifted from white to clear. The big rock showed on the right, dark and rough. The clear lane ran to its left.",
+        "\"Now I see the lane,\" said Jun. \"It is left of the rock!\"",
         "They sailed through together. Dex slid down the ladder, rubbing his neck and laughing.",
         "Whatever the dust did next, they would face it as a team."
       ],
@@ -358,7 +358,7 @@
         "Jun cut the engines. The ship went quiet. The dust washed over the hull in a long white sigh.",
         "No one was hurt. But the dust pushed the ship far off course, back toward the dark.",
         "\"Safe,\" said Oru. \"Late. Try a new plan.\"",
-        "Jun looked at the thin gap on the map and the tool pack by the wheel. Maybe a different plan would work.",
+        "Jun looked at the quiet screens and the empty dark. Maybe a different plan would work.",
         "The stars were still out there. Jun would wake again and try another way."
       ],
       "learningTargets": ["inference", "engagement"],

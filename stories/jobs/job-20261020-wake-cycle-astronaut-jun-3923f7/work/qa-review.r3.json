@@ -1,0 +1,35 @@
+{
+  "role": "qa",
+  "reviewer": { "name": "qa-engineer", "kind": "ai-agent", "agent": "qa-engineer" },
+  "revision": 3,
+  "draftSha256": "805a07d10b0d2ad91f46eb2873c8c6585b77ac661c141efa3bbfe2dd4f6ae589",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "passage": "captain-wakes",
+      "message": "story.r3.json lines 127-128: the Captain says calls to far decks cannot get through and the comm panel is dark. But storm-bridge (line 144) has Dex speaking over the ship's inside speaker, storm-engine (line 230) has the Captain's voice reaching the engine room, and ending-1 (line 304) has both cheering over the speaker. Say that Oru relays these voices, or soften the Captain's line."
+    },
+    {
+      "severity": "minor",
+      "passage": "bridge",
+      "message": "story.r3.json lines 98 and 104-106: Oru states the order (latch, switch, hatch) in the text just before the choice, so the sequencing choice has no real thinking in it. The two wrong choices go to not-yet (line 110), which then does the steps for the reader. Not harmful, but it is a weak puzzle."
+    },
+    {
+      "severity": "minor",
+      "passage": "captain-wakes",
+      "message": "story.r3.json lines 133-134, 205-206, 220-221 and 150-151: several pairs of choices (take or skip the spare pack, copy the lane or trust memory, study the dust shapes or take the wheel) end at the same passage. They only add or skip an item or clue. A reader who already holds the pack is still offered a second one. Clear labels keep this fair, and the engine de-duplicates items (src/engine/story-engine.ts line 20), so it is not a defect. It is thin choice design."
+    },
+    {
+      "severity": "minor",
+      "passage": "oru-log",
+      "message": "story.r3.json lines 67 and 68-69 versus 215-216: Oru says maps may not match what is real, yet the bent screens show the clear lane (oru-log, storm-bridge line 146). Dex's chart is called right because it does not match the screens (line 216). The clue's source is therefore a little contradictory between the bridge and engine routes."
+    }
+  ],
+  "evidence": [
+    { "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r3.json", "sha256": "805a07d10b0d2ad91f46eb2873c8c6585b77ac661c141efa3bbfe2dd4f6ae589" },
+    { "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r3.json", "sha256": "e891e9fd52f210191aff20536b36fdc2df3c7809e3a1381564a62ea5f2f815b0" },
+    { "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r3.json", "sha256": "7081ac931c6a39c8b60ca6cec73d360b58eceee9195390e4a7f968d235bd5549" },
+    { "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/brief.json", "sha256": "fdc2fc24ea875ea8f0988d268e7bd726581042613ee246fcd7d0b15c5976e318" }
+  ]
+}

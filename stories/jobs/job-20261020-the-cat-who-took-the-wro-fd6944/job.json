@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-cat-who-took-the-wro-fd6944",
   "storyId": "the-cat-who-took-the-wrong-turn",
-  "state": "in-review",
+  "state": "awaiting-parent-approval",
   "createdAt": "2026-10-20T23:23:24.700Z",
-  "updatedAt": "2026-10-20T23:28:48.065Z",
+  "updatedAt": "2026-10-20T23:30:04.669Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/request.json",
@@ -301,6 +301,123 @@
       "id": "review-2-literacy",
       "submittedAt": "2026-10-20T23:27:21.009Z",
       "invalidatedBy": 3
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 4,
+      "draftSha256": "2b301c292efdc30b797b3c627cd601a035a21dfb0491d2d923d5d50db89fe36e",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "minor",
+          "message": "Logic gap: the reader opens the hatch lid with the net from the floor, then 'climbed through the hatch' with no ladder. The hatch is high above the hall (tower-hall paragraph 2), and the ladder is only used on the other route. Add a line about using the ladder, or say the net pulled the lid down on a rope.",
+          "passage": "net-lid"
+        },
+        {
+          "severity": "minor",
+          "message": "Continuity: Eli lines the lunch box 'with soft moss from the stairs' but never picks up any moss (he is not shown taking it). He also leaves the lunch box with the crab and goes home without it, which is not mentioned.",
+          "passage": "ending-warm-den"
+        },
+        {
+          "severity": "minor",
+          "message": "Unclear referent: 'They climbed the stairs, one by one ... Each one shone with a speck of glow dust.' Paragraph 3 is about the marks, so 'each one' reads as the stairs or the marks. A reader with dyslexia may stumble. Say 'Each mark shone ...'.",
+          "passage": "the-stairs"
+        },
+        {
+          "severity": "minor",
+          "message": "Safety tone: both openings have the child lean over an open manhole to look down (choices lean-over and lean-over-gate). It is the premise, and the landing is soft, but a child may copy it. Consider one line that says it was a foolish thing to do or that this is a story-world fall.",
+          "passage": "through-the-gap"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r4.json",
+          "sha256": "2b301c292efdc30b797b3c627cd601a035a21dfb0491d2d923d5d50db89fe36e"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/validation.r4.json",
+          "sha256": "d7edb3e36c2f5715313cc14beefe6b92856ae481fc94f81d57a3a4f3b60d1a69"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/graph.r4.json",
+          "sha256": "68a3dec9537c7b0249d3de8a00b91dc6cc285bd8f8f093ac28868a0209e34fee"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/brief.json",
+          "sha256": "081e7b2afa16a7f4188de600bb0ab98a6f522a9d5d6ad1a0676282e1147bddd5"
+        }
+      ],
+      "id": "review-3-qa",
+      "submittedAt": "2026-10-20T23:29:55.527Z"
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 4,
+      "draftSha256": "2b301c292efdc30b797b3c627cd601a035a21dfb0491d2d923d5d50db89fe36e",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "minor",
+          "message": "Pronoun is unclear. 'They climbed the stairs, one by one, toward the Tower. Each one shone with a speck of glow dust.' Just before this, 'They were like little claws' means the marks, but 'They climbed' reads as Eli, Lira and Ash. 'Each one shone' then has no clear referent. Suggest 'The marks climbed the stairs, one by one, toward the Tower. Each one shone...' (narrative designer's call).",
+          "passage": "the-stairs"
+        },
+        {
+          "severity": "minor",
+          "message": "The brief sets maxSentenceWords 16. By my count, 'Eli's library book had a map in it, and he was meant to show it in class.' is 17 words. The report only flags sentences over 20, so it did not catch this. Splitting at 'and' would fit the limit and help a slower decoder.",
+          "passage": "late-for-school"
+        },
+        {
+          "severity": "minor",
+          "message": "Small logic wobble in the setup of the missing stone. 'The glow stone lived up there. It had gone missing three nights ago.' says the stone is up there and also missing. The lantern room later shows the crab holding it, so the facts agree, but a first-time reader has to repair them. Consider 'The glow stone should be up there, but it had gone missing three nights ago.' In 'lantern-room', 'Whatever was in the Tower's heart was not a villain' is also an abstract phrase for the age; 'The thing in the Tower was not a villain' is clearer.",
+          "passage": "tower-hall"
+        },
+        {
+          "severity": "minor",
+          "message": "Repeated 'gave a ...' frame: 'gave a hop' (late-for-school), 'gave a little trip' (the-gate), 'gave a spin, a trip and a splash' (stone-hop), 'gave a creak' (ladder-climb), 'gave a loud croak and made a big hop' (frog-helped), 'gave a small, surprised smile' (frog-helped), 'gave a small, sad squeak' (ending-the-grab). It is far better than in revision 2, but it still leans on this frame to carry the blend words 'hop', 'trip' and 'spin'. 'gave a little trip' is the least natural; 'gave a little trip' could be 'tripped a little' or 'nearly tripped'. Not a blocker.",
+          "passage": "the-gate"
+        },
+        {
+          "severity": "minor",
+          "message": "Word-set fit checked by reading the draft. Every blend word (step, stone, frog, plan, spin, trip, crab, drum) starts with a consonant blend. Every closed-syllable word (cat, map, net, lid, hop, mud, bus) is one short vowel closed by a consonant. Every ing word (running, jumping, hiding, climbing, glowing, ringing) is a base plus -ing, and each appears (report: all words used). Set minimums are met: blend 67/10, closed-syllable 44/8, ing 18/8, and the weave comparison is ok. Each set reaches every ending route (lowest: blend 10 on home-too-soon, closed-syllable 18, ing 8 against a minimum of 8 on home-too-soon, which is tight). Notes for the parent's program: 'stone' is a blend word but its vowel is a silent-e pattern, not a closed syllable; 'running' doubles the consonant and 'hiding' drops the silent e, so the ing set mixes three spelling conventions. Individual words are not on every route: 'bus' appears only in 'the-gate' and 'jumping' only in 'stone-hop' (from a text search of the draft), so a reader on the other routes does not meet them. This is allowed by the set-level rule but worth knowing. The word use reads naturally in this revision.",
+          "passage": "late-for-school"
+        },
+        {
+          "severity": "minor",
+          "message": "Limits of this review. The automated report detects spelling, not sound. The 'Suffix -ing' count of 33 includes 'anything' and 'nothing', which are not the suffix, and the closed-syllable count of 778 and 'ea' in 'bread' type matches overcount. The report does not judge decodability, vocabulary or story quality. Sentence counts above are my own reading, and I could not run ad-hoc scripts in this environment, so per-word route coverage rests on a text search. Decodability and age-fit judgements come from reading the text, not from testing with a reader. This AI review is not a certified literacy review.",
+          "passage": "varro"
+        },
+        {
+          "severity": "note",
+          "message": "Skills practised: reading this story, a child decodes in context short words with consonant blends (step, frog, trip, crab, drum), closed-syllable words (cat, map, mud, hop) and -ing words (running, climbing, glowing, ringing), meeting each often on every route. They follow cause and effect and sequence through the fall, the marsh and the climb, and infer from clues (the small wet marks that lead up, the shivering crab) and from the choices that depend on them. They also track who is speaking in dialogue and pick up vocabulary from context (lantern, marsh, hatch, creature, villain). Fit for ages 10 to 13 is good: short sentences (average 8 words), a gentle theme of kindness and courage, and no talking down.",
+          "passage": "late-for-school"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r4.json",
+          "sha256": "2b301c292efdc30b797b3c627cd601a035a21dfb0491d2d923d5d50db89fe36e"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/literacy.r4.json",
+          "sha256": "90b51261fc080688e622eddc111c078a71c5e96ce67cf7f87eee2a0df7c94646"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/weave-comparison.r4.json",
+          "sha256": "4e07cf8bd7f5db0d7b3fc079d9903c9cf10c3aec5168dba8f00dbb7cfde8a10e"
+        }
+      ],
+      "id": "review-4-literacy",
+      "submittedAt": "2026-10-20T23:30:04.669Z"
     }
   ],
   "parentDecisions": [],
@@ -408,6 +525,16 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 4 (story v4) passed automated validation"
+    },
+    {
+      "at": "2026-10-20T23:30:04.669Z",
+      "from": "in-review",
+      "to": "awaiting-parent-approval",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "All required reviews passed"
     }
   ]
 }

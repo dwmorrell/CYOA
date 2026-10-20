@@ -1,0 +1,380 @@
+{
+  "schemaVersion": "1.0",
+  "id": "wake-cycle",
+  "title": "Wake Cycle",
+  "version": 3,
+  "metadata": {
+    "genre": "Space survival mystery",
+    "theme": "Staying calm under pressure, working with others, and thinking a problem through",
+    "premise": "Wake Cycle. Astronaut Jun Adair wakes early from a sleep pod on the colony ship Meridian Hope. The crew are not answering, and the ship is drifting toward a dangerous dust anomaly.",
+    "estimatedMinutes": 25,
+    "authorship": { "narrative": "narrative-designer (AI agent)", "origin": "ai-generated" },
+    "createdAt": "2026-10-20"
+  },
+  "literacy": {
+    "targetConcepts": ["digraph-wh", "digraph-ck", "trigraph-tch"],
+    "wordSets": [
+      { "id": "wh-words", "label": "wh words", "concept": "digraph-wh", "words": ["when", "white", "whisper", "wheel", "whistle", "whip"], "minOccurrences": 10 },
+      { "id": "ck-words", "label": "ck words", "concept": "digraph-ck", "words": ["back", "deck", "click", "neck", "pack", "rock"], "minOccurrences": 8 },
+      { "id": "tch-words", "label": "tch words", "concept": "trigraph-tch", "words": ["catch", "match", "latch", "hatch", "watch", "switch"], "minOccurrences": 8 }
+    ],
+    "review": { "status": "pending" }
+  },
+  "start": "wake",
+  "items": [
+    { "id": "tool-pack", "name": "Tool pack", "description": "An orange pack with a clicker light, wire and a spare switch. Dex built it." }
+  ],
+  "clues": [
+    { "id": "dust-map", "name": "Dust lane", "description": "The dust comes in waves. A thin, clear lane runs left of the big rock." }
+  ],
+  "passages": [
+    {
+      "id": "wake",
+      "title": "Early Wake",
+      "paragraphs": [
+        "A soft click woke Jun Adair.",
+        "White light filled the sleep pod. Frost lay thin on the glass.",
+        "A calm voice spoke. \"Good day, Jun. I am Oru. You woke early.\"",
+        "Jun sat up and rubbed a stiff neck. The pod hall was silent.",
+        "\"Where is the crew?\" Jun asked. \"No answer,\" said Oru. \"I do not know why.\"",
+        "Jun took a slow breath. A navigator needs a steady head. Think first, then act."
+      ],
+      "learningTargets": ["engagement", "comprehension"],
+      "choices": [
+        { "id": "open-locker", "label": "Open the supply locker by the pod", "target": "locker", "learningTargets": ["detail"] },
+        { "id": "ask-log", "label": "Ask Oru to show the ship log", "target": "oru-log", "learningTargets": ["comprehension"] }
+      ]
+    },
+    {
+      "id": "locker",
+      "title": "The Orange Pack",
+      "paragraphs": [
+        "Jun lifted the latch on the locker. Inside sat a tool pack with an orange strap.",
+        "A tag hung from the strap. It said, \"Dex, engine room.\"",
+        "Dex must be awake somewhere. He had left this pack behind in a hurry.",
+        "Jun clicked it open. Inside were a clicker light, a coil of wire and a spare switch.",
+        "Jun slung the pack onto one shoulder. It sat snug against Jun's back."
+      ],
+      "effects": { "addItems": ["tool-pack"] },
+      "learningTargets": ["inference", "detail"],
+      "choices": [{ "id": "to-hall-a", "label": "Walk out into the pod hall", "target": "hall" }]
+    },
+    {
+      "id": "oru-log",
+      "title": "Oru's Log",
+      "paragraphs": [
+        "Oru lit a white screen on the wall. Lines of dust crawled across it.",
+        "\"Dust storm,\" said Oru. \"A strange anomaly. It bends the sensors. Maps may not match what is real.\"",
+        "Jun watched the screen. The dust came in waves. Between two waves, a thin gap stayed clear.",
+        "\"Where is that gap?\" asked Jun. \"Left of the big rock,\" said Oru.",
+        "Jun made a note. When sensors lie, a clear lane could save the ship."
+      ],
+      "effects": { "addClues": ["dust-map"] },
+      "learningTargets": ["detail", "comprehension"],
+      "choices": [{ "id": "to-hall-b", "label": "Walk out into the pod hall", "target": "hall" }]
+    },
+    {
+      "id": "hall",
+      "title": "The Pod Hall",
+      "paragraphs": [
+        "Jun walked between long rows of pods. Four hundred sleepers lay inside.",
+        "Every pod glowed green. Green meant safe. Jun checked ten pods, then twenty.",
+        "A low whisper ran through the walls. The floor gave a small shake.",
+        "\"Dust is close,\" said Oru. \"The ship needs help.\"",
+        "Two doors stood ahead. One led up to the bridge deck. One led down to the engine room."
+      ],
+      "learningTargets": ["inference", "vocabulary"],
+      "choices": [
+        { "id": "go-bridge", "label": "Climb up to the bridge deck", "target": "bridge", "learningTargets": ["engagement"] },
+        { "id": "go-engine", "label": "Go down to the engine room", "target": "engine", "learningTargets": ["engagement"] }
+      ]
+    },
+    {
+      "id": "bridge",
+      "title": "The Bridge Deck",
+      "paragraphs": [
+        "The bridge deck sat at the top of the ship. Captain Ines Holm slept in a pod by the great wheel.",
+        "Her pod light glowed amber, not green. Amber meant the pod was stuck.",
+        "\"Pod steps go in order,\" said Oru. \"First the latch. Then the switch. Last the hatch.\"",
+        "The latch sat at the foot of the pod. The switch glowed by the glass. The hatch was the lid.",
+        "Jun stood still and thought. Which step comes first?"
+      ],
+      "learningTargets": ["sequencing", "detail"],
+      "choices": [
+        { "id": "switch-first", "label": "Press the switch first", "target": "not-yet", "learningTargets": ["sequencing"] },
+        { "id": "latch-first", "label": "Lift the latch first", "target": "captain-wakes", "learningTargets": ["sequencing"] },
+        { "id": "hatch-first", "label": "Open the hatch first", "target": "not-yet", "learningTargets": ["sequencing"] }
+      ]
+    },
+    {
+      "id": "not-yet",
+      "title": "Not Yet",
+      "paragraphs": [
+        "The pod gave a sad buzz. Nothing broke. The pod just waited.",
+        "\"Order matters,\" said Oru. \"Latch, switch, hatch.\"",
+        "Jun did not rush. Jun lifted the latch first. Then Jun pressed the switch. Last, Jun eased the hatch up."
+      ],
+      "learningTargets": ["sequencing", "engagement"],
+      "choices": [{ "id": "after-not-yet", "label": "Wait for the Captain to wake", "target": "captain-wakes" }]
+    },
+    {
+      "id": "captain-wakes",
+      "title": "Captain Holm",
+      "paragraphs": [
+        "The latch gave a click. The switch glowed green. The hatch slid back with a hiss.",
+        "Captain Holm blinked at the white lamps. She rubbed her neck and sat up.",
+        "\"Jun? Why am I awake?\" Jun told her about the silent crew and the dust.",
+        "The Captain tapped the comm panel. It stayed dark. She looked at the thin white haze outside and nodded.",
+        "\"Calls to far decks cannot get through. That is why no one answered.\"",
+        "She pointed to a rack on the wall. A spare tool pack hung there. \"Dex built these. Take one if you have no pack yet.\""
+      ],
+      "learningTargets": ["inference", "comprehension"],
+      "choices": [
+        { "id": "take-rack-pack", "label": "Take the spare pack from the rack", "target": "storm-bridge", "effects": { "addItems": ["tool-pack"] }, "learningTargets": ["detail"] },
+        { "id": "skip-rack-pack", "label": "Go to the wheel, no pack needed", "target": "storm-bridge" }
+      ]
+    },
+    {
+      "id": "storm-bridge",
+      "title": "Dust at the Window",
+      "paragraphs": [
+        "A hard shudder ran through the deck. The screens turned to white static.",
+        "Dust whispered along the hull like sand on glass.",
+        "\"Sensors bent,\" said Oru. \"Maps lie.\"",
+        "Dex's voice crackled from the ship's inside speaker. \"The leak is patched. Engines are ready!\"",
+        "Captain Holm gripped the rail. \"Jun, you take the wheel. I will watch the screens.\"",
+        "On the big screen, ghost shapes flickered. Between two dust waves ran a thin, clear lane."
+      ],
+      "learningTargets": ["vocabulary", "comprehension"],
+      "choices": [
+        { "id": "study-ghosts", "label": "Study the dust shapes with the Captain", "target": "threshold", "effects": { "addClues": ["dust-map"] }, "learningTargets": ["detail"] },
+        { "id": "wheel-now-b", "label": "Take the wheel right away", "target": "threshold" }
+      ]
+    },
+    {
+      "id": "engine",
+      "title": "The Engine Room",
+      "paragraphs": [
+        "Jun went down the long steps to the engine room. It was warm and loud.",
+        "A lamp swung on a hook. A pair of boots stuck out from under a pipe.",
+        "A young engineer slid out. His cheek was smudged with grease. \"That is Dex,\" said Oru.",
+        "\"Jun? You are awake! I called and called. My calls just hit static!\"",
+        "A pipe by his knee hissed. A white mist leaked from it. \"Coolant,\" said Dex. \"I need hands. Can you help?\""
+      ],
+      "learningTargets": ["comprehension", "vocabulary"],
+      "choices": [
+        { "id": "hold-lamp", "label": "Hold the lamp so Dex can see", "target": "dex-lamp", "learningTargets": ["engagement"] },
+        { "id": "pass-tools", "label": "Pass Dex the tools from the bench", "target": "dex-tools", "learningTargets": ["engagement"] }
+      ]
+    },
+    {
+      "id": "dex-lamp",
+      "title": "Lamp Light",
+      "paragraphs": [
+        "Jun held the lamp high. White light fell on the pipe.",
+        "\"Watch the seam,\" said Dex. \"Tell me when the mist stops.\"",
+        "Jun watched with care. The mist thinned as Dex tightened the old valve wheel.",
+        "\"Now,\" said Jun. \"It stopped when you turned it left.\""
+      ],
+      "learningTargets": ["sequencing", "detail"],
+      "choices": [{ "id": "lamp-on", "label": "Ask Dex what is next", "target": "dex-fixed" }]
+    },
+    {
+      "id": "dex-tools",
+      "title": "Right Tool, Right Time",
+      "paragraphs": [
+        "Jun passed Dex a wrench, then a clamp, then a roll of tape.",
+        "Dex worked fast but never rushed. He gave a whip of his wrist and the clamp snapped tight.",
+        "He spun the small valve wheel. The hiss faded to nothing.",
+        "\"Tools in order,\" said Dex. \"That is how you catch a leak.\""
+      ],
+      "learningTargets": ["sequencing", "comprehension"],
+      "choices": [{ "id": "tools-on", "label": "Ask Dex what is next", "target": "dex-fixed" }]
+    },
+    {
+      "id": "dex-fixed",
+      "title": "The Leak Is Gone",
+      "paragraphs": [
+        "The pipe stopped hissing. Dex wiped his hands and grinned.",
+        "\"Thanks, Jun. The engines can steer now. But our sensors are bent.\"",
+        "\"Then we use what we can see,\" said Jun. Dex nodded. \"Good thinking.\"",
+        "He opened a bench drawer. \"This spare pack has a clicker light. Take it if you have no pack yet.\""
+      ],
+      "learningTargets": ["inference"],
+      "choices": [
+        { "id": "take-bench-pack", "label": "Take the spare pack", "target": "dex-chart", "effects": { "addItems": ["tool-pack"] }, "learningTargets": ["detail"] },
+        { "id": "skip-bench-pack", "label": "Thank Dex, no pack needed", "target": "dex-chart" }
+      ]
+    },
+    {
+      "id": "dex-chart",
+      "title": "The Paper Chart",
+      "paragraphs": [
+        "Dex tapped a paper chart pinned to the wall. Chalk lines wove across it.",
+        "\"Paper does not lie,\" he said. \"I drew this from the old logs.\"",
+        "Jun followed the lines with a finger. A thin lane ran left of a big rock.",
+        "It did not match the bent screens. The chart looked right."
+      ],
+      "learningTargets": ["detail", "inference"],
+      "choices": [
+        { "id": "copy-lane", "label": "Copy the lane onto your hand screen", "target": "storm-engine", "effects": { "addClues": ["dust-map"] }, "learningTargets": ["detail"] },
+        { "id": "skip-lane", "label": "Trust your memory", "target": "storm-engine" }
+      ]
+    },
+    {
+      "id": "storm-engine",
+      "title": "The Backup Wheel",
+      "paragraphs": [
+        "A hard shudder shook the room. Pipes rattled and the lamp swung.",
+        "Dust whispered along the hull.",
+        "Over the speaker, Captain Holm's voice joined them. Oru had woken her pod once the power was steady.",
+        "Dex pointed to a backup wheel on the wall. \"The ship needs a steady hand. That is you.\""
+      ],
+      "learningTargets": ["comprehension"],
+      "choices": [{ "id": "take-backup-wheel", "label": "Take the backup wheel", "target": "threshold" }]
+    },
+    {
+      "id": "threshold",
+      "title": "The Wall of Dust",
+      "paragraphs": [
+        "Jun held the wheel. The screen above was a storm of white static.",
+        "Ahead, a wall of dust rolled in. Beyond it lay the long road home.",
+        "Friends were close. Their voices came through Oru's speaker.",
+        "\"Choose a plan, Jun,\" said Oru. \"Keep calm. Think it through.\""
+      ],
+      "learningTargets": ["inference", "engagement"],
+      "choices": [
+        {
+          "id": "thin-lane",
+          "label": "Steer through the thin lane left of the rock",
+          "target": "climax-lane",
+          "requires": { "clues": ["dust-map"] },
+          "lockedHint": "Find where the dust is thin first. A log or a chart may show it.",
+          "learningTargets": ["inference", "detail"]
+        },
+        { "id": "shield-sensors", "label": "Work with the crew to shield the sensors", "target": "climax-team", "learningTargets": ["comprehension"] },
+        { "id": "cut-engines", "label": "Cut the engines and wait it out", "target": "ending-5", "learningTargets": ["inference"] }
+      ]
+    },
+    {
+      "id": "climax-lane",
+      "title": "The Thin Lane",
+      "paragraphs": [
+        "Jun turned the wheel slowly to the left. The big rock loomed on the right, dark and rough.",
+        "Dust whispered on every side. The clear lane glowed faintly.",
+        "\"Lane found,\" said Oru. \"Sensors still bent.\"",
+        "Jun kept calm. Breath in. Breath out.",
+        "Jun knew a clicker light could cut through dust. It lived in a tool pack."
+      ],
+      "learningTargets": ["sequencing", "vocabulary"],
+      "choices": [
+        {
+          "id": "use-clicker",
+          "label": "Use the clicker light from the tool pack",
+          "target": "ending-1",
+          "requires": { "items": ["tool-pack"] },
+          "lockedHint": "Find a tool pack: the locker, the Captain's rack or Dex's bench.",
+          "learningTargets": ["detail"]
+        },
+        { "id": "steer-by-eye", "label": "Steer by eye and hand alone", "target": "ending-2", "learningTargets": ["engagement"] }
+      ]
+    },
+    {
+      "id": "climax-team",
+      "title": "All Hands",
+      "paragraphs": [
+        "Jun called out the plan. \"We will shield the sensors together.\"",
+        "Oru ran a line to every screen. Everyone had a job.",
+        "Jun kept the wheel steady. The dust whispered and the lamps flickered.",
+        "Two ideas came. Dex could climb to the sensor mast and reset it by hand. Or Jun could wake the watch crew to help."
+      ],
+      "learningTargets": ["comprehension", "engagement"],
+      "choices": [
+        { "id": "send-dex", "label": "Ask Dex to reset the sensor mast", "target": "ending-3", "learningTargets": ["comprehension"] },
+        { "id": "wake-watch", "label": "Wake the watch crew to help", "target": "ending-4", "learningTargets": ["comprehension"] }
+      ]
+    },
+    {
+      "id": "ending-1",
+      "title": "The Clear Road",
+      "paragraphs": [
+        "Jun pressed the clicker. A white beam cut through the dust. The sensors blinked awake.",
+        "The screens cleared. The big rock slid by on the right. The ship glided down the thin lane.",
+        "\"Clear road,\" said Oru. \"Good work.\"",
+        "Captain Holm and Dex cheered over the speaker. Dex gave a long, happy whistle.",
+        "When the dust fell behind, Jun leaned back and watched the stars. Four hundred sleepers dreamed on, ten years from home."
+      ],
+      "learningTargets": ["comprehension"],
+      "choices": [],
+      "ending": { "id": "clear-road", "kind": "triumph", "title": "The Clear Road" }
+    },
+    {
+      "id": "ending-2",
+      "title": "Steady Hands",
+      "paragraphs": [
+        "Jun steered by eye. The dust turned the screens white, but Jun kept the wheel smooth.",
+        "The ship scraped the edge of the dust with a rattle. Then it rolled out into clear space.",
+        "Some sensors stayed bent. Dex would need a day to fix them. He would not mind.",
+        "Jun let out a long breath. A steady head and steady hands were enough, this time.",
+        "Next time, Jun thought, a clear plan and the right tools would help even more."
+      ],
+      "learningTargets": ["inference"],
+      "choices": [],
+      "ending": { "id": "steady-hands", "kind": "triumph", "title": "Steady Hands" }
+    },
+    {
+      "id": "ending-3",
+      "title": "The Sensor Mast",
+      "paragraphs": [
+        "Dex clipped his safety line to the rail and climbed the sensor mast. Jun held the wheel and watched the screen.",
+        "At the top, Dex found a bent arm. He pushed it back with a click.",
+        "The sensors woke. The screens shifted from white to clear. The big rock showed on the right, dark and rough. The clear lane ran to its left.",
+        "\"Now I see the lane,\" said Jun. \"It is left of the rock!\"",
+        "They sailed through together. Dex slid down the ladder, rubbing his neck and laughing.",
+        "Whatever the dust did next, they would face it as a team."
+      ],
+      "learningTargets": ["sequencing", "comprehension"],
+      "choices": [],
+      "ending": { "id": "sensor-mast", "kind": "triumph", "title": "The Sensor Mast" }
+    },
+    {
+      "id": "ending-4",
+      "title": "Many Hands",
+      "paragraphs": [
+        "Jun woke the watch crew. Twelve sleepy people shuffled onto the deck.",
+        "They split into teams. Some wiped the sensor lenses. Some watched the screens. Some held the lamps.",
+        "The ship crept through the dust and out the other side.",
+        "It was safe, but the watch crew had lost a few weeks of sleep. They stretched their backs and yawned.",
+        "\"Worth it,\" said Captain Holm. Jun nodded. Asking for help had worked, even if it cost something."
+      ],
+      "learningTargets": ["comprehension", "inference"],
+      "choices": [],
+      "ending": { "id": "many-hands", "kind": "bittersweet", "title": "Many Hands" }
+    },
+    {
+      "id": "ending-5",
+      "title": "Drifting Quiet",
+      "paragraphs": [
+        "Jun cut the engines. The ship went quiet. The dust washed over the hull in a long white sigh.",
+        "No one was hurt. But the dust pushed the ship far off course, back toward the dark.",
+        "\"Safe,\" said Oru. \"Late. Try a new plan.\"",
+        "Jun looked at the quiet screens and the empty dark. Maybe a different plan would work.",
+        "The stars were still out there. Jun would wake again and try another way."
+      ],
+      "learningTargets": ["inference", "engagement"],
+      "choices": [],
+      "ending": { "id": "drifting-quiet", "kind": "setback", "title": "Drifting Quiet" }
+    }
+  ],
+  "glossary": {
+    "navigator": { "syllables": ["nav", "i", "ga", "tor"], "definition": "A person who plans and checks the way a ship travels." },
+    "anomaly": { "syllables": ["a", "nom", "a", "ly"], "definition": "Something strange that does not follow the usual rules." },
+    "engineer": { "syllables": ["en", "gi", "neer"], "definition": "A person who builds and fixes machines." },
+    "sensors": { "syllables": ["sen", "sors"], "definition": "Tools that let a ship feel and see what is around it." },
+    "coolant": { "syllables": ["cool", "ant"], "definition": "A cold liquid that stops engines from getting too hot." },
+    "captain": { "syllables": ["cap", "tain"], "definition": "The leader of a ship and its crew." },
+    "amber": { "syllables": ["am", "ber"], "definition": "A deep yellow-orange colour." },
+    "sleepers": { "syllables": ["sleep", "ers"], "definition": "People resting in pods for the long trip." },
+    "engines": { "syllables": ["en", "gines"], "definition": "Machines that push the ship forward." }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "role": "qa",
+  "reviewer": { "name": "qa-engineer", "kind": "ai-agent", "agent": "qa-engineer" },
+  "revision": 4,
+  "draftSha256": "2b301c292efdc30b797b3c627cd601a035a21dfb0491d2d923d5d50db89fe36e",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "Logic gap: the reader opens the hatch lid with the net from the floor, then 'climbed through the hatch' with no ladder. The hatch is high above the hall (tower-hall paragraph 2), and the ladder is only used on the other route. Add a line about using the ladder, or say the net pulled the lid down on a rope.",
+      "passage": "net-lid"
+    },
+    {
+      "severity": "minor",
+      "message": "Continuity: Eli lines the lunch box 'with soft moss from the stairs' but never picks up any moss (he is not shown taking it). He also leaves the lunch box with the crab and goes home without it, which is not mentioned.",
+      "passage": "ending-warm-den"
+    },
+    {
+      "severity": "minor",
+      "message": "Unclear referent: 'They climbed the stairs, one by one ... Each one shone with a speck of glow dust.' Paragraph 3 is about the marks, so 'each one' reads as the stairs or the marks. A reader with dyslexia may stumble. Say 'Each mark shone ...'.",
+      "passage": "the-stairs"
+    },
+    {
+      "severity": "minor",
+      "message": "Safety tone: both openings have the child lean over an open manhole to look down (choices lean-over and lean-over-gate). It is the premise, and the landing is soft, but a child may copy it. Consider one line that says it was a foolish thing to do or that this is a story-world fall.",
+      "passage": "through-the-gap"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r4.json",
+      "sha256": "2b301c292efdc30b797b3c627cd601a035a21dfb0491d2d923d5d50db89fe36e"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/validation.r4.json",
+      "sha256": "d7edb3e36c2f5715313cc14beefe6b92856ae481fc94f81d57a3a4f3b60d1a69"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/graph.r4.json",
+      "sha256": "68a3dec9537c7b0249d3de8a00b91dc6cc285bd8f8f093ac28868a0209e34fee"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/brief.json",
+      "sha256": "081e7b2afa16a7f4188de600bb0ab98a6f522a9d5d6ad1a0676282e1147bddd5"
+    }
+  ]
+}

@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-wake-cycle-astronaut-jun-3923f7",
   "storyId": "wake-cycle",
-  "state": "in-review",
+  "state": "awaiting-parent-approval",
   "createdAt": "2026-10-20T23:23:25.399Z",
-  "updatedAt": "2026-10-20T23:28:14.171Z",
+  "updatedAt": "2026-10-20T23:32:02.210Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/request.json",
@@ -66,11 +66,373 @@
         ]
       },
       "revision": 1
+    },
+    {
+      "storyVersion": 2,
+      "draft": {
+        "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r2.json",
+        "sha256": "0544dfb602c11a569c2b59cf2b384099063f128c227e4f5d9d85384d71c63a76"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T23:30:40.198Z",
+      "validation": {
+        "ok": false,
+        "report": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r2.json",
+          "sha256": "ce5dd7074938ac78b4e8663999878f230a5971f3ae18a3fd04ba2d4bc34085c8"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r2.json",
+          "sha256": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r2.json",
+          "sha256": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed"
+        },
+        "summary": [
+          "schema: 1 error(s)"
+        ]
+      },
+      "revision": 2
+    },
+    {
+      "storyVersion": 3,
+      "draft": {
+        "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r3.json",
+        "sha256": "805a07d10b0d2ad91f46eb2873c8c6585b77ac661c141efa3bbfe2dd4f6ae589"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T23:30:47.145Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r3.json",
+          "sha256": "e891e9fd52f210191aff20536b36fdc2df3c7809e3a1381564a62ea5f2f815b0"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r3.json",
+          "sha256": "d09b5af74383d22360427d42cc2533e77c4cd6fc7d5f40e183d2f5aac11fad6c"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r3.json",
+          "sha256": "7081ac931c6a39c8b60ca6cec73d360b58eceee9195390e4a7f968d235bd5549"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 3
     }
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 1,
+      "draftSha256": "25a4eb0a09a5f5aeb2411c73e023d561ea666d62bd550f9b1487172d69ca373e",
+      "verdict": "changes-requested",
+      "findings": [
+        {
+          "severity": "major",
+          "passage": "ending-5",
+          "message": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r1.json line 361 says Jun looked at 'the thin gap on the map and the tool pack by the wheel'. The route wake > locker or oru-log > ... > threshold > cut-engines can reach this ending with no dust-map clue, no tool-pack, or neither (every pack and chart choice has a skip option). The ending then names things the reader never found. Reword so it does not depend on items or clues, or split the line by what the reader holds."
+        },
+        {
+          "severity": "minor",
+          "passage": "ending-3",
+          "message": "Draft line 331: 'The big rock showed on the left.' The clue (line 28) says the lane is left of the rock, and climax-lane (line 263) and ending-1 (line 302) put the rock on the right. The rock side contradicts itself."
+        },
+        {
+          "severity": "minor",
+          "passage": "dex-fixed",
+          "message": "Draft lines 201 and 205: Dex says 'I lost my pack in the shake' and offers a spare, but the locker pack (line 53) is tagged as his and may already be in Jun's pack. The same applies to the rack pack at captain-wakes (line 133). A reader who already holds the pack is offered a second one with no acknowledgement. Add a line for the reader who has it, or make the offer depend on not holding it."
+        },
+        {
+          "severity": "minor",
+          "passage": "storm-bridge",
+          "message": "Draft line 146 calls the lane 'a thin dark lane'. The dust-map clue (line 28) and climax-lane (line 264) call it clear or glowing white. Use one description."
+        },
+        {
+          "severity": "minor",
+          "passage": "dex-lamp",
+          "message": "Choices 'lamp-on' (line 180) and 'tools-on' (line 192) are both labelled 'Smile at Dex'. They are single-option passages with an empty decision. Use a label that tells the reader what happens next, such as 'Ask Dex what is next'."
+        },
+        {
+          "severity": "minor",
+          "passage": "climax-lane",
+          "message": "Locked choice 'use-clicker' (line 276) hint reads 'You need a tool pack with a clicker light.' It does not say where one can be found (the locker, the Captain's rack or Dex's bench). The threshold hint (line 252) is fair. Because the route never returns, only a replay can use the hint, so name the places."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r1.json",
+          "sha256": "25a4eb0a09a5f5aeb2411c73e023d561ea666d62bd550f9b1487172d69ca373e"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r1.json",
+          "sha256": "df7a794f0a64b2adbd33de2640d27c6d996cf9a91ca0e885532438b5165a72b5"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r1.json",
+          "sha256": "fa6fe2f0268e9ac01a1c69c0a786ac545da8e42a047b23293ab4698e0ad1ed8c"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/brief.json",
+          "sha256": "fdc2fc24ea875ea8f0988d268e7bd726581042613ee246fcd7d0b15c5976e318"
+        }
+      ],
+      "id": "review-1-qa",
+      "submittedAt": "2026-10-20T23:29:31.200Z",
+      "invalidatedBy": 2
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 1,
+      "draftSha256": "25a4eb0a09a5f5aeb2411c73e023d561ea666d62bd550f9b1487172d69ca373e",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "Skills practised: Reading and following this story practises decoding wh, ck and tch words in meaningful context, and recognising the same word-set words again on every route. It builds sequencing (latch, switch, hatch; tools in order), inference (green and amber pod lights, a map that does not match bent sensors), and vocabulary from context (sensors, coolant, navigator). Choices and locked hints ask the reader to track clues and items, so they also practise comprehension monitoring and cause-and-effect reasoning."
+        },
+        {
+          "severity": "note",
+          "message": "Word sets meet their minimums with wide margins (wh 35/10, ck 35/8, tch 30/8) and every listed word is used. Every word carries its declared pattern: when, white, whisper, wheel, whistle, whip (wh); back, deck, click, neck, pack, rock (ck); catch, match, latch, hatch, watch, switch (tch). Each set appears on the shortest route to all five endings (per-ending counts 10 to 23). Most uses read naturally, for example 'A soft click woke Jun Adair' (wake), 'The latch gave a click' (captain-wakes) and 'Dust whispered along the hull' (storm-bridge).",
+          "passage": "wake"
+        },
+        {
+          "severity": "minor",
+          "message": "'He gave a whip of his wrist and the clamp snapped tight' is the least natural set-word use. 'Whip' as a noun for a quick flick is unusual for a 10 to 13 reader. A common word such as 'flick' would read more easily, but 'whip' is already used elsewhere in the wh set. Consider whether another wh word fits better here.",
+          "passage": "dex-tools"
+        },
+        {
+          "severity": "minor",
+          "message": "'Watch' is a tch word whose vowel is not the short a of 'hatch' or 'match' (it follows the w-a pattern). It is also used as a noun in 'watch crew'. The spelling pattern is correct, but a learner may need support with the vowel sound. 'Whistle' has a silent t and a -le syllable, and 'wheel' and 'white' contain vowel teams or silent e. The brief names no decodability stage, so I could not judge whether these fit the child's current level.",
+          "passage": "ending-4"
+        },
+        {
+          "severity": "minor",
+          "message": "Left and right carry the key clue ('left of the big rock'). Ending 3 says 'The big rock showed on the left' and then 'Now I see the lane'. That sits oddly with the lane being left of the rock (climax-lane puts the rock on the right). Left/right confusion is common for dyslexic readers. Narrative-designer: fix the ending-3 direction and consider a landmark cue, such as the rock's colour or shape, alongside left.",
+          "passage": "ending-3"
+        },
+        {
+          "severity": "minor",
+          "message": "Ending 5 refers to 'the thin gap on the map and the tool pack by the wheel'. The cut-engines choice has no requirements, so a reader who never found the map clue or the pack meets items they do not have. Ending 2 says 'a clicker light and a good map would help', although reaching climax-lane required the map clue. Both lines can confuse a reader's picture of what they hold.",
+          "passage": "ending-5"
+        },
+        {
+          "severity": "minor",
+          "message": "Dex's voice 'crackled from the engine room' in storm-bridge, but captain-wakes says the comm panel is dark and 'Our calls cannot get out'. A reader may not see why Dex can speak to the bridge when no one else could. Say that the ship's inside speaker still works, or that only outside calls fail.",
+          "passage": "storm-bridge"
+        },
+        {
+          "severity": "minor",
+          "message": "The glossary entry 'anomaly' is never used in passage text. It appears only in the premise metadata, so word help will never show it in the story. Either use the word in a passage, for example when Oru names the dust, or drop the entry. The other eight glossary words are used.",
+          "passage": "oru-log"
+        },
+        {
+          "severity": "minor",
+          "message": "The story is about 1,477 words in total, with an average sentence of 6 words. A route is roughly 500 to 700 words, which is much shorter than the stated 25 minutes. The very short sentences also read young for ages 10 to 13, though the themes (calm under pressure, teamwork, delayed consequences in ending 4) suit that age and no passage is heavy. Consider telling the parent the real reading time, or having the narrative-designer add a little more varied sentence length in a later revision.",
+          "passage": "captain-wakes"
+        },
+        {
+          "severity": "note",
+          "message": "Sentence length: the brief asks for 16 words or fewer and the analyzer threshold is 20. The report finds none over 20. In my read-through the longest sentences I noticed ran to about 16 words (for example 'Jun looked at the thin gap on the map and the tool pack by the wheel' in ending-5). I did not run a script for the stricter 16-word limit, so this is a manual check, not a measured one.",
+          "passage": "ending-5"
+        },
+        {
+          "severity": "note",
+          "message": "Limits of this review: the analyzer matches spelling, not sound, and only checks the shortest route to each ending, not every possible route. It also does not judge decodability, vocabulary level or story quality. I am an AI agent and this review does not replace a qualified human literacy reviewer. Whether the 'watch', 'whistle' and 'wheel' vowel patterns suit the child's program stage needs the parent or tutor to confirm."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r1.json",
+          "sha256": "25a4eb0a09a5f5aeb2411c73e023d561ea666d62bd550f9b1487172d69ca373e"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r1.json",
+          "sha256": "18f7dd34dfcb736c4fdbc8176a5e5ebd05021d5495ebb54f097c7dd5e1eea16b"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r1.md",
+          "sha256": "a6d7e2ad79203275f9e9d4499c6e1cbd5e5ddc12a2b08b50a8c9938a09e7d541"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/weave-comparison.r1.json",
+          "sha256": "1a038cbc1929a6b353c7b949f06e720e1ec04798b3634ff50d4bb3bbb0f6b412"
+        }
+      ],
+      "id": "review-2-literacy",
+      "submittedAt": "2026-10-20T23:29:37.900Z",
+      "invalidatedBy": 2
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 3,
+      "draftSha256": "805a07d10b0d2ad91f46eb2873c8c6585b77ac661c141efa3bbfe2dd4f6ae589",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "minor",
+          "passage": "captain-wakes",
+          "message": "story.r3.json lines 127-128: the Captain says calls to far decks cannot get through and the comm panel is dark. But storm-bridge (line 144) has Dex speaking over the ship's inside speaker, storm-engine (line 230) has the Captain's voice reaching the engine room, and ending-1 (line 304) has both cheering over the speaker. Say that Oru relays these voices, or soften the Captain's line."
+        },
+        {
+          "severity": "minor",
+          "passage": "bridge",
+          "message": "story.r3.json lines 98 and 104-106: Oru states the order (latch, switch, hatch) in the text just before the choice, so the sequencing choice has no real thinking in it. The two wrong choices go to not-yet (line 110), which then does the steps for the reader. Not harmful, but it is a weak puzzle."
+        },
+        {
+          "severity": "minor",
+          "passage": "captain-wakes",
+          "message": "story.r3.json lines 133-134, 205-206, 220-221 and 150-151: several pairs of choices (take or skip the spare pack, copy the lane or trust memory, study the dust shapes or take the wheel) end at the same passage. They only add or skip an item or clue. A reader who already holds the pack is still offered a second one. Clear labels keep this fair, and the engine de-duplicates items (src/engine/story-engine.ts line 20), so it is not a defect. It is thin choice design."
+        },
+        {
+          "severity": "minor",
+          "passage": "oru-log",
+          "message": "story.r3.json lines 67 and 68-69 versus 215-216: Oru says maps may not match what is real, yet the bent screens show the clear lane (oru-log, storm-bridge line 146). Dex's chart is called right because it does not match the screens (line 216). The clue's source is therefore a little contradictory between the bridge and engine routes."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r3.json",
+          "sha256": "805a07d10b0d2ad91f46eb2873c8c6585b77ac661c141efa3bbfe2dd4f6ae589"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r3.json",
+          "sha256": "e891e9fd52f210191aff20536b36fdc2df3c7809e3a1381564a62ea5f2f815b0"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r3.json",
+          "sha256": "7081ac931c6a39c8b60ca6cec73d360b58eceee9195390e4a7f968d235bd5549"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/brief.json",
+          "sha256": "fdc2fc24ea875ea8f0988d268e7bd726581042613ee246fcd7d0b15c5976e318"
+        }
+      ],
+      "id": "review-3-qa",
+      "submittedAt": "2026-10-20T23:31:53.459Z"
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 3,
+      "draftSha256": "805a07d10b0d2ad91f46eb2873c8c6585b77ac661c141efa3bbfe2dd4f6ae589",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "Skills practised: Reading and following this story practises decoding wh, ck and tch words in meaningful context, and meeting the same word-set words again on every route. It builds sequencing (latch, then switch, then hatch; tools passed to Dex in order), inference (green and amber pod lights, bent sensors that make maps untrustworthy) and vocabulary from context (sensors, coolant, anomaly, navigator). Choices and locked hints ask the reader to track clues and items, so they also practise comprehension monitoring and cause-and-effect reasoning."
+        },
+        {
+          "severity": "note",
+          "message": "Word sets meet their minimums with wide margins (wh 33/10, ck 40/8, tch 29/8) and every listed word is used. Every word carries its declared pattern: when, white, whisper, wheel, whistle, whip (wh); back, deck, click, neck, pack, rock (ck); catch, match, latch, hatch, watch, switch (tch). The report finds no concept mismatches. Each set appears on the shortest route to all five endings (wh 10 to 13, ck 20 to 25, tch 13 to 17). Most uses read naturally, for example 'A soft click woke Jun Adair' (wake), 'First the latch. Then the switch. Last the hatch.' (bridge) and 'That is how you catch a leak' (dex-tools). The r1 findings on left/right in ending-3, Dex's speaker, the unused 'anomaly' glossary entry and the ending-5 and ending-2 item references are fixed in this revision.",
+          "passage": "bridge"
+        },
+        {
+          "severity": "minor",
+          "message": "'He gave a whip of his wrist and the clamp snapped tight' is still the least natural set-word use. 'Whip' as a noun for a quick flick is unusual for a 10 to 13 reader. This is the only use of 'whip' in the story. Narrative-designer: consider a more common sentence, or a different place for 'whip' (for example 'a whip of wind' in the dust).",
+          "passage": "dex-tools"
+        },
+        {
+          "severity": "minor",
+          "message": "Practice is lopsided inside each set. 'White' (12) and 'wheel' (14) carry the wh set, and 'pack' (14) carries ck, while 'whisper', 'whistle', 'whip', 'catch' and 'click' (ending-1, hall, dex-tools) appear only once to three times. The minimums are met, but a learner gets little repeated practice on those words. The analyzer counts only -s and -es forms, so 'whispered' (storm-bridge, storm-engine, climax-team) does not count toward 'whisper'. Optional: add one more natural use of 'catch', 'whistle' or 'click' on the engine route.",
+          "passage": "ending-1"
+        },
+        {
+          "severity": "minor",
+          "message": "'Watch' follows the w-a pattern, so its vowel is not the short a of 'latch' or 'match'. It is also used as a noun in 'watch crew' (climax-team, ending-4) and as a verb in 'Watch the seam' (dex-lamp). 'Whistle' has a silent t and a -le syllable. 'Wheel' and 'white' use a vowel team and a silent e. The spelling patterns are correct. The brief names no decodability stage, so I could not judge whether these words fit the child's current level. The parent or tutor should confirm.",
+          "passage": "climax-team"
+        },
+        {
+          "severity": "minor",
+          "message": "On the bridge route (wake, hall, bridge, captain-wakes), Dex says 'The leak is patched. Engines are ready!' in storm-bridge. A reader who never visited the engine room has not met a leak or Dex's pipe, so this line is unexplained. Narrative-designer: add a short cue, such as 'The coolant leak is patched', and name Dex as the engineer from the pod tag if the reader has not met him.",
+          "passage": "storm-bridge"
+        },
+        {
+          "severity": "minor",
+          "message": "Left and right still carry the key clue ('left of the big rock'). The text is now consistent: climax-lane turns the wheel left with the rock on the right, and ending-3 puts the lane to the rock's left. Left/right confusion is common for dyslexic readers, so a landmark cue alongside 'left' (the rock's colour or shape) would help. In dex-lamp, 'turned it left' is a second left reference that does not matter to the plot.",
+          "passage": "climax-lane"
+        },
+        {
+          "severity": "minor",
+          "message": "The story is about 1,493 words in total, with an average sentence of 6 words. A route is roughly 500 to 700 words, which is much shorter than the stated estimatedMinutes of 25. The very short sentences read young for ages 10 to 13, though the themes (calm under pressure, teamwork, the cost in ending-4) suit that age and no passage is heavy. Tell the parent the real reading time, or have the narrative-designer add some varied sentence length in a later revision.",
+          "passage": "captain-wakes"
+        },
+        {
+          "severity": "note",
+          "message": "Sentence length: the brief asks for 16 words or fewer and the analyzer threshold is 20. The report finds none over 20. In my read-through the longest sentences ran to about 15 words (for example 'Next time, Jun thought, a clear plan and the right tools would help even more' in ending-2). I did not run a script for the stricter 16-word limit, so this is a manual check, not a measured one."
+        },
+        {
+          "severity": "note",
+          "message": "Limits of this review: the analyzer matches spelling, not sound, and only checks the shortest route to each ending, not every possible route. It does not judge decodability, vocabulary level or story quality. I read every passage of revision 3 but did not play each route in the app. I am an AI agent and this review does not replace a qualified human literacy reviewer. Whether the 'watch', 'whistle' and 'wheel' vowel patterns suit the child's program stage needs the parent or tutor to confirm."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r3.json",
+          "sha256": "805a07d10b0d2ad91f46eb2873c8c6585b77ac661c141efa3bbfe2dd4f6ae589"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r3.json",
+          "sha256": "d09b5af74383d22360427d42cc2533e77c4cd6fc7d5f40e183d2f5aac11fad6c"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r3.md",
+          "sha256": "01cacc9c6dd77805b4b515081bc87f458013821daf48ac6ec1d089b400ca0630"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/weave-comparison.r3.json",
+          "sha256": "5f226cfc64cd3708434160f3dc129fab1083761d55ad4a4886b6b63692ded1e3"
+        }
+      ],
+      "id": "review-4-literacy",
+      "submittedAt": "2026-10-20T23:32:02.210Z"
+    }
+  ],
   "parentDecisions": [],
-  "failures": [],
+  "failures": [
+    {
+      "stage": "validation",
+      "error": "Revision 2: /passages/15/choices/0/lockedHint must NOT have more than 90 characters; schema invalid; brief not checked",
+      "at": "2026-10-20T23:30:40.198Z",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      }
+    }
+  ],
   "history": [
     {
       "at": "2026-10-20T23:23:25.399Z",
@@ -112,6 +474,48 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 1 (story v1) passed automated validation"
+    },
+    {
+      "at": "2026-10-20T23:29:31.200Z",
+      "from": "in-review",
+      "to": "changes-requested",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "A reviewer requested changes"
+    },
+    {
+      "at": "2026-10-20T23:30:40.198Z",
+      "from": "changes-requested",
+      "to": "validation-failed",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 2 (story v2) failed automated validation"
+    },
+    {
+      "at": "2026-10-20T23:30:47.145Z",
+      "from": "validation-failed",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 3 (story v3) passed automated validation"
+    },
+    {
+      "at": "2026-10-20T23:32:02.210Z",
+      "from": "in-review",
+      "to": "awaiting-parent-approval",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "All required reviews passed"
     }
   ]
 }

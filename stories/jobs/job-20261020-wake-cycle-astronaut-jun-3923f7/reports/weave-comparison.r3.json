@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "sets": [
+    {
+      "id": "wh-words",
+      "planned": 22,
+      "minimum": 10,
+      "actual": 33,
+      "ok": true
+    },
+    {
+      "id": "ck-words",
+      "planned": 22,
+      "minimum": 8,
+      "actual": 40,
+      "ok": true
+    },
+    {
+      "id": "tch-words",
+      "planned": 22,
+      "minimum": 8,
+      "actual": 29,
+      "ok": true
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "role": "qa",
+  "reviewer": { "name": "qa-engineer", "kind": "ai-agent", "agent": "qa-engineer" },
+  "revision": 1,
+  "draftSha256": "25a4eb0a09a5f5aeb2411c73e023d561ea666d62bd550f9b1487172d69ca373e",
+  "verdict": "changes-requested",
+  "findings": [
+    {
+      "severity": "major",
+      "passage": "ending-5",
+      "message": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r1.json line 361 says Jun looked at 'the thin gap on the map and the tool pack by the wheel'. The route wake > locker or oru-log > ... > threshold > cut-engines can reach this ending with no dust-map clue, no tool-pack, or neither (every pack and chart choice has a skip option). The ending then names things the reader never found. Reword so it does not depend on items or clues, or split the line by what the reader holds."
+    },
+    {
+      "severity": "minor",
+      "passage": "ending-3",
+      "message": "Draft line 331: 'The big rock showed on the left.' The clue (line 28) says the lane is left of the rock, and climax-lane (line 263) and ending-1 (line 302) put the rock on the right. The rock side contradicts itself."
+    },
+    {
+      "severity": "minor",
+      "passage": "dex-fixed",
+      "message": "Draft lines 201 and 205: Dex says 'I lost my pack in the shake' and offers a spare, but the locker pack (line 53) is tagged as his and may already be in Jun's pack. The same applies to the rack pack at captain-wakes (line 133). A reader who already holds the pack is offered a second one with no acknowledgement. Add a line for the reader who has it, or make the offer depend on not holding it."
+    },
+    {
+      "severity": "minor",
+      "passage": "storm-bridge",
+      "message": "Draft line 146 calls the lane 'a thin dark lane'. The dust-map clue (line 28) and climax-lane (line 264) call it clear or glowing white. Use one description."
+    },
+    {
+      "severity": "minor",
+      "passage": "dex-lamp",
+      "message": "Choices 'lamp-on' (line 180) and 'tools-on' (line 192) are both labelled 'Smile at Dex'. They are single-option passages with an empty decision. Use a label that tells the reader what happens next, such as 'Ask Dex what is next'."
+    },
+    {
+      "severity": "minor",
+      "passage": "climax-lane",
+      "message": "Locked choice 'use-clicker' (line 276) hint reads 'You need a tool pack with a clicker light.' It does not say where one can be found (the locker, the Captain's rack or Dex's bench). The threshold hint (line 252) is fair. Because the route never returns, only a replay can use the hint, so name the places."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r1.json",
+      "sha256": "25a4eb0a09a5f5aeb2411c73e023d561ea666d62bd550f9b1487172d69ca373e"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r1.json",
+      "sha256": "df7a794f0a64b2adbd33de2640d27c6d996cf9a91ca0e885532438b5165a72b5"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r1.json",
+      "sha256": "fa6fe2f0268e9ac01a1c69c0a786ac545da8e42a047b23293ab4698e0ad1ed8c"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/brief.json",
+      "sha256": "fdc2fc24ea875ea8f0988d268e7bd726581042613ee246fcd7d0b15c5976e318"
+    }
+  ]
+}
