@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-rain-courier-mara-is-1b7daf",
   "storyId": "the-rain-courier",
-  "state": "validation-failed",
+  "state": "in-review",
   "createdAt": "2026-10-20T23:23:22.800Z",
-  "updatedAt": "2026-10-20T23:33:48.787Z",
+  "updatedAt": "2026-10-20T23:36:26.759Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/request.json",
@@ -235,6 +235,41 @@
         ]
       },
       "revision": 6
+    },
+    {
+      "storyVersion": 7,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/drafts/story.r7.json",
+        "sha256": "88ff452364a34e6e48284215cb5e73b809b64614f7df7eb53487079a8fa24ecd"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-20T23:36:26.759Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/validation.r7.json",
+          "sha256": "4d7591992135387ede63fd724ea4722c54e3906257f316c7ae1afc673a847434"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/literacy.r7.json",
+          "sha256": "0e91eaed6301f65a446e9defe9b46dbf6dbfe17ff82b284baedf353e1acd9374"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/graph.r7.json",
+          "sha256": "7cd7cca886aafc5af1ee7d7cb2b011622a37c820399e56fb7cba6130c12a3573"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 7
     }
   ],
   "reviews": [],
@@ -391,6 +426,17 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 6 (story v6) failed automated validation"
+    },
+    {
+      "at": "2026-10-20T23:36:26.759Z",
+      "from": "validation-failed",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 7 (story v7) passed automated validation"
     }
   ]
 }

@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-rain-courier",
   "title": "The Rain Courier",
-  "version": 6,
+  "version": 7,
   "metadata": {
     "genre": "Cyberpunk delivery adventure",
     "theme": "Trust, choosing who to believe, and keeping a promise",
@@ -64,7 +64,7 @@
       "title": "The Cab Stand",
       "paragraphs": [
         "Rain fell on the old cab stand. It had been raining for as long as Mara could remember.",
-        "Mara sat on her patched old bike. Her coat was soaked and her hands were cold.",
+        "Mara sat on her patched old bike. Her coat was soaked and a chill sat on the handlebars.",
         "Vex waited under a dripping roof. He was a broker, and he wore a grey mask. No courier had ever seen his face.",
         "\"One job, Mara,\" he said. \"Take this bag to the old rail bridge. Be there by midnight.\"",
         "Inside the bag lay a small black chip. It was sealed in a hard shell. \"Do not open it. Do not lose it. Do not stop for anyone,\" said Vex.",
