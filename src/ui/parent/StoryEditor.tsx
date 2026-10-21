@@ -1,6 +1,6 @@
 import { useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react';
 import { LEARNING_TARGETS, type Choice, type Collectible, type EndingKind, type LearningTarget, type Passage, type Story } from '../../engine/types';
-import { validateDraft } from '../../production/validate-draft';
+import { validateDraft, validationIssues } from '../../production/validate-draft';
 import { AI_REVIEWS_NOT_CONFIRMED, type LibraryEntry } from '../../storage/repo';
 import { downloadJson, exportStory } from '../../storage/transfer';
 import { contentHash } from '../../util/hash';
@@ -310,8 +310,7 @@ export default function StoryEditor({ storyId }: { storyId: string }) {
   };
   const glossary = story.glossary ?? {};
   const setGlossary = (g: Story['glossary']) => edit({ ...story, glossary: g && Object.keys(g).length ? g : undefined });
-  const errors = validation ? [...validation.schema.errors, ...(validation.graph?.errors ?? []).map((e) => e.message), ...(validation.literacy?.automatedChecks ?? []).filter((c) => !c.ok).map((c) => `${c.id}: ${c.detail}`)] : [];
-  const warnings = validation ? [...(validation.graph?.warnings ?? []).map((w) => w.message), ...(validation.literacy?.learningDesign.advisories ?? []).filter((a) => !a.ok).map((a) => a.detail)] : [];
+  const { errors, warnings } = validation ? validationIssues(validation) : { errors: [], warnings: [] };
 
   return (
     <Page

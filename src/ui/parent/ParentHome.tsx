@@ -1,12 +1,134 @@
-import { useCallback, useEffect, useState, type ChangeEvent, type FormEvent } from 'react';
-import type { LibraryEntry } from '../../storage/repo';
+import { useCallback, useEffect, useMemo, useState, type ChangeEvent, type FormEvent } from 'react';
+import type { Story } from '../../engine/types';
+import { AI_REVIEWS_NOT_CONFIRMED, type LibraryEntry, type Repo } from '../../storage/repo';
 import { blankStory, downloadJson, exportStory, parseImport } from '../../storage/transfer';
 import { slugify } from '../../production/request';
-import { fetchStory } from '../catalog';
+import { validateDraft, validationIssues } from '../../production/validate-draft';
+import { fetchStory, type CatalogEntry } from '../catalog';
 import { Page } from '../common';
 import { useApp } from '../context';
 import { focusOptions, LiteracySummary, matchesFocus } from './LiteracySummary';
 import { TypingLists } from './TypingLists';
+
+/** The checkbox, checks summary and approve button shared by the device library and the workshop shelf. */
+function ApprovalPanel({ story, confirmed, setConfirmed, onApprove, error }: { story: Story | null; confirmed: boolean; setConfirmed: (v: boolean) => void; onApprove: () => void; error: string }) {
+  const validation = useMemo(() => (story ? validateDraft(story) : null), [story]);
+  const { errors } = validation ? validationIssues(validation) : { errors: [] };
+
+  return (
+    <div className="form approve-inline">
+      {validation === null ? (
+        <p role="status">Checking…</p>
+      ) : !validation.ok ? (
+        <p className="status bad">
+          {errors.length} problem(s) to fix in the editor before version {story!.version} can be approved.
+        </p>
+      ) : (
+        <>
+          <label className="toggle">
+            <input type="checkbox" checked={confirmed} onChange={(e) => setConfirmed(e.target.checked)} />
+            <span>The AI literacy review and the AI QA review for this version have passed.</span>
+          </label>
+          <button type="button" className="btn primary" disabled={!confirmed} onClick={onApprove}>
+            Approve version {story!.version}
+          </button>
+          {!confirmed && <p className="muted">{AI_REVIEWS_NOT_CONFIRMED}</p>}
+        </>
+      )}
+      {error && (
+        <p role="status" className="status bad">
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
+/** Inline approve control for a draft already on this device, so a parent does not have to open the full editor just to approve it. */
+function DraftApproval({ entry, repo, parentName, onApproved }: { entry: LibraryEntry; repo: Repo; parentName: string; onApproved: (e: LibraryEntry) => void }) {
+  const [story, setStory] = useState<Story | null>(null);
+  const [confirmed, setConfirmed] = useState(false);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    setStory(null);
+    void repo.draft(entry.storyId).then((s) => setStory(s ?? null));
+  }, [repo, entry.storyId, entry.draftHash]);
+
+  if (!entry.draftHash) return null;
+
+  const approve = async () => {
+    try {
+      const updated = await repo.approve(entry.storyId, { by: parentName, at: new Date().toISOString(), aiReviewsPassed: confirmed });
+      setConfirmed(false);
+      setError('');
+      onApproved(updated);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    }
+  };
+
+  return <ApprovalPanel story={story} confirmed={confirmed} setConfirmed={setConfirmed} onApprove={() => void approve()} error={error} />;
+}
+
+/** Inline approve control for a story still on the workshop shelf: copies it to this device, then approves it in one step. */
+function WorkshopApproval({
+  entry,
+  kind,
+  repo,
+  parentName,
+  addDraft,
+  onApproved,
+}: {
+  entry: CatalogEntry;
+  kind: 'packaged' | 'workshop';
+  repo: Repo;
+  parentName: string;
+  addDraft: (incoming: Story, source: Parameters<typeof repo.saveDraft>[2]) => Promise<Story>;
+  onApproved: (updated: LibraryEntry, title: string) => void;
+}) {
+  const [story, setStory] = useState<Story | null>(null);
+  const [checking, setChecking] = useState(false);
+  const [confirmed, setConfirmed] = useState(false);
+  const [error, setError] = useState('');
+
+  const check = () => {
+    setChecking(true);
+    setError('');
+    void fetchStory(entry)
+      .then(setStory)
+      .catch((e) => setError(e instanceof Error ? e.message : String(e)))
+      .finally(() => setChecking(false));
+  };
+
+  const approve = async () => {
+    if (!story) return;
+    try {
+      const saved = await addDraft(story, kind === 'packaged' ? 'bundled-copy' : 'workshop-draft');
+      const updated = await repo.approve(saved.id, { by: parentName, at: new Date().toISOString(), aiReviewsPassed: confirmed });
+      setConfirmed(false);
+      setError('');
+      onApproved(updated, saved.title);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    }
+  };
+
+  if (!story)
+    return (
+      <div className="form approve-inline">
+        <button type="button" className="btn" onClick={check} disabled={checking}>
+          {checking ? 'Checking…' : 'Check and approve'}
+        </button>
+        {error && (
+          <p role="status" className="status bad">
+            {error}
+          </p>
+        )}
+      </div>
+    );
+  return <ApprovalPanel story={story} confirmed={confirmed} setConfirmed={setConfirmed} onApprove={() => void approve()} error={error} />;
+}
 
 export default function ParentHome() {
   const { repo, profiles, catalog, go, lockParent, reloadProfiles } = useApp();
@@ -143,6 +265,15 @@ export default function ParentHome() {
                     </button>
                   )}
                 </div>
+                <DraftApproval
+                  entry={entry}
+                  repo={repo}
+                  parentName={parentName}
+                  onApproved={(updated) => {
+                    setLibrary((lib) => lib?.map((e) => (e.storyId === updated.storyId ? updated : e)) ?? lib);
+                    report(`Version ${updated.approved?.version} is now in the reader’s library.`);
+                  }}
+                />
               </li>
             );
           })}
@@ -204,6 +335,14 @@ export default function ParentHome() {
                     Copy to edit
                   </button>
                 </div>
+                <WorkshopApproval
+                  entry={e}
+                  kind={kind}
+                  repo={repo}
+                  parentName={parentName}
+                  addDraft={addDraft}
+                  onApproved={(updated, title) => report(`Version ${updated.approved?.version} of "${title}" is now in the reader’s library.`)}
+                />
               </li>
             ))}
           </ul>

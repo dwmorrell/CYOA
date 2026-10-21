@@ -97,8 +97,9 @@ describe('parent approval controls the child library', () => {
     fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
     fireEvent.click(button('Open'));
     fireEvent.click(await screen.findByRole('button', { name: `Edit ${story.title}` }));
-    expect(await screen.findByText(/Confirm that the AI literacy review and the AI QA review/)).toBeTruthy();
-    expect((screen.getByRole('button', { name: 'Approve version 1' }) as HTMLButtonElement).disabled).toBe(true);
+    const approve = await screen.findByRole('button', { name: 'Approve version 1' });
+    expect(screen.getByText(/Confirm that the AI literacy review and the AI QA review/)).toBeTruthy();
+    expect((approve as HTMLButtonElement).disabled).toBe(true);
   });
 
   it('a draft the parent confirms against the AI reviews is approved in the editor and then offered to the child', async () => {
@@ -110,7 +111,8 @@ describe('parent approval controls the child library', () => {
     fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
     fireEvent.click(button('Open'));
     fireEvent.click(await screen.findByRole('button', { name: `Edit ${story.title}` }));
-    fireEvent.click(await screen.findByLabelText(/AI literacy review and the AI QA review for this version have passed/));
+    await screen.findByRole('button', { name: 'Approve version 1' });
+    fireEvent.click(await screen.findByRole('checkbox', { name: /AI literacy review and the AI QA review for this version have passed/ }));
     const approve = await screen.findByRole('button', { name: 'Approve version 1' });
     expect((approve as HTMLButtonElement).disabled).toBe(false);
     fireEvent.click(approve);
