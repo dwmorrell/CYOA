@@ -4,7 +4,7 @@
   "storyId": "the-derelict-salvage",
   "state": "awaiting-parent-approval",
   "createdAt": "2026-10-20T23:23:23.408Z",
-  "updatedAt": "2026-10-20T23:37:42.450Z",
+  "updatedAt": "2026-10-21T18:37:14.553Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/request.json",
@@ -356,6 +356,151 @@
       ],
       "id": "review-2-literacy",
       "submittedAt": "2026-10-20T23:37:42.450Z"
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 6,
+      "draftSha256": "53cab9802e1f709b5a215a972da3cc3a66764eeeac17aa1f808416ad4ea54df3",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "Skills practised: the story practises decoding in context (vowel-team, silent-e and th words recur on every ending route), recognising the same word-set words in narration and in choice labels, and following a three-step sequence (Nib's chalk steps) where order matters. Readers also infer from clues (a log note dated four days ago on a ship lost eleven years ago, one live cable running to the cargo door), learn words such as corridor, valve and beacon from context and the glossary, and use evidence to weigh a risk before choosing an ending. Limits: this review rests on spelling-based detection, which cannot confirm how a word sounds, and on a read of the text, not a test with a reader."
+        },
+        {
+          "severity": "minor",
+          "message": "Comprehension gap: 'the blue tube' is used as a tool (Nib's step One in 'nib'; 'Cool the lock with the blue tube first' in 'climax-careful'; Bo cools the lock in 'hold-open' and 'climax-team'), but it is never introduced or found. The reader also has a different 'tube' (the dock tube) in mind from 'start' and 'tube'. This looks like word-set weaving that outran the plot. Suggest the narrative designer introduce the blue tube once (for example in 'locker' or 'engine') or rename it so it is not confused with the dock tube.",
+          "passage": "nib"
+        },
+        {
+          "severity": "minor",
+          "message": "Continuity slip that can confuse a reader: the choice 'Carry the moths home in the Kestrel's dome' (climax-team) and the line 'packed the moths into the Kestrel's dome' (ending-carry) assume the Kestrel has a dome. Only the Lark's glass dome ('dome') is established. Suggest the narrative designer say 'a glass case' or add a dome to the Kestrel earlier.",
+          "passage": "ending-carry"
+        },
+        {
+          "severity": "minor",
+          "message": "The rush route reads oddly after 'climax-careful': choosing 'Lift the door first, to see inside' leads to 'ending-rush', whose first line says 'The team rushed the lock'. The reader has not tried to cut a lock on this route, and the cause-and-effect link is weaker than on the 'open-rush' route. Suggest a one-line change so the ending names the cause for either entry. Also, the lockedHint ('Find a long pole and read the last log note first.') is clear, but players who took 'hull-check' never get the 'late-log' clue and can only unlock 'open-careful' by going back, which is not a path in this graph. Those players see the choice locked with no way to meet its needs. Suggest the narrative designer check that this is intended.",
+          "passage": "ending-rush"
+        },
+        {
+          "severity": "minor",
+          "message": "Word-set coverage is met but thin for several words: 'rain' (2: scan, climax-team), 'boat' (2: nib, ending-tow), 'keep' (2: nib, ending-closed) and 'cave' (2: threshold, ending-garden). The set minimums are met by a wide margin (vowel team 28/10, silent e 42/8, th 48/8), and the shortest route to ending-garden carries only 9 vowel-team words, so practice is uneven across routes. This does not block the pass. The report confirms each set appears on the shortest route to every ending. I did not check that every individual word appears on every route.",
+          "passage": "ending-garden"
+        },
+        {
+          "severity": "minor",
+          "message": "Plan and brief disagree: word-weave-plan.json places 'moon' in the vowel-team set (threshold, climax), but the brief's set does not include it (r4 failed validation for dropping it). The draft uses 'moon' naturally ('dome', 'ending-garden', 'climax-team') and the declared set is correct, so there is no effect on the draft. The plan file is stale and could mislead a later revision.",
+          "passage": "dome"
+        },
+        {
+          "severity": "minor",
+          "message": "Age fit: the text is very readable (average sentence 6.6 words, longest passage 102 words, a handful of 4-syllable words: navigator, somebody), which suits dyslexic readers. For ages 10 to 13 the tone is on the young side but the theme (weighing a risk, reading evidence, teamwork) and the clue puzzle are age-appropriate. Content is safe: no one is hurt ('No one was hurt' in ending-rush). The suggestion that moths survive eleven years is a fiction the reader accepts. 'Derelict' appears in the glossary and title but not in the passage text, so the definition is never reached from the story. The glossary words salvage and derelict are good, but a short in-text use would help.",
+          "passage": "start"
+        },
+        {
+          "severity": "note",
+          "message": "Word checks: every declared word carries its pattern by spelling. Vowel team: rain, sail (ai), boat, road (oa), team (ea), keep, deep (ee). Silent e: cave, dome, tube, note, hope, pole. th: thin, that, them, thud, path, moth. The report lists no concept mismatches and no missing words, and all three minimums are met. 'that' and 'them' are mostly function words, so they add less targeted practice than the content words thin, thud, path and moth. Limits: detection is by spelling, not sound, so a pattern match does not prove the reader hears the intended sound (for example, the th in 'that' and 'them' is the voiced sound while in 'thin', 'thud', 'path' and 'moth' it is voiceless). I could not run my own per-word, per-route count (a helper script was not approved), so I rely on the generated report for the route counts."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/drafts/story.r6.json",
+          "sha256": "53cab9802e1f709b5a215a972da3cc3a66764eeeac17aa1f808416ad4ea54df3"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/literacy.r6.json",
+          "sha256": "f4a2fdb01f790dfb8e2c0d4a2005c4f4f38da02be05340d4a14835c609135330"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/literacy.r6.md",
+          "sha256": "42aaa8e45642d2c491bb934b9bad779eb8552d70f1df86e0f07d4862cb08c2b7"
+        }
+      ],
+      "shelfSummary": {
+        "blurb": "A space salvage mystery with five endings. Readers practise vowel team, silent-e and th words, with r-controlled, blend, -ed and ck words too, while using clues, sequencing and vocabulary from context to decide how to open a sealed hold.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "vocabulary",
+          "detail"
+        ],
+        "wordTypes": [
+          {
+            "concept": "vowel-team",
+            "examples": [
+              "boat",
+              "road",
+              "team",
+              "deep"
+            ]
+          },
+          {
+            "concept": "silent-e",
+            "examples": [
+              "cave",
+              "dome",
+              "tube",
+              "note"
+            ]
+          },
+          {
+            "concept": "digraph-th",
+            "examples": [
+              "moth",
+              "path",
+              "thin",
+              "thud"
+            ]
+          },
+          {
+            "concept": "r-controlled",
+            "examples": [
+              "cargo",
+              "carry",
+              "arm"
+            ]
+          },
+          {
+            "concept": "initial-blend",
+            "examples": [
+              "bright",
+              "bring",
+              "climbed"
+            ]
+          },
+          {
+            "concept": "suffix-ed",
+            "examples": [
+              "checked",
+              "climbed",
+              "drifted"
+            ]
+          },
+          {
+            "concept": "digraph-ck",
+            "examples": [
+              "lock",
+              "dock",
+              "back"
+            ]
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Syllable types",
+          "Morphology",
+          "Comprehension",
+          "Vocabulary"
+        ]
+      },
+      "id": "review-3-literacy",
+      "submittedAt": "2026-10-21T18:37:14.553Z"
     }
   ],
   "parentDecisions": [],

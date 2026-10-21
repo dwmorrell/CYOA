@@ -1,0 +1,83 @@
+{
+  "role": "literacy",
+  "reviewer": { "name": "literacy-specialist", "kind": "ai-agent", "agent": "literacy-specialist" },
+  "revision": 3,
+  "draftSha256": "805a07d10b0d2ad91f46eb2873c8c6585b77ac661c141efa3bbfe2dd4f6ae589",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Skills practised: Reading and following this story practises decoding wh, ck and tch words in meaningful context, and meeting the same word-set words again on every route. It builds sequencing (latch, then switch, then hatch; tools passed to Dex in order), inference (green and amber pod lights, bent sensors that make maps untrustworthy) and vocabulary from context (sensors, coolant, anomaly, navigator). Choices and locked hints ask the reader to track clues and items, so they also practise comprehension monitoring and cause-and-effect reasoning."
+    },
+    {
+      "severity": "note",
+      "message": "Word sets meet their minimums with wide margins (wh 33/10, ck 40/8, tch 29/8) and every listed word is used. Every word carries its declared pattern: when, white, whisper, wheel, whistle, whip (wh); back, deck, click, neck, pack, rock (ck); catch, match, latch, hatch, watch, switch (tch). The report finds no concept mismatches. Each set appears on the shortest route to all five endings (wh 10 to 13, ck 20 to 25, tch 13 to 17). Most uses read naturally, for example 'A soft click woke Jun Adair' (wake), 'First the latch. Then the switch. Last the hatch.' (bridge) and 'That is how you catch a leak' (dex-tools). The r1 findings on left/right in ending-3, Dex's speaker, the unused 'anomaly' glossary entry and the ending-5 and ending-2 item references are fixed in this revision.",
+      "passage": "bridge"
+    },
+    {
+      "severity": "minor",
+      "message": "'He gave a whip of his wrist and the clamp snapped tight' is still the least natural set-word use. 'Whip' as a noun for a quick flick is unusual for a 10 to 13 reader. This is the only use of 'whip' in the story. Narrative-designer: consider a more common sentence, or a different place for 'whip' (for example 'a whip of wind' in the dust).",
+      "passage": "dex-tools"
+    },
+    {
+      "severity": "minor",
+      "message": "Practice is lopsided inside each set. 'White' (12) and 'wheel' (14) carry the wh set, and 'pack' (14) carries ck, while 'whisper', 'whistle', 'whip', 'catch' and 'click' (ending-1, hall, dex-tools) appear only once to three times. The minimums are met, but a learner gets little repeated practice on those words. The analyzer counts only -s and -es forms, so 'whispered' (storm-bridge, storm-engine, climax-team) does not count toward 'whisper'. Optional: add one more natural use of 'catch', 'whistle' or 'click' on the engine route.",
+      "passage": "ending-1"
+    },
+    {
+      "severity": "minor",
+      "message": "'Watch' follows the w-a pattern, so its vowel is not the short a of 'latch' or 'match'. It is also used as a noun in 'watch crew' (climax-team, ending-4) and as a verb in 'Watch the seam' (dex-lamp). 'Whistle' has a silent t and a -le syllable. 'Wheel' and 'white' use a vowel team and a silent e. The spelling patterns are correct. The brief names no decodability stage, so I could not judge whether these words fit the child's current level. The parent or tutor should confirm.",
+      "passage": "climax-team"
+    },
+    {
+      "severity": "minor",
+      "message": "On the bridge route (wake, hall, bridge, captain-wakes), Dex says 'The leak is patched. Engines are ready!' in storm-bridge. A reader who never visited the engine room has not met a leak or Dex's pipe, so this line is unexplained. Narrative-designer: add a short cue, such as 'The coolant leak is patched', and name Dex as the engineer from the pod tag if the reader has not met him.",
+      "passage": "storm-bridge"
+    },
+    {
+      "severity": "minor",
+      "message": "Left and right still carry the key clue ('left of the big rock'). The text is now consistent: climax-lane turns the wheel left with the rock on the right, and ending-3 puts the lane to the rock's left. Left/right confusion is common for dyslexic readers, so a landmark cue alongside 'left' (the rock's colour or shape) would help. In dex-lamp, 'turned it left' is a second left reference that does not matter to the plot.",
+      "passage": "climax-lane"
+    },
+    {
+      "severity": "minor",
+      "message": "The story is about 1,493 words in total, with an average sentence of 6 words. A route is roughly 500 to 700 words, which is much shorter than the stated estimatedMinutes of 25. The very short sentences read young for ages 10 to 13, though the themes (calm under pressure, teamwork, the cost in ending-4) suit that age and no passage is heavy. Tell the parent the real reading time, or have the narrative-designer add some varied sentence length in a later revision.",
+      "passage": "captain-wakes"
+    },
+    {
+      "severity": "note",
+      "message": "Sentence length: the brief asks for 16 words or fewer and the analyzer threshold is 20. The report finds none over 20. In my read-through the longest sentences ran to about 15 words (for example 'Next time, Jun thought, a clear plan and the right tools would help even more' in ending-2). I did not run a script for the stricter 16-word limit, so this is a manual check, not a measured one."
+    },
+    {
+      "severity": "note",
+      "message": "Limits of this review: the analyzer matches spelling, not sound, and only checks the shortest route to each ending, not every possible route. It does not judge decodability, vocabulary level or story quality. I read every passage of revision 3 but did not play each route in the app. I am an AI agent and this review does not replace a qualified human literacy reviewer. Whether the 'watch', 'whistle' and 'wheel' vowel patterns suit the child's program stage needs the parent or tutor to confirm."
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "A space survival mystery: a navigator wakes early on a drifting ship and must wake the crew and steer clear of a dust storm. It practises wh, ck and tch words, plus -ed endings, beginning blends and FLOSS words. Readers also practise sequencing, inference and vocabulary from context.",
+    "skills": ["comprehension", "inference", "sequencing", "vocabulary"],
+    "wordTypes": [
+      { "concept": "digraph-wh", "examples": ["when", "white", "wheel", "whistle"] },
+      { "concept": "digraph-ck", "examples": ["back", "deck", "click", "rock"] },
+      { "concept": "trigraph-tch", "examples": ["catch", "latch", "hatch", "switch"] },
+      { "concept": "suffix-ed", "examples": ["asked", "climbed", "answered", "cleared"] },
+      { "concept": "initial-blend", "examples": ["clamp", "bridge", "climb", "clear"] },
+      { "concept": "floss", "examples": ["hall", "buzz", "hiss", "glass"] }
+    ],
+    "ogCategories": ["Phonics", "Spelling rules", "Morphology", "Comprehension"]
+  },
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r3.json",
+      "sha256": "805a07d10b0d2ad91f46eb2873c8c6585b77ac661c141efa3bbfe2dd4f6ae589"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r3.json",
+      "sha256": "d09b5af74383d22360427d42cc2533e77c4cd6fc7d5f40e183d2f5aac11fad6c"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r3.md",
+      "sha256": "01cacc9c6dd77805b4b515081bc87f458013821daf48ac6ec1d089b400ca0630"
+    }
+  ]
+}

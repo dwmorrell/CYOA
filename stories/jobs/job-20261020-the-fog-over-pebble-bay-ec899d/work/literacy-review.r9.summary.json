@@ -1,0 +1,62 @@
+{
+  "role": "literacy",
+  "reviewer": { "name": "literacy-specialist", "kind": "ai-agent", "agent": "literacy-specialist" },
+  "revision": 9,
+  "draftSha256": "64c600e572453fbcb17f77d32033514ca0bf90bda800054f27672ab3d933058d",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "AI review of revision 9. It is NOT the human literacy review the publication policy requires. literacy.review.status stays \"pending\" in the story file (I did not change it) and a qualified human must still review. 'pass' here only means I found no blocker, major or minor finding. Automated checks cannot judge: spelling patterns are matched, not sound; syllable counts are estimates from vowel groups; readability figures are estimates and say nothing about how a particular child will read the text; the analyzer does not judge vocabulary, clue clarity, definition quality, whether a learning tag is real practice, or story quality. Sentence lengths I quote are my own hand counts, not analyzer output. I did not run the app, listen to the read-aloud voice, or test with a child; app behaviour is not judged here.",
+      "passage": "start"
+    },
+    {
+      "severity": "note",
+      "message": "Skills practised: reading the whole story practises decoding in context, especially sh, ch and th words and short closed-syllable words, and recognising the same word-set words again on every route. Readers follow the steps that explain why the lamp went dark (sequencing), infer causes from clues such as the cold wick and the misty mirror, pick up word meanings from context with optional word help, and recall small details that decide which choices open. This is an automated spelling-pattern view, not a judgement of how a child will read it.",
+      "passage": "start"
+    },
+    {
+      "severity": "note",
+      "message": "REPORT FIGURES (from reports/literacy.r9.md): all automated literacy checks pass. word-set-minimums sh-words 20/10, ch-words 23/8, th-words 16/8; every word used; each set on the shortest route to all three endings (sh: beam 14, help 15, dock 13; ch: 10, 10, 7; th: 8, 9, 8); word-set-concepts-match-spelling: no mismatches; target concepts present (closed-syllable 391, digraph-sh 41, digraph-ch 24, digraph-th 157 matches); sentence-length: 0 sentences over 20 words; readability 714 words, no words estimated at 4+ syllables; 18 glossary words with a definition; tagged moments comprehension 2, inference 3, sequencing 1, vocabulary 1, detail 2, engagement 1. No word-set minimum is missed, no target pattern is absent, and no word-set word fails its declared pattern (by spelling). Text is unchanged from r8 apart from the removed threshold puzzle, as found in my earlier r9 review; I did not re-diff it for this summary pass.",
+      "passage": "shed"
+    },
+    {
+      "severity": "note",
+      "message": "THRESHOLD STILL TEACHES WITHOUT THE PUZZLE. The inference moment is carried by the passage: \"The wind must have put out the wick.\" next to \"The brass mirror stood dull and misty. The wick sat cold in its dish.\" and the closing \"looked at the mirror\" nudges the reader to link Gran Tull's clue to what Fen sees. The \"Wipe the mirror and light the wick\" choice keeps a fair hint naming the cloth, matches and clue; the other two choices are never locked, so the child cannot get stuck.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "note",
+      "message": "Carried over, unchanged and not blocking: the bench-clue 'inference' tag is thin because each link is stated outright (the honest count of real inference moments is two, threshold and bench); the glossary entry for \"answer\" (\"What solves a puzzle or a question.\") could say \"problem\" now the puzzle is gone, a suggestion for the narrative designer; ending-help uses past perfect \"had hopped\" once. Left for the human reviewer.",
+      "passage": "ending-help"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r9.json",
+      "sha256": "64c600e572453fbcb17f77d32033514ca0bf90bda800054f27672ab3d933058d"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r9.json",
+      "sha256": "f8500873bd6d7876e19ce6f0480c21b2a8b6f23f84eb20e3739f06db70e5ba79"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r9.md",
+      "sha256": "0571a4b47ac6ecbcbbcd266e5856255200256dc804f986298c11d616632f672b"
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "A gentle seaside mystery: Fen, the lamp keeper's helper, finds out why the lighthouse lamp went dark in the fog. It practises sh, ch and th digraphs and short closed-syllable words, plus sequencing, inference and finding details in the text.",
+    "skills": ["comprehension", "inference", "sequencing", "vocabulary", "detail"],
+    "wordTypes": [
+      { "concept": "digraph-sh", "examples": ["ship", "fish", "shed", "shell"] },
+      { "concept": "digraph-ch", "examples": ["chest", "chain", "bench", "much"] },
+      { "concept": "digraph-th", "examples": ["path", "thick", "moth", "cloth"] },
+      { "concept": "closed-syllable", "examples": ["back", "chest", "ask", "bit"] },
+      { "concept": "digraph-ck", "examples": ["back", "dock", "wick", "thick"] },
+      { "concept": "floss", "examples": ["brass", "dull", "gull", "smell"] },
+      { "concept": "suffix-ed", "examples": ["asked", "called", "looked", "climbed"] }
+    ],
+    "ogCategories": ["Phonics", "Syllable types", "Spelling rules", "Morphology", "Comprehension"]
+  }
+}

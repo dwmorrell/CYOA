@@ -1,0 +1,145 @@
+{
+  "role": "literacy",
+  "reviewer": {
+    "name": "literacy-specialist",
+    "kind": "ai-agent",
+    "agent": "literacy-specialist"
+  },
+  "revision": 4,
+  "draftSha256": "2b301c292efdc30b797b3c627cd601a035a21dfb0491d2d923d5d50db89fe36e",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "Pronoun is unclear. 'They climbed the stairs, one by one, toward the Tower. Each one shone with a speck of glow dust.' Just before this, 'They were like little claws' means the marks, but 'They climbed' reads as Eli, Lira and Ash. 'Each one shone' then has no clear referent. Suggest 'The marks climbed the stairs, one by one, toward the Tower. Each one shone...' (narrative designer's call).",
+      "passage": "the-stairs"
+    },
+    {
+      "severity": "minor",
+      "message": "The brief sets maxSentenceWords 16. By my count, 'Eli's library book had a map in it, and he was meant to show it in class.' is 17 words. The report only flags sentences over 20, so it did not catch this. Splitting at 'and' would fit the limit and help a slower decoder.",
+      "passage": "late-for-school"
+    },
+    {
+      "severity": "minor",
+      "message": "Small logic wobble in the setup of the missing stone. 'The glow stone lived up there. It had gone missing three nights ago.' says the stone is up there and also missing. The lantern room later shows the crab holding it, so the facts agree, but a first-time reader has to repair them. Consider 'The glow stone should be up there, but it had gone missing three nights ago.' In 'lantern-room', 'Whatever was in the Tower's heart was not a villain' is also an abstract phrase for the age; 'The thing in the Tower was not a villain' is clearer.",
+      "passage": "tower-hall"
+    },
+    {
+      "severity": "minor",
+      "message": "Repeated 'gave a ...' frame: 'gave a hop' (late-for-school), 'gave a little trip' (the-gate), 'gave a spin, a trip and a splash' (stone-hop), 'gave a creak' (ladder-climb), 'gave a loud croak and made a big hop' (frog-helped), 'gave a small, surprised smile' (frog-helped), 'gave a small, sad squeak' (ending-the-grab). It is far better than in revision 2, but it still leans on this frame to carry the blend words 'hop', 'trip' and 'spin'. 'gave a little trip' is the least natural; it could be 'tripped a little' or 'nearly tripped'. Not a blocker.",
+      "passage": "the-gate"
+    },
+    {
+      "severity": "minor",
+      "message": "Word-set fit checked by reading the draft. Every blend word (step, stone, frog, plan, spin, trip, crab, drum) starts with a consonant blend. Every closed-syllable word (cat, map, net, lid, hop, mud, bus) is one short vowel closed by a consonant. Every ing word (running, jumping, hiding, climbing, glowing, ringing) is a base plus -ing, and each appears (report: all words used). Set minimums are met: blend 67/10, closed-syllable 44/8, ing 18/8, and the weave comparison is ok. Each set reaches every ending route (lowest: blend 10 on home-too-soon, closed-syllable 18, ing 8 against a minimum of 8 on home-too-soon, which is tight). Notes for the parent's program: 'stone' is a blend word but its vowel is a silent-e pattern, not a closed syllable; 'running' doubles the consonant and 'hiding' drops the silent e, so the ing set mixes three spelling conventions. Individual words are not on every route: 'bus' appears only in 'the-gate' and 'jumping' only in 'stone-hop' (report per-word counts of 1 each), so a reader on the other routes does not meet them. This is allowed by the set-level rule but worth knowing. The word use reads naturally in this revision.",
+      "passage": "late-for-school"
+    },
+    {
+      "severity": "minor",
+      "message": "Limits of this review. The automated report detects spelling, not sound. The 'Suffix -ing' count of 33 includes 'anything' and 'nothing', which are not the suffix, and the closed-syllable count of 778 and 'ea' in 'bread' type matches overcount. The 'th' count of 269 is mostly the word 'the'. The report does not judge decodability, vocabulary or story quality. Decodability and age-fit judgements come from reading the text, not from testing with a reader. This AI review is not a certified literacy review.",
+      "passage": "varro"
+    },
+    {
+      "severity": "note",
+      "message": "Skills practised: reading this story, a child decodes in context short words with consonant blends (step, frog, trip, crab, drum), closed-syllable words (cat, map, mud, hop) and -ing words (running, climbing, glowing, ringing), meeting each often on every route. They follow cause and effect and sequence through the fall, the marsh and the climb, and infer from clues (the small wet marks that lead up, the shivering crab) and from the choices that depend on them. They also track who is speaking in dialogue and pick up vocabulary from context (lantern, marsh, hatch, creature, villain). Fit for ages 10 to 13 is good: short sentences (average 8 words), a gentle theme of kindness and courage, and no talking down.",
+      "passage": "late-for-school"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r4.json",
+      "sha256": "2b301c292efdc30b797b3c627cd601a035a21dfb0491d2d923d5d50db89fe36e"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/literacy.r4.json",
+      "sha256": "90b51261fc080688e622eddc111c078a71c5e96ce67cf7f87eee2a0df7c94646"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/literacy.r4.md",
+      "sha256": "0456e0329bbecfcf990e745551808826fc70b35f1333ccf1577c491118658fc9"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/weave-comparison.r4.json",
+      "sha256": "4e07cf8bd7f5db0d7b3fc079d9903c9cf10c3aec5168dba8f00dbb7cfde8a10e"
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "A gentle fantasy adventure in which a boy follows a cat into a land whose tower light is fading. It practises beginning blends, closed syllables and -ing endings, with sequencing, inference and vocabulary from context.",
+    "skills": [
+      "comprehension",
+      "inference",
+      "sequencing",
+      "vocabulary"
+    ],
+    "wordTypes": [
+      {
+        "concept": "initial-blend",
+        "examples": [
+          "step",
+          "frog",
+          "crab",
+          "drum"
+        ]
+      },
+      {
+        "concept": "closed-syllable",
+        "examples": [
+          "cat",
+          "map",
+          "mud",
+          "hop"
+        ]
+      },
+      {
+        "concept": "suffix-ing",
+        "examples": [
+          "climbing",
+          "glowing",
+          "hiding",
+          "ringing"
+        ]
+      },
+      {
+        "concept": "digraph-sh",
+        "examples": [
+          "ash",
+          "marsh",
+          "shook"
+        ]
+      },
+      {
+        "concept": "floss",
+        "examples": [
+          "bell",
+          "hill",
+          "moss",
+          "fell"
+        ]
+      },
+      {
+        "concept": "silent-e",
+        "examples": [
+          "gate",
+          "gave",
+          "came"
+        ]
+      },
+      {
+        "concept": "digraph-th",
+        "examples": [
+          "path",
+          "that",
+          "fifth"
+        ]
+      }
+    ],
+    "ogCategories": [
+      "Phonics",
+      "Syllable types",
+      "Morphology",
+      "Comprehension"
+    ]
+  },
+  "id": "review-5-literacy",
+  "submittedAt": "2026-10-21T18:37:06.758Z"
+}

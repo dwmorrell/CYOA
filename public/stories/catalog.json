@@ -3,96 +3,96 @@
   "published": [],
   "previews": [
     {
-      "id": "the-fog-over-pebble-bay",
-      "title": "The Fog over Pebble Bay",
-      "version": 9,
-      "path": "previews/the-fog-over-pebble-bay.json",
-      "sha256": "64c600e572453fbcb17f77d32033514ca0bf90bda800054f27672ab3d933058d",
-      "jobId": "job-20261020-the-fog-over-pebble-bay-ec899d",
-      "jobState": "awaiting-parent-approval",
-      "gates": [
-        {
-          "id": "draft-exists",
-          "ok": true,
-          "detail": "Revision 9, story v9"
-        },
-        {
-          "id": "automated-validation",
-          "ok": true,
-          "detail": "schema: ok; graph: ok, 3/3 endings reachable; literacy checks: ok; brief: ok"
-        },
-        {
-          "id": "review:qa",
-          "ok": true,
-          "detail": "qa passed by qa-engineer (ai-agent)"
-        },
-        {
-          "id": "review:literacy",
-          "ok": true,
-          "detail": "literacy passed by literacy-specialist (ai-agent)"
-        },
-        {
-          "id": "story-literacy-claim",
-          "ok": true,
-          "detail": "Story literacy review is \"pending\""
-        },
-        {
-          "id": "parent-approval",
-          "ok": false,
-          "detail": "Waiting for a parent decision"
-        }
-      ],
-      "updatedAt": "2026-10-20T22:49:56.450Z"
-    },
-    {
-      "id": "the-tomb-of-ameru",
-      "title": "The Tomb of Ameru",
-      "version": 1,
-      "path": "previews/the-tomb-of-ameru.json",
-      "sha256": "b25881d0eeedec8eb21459ded7edeebd5e3bf258e6812da7eabaf1c6b2391560",
-      "jobId": "job-20261020-the-tomb-of-ameru-sami-k-541c79",
-      "jobState": "awaiting-parent-approval",
-      "gates": [
-        {
-          "id": "draft-exists",
-          "ok": true,
-          "detail": "Revision 1, story v1"
-        },
-        {
-          "id": "automated-validation",
-          "ok": true,
-          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
-        },
-        {
-          "id": "review:qa",
-          "ok": true,
-          "detail": "qa passed by qa-engineer (ai-agent)"
-        },
-        {
-          "id": "review:literacy",
-          "ok": true,
-          "detail": "literacy passed by literacy-specialist (ai-agent)"
-        },
-        {
-          "id": "story-literacy-claim",
-          "ok": true,
-          "detail": "Story literacy review is \"pending\""
-        },
-        {
-          "id": "parent-approval",
-          "ok": false,
-          "detail": "Waiting for a parent decision"
-        }
-      ],
-      "updatedAt": "2026-10-20T23:32:13.671Z"
-    },
-    {
       "id": "the-cat-who-took-the-wrong-turn",
       "title": "The Cat Who Took the Wrong Turn",
       "version": 4,
       "path": "previews/the-cat-who-took-the-wrong-turn.json",
       "sha256": "2b301c292efdc30b797b3c627cd601a035a21dfb0491d2d923d5d50db89fe36e",
       "jobId": "job-20261020-the-cat-who-took-the-wro-fd6944",
+      "literacySummary": {
+        "blurb": "A gentle fantasy adventure in which a boy follows a cat into a land whose tower light is fading. It practises beginning blends, closed syllables and -ing endings, with sequencing, inference and vocabulary from context.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "vocabulary"
+        ],
+        "wordTypes": [
+          {
+            "concept": "initial-blend",
+            "examples": [
+              "step",
+              "frog",
+              "crab",
+              "drum"
+            ],
+            "label": "Initial consonant blend"
+          },
+          {
+            "concept": "closed-syllable",
+            "examples": [
+              "cat",
+              "map",
+              "mud",
+              "hop"
+            ],
+            "label": "Closed syllable (short vowel)"
+          },
+          {
+            "concept": "suffix-ing",
+            "examples": [
+              "climbing",
+              "glowing",
+              "hiding",
+              "ringing"
+            ],
+            "label": "Vowel suffix -ing"
+          },
+          {
+            "concept": "digraph-sh",
+            "examples": [
+              "ash",
+              "marsh",
+              "shook"
+            ],
+            "label": "Consonant digraph /sh/"
+          },
+          {
+            "concept": "floss",
+            "examples": [
+              "bell",
+              "hill",
+              "moss",
+              "fell"
+            ],
+            "label": "Floss rule"
+          },
+          {
+            "concept": "silent-e",
+            "examples": [
+              "gate",
+              "gave",
+              "came"
+            ],
+            "label": "Magic e / VCe syllable"
+          },
+          {
+            "concept": "digraph-th",
+            "examples": [
+              "path",
+              "that",
+              "fifth"
+            ],
+            "label": "Consonant digraph /th/"
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Syllable types",
+          "Morphology",
+          "Comprehension"
+        ]
+      },
       "jobState": "awaiting-parent-approval",
       "gates": [
         {
@@ -126,91 +126,7 @@
           "detail": "Waiting for a parent decision"
         }
       ],
-      "updatedAt": "2026-10-20T23:32:14.338Z"
-    },
-    {
-      "id": "wake-cycle",
-      "title": "Wake Cycle",
-      "version": 3,
-      "path": "previews/wake-cycle.json",
-      "sha256": "805a07d10b0d2ad91f46eb2873c8c6585b77ac661c141efa3bbfe2dd4f6ae589",
-      "jobId": "job-20261020-wake-cycle-astronaut-jun-3923f7",
-      "jobState": "awaiting-parent-approval",
-      "gates": [
-        {
-          "id": "draft-exists",
-          "ok": true,
-          "detail": "Revision 3, story v3"
-        },
-        {
-          "id": "automated-validation",
-          "ok": true,
-          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
-        },
-        {
-          "id": "review:qa",
-          "ok": true,
-          "detail": "qa passed by qa-engineer (ai-agent)"
-        },
-        {
-          "id": "review:literacy",
-          "ok": true,
-          "detail": "literacy passed by literacy-specialist (ai-agent)"
-        },
-        {
-          "id": "story-literacy-claim",
-          "ok": true,
-          "detail": "Story literacy review is \"pending\""
-        },
-        {
-          "id": "parent-approval",
-          "ok": false,
-          "detail": "Waiting for a parent decision"
-        }
-      ],
-      "updatedAt": "2026-10-20T23:32:15.004Z"
-    },
-    {
-      "id": "the-rain-courier",
-      "title": "The Rain Courier",
-      "version": 8,
-      "path": "previews/the-rain-courier.json",
-      "sha256": "800917eaee556c43c0d8f32866b6a046d17076e53f5a6594623561a96635f79d",
-      "jobId": "job-20261020-the-rain-courier-mara-is-1b7daf",
-      "jobState": "awaiting-parent-approval",
-      "gates": [
-        {
-          "id": "draft-exists",
-          "ok": true,
-          "detail": "Revision 8, story v8"
-        },
-        {
-          "id": "automated-validation",
-          "ok": true,
-          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
-        },
-        {
-          "id": "review:qa",
-          "ok": true,
-          "detail": "qa passed by qa-engineer (ai-agent)"
-        },
-        {
-          "id": "review:literacy",
-          "ok": true,
-          "detail": "literacy passed by literacy-specialist (ai-agent)"
-        },
-        {
-          "id": "story-literacy-claim",
-          "ok": true,
-          "detail": "Story literacy review is \"pending\""
-        },
-        {
-          "id": "parent-approval",
-          "ok": false,
-          "detail": "Waiting for a parent decision"
-        }
-      ],
-      "updatedAt": "2026-10-20T23:39:58.692Z"
+      "updatedAt": "2026-10-21T18:37:40.760Z"
     },
     {
       "id": "the-derelict-salvage",
@@ -219,6 +135,91 @@
       "path": "previews/the-derelict-salvage.json",
       "sha256": "53cab9802e1f709b5a215a972da3cc3a66764eeeac17aa1f808416ad4ea54df3",
       "jobId": "job-20261020-the-derelict-salvage-cap-f8f7ea",
+      "literacySummary": {
+        "blurb": "A space salvage mystery with five endings. Readers practise vowel team, silent-e and th words, with r-controlled, blend, -ed and ck words too, while using clues, sequencing and vocabulary from context to decide how to open a sealed hold.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "vocabulary",
+          "detail"
+        ],
+        "wordTypes": [
+          {
+            "concept": "vowel-team",
+            "examples": [
+              "boat",
+              "road",
+              "team",
+              "deep"
+            ],
+            "label": "Vowel digraph / vowel team"
+          },
+          {
+            "concept": "silent-e",
+            "examples": [
+              "cave",
+              "dome",
+              "tube",
+              "note"
+            ],
+            "label": "Magic e / VCe syllable"
+          },
+          {
+            "concept": "digraph-th",
+            "examples": [
+              "moth",
+              "path",
+              "thin",
+              "thud"
+            ],
+            "label": "Consonant digraph /th/"
+          },
+          {
+            "concept": "r-controlled",
+            "examples": [
+              "cargo",
+              "carry",
+              "arm"
+            ],
+            "label": "Bossy r / r-controlled vowel"
+          },
+          {
+            "concept": "initial-blend",
+            "examples": [
+              "bright",
+              "bring",
+              "climbed"
+            ],
+            "label": "Initial consonant blend"
+          },
+          {
+            "concept": "suffix-ed",
+            "examples": [
+              "checked",
+              "climbed",
+              "drifted"
+            ],
+            "label": "Vowel suffix -ed"
+          },
+          {
+            "concept": "digraph-ck",
+            "examples": [
+              "lock",
+              "dock",
+              "back"
+            ],
+            "label": "-ck rule"
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Syllable types",
+          "Morphology",
+          "Comprehension",
+          "Vocabulary"
+        ]
+      },
       "jobState": "awaiting-parent-approval",
       "gates": [
         {
@@ -252,7 +253,526 @@
           "detail": "Waiting for a parent decision"
         }
       ],
-      "updatedAt": "2026-10-20T23:39:59.333Z"
+      "updatedAt": "2026-10-21T18:37:41.487Z"
+    },
+    {
+      "id": "the-fog-over-pebble-bay",
+      "title": "The Fog over Pebble Bay",
+      "version": 9,
+      "path": "previews/the-fog-over-pebble-bay.json",
+      "sha256": "64c600e572453fbcb17f77d32033514ca0bf90bda800054f27672ab3d933058d",
+      "jobId": "job-20261020-the-fog-over-pebble-bay-ec899d",
+      "literacySummary": {
+        "blurb": "A gentle seaside mystery: Fen, the lamp keeper's helper, finds out why the lighthouse lamp went dark in the fog. It practises sh, ch and th digraphs and short closed-syllable words, plus sequencing, inference and finding details in the text.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "vocabulary",
+          "detail"
+        ],
+        "wordTypes": [
+          {
+            "concept": "digraph-sh",
+            "examples": [
+              "ship",
+              "fish",
+              "shed",
+              "shell"
+            ],
+            "label": "Consonant digraph /sh/"
+          },
+          {
+            "concept": "digraph-ch",
+            "examples": [
+              "chest",
+              "chain",
+              "bench",
+              "much"
+            ],
+            "label": "Consonant digraph /ch/"
+          },
+          {
+            "concept": "digraph-th",
+            "examples": [
+              "path",
+              "thick",
+              "moth",
+              "cloth"
+            ],
+            "label": "Consonant digraph /th/"
+          },
+          {
+            "concept": "closed-syllable",
+            "examples": [
+              "back",
+              "chest",
+              "ask",
+              "bit"
+            ],
+            "label": "Closed syllable (short vowel)"
+          },
+          {
+            "concept": "digraph-ck",
+            "examples": [
+              "back",
+              "dock",
+              "wick",
+              "thick"
+            ],
+            "label": "-ck rule"
+          },
+          {
+            "concept": "floss",
+            "examples": [
+              "brass",
+              "dull",
+              "gull",
+              "smell"
+            ],
+            "label": "Floss rule"
+          },
+          {
+            "concept": "suffix-ed",
+            "examples": [
+              "asked",
+              "called",
+              "looked",
+              "climbed"
+            ],
+            "label": "Vowel suffix -ed"
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Syllable types",
+          "Spelling rules",
+          "Morphology",
+          "Comprehension"
+        ]
+      },
+      "jobState": "awaiting-parent-approval",
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": true,
+          "detail": "Revision 9, story v9"
+        },
+        {
+          "id": "automated-validation",
+          "ok": true,
+          "detail": "schema: ok; graph: ok, 3/3 endings reachable; literacy checks: ok; brief: ok"
+        },
+        {
+          "id": "review:qa",
+          "ok": true,
+          "detail": "qa passed by qa-engineer (ai-agent)"
+        },
+        {
+          "id": "review:literacy",
+          "ok": true,
+          "detail": "literacy passed by literacy-specialist (ai-agent)"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ],
+      "updatedAt": "2026-10-21T18:37:42.225Z"
+    },
+    {
+      "id": "the-rain-courier",
+      "title": "The Rain Courier",
+      "version": 8,
+      "path": "previews/the-rain-courier.json",
+      "sha256": "800917eaee556c43c0d8f32866b6a046d17076e53f5a6594623561a96635f79d",
+      "jobId": "job-20261020-the-rain-courier-mara-is-1b7daf",
+      "literacySummary": {
+        "blurb": "A cyberpunk delivery adventure about a courier deciding who to trust. It practises closed syllables, sh, ch and -ing words, plus ck, FLOSS, blends and -ed. Readers practise following clues, sequencing events and working out new words from context.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "vocabulary"
+        ],
+        "wordTypes": [
+          {
+            "concept": "closed-syllable",
+            "examples": [
+              "bag",
+              "lock",
+              "dash",
+              "mask"
+            ],
+            "label": "Closed syllable (short vowel)"
+          },
+          {
+            "concept": "digraph-sh",
+            "examples": [
+              "shop",
+              "shade",
+              "flash",
+              "shell"
+            ],
+            "label": "Consonant digraph /sh/"
+          },
+          {
+            "concept": "digraph-ch",
+            "examples": [
+              "chip",
+              "much",
+              "lunch",
+              "chill"
+            ],
+            "label": "Consonant digraph /ch/"
+          },
+          {
+            "concept": "suffix-ing",
+            "examples": [
+              "blinking",
+              "pounding",
+              "watching",
+              "raining"
+            ],
+            "label": "Vowel suffix -ing"
+          },
+          {
+            "concept": "digraph-ck",
+            "examples": [
+              "lock",
+              "pick",
+              "back",
+              "click"
+            ],
+            "label": "-ck rule"
+          },
+          {
+            "concept": "floss",
+            "examples": [
+              "bell",
+              "shell",
+              "still",
+              "tell"
+            ],
+            "label": "Floss rule"
+          },
+          {
+            "concept": "initial-blend",
+            "examples": [
+              "black",
+              "bridge",
+              "broker",
+              "cloth"
+            ],
+            "label": "Initial consonant blend"
+          },
+          {
+            "concept": "suffix-ed",
+            "examples": [
+              "asked",
+              "called",
+              "checked",
+              "crossed"
+            ],
+            "label": "Vowel suffix -ed"
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Spelling rules",
+          "Morphology",
+          "Comprehension"
+        ]
+      },
+      "jobState": "awaiting-parent-approval",
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": true,
+          "detail": "Revision 8, story v8"
+        },
+        {
+          "id": "automated-validation",
+          "ok": true,
+          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
+        },
+        {
+          "id": "review:qa",
+          "ok": true,
+          "detail": "qa passed by qa-engineer (ai-agent)"
+        },
+        {
+          "id": "review:literacy",
+          "ok": true,
+          "detail": "literacy passed by literacy-specialist (ai-agent)"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ],
+      "updatedAt": "2026-10-21T18:37:42.932Z"
+    },
+    {
+      "id": "the-tomb-of-ameru",
+      "title": "The Tomb of Ameru",
+      "version": 1,
+      "path": "previews/the-tomb-of-ameru.json",
+      "sha256": "b25881d0eeedec8eb21459ded7edeebd5e3bf258e6812da7eabaf1c6b2391560",
+      "jobId": "job-20261020-the-tomb-of-ameru-sami-k-541c79",
+      "literacySummary": {
+        "blurb": "A tomb-exploring adventure with five endings. It practises r-controlled words, -ed endings and ng/nk words, along with th, silent-e, FLOSS and sh words. Readers follow carved warnings, so they practise sequencing, inference and vocabulary from context.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "vocabulary"
+        ],
+        "wordTypes": [
+          {
+            "concept": "r-controlled",
+            "examples": [
+              "dark",
+              "cart",
+              "horn",
+              "burn"
+            ],
+            "label": "Bossy r / r-controlled vowel"
+          },
+          {
+            "concept": "suffix-ed",
+            "examples": [
+              "dusted",
+              "rested",
+              "lifted",
+              "hunted"
+            ],
+            "label": "Vowel suffix -ed"
+          },
+          {
+            "concept": "glued-ng-nk",
+            "examples": [
+              "long",
+              "bank",
+              "sink",
+              "rung"
+            ],
+            "label": "Welded / glued sounds"
+          },
+          {
+            "concept": "digraph-th",
+            "examples": [
+              "path",
+              "both",
+              "mouth",
+              "cloth"
+            ],
+            "label": "Consonant digraph /th/"
+          },
+          {
+            "concept": "silent-e",
+            "examples": [
+              "came",
+              "care",
+              "crate",
+              "aside"
+            ],
+            "label": "Magic e / VCe syllable"
+          },
+          {
+            "concept": "floss",
+            "examples": [
+              "bell",
+              "hill",
+              "fell",
+              "cross"
+            ],
+            "label": "Floss rule"
+          },
+          {
+            "concept": "digraph-sh",
+            "examples": [
+              "brush",
+              "fresh",
+              "push",
+              "finish"
+            ],
+            "label": "Consonant digraph /sh/"
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Syllable types",
+          "Spelling rules",
+          "Morphology",
+          "Comprehension"
+        ]
+      },
+      "jobState": "awaiting-parent-approval",
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": true,
+          "detail": "Revision 1, story v1"
+        },
+        {
+          "id": "automated-validation",
+          "ok": true,
+          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
+        },
+        {
+          "id": "review:qa",
+          "ok": true,
+          "detail": "qa passed by qa-engineer (ai-agent)"
+        },
+        {
+          "id": "review:literacy",
+          "ok": true,
+          "detail": "literacy passed by literacy-specialist (ai-agent)"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ],
+      "updatedAt": "2026-10-21T18:37:43.632Z"
+    },
+    {
+      "id": "wake-cycle",
+      "title": "Wake Cycle",
+      "version": 3,
+      "path": "previews/wake-cycle.json",
+      "sha256": "805a07d10b0d2ad91f46eb2873c8c6585b77ac661c141efa3bbfe2dd4f6ae589",
+      "jobId": "job-20261020-wake-cycle-astronaut-jun-3923f7",
+      "literacySummary": {
+        "blurb": "A space survival mystery: a navigator wakes early on a drifting ship and must wake the crew and steer clear of a dust storm. It practises wh, ck and tch words, plus -ed endings, beginning blends and FLOSS words. Readers also practise sequencing, inference and vocabulary from context.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "vocabulary"
+        ],
+        "wordTypes": [
+          {
+            "concept": "digraph-wh",
+            "examples": [
+              "when",
+              "white",
+              "wheel",
+              "whistle"
+            ],
+            "label": "Consonant digraph /wh/"
+          },
+          {
+            "concept": "digraph-ck",
+            "examples": [
+              "back",
+              "deck",
+              "click",
+              "rock"
+            ],
+            "label": "-ck rule"
+          },
+          {
+            "concept": "trigraph-tch",
+            "examples": [
+              "catch",
+              "latch",
+              "hatch",
+              "switch"
+            ],
+            "label": "-tch rule"
+          },
+          {
+            "concept": "suffix-ed",
+            "examples": [
+              "asked",
+              "climbed",
+              "answered",
+              "cleared"
+            ],
+            "label": "Vowel suffix -ed"
+          },
+          {
+            "concept": "initial-blend",
+            "examples": [
+              "clamp",
+              "bridge",
+              "climb",
+              "clear"
+            ],
+            "label": "Initial consonant blend"
+          },
+          {
+            "concept": "floss",
+            "examples": [
+              "hall",
+              "buzz",
+              "hiss",
+              "glass"
+            ],
+            "label": "Floss rule"
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Spelling rules",
+          "Morphology",
+          "Comprehension"
+        ]
+      },
+      "jobState": "awaiting-parent-approval",
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": true,
+          "detail": "Revision 3, story v3"
+        },
+        {
+          "id": "automated-validation",
+          "ok": true,
+          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
+        },
+        {
+          "id": "review:qa",
+          "ok": true,
+          "detail": "qa passed by qa-engineer (ai-agent)"
+        },
+        {
+          "id": "review:literacy",
+          "ok": true,
+          "detail": "literacy passed by literacy-specialist (ai-agent)"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ],
+      "updatedAt": "2026-10-21T18:37:44.343Z"
     }
   ]
 }
