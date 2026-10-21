@@ -1,4 +1,5 @@
 import type { Story } from '../engine/types';
+import type { ShelfSummary } from '../literacy/shelf-summary';
 import { sha256 } from '../util/hash';
 
 export interface CatalogEntry {
@@ -9,6 +10,8 @@ export interface CatalogEntry {
   sha256: string;
   jobId: string;
   series?: Story['series'];
+  /** The literacy reviewer's at-a-glance summary for parents and tutors. */
+  literacySummary?: ShelfSummary;
 }
 
 export interface PreviewEntry extends CatalogEntry {

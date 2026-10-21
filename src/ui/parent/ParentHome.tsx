@@ -5,6 +5,7 @@ import { slugify } from '../../production/request';
 import { fetchStory } from '../catalog';
 import { Page } from '../common';
 import { useApp } from '../context';
+import { focusOptions, LiteracySummary, matchesFocus } from './LiteracySummary';
 import { TypingLists } from './TypingLists';
 
 export default function ParentHome() {
@@ -13,6 +14,7 @@ export default function ParentHome() {
   const [message, setMessage] = useState('');
   const [newChild, setNewChild] = useState('');
   const [pins, setPins] = useState({ old: '', next: '' });
+  const [focus, setFocus] = useState('');
 
   const refresh = useCallback(async () => setLibrary(await repo.library()), [repo]);
   useEffect(() => void refresh(), [refresh]);
@@ -20,6 +22,9 @@ export default function ParentHome() {
   const report = (text: string) => setMessage(text);
   const fail = (e: unknown) => report(e instanceof Error ? e.message : String(e));
   const parentName = profiles.find((p) => p.kind === 'parent')?.name ?? 'Parent';
+  const workshop = [...catalog.published.map((e) => ({ e, kind: 'packaged' as const })), ...catalog.previews.map((e) => ({ e, kind: 'workshop' as const }))];
+  const focusChoices = focusOptions(workshop.map(({ e }) => e.literacySummary));
+  const shown = workshop.filter(({ e }) => matchesFocus(e.literacySummary, focus));
 
   /** Saves an incoming story as a draft, raising its version if an approved one exists. */
   const addDraft = async (incoming: Parameters<typeof repo.saveDraft>[0], source: Parameters<typeof repo.saveDraft>[2]) => {
@@ -153,17 +158,32 @@ export default function ParentHome() {
         </button>
       </div>
 
-      {(catalog.published.length > 0 || catalog.previews.length > 0) && (
+      {workshop.length > 0 && (
         <>
           <h2>From the story workshop</h2>
           <p className="muted">Stories packaged with the app. Workshop drafts have not finished their reviews.</p>
+          {focusChoices.length > 0 && (
+            <div className="row">
+              <label htmlFor="shelf-focus">Show stories that practise</label>
+              <select id="shelf-focus" className="input" value={focus} onChange={(e) => setFocus(e.target.value)}>
+                <option value="">Every story</option>
+                {focusChoices.map((o) => (
+                  <option key={o.value} value={o.value}>
+                    {o.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+          {shown.length === 0 && <p className="empty">No story on the shelf practises that yet.</p>}
           <ul className="cards">
-            {[...catalog.published.map((e) => ({ e, kind: 'packaged' as const })), ...catalog.previews.map((e) => ({ e, kind: 'workshop' as const }))].map(({ e, kind }) => (
+            {shown.map(({ e, kind }) => (
               <li key={`${kind}:${e.id}`} className="card">
                 <h3>{e.title}</h3>
                 <p>
                   {kind === 'packaged' ? 'Packaged and approved' : `Workshop draft, status: ${'jobState' in e ? e.jobState : ''}`} · version {e.version}
                 </p>
+                <LiteracySummary summary={e.literacySummary} />
                 <div className="row">
                   {kind === 'workshop' && (
                     <button type="button" className="btn" aria-label={`Preview ${e.title}`} onClick={() => go(`#/preview/workshop/${encodeURIComponent(e.id)}`)}>

@@ -19,6 +19,10 @@
 - Each race track has its own high score list, kept on this device. The car
   drives round the track from a start and finish line, and a lap ends back on it.
   Changing track starts a new lap.
+- Story shelf: each workshop story shows a literacy summary from the AI literacy
+  specialist, with a blurb, reading skills, word types with example words and
+  OG tutoring areas, plus a filter by word type or OG area. The summary lives in
+  the literacy review and is checked against the story text when recorded.
 - Grown-up area: edit typing word lists. The starter list is the default.
 - The Codebreaker badge and "Puzzles solved" count are removed from the log.
 

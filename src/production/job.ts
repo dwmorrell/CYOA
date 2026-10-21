@@ -1,6 +1,8 @@
 // Story production job: a pure, serializable state machine. The CLI persists
 // it as stories/jobs/<jobId>/job.json; nothing here touches the filesystem.
 
+import type { ShelfSummary } from '../literacy/shelf-summary';
+
 export type JobState =
   | 'requested'
   | 'briefed'
@@ -50,6 +52,8 @@ export interface Review {
   submittedAt: string;
   /** Set when a later revision makes this review stale. */
   invalidatedBy?: number;
+  /** Literacy reviews only: the at-a-glance summary for the parent shelf. */
+  shelfSummary?: ShelfSummary;
 }
 
 export interface ParentDecision {

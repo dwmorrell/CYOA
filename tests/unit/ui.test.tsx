@@ -8,7 +8,7 @@ import { memoryKv } from '../../src/storage/kv';
 import { Repo } from '../../src/storage/repo';
 
 import { App } from '../../src/ui/App';
-import type { Catalog } from '../../src/ui/catalog';
+import type { Catalog, PreviewEntry } from '../../src/ui/catalog';
 import { AppContext, type AppCtx } from '../../src/ui/context';
 import { applyPrefs } from '../../src/ui/prefs';
 import { pageSpeech } from '../../src/ui/speech';
@@ -280,6 +280,46 @@ describe('typing practice add-on', () => {
     expect(await screen.findByRole('heading', { name: 'High scores: Harbour loop' })).toBeTruthy();
     expect(screen.getByText('No laps finished on this track yet.')).toBeTruthy();
     expect((screen.getByLabelText('Type here') as HTMLInputElement).value).toBe('');
+  });
+
+  it('shows each workshop story with its literacy summary and filters the shelf by word type', async () => {
+    const repo = await readyRepo();
+    const gates: PreviewEntry['gates'] = [];
+    const entry = (id: string, title: string, concept: string, label: string): PreviewEntry => ({
+      id,
+      title,
+      version: 1,
+      path: `previews/${id}.json`,
+      sha256: 'x',
+      jobId: `job-${id}`,
+      jobState: 'awaiting-parent-approval',
+      gates,
+      updatedAt: '2026-10-21T00:00:00Z',
+      literacySummary: {
+        blurb: `${title} practises ${label} in a branching mystery.`,
+        skills: ['inference', 'sequencing'],
+        wordTypes: [{ concept, label, examples: ['chill', 'chip'] }],
+        ogCategories: ['Phonics', 'Spelling rules'],
+      },
+    });
+    const catalog: Catalog = {
+      catalogVersion: 1,
+      published: [],
+      previews: [entry('rain', 'The Rain Courier', 'digraph-ch', 'Consonant digraph /ch/'), entry('tomb', 'The Tomb', 'vowel-team', 'Vowel team'), { ...entry('fog', 'Fog', 'x', 'x'), literacySummary: undefined }],
+    };
+    render(<App repo={repo} catalog={catalog} />);
+    await screen.findByText(/Hi Ada/);
+    await navigate('#/parent');
+    fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
+    fireEvent.click(button('Open'));
+    expect(await screen.findByText('The Rain Courier practises Consonant digraph /ch/ in a branching mystery.')).toBeTruthy();
+    expect(screen.getAllByText('Inference, Sequencing')).toHaveLength(2);
+    expect(screen.getByText('Consonant digraph /ch/: chill, chip')).toBeTruthy();
+    expect(screen.getByText('The literacy summary for this story has not been written yet.')).toBeTruthy();
+    fireEvent.change(screen.getByLabelText('Show stories that practise'), { target: { value: 'word:vowel-team' } });
+    expect(screen.queryByRole('heading', { name: 'The Rain Courier' })).toBeNull();
+    expect(screen.queryByRole('heading', { name: 'Fog' })).toBeNull();
+    expect(screen.getByRole('heading', { name: 'The Tomb' })).toBeTruthy();
   });
 
   it('a grown-up writes a word list, and words with other characters are reported and left out', async () => {

@@ -3,6 +3,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { createJob, decide, evidenceFor, gatesFor, planJob, preview, publish, recordReview, StageError, submitDraft, type ReviewInput } from '../../scripts/lib/production';
 import { loadCatalog, loadJob, type Paths } from '../../scripts/lib/repo';
+import type { ShelfSummary } from '../../src/literacy/shelf-summary';
 import { ENDING_TARGET, normalizeRequest, validateRequest } from '../../src/production/request';
 import { publishedRevisionGates } from '../../src/production/gates';
 import { newJob, transition, TRANSITIONS, TransitionError, type Actor, type Job } from '../../src/production/job';
@@ -278,6 +279,38 @@ describe('review and publication gates', () => {
     review(paths, job.id, 'qa', qaAgent);
     const gate = gatesFor(paths, job.id).find((g) => g.id === 'story-literacy-claim')!;
     expect(gate.ok).toBe(false);
+  });
+
+  it('puts the literacy review summary on the preview shelf, checked against the story', () => {
+    const { paths, job } = setup();
+    submit(paths, job, 1, (s) => (s.passages[0]!.learningTargets = ['inference']));
+    review(paths, job.id, 'qa', qaAgent);
+    const rev = loadJob(paths, job.id).revisions.at(-1)!;
+    const base: ReviewInput = {
+      role: 'literacy',
+      reviewer: litAgent,
+      revision: rev.revision,
+      draftSha256: rev.draft.sha256,
+      verdict: 'pass',
+      findings: [],
+      evidence: evidenceFor(paths, [rev.draft.path]),
+    };
+    const summary: ShelfSummary = {
+      blurb: 'A short hill adventure with sh words and short vowels, where the reader works out where the kite went.',
+      skills: ['inference'],
+      wordTypes: [
+        { concept: 'digraph-sh', examples: ['shed', 'fish'] },
+        { concept: 'closed-syllable', examples: ['red'] },
+      ],
+      ogCategories: ['Phonics', 'Syllable types'],
+    };
+    expect(() => recordReview(paths, job.id, { ...base, shelfSummary: { ...summary, wordTypes: [{ concept: 'digraph-sh', examples: ['ship'] }] } })).toThrow(/does not appear in the story/);
+    expect(() => recordReview(paths, job.id, { ...base, role: 'qa', reviewer: qaAgent, shelfSummary: summary })).toThrow(/Only a literacy review/);
+    recordReview(paths, job.id, { ...base, shelfSummary: summary });
+    preview(paths, job.id, T(3));
+    const entry = loadCatalog(paths).previews[0]!;
+    expect(entry.literacySummary?.blurb).toBe(summary.blurb);
+    expect(entry.literacySummary?.wordTypes[0]).toEqual({ concept: 'digraph-sh', label: 'Consonant digraph /sh/', examples: ['shed', 'fish'] });
   });
 
   it('previews never reach the child library', () => {

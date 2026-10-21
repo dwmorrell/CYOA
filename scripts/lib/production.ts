@@ -6,6 +6,7 @@ import { copyFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import type { Story } from '../../src/engine/types';
 import { literacyReportMarkdown } from '../../src/literacy/analyzer';
+import { checkShelfSummary, labelShelfSummary, type ShelfSummary } from '../../src/literacy/shelf-summary';
 import { assessContinuity, type ContinuityAssessment } from '../../src/production/continuity';
 import { checkReviewAdmissible, gatesPass, publicationGates, recordParentDecision, sameActor, settleAfterReview } from '../../src/production/gates';
 import { activeReviews, addRevision, currentRevision, markRecovered, newJob, recordFailure, transition, TransitionError, type Actor, type ArtifactRef, type Job, type ParentDecision, type Review } from '../../src/production/job';
@@ -16,6 +17,8 @@ import { sha256 } from '../../src/util/hash';
 import { fileSha, jobDir, withJobLock, loadCatalog, loadJob, loadLibrary, loadPolicy, loadProfile, readJsonFile, readText, rel, saveCatalog, saveJob, writeJsonFile, writeTextFile, type Paths } from './repo';
 
 const SYSTEM: Actor = { name: 'story-cli', kind: 'automation' };
+/** Terminology profile for the shelf summary's word types. */
+const SHELF_PROFILE = 'og-classic';
 
 export class StageError extends Error {}
 
@@ -182,6 +185,12 @@ function recordReviewUnlocked(paths: Paths, id: string, input: ReviewInput, now 
   }
   const rev = currentRevision(job);
   if (rev && input.role === 'qa' && sameActor(input.reviewer, rev.author)) throw new StageError('The narrative author cannot be the QA reviewer');
+  if (input.shelfSummary !== undefined) {
+    if (input.role !== 'literacy') throw new StageError('Only a literacy review can carry a shelf summary');
+    const story = currentStory(paths, job);
+    const errors = story ? checkShelfSummary(input.shelfSummary, story) : ['there is no draft to check it against'];
+    if (errors.length) throw new StageError(`Shelf summary does not match the story:\n${errors.map((e) => `- ${e}`).join('\n')}`);
+  }
   try {
     checkReviewAdmissible(job, input);
   } catch (e) {
@@ -221,6 +230,15 @@ export function gatesFor(paths: Paths, id: string) {
   return publicationGates(job, currentStory(paths, job), loadPolicy(paths));
 }
 
+/** The latest passing literacy review's shelf summary, in the classic OG terms parents and tutors use. */
+function shelfSummaryFor(paths: Paths, job: Job): ShelfSummary | undefined {
+  const latest = activeReviews(job)
+    .filter((r) => r.role === 'literacy')
+    .at(-1);
+  if (!latest || latest.verdict !== 'pass' || !latest.shelfSummary) return undefined;
+  return labelShelfSummary(latest.shelfSummary, loadProfile(paths, SHELF_PROFILE));
+}
+
 /** Copy the current draft into the parent-only preview shelf. Never child-facing. */
 export function preview(paths: Paths, id: string, now = new Date()): string {
   const job = loadJob(paths, id);
@@ -233,7 +251,20 @@ export function preview(paths: Paths, id: string, now = new Date()): string {
   copyFileSync(join(paths.root, rev.draft.path), abs);
   const catalog = loadCatalog(paths);
   const gates = publicationGates(job, story, loadPolicy(paths));
-  const entry = { id: story.id, title: story.title, version: story.version, path: relPath, sha256: rev.draft.sha256, jobId: job.id, series: story.series, jobState: job.state, gates, updatedAt: now.toISOString() };
+  const literacySummary = shelfSummaryFor(paths, job);
+  const entry = {
+    id: story.id,
+    title: story.title,
+    version: story.version,
+    path: relPath,
+    sha256: rev.draft.sha256,
+    jobId: job.id,
+    series: story.series,
+    ...(literacySummary && { literacySummary }),
+    jobState: job.state,
+    gates,
+    updatedAt: now.toISOString(),
+  };
   catalog.previews = [...catalog.previews.filter((p) => p.id !== story.id), entry];
   saveCatalog(paths, catalog);
   return relPath;
@@ -250,6 +281,7 @@ function publishUnlocked(paths: Paths, id: string, by: Actor, now = new Date()):
   if (job.state !== 'approved') throw new StageError(`Job is "${job.state}"; only an approved job can be published`);
   if (by.kind !== 'human') throw new StageError('Publication must be carried out by a person');
   const at = now.toISOString();
+  const literacySummary = shelfSummaryFor(paths, job);
   const relPath = `published/${story.id}.v${story.version}.json`;
   mkdirSync(join(paths.publicStories, 'published'), { recursive: true });
   copyFileSync(join(paths.root, rev.draft.path), join(paths.publicStories, relPath));
@@ -264,6 +296,7 @@ function publishUnlocked(paths: Paths, id: string, by: Actor, now = new Date()):
       sha256: rev.draft.sha256,
       jobId: job.id,
       series: story.series,
+      ...(literacySummary && { literacySummary }),
       publishedAt: at,
       // The story file keeps the author's declaration; the job's recorded reviews are the authority.
       reviews: activeReviews(job).filter((r) => r.verdict === 'pass').map((r) => ({ role: r.role, reviewer: r.reviewer.name, kind: r.reviewer.kind })),

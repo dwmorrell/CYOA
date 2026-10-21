@@ -3,6 +3,8 @@
 
 import { existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import type { Story } from '../src/engine/types';
+import { checkShelfSummary } from '../src/literacy/shelf-summary';
 import { gatesPass, publishedRevisionGates } from '../src/production/gates';
 import { validateDraft } from '../src/production/validate-draft';
 import { fileSha, listJobs, loadCatalog, loadPolicy, pathsFor, readJsonFile, rel } from './lib/repo';
@@ -42,6 +44,10 @@ for (const entry of [...catalog.published, ...catalog.previews]) {
   const abs = join(paths.publicStories, entry.path);
   if (!existsSync(abs)) problems.push(`catalog ${entry.id}: missing file ${entry.path}`);
   else if (fileSha(abs) !== entry.sha256) problems.push(`catalog ${entry.id}: ${entry.path} does not match its catalog hash`);
+  else if (entry.literacySummary) {
+    const errors = checkShelfSummary(entry.literacySummary, readJsonFile<Story>(abs));
+    if (errors.length) problems.push(`catalog ${entry.id}: literacy summary does not match the story: ${errors.join('; ')}`);
+  }
 }
 for (const entry of catalog.published) {
   const job = jobs.find((j) => j.id === entry.jobId);

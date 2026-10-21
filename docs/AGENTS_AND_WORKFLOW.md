@@ -138,6 +138,26 @@ or `validation-failed` and marks earlier reviews and parent decisions stale.
 re-hashes each evidence file when recording, so a reviewer must have the
 actual current files.
 
+A literacy review also carries a `shelfSummary`, the at-a-glance note a parent
+or tutor sees on the story shelf:
+
+```json
+"shelfSummary": {
+  "blurb": "One to three plain sentences, 400 characters at most.",
+  "skills": ["inference", "sequencing"],
+  "wordTypes": [{ "concept": "digraph-ch", "examples": ["chill", "chip"] }],
+  "ogCategories": ["Phonics", "Spelling rules", "Comprehension"]
+}
+```
+
+`skills` are learning targets the story tags. `wordTypes` use taxonomy concept
+ids, must include every target concept, and give one to four example words
+taken from the story that carry the pattern. `ogCategories` come from the fixed
+list in `src/literacy/shelf-summary.ts`. The CLI checks the summary against the
+story and refuses a mismatch; `story preview` copies the latest passing summary
+onto the shelf in the `og-classic` profile's terms, and `validate:stories`
+checks it again.
+
 ### Failure recovery
 
 - Unparseable or invalid drafts are recorded in `job.failures` and the job

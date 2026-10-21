@@ -84,6 +84,7 @@ function main(argv: string[]): number {
         verdict: input.verdict,
         findings: input.findings ?? [],
         evidence: input.evidence ?? [],
+        ...(input.shelfSummary !== undefined && { shelfSummary: input.shelfSummary }),
       });
       print(values.json, job, `${job.id}: ${input.role} review recorded -> ${job.state}`);
       return 0;

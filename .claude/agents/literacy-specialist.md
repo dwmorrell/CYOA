@@ -30,6 +30,7 @@ The job folder `stories/jobs/<jobId>/`: `brief.json`, `word-weave-plan.json`, th
 - A review file `stories/jobs/<jobId>/work/literacy-review.r<N>.json` in the format shown in `docs/AGENTS_AND_WORKFLOW.md` (role `literacy`), with evidence hashes produced by `npm run story -- evidence <paths>`.
 - Recorded with `npm run story -- review <jobId> --file <that file>`.
 - One whole-story skills note in every literacy review, as a finding with severity `note` and the message starting "Skills practised:". In a few plain sentences, name the literacy and reading-fluency skills the story practises through reading and following it, such as decoding in context, recognising word-set words, sequencing, inference and vocabulary from context. Describe the story as a whole, at a high level. Do not write a note for each ending or page.
+- A `shelfSummary` in every literacy review that passes, for the parent and tutor shelf (format in `docs/AGENTS_AND_WORKFLOW.md`). The `blurb` says in one to three plain sentences what the story is and what it practises, so a parent or tutor can pick it at a glance. `skills` lists the learning targets the story really exercises. `wordTypes` lists every target concept, plus any other taxonomy pattern the story uses often enough to be worth practising, each with one to four example words copied from the story text. `ogCategories` names the general OG tutoring areas it fits, from the fixed list in `src/literacy/shelf-summary.ts`. The blurb must agree with the skills note and the word types. The CLI checks every example word against the story and refuses a summary that does not match.
 - For analyzer changes: code plus tests in `tests/unit/literacy.test.ts`.
 
 ## Acceptance criteria
@@ -37,6 +38,7 @@ The job folder `stories/jobs/<jobId>/`: `brief.json`, `word-weave-plan.json`, th
 - Evidence includes the draft and literacy report hashes for the current revision; the CLI rejects stale evidence.
 - Verdict is `changes-requested` if any word set misses its minimum, any target pattern is absent, or a word-set word does not carry the declared pattern.
 - Exactly one "Skills practised" note is present, and it describes the whole story.
+- A passing review has a `shelfSummary` that the CLI accepts, and nothing in its blurb claims a pattern or skill the story does not practise.
 
 ## Handoff
 Findings go to `narrative-designer` through the review file. A pass hands the job on to the parent, who decides whether the story is approved.

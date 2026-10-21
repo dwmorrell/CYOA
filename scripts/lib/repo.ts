@@ -3,6 +3,7 @@ import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Story } from '../../src/engine/types';
 import type { TerminologyProfile } from '../../src/literacy/taxonomy';
+import type { ShelfSummary } from '../../src/literacy/shelf-summary';
 import type { Job } from '../../src/production/job';
 import { DEFAULT_POLICY, type PublicationPolicy } from '../../src/production/gates';
 import { isStory } from '../../src/validation/schema';
@@ -76,6 +77,8 @@ export interface CatalogEntry {
   sha256: string;
   jobId: string;
   series?: Story['series'];
+  /** From the latest passing literacy review, labelled in the profile's terms. */
+  literacySummary?: ShelfSummary;
 }
 
 export interface Catalog {
