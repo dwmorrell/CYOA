@@ -315,26 +315,13 @@ export default function ParentHome() {
                   {kind === 'packaged' ? 'Packaged and approved' : `Workshop draft, status: ${'jobState' in e ? e.jobState : ''}`} · version {e.version}
                 </p>
                 <LiteracySummary summary={e.literacySummary} />
-                <div className="row">
-                  {kind === 'workshop' && (
+                {kind === 'workshop' && (
+                  <div className="row">
                     <button type="button" className="btn" aria-label={`Preview ${e.title}`} onClick={() => go(`#/preview/workshop/${encodeURIComponent(e.id)}`)}>
                       Preview
                     </button>
-                  )}
-                  <button
-                    type="button"
-                    className="btn"
-                    aria-label={`Copy ${e.title} to edit on this device`}
-                    onClick={() =>
-                      void fetchStory(e)
-                        .then((s) => addDraft(s, kind === 'packaged' ? 'bundled-copy' : 'workshop-draft'))
-                        .then((s) => report(`Copied "${s.title}" to this device as a draft (version ${s.version}).`))
-                        .catch(fail)
-                    }
-                  >
-                    Copy to edit
-                  </button>
-                </div>
+                  </div>
+                )}
                 <WorkshopApproval
                   entry={e}
                   kind={kind}
