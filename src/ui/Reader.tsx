@@ -91,7 +91,7 @@ export function Reader({ story, state, onState, onExit, exitLabel = 'Library', b
       setSpeaking(false);
     } else {
       setSpeaking(true);
-      speak(pageSpeech(passage.title, passage.paragraphs), () => setSpeaking(false));
+      speak(pageSpeech(passage.title, passage.paragraphs), () => setSpeaking(false), { voiceURI: prefs.voiceURI, rate: prefs.readRate });
     }
   };
   // "Story so far" supports sequencing: the places visited, in order.

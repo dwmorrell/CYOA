@@ -1,6 +1,8 @@
+import { useEffect, useState } from 'react';
 import { DEFAULT_PREFS, clampPrefs, type ReadingPrefs } from '../engine/persistence';
 import { BackBar, Page } from './common';
 import { useApp } from './context';
+import { canSpeak, localVoices } from './speech';
 
 function Stepper({ label, value, onMinus, onPlus }: { label: string; value: string; onMinus: () => void; onPlus: () => void }) {
   return (
@@ -34,6 +36,14 @@ function Radios<K extends 'font' | 'theme'>({ name, legend, value, options, onCh
 export function Settings() {
   const { prefs, setPrefs, child } = useApp();
   const update = (patch: Partial<ReadingPrefs>) => setPrefs(clampPrefs({ ...prefs, ...patch }));
+  // Voices often arrive after first paint, so the list is refreshed when the browser reports them.
+  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>(() => localVoices());
+  useEffect(() => {
+    if (!canSpeak()) return;
+    const onVoicesChanged = () => setVoices(localVoices());
+    window.speechSynthesis.addEventListener('voiceschanged', onVoicesChanged);
+    return () => window.speechSynthesis.removeEventListener('voiceschanged', onVoicesChanged);
+  }, []);
   const toggle = (key: 'lineFocus' | 'readAloud' | 'wordHelp', text: string) => (
     <label className="toggle">
       <input type="checkbox" checked={prefs[key]} onChange={(e) => update({ [key]: e.target.checked })} />
@@ -78,6 +88,24 @@ export function Settings() {
         />
         {toggle('wordHelp', 'Word help: tap marked words for syllables and meanings')}
         {toggle('readAloud', 'Show the "Read to me" button')}
+        {prefs.readAloud && canSpeak() && (
+          <>
+            <Stepper label="Reading speed" value={`${prefs.readRate.toFixed(2)}x`} onMinus={() => update({ readRate: prefs.readRate - 0.1 })} onPlus={() => update({ readRate: prefs.readRate + 0.1 })} />
+            {voices.length > 0 && (
+              <div className="row">
+                <label htmlFor="read-aloud-voice">Read-aloud voice</label>
+                <select id="read-aloud-voice" className="input" value={prefs.voiceURI ?? ''} onChange={(e) => update({ voiceURI: e.target.value || undefined })}>
+                  <option value="">Device default</option>
+                  {voices.map((v) => (
+                    <option key={v.voiceURI} value={v.voiceURI}>
+                      {v.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+          </>
+        )}
         {toggle('lineFocus', 'Highlight one paragraph at a time')}
         <button type="button" className="btn" onClick={() => setPrefs({ ...DEFAULT_PREFS })}>
           Reset settings

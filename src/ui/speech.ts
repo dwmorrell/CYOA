@@ -6,11 +6,18 @@ export function stopSpeaking(): void {
   if (canSpeak()) window.speechSynthesis.cancel();
 }
 
-export function speak(text: string, onDone: () => void): void {
+/** On-device voices only: a network ("remote") voice would break the no-network rule. */
+export function localVoices(): SpeechSynthesisVoice[] {
+  return canSpeak() ? window.speechSynthesis.getVoices().filter((v) => v.localService) : [];
+}
+
+export function speak(text: string, onDone: () => void, options: { voiceURI?: string; rate?: number } = {}): void {
   if (!canSpeak()) return;
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
-  u.rate = 0.85;
+  u.rate = options.rate ?? 0.85;
+  const voice = options.voiceURI ? localVoices().find((v) => v.voiceURI === options.voiceURI) : undefined;
+  if (voice) u.voice = voice;
   u.onend = onDone;
   u.onerror = onDone;
   window.speechSynthesis.speak(u);

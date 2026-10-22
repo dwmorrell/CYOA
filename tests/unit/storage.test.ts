@@ -88,10 +88,11 @@ describe('profiles and the parent PIN', () => {
   });
 
   it('clamps reading preferences to safe ranges', () => {
-    const p = clampPrefs({ ...DEFAULT_PREFS, fontScale: 9, lineHeight: 0.5, letterSpacing: -1 });
+    const p = clampPrefs({ ...DEFAULT_PREFS, fontScale: 9, lineHeight: 0.5, letterSpacing: -1, readRate: 5 });
     expect(p.fontScale).toBe(2.2);
     expect(p.lineHeight).toBe(1.4);
     expect(p.letterSpacing).toBe(0);
+    expect(p.readRate).toBe(1.3);
   });
 });
 
