@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-rain-courier-mara-is-1b7daf",
   "storyId": "the-rain-courier",
-  "state": "awaiting-parent-approval",
+  "state": "in-review",
   "createdAt": "2026-10-20T23:23:22.800Z",
-  "updatedAt": "2026-10-21T18:37:05.005Z",
+  "updatedAt": "2026-10-24T23:28:35.133Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/request.json",
@@ -305,6 +305,41 @@
         ]
       },
       "revision": 8
+    },
+    {
+      "storyVersion": 9,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/drafts/story.r9.json",
+        "sha256": "840950d8f2d442c6ec43ed5051e620b6682da7c5595a24c6002940d53f58bbd5"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-24T23:28:35.133Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/validation.r9.json",
+          "sha256": "289faa8a49f43316f344f6e3196dbec75fde7f03dce9807d1361a1474c537912"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/literacy.r9.json",
+          "sha256": "b31fbdc288961308d9fe7505015781b3506b97d59412e6c928e2742eea3d0aca"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/graph.r9.json",
+          "sha256": "b6818da737c24d199a924c722840106d41c63d881fb3416095fd7e52db2ccb1d"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 9
     }
   ],
   "reviews": [
@@ -486,7 +521,8 @@
         }
       ],
       "id": "review-3-literacy",
-      "submittedAt": "2026-10-20T23:39:35.444Z"
+      "submittedAt": "2026-10-20T23:39:35.444Z",
+      "invalidatedBy": 9
     },
     {
       "role": "qa",
@@ -539,7 +575,8 @@
         }
       ],
       "id": "review-4-qa",
-      "submittedAt": "2026-10-20T23:39:48.506Z"
+      "submittedAt": "2026-10-20T23:39:48.506Z",
+      "invalidatedBy": 9
     },
     {
       "role": "literacy",
@@ -688,7 +725,8 @@
         ]
       },
       "id": "review-5-literacy",
-      "submittedAt": "2026-10-21T18:37:05.005Z"
+      "submittedAt": "2026-10-21T18:37:05.005Z",
+      "invalidatedBy": 9
     }
   ],
   "parentDecisions": [],
@@ -886,6 +924,17 @@
         "kind": "automation"
       },
       "note": "All required reviews passed"
+    },
+    {
+      "at": "2026-10-24T23:28:35.133Z",
+      "from": "awaiting-parent-approval",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 9 (story v9) passed automated validation"
     }
   ]
 }

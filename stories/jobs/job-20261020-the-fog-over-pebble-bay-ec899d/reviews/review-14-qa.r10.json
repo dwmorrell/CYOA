@@ -1,0 +1,82 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 10,
+  "draftSha256": "f1734d022d04ac8dc3b0490b1af2bb4d2925f6e0930d9bfe765b204d02c327d5",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Ran `npm run check` myself (lint, typecheck, vitest, validate:stories, agents:check, build) and all stages passed: 11 test files / 177 tests passed; validate:stories reports 'the-fog-over-pebble-bay' preview ok and job job-20261020-the-fog-over-pebble-bay-ec899d at in-review, revision 10 (story v10); build succeeded. Also ran `npm run story -- status job-20261020-the-fog-over-pebble-bay-ec899d`: revision 10 validation=ok, gate automated-validation PASS ('schema: ok; graph: ok, 3/3 endings reachable; literacy checks: ok; brief: ok'), gates review:qa and review:literacy both WAIT (no review yet on r10), which matches this being the first QA pass on r10."
+    },
+    {
+      "severity": "note",
+      "passage": "shed-chest",
+      "message": "New choice `chest-to-bench` (story.r10.json lines 157-161) is a genuine second branch: it leads to `bench` (a full passage with Gran Tull dialogue and its own two outward choices), not an immediate merge back into `gathering`. It differs materially in content from `chest-to-tower` (lines 152-156), which leads to the `gathering` hub. Not trivial filler."
+    },
+    {
+      "severity": "note",
+      "passage": "bench",
+      "message": "New choice `ask-pip` (lines 181-186) leads to the new passage `bench-shell`, whose content (Pip's shell, lines 191-196) is distinct from what `ask-more` leads to directly (`bench-clue`'s mirror explanation, lines 213-247). `bench-shell` itself offers two further choices (`shell-ask-gran` -> bench-clue, `shell-to-tower` -> gathering) so it is not a single-choice passage and is not purely a pass-through filler: it adds its own paragraph content (Pip's personality beat, Gran Tull's aside about the gull) before reconverging. This matches the revision notes' description and is a genuine branch, not a trivial one."
+    },
+    {
+      "severity": "note",
+      "passage": "bench-clue",
+      "message": "New choice `clue-to-shed` (lines 242-246) leads to `shed`, a different full passage from `clue-to-tower`'s `gathering` (lines 237-241). Genuine second branch, not trivial."
+    },
+    {
+      "severity": "note",
+      "message": "Checked whether any of the new edges force a reader to re-read an already-read passage to collect an item or reach an ending (the major-finding bar in this review's instructions). They do not: a clean, no-revisit route to the triumph endings now exists that did not exist before this revision: start -> to-shed -> shed -> open-chest -> shed-chest [+soft-cloth] -> chest-to-bench -> bench -> ask-more -> bench-clue [+match-tin, +damp-mirror] -> clue-to-tower -> gathering -> gather-climb -> threshold -> wipe-mirror (soft-cloth, match-tin, damp-mirror all held) -> climax -> turn-mirror -> ending-beam (or call-gran -> ending-help). Every passage in that route is visited exactly once. This revision's new shortcuts (chest-to-bench, clue-to-shed) reduce backtracking versus r9, which required visiting `gathering` twice to collect both the cloth and the clue/matches before climbing the stairs. The pre-existing hub-and-spoke pattern (gathering -> shed / bench, and the symmetric 'go back' options) is unchanged from earlier revisions and was already accepted in prior QA passes (see review-6-qa, review-12-qa on r4/r9); it offers optional revisits, not forced ones, since the no-revisit route above covers every ending."
+    },
+    {
+      "severity": "note",
+      "message": "Traced a route to each ending in story.r10.json. ending-dock (setback, no requirements): start -> to-bench -> bench -> ask-more -> bench-clue -> clue-to-tower -> gathering -> gather-climb -> threshold -> run-to-dock -> ending-dock (5 edges, matches validation.r10.json shortestPathToEnding=5). ending-beam and ending-help: see the no-revisit route quoted above, ending in turn-mirror or call-gran respectively. All three endings in graph.r10.json stats.reachableEndings (ending-beam, ending-dock, ending-help) match story.r10.json's declared endings, and graph.ok is true with no warnings and stateSearchComplete true (32 explored states), consistent with my manual trace."
+    },
+    {
+      "severity": "note",
+      "passage": "threshold",
+      "message": "lockedHint on `wipe-mirror` (story.r10.json line 304) is unchanged from r9: 'You need a cloth from the shed chest, and matches and a clue from Gran Tull.' It still accurately matches the requires block (soft-cloth, match-tin, damp-mirror at lines 295-303) and both items/clue are each obtainable from exactly one source each (shed-chest for soft-cloth; bench-clue for match-tin and damp-mirror, reachable either directly from `bench` or via the new `bench-shell` detour). Hint remains fair."
+    },
+    {
+      "severity": "note",
+      "message": "Checked the engine's effect application (src/engine/story-engine.ts lines 20-21: `uniq([...state.items..., ...effects.addItems])` and similarly for clues) to independently confirm the revision notes' claim that revisiting shed-chest or bench-clue (now reachable by more routes, e.g. clue-to-shed then open-chest again) is harmless: items and clues are deduplicated via `uniq`, so no double-add or state corruption is possible. This is consistent with the prior QA finding on r9 that the narrative-designer's notes point to."
+    },
+    {
+      "severity": "note",
+      "message": "Content integrity: new prose in `bench-shell` is original, age-appropriate, and consistent with established continuity. Pip's shell-tapping habit and the bench setting are established in `start` (lines 94-95) and `bench` (lines 167-171), unchanged elsewhere, so `bench-shell` is not introducing an unexplained object. No sexual content, violence/gore, self-harm, or religious references anywhere in the new or changed passages. Word-set and sentence-length claims in the revision notes match reports/validation.r10.json (sh 25/10, ch 25/8, th 19/8, 0 long sentences, every word-set present on the shortest route to every ending)."
+    },
+    {
+      "severity": "minor",
+      "passage": "bench-shell",
+      "message": "Optional observation, not blocking. 'Fen picked up the shell. It was small, dry and empty inside.' has no narrative or mechanical follow-up (no addItems effect, and the shell is not mentioned again in bench-clue, gathering, or any ending). This is a minor loose thread, not a continuity error, and does not need to block this revision; narrative-designer may consider either giving the shell a small payoff or trimming the line in a future pass."
+    },
+    {
+      "severity": "note",
+      "message": "Brief conformance: brief.json sets endingTarget 3 (not the 5 used as a baseline for new stories in general CYOA QA guidance), and this story has exactly 3 reachable endings, so there is no 'fewer endings than brief target' finding here. requiredMechanics (choices, clues, inventory, multiple-endings) are all present and exercised on the traced routes."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r10.json",
+      "sha256": "f1734d022d04ac8dc3b0490b1af2bb4d2925f6e0930d9bfe765b204d02c327d5"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/validation.r10.json",
+      "sha256": "179b2ba80b9001eb134bb77c1244fa0124bd2afe7e614fb2c4252465e3a1971a"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/graph.r10.json",
+      "sha256": "5d6bc87b2a77bcba152cae6ed87bcabc3436801c7eef7581c966e6565a29e54e"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json",
+      "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a"
+    }
+  ],
+  "id": "review-14-qa",
+  "submittedAt": "2026-10-24T23:28:16.205Z"
+}

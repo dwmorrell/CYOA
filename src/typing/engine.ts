@@ -75,7 +75,9 @@ export function startLap(words: string[]): Lap {
  * one that does not match the target at its position is an error. Removing
  * characters (backspace) costs nothing, but the errors already made still count,
  * so a corrected mistake lowers accuracy. Input past the end of the target is an
- * error and is not kept.
+ * error and is not kept. A mistake does not have to be fixed: typing through it
+ * reaches the finish like a real typing test, and the error still lowers net
+ * words a minute.
  */
 export function typeInto(lap: Lap, value: string, nowMs: number): Lap {
   if (lap.finishedAt !== undefined || lap.target === '') return lap;
@@ -93,7 +95,7 @@ export function typeInto(lap: Lap, value: string, nowMs: number): Lap {
     errors,
     startedAt: lap.startedAt ?? (pressed ? nowMs : undefined),
     lastAt: pressed ? nowMs : lap.lastAt,
-    finishedAt: typed === lap.target ? nowMs : undefined,
+    finishedAt: typed.length === lap.target.length ? nowMs : undefined,
   };
 }
 
@@ -131,12 +133,13 @@ export function lapTimeSeconds(lap: Lap): number | undefined {
 }
 
 /**
- * How far round the track the car is, from 0 to 1: the share of the lap typed
- * correctly from the start. A wrong letter stops the car until it is fixed.
+ * How far along the road the car is, from 0 to 1: the share of the lap typed
+ * so far, mistakes included. A wrong letter does not stop the car - like a
+ * real typing test, it only costs accuracy, not the chance to keep going.
  */
 export function carProgress(lap: Lap): number {
   if (lap.target === '') return 0;
-  return correctLength(lap) / lap.target.length;
+  return lap.typed.length / lap.target.length;
 }
 
 /** Number of leading characters typed correctly. */

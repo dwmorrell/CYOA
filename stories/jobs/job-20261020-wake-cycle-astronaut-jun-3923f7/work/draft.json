@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "wake-cycle",
   "title": "Wake Cycle",
-  "version": 4,
+  "version": 5,
   "metadata": {
     "genre": "Space survival mystery",
     "theme": "Staying calm under pressure, working with others, and thinking a problem through",
@@ -72,7 +72,10 @@
         "Jun's neck prickled. Time to move, but stay steady."
       ],
       "learningTargets": ["inference", "engagement"],
-      "choices": [{ "id": "to-hall-listen", "label": "Walk out into the pod hall", "target": "hall" }]
+      "choices": [
+        { "id": "to-hall-listen", "label": "Walk out into the pod hall", "target": "hall" },
+        { "id": "hurry-to-engine", "label": "Hurry down to the engine room instead", "target": "engine", "learningTargets": ["engagement"] }
+      ]
     },
     {
       "id": "oru-log",
@@ -101,7 +104,10 @@
         "The white screen flickered, then went still."
       ],
       "learningTargets": ["inference", "detail"],
-      "choices": [{ "id": "to-hall-crew", "label": "Walk out into the pod hall", "target": "hall" }]
+      "choices": [
+        { "id": "to-hall-crew", "label": "Walk out into the pod hall", "target": "hall" },
+        { "id": "hurry-to-engine-crew", "label": "Hurry straight to the engine room", "target": "engine", "learningTargets": ["inference"] }
+      ]
     },
     {
       "id": "hall",
@@ -159,7 +165,10 @@
         "Jun nodded, ready to try again, slow and sure."
       ],
       "learningTargets": ["vocabulary", "comprehension"],
-      "choices": [{ "id": "after-not-yet-why", "label": "Open the pod in the right order", "target": "captain-wakes" }]
+      "choices": [
+        { "id": "after-not-yet-why", "label": "Open the pod in the right order, step by step", "target": "captain-wakes" },
+        { "id": "skip-explanation", "label": "Skip the talk and lift the latch now", "target": "captain-wakes", "learningTargets": ["engagement"] }
+      ]
     },
     {
       "id": "captain-wakes",
@@ -236,7 +245,10 @@
         "\"Good catch,\" said Dex. \"Now, let's see what is next.\""
       ],
       "learningTargets": ["detail", "engagement"],
-      "choices": [{ "id": "after-lamp-watch", "label": "Ask Dex what is next", "target": "dex-fixed" }]
+      "choices": [
+        { "id": "after-lamp-watch", "label": "Ask Dex what is next", "target": "dex-fixed" },
+        { "id": "go-to-chart", "label": "Go straight to Dex's wall chart", "target": "dex-chart", "learningTargets": ["detail"] }
+      ]
     },
     {
       "id": "dex-tools",
@@ -263,7 +275,10 @@
         "\"Nice work. Now, let's see what is next.\""
       ],
       "learningTargets": ["sequencing", "engagement"],
-      "choices": [{ "id": "after-tools-sort", "label": "Ask Dex what is next", "target": "dex-fixed" }]
+      "choices": [
+        { "id": "after-tools-sort", "label": "Ask Dex what is next", "target": "dex-fixed" },
+        { "id": "go-to-chart-tools", "label": "Head over to Dex's wall chart", "target": "dex-chart", "learningTargets": ["detail"] }
+      ]
     },
     {
       "id": "dex-fixed",
@@ -320,7 +335,10 @@
         "At the top, the dust storm filled the window in a wall of white."
       ],
       "learningTargets": ["engagement", "comprehension"],
-      "choices": [{ "id": "to-threshold-together", "label": "Face the storm together", "target": "threshold" }]
+      "choices": [
+        { "id": "to-threshold-together", "label": "Face the storm together", "target": "threshold" },
+        { "id": "double-check-sensors", "label": "Ask Dex to check the sensors once more first", "target": "threshold", "learningTargets": ["detail"] }
+      ]
     },
     {
       "id": "threshold",

@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-tomb-of-ameru-sami-k-541c79",
   "storyId": "the-tomb-of-ameru",
-  "state": "in-review",
+  "state": "awaiting-parent-approval",
   "createdAt": "2026-10-20T23:23:24.018Z",
-  "updatedAt": "2026-10-24T23:25:06.586Z",
+  "updatedAt": "2026-10-24T23:31:47.817Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/request.json",
@@ -377,6 +377,220 @@
       "id": "review-3-literacy",
       "submittedAt": "2026-10-21T18:37:13.987Z",
       "invalidatedBy": 2
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 2,
+      "draftSha256": "1a2efc8ea794ae70352a222975281a26334d90584151c877555dc4f06dfe0a11",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "Skills practised: reading the story practises decoding r-controlled words, -ed endings and ng/nk words in connected text, and spotting the recurring word-set words on every route, including the new short detours. Following the carved warnings and the team's choices builds sequencing (tap three times, then the order of the five chambers), inference (why the Keeper holds up a flat hand, what the tipped tile or the cracked horn is telling the team) and vocabulary from context (archaeologist, cistern, mummified, ancient). The new detour passages add a few extra beats of detail-noticing and inference (checking a carving for cracks, reading a scorch mark, hearing a tune close to the carved note) without changing the story's core skill set."
+        },
+        {
+          "severity": "minor",
+          "message": "Word-set coverage improved, not regressed. r1 had r-controlled 32/10, ed 25/8, ng/nk 21/8; r2 has 40/10, ed 29/8, ng/nk 22/8 (minimums 10/8/8), all above minimum, every listed word still appears, and the automated 'word-sets-on-every-route' check (n>0 on the shortest route) still passes for all five endings. I also checked the fuller claim by hand: I diffed story.r1.json against story.r2.json and confirmed the ten fixed passages (map-nook, door-tap, door-push, sand-slip, water-dusted, water-skip, song-hum, song-horn, fire-small, fire-big) kept their original single choice unchanged and first in the choices array, and that the new choice in each leads only to one of the ten new passages (map-copy, tap-adjust, push-careful, slip-bird, dusted-ledge, skip-hollis, hum-keeper, horn-crack, small-flame, big-scorch), each of which has exactly one choice that rejoins the pre-existing graph at the same hub the original choice already reached (for example door-tap's new branch rejoins at hall-sand, same as 'Step inside'). No passage or choice was removed. The story's hub sequence (camp -> door-front -> hall-sand -> hall-water -> hall-song -> fork -> hall-fire -> hall-sleeper -> sleeper-read/endings) is unavoidable on any path, so every route to every ending, including routes that take one or more detours, passes through the same spine that already carries full word-set coverage, plus the detour's own content on top. None of the detours remove or replace spine content, so coverage can only stay the same or increase on a longer route; it cannot drop below the shortest route's count. This matches the narrative designer's claim in revision-notes.r2.md.",
+          "passage": "door-tap"
+        },
+        {
+          "severity": "minor",
+          "message": "The new prose carries its word-set words naturally, not as a list. Examples: tap-adjust uses 'far walls' and 'the dark' (r-controlled); dusted-ledge uses 'rested on the ledge' and 'low and long' (suffix-ed, glued-ng-nk); map-copy, slip-bird and skip-hollis each end on 'walked'/'walked on' in a plain narrative sentence (suffix-ed); horn-crack's 'looked at the horn' reuses the r-controlled word established in hall-song/song-horn with the same meaning (the bronze horn the team blew), so the pattern and the referent both hold up. No detour passage repeats a word-set word as an unnatural list or forced rhyme.",
+          "passage": "tap-adjust"
+        },
+        {
+          "severity": "minor",
+          "message": "All ten new passages stay within the brief's 16-word maxSentenceWords: I token-counted every sentence in the ten new passages by hand; the longest is 15 words (slip-bird: 'Under the dust lay a tiny carved bird. It pointed at the pale path.' is two sentences, the longer at 9 words; the longest single sentence across the new passages is in tap-adjust at 13 words). This is consistent with the revision notes' claim of a 12-word longest new sentence; my count found nothing over 16 either way.",
+          "passage": "slip-bird"
+        },
+        {
+          "severity": "minor",
+          "message": "Two pre-existing sentences in ending-setback remain over the brief's 16-word cap: 'Sami sat on the cart and looked at the hill, past the dry bank of the old river.' (18 words) and 'Tomorrow, with fresh eyes and a bigger team, they could try again, and take a different path.' (17 words). This passage was not touched in this revision and qa-engineer already flagged it as minor in review-1-qa; the analyzer's sentence-length check uses a 20-word limit, not the brief's 16, so it still reports ok. Not a blocker, but still outstanding for the narrative designer.",
+          "passage": "ending-setback"
+        },
+        {
+          "severity": "minor",
+          "message": "Two small comprehension details from r1 are unchanged and still present: hall-song says the bronze horn is 'set in the wall', while song-horn says 'Hollis lifted the horn and blew' (song-horn and the new horn-crack both treat it as handheld). Also, sand-slip's 'Sami dusted off his hat' leaves 'his' ambiguous between Sami and Hollis. Neither affects word-set coverage or decodability; carried forward from the prior review for the narrative designer's awareness, not a new issue from this revision.",
+          "passage": "song-horn"
+        },
+        {
+          "severity": "minor",
+          "message": "Limits of automated detection, unchanged from r1: concept matches are by spelling, not sound (the report's ng/nk examples include 'everything', 'finger' and 'going', which are not the target pattern in the OG sense). Word-set words also match -s/-es forms. The automated 'word-sets-on-every-route' check only verifies the shortest route per ending (n>0); I verified by hand above that the graph's required spine means all routes, including the new detours, inherit that coverage. I did not confirm decodability for any individual child's program, and a qualified human literacy reviewer should confirm the linguistic claims before publication."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/drafts/story.r2.json",
+          "sha256": "1a2efc8ea794ae70352a222975281a26334d90584151c877555dc4f06dfe0a11"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/literacy.r2.json",
+          "sha256": "7760f9863be643d9cd7d9488cfc1850e2b48bc7e7d606b9b9f16cfa137640fc2"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/literacy.r2.md",
+          "sha256": "5e8b9d94bf713286ce5182cfcd619bb45aef4699b59bfefc4bff672955e7b799"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/weave-comparison.r2.json",
+          "sha256": "76dd18664dc24db19a1dd18ba4e50fd145d20d4edb4865082502fac2d84d3e41"
+        }
+      ],
+      "shelfSummary": {
+        "blurb": "A tomb-exploring adventure with five endings and short optional detours along the way. It practises r-controlled words, -ed endings and ng/nk words, along with th, silent-e, FLOSS and sh words. Readers follow carved warnings and notice small clues, so they practise sequencing, inference and vocabulary from context.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "vocabulary"
+        ],
+        "wordTypes": [
+          {
+            "concept": "r-controlled",
+            "examples": [
+              "dark",
+              "cart",
+              "horn",
+              "burn"
+            ]
+          },
+          {
+            "concept": "suffix-ed",
+            "examples": [
+              "dusted",
+              "rested",
+              "lifted",
+              "hunted"
+            ]
+          },
+          {
+            "concept": "glued-ng-nk",
+            "examples": [
+              "long",
+              "bank",
+              "sink",
+              "rung"
+            ]
+          },
+          {
+            "concept": "digraph-th",
+            "examples": [
+              "path",
+              "both",
+              "mouth",
+              "cloth"
+            ]
+          },
+          {
+            "concept": "silent-e",
+            "examples": [
+              "came",
+              "care",
+              "crate",
+              "aside"
+            ]
+          },
+          {
+            "concept": "floss",
+            "examples": [
+              "bell",
+              "hill",
+              "fell",
+              "cross"
+            ]
+          },
+          {
+            "concept": "digraph-sh",
+            "examples": [
+              "brush",
+              "fresh",
+              "push",
+              "finish"
+            ]
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Syllable types",
+          "Spelling rules",
+          "Morphology",
+          "Comprehension"
+        ]
+      },
+      "id": "review-4-literacy",
+      "submittedAt": "2026-10-24T23:30:02.153Z"
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 2,
+      "draftSha256": "1a2efc8ea794ae70352a222975281a26334d90584151c877555dc4f06dfe0a11",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "minor",
+          "message": "water-dusted's last paragraph already says the team 'climbed the ladder, one rung at a time, and rested on the ledge' (drafts/story.r2.json line 246), but the new second choice 'Rest a moment on the ledge first' (line 252) leads to dusted-ledge, whose first line (line 259) narrates them resting on the ledge again. The detour is genuine new content (Hollis humming near the carved note), so it is not a trivial filler choice, but the two passages describe the same resting action back to back. Reword one of the two lines so the rest is not narrated twice.",
+          "passage": "water-dusted"
+        },
+        {
+          "severity": "minor",
+          "message": "fire-big ends with 'Then they walked on with one small lamp' (line 443), reading as already left the hall, but the new choice 'Check the scorch mark before leaving' (line 448) and its target big-scorch (lines 452-464) have Sami stop to examine the wall as if still in the room. Minor ordering wrinkle from the new choice; consider softening 'walked on' or moving the check ahead of that line.",
+          "passage": "fire-big"
+        },
+        {
+          "severity": "minor",
+          "message": "sand-slip ends 'Everyone walked on the pale tiles after that' (line 195), reading as resolved, then the new choice 'Look at the tile that tipped, before moving on' (line 200) sends the reader into slip-bird (lines 203-214) where Ren is still crouched at the same tile. Same ordering wrinkle as water-dusted/fire-big; low impact but worth a line edit for consistency.",
+          "passage": "sand-slip"
+        },
+        {
+          "severity": "minor",
+          "message": "song-horn ends 'Everyone slipped through, a bit shaky but safe' (line 355), i.e. the team has already passed the door into the next space, but the new choice 'Look at the horn you just blew' (line 360) sends the reader into horn-crack (lines 364-375), where Hollis is still examining the horn set in the hall-song wall they just left, before 'crack-on' continues to fork. horn-crack is new content, not a re-read of an already-visited passage, so this is not the graph-backtracking defined as a major finding, but the spatial sequencing reads as if the team stepped back into the room they just exited. Consider moving 'Everyone slipped through' to after the detour, or placing the horn-check in the doorway rather than back at the horn.",
+          "passage": "song-horn"
+        },
+        {
+          "severity": "minor",
+          "message": "Carried over from the revision-1 QA review (review-1-qa), still present and not addressed by this revision (out of this revision's stated scope, which was only the ten single-choice passages): (a) 'Hollis lifted the horn' (song-horn, line 351) vs. hall-song's 'a bronze horn set in the wall' (line 301) is a verb mismatch; (b) ending-seal's 'Sami closed the door with three slow taps' (line 553) is reachable on routes where the reader never saw the tapping card; (c) the hall-water and hall-sleeper locked-choice hints point to earlier opportunities (the cart, the water wall) that a forward-only route can no longer act on; (d) validation.r2.json still reports '2 sentence(s) exceed the brief's 16-word limit', both in ending-setback (lines 568 and 571), unchanged from revision 1. None of these are new in revision 2 and none block this review.",
+          "passage": "song-horn"
+        },
+        {
+          "severity": "info",
+          "message": "`npm run check` currently exits non-zero, but only because `validate:stories` flags stale public preview snapshots (public/stories/previews/*.json) for six jobs, including a cached the-tomb-of-ameru.json preview that still has the original ten single-choice passages. Previews only sync at `story publish`, and none of these jobs (including this one) have been published, so this is a pre-existing, repo-wide condition unrelated to this revision. The job's own validation (reports/validation.r2.json) and graph report (reports/graph.r2.json), which are the correct sources of truth before publication, both report ok. `npm test` passed 191/191 in the same run.",
+          "passage": "n/a"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/drafts/story.r2.json",
+          "sha256": "1a2efc8ea794ae70352a222975281a26334d90584151c877555dc4f06dfe0a11"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/validation.r2.json",
+          "sha256": "14ae6ee3edfa413e340fa56c63c0bb6567277535e73f0774b8ec76f41a12104d"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/graph.r2.json",
+          "sha256": "70f7433bbeb3c2e72161834e93cb0c57f5ac334a0be79e775a7108f16f143848"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/brief.json",
+          "sha256": "7443ae1c50cfb230f4a51c5b7d65c0e2dff42faf687006ca909af3addb0e4f0a"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/work/revision-notes.r2.md",
+          "sha256": "b281ca6229b6a3df39e3f2ff408283d95ea565923f0517b90683dac633ef4e16"
+        }
+      ],
+      "id": "review-5-qa",
+      "submittedAt": "2026-10-24T23:31:47.817Z"
     }
   ],
   "parentDecisions": [],
@@ -443,6 +657,16 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 2 (story v2) passed automated validation"
+    },
+    {
+      "at": "2026-10-24T23:31:47.817Z",
+      "from": "in-review",
+      "to": "awaiting-parent-approval",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "All required reviews passed"
     }
   ]
 }

@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-derelict-salvage-cap-f8f7ea",
   "storyId": "the-derelict-salvage",
-  "state": "awaiting-parent-approval",
+  "state": "validation-failed",
   "createdAt": "2026-10-20T23:23:23.408Z",
-  "updatedAt": "2026-10-21T18:37:14.553Z",
+  "updatedAt": "2026-10-24T23:31:19.575Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/request.json",
@@ -238,6 +238,41 @@
         ]
       },
       "revision": 6
+    },
+    {
+      "storyVersion": 7,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/drafts/story.r7.json",
+        "sha256": "b42c13a483e524a31d02edb1dd61d24937ca353e6cfa9aebf3b46fa5d19c0852"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-24T23:31:19.575Z",
+      "validation": {
+        "ok": false,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/validation.r7.json",
+          "sha256": "b52a472cc12b1f41f24aec9f1e6b995a84c6c4881c4c77a911636755150fa9c6"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/literacy.r7.json",
+          "sha256": "2c7b4ef3a7e196d57e513fb320d1dedb24989352ff016a20bb9881ca6ae0e71a"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/graph.r7.json",
+          "sha256": "cc5726cbf86ede99d7a29612a6d5f4af860780d2531507a8e766d6725ffd9817"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: 4 error(s), 0/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 7
     }
   ],
   "reviews": [
@@ -292,7 +327,8 @@
         }
       ],
       "id": "review-1-qa",
-      "submittedAt": "2026-10-20T23:37:29.139Z"
+      "submittedAt": "2026-10-20T23:37:29.139Z",
+      "invalidatedBy": 7
     },
     {
       "role": "literacy",
@@ -355,7 +391,8 @@
         }
       ],
       "id": "review-2-literacy",
-      "submittedAt": "2026-10-20T23:37:42.450Z"
+      "submittedAt": "2026-10-20T23:37:42.450Z",
+      "invalidatedBy": 7
     },
     {
       "role": "literacy",
@@ -500,7 +537,8 @@
         ]
       },
       "id": "review-3-literacy",
-      "submittedAt": "2026-10-21T18:37:14.553Z"
+      "submittedAt": "2026-10-21T18:37:14.553Z",
+      "invalidatedBy": 7
     }
   ],
   "parentDecisions": [],
@@ -545,6 +583,15 @@
       "stage": "validation",
       "error": "Revision 5: ",
       "at": "2026-10-20T23:33:43.036Z",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      }
+    },
+    {
+      "stage": "validation",
+      "error": "Revision 7: single-choice hull-marks; single-choice porthole; single-choice engine-trace; single-choice nib-ask",
+      "at": "2026-10-24T23:31:19.575Z",
       "actor": {
         "name": "story-cli",
         "kind": "automation"
@@ -657,6 +704,17 @@
         "kind": "automation"
       },
       "note": "All required reviews passed"
+    },
+    {
+      "at": "2026-10-24T23:31:19.575Z",
+      "from": "awaiting-parent-approval",
+      "to": "validation-failed",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 7 (story v7) failed automated validation"
     }
   ]
 }

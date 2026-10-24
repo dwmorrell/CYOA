@@ -1,0 +1,68 @@
+{
+  "role": "literacy",
+  "reviewer": { "name": "literacy-specialist", "kind": "ai-agent", "agent": "literacy-specialist" },
+  "revision": 4,
+  "draftSha256": "2f7e3c76c97dcffba65d60e02babafed36297df0f65ff798b86f58f26cef151d",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Skills practised: Reading and following this story practises decoding wh, ck and tch words in meaningful context, and meeting the same word-set words again and again on every route. It builds sequencing (latch, then switch, then hatch; tools sorted and passed to Dex in order; climbing to the bridge together step by step), inference (the whistle in the vents that signals the dust is closer, the crew's last call naming the engine room, green and amber pod lights, bent sensors that make maps untrustworthy) and vocabulary from context (sensors, coolant, anomaly, navigator, and now what a latch, switch and hatch each do). The new branches add short detour scenes that ask the reader to notice a detail (a spark near the wire, tools sorted in order) or choose to bring a companion along, so the story also practises comprehension monitoring, cause-and-effect reasoning and reading dialogue for meaning, same as before."
+    },
+    {
+      "severity": "note",
+      "message": "Word sets still meet their minimums with wide margins (wh 38/10, ck 46/8, tch 35/8), every listed word is still used, and no concept mismatches are reported. The six new passages carry set words naturally in context, not as lists: 'A thin whistle moved through the vents' and 'Jun's neck prickled' (locker-listen), 'Good catch,' said Dex' and 'Back up a little' (dex-lamp-watch), 'Click. Click. Each tool found its place' (dex-tools-sort, onomatopoeia for sorting, not a drill), and 'a wall of white' (storm-engine-together). Each set still appears on the shortest route to all five endings (wh 10 to 13, ck 20 to 25, tch 13 to 17), the same spread as revision 3 plus the small addition from the new branches.",
+      "passage": "locker-listen"
+    },
+    {
+      "severity": "minor",
+      "message": "'not-yet-why' has Oru explain three tch words in a tight run: 'The latch unlocks... The switch wakes the heartbeat... The hatch lets in air.' Each clause gives the word a distinct job, so it is not a bare list, but it reads closer to a vocabulary drill than the story's usual natural dialogue. This is a genuine comprehension beat (it answers 'why does order matter', which is the point of the detour), so I am not requesting a change, but the narrative-designer may want to loosen the parallel phrasing in a future pass.",
+      "passage": "not-yet-why"
+    },
+    {
+      "severity": "minor",
+      "message": "Carried over from revision 3, still present and unaddressed because it was out of this revision's scope: 'He gave a whip of his wrist' (dex-tools) is still the least natural use of a set word, 'catch' and 'match' still get only 2 uses each (lopsided practice inside the tch set), and the storm-bridge leak line and the captain-wakes reading-time note from the prior review still apply. None of these affect whether the word-set minimums or every-route coverage pass, so they do not change this verdict.",
+      "passage": "dex-tools"
+    },
+    {
+      "severity": "note",
+      "message": "The six new passages (locker-listen, oru-log-crew, not-yet-why, dex-lamp-watch, dex-tools-sort, storm-engine-together) are all short, read at the same 6-to-10-word average sentence length as the rest of the story, and I found no sentence over the brief's 16-word limit in them by manual count (the longest, in storm-engine-together, is 'At the top, the dust storm filled the window in a wall of white,' 14 words). The analyzer's 20-word threshold also reports none over.",
+      "passage": "storm-engine-together"
+    },
+    {
+      "severity": "note",
+      "message": "Limits of this review: the analyzer matches spelling, not sound, and only checks the shortest route to each ending, not every possible route through the new branches. It does not judge decodability, vocabulary level or story quality. I read every new and changed passage in revision 4, checked each named choice point for a genuine second decision (not a decoration), and traced the new branches back into the existing graph by hand, but did not play every route in the app. I am an AI agent; this is a pre-review, not the human literacy gate, and does not replace a qualified human literacy reviewer."
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "A space survival mystery: a navigator wakes early on a drifting ship and must wake the crew and steer clear of a dust storm. It practises wh, ck and tch words, plus -ed endings, beginning blends and FLOSS words. Readers also practise sequencing, inference and vocabulary from context.",
+    "skills": ["comprehension", "inference", "sequencing", "vocabulary"],
+    "wordTypes": [
+      { "concept": "digraph-wh", "examples": ["when", "white", "wheel", "whistle"] },
+      { "concept": "digraph-ck", "examples": ["back", "deck", "click", "rock"] },
+      { "concept": "trigraph-tch", "examples": ["catch", "latch", "hatch", "switch"] },
+      { "concept": "suffix-ed", "examples": ["asked", "climbed", "answered", "cleared"] },
+      { "concept": "initial-blend", "examples": ["clamp", "bridge", "climb", "clear"] },
+      { "concept": "floss", "examples": ["hall", "buzz", "hiss", "glass"] }
+    ],
+    "ogCategories": ["Phonics", "Spelling rules", "Morphology", "Comprehension"]
+  },
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r4.json",
+      "sha256": "2f7e3c76c97dcffba65d60e02babafed36297df0f65ff798b86f58f26cef151d"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r4.json",
+      "sha256": "f1bdaf377b97968d9f8302133a5c068bf7656f8bdb0c61110e6d58222da154d3"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r4.md",
+      "sha256": "4561c7dedf3c17a6f7bdec44ff5a3e1405cb59070beb11f47c46b92d43d0988f"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/weave-comparison.r4.json",
+      "sha256": "6727803c5546e7b3b85af0fbd522314af85e24b3592b1fa9df963d18d309352f"
+    }
+  ]
+}

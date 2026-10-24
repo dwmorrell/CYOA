@@ -1,0 +1,58 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 4,
+  "draftSha256": "2f7e3c76c97dcffba65d60e02babafed36297df0f65ff798b86f58f26cef151d",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "passage": "storm-engine-together",
+      "message": "story.r4.json lines 314-324 versus storm-engine lines 299-312: storm-engine places the backup wheel 'on the wall' in the engine room with no travel implied, but the new bring-dex-along branch has Jun and Dex 'climbed the steps together... At the top, the dust storm filled the window in a wall of white' before reaching the same threshold passage. The two routes to the same next passage imply different geography (wheel in the engine room vs. a climb to a window at the top of some stairs). Not a dead end or soft lock, and a young reader is unlikely to notice, but worth a line tightening the backup wheel's location so both branches agree."
+    },
+    {
+      "severity": "minor",
+      "passage": "bridge",
+      "message": "story.r4.json lines 128-130: unchanged from r3 and still a weak puzzle - Oru states the pod order (latch, switch, hatch) right before the three-way choice, so picking switch-first or hatch-first has no real inference behind it. The r4 fix (not-yet / not-yet-why) adds a genuine second choice after a wrong guess, which helps, but the original choice at `bridge` itself still is not a real decision. Carried over from review-3-qa; out of this revision's scope per revision-notes.r4.md, so not blocking."
+    },
+    {
+      "severity": "minor",
+      "passage": "captain-wakes",
+      "message": "story.r4.json lines 171-172: unchanged from r3. The Captain says calls to far decks cannot get through and the comm panel is dark, but storm-bridge has Dex on the ship's inside speaker, storm-engine has the Captain's voice reaching the engine room, and ending-1 has both cheering over the speaker. Carried over from review-3-qa; not touched by this revision."
+    },
+    {
+      "severity": "minor",
+      "passage": "oru-log",
+      "message": "story.r4.json lines 82-85 versus dex-chart lines 287-290: unchanged from r3. Oru says maps may not match what is real, yet the bent screens show the clear lane on both the bridge and engine routes, while Dex's chart is called right because it does not match the screens. Carried over from review-3-qa; not touched by this revision."
+    },
+    {
+      "severity": "minor",
+      "passage": "captain-wakes / dex-fixed / dex-chart / storm-bridge",
+      "message": "Unchanged from r3: the take-or-skip-spare-item choice pairs still reconverge immediately and only add or skip an inventory item/clue (thin choice design). Narrative-designer's revision notes confirm this was intentionally left out of scope for r4. Not a defect (engine de-duplicates items), just a reminder it is still open."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r4.json",
+      "sha256": "2f7e3c76c97dcffba65d60e02babafed36297df0f65ff798b86f58f26cef151d"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r4.json",
+      "sha256": "86468111ec500a02ad5127c396cd5e04dff4b75a6dc3de875cb009833485b5c3"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r4.json",
+      "sha256": "ea6255f4d3cab58642b42ba05c998f19f4cefd7ecfa9e36a359197bc97bc2c60"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/brief.json",
+      "sha256": "fdc2fc24ea875ea8f0988d268e7bd726581042613ee246fcd7d0b15c5976e318"
+    }
+  ],
+  "id": "review-7-qa",
+  "submittedAt": "2026-10-24T23:30:15.598Z"
+}

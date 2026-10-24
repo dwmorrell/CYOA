@@ -1,0 +1,54 @@
+{
+  "role": "qa",
+  "reviewer": { "name": "qa-engineer", "kind": "ai-agent", "agent": "qa-engineer" },
+  "revision": 2,
+  "draftSha256": "1a2efc8ea794ae70352a222975281a26334d90584151c877555dc4f06dfe0a11",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "water-dusted's last paragraph already says the team 'climbed the ladder, one rung at a time, and rested on the ledge' (drafts/story.r2.json line 246), but the new second choice 'Rest a moment on the ledge first' (line 252) leads to dusted-ledge, whose first line (line 259) narrates them resting on the ledge again. The detour is genuine new content (Hollis humming near the carved note), so it is not a trivial filler choice, but the two passages describe the same resting action back to back. Reword one of the two lines so the rest is not narrated twice.",
+      "passage": "water-dusted"
+    },
+    {
+      "severity": "minor",
+      "message": "fire-big ends with 'Then they walked on with one small lamp' (line 443), reading as already left the hall, but the new choice 'Check the scorch mark before leaving' (line 448) and its target big-scorch (lines 452-464) have Sami stop to examine the wall as if still in the room. Minor ordering wrinkle from the new choice; consider softening 'walked on' or moving the check ahead of that line.",
+      "passage": "fire-big"
+    },
+    {
+      "severity": "minor",
+      "message": "sand-slip ends 'Everyone walked on the pale tiles after that' (line 195), reading as resolved, then the new choice 'Look at the tile that tipped, before moving on' (line 200) sends the reader into slip-bird (lines 203-214) where Ren is still crouched at the same tile. Same ordering wrinkle as water-dusted/fire-big; low impact but worth a line edit for consistency.",
+      "passage": "sand-slip"
+    },
+    {
+      "severity": "minor",
+      "message": "song-horn ends 'Everyone slipped through, a bit shaky but safe' (line 355), i.e. the team has already passed the door into the next space, but the new choice 'Look at the horn you just blew' (line 360) sends the reader into horn-crack (lines 364-375), where Hollis is still examining the horn set in the hall-song wall they just left, before 'crack-on' continues to fork. horn-crack is new content, not a re-read of an already-visited passage, so this is not the graph-backtracking defined as a major finding, but the spatial sequencing reads as if the team stepped back into the room they just exited. Consider moving 'Everyone slipped through' to after the detour, or placing the horn-check in the doorway rather than back at the horn.",
+      "passage": "song-horn"
+    },
+    {
+      "severity": "minor",
+      "message": "Carried over from the revision-1 QA review (review-1-qa), still present and not addressed by this revision (out of this revision's stated scope, which was only the ten single-choice passages): (a) 'Hollis lifted the horn' (song-horn, line 351) vs. hall-song's 'a bronze horn set in the wall' (line 301) is a verb mismatch; (b) ending-seal's 'Sami closed the door with three slow taps' (line 553) is reachable on routes where the reader never saw the tapping card; (c) the hall-water and hall-sleeper locked-choice hints point to earlier opportunities (the cart, the water wall) that a forward-only route can no longer act on; (d) validation.r2.json still reports '2 sentence(s) exceed the brief's 16-word limit', both in ending-setback (lines 568 and 571), unchanged from revision 1. None of these are new in revision 2 and none block this review.",
+      "passage": "song-horn"
+    },
+    {
+      "severity": "info",
+      "message": "`npm run check` currently exits non-zero, but only because `validate:stories` flags stale public preview snapshots (public/stories/previews/*.json) for six jobs, including a cached the-tomb-of-ameru.json preview that still has the original ten single-choice passages. Previews only sync at `story publish`, and none of these jobs (including this one) have been published, so this is a pre-existing, repo-wide condition unrelated to this revision. The job's own validation (reports/validation.r2.json) and graph report (reports/graph.r2.json), which are the correct sources of truth before publication, both report ok. `npm test` passed 191/191 in the same run.",
+      "passage": "n/a"
+    }
+  ],
+  "checks": {
+    "storyStatus": "npm run story -- status job-20261020-the-tomb-of-ameru-sami-k-541c79: revision 2 validation=ok (schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok)",
+    "npmTest": "npm test (via npm run check): Test Files 12 passed (12); Tests 191 passed (191)",
+    "npmCheck": "npm run check: exits 1 solely due to validate:stories warnings on stale public preview snapshots for this and five other unpublished jobs; see info finding above",
+    "tenNewChoicesReviewed": "map-nook/map-copy, door-tap/tap-adjust, door-push/push-careful, sand-slip/slip-bird, water-dusted/dusted-ledge, water-skip/skip-hollis, song-hum/hum-keeper, song-horn/horn-crack, fire-small/small-flame, fire-big/big-scorch: all ten new detour passages contain distinct new content (new detail, dialogue or consequence) and rejoin the existing graph at the point stated in revision-notes.r2.md; none are trivial filler and none introduce a loop or a revisit of an already-read passage.",
+    "endingsTraced": "All 5 endings traced from camp through the graph in reports/graph.r2.json: keeper-friend (camp>cart>map-nook>door-front>door-tap>hall-sand>hall-water>water-dusted>hall-song>song-hum>fork>hall-fire>fire-small/fire-big>hall-sleeper>sleeper-brush, using soft-brush+low-note gathered en route); open-lid (any route to hall-sleeper>sleeper-lift); every-line (hall-sleeper>sleeper-read>read-notes); door-sealed (hall-sleeper>sleeper-read>read-seal); another-day (fork>fork-leave). No dead ends, soft locks or required backtracking over already-read passages found on any traced route; every locked choice (door-tap, water-brush, song-hum, sleeper-brush) has an open alternative at the same passage and a fair, in-fiction hint.",
+    "contentIntegrity": "No sexual content, violence/gore, self-harm or real-religion references in the ten new passages or elsewhere; Ameru, its Keeper and the sleeper remain fictional and are never shown harming anyone (brief.json continuity.avoid). New prose reuses word-set words (e.g. 'dark', 'far' in tap-adjust; 'rested', 'long' in dusted-ledge; 'walked' in map-copy and slip-bird) without forcing them. No new items or clues were introduced by the ten new passages, so the existing clue/item continuity (tap-card, low-note, soft-brush) is unaffected."
+  },
+  "evidence": [
+    { "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/drafts/story.r2.json", "sha256": "1a2efc8ea794ae70352a222975281a26334d90584151c877555dc4f06dfe0a11" },
+    { "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/validation.r2.json", "sha256": "14ae6ee3edfa413e340fa56c63c0bb6567277535e73f0774b8ec76f41a12104d" },
+    { "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/graph.r2.json", "sha256": "70f7433bbeb3c2e72161834e93cb0c57f5ac334a0be79e775a7108f16f143848" },
+    { "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/brief.json", "sha256": "7443ae1c50cfb230f4a51c5b7d65c0e2dff42faf687006ca909af3addb0e4f0a" },
+    { "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/work/revision-notes.r2.md", "sha256": "b281ca6229b6a3df39e3f2ff408283d95ea565923f0517b90683dac633ef4e16" }
+  ]
+}

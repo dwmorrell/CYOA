@@ -97,8 +97,9 @@ describe('parent approval controls the child library', () => {
     fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
     fireEvent.click(button('Open'));
     fireEvent.click(await screen.findByRole('button', { name: `Edit ${story.title}` }));
-    expect(await screen.findByText(/Confirm that the AI literacy review and the AI QA review/)).toBeTruthy();
-    expect((screen.getByRole('button', { name: 'Approve version 1' }) as HTMLButtonElement).disabled).toBe(true);
+    const approve = await screen.findByRole('button', { name: 'Approve version 1' });
+    expect(screen.getByText(/Confirm that the AI literacy review and the AI QA review/)).toBeTruthy();
+    expect((approve as HTMLButtonElement).disabled).toBe(true);
   });
 
   it('a draft the parent confirms against the AI reviews is approved in the editor and then offered to the child', async () => {
@@ -110,7 +111,8 @@ describe('parent approval controls the child library', () => {
     fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
     fireEvent.click(button('Open'));
     fireEvent.click(await screen.findByRole('button', { name: `Edit ${story.title}` }));
-    fireEvent.click(await screen.findByLabelText(/AI literacy review and the AI QA review for this version have passed/));
+    await screen.findByRole('button', { name: 'Approve version 1' });
+    fireEvent.click(await screen.findByRole('checkbox', { name: /AI literacy review and the AI QA review for this version have passed/ }));
     const approve = await screen.findByRole('button', { name: 'Approve version 1' });
     expect((approve as HTMLButtonElement).disabled).toBe(false);
     fireEvent.click(approve);
@@ -165,6 +167,41 @@ describe('parent approval controls the child library', () => {
     expect(await screen.findByRole('heading', { level: 1, name: 'The windy hill' })).toBeTruthy();
     await waitFor(async () => expect((await repo.loadSave(child.id, story.id))?.save.storyVersion).toBe(2));
   });
+
+  it('archiving moves a story off the main list without touching approval, and it can be restored', async () => {
+    const repo = await readyRepo();
+    await repo.saveDraft(story, 'Sam', 'import');
+    await repo.approve(story.id, { by: 'Sam', at: 'now', aiReviewsPassed: true });
+    location.hash = '#/parent';
+    render(<App repo={repo} catalog={emptyCatalog} />);
+    fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
+    fireEvent.click(button('Open'));
+    fireEvent.click(await screen.findByRole('button', { name: `Archive ${story.title}` }));
+    expect(await screen.findByText('No stories on the main list.', { exact: false })).toBeTruthy();
+    fireEvent.click(screen.getByText('Archived stories (1)'));
+    expect((await repo.library())[0]?.approved?.version).toBe(1);
+    fireEvent.click(await screen.findByRole('button', { name: `Restore ${story.title} to the main list` }));
+    expect(await screen.findByRole('button', { name: `Archive ${story.title}` })).toBeTruthy();
+  });
+
+  it('deleting a story needs confirmation, and removes it from the library entirely', async () => {
+    const repo = await readyRepo();
+    await repo.saveDraft(story, 'Sam', 'import');
+    location.hash = '#/parent';
+    render(<App repo={repo} catalog={emptyCatalog} />);
+    fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
+    fireEvent.click(button('Open'));
+    fireEvent.click(await screen.findByRole('button', { name: `Delete ${story.title}` }));
+    expect(await screen.findByText(/This cannot be undone/)).toBeTruthy();
+    fireEvent.click(button('Cancel'));
+    expect(screen.queryByText(/This cannot be undone/)).toBeNull();
+    expect(await screen.findByText(story.title)).toBeTruthy();
+
+    fireEvent.click(button(`Delete ${story.title}`));
+    fireEvent.click(button('Yes, delete permanently'));
+    expect(await screen.findByText(/No stories yet/)).toBeTruthy();
+    expect(await repo.library()).toEqual([]);
+  });
 });
 
 function renderReader(s: Story, initial: GameState = newGame(s)) {
@@ -196,6 +233,20 @@ describe('reader', () => {
     expect(screen.getAllByRole('button', { name: /Look in the shed|Go to the fish pond/ })).toHaveLength(2);
     expect(screen.getByText('Backpack (0)')).toBeTruthy();
     expect(screen.getByText('Clue notebook (0)')).toBeTruthy();
+  });
+
+  it('a back button returns to the exact previous page, without reloading the story, then clears after Play again', () => {
+    const { states, rerender } = renderReader(story);
+    expect(screen.queryByRole('button', { name: 'Previous page' })).toBeNull();
+    fireEvent.click(button('Look in the shed'));
+    rerender();
+    expect(screen.getByRole('heading', { level: 1 }).textContent).toBe('The shed');
+    expect(states.at(-1)!.clues).toEqual(['red-thread']);
+    fireEvent.click(button('Previous page'));
+    rerender();
+    expect(screen.getByRole('heading', { level: 1 }).textContent).toBe('The windy hill');
+    expect(states.at(-1)!.clues).toEqual([]);
+    expect(screen.queryByRole('button', { name: 'Previous page' })).toBeNull();
   });
 
   it('locked choices stay visible with a hint and do nothing when pressed', () => {
@@ -267,17 +318,17 @@ describe('typing practice add-on', () => {
     expect(input.hasAttribute('readonly')).toBe(true);
     expect(await screen.findByText(/That is place 1 on this track/)).toBeTruthy();
     expect(screen.getByText(/Ada: \d+ words a minute, \d+ percent accurate, lap \d+:\d\d/)).toBeTruthy();
-    expect((await repo.highScores('harbour-oval')).map((x) => x.name)).toEqual(['Ada']);
+    expect((await repo.highScores('coast-highway')).map((x) => x.name)).toEqual(['Ada']);
   });
 
-  it('each race track keeps its own high scores, and changing track starts a new lap', async () => {
+  it('each road keeps its own high scores, and changing road starts a new lap', async () => {
     const repo = await readyRepo();
     render(<App repo={repo} catalog={emptyCatalog} />);
     await navigate('#/typing');
     fireEvent.change(await screen.findByLabelText('Type here'), { target: { value: target } });
     await screen.findByText(/That is place 1 on this track/);
-    fireEvent.change(screen.getByLabelText('Race track'), { target: { value: 'harbour-loop' } });
-    expect(await screen.findByRole('heading', { name: 'High scores: Harbour loop' })).toBeTruthy();
+    fireEvent.change(screen.getByLabelText('Road'), { target: { value: 'mountain-pass' } });
+    expect(await screen.findByRole('heading', { name: 'High scores: Mountain pass' })).toBeTruthy();
     expect(screen.getByText('No laps finished on this track yet.')).toBeTruthy();
     expect((screen.getByLabelText('Type here') as HTMLInputElement).value).toBe('');
   });
@@ -339,10 +390,10 @@ describe('typing practice add-on', () => {
 describe('reading preferences', () => {
   it('applies preferences as CSS variables and data attributes', () => {
     const el = document.documentElement;
-    applyPrefs(el, { ...DEFAULT_PREFS, fontScale: 1.5, lineHeight: 2, letterSpacing: 0.1, theme: 'dark', lineFocus: true, font: 'dyslexic' });
+    applyPrefs(el, { ...DEFAULT_PREFS, fontScale: 1.5, lineHeight: 2, letterSpacing: 0.1, theme: 'dark', lineFocus: true, font: 'lexend' });
     expect(el.style.getPropertyValue('--font-scale')).toBe('1.5');
     expect(el.style.getPropertyValue('--letter-spacing')).toBe('0.1em');
-    expect(el.style.getPropertyValue('--reading-font')).toContain('OpenDyslexic');
+    expect(el.style.getPropertyValue('--reading-font')).toContain('Lexend');
     expect(el.dataset.theme).toBe('dark');
     expect(el.dataset.lineFocus).toBe('true');
   });

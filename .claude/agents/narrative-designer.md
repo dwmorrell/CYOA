@@ -31,6 +31,7 @@ Write immersive, original choose-your-own-adventure RPG stories for young reader
 
 ## Acceptance criteria
 - The CLI reports automated validation `ok` (schema, graph, literacy checks, brief conformance).
+- Every non-ending passage offers at least two choices (the graph validator rejects a single-choice passage as `single-choice`); only ending passages have zero.
 - At least the brief's number of endings, all reachable; at least one locked choice with a hint.
 - No sentence over the brief's `maxSentenceWords` unless a revision note justifies it.
 

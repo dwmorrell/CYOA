@@ -1,0 +1,97 @@
+{
+  "role": "literacy",
+  "reviewer": { "name": "literacy-specialist", "kind": "ai-agent", "agent": "literacy-specialist" },
+  "revision": 10,
+  "draftSha256": "f1734d022d04ac8dc3b0490b1af2bb4d2925f6e0930d9bfe765b204d02c327d5",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "AI pre-review of revision 10, not the human literacy review the publication policy requires. literacy.review.status stays \"pending\" in the story file (I did not change it, and never will) and a qualified human must still review and decide. 'pass' here means I found no blocker, major or minor finding against the brief and taxonomy. Limits of automated detection: the analyzer's concept detectors match spelling, not sound, so some matches (e.g. 'wh' in 'whole', 'ea' style false positives in general) are not genuine phoneme practice; syllable counts are estimates from vowel groups; the fixed sentence-length check in src/literacy/analyzer.ts uses a constant of 20 words (LONG_SENTENCE), not this brief's maxSentenceWords of 16, so I hand-counted every sentence and choice label against 16 myself rather than trust that automated check's label. None of this judges decodability for a specific child, vocabulary difficulty, or story quality; a qualified human reviewer must confirm the linguistic claims.",
+      "passage": "start"
+    },
+    {
+      "severity": "note",
+      "message": "Skills practised: taken as a whole, this story practises decoding words with the sh, ch and th digraphs and short closed-syllable words in continuous context, recognising the same small set of word-set words again and again as the reader moves between passages, and reading choice labels as part of the story rather than as separate instructions. It also exercises sequencing (working out what to do first to get the cloth, the matches and the clue before the lamp can be lit), inference (reading Gran Tull's hints about the misty mirror and the cold wick to work out why the lamp is dark), picking up word meaning from context with optional glossary help for harder words, and noticing small details (the shell, the tapping gull, the locked choice's hint) that decide which path opens next. This is a view from automated spelling-pattern counts and my own read-through, not a judgement of how any one child will read it.",
+      "passage": "start"
+    },
+    {
+      "severity": "note",
+      "message": "WORD SETS, R9 TO R10 DIFF. The three changed/added passages (shed-chest, bench, bench-clue) kept all of their r9 prose unchanged and only added one new choice each; the new passage bench-shell is entirely new. Checked each new or changed line by hand against the three word sets: shed-chest's new choice 'Take the cloth straight to Gran Tull' uses cloth (th-words) naturally, as an instruction, not a list. bench's new choice 'Ask Pip about the shell she keeps tapping' uses shell (sh-words) naturally. bench-clue's new choice 'Go to the shed to grab the cloth you still need' uses both shed (sh-words) and cloth (th-words) naturally, in a sentence that also carries real plot information (go get the item you still need). bench-shell's prose uses shell (sh-words, twice) and bench (ch-words, twice: 'tap, tap, tap on the bench' and the title/hub pattern) and path and much (th/ch-words) inside ordinary sentences about Pip hopping off and Gran Tull's aside about the gull; none of these read as a vocabulary list. Report totals confirm the words still carry their declared pattern by spelling, with conceptMismatches: [] for all three sets in reports/literacy.r10.json, and the totals are unchanged or higher than r9 (sh 25/10, ch 25/8, th 19/8, all missingWords: none).",
+      "passage": "bench-shell"
+    },
+    {
+      "severity": "note",
+      "message": "SENTENCE LENGTH, HAND-COUNTED AGAINST THE BRIEF'S 16-WORD MAXIMUM (not the analyzer's internal 20-word constant). Every paragraph sentence and every choice label and lockedHint in the whole r10 draft is at or under 16 words; I counted all of them, not just the new text. For the revision's new material specifically: bench-shell's longest sentence is 'Pip tapped the shell again, tap, tap, tap on the bench.' at 11 words, matching the revision notes' own count; its other sentences run 3 to 9 words. The three new choice labels run 7 to 11 words ('Take the cloth straight to Gran Tull' = 7; 'Ask Pip about the shell she keeps tapping' = 8; 'Go to the shed to grab the cloth you still need' = 11). No violation found.",
+      "passage": "bench-shell"
+    },
+    {
+      "severity": "note",
+      "message": "ROUTES TO EVERY ENDING, CHECKED BY HAND BEYOND THE SHORTEST-ROUTE AUTOMATED CHECK. reports/literacy.r10.json's word-sets-on-every-route check (and perEndingRoute figures: sh 14/15/13, ch 10/10/7, th 8/9/8 for ending-beam/ending-help/ending-dock) only tests the single shortest route to each ending (src/literacy/analyzer.ts, shortestRoutes/perEndingRoute), so it would not by itself catch a new alternate route, such as one through the new bench-shell detour or the new shed<->bench<->bench-clue shortcuts, that happened to skip a word set. I traced the graph by hand: climax (and so ending-beam and ending-help) requires items soft-cloth and match-tin plus clue damp-mirror, which only shed-chest and bench-clue grant, so every route to those two endings is still forced through shed, shed-chest, bench or bench-shell, bench-clue, gathering and threshold regardless of which new shortcut is taken, and all of those passages between them still carry all three target patterns. For ending-dock I traced the shortest alternate route start -> bench -> bench-shell -> gathering -> threshold -> run-to-dock -> ending-dock (which the shortest-route check does not examine, since its own shortest route to ending-dock is start -> shed -> gathering -> threshold -> ending-dock): sh-words appear via start (ship, shell) and bench-shell (shell x2) and gathering (shed, ship) and ending-dock (ship); ch-words appear via start (much), bench (bench), bench-shell (bench, much), gathering (much) and ending-dock (bench); th-words appear via start (path, thick), bench-shell (path) and gathering (thick, path) and ending-dock (path, thick). No route I traced, old or new, drops any of the three patterns to zero. The new bench<->bench-clue<->shed shortcuts (chest-to-bench, clue-to-shed) only add paths through passages that already carry the patterns, so they cannot create a skipped-pattern route either.",
+      "passage": "gathering"
+    },
+    {
+      "severity": "note",
+      "message": "AUTOMATED REPORT FIGURES (reports/literacy.r10.json and .md). All automated checks pass: word-set-minimums sh-words 25/10, ch-words 25/8, th-words 19/8; every-word-used (no missingWords in any set); word-sets-on-every-route (as above, shortest-route only); word-set-concepts-match-spelling, no mismatches; target-concepts-known and target-concepts-present (closed-syllable 436, digraph-sh 49, digraph-ch 26, digraph-th 173); sentence-length 0 over the analyzer's own 20-word mark (see my separate 16-word hand count above). learningDesign: every objective tagged, missingTargets: [], passagesTagged 9, tagged moments comprehension 2, inference 3, sequencing 1, vocabulary 1, detail 3, engagement 1 (detail rose from 2 in r9 to 3 because bench-shell is tagged 'detail', an honest addition: the passage does give the reader a concrete noticing moment, the shell and the gull's aside, not a padded tag). 18 glossary words with a definition, unchanged from r9; no new word in this revision needs a glossary entry (the only new vocabulary, e.g. 'empty', 'inside', 'never', 'still', is already common for this age and not two syllables or harder than the existing glossary set). weave-comparison.r10.json confirms all three sets stay at or above their planned-vs-minimum figures (sh 25 vs plan 18/min 10; ch 25 vs 18/8; th 19 vs 18/8).",
+      "passage": "shed"
+    },
+    {
+      "severity": "note",
+      "message": "SCOPE OF THIS REVISION VS. THE ORCHESTRATOR'S SINGLE-CHOICE FINDING. I independently re-checked the orchestrator's premise, that shed-chest, bench and bench-clue were previously single-choice: in story.r9.json's structure those three passages each had exactly one choices entry, so the finding was accurate, and the fix (one added choice to each, plus the new two-choice bench-shell passage) is the narrowest change that resolves it without introducing a fourth ending or touching the one locked choice (wipe-mirror's requires and 90-character lockedHint at threshold are byte-for-byte unchanged from r9). No application code was touched, consistent with the revision notes.",
+      "passage": "shed-chest"
+    },
+    {
+      "severity": "note",
+      "message": "PRIOR SHELF SUMMARY AND SKILLS NOTE STILL ACCURATE FOR R10. The last passing literacy review (review-13-literacy.r9.json, recorded on r9) carried a shelfSummary whose blurb, skills (comprehension, inference, sequencing, vocabulary, detail) and wordTypes (digraph-sh, digraph-ch, digraph-th, closed-syllable, digraph-ck, floss, suffix-ed, with example words ship/fish/shed/shell, chest/chain/bench/much, path/thick/moth/cloth, back/chest/ask/bit, back/dock/wick/thick, brass/dull/gull/smell, asked/called/looked/climbed) still describe r10 correctly: I grepped every one of those example words against story.r10.json and all still appear (counts range from 1 to 24), all still carry their declared pattern (nothing about the new text changes digraph detection), and all five listed skills are still tagged with a nonzero count in r10's learningDesign. I am issuing a fresh shelfSummary below for this revision rather than re-recording the old one verbatim, per the required-output rule that every passing review carries its own shelfSummary, but it says the same thing because nothing material to it changed.",
+      "passage": "ending-help"
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "A gentle seaside mystery: Fen, the lighthouse keeper's helper, must work out why the lamp went dark before the fishing boats come home, with a few new side-paths to explore along the way. It practises sh, ch and th digraphs and short closed-syllable words, plus sequencing, inference and noticing small details in the text.",
+    "skills": ["comprehension", "inference", "sequencing", "vocabulary", "detail"],
+    "wordTypes": [
+      { "concept": "digraph-sh", "examples": ["ship", "fish", "shed", "shell"] },
+      { "concept": "digraph-ch", "examples": ["chest", "chain", "bench", "much"] },
+      { "concept": "digraph-th", "examples": ["path", "thick", "moth", "cloth"] },
+      { "concept": "closed-syllable", "examples": ["back", "chest", "ask", "bit"] },
+      { "concept": "digraph-ck", "examples": ["back", "dock", "wick", "thick"] },
+      { "concept": "floss", "examples": ["brass", "dull", "gull", "smell"] },
+      { "concept": "suffix-ed", "examples": ["asked", "called", "looked", "climbed"] }
+    ],
+    "ogCategories": ["Phonics", "Syllable types", "Spelling rules", "Morphology", "Comprehension"]
+  },
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r10.json",
+      "sha256": "f1734d022d04ac8dc3b0490b1af2bb4d2925f6e0930d9bfe765b204d02c327d5"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r10.json",
+      "sha256": "8d671c729da3be55062642a0df6ccb87fcf026c4c1fd747d75ecb53b8bc51b17"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r10.md",
+      "sha256": "14bbbbb7a5f1f76503700e769471ed162b686eb6b0b2cb6afb2bdeda77853b0f"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/weave-comparison.r10.json",
+      "sha256": "58cc8dc377a62bc69919cc5ff01c622cbd79f36d6d0e42876ba2925c498af425"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/brief.json",
+      "sha256": "8b94f5b841d4a28f9f72321eea5458bf9e266b633ed082c7c8855642e2d8ba4a"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/word-weave-plan.json",
+      "sha256": "fe0edfb2ee6cbe863d05fe16f8be8b997b92afd901d67755f8670bd0cb36cf9a"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/work/revision-notes.r10.md",
+      "sha256": "836e64b6fd2795dd77f6158522ba66b171c28f1ce420fab0bf577bbe371e0047"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reviews/review-13-literacy.r9.json",
+      "sha256": "9195e3d3d33497bd623df0da34e1a139f786d304fbdd7031f8a00c6c8d6a6ef4"
+    }
+  ]
+}

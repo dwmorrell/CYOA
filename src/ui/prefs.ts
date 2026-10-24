@@ -2,7 +2,8 @@ import type { ReadingPrefs } from '../engine/persistence';
 
 const FONTS: Record<ReadingPrefs['font'], string> = {
   system: "Verdana, Tahoma, 'Segoe UI', Roboto, 'Noto Sans', Arial, sans-serif",
-  dyslexic: "'OpenDyslexic', Verdana, Tahoma, Roboto, sans-serif",
+  lexend: "'Lexend', Verdana, Tahoma, Roboto, sans-serif",
+  legible: "'Atkinson Hyperlegible', Verdana, Tahoma, Roboto, sans-serif",
   rounded: "'Comic Sans MS', 'Comic Neue', 'Andika', 'Chalkboard SE', Roboto, sans-serif",
   serif: "Georgia, 'Noto Serif', 'Droid Serif', serif",
 };

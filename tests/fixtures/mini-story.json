@@ -34,14 +34,20 @@
       "title": "The shed",
       "paragraphs": ["The shed door was shut. A red thread hung on it."],
       "effects": { "addClues": ["red-thread"] },
-      "choices": [{ "id": "back-hill", "label": "Go back up the hill", "target": "top" }]
+      "choices": [
+        { "id": "back-hill", "label": "Go back up the hill", "target": "top" },
+        { "id": "go-pond-too", "label": "Walk over to the pond", "target": "pond" }
+      ]
     },
     {
       "id": "pond",
       "title": "The pond",
       "paragraphs": ["A net sat by the fish pond. Max got the net."],
       "effects": { "addItems": ["net"] },
-      "choices": [{ "id": "to-top", "label": "Run to the top", "target": "top" }]
+      "choices": [
+        { "id": "to-top", "label": "Run to the top", "target": "top" },
+        { "id": "go-shed-too", "label": "Walk over to the shed", "target": "shed" }
+      ]
     },
     {
       "id": "top",
