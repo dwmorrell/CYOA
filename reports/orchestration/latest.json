@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T18:38:23.455Z",
+  "generatedAt": "2026-10-24T23:29:19.171Z",
   "order": [
     "WI-01",
     "WI-02",
@@ -94,13 +94,13 @@
     },
     {
       "id": "job-20261020-the-fog-over-pebble-bay-ec899d",
-      "state": "awaiting-parent-approval",
-      "revisions": 9,
+      "state": "in-review",
+      "revisions": 10,
       "gates": [
         {
           "id": "draft-exists",
           "ok": true,
-          "detail": "Revision 9, story v9"
+          "detail": "Revision 10, story v10"
         },
         {
           "id": "automated-validation",
@@ -109,13 +109,13 @@
         },
         {
           "id": "review:qa",
-          "ok": true,
-          "detail": "qa passed by qa-engineer (ai-agent)"
+          "ok": false,
+          "detail": "No qa review on revision 10"
         },
         {
           "id": "review:literacy",
-          "ok": true,
-          "detail": "literacy passed by literacy-specialist (ai-agent)"
+          "ok": false,
+          "detail": "No literacy review on revision 10"
         },
         {
           "id": "story-literacy-claim",
@@ -168,13 +168,13 @@
     },
     {
       "id": "job-20261020-the-tomb-of-ameru-sami-k-541c79",
-      "state": "awaiting-parent-approval",
-      "revisions": 1,
+      "state": "in-review",
+      "revisions": 2,
       "gates": [
         {
           "id": "draft-exists",
           "ok": true,
-          "detail": "Revision 1, story v1"
+          "detail": "Revision 2, story v2"
         },
         {
           "id": "automated-validation",
@@ -183,13 +183,13 @@
         },
         {
           "id": "review:qa",
-          "ok": true,
-          "detail": "qa passed by qa-engineer (ai-agent)"
+          "ok": false,
+          "detail": "No qa review on revision 2"
         },
         {
           "id": "review:literacy",
-          "ok": true,
-          "detail": "literacy passed by literacy-specialist (ai-agent)"
+          "ok": false,
+          "detail": "No literacy review on revision 2"
         },
         {
           "id": "story-literacy-claim",
@@ -205,13 +205,13 @@
     },
     {
       "id": "job-20261020-wake-cycle-astronaut-jun-3923f7",
-      "state": "awaiting-parent-approval",
-      "revisions": 3,
+      "state": "in-review",
+      "revisions": 4,
       "gates": [
         {
           "id": "draft-exists",
           "ok": true,
-          "detail": "Revision 3, story v3"
+          "detail": "Revision 4, story v4"
         },
         {
           "id": "automated-validation",
@@ -220,13 +220,13 @@
         },
         {
           "id": "review:qa",
-          "ok": true,
-          "detail": "qa passed by qa-engineer (ai-agent)"
+          "ok": false,
+          "detail": "No qa review on revision 4"
         },
         {
           "id": "review:literacy",
-          "ok": true,
-          "detail": "literacy passed by literacy-specialist (ai-agent)"
+          "ok": false,
+          "detail": "No literacy review on revision 4"
         },
         {
           "id": "story-literacy-claim",
