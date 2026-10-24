@@ -206,6 +206,26 @@ describe('device library: drafts and parent approval', () => {
     expect(entry?.approved).toBeUndefined();
     expect((await repo.draft(story.id))?.id).toBe(story.id);
   });
+
+  it('archiving hides nothing but its own flag: approval and the draft are unaffected, and it reverses', async () => {
+    const { repo } = await setUp();
+    await repo.saveDraft(story, 'Sam', 'editor');
+    await approve(repo, story.id);
+    const archived = await repo.setArchived(story.id, true);
+    expect(archived?.archived).toBe(true);
+    expect(archived?.approved?.version).toBe(1);
+    expect((await repo.draft(story.id))?.id).toBe(story.id);
+    const restored = await repo.setArchived(story.id, false);
+    expect(restored?.archived).toBe(false);
+  });
+
+  it('remove deletes a story from the library entirely', async () => {
+    const { repo } = await setUp();
+    await repo.saveDraft(story, 'Sam', 'editor');
+    await approve(repo, story.id);
+    await repo.remove(story.id);
+    expect(await repo.library()).toEqual([]);
+  });
 });
 
 describe('progression', () => {

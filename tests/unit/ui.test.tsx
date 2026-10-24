@@ -167,6 +167,41 @@ describe('parent approval controls the child library', () => {
     expect(await screen.findByRole('heading', { level: 1, name: 'The windy hill' })).toBeTruthy();
     await waitFor(async () => expect((await repo.loadSave(child.id, story.id))?.save.storyVersion).toBe(2));
   });
+
+  it('archiving moves a story off the main list without touching approval, and it can be restored', async () => {
+    const repo = await readyRepo();
+    await repo.saveDraft(story, 'Sam', 'import');
+    await repo.approve(story.id, { by: 'Sam', at: 'now', aiReviewsPassed: true });
+    location.hash = '#/parent';
+    render(<App repo={repo} catalog={emptyCatalog} />);
+    fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
+    fireEvent.click(button('Open'));
+    fireEvent.click(await screen.findByRole('button', { name: `Archive ${story.title}` }));
+    expect(await screen.findByText('No stories on the main list.', { exact: false })).toBeTruthy();
+    fireEvent.click(screen.getByText('Archived stories (1)'));
+    expect((await repo.library())[0]?.approved?.version).toBe(1);
+    fireEvent.click(await screen.findByRole('button', { name: `Restore ${story.title} to the main list` }));
+    expect(await screen.findByRole('button', { name: `Archive ${story.title}` })).toBeTruthy();
+  });
+
+  it('deleting a story needs confirmation, and removes it from the library entirely', async () => {
+    const repo = await readyRepo();
+    await repo.saveDraft(story, 'Sam', 'import');
+    location.hash = '#/parent';
+    render(<App repo={repo} catalog={emptyCatalog} />);
+    fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
+    fireEvent.click(button('Open'));
+    fireEvent.click(await screen.findByRole('button', { name: `Delete ${story.title}` }));
+    expect(await screen.findByText(/This cannot be undone/)).toBeTruthy();
+    fireEvent.click(button('Cancel'));
+    expect(screen.queryByText(/This cannot be undone/)).toBeNull();
+    expect(await screen.findByText(story.title)).toBeTruthy();
+
+    fireEvent.click(button(`Delete ${story.title}`));
+    fireEvent.click(button('Yes, delete permanently'));
+    expect(await screen.findByText(/No stories yet/)).toBeTruthy();
+    expect(await repo.library()).toEqual([]);
+  });
 });
 
 function renderReader(s: Story, initial: GameState = newGame(s)) {

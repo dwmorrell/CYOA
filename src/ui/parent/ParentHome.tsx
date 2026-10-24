@@ -130,6 +130,101 @@ function WorkshopApproval({
   return <ApprovalPanel story={story} confirmed={confirmed} setConfirmed={setConfirmed} onApprove={() => void approve()} error={error} />;
 }
 
+/** One card in "Stories on this device": edit/approve controls plus archive and permanent delete. */
+function LibraryCard({
+  entry,
+  repo,
+  parentName,
+  go,
+  onExport,
+  refresh,
+  report,
+  confirmDelete,
+  setConfirmDelete,
+  onApproved,
+}: {
+  entry: LibraryEntry;
+  repo: Repo;
+  parentName: string;
+  go: (hash: string) => void;
+  onExport: (entry: LibraryEntry) => void;
+  refresh: () => Promise<void>;
+  report: (text: string) => void;
+  confirmDelete: string | null;
+  setConfirmDelete: (id: string | null) => void;
+  onApproved: (updated: LibraryEntry) => void;
+}) {
+  const draftVersion = entry.draftHash ? entry.versions.find((v) => v.hash === entry.draftHash)?.version : undefined;
+  const confirming = confirmDelete === entry.storyId;
+  return (
+    <li className="card">
+      <h3>{entry.title}</h3>
+      <p>
+        {entry.approved ? `In the reader’s library: version ${entry.approved.version} (approved by ${entry.approved.by})` : 'Not in the reader’s library'}
+        {draftVersion !== undefined && ` · Draft: version ${draftVersion}`}
+        {entry.archived && ' · Archived'}
+      </p>
+      <div className="row">
+        <button type="button" className="btn primary" aria-label={`Edit ${entry.title}`} onClick={() => go(`#/parent/edit/${encodeURIComponent(entry.storyId)}`)}>
+          Edit and approve
+        </button>
+        <button type="button" className="btn" aria-label={`Preview ${entry.title}`} onClick={() => go(`#/preview/device/${encodeURIComponent(entry.storyId)}`)}>
+          Preview
+        </button>
+        <button type="button" className="btn" aria-label={`Export ${entry.title}`} onClick={() => onExport(entry)}>
+          Export
+        </button>
+        {entry.approved && (
+          <button type="button" className="btn" aria-label={`Remove ${entry.title} from the reader’s library`} onClick={() => void repo.withdraw(entry.storyId).then(refresh)}>
+            Remove from reader’s library
+          </button>
+        )}
+        <button
+          type="button"
+          className="btn"
+          aria-label={entry.archived ? `Restore ${entry.title} to the main list` : `Archive ${entry.title}`}
+          onClick={() => void repo.setArchived(entry.storyId, !entry.archived).then(refresh)}
+        >
+          {entry.archived ? 'Restore' : 'Archive'}
+        </button>
+        <button type="button" className="btn danger" aria-label={`Delete ${entry.title}`} onClick={() => setConfirmDelete(entry.storyId)}>
+          Delete
+        </button>
+      </div>
+      {confirming && (
+        <div className="form">
+          <p className="status bad">
+            {entry.approved
+              ? `Delete "${entry.title}" permanently? It will also disappear from the reader’s library, and every saved version on this device will be gone. This cannot be undone.`
+              : `Delete "${entry.title}" permanently? Every saved version on this device will be gone. This cannot be undone.`}
+          </p>
+          <div className="row">
+            <button
+              type="button"
+              className="btn danger"
+              onClick={() =>
+                void repo
+                  .remove(entry.storyId)
+                  .then(refresh)
+                  .then(() => {
+                    setConfirmDelete(null);
+                    report(`Deleted "${entry.title}".`);
+                  })
+              }
+            >
+              Yes, delete permanently
+            </button>
+            <button type="button" className="btn" onClick={() => setConfirmDelete(null)}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+      <DraftApproval entry={entry} repo={repo} parentName={parentName} onApproved={onApproved} />
+    </li>
+  );
+}
+
 export default function ParentHome() {
   const { repo, profiles, catalog, go, lockParent, reloadProfiles } = useApp();
   const [library, setLibrary] = useState<LibraryEntry[] | null>(null);
@@ -137,6 +232,8 @@ export default function ParentHome() {
   const [newChild, setNewChild] = useState('');
   const [pins, setPins] = useState({ old: '', next: '' });
   const [focus, setFocus] = useState('');
+  const [confirmDelete, setConfirmDelete] = useState<string | null>(null);
+  const [showArchived, setShowArchived] = useState(false);
 
   const refresh = useCallback(async () => setLibrary(await repo.library()), [repo]);
   useEffect(() => void refresh(), [refresh]);
@@ -239,45 +336,37 @@ export default function ParentHome() {
       ) : library.length === 0 ? (
         <p>No stories yet. Import one, copy a packaged story, or start a new one.</p>
       ) : (
-        <ul className="cards">
-          {library.map((entry) => {
-            const draftVersion = entry.draftHash ? entry.versions.find((v) => v.hash === entry.draftHash)?.version : undefined;
-            return (
-              <li key={entry.storyId} className="card">
-                <h3>{entry.title}</h3>
-                <p>
-                  {entry.approved ? `In the reader’s library: version ${entry.approved.version} (approved by ${entry.approved.by})` : 'Not in the reader’s library'}
-                  {draftVersion !== undefined && ` · Draft: version ${draftVersion}`}
-                </p>
-                <div className="row">
-                  <button type="button" className="btn primary" aria-label={`Edit ${entry.title}`} onClick={() => go(`#/parent/edit/${encodeURIComponent(entry.storyId)}`)}>
-                    Edit and approve
-                  </button>
-                  <button type="button" className="btn" aria-label={`Preview ${entry.title}`} onClick={() => go(`#/preview/device/${encodeURIComponent(entry.storyId)}`)}>
-                    Preview
-                  </button>
-                  <button type="button" className="btn" aria-label={`Export ${entry.title}`} onClick={() => void onExport(entry)}>
-                    Export
-                  </button>
-                  {entry.approved && (
-                    <button type="button" className="btn" aria-label={`Remove ${entry.title} from the reader’s library`} onClick={() => void repo.withdraw(entry.storyId).then(refresh)}>
-                      Remove from reader’s library
-                    </button>
-                  )}
-                </div>
-                <DraftApproval
-                  entry={entry}
-                  repo={repo}
-                  parentName={parentName}
-                  onApproved={(updated) => {
-                    setLibrary((lib) => lib?.map((e) => (e.storyId === updated.storyId ? updated : e)) ?? lib);
-                    report(`Version ${updated.approved?.version} is now in the reader’s library.`);
-                  }}
-                />
-              </li>
-            );
-          })}
-        </ul>
+        (() => {
+          const active = library.filter((e) => !e.archived);
+          const archived = library.filter((e) => e.archived);
+          const onApprovedIn = (updated: LibraryEntry) => {
+            setLibrary((lib) => lib?.map((e) => (e.storyId === updated.storyId ? updated : e)) ?? lib);
+            report(`Version ${updated.approved?.version} is now in the reader’s library.`);
+          };
+          return (
+            <>
+              {active.length === 0 ? (
+                <p>No stories on the main list. Import one, copy a packaged story, start a new one, or restore an archived one below.</p>
+              ) : (
+                <ul className="cards">
+                  {active.map((entry) => (
+                    <LibraryCard key={entry.storyId} entry={entry} repo={repo} parentName={parentName} go={go} onExport={onExport} refresh={refresh} report={report} confirmDelete={confirmDelete} setConfirmDelete={setConfirmDelete} onApproved={onApprovedIn} />
+                  ))}
+                </ul>
+              )}
+              {archived.length > 0 && (
+                <details className="pack" open={showArchived} onToggle={(e) => setShowArchived(e.currentTarget.open)}>
+                  <summary>Archived stories ({archived.length})</summary>
+                  <ul className="cards">
+                    {archived.map((entry) => (
+                      <LibraryCard key={entry.storyId} entry={entry} repo={repo} parentName={parentName} go={go} onExport={onExport} refresh={refresh} report={report} confirmDelete={confirmDelete} setConfirmDelete={setConfirmDelete} onApproved={onApprovedIn} />
+                    ))}
+                  </ul>
+                </details>
+              )}
+            </>
+          );
+        })()
       )}
       <div className="row">
         <label className="btn file-btn">

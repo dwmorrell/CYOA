@@ -252,6 +252,15 @@ export class Repo {
     if (entry?.approved) await this.putEntry({ ...entry, draftHash: entry.draftHash ?? entry.approved.hash, approved: undefined });
   }
 
+  /** Hides or restores a story on the grown-up area's main list. Nothing is deleted; it stays approved/in the reader's library either way. */
+  async setArchived(storyId: string, archived: boolean): Promise<LibraryEntry | undefined> {
+    const entry = (await this.library()).find((e) => e.storyId === storyId);
+    if (!entry) return undefined;
+    const updated: LibraryEntry = { ...entry, archived };
+    await this.putEntry(updated);
+    return updated;
+  }
+
   async remove(storyId: string): Promise<void> {
     await this.kv.set('library', (await this.library()).filter((e) => e.storyId !== storyId));
   }
@@ -312,6 +321,8 @@ export interface LibraryEntry {
   draftHash?: string;
   approved?: Approval;
   versions: VersionRecord[];
+  /** Hidden from the grown-up area's main list. Reversible; does not affect the reader's library. */
+  archived?: boolean;
 }
 
 export interface Progress {
