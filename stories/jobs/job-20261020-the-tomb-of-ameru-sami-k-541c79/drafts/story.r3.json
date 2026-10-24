@@ -1,0 +1,604 @@
+{
+  "schemaVersion": "1.0",
+  "id": "the-tomb-of-ameru",
+  "title": "The Tomb of Ameru",
+  "version": 3,
+  "metadata": {
+    "genre": "Tomb and archaeology adventure",
+    "theme": "Curiosity with care, reading clues closely, and respecting the past",
+    "premise": "Sami Kade leads a small archaeology team into a sealed tomb in the desert ruins of Ameru, where the carved walls warn that the sleeper in the stone box must not be woken.",
+    "estimatedMinutes": 25,
+    "authorship": { "narrative": "narrative-designer (AI agent)", "origin": "ai-generated" },
+    "createdAt": "2026-10-20"
+  },
+  "literacy": {
+    "targetConcepts": ["r-controlled", "suffix-ed", "glued-ng-nk"],
+    "wordSets": [
+      { "id": "r-controlled-words", "label": "r-controlled words", "concept": "r-controlled", "words": ["dark", "far", "cart", "card", "dirt", "horn", "burn"], "minOccurrences": 10 },
+      { "id": "ed-endings", "label": "ed endings", "concept": "suffix-ed", "words": ["walked", "dusted", "rested", "lifted", "hunted", "tapped"], "minOccurrences": 8 },
+      { "id": "ng-and-nk-words", "label": "ng and nk words", "concept": "glued-ng-nk", "words": ["long", "sing", "bank", "sink", "tank", "rung"], "minOccurrences": 8 }
+    ],
+    "review": { "status": "pending" }
+  },
+  "start": "camp",
+  "items": [
+    { "id": "soft-brush", "name": "Soft brush", "description": "A brush with a long handle. It clears dust from old carvings without scratching them." }
+  ],
+  "clues": [
+    { "id": "tap-card", "name": "Tapping card", "description": "A clay card from the dirt. It shows a hand that taps the door three times." },
+    { "id": "low-note", "name": "The low note", "description": "A carved song that ends on the lowest note. It was hidden under grey dust." }
+  ],
+  "passages": [
+    {
+      "id": "camp",
+      "title": "Dawn at Ameru",
+      "paragraphs": [
+        "The sun rose over the dry hills of Ameru. Sami Kade stood at the edge of the old city.",
+        "Sami was an archaeologist. That means Sami studies the ancient past and keeps it safe.",
+        "Ren hugged a notebook. Hollis sat on the cart and ate a long, dry biscuit.",
+        "\"Why did the sand cross the river?\" asked Hollis. \"To reach the other bank!\" Nobody laughed. Hollis grinned anyway.",
+        "Yesterday, Ren found a sealed door under the dirt. Today, the team would open it."
+      ],
+      "learningTargets": ["comprehension", "vocabulary", "engagement"],
+      "choices": [
+        { "id": "camp-cart", "label": "Help Hollis unload the cart", "target": "cart", "learningTargets": ["engagement"] },
+        { "id": "camp-map", "label": "Look at Ren's map first", "target": "map-nook", "learningTargets": ["detail"] }
+      ]
+    },
+    {
+      "id": "cart",
+      "title": "The Cart",
+      "paragraphs": [
+        "Hollis filled a small tank with water from the cart. Sami hunted through a crate for the brush.",
+        "Inside lay ropes, lamps and a soft brush. The brush had a long wooden handle.",
+        "\"Take it,\" said Hollis. \"A brush is better than a hammer. Old things need a gentle touch.\"",
+        "Sami tucked the brush into a belt. Then Sami looked at the dark hill and its door."
+      ],
+      "effects": { "addItems": ["soft-brush"] },
+      "learningTargets": ["detail", "inference"],
+      "choices": [
+        { "id": "cart-map", "label": "Ask Ren about the map", "target": "map-nook" },
+        { "id": "cart-door", "label": "Walk to the door", "target": "door-front" }
+      ]
+    },
+    {
+      "id": "map-nook",
+      "title": "Ren's Map",
+      "paragraphs": [
+        "Ren spread the map on a flat rock. A small clay card lay beside it.",
+        "\"I hunted in the dirt and found this card,\" said Ren. \"Look. It shows a hand that tapped the door.\"",
+        "The card showed three taps, then a push. Under the hand was a tiny carved line: slow, slow, slow.",
+        "\"The old builders wanted us to knock first,\" said Sami. \"I think they were polite.\"",
+        "Ren wrote in the notebook: Tap three times. Do not push."
+      ],
+      "effects": { "addClues": ["tap-card"] },
+      "learningTargets": ["detail", "sequencing", "inference"],
+      "choices": [
+        { "id": "map-door", "label": "Walk to the door with the card", "target": "door-front" },
+        { "id": "map-wait", "label": "Help Ren copy the picture first", "target": "map-copy", "learningTargets": ["detail", "sequencing"] }
+      ]
+    },
+    {
+      "id": "map-copy",
+      "title": "Copying the Picture",
+      "paragraphs": [
+        "Ren copied the tapping picture into the notebook, line by line.",
+        "Sami waited, patient and calm, while the pencil scratched on the page.",
+        "\"Good notes last longer than memory,\" said Sami.",
+        "Ren tucked the notebook away.",
+        "Hollis yawned. \"We could always come back tomorrow,\" he said."
+      ],
+      "learningTargets": ["detail", "sequencing"],
+      "choices": [
+        { "id": "copy-door", "label": "Walk to the door with the card", "target": "door-front" },
+        { "id": "copy-leave", "label": "Decide to come back another day instead", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
+      ]
+    },
+    {
+      "id": "door-front",
+      "title": "The Sealed Door",
+      "paragraphs": [
+        "The team walked down a stair cut into the rock. It was dark and cool.",
+        "At the bottom stood the door. A tall Keeper was carved on it, one hand held flat.",
+        "The Keeper looked kind but firm. It seemed to say: slow down.",
+        "Hollis tapped his foot. \"A door is a door,\" he said. \"Let us just shove it.\""
+      ],
+      "learningTargets": ["inference", "comprehension"],
+      "choices": [
+        {
+          "id": "door-tap",
+          "label": "Tap the stone three times, as the card shows",
+          "target": "door-tap",
+          "requires": { "clues": ["tap-card"] },
+          "lockedHint": "Is there a card that shows how to knock?",
+          "learningTargets": ["detail", "sequencing"]
+        },
+        { "id": "door-push", "label": "Push the door with both hands", "target": "door-push" }
+      ]
+    },
+    {
+      "id": "door-tap",
+      "title": "Tap, Tap, Tap",
+      "paragraphs": [
+        "Sami tapped the stone once. Then twice. Then three times.",
+        "Deep inside the rock, something clicked. The door began to sink into the floor without a sound.",
+        "\"Well done, Ren,\" said Sami. \"Your card paid off.\"",
+        "A cool breath of air drifted out. The first chamber lay ahead."
+      ],
+      "learningTargets": ["sequencing", "comprehension"],
+      "choices": [
+        { "id": "tap-in", "label": "Step inside", "target": "hall-sand" },
+        { "id": "tap-wait", "label": "Wait for your eyes to adjust to the dark", "target": "tap-adjust", "learningTargets": ["detail", "engagement"] }
+      ]
+    },
+    {
+      "id": "tap-adjust",
+      "title": "Eyes in the Dark",
+      "paragraphs": [
+        "They stood still and let their eyes adjust to the dark.",
+        "Slowly, shapes formed: a wide floor, far walls, and carved lines.",
+        "\"Better to see first,\" said Sami. \"Now we are ready.\"",
+        "Ren rubbed tired eyes. \"We could stop here for today,\" said Ren."
+      ],
+      "learningTargets": ["detail", "engagement"],
+      "choices": [
+        { "id": "adjust-in", "label": "Step inside", "target": "hall-sand" },
+        { "id": "adjust-leave", "label": "Decide the day has been long enough", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
+      ]
+    },
+    {
+      "id": "door-push",
+      "title": "The Groaning Door",
+      "paragraphs": [
+        "Sami and Hollis pushed. The door groaned and shook. Dust rained down.",
+        "Slowly it slid open. Everyone coughed and waved the dust away.",
+        "\"Next time,\" said Sami, \"we knock first.\" Ren made a note of that.",
+        "The door was open. Nothing was broken. The first chamber waited."
+      ],
+      "learningTargets": ["comprehension", "engagement"],
+      "choices": [
+        { "id": "push-in", "label": "Step inside", "target": "hall-sand" },
+        { "id": "push-check", "label": "Check the Keeper's carving for cracks", "target": "push-careful", "learningTargets": ["detail", "inference"] }
+      ]
+    },
+    {
+      "id": "push-careful",
+      "title": "A Careful Look",
+      "paragraphs": [
+        "Sami looked over the carved Keeper on the stone door.",
+        "Its stone face had no new cracks, only old dust.",
+        "\"We got lucky,\" said Sami. \"Carvings this old can break fast.\"",
+        "Hollis brushed dust from his shirt. \"Maybe that's enough excitement for one day,\" he said."
+      ],
+      "learningTargets": ["detail", "inference"],
+      "choices": [
+        { "id": "careful-in", "label": "Step inside", "target": "hall-sand" },
+        { "id": "careful-leave", "label": "Agree this is a good place to stop for today", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
+      ]
+    },
+    {
+      "id": "hall-sand",
+      "title": "The Hall of Sand",
+      "paragraphs": [
+        "The first chamber was wide and quiet. Pale tiles and dark tiles covered the floor.",
+        "A Keeper was carved on the wall. Its carved feet stood only on the pale tiles.",
+        "Above it ran a line of pictures. A bird flew far off. A walker crossed the sand with soft steps.",
+        "Ren read the pictures aloud. \"Walk soft,\" said Ren. \"Only on the pale ones, I think.\""
+      ],
+      "learningTargets": ["inference", "vocabulary", "detail"],
+      "choices": [
+        { "id": "sand-pale", "label": "Step only on the pale tiles", "target": "hall-water", "learningTargets": ["inference", "detail"] },
+        { "id": "sand-dark", "label": "Hop across the dark tiles to save time", "target": "sand-slip" }
+      ]
+    },
+    {
+      "id": "sand-slip",
+      "title": "A Slippery Floor",
+      "paragraphs": [
+        "A dark tile tipped under Hollis. A bank of sand slid out like water.",
+        "Hollis felt his boots sink. He sat down in the dirt with a bump. He was not hurt, only very dusty.",
+        "Sami dusted off his hat. \"The tiles told us,\" said Sami. \"We should have read them.\"",
+        "The sand settled. Everyone walked on the pale tiles after that."
+      ],
+      "learningTargets": ["inference", "sequencing"],
+      "choices": [
+        { "id": "slip-on", "label": "Go on to the next chamber", "target": "hall-water" },
+        { "id": "slip-look", "label": "Look at the tile that tipped, before moving on", "target": "slip-bird", "learningTargets": ["inference", "detail"] }
+      ]
+    },
+    {
+      "id": "slip-bird",
+      "title": "The Hidden Bird",
+      "paragraphs": [
+        "Ren bent down and looked at the tile that had tipped.",
+        "Under the dust lay a tiny carved bird. It pointed at the pale path.",
+        "\"The hall was trying to help us,\" said Ren. \"We just walked too fast.\"",
+        "Hollis rubbed his dusty knee. \"That was enough of a tumble for me today,\" he said."
+      ],
+      "learningTargets": ["inference", "detail"],
+      "choices": [
+        { "id": "bird-on", "label": "Go on to the next chamber", "target": "hall-water" },
+        { "id": "bird-leave", "label": "Suggest resting here for the rest of today", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
+      ]
+    },
+    {
+      "id": "hall-water",
+      "title": "The Hall of Water",
+      "paragraphs": [
+        "The second chamber held a round cistern, deep and dry. It looked like a huge stone tank.",
+        "A ladder with one missing rung led to a ledge on the far side.",
+        "A Keeper was carved here too. Its head was tilted, as if it was listening.",
+        "The carving was covered in grey dust. Some of the pictures were hard to see."
+      ],
+      "learningTargets": ["vocabulary", "detail"],
+      "choices": [
+        {
+          "id": "water-brush",
+          "label": "Dust the carving with the soft brush",
+          "target": "water-dusted",
+          "requires": { "items": ["soft-brush"] },
+          "lockedHint": "A soft brush from the cart would clear this dust.",
+          "learningTargets": ["detail"]
+        },
+        { "id": "water-skip", "label": "Cross by the ladder and keep going", "target": "water-skip" }
+      ]
+    },
+    {
+      "id": "water-dusted",
+      "title": "Under the Dust",
+      "paragraphs": [
+        "Sami dusted the wall with slow, soft strokes. The grey cloud drifted away.",
+        "A song was carved beneath the Keeper. Music notes ran from high to low.",
+        "\"A long, low note,\" said Ren. \"It ends on the lowest one. Write it down.\"",
+        "Sami smiled. \"A careful look gives us a gift,\" said Sami.",
+        "They climbed the ladder, one rung at a time, and rested on the ledge."
+      ],
+      "effects": { "addClues": ["low-note"] },
+      "learningTargets": ["detail", "inference", "sequencing"],
+      "choices": [
+        { "id": "dusted-on", "label": "Walk on to the third chamber", "target": "hall-song" },
+        { "id": "dusted-rest", "label": "Rest a moment on the ledge first", "target": "dusted-ledge", "learningTargets": ["inference", "engagement"] }
+      ]
+    },
+    {
+      "id": "dusted-ledge",
+      "title": "Resting on the Ledge",
+      "paragraphs": [
+        "They rested on the ledge and drank a little water.",
+        "Hollis hummed a slow tune, low and long.",
+        "\"That is almost the note from the wall,\" said Ren, smiling.",
+        "Sami laughed softly. \"Save your voice. We may need it soon.\"",
+        "Sami looked at the new clue. \"That might be a good place to stop,\" said Sami."
+      ],
+      "learningTargets": ["inference", "engagement"],
+      "choices": [
+        { "id": "ledge-on", "label": "Walk on to the third chamber", "target": "hall-song" },
+        { "id": "ledge-leave", "label": "Decide the clue is enough for one day", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
+      ]
+    },
+    {
+      "id": "water-skip",
+      "title": "Over the Ladder",
+      "paragraphs": [
+        "The team climbed the ladder and rested on the ledge. Hollis hummed a tune.",
+        "Ren looked back at the dusty carving. \"I wonder what it said,\" said Ren.",
+        "Sami lifted a lamp. \"We will not find out now. Come on.\"",
+        "Ahead, a wide arch led to the third chamber."
+      ],
+      "learningTargets": ["comprehension", "engagement"],
+      "choices": [
+        { "id": "skip-on", "label": "Walk on to the third chamber", "target": "hall-song" },
+        { "id": "skip-ask", "label": "Ask Hollis what he thinks they missed", "target": "skip-hollis", "learningTargets": ["inference", "engagement"] }
+      ]
+    },
+    {
+      "id": "skip-hollis",
+      "title": "What Hollis Thinks",
+      "paragraphs": [
+        "\"We might have missed a clue,\" said Hollis, looking back.",
+        "\"But old things keep their secrets,\" said Sami. \"We walked on, and so should we.\"",
+        "Ren nodded, a little sad, and followed without a word.",
+        "Ren sighed. \"Maybe we should come back when we are less tired,\" said Ren."
+      ],
+      "learningTargets": ["inference", "engagement"],
+      "choices": [
+        { "id": "hollis-on", "label": "Walk on to the third chamber", "target": "hall-song" },
+        { "id": "hollis-leave", "label": "Decide to turn back and try again another day", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
+      ]
+    },
+    {
+      "id": "hall-song",
+      "title": "The Hall of Song",
+      "paragraphs": [
+        "The third chamber was round, with a bronze horn set in the wall.",
+        "A Keeper was carved beside it, with its mouth open as if to sing.",
+        "The next door was shut tight. Where the lock should be, there was a round hole.",
+        "The hole looked like the open end of the horn. Sami tapped the wall. It rang like a bell."
+      ],
+      "learningTargets": ["vocabulary", "inference", "engagement"],
+      "choices": [
+        {
+          "id": "song-hum",
+          "label": "Hum the low note into the hole",
+          "target": "song-hum",
+          "requires": { "clues": ["low-note"] },
+          "lockedHint": "The dust on the water wall hid a song.",
+          "learningTargets": ["detail", "inference"]
+        },
+        { "id": "song-horn", "label": "Blow the big horn as hard as you can", "target": "song-horn" }
+      ]
+    },
+    {
+      "id": "song-hum",
+      "title": "One Low Note",
+      "paragraphs": [
+        "Ren took a breath and began to sing the long, low note. It was small, but it was true.",
+        "The hole hummed back. The shut door slid aside, soft as a sigh.",
+        "Hollis clapped. \"I can sing too,\" he said. Sami raised one eyebrow.",
+        "Past the door, the passage bent toward a place that smelled of old smoke."
+      ],
+      "learningTargets": ["inference", "sequencing", "engagement"],
+      "choices": [
+        { "id": "hum-on", "label": "Walk on", "target": "fork" },
+        { "id": "hum-look", "label": "Look back at the Keeper before walking on", "target": "hum-keeper", "learningTargets": ["inference", "detail"] }
+      ]
+    },
+    {
+      "id": "hum-keeper",
+      "title": "A New Look",
+      "paragraphs": [
+        "Ren glanced back at the carved Keeper before walking on.",
+        "Its stone mouth seemed to curve, almost like a smile.",
+        "\"Maybe it likes a good listener,\" said Ren.",
+        "Hollis yawned. \"Maybe we should call it a day,\" he said."
+      ],
+      "learningTargets": ["inference", "detail"],
+      "choices": [
+        { "id": "keeper-on", "label": "Walk on", "target": "fork" },
+        { "id": "keeper-leave", "label": "Decide to stop here for today", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
+      ]
+    },
+    {
+      "id": "song-horn",
+      "title": "The Big Blow",
+      "paragraphs": [
+        "Hollis lifted the horn and blew. A huge, rough bark filled the hall.",
+        "The sound bounced from wall to wall. Dust drifted from the roof.",
+        "At last the door shuddered and opened a crack. It was only just wide enough.",
+        "\"That was loud,\" whispered Ren. \"I think the door was asking for a softer voice.\"",
+        "Everyone slipped through, a bit shaky but safe."
+      ],
+      "learningTargets": ["comprehension", "inference"],
+      "choices": [
+        { "id": "horn-on", "label": "Walk on", "target": "fork" },
+        { "id": "horn-check", "label": "Look at the horn you just blew", "target": "horn-crack", "learningTargets": ["inference", "comprehension"] }
+      ]
+    },
+    {
+      "id": "horn-crack",
+      "title": "The Cracked Horn",
+      "paragraphs": [
+        "Hollis looked at the horn he had just blown.",
+        "A thin crack ran along one side of the old bronze.",
+        "\"Oops,\" said Hollis. \"I did not mean to blow that hard.\"",
+        "Sami sighed, but there was no time to mend it now.",
+        "\"Maybe we push our luck too far,\" said Hollis."
+      ],
+      "learningTargets": ["inference", "comprehension"],
+      "choices": [
+        { "id": "crack-on", "label": "Walk on", "target": "fork" },
+        { "id": "crack-leave", "label": "Decide not to push your luck further", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
+      ]
+    },
+    {
+      "id": "fork",
+      "title": "A Quiet Moment",
+      "paragraphs": [
+        "The team stopped in a small nook. Ren checked the notes. Two chambers were left.",
+        "The air felt heavy. Far ahead, a faint light glowed in the dark.",
+        "\"We can go on,\" said Sami. \"Or we can rest and come back with more help. Both are wise.\"",
+        "Hollis passed round some warm tea from his flask. It tasted of smoke and honey."
+      ],
+      "learningTargets": ["sequencing", "comprehension", "engagement"],
+      "choices": [
+        { "id": "fork-on", "label": "Go on to the fourth chamber", "target": "hall-fire" },
+        { "id": "fork-leave", "label": "Leave for today and come back with a bigger team", "target": "ending-setback" }
+      ]
+    },
+    {
+      "id": "hall-fire",
+      "title": "The Hall of Lamps",
+      "paragraphs": [
+        "The fourth chamber was lined with stone lamps. Each one held a pool of old oil.",
+        "A Keeper was carved here, holding a tiny flame in its palm.",
+        "Under it, one picture showed a huge fire. The picture was crossed out.",
+        "Sami lifted a lamp and sniffed. \"Keep the flame small,\" said Sami. \"A big fire could burn old things.\""
+      ],
+      "learningTargets": ["inference", "detail", "vocabulary"],
+      "choices": [
+        { "id": "fire-small", "label": "Light one small lamp, as the Keeper shows", "target": "fire-small", "learningTargets": ["inference", "detail"] },
+        { "id": "fire-big", "label": "Light a big torch to see better", "target": "fire-big" }
+      ]
+    },
+    {
+      "id": "fire-small",
+      "title": "A Small Flame",
+      "paragraphs": [
+        "Ren lit one lamp with a spark. A warm gold light spread across the floor.",
+        "It was enough to see a narrow passage ahead. No smoke rose at all.",
+        "\"Less is more,\" said Sami. Hollis said he was going to put that on a mug.",
+        "The last door stood open. A smooth stone box lay beyond it."
+      ],
+      "learningTargets": ["inference", "comprehension"],
+      "choices": [
+        { "id": "small-on", "label": "Step into the last chamber", "target": "hall-sleeper" },
+        { "id": "small-look", "label": "Look at the carving once more by the warm light", "target": "small-flame", "learningTargets": ["detail", "vocabulary"] }
+      ]
+    },
+    {
+      "id": "small-flame",
+      "title": "By Golden Light",
+      "paragraphs": [
+        "By the lamp's gold light, Ren saw the Keeper's palm more clearly.",
+        "Tiny carved flames circled its fingers, small and neat.",
+        "\"A careful flame, just like ours,\" said Ren, smiling.",
+        "Ren looked at the last door. \"We could wait and come back fresh,\" said Ren."
+      ],
+      "learningTargets": ["detail", "vocabulary"],
+      "choices": [
+        { "id": "flame-on", "label": "Step into the last chamber", "target": "hall-sleeper" },
+        { "id": "flame-leave", "label": "Decide to wait and come back fresh", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
+      ]
+    },
+    {
+      "id": "fire-big",
+      "title": "Too Much Fire",
+      "paragraphs": [
+        "Hollis lit a big torch. Flames leaped. Smoke curled over the lamps.",
+        "A black mark crept up the wall. Sami snatched the torch and dipped it in the sand.",
+        "\"We could burn this room,\" said Sami. \"Old paint does not grow back.\"",
+        "The smoke thinned. The wall had a small scorch, but nothing more.",
+        "Everyone was quiet. Then they walked on with one small lamp."
+      ],
+      "learningTargets": ["comprehension", "inference"],
+      "choices": [
+        { "id": "big-on", "label": "Step into the last chamber", "target": "hall-sleeper" },
+        { "id": "big-check", "label": "Check the scorch mark before leaving", "target": "big-scorch", "learningTargets": ["inference", "comprehension"] }
+      ]
+    },
+    {
+      "id": "big-scorch",
+      "title": "The Scorch Mark",
+      "paragraphs": [
+        "Sami looked closely at the black mark on the wall.",
+        "It was small, but it would never fade away.",
+        "\"That is the cost of being too quick,\" said Sami.",
+        "Ren wrote it down so no one would forget.",
+        "Sami looked tired. \"Maybe today has given us enough surprises,\" said Sami."
+      ],
+      "learningTargets": ["inference", "comprehension"],
+      "choices": [
+        { "id": "scorch-on", "label": "Step into the last chamber", "target": "hall-sleeper" },
+        { "id": "scorch-leave", "label": "Decide today has given you enough surprises", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
+      ]
+    },
+    {
+      "id": "hall-sleeper",
+      "title": "The Sleeper",
+      "paragraphs": [
+        "The last chamber was still and cool. In its centre lay a big stone box.",
+        "A mummified sleeper rested inside. That means a body wrapped in cloth long ago.",
+        "The carved Keeper on the wall pointed to the box, then held up a flat hand. A line of tiny pictures ran below.",
+        "Nobody spoke. The lamp light shook on the stone lid.",
+        "What should the team do?"
+      ],
+      "learningTargets": ["comprehension", "vocabulary", "engagement"],
+      "choices": [
+        {
+          "id": "sleeper-brush",
+          "label": "Brush the lid softly and read what is carved there",
+          "target": "ending-keeper",
+          "requires": { "items": ["soft-brush"], "clues": ["low-note"] },
+          "lockedHint": "You need the soft brush and the note from the water wall.",
+          "learningTargets": ["detail", "inference"]
+        },
+        { "id": "sleeper-read", "label": "Read the pictures on the wall first", "target": "sleeper-read" },
+        { "id": "sleeper-lift", "label": "Lift the lid just a little to look", "target": "ending-lid" }
+      ]
+    },
+    {
+      "id": "sleeper-read",
+      "title": "The Last Warning",
+      "paragraphs": [
+        "Ren read the pictures from left to right. First came the walker, then the cistern, then the singer.",
+        "Next came the lamp. Last came the box with a hand over it.",
+        "\"The Keeper put the chambers in order,\" said Ren. \"Each one teaches a kind of care.\"",
+        "\"Sand teaches soft steps. Water teaches looking. Song teaches listening. Fire teaches small flames.\"",
+        "Sami nodded. \"So the box teaches us to leave a sleeper at rest.\""
+      ],
+      "learningTargets": ["sequencing", "inference", "comprehension"],
+      "choices": [
+        { "id": "read-notes", "label": "Draw and write everything, and leave the lid shut", "target": "ending-notes", "learningTargets": ["comprehension"] },
+        { "id": "read-seal", "label": "Seal the door and tell the city leaders", "target": "ending-seal", "learningTargets": ["comprehension"] }
+      ]
+    },
+    {
+      "id": "ending-keeper",
+      "title": "The Keeper Speaks",
+      "paragraphs": [
+        "Sami brushed the lid with slow strokes. Fine dust fell away like flour.",
+        "Under it lay a carved line, plain and clear: Rest well. Guard well. Friends may visit, never wake.",
+        "Ren read it out. Then Ren hummed the low note, and the whole room hummed back.",
+        "Nothing stirred. The lid stayed shut and the sleeper rested on.",
+        "\"The Keeper was never a warning,\" said Sami. \"It was a welcome, with rules.\"",
+        "The team walked out into the bright day. The tomb was safe, and they knew why."
+      ],
+      "learningTargets": ["detail", "inference", "comprehension"],
+      "choices": [],
+      "ending": { "id": "keeper-friend", "kind": "triumph", "title": "Friends of the Keeper" }
+    },
+    {
+      "id": "ending-lid",
+      "title": "The Open Lid",
+      "paragraphs": [
+        "Hollis and Sami lifted the lid a finger wide. A puff of old air slipped out.",
+        "A long, low sound sighed through the room, like wind in a pipe. The lamp went out.",
+        "Nobody was hurt. But the room felt sad, as if it had been poked awake.",
+        "\"We should have read the wall,\" said Sami softly. They set the lid back and tapped it shut.",
+        "They left the tomb that day and told no one for a long time. The sleeper rested again.",
+        "Another day, they might read first, and ask later."
+      ],
+      "learningTargets": ["comprehension", "inference"],
+      "choices": [],
+      "ending": { "id": "open-lid", "kind": "bittersweet", "title": "A Peek Too Soon" }
+    },
+    {
+      "id": "ending-notes",
+      "title": "Every Line Counted",
+      "paragraphs": [
+        "The team worked all afternoon. Ren drew the five chambers, one by one.",
+        "Sami dusted each carving once and tapped nothing. Hollis made tea and told only two bad jokes.",
+        "By dark they had a map, a song and a hundred notes. The box stayed shut.",
+        "Back at camp, Ren read it all aloud by the fire. Hollis filled the tank for the ride home.",
+        "Next spring, school children would read it too. The sleeper would never be bothered."
+      ],
+      "learningTargets": ["sequencing", "comprehension"],
+      "choices": [],
+      "ending": { "id": "every-line", "kind": "triumph", "title": "Every Line Counted" }
+    },
+    {
+      "id": "ending-seal",
+      "title": "The Door Sealed Again",
+      "paragraphs": [
+        "Sami closed the door with three slow taps. The stone sank back into place.",
+        "In town, the team told the city leaders what they had found. A guard was set to watch the hill.",
+        "It took a whole year to plan the next visit. Ren drew a new map for the people who would come.",
+        "Hollis said the wait was long, but the tomb was worth it.",
+        "It was not a big finish, but it was a kind one. The sleeper stayed at rest."
+      ],
+      "learningTargets": ["comprehension", "engagement"],
+      "choices": [],
+      "ending": { "id": "door-sealed", "kind": "bittersweet", "title": "The Door Sealed Again" }
+    },
+    {
+      "id": "ending-setback",
+      "title": "Another Day",
+      "paragraphs": [
+        "The team packed up carefully and started back toward camp.",
+        "Soon they reached the cart, parked past a dry bank of sand.",
+        "\"We got far today,\" said Sami. \"We have good notes, and that matters.\"",
+        "Hollis told a joke. This time, Ren laughed.",
+        "Tomorrow, with fresh eyes, they could try again, and take a different path."
+      ],
+      "learningTargets": ["comprehension", "engagement"],
+      "choices": [],
+      "ending": { "id": "another-day", "kind": "setback", "title": "Another Day" }
+    }
+  ],
+  "glossary": {
+    "archaeologist": { "syllables": ["ar", "chae", "ol", "o", "gist"], "definition": "A person who learns about the past by studying old places and objects." },
+    "ancient": { "syllables": ["an", "cient"], "definition": "Very, very old, from a time long ago." },
+    "mummified": { "syllables": ["mum", "mi", "fied"], "definition": "Wrapped in cloth and kept safe for a very long time." },
+    "cistern": { "syllables": ["cis", "tern"], "definition": "A deep stone tank built to hold water." }
+  }
+}

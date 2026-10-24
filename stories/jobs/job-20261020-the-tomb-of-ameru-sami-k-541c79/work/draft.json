@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-tomb-of-ameru",
   "title": "The Tomb of Ameru",
-  "version": 2,
+  "version": 3,
   "metadata": {
     "genre": "Tomb and archaeology adventure",
     "theme": "Curiosity with care, reading clues closely, and respecting the past",
@@ -85,11 +85,13 @@
         "Ren copied the tapping picture into the notebook, line by line.",
         "Sami waited, patient and calm, while the pencil scratched on the page.",
         "\"Good notes last longer than memory,\" said Sami.",
-        "Ren tucked the notebook away. Then the team walked to the door."
+        "Ren tucked the notebook away.",
+        "Hollis yawned. \"We could always come back tomorrow,\" he said."
       ],
       "learningTargets": ["detail", "sequencing"],
       "choices": [
-        { "id": "copy-door", "label": "Walk to the door with the card", "target": "door-front" }
+        { "id": "copy-door", "label": "Walk to the door with the card", "target": "door-front" },
+        { "id": "copy-leave", "label": "Decide to come back another day instead", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
       ]
     },
     {
@@ -135,11 +137,13 @@
       "paragraphs": [
         "They stood still and let their eyes adjust to the dark.",
         "Slowly, shapes formed: a wide floor, far walls, and carved lines.",
-        "\"Better to see first,\" said Sami. \"Now we are ready.\""
+        "\"Better to see first,\" said Sami. \"Now we are ready.\"",
+        "Ren rubbed tired eyes. \"We could stop here for today,\" said Ren."
       ],
       "learningTargets": ["detail", "engagement"],
       "choices": [
-        { "id": "adjust-in", "label": "Step inside", "target": "hall-sand" }
+        { "id": "adjust-in", "label": "Step inside", "target": "hall-sand" },
+        { "id": "adjust-leave", "label": "Decide the day has been long enough", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
       ]
     },
     {
@@ -163,11 +167,13 @@
       "paragraphs": [
         "Sami looked over the carved Keeper on the stone door.",
         "Its stone face had no new cracks, only old dust.",
-        "\"We got lucky,\" said Sami. \"Carvings this old can break fast.\""
+        "\"We got lucky,\" said Sami. \"Carvings this old can break fast.\"",
+        "Hollis brushed dust from his shirt. \"Maybe that's enough excitement for one day,\" he said."
       ],
       "learningTargets": ["detail", "inference"],
       "choices": [
-        { "id": "careful-in", "label": "Step inside", "target": "hall-sand" }
+        { "id": "careful-in", "label": "Step inside", "target": "hall-sand" },
+        { "id": "careful-leave", "label": "Agree this is a good place to stop for today", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
       ]
     },
     {
@@ -206,11 +212,13 @@
       "paragraphs": [
         "Ren bent down and looked at the tile that had tipped.",
         "Under the dust lay a tiny carved bird. It pointed at the pale path.",
-        "\"The hall was trying to help us,\" said Ren. \"We just walked too fast.\""
+        "\"The hall was trying to help us,\" said Ren. \"We just walked too fast.\"",
+        "Hollis rubbed his dusty knee. \"That was enough of a tumble for me today,\" he said."
       ],
       "learningTargets": ["inference", "detail"],
       "choices": [
-        { "id": "bird-on", "label": "Go on to the next chamber", "target": "hall-water" }
+        { "id": "bird-on", "label": "Go on to the next chamber", "target": "hall-water" },
+        { "id": "bird-leave", "label": "Suggest resting here for the rest of today", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
       ]
     },
     {
@@ -259,11 +267,13 @@
         "They rested on the ledge and drank a little water.",
         "Hollis hummed a slow tune, low and long.",
         "\"That is almost the note from the wall,\" said Ren, smiling.",
-        "Sami laughed softly. \"Save your voice. We may need it soon.\""
+        "Sami laughed softly. \"Save your voice. We may need it soon.\"",
+        "Sami looked at the new clue. \"That might be a good place to stop,\" said Sami."
       ],
       "learningTargets": ["inference", "engagement"],
       "choices": [
-        { "id": "ledge-on", "label": "Walk on to the third chamber", "target": "hall-song" }
+        { "id": "ledge-on", "label": "Walk on to the third chamber", "target": "hall-song" },
+        { "id": "ledge-leave", "label": "Decide the clue is enough for one day", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
       ]
     },
     {
@@ -287,11 +297,13 @@
       "paragraphs": [
         "\"We might have missed a clue,\" said Hollis, looking back.",
         "\"But old things keep their secrets,\" said Sami. \"We walked on, and so should we.\"",
-        "Ren nodded, a little sad, and followed without a word."
+        "Ren nodded, a little sad, and followed without a word.",
+        "Ren sighed. \"Maybe we should come back when we are less tired,\" said Ren."
       ],
       "learningTargets": ["inference", "engagement"],
       "choices": [
-        { "id": "hollis-on", "label": "Walk on to the third chamber", "target": "hall-song" }
+        { "id": "hollis-on", "label": "Walk on to the third chamber", "target": "hall-song" },
+        { "id": "hollis-leave", "label": "Decide to turn back and try again another day", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
       ]
     },
     {
@@ -337,11 +349,13 @@
       "paragraphs": [
         "Ren glanced back at the carved Keeper before walking on.",
         "Its stone mouth seemed to curve, almost like a smile.",
-        "\"Maybe it likes a good listener,\" said Ren."
+        "\"Maybe it likes a good listener,\" said Ren.",
+        "Hollis yawned. \"Maybe we should call it a day,\" he said."
       ],
       "learningTargets": ["inference", "detail"],
       "choices": [
-        { "id": "keeper-on", "label": "Walk on", "target": "fork" }
+        { "id": "keeper-on", "label": "Walk on", "target": "fork" },
+        { "id": "keeper-leave", "label": "Decide to stop here for today", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
       ]
     },
     {
@@ -367,11 +381,13 @@
         "Hollis looked at the horn he had just blown.",
         "A thin crack ran along one side of the old bronze.",
         "\"Oops,\" said Hollis. \"I did not mean to blow that hard.\"",
-        "Sami sighed, but there was no time to mend it now."
+        "Sami sighed, but there was no time to mend it now.",
+        "\"Maybe we push our luck too far,\" said Hollis."
       ],
       "learningTargets": ["inference", "comprehension"],
       "choices": [
-        { "id": "crack-on", "label": "Walk on", "target": "fork" }
+        { "id": "crack-on", "label": "Walk on", "target": "fork" },
+        { "id": "crack-leave", "label": "Decide not to push your luck further", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
       ]
     },
     {
@@ -425,11 +441,13 @@
       "paragraphs": [
         "By the lamp's gold light, Ren saw the Keeper's palm more clearly.",
         "Tiny carved flames circled its fingers, small and neat.",
-        "\"A careful flame, just like ours,\" said Ren, smiling."
+        "\"A careful flame, just like ours,\" said Ren, smiling.",
+        "Ren looked at the last door. \"We could wait and come back fresh,\" said Ren."
       ],
       "learningTargets": ["detail", "vocabulary"],
       "choices": [
-        { "id": "flame-on", "label": "Step into the last chamber", "target": "hall-sleeper" }
+        { "id": "flame-on", "label": "Step into the last chamber", "target": "hall-sleeper" },
+        { "id": "flame-leave", "label": "Decide to wait and come back fresh", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
       ]
     },
     {
@@ -455,11 +473,13 @@
         "Sami looked closely at the black mark on the wall.",
         "It was small, but it would never fade away.",
         "\"That is the cost of being too quick,\" said Sami.",
-        "Ren wrote it down so no one would forget."
+        "Ren wrote it down so no one would forget.",
+        "Sami looked tired. \"Maybe today has given us enough surprises,\" said Sami."
       ],
       "learningTargets": ["inference", "comprehension"],
       "choices": [
-        { "id": "scorch-on", "label": "Step into the last chamber", "target": "hall-sleeper" }
+        { "id": "scorch-on", "label": "Step into the last chamber", "target": "hall-sleeper" },
+        { "id": "scorch-leave", "label": "Decide today has given you enough surprises", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
       ]
     },
     {
@@ -564,11 +584,11 @@
       "id": "ending-setback",
       "title": "Another Day",
       "paragraphs": [
-        "The team walked back up the stair and out into the sun.",
-        "Sami sat on the cart and looked at the hill, past the dry bank of the old river. Ren wrote what they had seen so far.",
-        "\"We got far,\" said Sami. \"Two chambers are left, and we have a good map.\"",
+        "The team packed up carefully and started back toward camp.",
+        "Soon they reached the cart, parked past a dry bank of sand.",
+        "\"We got far today,\" said Sami. \"We have good notes, and that matters.\"",
         "Hollis told a joke. This time, Ren laughed.",
-        "Tomorrow, with fresh eyes and a bigger team, they could try again, and take a different path."
+        "Tomorrow, with fresh eyes, they could try again, and take a different path."
       ],
       "learningTargets": ["comprehension", "engagement"],
       "choices": [],

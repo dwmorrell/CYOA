@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-cat-who-took-the-wrong-turn",
   "title": "The Cat Who Took the Wrong Turn",
-  "version": 5,
+  "version": 6,
   "metadata": {
     "genre": "Fantasy adventure with a hero from another world",
     "theme": "Courage, kindness to strangers, and finding out who you are",
@@ -98,7 +98,21 @@
       ],
       "learningTargets": ["engagement", "inference"],
       "choices": [
-        { "id": "lean-after-call", "label": "Lean over the rim and look", "target": "the-fall" }
+        { "id": "lean-after-call", "label": "Lean over the rim and look", "target": "the-fall" },
+        { "id": "weigh-the-drop", "label": "Think about how to go down", "target": "how-to-go-down", "learningTargets": ["sequencing"] }
+      ]
+    },
+    {
+      "id": "how-to-go-down",
+      "title": "Which Way Down",
+      "paragraphs": [
+        "Eli looked at the dark, wet hole.",
+        "He could jump in fast, or go down slow."
+      ],
+      "learningTargets": ["sequencing", "engagement"],
+      "choices": [
+        { "id": "jump-in-fast", "label": "Jump in fast, feet first", "target": "the-fall" },
+        { "id": "go-down-slow", "label": "Ease yourself down slowly instead", "target": "the-fall" }
       ]
     },
     {
@@ -128,7 +142,21 @@
       ],
       "learningTargets": ["engagement", "sequencing"],
       "choices": [
-        { "id": "lean-after-call-help", "label": "Crouch down and look into the hole", "target": "the-fall" }
+        { "id": "lean-after-call-help", "label": "Crouch down and look into the hole", "target": "the-fall" },
+        { "id": "last-look", "label": "Look back at the locked gate once more", "target": "last-look-at-the-gate", "learningTargets": ["sequencing"] }
+      ]
+    },
+    {
+      "id": "last-look-at-the-gate",
+      "title": "One Last Look",
+      "paragraphs": [
+        "Eli glanced back at the locked gate one more time.",
+        "It was still shut tight. The hole was the only way."
+      ],
+      "learningTargets": ["sequencing", "inference"],
+      "choices": [
+        { "id": "trust-the-cat", "label": "Trust the cat and climb down", "target": "the-fall" },
+        { "id": "go-anyway", "label": "Decide to follow the cat anyway", "target": "the-fall" }
       ]
     },
     {
@@ -157,7 +185,21 @@
       ],
       "learningTargets": ["detail", "sequencing"],
       "choices": [
-        { "id": "stand-after-check", "label": "Stand up and look around", "target": "varro" }
+        { "id": "stand-after-check", "label": "Stand up and look around", "target": "varro" },
+        { "id": "settle-moment", "label": "Sit a moment longer before standing", "target": "settle-in-the-mud", "learningTargets": ["sequencing"] }
+      ]
+    },
+    {
+      "id": "settle-in-the-mud",
+      "title": "A Moment in the Mud",
+      "paragraphs": [
+        "Eli wiped mud from his hands onto his trousers.",
+        "He could sit a moment longer, or stand right up."
+      ],
+      "learningTargets": ["sequencing", "engagement"],
+      "choices": [
+        { "id": "sit-moment", "label": "Sit a moment longer in the mud", "target": "varro" },
+        { "id": "stand-right-up", "label": "Stand right up and brush off", "target": "varro" }
       ]
     },
     {
@@ -185,7 +227,21 @@
       ],
       "learningTargets": ["detail", "vocabulary"],
       "choices": [
-        { "id": "wave-after-moss", "label": "Wave to the girl with the lamp", "target": "meet-lira" }
+        { "id": "wave-after-moss", "label": "Wave to the girl with the lamp", "target": "meet-lira" },
+        { "id": "watch-hill", "label": "Watch the hill a moment longer", "target": "watch-the-hill", "learningTargets": ["detail"] }
+      ]
+    },
+    {
+      "id": "watch-the-hill",
+      "title": "Down the Hill",
+      "paragraphs": [
+        "Eli watched the girl run closer down the hill.",
+        "He could wave first, or wait for her to speak."
+      ],
+      "learningTargets": ["detail", "engagement"],
+      "choices": [
+        { "id": "wave-first", "label": "Wave first, before she gets close", "target": "meet-lira" },
+        { "id": "wait-quiet", "label": "Wait quietly for her to speak", "target": "meet-lira" }
       ]
     },
     {
@@ -246,7 +302,21 @@
       ],
       "learningTargets": ["engagement", "inference"],
       "choices": [
-        { "id": "to-stairs-crumb", "label": "Follow Lira up the stairs", "target": "the-stairs" }
+        { "id": "to-stairs-crumb", "label": "Follow Lira up the stairs", "target": "the-stairs" },
+        { "id": "watch-frog-hop", "label": "Watch the frog hop away first", "target": "watch-the-frog-hop", "learningTargets": ["engagement"] }
+      ]
+    },
+    {
+      "id": "watch-the-frog-hop",
+      "title": "One Last Hop",
+      "paragraphs": [
+        "Eli watched the frog hop away through the reeds.",
+        "He could call out one more thank you, or just smile."
+      ],
+      "learningTargets": ["engagement", "sequencing"],
+      "choices": [
+        { "id": "call-thanks", "label": "Call out one more thank you", "target": "the-stairs" },
+        { "id": "smile-and-go", "label": "Just smile, and walk on to Lira", "target": "the-stairs" }
       ]
     },
     {
@@ -275,7 +345,21 @@
       ],
       "learningTargets": ["sequencing", "engagement"],
       "choices": [
-        { "id": "to-stairs-careful", "label": "Walk on to the stairs with Lira", "target": "the-stairs" }
+        { "id": "to-stairs-careful", "label": "Walk on to the stairs with Lira", "target": "the-stairs" },
+        { "id": "look-back-marsh", "label": "Look back at the marsh once more", "target": "look-back-at-the-marsh", "learningTargets": ["detail"] }
+      ]
+    },
+    {
+      "id": "look-back-at-the-marsh",
+      "title": "One Last Look at the Marsh",
+      "paragraphs": [
+        "Eli looked back at the marsh one last time.",
+        "The frog still sat in the reeds, watching him go."
+      ],
+      "learningTargets": ["detail", "engagement"],
+      "choices": [
+        { "id": "nod-to-frog", "label": "Give the frog a small nod", "target": "the-stairs" },
+        { "id": "turn-to-stairs", "label": "Turn and walk on to the stairs", "target": "the-stairs" }
       ]
     },
     {
@@ -320,7 +404,21 @@
       ],
       "learningTargets": ["inference", "detail"],
       "choices": [
-        { "id": "up-after-showing", "label": "Climb on to the top", "target": "tower-hall" }
+        { "id": "up-after-showing", "label": "Climb on to the top", "target": "tower-hall" },
+        { "id": "last-step", "label": "Pause on the last step before the hall", "target": "last-step-up", "learningTargets": ["sequencing"] }
+      ]
+    },
+    {
+      "id": "last-step-up",
+      "title": "The Last Step",
+      "paragraphs": [
+        "Eli stood at the last step before the hall.",
+        "He could climb on steadily, or take it two steps at a time."
+      ],
+      "learningTargets": ["sequencing", "engagement"],
+      "choices": [
+        { "id": "climb-steady", "label": "Climb on steadily, one step at a time", "target": "tower-hall" },
+        { "id": "climb-fast", "label": "Take the last steps two at a time", "target": "tower-hall" }
       ]
     },
     {
@@ -371,7 +469,21 @@
       ],
       "learningTargets": ["inference", "engagement"],
       "choices": [
-        { "id": "step-in-after-ash", "label": "Step into the lantern room", "target": "lantern-room" }
+        { "id": "step-in-after-ash", "label": "Step into the lantern room", "target": "lantern-room" },
+        { "id": "steady-nerves", "label": "Take a moment at the edge of the room", "target": "steady-your-nerves", "learningTargets": ["engagement"] }
+      ]
+    },
+    {
+      "id": "steady-your-nerves",
+      "title": "At the Edge",
+      "paragraphs": [
+        "Eli stood at the edge of the lantern room.",
+        "He could step in slowly, or step in all at once."
+      ],
+      "learningTargets": ["engagement", "sequencing"],
+      "choices": [
+        { "id": "step-slow", "label": "Step in slowly, one foot first", "target": "lantern-room" },
+        { "id": "step-bold", "label": "Step in boldly, all at once", "target": "lantern-room" }
       ]
     },
     {
@@ -400,7 +512,21 @@
       ],
       "learningTargets": ["engagement", "comprehension"],
       "choices": [
-        { "id": "step-in-after-helping", "label": "Step into the lantern room", "target": "lantern-room" }
+        { "id": "step-in-after-helping", "label": "Step into the lantern room", "target": "lantern-room" },
+        { "id": "one-more-breath", "label": "Take one more breath together first", "target": "one-more-breath", "learningTargets": ["engagement"] }
+      ]
+    },
+    {
+      "id": "one-more-breath",
+      "title": "One More Breath",
+      "paragraphs": [
+        "Eli and Lira stood together at the hatch.",
+        "They could step in side by side, or Eli could go first."
+      ],
+      "learningTargets": ["engagement", "comprehension"],
+      "choices": [
+        { "id": "side-by-side", "label": "Step in side by side with Lira", "target": "lantern-room" },
+        { "id": "go-first", "label": "Go in first, and wave Lira forward", "target": "lantern-room" }
       ]
     },
     {

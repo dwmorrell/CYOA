@@ -4,7 +4,7 @@
   "storyId": "the-cat-who-took-the-wrong-turn",
   "state": "in-review",
   "createdAt": "2026-10-20T23:23:24.700Z",
-  "updatedAt": "2026-10-24T23:28:29.754Z",
+  "updatedAt": "2026-10-24T23:34:07.268Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/request.json",
@@ -200,6 +200,41 @@
         ]
       },
       "revision": 5
+    },
+    {
+      "storyVersion": 6,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r6.json",
+        "sha256": "ede654f1beae05194766f89b612ecb59309e49b89b5a06d625f9c2401653414d"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-24T23:34:07.268Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/validation.r6.json",
+          "sha256": "4cdda599fd8abdd25a78b19bb680260e10d89140979f6356797a617275705922"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/literacy.r6.json",
+          "sha256": "282f54919b9e6f57e871cd92d117d2cf905acac79b62c1f9fe0cc65f60a7084f"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/graph.r6.json",
+          "sha256": "4a0762d3784d96b7fbfb7f34da98132388183ba5404990d9f4e5777f092c4499"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 6
     }
   ],
   "reviews": [
@@ -729,6 +764,17 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 5 (story v5) passed automated validation"
+    },
+    {
+      "at": "2026-10-24T23:34:07.268Z",
+      "from": "in-review",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 6 (story v6) passed automated validation"
     }
   ]
 }

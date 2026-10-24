@@ -1,0 +1,541 @@
+{
+  "ok": true,
+  "schema": {
+    "ok": true,
+    "errors": []
+  },
+  "graph": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "passages": 35,
+      "choices": 61,
+      "endings": [
+        "keeper-friend",
+        "open-lid",
+        "every-line",
+        "door-sealed",
+        "another-day"
+      ],
+      "reachableEndings": [
+        "another-day",
+        "door-sealed",
+        "every-line",
+        "keeper-friend",
+        "open-lid"
+      ],
+      "exploredStates": 122,
+      "stateSearchComplete": true,
+      "shortestPathToEnding": 4,
+      "longestSimplePathToEnding": 23
+    }
+  },
+  "literacy": {
+    "reportVersion": 1,
+    "storyId": "the-tomb-of-ameru",
+    "storyVersion": 3,
+    "storyHash": "e8976c26953db7e8057a393830daad518602d47dc1fe0aa8baaeae1a68094907",
+    "profile": "structured-literacy",
+    "method": "Deterministic token counts over passage text and choice labels. Word-set words also match -s and -es forms. Concept detection is by spelling pattern.",
+    "limitations": [
+      "Concept detectors match spelling, not sound, so some matches are false positives (for example \"ea\" in \"bread\").",
+      "Syllable counts are estimates from vowel groups.",
+      "These checks do not judge decodability, vocabulary appropriateness or story quality. A qualified literacy reviewer must confirm the linguistic claims."
+    ],
+    "review": {
+      "status": "pending"
+    },
+    "wordSets": [
+      {
+        "id": "r-controlled-words",
+        "label": "r-controlled words",
+        "concept": "r-controlled",
+        "minOccurrences": 10,
+        "totalOccurrences": 40,
+        "passagesWithSet": 18,
+        "perWord": {
+          "dark": 10,
+          "far": 6,
+          "cart": 5,
+          "card": 7,
+          "dirt": 3,
+          "horn": 7,
+          "burn": 2
+        },
+        "missingWords": [],
+        "meetsMinimum": true,
+        "perEndingRoute": {
+          "keeper-friend": 17,
+          "open-lid": 17,
+          "every-line": 18,
+          "door-sealed": 17,
+          "another-day": 8
+        },
+        "conceptMismatches": []
+      },
+      {
+        "id": "ed-endings",
+        "label": "ed endings",
+        "concept": "suffix-ed",
+        "minOccurrences": 8,
+        "totalOccurrences": 27,
+        "passagesWithSet": 18,
+        "perWord": {
+          "walked": 6,
+          "dusted": 3,
+          "rested": 6,
+          "lifted": 4,
+          "hunted": 2,
+          "tapped": 6
+        },
+        "missingWords": [],
+        "meetsMinimum": true,
+        "perEndingRoute": {
+          "keeper-friend": 11,
+          "open-lid": 12,
+          "every-line": 11,
+          "door-sealed": 9,
+          "another-day": 2
+        },
+        "conceptMismatches": []
+      },
+      {
+        "id": "ng-and-nk-words",
+        "label": "ng and nk words",
+        "concept": "glued-ng-nk",
+        "minOccurrences": 8,
+        "totalOccurrences": 23,
+        "passagesWithSet": 15,
+        "perWord": {
+          "long": 10,
+          "sing": 3,
+          "bank": 3,
+          "sink": 2,
+          "tank": 3,
+          "rung": 2
+        },
+        "missingWords": [],
+        "meetsMinimum": true,
+        "perEndingRoute": {
+          "keeper-friend": 14,
+          "open-lid": 16,
+          "every-line": 15,
+          "door-sealed": 15,
+          "another-day": 3
+        },
+        "conceptMismatches": []
+      }
+    ],
+    "concepts": [
+      {
+        "id": "closed-syllable",
+        "label": "Closed syllable",
+        "pattern": "one vowel, ends in a consonant (e.g. map, sit)",
+        "targeted": false,
+        "matchingTokens": 840,
+        "distinctWords": 162,
+        "examples": [
+          "an",
+          "and",
+          "as",
+          "ask",
+          "at",
+          "back",
+          "bad",
+          "bank",
+          "bell",
+          "belt",
+          "bent",
+          "big"
+        ]
+      },
+      {
+        "id": "digraph-sh",
+        "label": "Digraph sh",
+        "pattern": "sh",
+        "targeted": false,
+        "matchingTokens": 44,
+        "distinctWords": 16,
+        "examples": [
+          "brush",
+          "brushed",
+          "finish",
+          "fresh",
+          "push",
+          "pushed",
+          "shaky",
+          "shapes",
+          "shirt",
+          "shook",
+          "should",
+          "shove"
+        ]
+      },
+      {
+        "id": "digraph-ch",
+        "label": "Digraph ch",
+        "pattern": "ch (not tch)",
+        "targeted": false,
+        "matchingTokens": 48,
+        "distinctWords": 16,
+        "examples": [
+          "arch",
+          "archaeologist",
+          "chamber",
+          "chambers",
+          "check",
+          "checked",
+          "children",
+          "each",
+          "much",
+          "reach",
+          "reached",
+          "school"
+        ]
+      },
+      {
+        "id": "digraph-th",
+        "label": "Digraph th",
+        "pattern": "th",
+        "targeted": false,
+        "matchingTokens": 373,
+        "distinctWords": 35,
+        "examples": [
+          "another",
+          "beneath",
+          "both",
+          "bothered",
+          "breath",
+          "cloth",
+          "everything",
+          "fourth",
+          "further",
+          "mouth",
+          "nothing",
+          "other"
+        ]
+      },
+      {
+        "id": "digraph-wh",
+        "label": "Digraph wh",
+        "pattern": "wh at the start",
+        "targeted": false,
+        "matchingTokens": 15,
+        "distinctWords": 8,
+        "examples": [
+          "what",
+          "when",
+          "where",
+          "while",
+          "whispered",
+          "who",
+          "whole",
+          "why"
+        ]
+      },
+      {
+        "id": "digraph-ck",
+        "label": "ck spelling",
+        "pattern": "vowel + ck",
+        "targeted": false,
+        "matchingTokens": 43,
+        "distinctWords": 16,
+        "examples": [
+          "back",
+          "black",
+          "check",
+          "checked",
+          "clicked",
+          "crack",
+          "cracked",
+          "cracks",
+          "knock",
+          "lock",
+          "luck",
+          "lucky"
+        ]
+      },
+      {
+        "id": "floss",
+        "label": "FLOSS rule (ff, ll, ss, zz)",
+        "pattern": "vowel + ff/ll/ss/zz at the end",
+        "targeted": false,
+        "matchingTokens": 55,
+        "distinctWords": 17,
+        "examples": [
+          "all",
+          "bell",
+          "call",
+          "cross",
+          "fell",
+          "hall",
+          "hill",
+          "less",
+          "off",
+          "puff",
+          "small",
+          "still"
+        ]
+      },
+      {
+        "id": "initial-blend",
+        "label": "Beginning blend",
+        "pattern": "bl cl fl gl pl sl br cr dr fr gr pr tr sc sk sm sn sp st sw tw at the start",
+        "targeted": false,
+        "matchingTokens": 206,
+        "distinctWords": 90,
+        "examples": [
+          "black",
+          "blew",
+          "blow",
+          "blown",
+          "break",
+          "breath",
+          "bright",
+          "broken",
+          "bronze",
+          "brush",
+          "brushed",
+          "clapped"
+        ]
+      },
+      {
+        "id": "glued-ng-nk",
+        "label": "ng / nk units",
+        "pattern": "ang ing ong ung ank ink onk unk",
+        "targeted": true,
+        "matchingTokens": 81,
+        "distinctWords": 41,
+        "examples": [
+          "along",
+          "asking",
+          "bank",
+          "being",
+          "carving",
+          "carvings",
+          "copying",
+          "drank",
+          "everything",
+          "finger",
+          "fingers",
+          "going"
+        ]
+      },
+      {
+        "id": "trigraph-tch",
+        "label": "tch spelling",
+        "pattern": "vowel + tch",
+        "targeted": false,
+        "matchingTokens": 3,
+        "distinctWords": 3,
+        "examples": [
+          "scratched",
+          "snatched",
+          "watch"
+        ]
+      },
+      {
+        "id": "silent-e",
+        "label": "Vowel-consonant-e syllable",
+        "pattern": "single vowel + consonant + final e (e.g. lane, hope)",
+        "targeted": false,
+        "matchingTokens": 215,
+        "distinctWords": 68,
+        "examples": [
+          "above",
+          "are",
+          "aside",
+          "ate",
+          "awake",
+          "before",
+          "beside",
+          "came",
+          "care",
+          "come",
+          "crate",
+          "decide"
+        ]
+      },
+      {
+        "id": "vowel-team",
+        "label": "Vowel team syllable",
+        "pattern": "ai ay ee ea oa oe ie igh ue",
+        "targeted": false,
+        "matchingTokens": 262,
+        "distinctWords": 87,
+        "examples": [
+          "again",
+          "agree",
+          "ahead",
+          "air",
+          "always",
+          "ancient",
+          "anyway",
+          "away",
+          "been",
+          "beneath",
+          "break",
+          "breath"
+        ]
+      },
+      {
+        "id": "r-controlled",
+        "label": "R-controlled syllable",
+        "pattern": "ar er ir or ur",
+        "targeted": true,
+        "matchingTokens": 365,
+        "distinctWords": 117,
+        "examples": [
+          "after",
+          "afternoon",
+          "air",
+          "ameru",
+          "another",
+          "arch",
+          "archaeologist",
+          "are",
+          "bark",
+          "before",
+          "better",
+          "bigger"
+        ]
+      },
+      {
+        "id": "suffix-ing",
+        "label": "Suffix -ing",
+        "pattern": "ends in ing, with a base of three or more letters",
+        "targeted": false,
+        "matchingTokens": 34,
+        "distinctWords": 20,
+        "examples": [
+          "asking",
+          "carving",
+          "copying",
+          "everything",
+          "groaning",
+          "holding",
+          "leaving",
+          "listening",
+          "looking",
+          "missing",
+          "moving",
+          "nothing"
+        ]
+      },
+      {
+        "id": "suffix-ed",
+        "label": "Suffix -ed",
+        "pattern": "ends in ed, with a base of three or more letters",
+        "targeted": true,
+        "matchingTokens": 164,
+        "distinctWords": 83,
+        "examples": [
+          "asked",
+          "bothered",
+          "bounced",
+          "brushed",
+          "carved",
+          "checked",
+          "circled",
+          "clapped",
+          "clicked",
+          "climbed",
+          "closed",
+          "copied"
+        ]
+      }
+    ],
+    "unknownTargetConcepts": [],
+    "readability": {
+      "totalWords": 2140,
+      "averageWordsPerPassage": 61.1,
+      "averageSentenceLength": 7.2,
+      "longSentences": [],
+      "longWords": [
+        "archaeologist",
+        "carefully",
+        "everything",
+        "excitement"
+      ],
+      "maxWordsInPassage": {
+        "passage": "ending-lid",
+        "words": 93
+      }
+    },
+    "automatedChecks": [
+      {
+        "id": "word-set-minimums",
+        "ok": true,
+        "detail": "r-controlled-words: 40/10; ed-endings: 27/8; ng-and-nk-words: 23/8"
+      },
+      {
+        "id": "every-word-used",
+        "ok": true,
+        "detail": "all words appear"
+      },
+      {
+        "id": "word-sets-on-every-route",
+        "ok": true,
+        "detail": "each word set appears on the shortest route to every ending"
+      },
+      {
+        "id": "word-set-concepts-match-spelling",
+        "ok": true,
+        "detail": "no mismatches"
+      },
+      {
+        "id": "target-concepts-known",
+        "ok": true,
+        "detail": "all known"
+      },
+      {
+        "id": "target-concepts-present",
+        "ok": true,
+        "detail": "glued-ng-nk: 81; r-controlled: 365; suffix-ed: 164"
+      },
+      {
+        "id": "sentence-length",
+        "ok": true,
+        "detail": "0 sentence(s) over 20 words"
+      }
+    ],
+    "learningDesign": {
+      "targets": {
+        "comprehension": 26,
+        "inference": 25,
+        "sequencing": 10,
+        "vocabulary": 8,
+        "detail": 22,
+        "engagement": 21
+      },
+      "passagesTagged": 35,
+      "missingTargets": [],
+      "glossaryWithDefinitions": 4,
+      "advisories": [
+        {
+          "id": "learning-targets-tagged",
+          "ok": true,
+          "detail": "every learning objective has tagged moments"
+        },
+        {
+          "id": "word-help-definitions",
+          "ok": true,
+          "detail": "4 glossary word(s) with a definition"
+        }
+      ]
+    },
+    "ok": true
+  },
+  "brief": {
+    "ok": true,
+    "errors": [],
+    "warnings": []
+  },
+  "summary": [
+    "schema: ok",
+    "graph: ok, 5/5 endings reachable",
+    "literacy checks: ok",
+    "brief: ok"
+  ]
+}
