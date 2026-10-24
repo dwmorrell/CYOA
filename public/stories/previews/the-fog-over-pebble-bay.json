@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-fog-over-pebble-bay",
   "title": "The Fog over Pebble Bay",
-  "version": 9,
+  "version": 10,
   "metadata": {
     "genre": "Seaside mystery adventure",
     "theme": "Courage, noticing small details, and asking for help",
@@ -153,6 +153,11 @@
           "id": "chest-to-tower",
           "label": "Take the cloth to the tower",
           "target": "gathering"
+        },
+        {
+          "id": "chest-to-bench",
+          "label": "Take the cloth straight to Gran Tull",
+          "target": "bench"
         }
       ]
     },
@@ -172,6 +177,36 @@
           "id": "ask-more",
           "label": "Ask Gran Tull what the mirror can tell you",
           "target": "bench-clue"
+        },
+        {
+          "id": "ask-pip",
+          "label": "Ask Pip about the shell she keeps tapping",
+          "target": "bench-shell"
+        }
+      ]
+    },
+    {
+      "id": "bench-shell",
+      "title": "Pip and the Shell",
+      "paragraphs": [
+        "Pip tapped the shell again, tap, tap, tap on the bench.",
+        "Fen picked up the shell. It was small, dry and empty inside.",
+        "Pip hopped off down the path. She had much to do.",
+        "Gran Tull smiled. \"That gull never sits still for long,\" she said."
+      ],
+      "learningTargets": [
+        "detail"
+      ],
+      "choices": [
+        {
+          "id": "shell-ask-gran",
+          "label": "Ask Gran Tull about the mirror now",
+          "target": "bench-clue"
+        },
+        {
+          "id": "shell-to-tower",
+          "label": "Head down to the foot of the tower",
+          "target": "gathering"
         }
       ]
     },
@@ -202,6 +237,11 @@
           "id": "clue-to-tower",
           "label": "Go to the foot of the tower",
           "target": "gathering"
+        },
+        {
+          "id": "clue-to-shed",
+          "label": "Go to the shed to grab the cloth you still need",
+          "target": "shed"
         }
       ]
     },
