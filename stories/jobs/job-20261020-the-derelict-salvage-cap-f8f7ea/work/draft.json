@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-derelict-salvage",
   "title": "The Derelict Salvage",
-  "version": 6,
+  "version": 7,
   "metadata": {
     "genre": "Space salvage adventure",
     "theme": "Working as a team, reading the evidence, and deciding what is worth the risk",
@@ -129,6 +129,12 @@
           "id": "log-dock",
           "label": "Go with Bo to dock the tube",
           "target": "tube"
+        },
+        {
+          "id": "log-also-hull",
+          "label": "Check the hull too, before you dock",
+          "target": "hull-check",
+          "learningTargets": ["detail"]
         }
       ]
     },
@@ -147,6 +153,30 @@
       "choices": [
         {
           "id": "hull-dock",
+          "label": "Go with Bo to dock the tube",
+          "target": "tube"
+        },
+        {
+          "id": "hull-look-closer",
+          "label": "Look closer at the shaky scratches",
+          "target": "hull-marks",
+          "learningTargets": ["inference", "vocabulary"]
+        }
+      ]
+    },
+    {
+      "id": "hull-marks",
+      "title": "Shaky Letters",
+      "paragraphs": [
+        "Tam zoomed the camera in on the scratches.",
+        "They made thin shapes, like letters scratched by hand.",
+        "Tam spelled out the letters slowly: N, I, B.",
+        "\"Is that a name?\" Ivy asked. Nobody knew yet. The team moved toward the tube."
+      ],
+      "learningTargets": ["inference", "vocabulary", "detail"],
+      "choices": [
+        {
+          "id": "hull-marks-on",
           "label": "Go with Bo to dock the tube",
           "target": "tube"
         }
@@ -193,6 +223,12 @@
           "id": "locker-on",
           "label": "Climb through the hatch",
           "target": "inside"
+        },
+        {
+          "id": "locker-also-path",
+          "label": "Check the lit path too, before you climb in",
+          "target": "lit-path",
+          "learningTargets": ["detail"]
         }
       ]
     },
@@ -211,6 +247,30 @@
         {
           "id": "path-on",
           "label": "Meet the others in the corridor",
+          "target": "inside"
+        },
+        {
+          "id": "peek-porthole",
+          "label": "Peek through a porthole along the path",
+          "target": "porthole",
+          "learningTargets": ["engagement", "inference"]
+        }
+      ]
+    },
+    {
+      "id": "porthole",
+      "title": "A Glimpse Through Glass",
+      "paragraphs": [
+        "Ivy stopped at a small round porthole in the wall.",
+        "Through the thick glass, she saw a pale dome glow.",
+        "Something inside caught the light, soft as moth wings.",
+        "\"Let's keep moving,\" said Bo. \"We can look closer soon.\""
+      ],
+      "learningTargets": ["engagement", "inference", "vocabulary"],
+      "choices": [
+        {
+          "id": "porthole-on",
+          "label": "Climb through the hatch to meet the others",
           "target": "inside"
         }
       ]
@@ -254,6 +314,12 @@
           "id": "dome-on",
           "label": "Kneel down to see what it is",
           "target": "nib"
+        },
+        {
+          "id": "dome-also-engine",
+          "label": "Check the engine room too, before you kneel down",
+          "target": "engine",
+          "learningTargets": ["detail"]
         }
       ]
     },
@@ -273,6 +339,30 @@
           "id": "engine-on",
           "label": "Look down at the small light",
           "target": "nib"
+        },
+        {
+          "id": "trace-cable",
+          "label": "Trace the live cable further with Bo",
+          "target": "engine-trace",
+          "learningTargets": ["inference", "sequencing"]
+        }
+      ]
+    },
+    {
+      "id": "engine-trace",
+      "title": "Where the Cable Goes",
+      "paragraphs": [
+        "Bo and Ivy followed the thin cable along the floor.",
+        "It passed a dusty valve and a cold metal pole.",
+        "\"Someone wired this with care,\" said Bo. \"Slow and steady, not fast.\"",
+        "The cable ended at a small blinking box, full of hope."
+      ],
+      "learningTargets": ["inference", "sequencing", "detail"],
+      "choices": [
+        {
+          "id": "trace-on",
+          "label": "Follow the cable's end to the light",
+          "target": "nib"
         }
       ]
     },
@@ -291,6 +381,30 @@
       "choices": [
         {
           "id": "to-door",
+          "label": "Go with Nib to the cargo door",
+          "target": "threshold"
+        },
+        {
+          "id": "ask-nib",
+          "label": "Ask Nib why it chose to stay",
+          "target": "nib-ask",
+          "learningTargets": ["inference", "engagement"]
+        }
+      ]
+    },
+    {
+      "id": "nib-ask",
+      "title": "Why Nib Stayed",
+      "paragraphs": [
+        "Ivy knelt close. \"Why did you stay all alone?\" she asked.",
+        "Nib wrote on its chalk board. \"Someone had to keep them safe.\"",
+        "\"The moths?\" Ivy asked. Nib bobbed its small round head, yes.",
+        "Captain Rin touched the bot's cold shell. \"That took real heart,\" she said."
+      ],
+      "learningTargets": ["inference", "engagement", "comprehension"],
+      "choices": [
+        {
+          "id": "nib-ask-on",
           "label": "Go with Nib to the cargo door",
           "target": "threshold"
         }
@@ -373,6 +487,12 @@
           "id": "step-in",
           "label": "Step inside",
           "target": "ending-garden"
+        },
+        {
+          "id": "call-crew",
+          "label": "Call the whole crew to help carry it home",
+          "target": "ending-carry",
+          "learningTargets": ["engagement"]
         }
       ]
     },

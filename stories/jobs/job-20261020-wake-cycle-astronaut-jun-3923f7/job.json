@@ -4,7 +4,7 @@
   "storyId": "wake-cycle",
   "state": "in-review",
   "createdAt": "2026-10-20T23:23:25.399Z",
-  "updatedAt": "2026-10-24T23:26:06.911Z",
+  "updatedAt": "2026-10-24T23:31:37.217Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/request.json",
@@ -168,6 +168,41 @@
         ]
       },
       "revision": 4
+    },
+    {
+      "storyVersion": 5,
+      "draft": {
+        "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r5.json",
+        "sha256": "529b38788b8ff0d76727aef208c560c0ad7a06c17d905e8f0c098319da155a38"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-24T23:31:37.217Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r5.json",
+          "sha256": "8735c50bb6b7dabbed7b5c41e2fb21847fef852056fbcc010d9da2f10e928305"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r5.json",
+          "sha256": "a726acaad4dc1fe05c78910ce54481546fa5dd62bac8c9a8cadcb4ab88480da2"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r5.json",
+          "sha256": "92dd1b8ad5747a12b6827b0b3bab8db3f9ddf35c59168328ea951091e9adee23"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 5
     }
   ],
   "reviews": [
@@ -604,6 +639,198 @@
       "id": "review-5-literacy",
       "submittedAt": "2026-10-21T18:37:00.640Z",
       "invalidatedBy": 4
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 4,
+      "draftSha256": "2f7e3c76c97dcffba65d60e02babafed36297df0f65ff798b86f58f26cef151d",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "Skills practised: Reading and following this story practises decoding wh, ck and tch words in meaningful context, and meeting the same word-set words again and again on every route. It builds sequencing (latch, then switch, then hatch; tools sorted and passed to Dex in order; climbing to the bridge together step by step), inference (the whistle in the vents that signals the dust is closer, the crew's last call naming the engine room, green and amber pod lights, bent sensors that make maps untrustworthy) and vocabulary from context (sensors, coolant, anomaly, navigator, and now what a latch, switch and hatch each do). The new branches add short detour scenes that ask the reader to notice a detail (a spark near the wire, tools sorted in order) or choose to bring a companion along, so the story also practises comprehension monitoring, cause-and-effect reasoning and reading dialogue for meaning, same as before."
+        },
+        {
+          "severity": "note",
+          "message": "Word sets still meet their minimums with wide margins (wh 38/10, ck 46/8, tch 35/8), every listed word is still used, and no concept mismatches are reported. The six new passages carry set words naturally in context, not as lists: 'A thin whistle moved through the vents' and 'Jun's neck prickled' (locker-listen), 'Good catch,' said Dex' and 'Back up a little' (dex-lamp-watch), 'Click. Click. Each tool found its place' (dex-tools-sort, onomatopoeia for sorting, not a drill), and 'a wall of white' (storm-engine-together). Each set still appears on the shortest route to all five endings (wh 10 to 13, ck 20 to 25, tch 13 to 17), the same spread as revision 3 plus the small addition from the new branches.",
+          "passage": "locker-listen"
+        },
+        {
+          "severity": "minor",
+          "message": "'not-yet-why' has Oru explain three tch words in a tight run: 'The latch unlocks... The switch wakes the heartbeat... The hatch lets in air.' Each clause gives the word a distinct job, so it is not a bare list, but it reads closer to a vocabulary drill than the story's usual natural dialogue. This is a genuine comprehension beat (it answers 'why does order matter', which is the point of the detour), so I am not requesting a change, but the narrative-designer may want to loosen the parallel phrasing in a future pass.",
+          "passage": "not-yet-why"
+        },
+        {
+          "severity": "minor",
+          "message": "Carried over from revision 3, still present and unaddressed because it was out of this revision's scope: 'He gave a whip of his wrist' (dex-tools) is still the least natural use of a set word, 'catch' and 'match' still get only 2 uses each (lopsided practice inside the tch set), and the storm-bridge leak line and the captain-wakes reading-time note from the prior review still apply. None of these affect whether the word-set minimums or every-route coverage pass, so they do not change this verdict.",
+          "passage": "dex-tools"
+        },
+        {
+          "severity": "note",
+          "message": "The six new passages (locker-listen, oru-log-crew, not-yet-why, dex-lamp-watch, dex-tools-sort, storm-engine-together) are all short, read at the same 6-to-10-word average sentence length as the rest of the story, and I found no sentence over the brief's 16-word limit in them by manual count (the longest, in storm-engine-together, is 'At the top, the dust storm filled the window in a wall of white,' 14 words). The analyzer's 20-word threshold also reports none over.",
+          "passage": "storm-engine-together"
+        },
+        {
+          "severity": "note",
+          "message": "Limits of this review: the analyzer matches spelling, not sound, and only checks the shortest route to each ending, not every possible route through the new branches. It does not judge decodability, vocabulary level or story quality. I read every new and changed passage in revision 4, checked each named choice point for a genuine second decision (not a decoration), and traced the new branches back into the existing graph by hand, but did not play every route in the app. I am an AI agent; this is a pre-review, not the human literacy gate, and does not replace a qualified human literacy reviewer."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r4.json",
+          "sha256": "2f7e3c76c97dcffba65d60e02babafed36297df0f65ff798b86f58f26cef151d"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r4.json",
+          "sha256": "f1bdaf377b97968d9f8302133a5c068bf7656f8bdb0c61110e6d58222da154d3"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r4.md",
+          "sha256": "4561c7dedf3c17a6f7bdec44ff5a3e1405cb59070beb11f47c46b92d43d0988f"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/weave-comparison.r4.json",
+          "sha256": "6727803c5546e7b3b85af0fbd522314af85e24b3592b1fa9df963d18d309352f"
+        }
+      ],
+      "shelfSummary": {
+        "blurb": "A space survival mystery: a navigator wakes early on a drifting ship and must wake the crew and steer clear of a dust storm. It practises wh, ck and tch words, plus -ed endings, beginning blends and FLOSS words. Readers also practise sequencing, inference and vocabulary from context.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "vocabulary"
+        ],
+        "wordTypes": [
+          {
+            "concept": "digraph-wh",
+            "examples": [
+              "when",
+              "white",
+              "wheel",
+              "whistle"
+            ]
+          },
+          {
+            "concept": "digraph-ck",
+            "examples": [
+              "back",
+              "deck",
+              "click",
+              "rock"
+            ]
+          },
+          {
+            "concept": "trigraph-tch",
+            "examples": [
+              "catch",
+              "latch",
+              "hatch",
+              "switch"
+            ]
+          },
+          {
+            "concept": "suffix-ed",
+            "examples": [
+              "asked",
+              "climbed",
+              "answered",
+              "cleared"
+            ]
+          },
+          {
+            "concept": "initial-blend",
+            "examples": [
+              "clamp",
+              "bridge",
+              "climb",
+              "clear"
+            ]
+          },
+          {
+            "concept": "floss",
+            "examples": [
+              "hall",
+              "buzz",
+              "hiss",
+              "glass"
+            ]
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Spelling rules",
+          "Morphology",
+          "Comprehension"
+        ]
+      },
+      "id": "review-6-literacy",
+      "submittedAt": "2026-10-24T23:29:35.298Z",
+      "invalidatedBy": 5
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 4,
+      "draftSha256": "2f7e3c76c97dcffba65d60e02babafed36297df0f65ff798b86f58f26cef151d",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "minor",
+          "passage": "storm-engine-together",
+          "message": "story.r4.json lines 314-324 versus storm-engine lines 299-312: storm-engine places the backup wheel 'on the wall' in the engine room with no travel implied, but the new bring-dex-along branch has Jun and Dex 'climbed the steps together... At the top, the dust storm filled the window in a wall of white' before reaching the same threshold passage. The two routes to the same next passage imply different geography (wheel in the engine room vs. a climb to a window at the top of some stairs). Not a dead end or soft lock, and a young reader is unlikely to notice, but worth a line tightening the backup wheel's location so both branches agree."
+        },
+        {
+          "severity": "minor",
+          "passage": "bridge",
+          "message": "story.r4.json lines 128-130: unchanged from r3 and still a weak puzzle - Oru states the pod order (latch, switch, hatch) right before the three-way choice, so picking switch-first or hatch-first has no real inference behind it. The r4 fix (not-yet / not-yet-why) adds a genuine second choice after a wrong guess, which helps, but the original choice at `bridge` itself still is not a real decision. Carried over from review-3-qa; out of this revision's scope per revision-notes.r4.md, so not blocking."
+        },
+        {
+          "severity": "minor",
+          "passage": "captain-wakes",
+          "message": "story.r4.json lines 171-172: unchanged from r3. The Captain says calls to far decks cannot get through and the comm panel is dark, but storm-bridge has Dex on the ship's inside speaker, storm-engine has the Captain's voice reaching the engine room, and ending-1 has both cheering over the speaker. Carried over from review-3-qa; not touched by this revision."
+        },
+        {
+          "severity": "minor",
+          "passage": "oru-log",
+          "message": "story.r4.json lines 82-85 versus dex-chart lines 287-290: unchanged from r3. Oru says maps may not match what is real, yet the bent screens show the clear lane on both the bridge and engine routes, while Dex's chart is called right because it does not match the screens. Carried over from review-3-qa; not touched by this revision."
+        },
+        {
+          "severity": "minor",
+          "passage": "captain-wakes / dex-fixed / dex-chart / storm-bridge",
+          "message": "Unchanged from r3: the take-or-skip-spare-item choice pairs still reconverge immediately and only add or skip an inventory item/clue (thin choice design). Narrative-designer's revision notes confirm this was intentionally left out of scope for r4. Not a defect (engine de-duplicates items), just a reminder it is still open."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r4.json",
+          "sha256": "2f7e3c76c97dcffba65d60e02babafed36297df0f65ff798b86f58f26cef151d"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r4.json",
+          "sha256": "86468111ec500a02ad5127c396cd5e04dff4b75a6dc3de875cb009833485b5c3"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r4.json",
+          "sha256": "ea6255f4d3cab58642b42ba05c998f19f4cefd7ecfa9e36a359197bc97bc2c60"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/brief.json",
+          "sha256": "fdc2fc24ea875ea8f0988d268e7bd726581042613ee246fcd7d0b15c5976e318"
+        }
+      ],
+      "id": "review-7-qa",
+      "submittedAt": "2026-10-24T23:30:15.598Z",
+      "invalidatedBy": 5
     }
   ],
   "parentDecisions": [],
@@ -712,6 +939,27 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 4 (story v4) passed automated validation"
+    },
+    {
+      "at": "2026-10-24T23:30:15.598Z",
+      "from": "in-review",
+      "to": "awaiting-parent-approval",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "All required reviews passed"
+    },
+    {
+      "at": "2026-10-24T23:31:37.217Z",
+      "from": "awaiting-parent-approval",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 5 (story v5) passed automated validation"
     }
   ]
 }
