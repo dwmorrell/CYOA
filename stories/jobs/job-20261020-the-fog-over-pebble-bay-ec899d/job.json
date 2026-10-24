@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-fog-over-pebble-bay-ec899d",
   "storyId": "the-fog-over-pebble-bay",
-  "state": "awaiting-parent-approval",
+  "state": "in-review",
   "createdAt": "2026-10-20T00:24:37.550Z",
-  "updatedAt": "2026-10-21T18:37:15.224Z",
+  "updatedAt": "2026-10-24T23:23:47.271Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/request.json",
@@ -343,6 +343,41 @@
         ]
       },
       "revision": 9
+    },
+    {
+      "storyVersion": 10,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/drafts/story.r10.json",
+        "sha256": "f1734d022d04ac8dc3b0490b1af2bb4d2925f6e0930d9bfe765b204d02c327d5"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-24T23:23:47.271Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/validation.r10.json",
+          "sha256": "179b2ba80b9001eb134bb77c1244fa0124bd2afe7e614fb2c4252465e3a1971a"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/literacy.r10.json",
+          "sha256": "8d671c729da3be55062642a0df6ccb87fcf026c4c1fd747d75ecb53b8bc51b17"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-fog-over-pebble-bay-ec899d/reports/graph.r10.json",
+          "sha256": "5d6bc87b2a77bcba152cae6ed87bcabc3436801c7eef7581c966e6565a29e54e"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 3/3 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 10
     }
   ],
   "reviews": [
@@ -1415,7 +1450,8 @@
         }
       ],
       "id": "review-11-literacy",
-      "submittedAt": "2026-10-20T22:48:13.060Z"
+      "submittedAt": "2026-10-20T22:48:13.060Z",
+      "invalidatedBy": 10
     },
     {
       "role": "qa",
@@ -1479,7 +1515,8 @@
         }
       ],
       "id": "review-12-qa",
-      "submittedAt": "2026-10-20T22:49:10.350Z"
+      "submittedAt": "2026-10-20T22:49:10.350Z",
+      "invalidatedBy": 10
     },
     {
       "role": "literacy",
@@ -1615,7 +1652,8 @@
         ]
       },
       "id": "review-13-literacy",
-      "submittedAt": "2026-10-21T18:37:15.224Z"
+      "submittedAt": "2026-10-21T18:37:15.224Z",
+      "invalidatedBy": 10
     }
   ],
   "parentDecisions": [],
@@ -1810,6 +1848,17 @@
         "kind": "automation"
       },
       "note": "All required reviews passed"
+    },
+    {
+      "at": "2026-10-24T23:23:47.271Z",
+      "from": "awaiting-parent-approval",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 10 (story v10) passed automated validation"
     }
   ]
 }
