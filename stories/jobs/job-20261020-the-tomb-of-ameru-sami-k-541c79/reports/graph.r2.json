@@ -1,0 +1,607 @@
+{
+  "storyId": "the-tomb-of-ameru",
+  "version": 2,
+  "start": "camp",
+  "nodes": [
+    {
+      "id": "camp",
+      "title": "Dawn at Ameru",
+      "ending": null
+    },
+    {
+      "id": "cart",
+      "title": "The Cart",
+      "ending": null
+    },
+    {
+      "id": "map-nook",
+      "title": "Ren's Map",
+      "ending": null
+    },
+    {
+      "id": "map-copy",
+      "title": "Copying the Picture",
+      "ending": null
+    },
+    {
+      "id": "door-front",
+      "title": "The Sealed Door",
+      "ending": null
+    },
+    {
+      "id": "door-tap",
+      "title": "Tap, Tap, Tap",
+      "ending": null
+    },
+    {
+      "id": "tap-adjust",
+      "title": "Eyes in the Dark",
+      "ending": null
+    },
+    {
+      "id": "door-push",
+      "title": "The Groaning Door",
+      "ending": null
+    },
+    {
+      "id": "push-careful",
+      "title": "A Careful Look",
+      "ending": null
+    },
+    {
+      "id": "hall-sand",
+      "title": "The Hall of Sand",
+      "ending": null
+    },
+    {
+      "id": "sand-slip",
+      "title": "A Slippery Floor",
+      "ending": null
+    },
+    {
+      "id": "slip-bird",
+      "title": "The Hidden Bird",
+      "ending": null
+    },
+    {
+      "id": "hall-water",
+      "title": "The Hall of Water",
+      "ending": null
+    },
+    {
+      "id": "water-dusted",
+      "title": "Under the Dust",
+      "ending": null
+    },
+    {
+      "id": "dusted-ledge",
+      "title": "Resting on the Ledge",
+      "ending": null
+    },
+    {
+      "id": "water-skip",
+      "title": "Over the Ladder",
+      "ending": null
+    },
+    {
+      "id": "skip-hollis",
+      "title": "What Hollis Thinks",
+      "ending": null
+    },
+    {
+      "id": "hall-song",
+      "title": "The Hall of Song",
+      "ending": null
+    },
+    {
+      "id": "song-hum",
+      "title": "One Low Note",
+      "ending": null
+    },
+    {
+      "id": "hum-keeper",
+      "title": "A New Look",
+      "ending": null
+    },
+    {
+      "id": "song-horn",
+      "title": "The Big Blow",
+      "ending": null
+    },
+    {
+      "id": "horn-crack",
+      "title": "The Cracked Horn",
+      "ending": null
+    },
+    {
+      "id": "fork",
+      "title": "A Quiet Moment",
+      "ending": null
+    },
+    {
+      "id": "hall-fire",
+      "title": "The Hall of Lamps",
+      "ending": null
+    },
+    {
+      "id": "fire-small",
+      "title": "A Small Flame",
+      "ending": null
+    },
+    {
+      "id": "small-flame",
+      "title": "By Golden Light",
+      "ending": null
+    },
+    {
+      "id": "fire-big",
+      "title": "Too Much Fire",
+      "ending": null
+    },
+    {
+      "id": "big-scorch",
+      "title": "The Scorch Mark",
+      "ending": null
+    },
+    {
+      "id": "hall-sleeper",
+      "title": "The Sleeper",
+      "ending": null
+    },
+    {
+      "id": "sleeper-read",
+      "title": "The Last Warning",
+      "ending": null
+    },
+    {
+      "id": "ending-keeper",
+      "title": "The Keeper Speaks",
+      "ending": {
+        "id": "keeper-friend",
+        "kind": "triumph",
+        "title": "Friends of the Keeper"
+      }
+    },
+    {
+      "id": "ending-lid",
+      "title": "The Open Lid",
+      "ending": {
+        "id": "open-lid",
+        "kind": "bittersweet",
+        "title": "A Peek Too Soon"
+      }
+    },
+    {
+      "id": "ending-notes",
+      "title": "Every Line Counted",
+      "ending": {
+        "id": "every-line",
+        "kind": "triumph",
+        "title": "Every Line Counted"
+      }
+    },
+    {
+      "id": "ending-seal",
+      "title": "The Door Sealed Again",
+      "ending": {
+        "id": "door-sealed",
+        "kind": "bittersweet",
+        "title": "The Door Sealed Again"
+      }
+    },
+    {
+      "id": "ending-setback",
+      "title": "Another Day",
+      "ending": {
+        "id": "another-day",
+        "kind": "setback",
+        "title": "Another Day"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "camp",
+      "to": "cart",
+      "choice": "camp-cart",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "camp",
+      "to": "map-nook",
+      "choice": "camp-map",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "cart",
+      "to": "map-nook",
+      "choice": "cart-map",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "cart",
+      "to": "door-front",
+      "choice": "cart-door",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "map-nook",
+      "to": "door-front",
+      "choice": "map-door",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "map-nook",
+      "to": "map-copy",
+      "choice": "map-wait",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "map-copy",
+      "to": "door-front",
+      "choice": "copy-door",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "door-front",
+      "to": "door-tap",
+      "choice": "door-tap",
+      "locked": true,
+      "requires": {
+        "clues": [
+          "tap-card"
+        ]
+      }
+    },
+    {
+      "from": "door-front",
+      "to": "door-push",
+      "choice": "door-push",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "door-tap",
+      "to": "hall-sand",
+      "choice": "tap-in",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "door-tap",
+      "to": "tap-adjust",
+      "choice": "tap-wait",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "tap-adjust",
+      "to": "hall-sand",
+      "choice": "adjust-in",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "door-push",
+      "to": "hall-sand",
+      "choice": "push-in",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "door-push",
+      "to": "push-careful",
+      "choice": "push-check",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "push-careful",
+      "to": "hall-sand",
+      "choice": "careful-in",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall-sand",
+      "to": "hall-water",
+      "choice": "sand-pale",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall-sand",
+      "to": "sand-slip",
+      "choice": "sand-dark",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "sand-slip",
+      "to": "hall-water",
+      "choice": "slip-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "sand-slip",
+      "to": "slip-bird",
+      "choice": "slip-look",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "slip-bird",
+      "to": "hall-water",
+      "choice": "bird-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall-water",
+      "to": "water-dusted",
+      "choice": "water-brush",
+      "locked": true,
+      "requires": {
+        "items": [
+          "soft-brush"
+        ]
+      }
+    },
+    {
+      "from": "hall-water",
+      "to": "water-skip",
+      "choice": "water-skip",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "water-dusted",
+      "to": "hall-song",
+      "choice": "dusted-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "water-dusted",
+      "to": "dusted-ledge",
+      "choice": "dusted-rest",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "dusted-ledge",
+      "to": "hall-song",
+      "choice": "ledge-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "water-skip",
+      "to": "hall-song",
+      "choice": "skip-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "water-skip",
+      "to": "skip-hollis",
+      "choice": "skip-ask",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "skip-hollis",
+      "to": "hall-song",
+      "choice": "hollis-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall-song",
+      "to": "song-hum",
+      "choice": "song-hum",
+      "locked": true,
+      "requires": {
+        "clues": [
+          "low-note"
+        ]
+      }
+    },
+    {
+      "from": "hall-song",
+      "to": "song-horn",
+      "choice": "song-horn",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "song-hum",
+      "to": "fork",
+      "choice": "hum-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "song-hum",
+      "to": "hum-keeper",
+      "choice": "hum-look",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hum-keeper",
+      "to": "fork",
+      "choice": "keeper-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "song-horn",
+      "to": "fork",
+      "choice": "horn-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "song-horn",
+      "to": "horn-crack",
+      "choice": "horn-check",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "horn-crack",
+      "to": "fork",
+      "choice": "crack-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "fork",
+      "to": "hall-fire",
+      "choice": "fork-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "fork",
+      "to": "ending-setback",
+      "choice": "fork-leave",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall-fire",
+      "to": "fire-small",
+      "choice": "fire-small",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall-fire",
+      "to": "fire-big",
+      "choice": "fire-big",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "fire-small",
+      "to": "hall-sleeper",
+      "choice": "small-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "fire-small",
+      "to": "small-flame",
+      "choice": "small-look",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "small-flame",
+      "to": "hall-sleeper",
+      "choice": "flame-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "fire-big",
+      "to": "hall-sleeper",
+      "choice": "big-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "fire-big",
+      "to": "big-scorch",
+      "choice": "big-check",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "big-scorch",
+      "to": "hall-sleeper",
+      "choice": "scorch-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall-sleeper",
+      "to": "ending-keeper",
+      "choice": "sleeper-brush",
+      "locked": true,
+      "requires": {
+        "items": [
+          "soft-brush"
+        ],
+        "clues": [
+          "low-note"
+        ]
+      }
+    },
+    {
+      "from": "hall-sleeper",
+      "to": "sleeper-read",
+      "choice": "sleeper-read",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hall-sleeper",
+      "to": "ending-lid",
+      "choice": "sleeper-lift",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "sleeper-read",
+      "to": "ending-notes",
+      "choice": "read-notes",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "sleeper-read",
+      "to": "ending-seal",
+      "choice": "read-seal",
+      "locked": false,
+      "requires": null
+    }
+  ],
+  "validation": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "passages": 35,
+      "choices": 51,
+      "endings": [
+        "keeper-friend",
+        "open-lid",
+        "every-line",
+        "door-sealed",
+        "another-day"
+      ],
+      "reachableEndings": [
+        "another-day",
+        "door-sealed",
+        "every-line",
+        "keeper-friend",
+        "open-lid"
+      ],
+      "exploredStates": 122,
+      "stateSearchComplete": true,
+      "shortestPathToEnding": 11,
+      "longestSimplePathToEnding": 23
+    }
+  }
+}

@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-tomb-of-ameru",
   "title": "The Tomb of Ameru",
-  "version": 1,
+  "version": 2,
   "metadata": {
     "genre": "Tomb and archaeology adventure",
     "theme": "Curiosity with care, reading clues closely, and respecting the past",
@@ -74,7 +74,22 @@
       "effects": { "addClues": ["tap-card"] },
       "learningTargets": ["detail", "sequencing", "inference"],
       "choices": [
-        { "id": "map-door", "label": "Walk to the door with the card", "target": "door-front" }
+        { "id": "map-door", "label": "Walk to the door with the card", "target": "door-front" },
+        { "id": "map-wait", "label": "Help Ren copy the picture first", "target": "map-copy", "learningTargets": ["detail", "sequencing"] }
+      ]
+    },
+    {
+      "id": "map-copy",
+      "title": "Copying the Picture",
+      "paragraphs": [
+        "Ren copied the tapping picture into the notebook, line by line.",
+        "Sami waited, patient and calm, while the pencil scratched on the page.",
+        "\"Good notes last longer than memory,\" said Sami.",
+        "Ren tucked the notebook away. Then the team walked to the door."
+      ],
+      "learningTargets": ["detail", "sequencing"],
+      "choices": [
+        { "id": "copy-door", "label": "Walk to the door with the card", "target": "door-front" }
       ]
     },
     {
@@ -110,7 +125,21 @@
       ],
       "learningTargets": ["sequencing", "comprehension"],
       "choices": [
-        { "id": "tap-in", "label": "Step inside", "target": "hall-sand" }
+        { "id": "tap-in", "label": "Step inside", "target": "hall-sand" },
+        { "id": "tap-wait", "label": "Wait for your eyes to adjust to the dark", "target": "tap-adjust", "learningTargets": ["detail", "engagement"] }
+      ]
+    },
+    {
+      "id": "tap-adjust",
+      "title": "Eyes in the Dark",
+      "paragraphs": [
+        "They stood still and let their eyes adjust to the dark.",
+        "Slowly, shapes formed: a wide floor, far walls, and carved lines.",
+        "\"Better to see first,\" said Sami. \"Now we are ready.\""
+      ],
+      "learningTargets": ["detail", "engagement"],
+      "choices": [
+        { "id": "adjust-in", "label": "Step inside", "target": "hall-sand" }
       ]
     },
     {
@@ -124,7 +153,21 @@
       ],
       "learningTargets": ["comprehension", "engagement"],
       "choices": [
-        { "id": "push-in", "label": "Step inside", "target": "hall-sand" }
+        { "id": "push-in", "label": "Step inside", "target": "hall-sand" },
+        { "id": "push-check", "label": "Check the Keeper's carving for cracks", "target": "push-careful", "learningTargets": ["detail", "inference"] }
+      ]
+    },
+    {
+      "id": "push-careful",
+      "title": "A Careful Look",
+      "paragraphs": [
+        "Sami looked over the carved Keeper on the stone door.",
+        "Its stone face had no new cracks, only old dust.",
+        "\"We got lucky,\" said Sami. \"Carvings this old can break fast.\""
+      ],
+      "learningTargets": ["detail", "inference"],
+      "choices": [
+        { "id": "careful-in", "label": "Step inside", "target": "hall-sand" }
       ]
     },
     {
@@ -153,7 +196,21 @@
       ],
       "learningTargets": ["inference", "sequencing"],
       "choices": [
-        { "id": "slip-on", "label": "Go on to the next chamber", "target": "hall-water" }
+        { "id": "slip-on", "label": "Go on to the next chamber", "target": "hall-water" },
+        { "id": "slip-look", "label": "Look at the tile that tipped, before moving on", "target": "slip-bird", "learningTargets": ["inference", "detail"] }
+      ]
+    },
+    {
+      "id": "slip-bird",
+      "title": "The Hidden Bird",
+      "paragraphs": [
+        "Ren bent down and looked at the tile that had tipped.",
+        "Under the dust lay a tiny carved bird. It pointed at the pale path.",
+        "\"The hall was trying to help us,\" said Ren. \"We just walked too fast.\""
+      ],
+      "learningTargets": ["inference", "detail"],
+      "choices": [
+        { "id": "bird-on", "label": "Go on to the next chamber", "target": "hall-water" }
       ]
     },
     {
@@ -191,7 +248,22 @@
       "effects": { "addClues": ["low-note"] },
       "learningTargets": ["detail", "inference", "sequencing"],
       "choices": [
-        { "id": "dusted-on", "label": "Walk on to the third chamber", "target": "hall-song" }
+        { "id": "dusted-on", "label": "Walk on to the third chamber", "target": "hall-song" },
+        { "id": "dusted-rest", "label": "Rest a moment on the ledge first", "target": "dusted-ledge", "learningTargets": ["inference", "engagement"] }
+      ]
+    },
+    {
+      "id": "dusted-ledge",
+      "title": "Resting on the Ledge",
+      "paragraphs": [
+        "They rested on the ledge and drank a little water.",
+        "Hollis hummed a slow tune, low and long.",
+        "\"That is almost the note from the wall,\" said Ren, smiling.",
+        "Sami laughed softly. \"Save your voice. We may need it soon.\""
+      ],
+      "learningTargets": ["inference", "engagement"],
+      "choices": [
+        { "id": "ledge-on", "label": "Walk on to the third chamber", "target": "hall-song" }
       ]
     },
     {
@@ -205,7 +277,21 @@
       ],
       "learningTargets": ["comprehension", "engagement"],
       "choices": [
-        { "id": "skip-on", "label": "Walk on to the third chamber", "target": "hall-song" }
+        { "id": "skip-on", "label": "Walk on to the third chamber", "target": "hall-song" },
+        { "id": "skip-ask", "label": "Ask Hollis what he thinks they missed", "target": "skip-hollis", "learningTargets": ["inference", "engagement"] }
+      ]
+    },
+    {
+      "id": "skip-hollis",
+      "title": "What Hollis Thinks",
+      "paragraphs": [
+        "\"We might have missed a clue,\" said Hollis, looking back.",
+        "\"But old things keep their secrets,\" said Sami. \"We walked on, and so should we.\"",
+        "Ren nodded, a little sad, and followed without a word."
+      ],
+      "learningTargets": ["inference", "engagement"],
+      "choices": [
+        { "id": "hollis-on", "label": "Walk on to the third chamber", "target": "hall-song" }
       ]
     },
     {
@@ -241,7 +327,21 @@
       ],
       "learningTargets": ["inference", "sequencing", "engagement"],
       "choices": [
-        { "id": "hum-on", "label": "Walk on", "target": "fork" }
+        { "id": "hum-on", "label": "Walk on", "target": "fork" },
+        { "id": "hum-look", "label": "Look back at the Keeper before walking on", "target": "hum-keeper", "learningTargets": ["inference", "detail"] }
+      ]
+    },
+    {
+      "id": "hum-keeper",
+      "title": "A New Look",
+      "paragraphs": [
+        "Ren glanced back at the carved Keeper before walking on.",
+        "Its stone mouth seemed to curve, almost like a smile.",
+        "\"Maybe it likes a good listener,\" said Ren."
+      ],
+      "learningTargets": ["inference", "detail"],
+      "choices": [
+        { "id": "keeper-on", "label": "Walk on", "target": "fork" }
       ]
     },
     {
@@ -256,7 +356,22 @@
       ],
       "learningTargets": ["comprehension", "inference"],
       "choices": [
-        { "id": "horn-on", "label": "Walk on", "target": "fork" }
+        { "id": "horn-on", "label": "Walk on", "target": "fork" },
+        { "id": "horn-check", "label": "Look at the horn you just blew", "target": "horn-crack", "learningTargets": ["inference", "comprehension"] }
+      ]
+    },
+    {
+      "id": "horn-crack",
+      "title": "The Cracked Horn",
+      "paragraphs": [
+        "Hollis looked at the horn he had just blown.",
+        "A thin crack ran along one side of the old bronze.",
+        "\"Oops,\" said Hollis. \"I did not mean to blow that hard.\"",
+        "Sami sighed, but there was no time to mend it now."
+      ],
+      "learningTargets": ["inference", "comprehension"],
+      "choices": [
+        { "id": "crack-on", "label": "Walk on", "target": "fork" }
       ]
     },
     {
@@ -300,7 +415,21 @@
       ],
       "learningTargets": ["inference", "comprehension"],
       "choices": [
-        { "id": "small-on", "label": "Step into the last chamber", "target": "hall-sleeper" }
+        { "id": "small-on", "label": "Step into the last chamber", "target": "hall-sleeper" },
+        { "id": "small-look", "label": "Look at the carving once more by the warm light", "target": "small-flame", "learningTargets": ["detail", "vocabulary"] }
+      ]
+    },
+    {
+      "id": "small-flame",
+      "title": "By Golden Light",
+      "paragraphs": [
+        "By the lamp's gold light, Ren saw the Keeper's palm more clearly.",
+        "Tiny carved flames circled its fingers, small and neat.",
+        "\"A careful flame, just like ours,\" said Ren, smiling."
+      ],
+      "learningTargets": ["detail", "vocabulary"],
+      "choices": [
+        { "id": "flame-on", "label": "Step into the last chamber", "target": "hall-sleeper" }
       ]
     },
     {
@@ -315,7 +444,22 @@
       ],
       "learningTargets": ["comprehension", "inference"],
       "choices": [
-        { "id": "big-on", "label": "Step into the last chamber", "target": "hall-sleeper" }
+        { "id": "big-on", "label": "Step into the last chamber", "target": "hall-sleeper" },
+        { "id": "big-check", "label": "Check the scorch mark before leaving", "target": "big-scorch", "learningTargets": ["inference", "comprehension"] }
+      ]
+    },
+    {
+      "id": "big-scorch",
+      "title": "The Scorch Mark",
+      "paragraphs": [
+        "Sami looked closely at the black mark on the wall.",
+        "It was small, but it would never fade away.",
+        "\"That is the cost of being too quick,\" said Sami.",
+        "Ren wrote it down so no one would forget."
+      ],
+      "learningTargets": ["inference", "comprehension"],
+      "choices": [
+        { "id": "scorch-on", "label": "Step into the last chamber", "target": "hall-sleeper" }
       ]
     },
     {

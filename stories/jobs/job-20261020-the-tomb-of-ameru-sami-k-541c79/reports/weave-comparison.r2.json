@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "sets": [
+    {
+      "id": "r-controlled-words",
+      "planned": 22,
+      "minimum": 10,
+      "actual": 40,
+      "ok": true
+    },
+    {
+      "id": "ed-endings",
+      "planned": 22,
+      "minimum": 8,
+      "actual": 29,
+      "ok": true
+    },
+    {
+      "id": "ng-and-nk-words",
+      "planned": 22,
+      "minimum": 8,
+      "actual": 22,
+      "ok": true
+    }
+  ]
+}

@@ -2,31 +2,87 @@
   "schemaVersion": "1.0",
   "id": "the-fog-over-pebble-bay",
   "title": "The Fog over Pebble Bay",
-  "version": 8,
+  "version": 10,
   "metadata": {
     "genre": "Seaside mystery adventure",
     "theme": "Courage, noticing small details, and asking for help",
     "premise": "When thick fog swallows the harbour, young lamp keeper Fen must find out why the old lighthouse lamp went dark before the fishing boats come home.",
     "estimatedMinutes": 12,
-    "authorship": { "narrative": "narrative-designer (AI agent)", "origin": "ai-generated" },
+    "authorship": {
+      "narrative": "narrative-designer (AI agent)",
+      "origin": "ai-generated"
+    },
     "createdAt": "2026-10-20"
   },
   "literacy": {
-    "targetConcepts": ["digraph-sh", "digraph-ch", "digraph-th", "closed-syllable"],
-    "wordSets": [
-      { "id": "sh-words", "label": "sh words", "concept": "digraph-sh", "words": ["ship", "shell", "fish", "shed", "shut"], "minOccurrences": 10 },
-      { "id": "ch-words", "label": "ch words", "concept": "digraph-ch", "words": ["chest", "chain", "bench", "much"], "minOccurrences": 8 },
-      { "id": "th-words", "label": "th words", "concept": "digraph-th", "words": ["path", "thick", "moth", "cloth"], "minOccurrences": 8 }
+    "targetConcepts": [
+      "digraph-sh",
+      "digraph-ch",
+      "digraph-th",
+      "closed-syllable"
     ],
-    "review": { "status": "pending" }
+    "wordSets": [
+      {
+        "id": "sh-words",
+        "label": "sh words",
+        "concept": "digraph-sh",
+        "words": [
+          "ship",
+          "shell",
+          "fish",
+          "shed",
+          "shut"
+        ],
+        "minOccurrences": 10
+      },
+      {
+        "id": "ch-words",
+        "label": "ch words",
+        "concept": "digraph-ch",
+        "words": [
+          "chest",
+          "chain",
+          "bench",
+          "much"
+        ],
+        "minOccurrences": 8
+      },
+      {
+        "id": "th-words",
+        "label": "th words",
+        "concept": "digraph-th",
+        "words": [
+          "path",
+          "thick",
+          "moth",
+          "cloth"
+        ],
+        "minOccurrences": 8
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
   },
   "start": "start",
   "items": [
-    { "id": "soft-cloth", "name": "Soft cloth", "description": "A soft cloth from the old chest. It is made for wiping the brass mirror." },
-    { "id": "match-tin", "name": "Match tin", "description": "A small tin of long matches from Gran Tull. They will light the wick." }
+    {
+      "id": "soft-cloth",
+      "name": "Soft cloth",
+      "description": "A soft cloth from the old chest. It is made for wiping the brass mirror."
+    },
+    {
+      "id": "match-tin",
+      "name": "Match tin",
+      "description": "A small tin of long matches from Gran Tull. They will light the wick."
+    }
   ],
   "clues": [
-    { "id": "damp-mirror", "name": "Damp mirror", "description": "Fog leaves wet mist on the brass mirror. A misty mirror makes a dim lamp." }
+    {
+      "id": "damp-mirror",
+      "name": "Damp mirror",
+      "description": "Fog leaves wet mist on the brass mirror. A misty mirror makes a dim lamp."
+    }
   ],
   "passages": [
     {
@@ -39,10 +95,20 @@
         "Pip the gull hopped onto the bench. Pip tapped a shell with her beak, tap, tap, tap.",
         "Fen felt a bit afraid. But Fen wanted to help much more."
       ],
-      "learningTargets": ["detail"],
+      "learningTargets": [
+        "detail"
+      ],
       "choices": [
-        { "id": "to-shed", "label": "Look in the shed for a lamp tool", "target": "shed" },
-        { "id": "to-bench", "label": "Sit on the bench and ask Gran Tull", "target": "bench" }
+        {
+          "id": "to-shed",
+          "label": "Look in the shed for a lamp tool",
+          "target": "shed"
+        },
+        {
+          "id": "to-bench",
+          "label": "Sit on the bench and ask Gran Tull",
+          "target": "bench"
+        }
       ]
     },
     {
@@ -54,8 +120,16 @@
         "An old chest sat under the shelf. A dry shell lay on the lid."
       ],
       "choices": [
-        { "id": "open-chest", "label": "Open the chest", "target": "shed-chest" },
-        { "id": "shed-back", "label": "Go back to the tower", "target": "gathering" }
+        {
+          "id": "open-chest",
+          "label": "Open the chest",
+          "target": "shed-chest"
+        },
+        {
+          "id": "shed-back",
+          "label": "Go back to the tower",
+          "target": "gathering"
+        }
       ]
     },
     {
@@ -66,10 +140,25 @@
         "Under the lid lay a soft cloth, folded flat. It smelled of lamp oil and brass.",
         "Fen shut the lid and tucked the cloth in a pocket. It might help with the lamp."
       ],
-      "learningTargets": ["vocabulary"],
-      "effects": { "addItems": ["soft-cloth"] },
+      "learningTargets": [
+        "vocabulary"
+      ],
+      "effects": {
+        "addItems": [
+          "soft-cloth"
+        ]
+      },
       "choices": [
-        { "id": "chest-to-tower", "label": "Take the cloth to the tower", "target": "gathering" }
+        {
+          "id": "chest-to-tower",
+          "label": "Take the cloth to the tower",
+          "target": "gathering"
+        },
+        {
+          "id": "chest-to-bench",
+          "label": "Take the cloth straight to Gran Tull",
+          "target": "bench"
+        }
       ]
     },
     {
@@ -80,9 +169,45 @@
         "\"The lamp is not broken, Fen,\" she said. \"Look at the mirror, not the flame.\"",
         "Fen did not know what she meant. Fen asked her to tell more."
       ],
-      "learningTargets": ["inference"],
+      "learningTargets": [
+        "inference"
+      ],
       "choices": [
-        { "id": "ask-more", "label": "Ask Gran Tull what the mirror can tell you", "target": "bench-clue" }
+        {
+          "id": "ask-more",
+          "label": "Ask Gran Tull what the mirror can tell you",
+          "target": "bench-clue"
+        },
+        {
+          "id": "ask-pip",
+          "label": "Ask Pip about the shell she keeps tapping",
+          "target": "bench-shell"
+        }
+      ]
+    },
+    {
+      "id": "bench-shell",
+      "title": "Pip and the Shell",
+      "paragraphs": [
+        "Pip tapped the shell again, tap, tap, tap on the bench.",
+        "Fen picked up the shell. It was small, dry and empty inside.",
+        "Pip hopped off down the path. She had much to do.",
+        "Gran Tull smiled. \"That gull never sits still for long,\" she said."
+      ],
+      "learningTargets": [
+        "detail"
+      ],
+      "choices": [
+        {
+          "id": "shell-ask-gran",
+          "label": "Ask Gran Tull about the mirror now",
+          "target": "bench-clue"
+        },
+        {
+          "id": "shell-to-tower",
+          "label": "Head down to the foot of the tower",
+          "target": "gathering"
+        }
       ]
     },
     {
@@ -95,10 +220,29 @@
         "\"My knees are slow on stairs. I will stay here on the bench.\"",
         "Fen smiled. Asking for help had been the right thing to do."
       ],
-      "learningTargets": ["inference", "comprehension"],
-      "effects": { "addClues": ["damp-mirror"], "addItems": ["match-tin"] },
+      "learningTargets": [
+        "inference",
+        "comprehension"
+      ],
+      "effects": {
+        "addClues": [
+          "damp-mirror"
+        ],
+        "addItems": [
+          "match-tin"
+        ]
+      },
       "choices": [
-        { "id": "clue-to-tower", "label": "Go to the foot of the tower", "target": "gathering" }
+        {
+          "id": "clue-to-tower",
+          "label": "Go to the foot of the tower",
+          "target": "gathering"
+        },
+        {
+          "id": "clue-to-shed",
+          "label": "Go to the shed to grab the cloth you still need",
+          "target": "shed"
+        }
       ]
     },
     {
@@ -109,11 +253,25 @@
         "Pip sat on the step. Far off, a ship horn gave a low, sad call.",
         "Fen looked at the path and the stairs. Was there more to find first?"
       ],
-      "learningTargets": ["sequencing"],
+      "learningTargets": [
+        "sequencing"
+      ],
       "choices": [
-        { "id": "gather-shed", "label": "Go back to the shed and the chest", "target": "shed" },
-        { "id": "gather-bench", "label": "Go back to the bench and Gran Tull", "target": "bench" },
-        { "id": "gather-climb", "label": "Climb the stairs to the lamp room", "target": "threshold" }
+        {
+          "id": "gather-shed",
+          "label": "Go back to the shed and the chest",
+          "target": "shed"
+        },
+        {
+          "id": "gather-bench",
+          "label": "Go back to the bench and Gran Tull",
+          "target": "bench"
+        },
+        {
+          "id": "gather-climb",
+          "label": "Climb the stairs to the lamp room",
+          "target": "threshold"
+        }
       ]
     },
     {
@@ -125,24 +283,36 @@
         "The brass mirror stood dull and misty. The wick sat cold in its dish.",
         "Down in the bay, a ship horn called again. Fen took a slow breath and looked at the mirror."
       ],
-      "learningTargets": ["inference", "detail"],
-      "puzzle": {
-        "id": "name-the-wick",
-        "prompt": "Type the word for the cold string in the dish. It is in the story you just read.",
-        "answers": ["wick", "wicks"],
-        "hint": "It has four letters. It starts with w.",
-        "successText": "Yes, the wick. Fen has the right word for the string that burns."
-      },
+      "learningTargets": [
+        "inference",
+        "detail"
+      ],
       "choices": [
         {
           "id": "wipe-mirror",
           "label": "Wipe the mirror and light the wick",
           "target": "climax",
-          "requires": { "items": ["soft-cloth", "match-tin"], "clues": ["damp-mirror"] },
+          "requires": {
+            "items": [
+              "soft-cloth",
+              "match-tin"
+            ],
+            "clues": [
+              "damp-mirror"
+            ]
+          },
           "lockedHint": "You need a cloth from the shed chest, and matches and a clue from Gran Tull."
         },
-        { "id": "run-to-dock", "label": "Run down to the dock and wave", "target": "ending-dock" },
-        { "id": "go-down", "label": "Go back down the stairs to look for help", "target": "gathering" }
+        {
+          "id": "run-to-dock",
+          "label": "Run down to the dock and wave",
+          "target": "ending-dock"
+        },
+        {
+          "id": "go-down",
+          "label": "Go back down the stairs to look for help",
+          "target": "gathering"
+        }
       ]
     },
     {
@@ -156,10 +326,20 @@
         "The beam must sweep the whole bay. A chain by the mirror turns it.",
         "Fen could pull it alone, or call Gran Tull."
       ],
-      "learningTargets": ["comprehension"],
+      "learningTargets": [
+        "comprehension"
+      ],
       "choices": [
-        { "id": "turn-mirror", "label": "Pull the chain and sweep the bay alone", "target": "ending-beam" },
-        { "id": "call-gran", "label": "Call Gran Tull to help pull the chain", "target": "ending-help" }
+        {
+          "id": "turn-mirror",
+          "label": "Pull the chain and sweep the bay alone",
+          "target": "ending-beam"
+        },
+        {
+          "id": "call-gran",
+          "label": "Call Gran Tull to help pull the chain",
+          "target": "ending-help"
+        }
       ]
     },
     {
@@ -171,9 +351,15 @@
         "Soon the dock rang with happy shouts and the smell of fresh fish.",
         "Fen ran down to the bench. Gran Tull gave Fen a hug. \"You noticed the small thing,\" she said."
       ],
-      "learningTargets": ["engagement"],
+      "learningTargets": [
+        "engagement"
+      ],
       "choices": [],
-      "ending": { "id": "ending-beam", "kind": "triumph", "title": "The Lamp Keeper" }
+      "ending": {
+        "id": "ending-beam",
+        "kind": "triumph",
+        "title": "The Lamp Keeper"
+      }
     },
     {
       "id": "ending-help",
@@ -186,7 +372,11 @@
         "Fen sat by the lamp with Pip and Gran Tull. Asking for help had been brave, and it had worked."
       ],
       "choices": [],
-      "ending": { "id": "ending-help", "kind": "triumph", "title": "Two Keepers" }
+      "ending": {
+        "id": "ending-help",
+        "kind": "triumph",
+        "title": "Two Keepers"
+      }
     },
     {
       "id": "ending-dock",
@@ -199,27 +389,132 @@
         "Fen looked up at the dark tower. Next time, Fen would look at the mirror first, and ask for help."
       ],
       "choices": [],
-      "ending": { "id": "ending-dock", "kind": "setback", "title": "A Brave Try" }
+      "ending": {
+        "id": "ending-dock",
+        "kind": "setback",
+        "title": "A Brave Try"
+      }
     }
   ],
   "glossary": {
-    "lighthouse": { "syllables": ["light", "house"], "definition": "A tall tower with a big light. It shows ships where the land is." },
-    "harbour": { "syllables": ["har", "bour"], "definition": "A safe place by the sea where boats come to rest." },
-    "mirror": { "syllables": ["mir", "ror"], "definition": "A shiny part that bounces light. In the lamp room, it makes the light bright." },
-    "tower": { "syllables": ["tow", "er"], "definition": "A tall, thin building." },
-    "window": { "syllables": ["win", "dow"], "definition": "A hole in a wall with glass in it. It lets in light and air." },
-    "answer": { "syllables": ["an", "swer"], "definition": "What solves a puzzle or a question." },
-    "afraid": { "syllables": ["a", "fraid"], "definition": "Scared, or a bit worried." },
-    "pocket": { "syllables": ["pock", "et"], "definition": "A small bag sewn into your clothes." },
-    "fluttered": { "syllables": ["flut", "tered"], "definition": "Flew with quick, light flaps of the wings." },
-    "matches": { "syllables": ["match", "es"], "definition": "Thin sticks that make a small flame when you strike them." },
-    "match": { "syllables": ["match"], "definition": "A thin stick that makes a small flame when you strike it." },
-    "wick": { "syllables": ["wick"], "definition": "The string in a lamp that burns and gives the flame." },
-    "brass": { "syllables": ["brass"], "definition": "A shiny, gold-coloured metal." },
-    "beam": { "syllables": ["beam"], "definition": "A long line of light." },
-    "gust": { "syllables": ["gust"], "definition": "A quick puff of strong wind." },
-    "stairs": { "syllables": ["stairs"], "definition": "Steps that take you up or down." },
-    "knees": { "syllables": ["knees"], "definition": "The bend in the middle of your leg." },
-    "steady": { "syllables": ["stead", "y"], "definition": "Slow and calm, not shaking." }
+    "lighthouse": {
+      "syllables": [
+        "light",
+        "house"
+      ],
+      "definition": "A tall tower with a big light. It shows ships where the land is."
+    },
+    "harbour": {
+      "syllables": [
+        "har",
+        "bour"
+      ],
+      "definition": "A safe place by the sea where boats come to rest."
+    },
+    "mirror": {
+      "syllables": [
+        "mir",
+        "ror"
+      ],
+      "definition": "A shiny part that bounces light. In the lamp room, it makes the light bright."
+    },
+    "tower": {
+      "syllables": [
+        "tow",
+        "er"
+      ],
+      "definition": "A tall, thin building."
+    },
+    "window": {
+      "syllables": [
+        "win",
+        "dow"
+      ],
+      "definition": "A hole in a wall with glass in it. It lets in light and air."
+    },
+    "answer": {
+      "syllables": [
+        "an",
+        "swer"
+      ],
+      "definition": "What solves a puzzle or a question."
+    },
+    "afraid": {
+      "syllables": [
+        "a",
+        "fraid"
+      ],
+      "definition": "Scared, or a bit worried."
+    },
+    "pocket": {
+      "syllables": [
+        "pock",
+        "et"
+      ],
+      "definition": "A small bag sewn into your clothes."
+    },
+    "fluttered": {
+      "syllables": [
+        "flut",
+        "tered"
+      ],
+      "definition": "Flew with quick, light flaps of the wings."
+    },
+    "matches": {
+      "syllables": [
+        "match",
+        "es"
+      ],
+      "definition": "Thin sticks that make a small flame when you strike them."
+    },
+    "match": {
+      "syllables": [
+        "match"
+      ],
+      "definition": "A thin stick that makes a small flame when you strike it."
+    },
+    "wick": {
+      "syllables": [
+        "wick"
+      ],
+      "definition": "The string in a lamp that burns and gives the flame."
+    },
+    "brass": {
+      "syllables": [
+        "brass"
+      ],
+      "definition": "A shiny, gold-coloured metal."
+    },
+    "beam": {
+      "syllables": [
+        "beam"
+      ],
+      "definition": "A long line of light."
+    },
+    "gust": {
+      "syllables": [
+        "gust"
+      ],
+      "definition": "A quick puff of strong wind."
+    },
+    "stairs": {
+      "syllables": [
+        "stairs"
+      ],
+      "definition": "Steps that take you up or down."
+    },
+    "knees": {
+      "syllables": [
+        "knees"
+      ],
+      "definition": "The bend in the middle of your leg."
+    },
+    "steady": {
+      "syllables": [
+        "stead",
+        "y"
+      ],
+      "definition": "Slow and calm, not shaking."
+    }
   }
 }
