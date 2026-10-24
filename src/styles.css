@@ -548,12 +548,107 @@ textarea.input {
   border-color: var(--accent);
   border-width: 2px;
 }
-.font-sample.font-dyslexic {
-  font-family: 'OpenDyslexic', Verdana, sans-serif;
+.font-sample.font-lexend {
+  font-family: 'Lexend', Verdana, sans-serif;
+}
+.font-sample.font-legible {
+  font-family: 'Atkinson Hyperlegible', Verdana, sans-serif;
 }
 .font-sample.font-rounded {
   font-family: 'Comic Sans MS', 'Comic Neue', 'Andika', sans-serif;
 }
 .font-sample.font-serif {
   font-family: Georgia, 'Noto Serif', serif;
+}
+
+/* Typing practice: Road Race style, grayscale throughout. The road, the
+   dashboard and the words to type all live in one window so they scale
+   together, instead of as separate boxes. */
+.race-window {
+  width: 100%;
+  max-width: 480px;
+  margin: 14px auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px;
+}
+.road {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.road-surface {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 26;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.road-centerline {
+  fill: none;
+  stroke: var(--bg);
+  stroke-width: 2;
+  stroke-dasharray: 7 7;
+}
+.road-start {
+  stroke: var(--text);
+  stroke-width: 2;
+}
+.checker-a {
+  fill: var(--text);
+}
+.checker-b {
+  fill: var(--surface);
+}
+.road-car {
+  fill: var(--text);
+}
+.road-wheel {
+  fill: var(--surface);
+}
+.race-dash {
+  display: grid;
+  grid-template-columns: minmax(110px, 32%) 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 480px) {
+  .race-dash {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+.gauge {
+  width: 100%;
+  height: auto;
+  color: var(--text);
+}
+.typing-readout {
+  margin: 6px 0 0;
+}
+.typing-target {
+  font-family: var(--reading-font);
+  font-size: calc(1.1rem * var(--font-scale));
+  margin: 0;
+}
+.typing-target .typed {
+  color: var(--muted);
+  text-decoration: underline;
+}
+.typing-target .mistyped {
+  color: var(--bad);
+  text-decoration: line-through;
+}
+.typing-input {
+  font-size: 1.1rem;
+}
+.typing-done {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px;
+  margin: 12px 0;
 }

@@ -48,6 +48,14 @@ export function checkAgainstBrief(story: Story, brief: NormalizedBrief, continui
   return { ok: errors.length === 0, errors, warnings };
 }
 
+/** Flattens a validation report into the error and warning strings shown to a parent. */
+export function validationIssues(validation: DraftValidation): { errors: string[]; warnings: string[] } {
+  return {
+    errors: [...validation.schema.errors, ...(validation.graph?.errors ?? []).map((e) => e.message), ...(validation.literacy?.automatedChecks ?? []).filter((c) => !c.ok).map((c) => `${c.id}: ${c.detail}`)],
+    warnings: [...(validation.graph?.warnings ?? []).map((w) => w.message), ...(validation.literacy?.learningDesign.advisories ?? []).filter((a) => !a.ok).map((a) => a.detail)],
+  };
+}
+
 export function validateDraft(data: unknown, brief?: NormalizedBrief, continuity?: ContinuityAssessment, profile?: TerminologyProfile): DraftValidation {
   const schema = validateSchema(data);
   if (!schema.ok) {

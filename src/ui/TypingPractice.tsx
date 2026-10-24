@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { accuracy, carProgress, correctLength, formatLapTime, lapSeconds, lapTimeSeconds, netWpm, scoreFor, startLap, typeInto, type Lap, type ScoreEntry, type TypingList } from '../typing/engine';
-import { startLine, TRACKS, trackPointAt, type Track } from '../typing/tracks';
+import { accuracy, carProgress, formatLapTime, lapSeconds, lapTimeSeconds, netWpm, scoreFor, startLap, typeInto, type Lap, type ScoreEntry, type TypingList } from '../typing/engine';
+import { finishLine, startLine, TRACKS, trackPointAt, type Point, type Track } from '../typing/tracks';
 import { BackBar, Page } from './common';
 import { useApp } from './context';
 
@@ -31,27 +31,71 @@ function Gauge({ wpm }: { wpm: number }) {
   );
 }
 
-/** Race track: the course as a closed loop, with its start and finish line. The car moves round it as correct letters are typed. */
-function TrackView({ track, progress }: { track: Track; progress: number }) {
-  const [from, to] = startLine(track);
-  const car = trackPointAt(track, progress);
-  const course = `M ${track.points.map((p) => `${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' L ')} Z`;
+/** A small side-on car, facing along +x before rotation. */
+function Car() {
   return (
-    <svg className="track" viewBox="0 0 240 160" aria-hidden="true" focusable="false">
-      <path d={course} fill="none" stroke="currentColor" strokeWidth="14" strokeOpacity="0.25" />
-      <line x1={from.x} y1={from.y} x2={to.x} y2={to.y} stroke="currentColor" strokeWidth="3" />
-      <circle cx={car.x} cy={car.y} r="7" fill="currentColor" />
+    <g className="road-car">
+      <rect x="-9" y="-4" width="18" height="8" rx="3" />
+      <rect x="-5" y="-8" width="9" height="5" rx="2" />
+      <circle className="road-wheel" cx="-5" cy="5" r="2.6" />
+      <circle className="road-wheel" cx="5" cy="5" r="2.6" />
+    </g>
+  );
+}
+
+/** A small checkered band across the road, for the finish line. */
+function Checkers({ a, b }: { a: Point; b: Point }) {
+  const angle = (Math.atan2(b.y - a.y, b.x - a.x) * 180) / Math.PI;
+  const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+  const half = Math.hypot(b.x - a.x, b.y - a.y) / 2;
+  const cols = 4;
+  const cellW = (half * 2) / cols;
+  const cellH = 4;
+  return (
+    <g transform={`translate(${mid.x} ${mid.y}) rotate(${angle})`}>
+      {Array.from({ length: cols }, (_, c) => (
+        <g key={c}>
+          <rect x={-half + c * cellW} y={-cellH} width={cellW} height={cellH} className={c % 2 === 0 ? 'checker-a' : 'checker-b'} />
+          <rect x={-half + c * cellW} y={0} width={cellW} height={cellH} className={c % 2 === 0 ? 'checker-b' : 'checker-a'} />
+        </g>
+      ))}
+    </g>
+  );
+}
+
+/** Road Race view: an open road from a start line to a checkered finish. The car drives along it as correct letters are typed. */
+function TrackView({ track, progress }: { track: Track; progress: number }) {
+  const [startA, startB] = startLine(track);
+  const [finishA, finishB] = finishLine(track);
+  const car = trackPointAt(track, progress);
+  const ahead = trackPointAt(track, Math.min(progress + 0.01, 1));
+  const heading = (Math.atan2(ahead.y - car.y, ahead.x - car.x) * 180) / Math.PI;
+  const road = `M ${track.points.map((p) => `${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' L ')}`;
+  return (
+    <svg className="road" viewBox="0 45 240 70" aria-hidden="true" focusable="false">
+      <path className="road-surface" d={road} />
+      <path className="road-centerline" d={road} />
+      <line className="road-start" x1={startA.x} y1={startA.y} x2={startB.x} y2={startB.y} />
+      <Checkers a={finishA} b={finishB} />
+      <g transform={`translate(${car.x} ${car.y}) rotate(${heading})`}>
+        <Car />
+      </g>
     </svg>
   );
 }
 
-/** Words to type: the letters already typed correctly are underlined. */
+/** Words to type: letters typed correctly are underlined, mistyped letters are struck through. A mistake no longer blocks the rest of the word. */
 function Target({ lap }: { lap: Lap }) {
-  const done = correctLength(lap);
   return (
     <p className="typing-target" aria-label={`Words to type: ${lap.target}`}>
-      <span className="typed">{lap.target.slice(0, done)}</span>
-      {lap.target.slice(done)}
+      {[...lap.target].map((ch, i) => {
+        if (i >= lap.typed.length) return <span key={i}>{ch}</span>;
+        return (
+          <span key={i} className={lap.typed[i] === ch ? 'typed' : 'mistyped'}>
+            {ch}
+          </span>
+        );
+      })}
     </p>
   );
 }
@@ -135,7 +179,7 @@ export function TypingPractice() {
 
   return (
     <Page title="Typing practice" nav={<BackBar />} className="library typing">
-      <p>Type each word as it appears. Your speed and your accuracy move the car round the race track, from the start line back to it. Typing practice is separate from the story, and there is no time limit.</p>
+      <p>Type each word as it appears. Your speed and your accuracy drive the car down the road, from the start line to the checkered finish. Typing practice is separate from the story, and there is no time limit.</p>
       {lists === null && <p role="status">Loading…</p>}
       {lists?.length === 0 && (
         <div className="empty">
@@ -156,7 +200,7 @@ export function TypingPractice() {
             </select>
           </div>
           <div className="row">
-            <label htmlFor="typing-track">Race track</label>
+            <label htmlFor="typing-track">Road</label>
             <select id="typing-track" className="input" value={trackId} onChange={(e) => chooseTrack(e.target.value)}>
               {TRACKS.map((t) => (
                 <option key={t.id} value={t.id}>
@@ -166,16 +210,20 @@ export function TypingPractice() {
             </select>
           </div>
 
-          <section className="typing-car" aria-label="Track and speed">
+          <section className="race-window" aria-label="Road, speed and words">
             <TrackView track={track} progress={carProgress(lap)} />
-            <Gauge wpm={wpm} />
-            <p className="typing-readout" role="status">
-              Speed {Math.round(wpm)} words a minute. Accuracy {Math.round(accuracy(lap) * 100)} percent.{' '}
-              {estimate !== undefined ? `Lap time at this speed: about ${formatLapTime(estimate)}.` : 'Start typing to see your speed.'}
-            </p>
+            <div className="race-dash">
+              <Gauge wpm={wpm} />
+              <div>
+                <Target lap={lap} />
+                <p className="typing-readout" role="status">
+                  Speed {Math.round(wpm)} words a minute. Accuracy {Math.round(accuracy(lap) * 100)} percent.{' '}
+                  {estimate !== undefined ? `Lap time at this speed: about ${formatLapTime(estimate)}.` : 'Start typing to see your speed.'}
+                </p>
+              </div>
+            </div>
           </section>
 
-          <Target lap={lap} />
           <label htmlFor="typing-input">Type here</label>
           <input
             id="typing-input"

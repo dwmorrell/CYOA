@@ -72,9 +72,9 @@ describe('profiles and the parent PIN', () => {
   it('keeps each child’s preferences separate and clamped', async () => {
     const { repo, child } = await setUp();
     const second = await repo.addChild('Ben');
-    await repo.setPrefs(child.id, { ...DEFAULT_PREFS, fontScale: 9, font: 'dyslexic' });
+    await repo.setPrefs(child.id, { ...DEFAULT_PREFS, fontScale: 9, font: 'lexend' });
     expect((await repo.prefs(child.id)).fontScale).toBe(2.2);
-    expect((await repo.prefs(child.id)).font).toBe('dyslexic');
+    expect((await repo.prefs(child.id)).font).toBe('lexend');
     expect(await repo.prefs(second.id)).toEqual(DEFAULT_PREFS);
   });
 
@@ -88,10 +88,11 @@ describe('profiles and the parent PIN', () => {
   });
 
   it('clamps reading preferences to safe ranges', () => {
-    const p = clampPrefs({ ...DEFAULT_PREFS, fontScale: 9, lineHeight: 0.5, letterSpacing: -1 });
+    const p = clampPrefs({ ...DEFAULT_PREFS, fontScale: 9, lineHeight: 0.5, letterSpacing: -1, readRate: 5 });
     expect(p.fontScale).toBe(2.2);
     expect(p.lineHeight).toBe(1.4);
     expect(p.letterSpacing).toBe(0);
+    expect(p.readRate).toBe(1.3);
   });
 });
 
@@ -204,6 +205,26 @@ describe('device library: drafts and parent approval', () => {
     const [entry] = await repo.library();
     expect(entry?.approved).toBeUndefined();
     expect((await repo.draft(story.id))?.id).toBe(story.id);
+  });
+
+  it('archiving hides nothing but its own flag: approval and the draft are unaffected, and it reverses', async () => {
+    const { repo } = await setUp();
+    await repo.saveDraft(story, 'Sam', 'editor');
+    await approve(repo, story.id);
+    const archived = await repo.setArchived(story.id, true);
+    expect(archived?.archived).toBe(true);
+    expect(archived?.approved?.version).toBe(1);
+    expect((await repo.draft(story.id))?.id).toBe(story.id);
+    const restored = await repo.setArchived(story.id, false);
+    expect(restored?.archived).toBe(false);
+  });
+
+  it('remove deletes a story from the library entirely', async () => {
+    const { repo } = await setUp();
+    await repo.saveDraft(story, 'Sam', 'editor');
+    await approve(repo, story.id);
+    await repo.remove(story.id);
+    expect(await repo.library()).toEqual([]);
   });
 });
 

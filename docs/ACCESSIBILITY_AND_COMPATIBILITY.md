@@ -19,7 +19,7 @@
 | Focus | Visible 3px focus ring; heading focused on each new page | `src/styles.css`, `src/ui/Reader.tsx` |
 | Screen readers | Real buttons and headings, focus moved to each new page heading, targeted live regions only, locked choices use `aria-disabled` plus a described hint, decorative symbols hidden | `src/ui/` |
 | Motion | No animation beyond a short fade, removed under `prefers-reduced-motion` | `src/styles.css` |
-| Bandwidth | React and Vite; the OpenDyslexic font is bundled; no images in stories; grown-up area and editor loaded only when opened; stories are small JSON; the app shell works offline once cached | `vite.config.ts`, `src/main.tsx` |
+| Bandwidth | React and Vite; the Lexend and Atkinson Hyperlegible fonts are bundled; no images in stories; grown-up area and editor loaded only when opened; stories are small JSON; the app shell works offline once cached | `vite.config.ts`, `src/main.tsx` |
 | Old devices | Build target ES2020 / Chrome 90 | `vite.config.ts` |
 
 ## Verification status

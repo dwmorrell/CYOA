@@ -46,6 +46,13 @@ describe('story graph validation', () => {
     expect(codes).toContain('dead-end');
   });
 
+  it('requires at least two choices on a non-ending passage', () => {
+    const s = clone(fixture());
+    s.passages.find((p) => p.id === 'shed')!.choices = [{ id: 'back-hill', label: 'Go back up the hill', target: 'top' }];
+    const codes = validateGraph(s).errors.map((e) => e.code);
+    expect(codes).toContain('single-choice');
+  });
+
   it('finds endings that are unreachable in play because of item logic', () => {
     const s = clone(fixture());
     // Nobody can ever pick up the net now.
@@ -58,7 +65,8 @@ describe('story graph validation', () => {
   it('finds soft-locks where every choice is locked', () => {
     const s = clone(fixture());
     const top = s.passages.find((p) => p.id === 'top')!;
-    top.choices = top.choices.filter((c) => c.id === 'use-net');
+    // A second choice that is locked too, so a reader who only has the clue (not the net) is soft-locked.
+    top.choices = [top.choices.find((c) => c.id === 'use-net')!, { id: 'locked-too', label: 'A harder path', target: 'win', requires: { items: ['net'], clues: ['red-thread'] } }];
     const r = validateGraph(s);
     expect(r.errors.map((e) => e.code)).toContain('soft-lock');
   });
@@ -66,7 +74,10 @@ describe('story graph validation', () => {
   it('finds loops with no way out', () => {
     const s = clone(fixture());
     const shed = s.passages.find((p) => p.id === 'shed')!;
-    shed.choices = [{ id: 'stay', label: 'Stay', target: 'shed' }];
+    shed.choices = [
+      { id: 'stay', label: 'Stay', target: 'shed' },
+      { id: 'stay-longer', label: 'Stay a bit longer', target: 'shed' },
+    ];
     expect(validateGraph(s).errors.map((e) => e.code)).toContain('no-way-out');
   });
 

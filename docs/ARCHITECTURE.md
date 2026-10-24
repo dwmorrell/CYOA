@@ -82,7 +82,7 @@ different CI jobs. See `docs/DEPLOYMENT.md`.
 - React and TypeScript, built with Vite. The grown-up area and editor are lazy-loaded so the child's first load stays small.
 - Build target `es2020` / Chrome 90 so older Chromebooks on extended updates
   still run it.
-- System fonts by default; the OpenDyslexic font is bundled and cached offline.
+- System fonts by default; the Lexend and Atkinson Hyperlegible fonts are bundled and cached offline.
 - `base: './'` so the build can be served from any static path.
 - The parent studio and Ajv load on demand, so a child's first load does not
   download the validator.

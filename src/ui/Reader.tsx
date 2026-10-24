@@ -65,6 +65,7 @@ export function Reader({ story, state, onState, onExit, exitLabel = 'Library', b
   const passage = passageById(story, state.current);
   const [focusIndex, setFocusIndex] = useState(0);
   const [speaking, setSpeaking] = useState(false);
+  const [past, setPast] = useState<GameState[]>([]);
   const heading = useRef<HTMLHeadingElement>(null);
   const paraRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -85,13 +86,24 @@ export function Reader({ story, state, onState, onExit, exitLabel = 'Library', b
   const totalEndings = story.passages.filter((p) => p.ending).length;
   const nameOf = (list: Story['items'], id: string) => list.find((x) => x.id === id);
   const go = (s: GameState) => void onState(s);
+  /** Choosing pushes the page just left onto a local stack, so Back can return to it instantly, without reloading the story. */
+  const pick = (choiceId: string) => {
+    setPast((p) => [...p, state]);
+    go(choose(story, state, choiceId));
+  };
+  const goBack = () => {
+    const previous = past.at(-1);
+    if (!previous) return;
+    setPast((p) => p.slice(0, -1));
+    go(previous);
+  };
   const toggleSpeech = () => {
     if (speaking) {
       stopSpeaking();
       setSpeaking(false);
     } else {
       setSpeaking(true);
-      speak(pageSpeech(passage.title, passage.paragraphs), () => setSpeaking(false));
+      speak(pageSpeech(passage.title, passage.paragraphs), () => setSpeaking(false), { voiceURI: prefs.voiceURI, rate: prefs.readRate });
     }
   };
   // "Story so far" supports sequencing: the places visited, in order.
@@ -111,6 +123,11 @@ export function Reader({ story, state, onState, onExit, exitLabel = 'Library', b
           <Icon>← </Icon>
           {exitLabel}
         </button>
+        {past.length > 0 && (
+          <button type="button" className="btn small" onClick={goBack}>
+            <Icon>↩ </Icon>Previous page
+          </button>
+        )}
         <span className="story-name">{story.title}</span>
         {prefs.readAloud && canSpeak() && (
           <button type="button" className="btn small" aria-pressed={speaking} onClick={toggleSpeech}>
@@ -154,7 +171,14 @@ export function Reader({ story, state, onState, onExit, exitLabel = 'Library', b
           <p>
             You have found {state.endingsSeen.length} of {totalEndings} endings.
           </p>
-          <button type="button" className="btn primary" onClick={() => go(restart(story, state))}>
+          <button
+            type="button"
+            className="btn primary"
+            onClick={() => {
+              setPast([]);
+              go(restart(story, state));
+            }}
+          >
             Play again
           </button>
         </section>
@@ -171,7 +195,7 @@ export function Reader({ story, state, onState, onExit, exitLabel = 'Library', b
                   className={`btn choice${available ? '' : ' locked'}`}
                   aria-disabled={available ? undefined : true}
                   aria-describedby={available ? undefined : `hint-${choice.id}`}
-                  onClick={() => available && go(choose(story, state, choice.id))}
+                  onClick={() => available && pick(choice.id)}
                 >
                   {choice.label}
                 </button>
