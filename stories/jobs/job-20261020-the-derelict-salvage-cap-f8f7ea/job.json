@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-derelict-salvage-cap-f8f7ea",
   "storyId": "the-derelict-salvage",
-  "state": "validation-failed",
+  "state": "in-review",
   "createdAt": "2026-10-20T23:23:23.408Z",
-  "updatedAt": "2026-10-24T23:31:19.575Z",
+  "updatedAt": "2026-10-24T23:36:17.877Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/request.json",
@@ -273,6 +273,41 @@
         ]
       },
       "revision": 7
+    },
+    {
+      "storyVersion": 8,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/drafts/story.r8.json",
+        "sha256": "7d815d2ee8f6e28e5c5083b81ec5f9a7dce449b6846e72ce2b307d24f861a9b5"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-24T23:36:17.877Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/validation.r8.json",
+          "sha256": "484d8a1d97527d321942a97e4ee6f6a2b117f1df3cc3b23a2278a6eb739a71b5"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/literacy.r8.json",
+          "sha256": "679fc329c519a1cf5d820553a3b999195c71d194df434d994689702e1d5dbdf5"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/graph.r8.json",
+          "sha256": "4f3edf42d885c1aeb3e5d75c01260060fbedb2dab3d48b069c183ad967cf3689"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 8
     }
   ],
   "reviews": [
@@ -715,6 +750,17 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 7 (story v7) failed automated validation"
+    },
+    {
+      "at": "2026-10-24T23:36:17.877Z",
+      "from": "validation-failed",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 8 (story v8) passed automated validation"
     }
   ]
 }

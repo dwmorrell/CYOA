@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-derelict-salvage",
   "title": "The Derelict Salvage",
-  "version": 7,
+  "version": 8,
   "metadata": {
     "genre": "Space salvage adventure",
     "theme": "Working as a team, reading the evidence, and deciding what is worth the risk",
@@ -179,6 +179,12 @@
           "id": "hull-marks-on",
           "label": "Go with Bo to dock the tube",
           "target": "tube"
+        },
+        {
+          "id": "hull-marks-shortcut",
+          "label": "Follow the marks around to a side hatch",
+          "target": "locker",
+          "learningTargets": ["inference"]
         }
       ]
     },
@@ -272,6 +278,12 @@
           "id": "porthole-on",
           "label": "Climb through the hatch to meet the others",
           "target": "inside"
+        },
+        {
+          "id": "porthole-dome",
+          "label": "Follow the glow straight to the dome",
+          "target": "dome",
+          "learningTargets": ["inference", "engagement"]
         }
       ]
     },
@@ -363,6 +375,12 @@
           "id": "trace-on",
           "label": "Follow the cable's end to the light",
           "target": "nib"
+        },
+        {
+          "id": "call-out",
+          "label": "Call out to see who answers",
+          "target": "nib",
+          "learningTargets": ["engagement"]
         }
       ]
     },
@@ -407,6 +425,12 @@
           "id": "nib-ask-on",
           "label": "Go with Nib to the cargo door",
           "target": "threshold"
+        },
+        {
+          "id": "promise-nib",
+          "label": "Promise Nib you will be careful, then go to the door",
+          "target": "threshold",
+          "learningTargets": ["engagement"]
         }
       ]
     },
