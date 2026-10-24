@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-cat-who-took-the-wrong-turn",
   "title": "The Cat Who Took the Wrong Turn",
-  "version": 4,
+  "version": 5,
   "metadata": {
     "genre": "Fantasy adventure with a hero from another world",
     "theme": "Courage, kindness to strangers, and finding out who you are",
@@ -83,7 +83,22 @@
       ],
       "learningTargets": ["detail", "comprehension"],
       "choices": [
-        { "id": "lean-over", "label": "Lean over the edge to look down", "target": "the-fall" }
+        { "id": "lean-over", "label": "Lean over the edge to look down", "target": "the-fall" },
+        { "id": "call-first", "label": "Call softly to the cat first", "target": "call-to-the-cat", "learningTargets": ["engagement"] }
+      ]
+    },
+    {
+      "id": "call-to-the-cat",
+      "title": "A Soft Call",
+      "paragraphs": [
+        "Eli knelt by the lid and called out, soft and low.",
+        "A small meow drifted up from the dark hole.",
+        "It did not sound scared. Eli felt a little braver.",
+        "He leaned over the rim to look down."
+      ],
+      "learningTargets": ["engagement", "inference"],
+      "choices": [
+        { "id": "lean-after-call", "label": "Lean over the rim and look", "target": "the-fall" }
       ]
     },
     {
@@ -98,7 +113,22 @@
       ],
       "learningTargets": ["sequencing", "inference"],
       "choices": [
-        { "id": "lean-over-gate", "label": "Lean over the edge to look down", "target": "the-fall" }
+        { "id": "lean-over-gate", "label": "Lean over the edge to look down", "target": "the-fall" },
+        { "id": "shout-for-help", "label": "Call for help over the fence", "target": "call-for-help", "learningTargets": ["engagement"] }
+      ]
+    },
+    {
+      "id": "call-for-help",
+      "title": "Calling for Help",
+      "paragraphs": [
+        "Eli called out, hoping a grown-up would hear him.",
+        "No one came. The street stayed quiet and empty.",
+        "He walked back to the gap in the fence.",
+        "The cat sat by the open hole, waiting."
+      ],
+      "learningTargets": ["engagement", "sequencing"],
+      "choices": [
+        { "id": "lean-after-call-help", "label": "Crouch down and look into the hole", "target": "the-fall" }
       ]
     },
     {
@@ -112,7 +142,22 @@
       ],
       "learningTargets": ["sequencing", "engagement"],
       "choices": [
-        { "id": "look-around", "label": "Stand up and look around", "target": "varro" }
+        { "id": "look-around", "label": "Stand up and look around", "target": "varro" },
+        { "id": "check-bag", "label": "Check your bag before standing up", "target": "check-the-book", "learningTargets": ["detail"] }
+      ]
+    },
+    {
+      "id": "check-the-book",
+      "title": "A Muddy Map",
+      "paragraphs": [
+        "Before standing, Eli checked his bag in the mud.",
+        "His library book was still there, a bit muddy.",
+        "The map inside had a small wet spot on it.",
+        "He tucked the book away safely and stood up."
+      ],
+      "learningTargets": ["detail", "sequencing"],
+      "choices": [
+        { "id": "stand-after-check", "label": "Stand up and look around", "target": "varro" }
       ]
     },
     {
@@ -126,7 +171,21 @@
       ],
       "learningTargets": ["detail", "vocabulary"],
       "choices": [
-        { "id": "meet-lira", "label": "Wave to the girl running down the hill", "target": "meet-lira" }
+        { "id": "meet-lira", "label": "Wave to the girl running down the hill", "target": "meet-lira" },
+        { "id": "look-moss", "label": "Kneel down and look at the glowing moss", "target": "look-at-the-moss", "learningTargets": ["vocabulary"] }
+      ]
+    },
+    {
+      "id": "look-at-the-moss",
+      "title": "Glowing Moss",
+      "paragraphs": [
+        "Eli knelt by the glowing moss. It felt cool and damp.",
+        "Each tiny light blinked slowly, like a small heartbeat.",
+        "He looked up. A girl was running down the hill."
+      ],
+      "learningTargets": ["detail", "vocabulary"],
+      "choices": [
+        { "id": "wave-after-moss", "label": "Wave to the girl with the lamp", "target": "meet-lira" }
       ]
     },
     {
@@ -173,7 +232,21 @@
       "effects": { "addItems": ["reed-net"] },
       "learningTargets": ["inference", "sequencing"],
       "choices": [
-        { "id": "to-stairs-kind", "label": "Follow Lira up the stairs", "target": "the-stairs" }
+        { "id": "to-stairs-kind", "label": "Follow Lira up the stairs", "target": "the-stairs" },
+        { "id": "thank-frog", "label": "Leave the frog a crumb before you go", "target": "thank-the-frog", "learningTargets": ["engagement"] }
+      ]
+    },
+    {
+      "id": "thank-the-frog",
+      "title": "A Small Thank You",
+      "paragraphs": [
+        "Eli opened his lunch box and left a small crumb.",
+        "The frog gave a happy croak and hopped onto it.",
+        "Eli grinned, then ran to catch up with Lira."
+      ],
+      "learningTargets": ["engagement", "inference"],
+      "choices": [
+        { "id": "to-stairs-crumb", "label": "Follow Lira up the stairs", "target": "the-stairs" }
       ]
     },
     {
@@ -187,7 +260,22 @@
       ],
       "learningTargets": ["sequencing", "detail"],
       "choices": [
-        { "id": "to-stairs-fast", "label": "Walk on to the stairs", "target": "the-stairs" }
+        { "id": "to-stairs-fast", "label": "Walk on to the stairs", "target": "the-stairs" },
+        { "id": "retry-hop", "label": "Try the last stones again, more carefully", "target": "careful-hop", "learningTargets": ["sequencing"] }
+      ]
+    },
+    {
+      "id": "careful-hop",
+      "title": "A Second Try",
+      "paragraphs": [
+        "Eli looked at the stones again and moved slower.",
+        "Step by step, he hopped without a single slip.",
+        "\"Second try is the charm,\" said Lira, grinning.",
+        "They walked on together to the stairs."
+      ],
+      "learningTargets": ["sequencing", "engagement"],
+      "choices": [
+        { "id": "to-stairs-careful", "label": "Walk on to the stairs with Lira", "target": "the-stairs" }
       ]
     },
     {
@@ -217,7 +305,22 @@
       "effects": { "addClues": ["claw-prints"] },
       "learningTargets": ["inference", "detail"],
       "choices": [
-        { "id": "up-after-prints", "label": "Climb on to the top", "target": "tower-hall" }
+        { "id": "up-after-prints", "label": "Climb on to the top", "target": "tower-hall" },
+        { "id": "show-lira", "label": "Show Lira the marks before going up", "target": "show-lira-the-prints", "learningTargets": ["inference"] }
+      ]
+    },
+    {
+      "id": "show-lira-the-prints",
+      "title": "Two Guesses",
+      "paragraphs": [
+        "Eli pointed at the small marks on the stone.",
+        "Lira bent down. \"Maybe a bird,\" she said, frowning.",
+        "Eli was not sure. The marks looked like claws to him.",
+        "They climbed on, both thinking about what they had seen."
+      ],
+      "learningTargets": ["inference", "detail"],
+      "choices": [
+        { "id": "up-after-showing", "label": "Climb on to the top", "target": "tower-hall" }
       ]
     },
     {
@@ -254,7 +357,21 @@
       ],
       "learningTargets": ["inference", "comprehension"],
       "choices": [
-        { "id": "up-net", "label": "Step into the lantern room", "target": "lantern-room" }
+        { "id": "up-net", "label": "Step into the lantern room", "target": "lantern-room" },
+        { "id": "check-ash", "label": "Check on Ash before stepping in", "target": "check-on-ash", "learningTargets": ["inference"] }
+      ]
+    },
+    {
+      "id": "check-on-ash",
+      "title": "A Nervous Cat",
+      "paragraphs": [
+        "Eli crouched by Ash. The cat's fur was puffed up.",
+        "\"It is okay,\" Eli whispered, giving him a quick pat.",
+        "Ash settled down, and Eli stood to look ahead."
+      ],
+      "learningTargets": ["inference", "engagement"],
+      "choices": [
+        { "id": "step-in-after-ash", "label": "Step into the lantern room", "target": "lantern-room" }
       ]
     },
     {
@@ -268,7 +385,22 @@
       ],
       "learningTargets": ["sequencing", "comprehension"],
       "choices": [
-        { "id": "up-ladder", "label": "Step into the lantern room", "target": "lantern-room" }
+        { "id": "up-ladder", "label": "Step into the lantern room", "target": "lantern-room" },
+        { "id": "help-lira", "label": "Reach down and help Lira up", "target": "help-lira-up", "learningTargets": ["engagement"] }
+      ]
+    },
+    {
+      "id": "help-lira-up",
+      "title": "A Helping Hand",
+      "paragraphs": [
+        "Eli knelt by the hatch and reached for Lira's hand.",
+        "He pulled her up the last rung of the ladder.",
+        "\"Thanks,\" she said, smiling, a little out of breath.",
+        "Together, they turned to face the lantern room."
+      ],
+      "learningTargets": ["engagement", "comprehension"],
+      "choices": [
+        { "id": "step-in-after-helping", "label": "Step into the lantern room", "target": "lantern-room" }
       ]
     },
     {

@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-rain-courier",
   "title": "The Rain Courier",
-  "version": 8,
+  "version": 9,
   "metadata": {
     "genre": "Cyberpunk delivery adventure",
     "theme": "Trust, choosing who to believe, and keeping a promise",
@@ -118,17 +118,23 @@
         "He looked at the humming bag. \"That voice. Does it know you?\"",
         "\"It said my name,\" said Mara.",
         "\"Then listen close,\" said Tam. \"But do not trust it or anyone too much. Check what they tell you.\"",
-        "Mara put the pick set in her pocket. She waved and rode out into the rain. Down the row, a dark alley caught her eye."
+        "Mara put the pick set in her pocket. Down the row, a dark alley caught her eye. She could duck into its shade, or ride on to the crossing."
       ],
-      "learningTargets": ["inference", "vocabulary"],
+      "learningTargets": ["inference", "vocabulary", "sequencing"],
       "effects": {
         "addItems": ["lock-pick"]
       },
       "choices": [
         {
           "id": "pick-onward",
-          "label": "Turn into the dark alley",
+          "label": "Duck into the dark alley",
           "target": "alley"
+        },
+        {
+          "id": "pick-skip-alley",
+          "label": "Ride straight on to the crossing",
+          "target": "gathering",
+          "learningTargets": ["sequencing"]
         }
       ]
     },
@@ -164,9 +170,10 @@
         "Mara frowned. Vex had told her the chip held music for a party.",
         "A music file does not need a flood stamp.",
         "\"Vex did not tell you the whole truth,\" said Nine. \"I cannot say what he wants. Watch what he does.\"",
-        "Mara said nothing. She wrapped the chip in cloth and put it back in the bag."
+        "Mara said nothing. She wrapped the chip in cloth and put it back in the bag.",
+        "A back lane cut toward the bridge. The crossing was the longer way round."
       ],
-      "learningTargets": ["inference", "detail"],
+      "learningTargets": ["inference", "detail", "sequencing"],
       "effects": {
         "addClues": ["flood-stamp"]
       },
@@ -175,6 +182,12 @@
           "id": "clue-onward",
           "label": "Ride on to the tower lights",
           "target": "gathering"
+        },
+        {
+          "id": "clue-shortcut",
+          "label": "Slip down the back lane toward the bridge",
+          "target": "drone-street",
+          "learningTargets": ["sequencing"]
         }
       ]
     },
@@ -234,14 +247,21 @@
         "Mara slid off her bike and crouched in the shade. She held her breath.",
         "The drones passed so close that the wind from them stirred her hair. Their flash slid over the shelter and moved on.",
         "\"Good,\" whispered Nine. \"Slow is quiet.\"",
-        "When the hum faded, Mara pushed her bike toward the rail bridge."
+        "When the hum faded, Mara pushed her bike toward the rail bridge.",
+        "Nine warned that more drones might wait at the bridge. For a moment, Mara wondered if giving up was easier."
       ],
-      "learningTargets": ["comprehension"],
+      "learningTargets": ["comprehension", "inference"],
       "choices": [
         {
           "id": "shade-onward",
           "label": "Walk the bike to the bridge gate",
           "target": "threshold"
+        },
+        {
+          "id": "shade-give-up",
+          "label": "Wave the drone down and give up the bag",
+          "target": "ending-5",
+          "learningTargets": ["inference"]
         }
       ]
     },
@@ -252,7 +272,8 @@
         "Mara pushed hard and made her dash. Her old bike rattled over the stones.",
         "A drone swung round, and its flash lit the whole street. The chain on her bike sang as she turned. A chill ran down her back, but her wheel held. She pressed the chip to her chest.",
         "She cut into a tunnel and the hum fell behind her. Her heart was pounding.",
-        "\"That was loud,\" said Nine. \"They may be waiting at the bridge now.\""
+        "\"That was loud,\" said Nine. \"They may be waiting at the bridge now.\"",
+        "Ahead, the street forked. One way led straight to the bridge gate. The other had a shaded doorway."
       ],
       "learningTargets": ["sequencing", "engagement"],
       "choices": [
@@ -260,6 +281,12 @@
           "id": "dash-onward",
           "label": "Ride on to the bridge gate",
           "target": "threshold"
+        },
+        {
+          "id": "dash-duck",
+          "label": "Duck into the shaded doorway to catch her breath",
+          "target": "hide-shade",
+          "learningTargets": ["sequencing"]
         }
       ]
     },
