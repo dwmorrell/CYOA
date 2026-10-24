@@ -1,7 +1,7 @@
-// Race tracks for the typing car. A track is a closed course with one start and
-// finish line at its first point. The car starts on that line, and a lap ends
-// back on it when the words are typed. Each track has its own high scores.
-// Shapes are drawn on a 240 by 160 canvas, clockwise on screen.
+// Race tracks for the typing car: Road Race style - an open road from a start
+// line to a finish line, not a loop. The car starts on the line at the left
+// and drives to the finish at the right as correct letters are typed. Each
+// track has its own high scores. Shapes are drawn on a 240 by 160 canvas.
 
 export interface Point {
   x: number;
@@ -11,71 +11,73 @@ export interface Point {
 export interface Track {
   id: string;
   name: string;
-  /** Corners of the closed course. The last point joins back to the first. */
+  /** The open road, left to right. The car never goes past the last point. */
   points: Point[];
 }
 
-const SEGMENTS = 72;
+const SEGMENTS = 48;
 
-/** Points around an ellipse, starting at the top and running clockwise on screen. */
-function ellipse(cx: number, cy: number, rx: number, ry: number): Point[] {
-  return Array.from({ length: SEGMENTS }, (_, i) => {
-    const angle = -Math.PI / 2 + (2 * Math.PI * i) / SEGMENTS;
-    return { x: cx + rx * Math.cos(angle), y: cy + ry * Math.sin(angle) };
-  });
-}
-
-/** A kidney-shaped harbour loop: wider on the lighthouse side, pinched at the bottom. */
-function harbourLoop(): Point[] {
-  return Array.from({ length: SEGMENTS }, (_, i) => {
-    const t = -Math.PI / 2 + (2 * Math.PI * i) / SEGMENTS;
-    return { x: 120 + 100 * Math.cos(t) + 16 * Math.cos(2 * t), y: 80 + 58 * Math.sin(t) - 10 * Math.sin(2 * t) };
+/** Points along an open road running left to right, with a gentle curve. */
+function road(cy: number, amplitude: number, waves: number): Point[] {
+  return Array.from({ length: SEGMENTS + 1 }, (_, i) => {
+    const t = i / SEGMENTS;
+    return { x: 20 + 200 * t, y: cy + amplitude * Math.sin(t * Math.PI * waves) };
   });
 }
 
 export const TRACKS: Track[] = [
-  { id: 'harbour-oval', name: 'Harbour oval', points: ellipse(120, 80, 100, 60) },
-  { id: 'harbour-loop', name: 'Harbour loop', points: harbourLoop() },
+  { id: 'coast-highway', name: 'Coast highway', points: road(80, 8, 1) },
+  { id: 'mountain-pass', name: 'Mountain pass', points: road(80, 18, 2) },
 ];
 
-/** Distance round the closed course, in points, from its first point. */
+/** Distance along the open road, between each consecutive pair of points. */
 function segmentLengths(points: Point[]): number[] {
-  return points.map((p, i) => {
-    const q = points[(i + 1) % points.length]!;
-    return Math.hypot(q.x - p.x, q.y - p.y);
-  });
+  return points.slice(1).map((p, i) => Math.hypot(p.x - points[i]!.x, p.y - points[i]!.y));
 }
 
 /**
- * Where the car is on the course. Progress 0 and 1 are both the start and finish
- * line, so a finished lap leaves the car on the line.
+ * Where the car is on the road, from the start line (progress 0) to the
+ * finish line (progress 1). Progress past 1 stays at the finish line.
  */
 export function trackPointAt(track: Track, progress: number): Point {
-  const lengths = segmentLengths(track.points);
+  const { points } = track;
+  const lengths = segmentLengths(points);
   const total = lengths.reduce((sum, l) => sum + l, 0);
-  let distance = (((progress % 1) + 1) % 1) * total;
-  for (let i = 0; i < track.points.length; i++) {
+  let distance = Math.min(Math.max(progress, 0), 1) * total;
+  for (let i = 0; i < lengths.length; i++) {
     const length = lengths[i]!;
-    if (distance <= length || i === track.points.length - 1) {
-      const p = track.points[i]!;
-      const q = track.points[(i + 1) % track.points.length]!;
+    if (distance <= length || i === lengths.length - 1) {
+      const p = points[i]!;
+      const q = points[i + 1]!;
       const t = length === 0 ? 0 : Math.min(distance / length, 1);
       return { x: p.x + (q.x - p.x) * t, y: p.y + (q.y - p.y) * t };
     }
     distance -= length;
   }
-  return track.points[0]!;
+  return points[0]!;
 }
 
-/** The start and finish line: a short bar across the course at its first point. */
-export function startLine(track: Track): [Point, Point] {
-  const [p, q] = [track.points[0]!, track.points[1]!];
+/** A short bar across the road, perpendicular to it, at a pair of neighbouring points. */
+function crossBar(p: Point, q: Point, at: Point): [Point, Point] {
   const length = Math.hypot(q.x - p.x, q.y - p.y) || 1;
   const nx = -(q.y - p.y) / length;
   const ny = (q.x - p.x) / length;
   const half = 9;
   return [
-    { x: p.x - nx * half, y: p.y - ny * half },
-    { x: p.x + nx * half, y: p.y + ny * half },
+    { x: at.x - nx * half, y: at.y - ny * half },
+    { x: at.x + nx * half, y: at.y + ny * half },
   ];
+}
+
+/** The start line: a short bar across the road at its first point. */
+export function startLine(track: Track): [Point, Point] {
+  const [p, q] = track.points;
+  return crossBar(p!, q!, p!);
+}
+
+/** The finish line: a short bar across the road at its last point. */
+export function finishLine(track: Track): [Point, Point] {
+  const { points } = track;
+  const [p, q] = [points[points.length - 2]!, points[points.length - 1]!];
+  return crossBar(p, q, q);
 }

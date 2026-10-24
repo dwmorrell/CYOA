@@ -69,7 +69,8 @@ export function Settings() {
           onChange={(font) => update({ font })}
           options={[
             ['system', 'Plain'],
-            ['dyslexic', 'OpenDyslexic'],
+            ['lexend', 'Lexend'],
+            ['legible', 'Atkinson Hyperlegible'],
             ['rounded', 'Rounded'],
             ['serif', 'Book'],
           ]}

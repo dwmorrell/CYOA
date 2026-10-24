@@ -16,7 +16,7 @@ import {
   typeInto,
   type Lap,
 } from '../../src/typing/engine';
-import { startLine, TRACKS, trackPointAt } from '../../src/typing/tracks';
+import { finishLine, startLine, TRACKS, trackPointAt } from '../../src/typing/tracks';
 
 const WORDS = ['cat', 'dog'];
 const TARGET = 'cat dog';
@@ -71,12 +71,19 @@ describe('typing a lap', () => {
     expect(lap.finishedAt).toBe(4000);
   });
 
-  it('counts input past the end of the target as an error and does not keep it', () => {
-    const lap = typeInto(typeInto(startLap(WORDS), 'cat dxg', 1000), 'cat dxgx', 2000);
+  it('a mistake does not block the finish: typing through to the end finishes the lap', () => {
+    const lap = typeInto(startLap(WORDS), 'cat dxg', 1000);
     expect(lap.typed).toBe('cat dxg');
+    expect(lap.errors).toBe(1);
+    expect(lap.finishedAt).toBe(1000);
+  });
+
+  it('counts input past the end of the target as an error and does not keep it', () => {
+    const lap = typeInto(startLap(WORDS), 'cat dogs', 1000);
+    expect(lap.typed).toBe('cat dog');
     expect(lap.keystrokes).toBe(8);
-    expect(lap.errors).toBe(2);
-    expect(lap.finishedAt).toBeUndefined();
+    expect(lap.errors).toBe(1);
+    expect(lap.finishedAt).toBe(1000);
   });
 
   it('ignores all input once the lap is finished', () => {
@@ -145,11 +152,11 @@ describe('lap time', () => {
 });
 
 describe('the car on the track', () => {
-  it('moves with correctly typed letters, and a wrong letter holds it back', () => {
+  it('moves forward with every typed letter, right or wrong, so a mistake does not stop the car', () => {
     const start = startLap(WORDS);
     expect(carProgress(start)).toBe(0);
     expect(carProgress(typeInto(start, 'cat', 0))).toBeCloseTo(3 / 7);
-    expect(carProgress(typeInto(start, 'cxt', 0))).toBeCloseTo(1 / 7);
+    expect(carProgress(typeInto(start, 'cxt', 0))).toBeCloseTo(3 / 7);
     expect(correctLength(typeInto(start, 'cxt', 0))).toBe(1);
   });
 
@@ -160,7 +167,7 @@ describe('the car on the track', () => {
 });
 
 describe('race tracks', () => {
-  const oval = TRACKS.find((t) => t.id === 'harbour-oval')!;
+  const highway = TRACKS.find((t) => t.id === 'coast-highway')!;
 
   it('every track has its own id, so each keeps its own high scores', () => {
     const ids = TRACKS.map((t) => t.id);
@@ -168,25 +175,33 @@ describe('race tracks', () => {
     expect(TRACKS.length).toBeGreaterThan(1);
   });
 
-  it('the car starts on the line at the top and runs clockwise on screen', () => {
-    const top = trackPointAt(oval, 0);
-    expect(top.x).toBeCloseTo(120);
-    expect(top.y).toBeCloseTo(20);
-    const right = trackPointAt(oval, 0.25);
-    expect(right.x).toBeCloseTo(220);
-    expect(right.y).toBeCloseTo(80);
+  it('the car starts on the line at the left and drives to the right', () => {
+    const start = trackPointAt(highway, 0);
+    expect(start.x).toBeCloseTo(20);
+    const quarter = trackPointAt(highway, 0.25);
+    expect(quarter.x).toBeGreaterThan(start.x);
+    expect(quarter.x).toBeLessThan(trackPointAt(highway, 1).x);
   });
 
-  it('a finished lap leaves the car back on the start line', () => {
-    const finish = trackPointAt(oval, carProgress(typeInto(startLap(WORDS), TARGET, 0)));
-    expect(finish.x).toBeCloseTo(trackPointAt(oval, 0).x);
-    expect(finish.y).toBeCloseTo(trackPointAt(oval, 0).y);
+  it('a finished lap leaves the car at the finish line, the far end of the road', () => {
+    const finish = trackPointAt(highway, carProgress(typeInto(startLap(WORDS), TARGET, 0)));
+    const end = highway.points[highway.points.length - 1]!;
+    expect(finish.x).toBeCloseTo(end.x);
+    expect(finish.y).toBeCloseTo(end.y);
   });
 
-  it('the start and finish line crosses the course at its first point', () => {
-    const [a, b] = startLine(oval);
-    expect((a.x + b.x) / 2).toBeCloseTo(oval.points[0]!.x);
-    expect((a.y + b.y) / 2).toBeCloseTo(oval.points[0]!.y);
+  it('the start line crosses the road at its first point', () => {
+    const [a, b] = startLine(highway);
+    expect((a.x + b.x) / 2).toBeCloseTo(highway.points[0]!.x);
+    expect((a.y + b.y) / 2).toBeCloseTo(highway.points[0]!.y);
+    expect(Math.hypot(b.x - a.x, b.y - a.y)).toBeCloseTo(18);
+  });
+
+  it('the finish line crosses the road at its last point', () => {
+    const [a, b] = finishLine(highway);
+    const end = highway.points[highway.points.length - 1]!;
+    expect((a.x + b.x) / 2).toBeCloseTo(end.x);
+    expect((a.y + b.y) / 2).toBeCloseTo(end.y);
     expect(Math.hypot(b.x - a.x, b.y - a.y)).toBeCloseTo(18);
   });
 });

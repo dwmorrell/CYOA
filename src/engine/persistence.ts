@@ -25,8 +25,12 @@ export interface ReadingPrefs {
   fontScale: number;
   lineHeight: number;
   letterSpacing: number;
-  /** 'dyslexic' is the optional OpenDyslexic font (master spec section 4). */
-  font: 'system' | 'dyslexic' | 'rounded' | 'serif';
+  /**
+   * 'lexend' and 'legible' are the research-backed readability fonts (master
+   * spec section 4): Lexend for reading rate, Atkinson Hyperlegible for
+   * letter disambiguation.
+   */
+  font: 'system' | 'lexend' | 'legible' | 'rounded' | 'serif';
   theme: 'cream' | 'blue' | 'grey' | 'dark';
   lineFocus: boolean;
   readAloud: boolean;
@@ -61,7 +65,7 @@ export function isReadingPrefs(v: unknown): v is ReadingPrefs {
     typeof p.fontScale === 'number' &&
     typeof p.lineHeight === 'number' &&
     typeof p.letterSpacing === 'number' &&
-    ['system', 'dyslexic', 'rounded', 'serif'].includes(p.font as string) &&
+    ['system', 'lexend', 'legible', 'rounded', 'serif'].includes(p.font as string) &&
     ['cream', 'blue', 'grey', 'dark'].includes(p.theme as string) &&
     typeof p.lineFocus === 'boolean' &&
     typeof p.readAloud === 'boolean' &&
