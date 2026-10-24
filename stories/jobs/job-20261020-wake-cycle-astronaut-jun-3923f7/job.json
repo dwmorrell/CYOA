@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-wake-cycle-astronaut-jun-3923f7",
   "storyId": "wake-cycle",
-  "state": "awaiting-parent-approval",
+  "state": "in-review",
   "createdAt": "2026-10-20T23:23:25.399Z",
-  "updatedAt": "2026-10-21T18:37:00.640Z",
+  "updatedAt": "2026-10-24T23:26:06.911Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/request.json",
@@ -133,6 +133,41 @@
         ]
       },
       "revision": 3
+    },
+    {
+      "storyVersion": 4,
+      "draft": {
+        "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r4.json",
+        "sha256": "2f7e3c76c97dcffba65d60e02babafed36297df0f65ff798b86f58f26cef151d"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-24T23:26:06.911Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r4.json",
+          "sha256": "86468111ec500a02ad5127c396cd5e04dff4b75a6dc3de875cb009833485b5c3"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r4.json",
+          "sha256": "f1bdaf377b97968d9f8302133a5c068bf7656f8bdb0c61110e6d58222da154d3"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r4.json",
+          "sha256": "ea6255f4d3cab58642b42ba05c998f19f4cefd7ecfa9e36a359197bc97bc2c60"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 4
     }
   ],
   "reviews": [
@@ -338,7 +373,8 @@
         }
       ],
       "id": "review-3-qa",
-      "submittedAt": "2026-10-20T23:31:53.459Z"
+      "submittedAt": "2026-10-20T23:31:53.459Z",
+      "invalidatedBy": 4
     },
     {
       "role": "literacy",
@@ -418,7 +454,8 @@
         }
       ],
       "id": "review-4-literacy",
-      "submittedAt": "2026-10-20T23:32:02.210Z"
+      "submittedAt": "2026-10-20T23:32:02.210Z",
+      "invalidatedBy": 4
     },
     {
       "role": "literacy",
@@ -565,7 +602,8 @@
         ]
       },
       "id": "review-5-literacy",
-      "submittedAt": "2026-10-21T18:37:00.640Z"
+      "submittedAt": "2026-10-21T18:37:00.640Z",
+      "invalidatedBy": 4
     }
   ],
   "parentDecisions": [],
@@ -663,6 +701,17 @@
         "kind": "automation"
       },
       "note": "All required reviews passed"
+    },
+    {
+      "at": "2026-10-24T23:26:06.911Z",
+      "from": "awaiting-parent-approval",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 4 (story v4) passed automated validation"
     }
   ]
 }
