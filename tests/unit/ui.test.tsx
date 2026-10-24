@@ -200,6 +200,20 @@ describe('reader', () => {
     expect(screen.getByText('Clue notebook (0)')).toBeTruthy();
   });
 
+  it('a back button returns to the exact previous page, without reloading the story, then clears after Play again', () => {
+    const { states, rerender } = renderReader(story);
+    expect(screen.queryByRole('button', { name: 'Previous page' })).toBeNull();
+    fireEvent.click(button('Look in the shed'));
+    rerender();
+    expect(screen.getByRole('heading', { level: 1 }).textContent).toBe('The shed');
+    expect(states.at(-1)!.clues).toEqual(['red-thread']);
+    fireEvent.click(button('Previous page'));
+    rerender();
+    expect(screen.getByRole('heading', { level: 1 }).textContent).toBe('The windy hill');
+    expect(states.at(-1)!.clues).toEqual([]);
+    expect(screen.queryByRole('button', { name: 'Previous page' })).toBeNull();
+  });
+
   it('locked choices stay visible with a hint and do nothing when pressed', () => {
     const atTop = { ...newGame(story), current: 'top' };
     const { states } = renderReader(story, atTop);
@@ -269,17 +283,17 @@ describe('typing practice add-on', () => {
     expect(input.hasAttribute('readonly')).toBe(true);
     expect(await screen.findByText(/That is place 1 on this track/)).toBeTruthy();
     expect(screen.getByText(/Ada: \d+ words a minute, \d+ percent accurate, lap \d+:\d\d/)).toBeTruthy();
-    expect((await repo.highScores('harbour-oval')).map((x) => x.name)).toEqual(['Ada']);
+    expect((await repo.highScores('coast-highway')).map((x) => x.name)).toEqual(['Ada']);
   });
 
-  it('each race track keeps its own high scores, and changing track starts a new lap', async () => {
+  it('each road keeps its own high scores, and changing road starts a new lap', async () => {
     const repo = await readyRepo();
     render(<App repo={repo} catalog={emptyCatalog} />);
     await navigate('#/typing');
     fireEvent.change(await screen.findByLabelText('Type here'), { target: { value: target } });
     await screen.findByText(/That is place 1 on this track/);
-    fireEvent.change(screen.getByLabelText('Race track'), { target: { value: 'harbour-loop' } });
-    expect(await screen.findByRole('heading', { name: 'High scores: Harbour loop' })).toBeTruthy();
+    fireEvent.change(screen.getByLabelText('Road'), { target: { value: 'mountain-pass' } });
+    expect(await screen.findByRole('heading', { name: 'High scores: Mountain pass' })).toBeTruthy();
     expect(screen.getByText('No laps finished on this track yet.')).toBeTruthy();
     expect((screen.getByLabelText('Type here') as HTMLInputElement).value).toBe('');
   });
@@ -341,10 +355,10 @@ describe('typing practice add-on', () => {
 describe('reading preferences', () => {
   it('applies preferences as CSS variables and data attributes', () => {
     const el = document.documentElement;
-    applyPrefs(el, { ...DEFAULT_PREFS, fontScale: 1.5, lineHeight: 2, letterSpacing: 0.1, theme: 'dark', lineFocus: true, font: 'dyslexic' });
+    applyPrefs(el, { ...DEFAULT_PREFS, fontScale: 1.5, lineHeight: 2, letterSpacing: 0.1, theme: 'dark', lineFocus: true, font: 'lexend' });
     expect(el.style.getPropertyValue('--font-scale')).toBe('1.5');
     expect(el.style.getPropertyValue('--letter-spacing')).toBe('0.1em');
-    expect(el.style.getPropertyValue('--reading-font')).toContain('OpenDyslexic');
+    expect(el.style.getPropertyValue('--reading-font')).toContain('Lexend');
     expect(el.dataset.theme).toBe('dark');
     expect(el.dataset.lineFocus).toBe('true');
   });

@@ -72,9 +72,9 @@ describe('profiles and the parent PIN', () => {
   it('keeps each child’s preferences separate and clamped', async () => {
     const { repo, child } = await setUp();
     const second = await repo.addChild('Ben');
-    await repo.setPrefs(child.id, { ...DEFAULT_PREFS, fontScale: 9, font: 'dyslexic' });
+    await repo.setPrefs(child.id, { ...DEFAULT_PREFS, fontScale: 9, font: 'lexend' });
     expect((await repo.prefs(child.id)).fontScale).toBe(2.2);
-    expect((await repo.prefs(child.id)).font).toBe('dyslexic');
+    expect((await repo.prefs(child.id)).font).toBe('lexend');
     expect(await repo.prefs(second.id)).toEqual(DEFAULT_PREFS);
   });
 

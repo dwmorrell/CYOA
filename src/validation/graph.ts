@@ -79,6 +79,8 @@ export function validateGraph(story: Story): GraphReport {
       if (p.choices.length > 0) errors.push({ code: 'ending-has-choices', message: 'An ending passage must not offer choices', passage: p.id });
     } else if (p.choices.length === 0) {
       errors.push({ code: 'dead-end', message: 'Passage has no choices and is not an ending', passage: p.id });
+    } else if (p.choices.length === 1) {
+      errors.push({ code: 'single-choice', message: 'Passage offers only one choice; give the reader at least two options unless this is an ending', passage: p.id });
     }
   }
   for (const [id, n] of endingIds) if (n > 1) errors.push({ code: 'duplicate-ending', message: `Ending id "${id}" is used ${n} times` });
