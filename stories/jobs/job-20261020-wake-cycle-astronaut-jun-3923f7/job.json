@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-wake-cycle-astronaut-jun-3923f7",
   "storyId": "wake-cycle",
-  "state": "changes-requested",
+  "state": "in-review",
   "createdAt": "2026-10-20T23:23:25.399Z",
-  "updatedAt": "2026-10-25T08:21:16.631Z",
+  "updatedAt": "2026-10-25T08:29:10.543Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/request.json",
@@ -203,6 +203,41 @@
         ]
       },
       "revision": 5
+    },
+    {
+      "storyVersion": 6,
+      "draft": {
+        "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r6.json",
+        "sha256": "b64c4e09a41c26640d13c9a0e97af0582e61a0ba5e4e483e6eb0f6ebe1a17970"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-25T08:29:10.543Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r6.json",
+          "sha256": "4579fe4d17959eed3bdb9495f13afa789cc0de67897af49b729d2fdff7a03437"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r6.json",
+          "sha256": "c6797d96d504400f8acede68070e933332b6040ccb2da001db17cb027df6bf63"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r6.json",
+          "sha256": "e61cddd7ea85b444b8a2416c88f142b472f9205e913deca1081ff89966183ba9"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 6
     }
   ],
   "reviews": [
@@ -953,7 +988,8 @@
         ]
       },
       "id": "review-8-literacy",
-      "submittedAt": "2026-10-25T08:17:59.591Z"
+      "submittedAt": "2026-10-25T08:17:59.591Z",
+      "invalidatedBy": 6
     },
     {
       "role": "qa",
@@ -1033,7 +1069,8 @@
         }
       ],
       "id": "review-9-qa",
-      "submittedAt": "2026-10-25T08:21:16.631Z"
+      "submittedAt": "2026-10-25T08:21:16.631Z",
+      "invalidatedBy": 6
     }
   ],
   "parentDecisions": [],
@@ -1173,6 +1210,17 @@
         "kind": "automation"
       },
       "note": "A reviewer requested changes"
+    },
+    {
+      "at": "2026-10-25T08:29:10.543Z",
+      "from": "changes-requested",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 6 (story v6) passed automated validation"
     }
   ]
 }

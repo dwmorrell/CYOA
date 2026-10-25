@@ -49,6 +49,11 @@
       "id": "hook-pole",
       "name": "Hook-pole",
       "description": "A long, light pole with a hook on the end. The tag says it is for high latches."
+    },
+    {
+      "id": "chalk-note",
+      "name": "Nib's chalk note",
+      "description": "A small square Nib snapped off its own chalk board. It has a tiny doodle of Nib on it."
     }
   ],
   "clues": [
@@ -56,6 +61,11 @@
       "id": "late-log",
       "name": "The late log note",
       "description": "The Lark's last log note is only four days old. It says: slow air, slow door."
+    },
+    {
+      "id": "blink-code",
+      "name": "The blinking code",
+      "description": "When Ivy called out, the little box blinked and thudded twice, slow and quick. Something was listening."
     }
   ],
   "passages": [
@@ -367,20 +377,24 @@
         "Bo and Ivy followed the thin cable along the floor.",
         "It passed a dusty valve and a cold metal pole.",
         "\"Someone wired this with care,\" said Bo. \"Slow and steady, not fast.\"",
-        "The cable ended at a small blinking box, full of hope."
+        "The cable ended at a small blinking box, full of hope.",
+        "Then it gave a soft thud, twice, like a secret code."
       ],
       "learningTargets": ["inference", "sequencing", "detail"],
       "choices": [
         {
           "id": "trace-on",
-          "label": "Follow the cable's end to the light",
+          "label": "Follow the cable's path to the light",
           "target": "nib"
         },
         {
           "id": "call-out",
-          "label": "Call out to see who answers",
+          "label": "Call out, and keep listening for an answer",
           "target": "nib",
-          "learningTargets": ["engagement"]
+          "effects": {
+            "addClues": ["blink-code"]
+          },
+          "learningTargets": ["engagement", "detail"]
         }
       ]
     },
@@ -417,7 +431,8 @@
         "Ivy knelt close. \"Why did you stay all alone?\" she asked.",
         "Nib wrote on its chalk board. \"Someone had to keep them safe.\"",
         "\"The moths?\" Ivy asked. Nib bobbed its small round head, yes.",
-        "Captain Rin touched the bot's cold shell. \"That took real heart,\" she said."
+        "Captain Rin touched the bot's cold shell. \"That took real heart,\" she said.",
+        "Nib snapped off a small chalk note and held it out, like a gift."
       ],
       "learningTargets": ["inference", "engagement", "comprehension"],
       "choices": [
@@ -428,9 +443,12 @@
         },
         {
           "id": "promise-nib",
-          "label": "Promise Nib you will be careful, then go to the door",
+          "label": "Promise to keep the chalk note safe, then take it",
           "target": "threshold",
-          "learningTargets": ["engagement"]
+          "effects": {
+            "addItems": ["chalk-note"]
+          },
+          "learningTargets": ["engagement", "detail"]
         }
       ]
     },
