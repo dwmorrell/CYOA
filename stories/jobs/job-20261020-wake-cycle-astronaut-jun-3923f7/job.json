@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-wake-cycle-astronaut-jun-3923f7",
   "storyId": "wake-cycle",
-  "state": "in-review",
+  "state": "changes-requested",
   "createdAt": "2026-10-20T23:23:25.399Z",
-  "updatedAt": "2026-10-25T08:17:59.591Z",
+  "updatedAt": "2026-10-25T08:21:16.631Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/request.json",
@@ -954,6 +954,86 @@
       },
       "id": "review-8-literacy",
       "submittedAt": "2026-10-25T08:17:59.591Z"
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 5,
+      "draftSha256": "529b38788b8ff0d76727aef208c560c0ad7a06c17d905e8f0c098319da155a38",
+      "verdict": "changes-requested",
+      "findings": [
+        {
+          "severity": "major",
+          "passage": "not-yet-why",
+          "message": "story.r5.json lines 158-172: the two choices added by this revision both target `captain-wakes` and neither carries an `effects` block (contrast with the item/clue-gated reconvergences at captain-wakes/dex-fixed/dex-chart/storm-bridge, which do add or withhold tool-pack/dust-map). Picking 'Open the pod in the right order, step by step' (line 169) or 'Skip the talk and lift the latch now' (line 170) produces byte-for-byte the same next passage, same state, same remaining path. This is not a genuine branch point, it is the exact defect this revision set out to remove (a passage with only one real way forward), now wearing two buttons instead of one, and it fails MASTER_SPEC.md line 48 ('Passages connected through meaningful choices'). Revision-notes.r5.md's claim that this matches 'the take the item or don't pattern already used and passed by QA elsewhere' does not hold up: those four passages differ by an item/clue gain, this one does not differ at all."
+        },
+        {
+          "severity": "major",
+          "passage": "storm-engine-together",
+          "message": "story.r5.json lines 328-342: same defect as not-yet-why. 'Face the storm together' (line 339) and 'Ask Dex to check the sensors once more first' (line 340) both target `threshold` with no effects on either branch, and `threshold` (lines 344-365) never acknowledges that a sensor re-check happened. The promised action in the new choice's label has no narrative or mechanical payoff; whichever button is pressed, the reader gets the identical next passage. Same product-spec and revision-notes concerns as the not-yet-why finding above."
+        },
+        {
+          "severity": "major",
+          "passage": "dex-lamp-watch / dex-tools-sort",
+          "message": "story.r5.json lines 238-252 (dex-lamp-watch, choice `go-to-chart` line 250) and 268-282 (dex-tools-sort, choice `go-to-chart-tools` line 280) both skip straight to `dex-chart`, bypassing `dex-fixed` (lines 283-297). `dex-fixed` is the only remaining place an engine-route reader can pick up the `tool-pack` item (`take-bench-pack`, line 294) if they never visited `locker` or `captain-wakes`. I traced this concrete, reachable route: wake -> ask-log -> ask-oru-more (oru-log-crew) -> hurry-to-engine-crew -> engine -> pass-tools -> sort-tools -> go-to-chart-tools -> dex-chart -> storm-engine -> ... -> threshold -> thin-lane (unlocked via dust-map from oru-log) -> climax-lane -> use-clicker, which is now LOCKED because tool-pack was never offered. Compare this to every other place the story lets a reader go without the pack (captain-wakes `skip-rack-pack` line 187, dex-fixed `skip-bench-pack` line 295): each of those is an explicit, informed decline ('no pack needed' / 'Thank Dex, no pack needed'). The new dex-lamp-watch/dex-tools-sort shortcuts silently remove the only remaining pack offer with no indication in the choice label that doing so forfeits the item, and this was not possible in r4 (dex-fixed was mandatory on every engine-room route per the r4 draft I diffed). This is a regression introduced by this revision's fix, not a pre-existing condition, and it quietly makes the clicker-triumph ending (ending-1) unreachable for a valid, player-discoverable route without ever telling the reader they gave something up."
+        },
+        {
+          "severity": "minor",
+          "passage": "storm-engine-together",
+          "message": "Carried over from review-7-qa (r4), unchanged by this revision: storm-engine (line 320) places the backup wheel 'on the wall' in the engine room, but the bring-dex-along branch (lines 332-335) has Jun and Dex 'climbed the steps together... At the top, the dust storm filled the window in a wall of white' before reaching the same threshold passage, implying a different location for the same wheel. Not blocking, worth a continuity line."
+        },
+        {
+          "severity": "minor",
+          "passage": "bridge",
+          "message": "Carried over from review-3-qa/review-7-qa, unchanged by this revision: lines 128-144. Oru states the pod order ('First the latch. Then the switch. Last the hatch', line 134) immediately before the three-way choice, so picking switch-first or hatch-first (lines 140, 142) requires no real inference. The not-yet/not-yet-why loop that follows a wrong guess is a reasonable mitigation, but the original three-way choice is still not a genuine inference test."
+        },
+        {
+          "severity": "minor",
+          "passage": "captain-wakes",
+          "message": "Carried over from review-3-qa/review-7-qa, unchanged by this revision: captain-wakes (lines 180-181) has the Captain say calls to far decks 'cannot get through' and the comm panel stays dark, but storm-bridge (line 197, Dex's voice on the inside speaker), storm-engine (line 319, Captain Holm's voice reaching the engine room) and ending-1 (line 411, Captain Holm and Dex cheering over the speaker) all have voice communication working shortly after. Not blocking, but the comms logic is inconsistent across routes."
+        },
+        {
+          "severity": "minor",
+          "passage": "oru-log / dex-chart",
+          "message": "Carried over from review-3-qa/review-7-qa, unchanged by this revision: oru-log (line 85) says the dust 'bends the sensors' so 'maps may not match what is real,' yet storm-bridge's study-ghosts branch (lines 199-203) has the correct clear lane visible directly on the bent screen, while dex-chart (lines 301-305) praises the hand-drawn paper chart specifically because it does not match the (same) bent screen. The two routes make opposite claims about whether the live screen can be trusted. Not blocking, but worth reconciling."
+        },
+        {
+          "severity": "note",
+          "message": "Confirmed via `npm run story -- status`: automated-validation gate passes for revision 5 (schema ok; graph ok, 5/5 endings reachable; literacy checks ok; brief ok), matching reports/validation.r5.json and reports/graph.r5.json read directly for this review. All five endings (clear-road, steady-hands, sensor-mast, many-hands, drifting-quiet) were traced by hand from `wake` and reached with consistent, age-appropriate content; no violence, no crew member dies on the page, no real brands/religion. literacy review-8-literacy.r5 (pass) covers word-set/decodability concerns and is not duplicated here."
+        },
+        {
+          "severity": "note",
+          "message": "`npm run check` was run and does NOT pass in the current working tree: lint, typecheck and `npm test` (191/191) all pass, but `npm run validate:stories` fails with 5 problem(s), none of which are in stories/jobs/ (this job's draft is only listed with a status line, not validated by that script). The failures are single-choice graph errors in public/stories/previews/{the-cat-who-took-the-wrong-turn,the-derelict-salvage,the-rain-courier,the-tomb-of-ameru,wake-cycle}.json, i.e. stale published-preview snapshots that predate the 2+ choices rule (commit 2bdeb71) and were never regenerated. public/stories/previews/wake-cycle.json in particular still lists the original six single-choice passages (locker, oru-log, not-yet, dex-lamp, dex-tools, storm-engine) this job's revisions 3-5 were created to fix, confirming it is an old snapshot, not this draft. This is unrelated to story.r5.json's content and out of this review's scope (I did not touch public/stories/previews per instructions), but it means `npm run check` itself is currently red for the repo and `agents:check`/`build` did not run. Escalating for the release-manager/app-engineer: the preview-regeneration step appears to be out of sync with several in-review jobs, not just this one."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r5.json",
+          "sha256": "529b38788b8ff0d76727aef208c560c0ad7a06c17d905e8f0c098319da155a38"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r5.json",
+          "sha256": "8735c50bb6b7dabbed7b5c41e2fb21847fef852056fbcc010d9da2f10e928305"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r5.json",
+          "sha256": "92dd1b8ad5747a12b6827b0b3bab8db3f9ddf35c59168328ea951091e9adee23"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/brief.json",
+          "sha256": "fdc2fc24ea875ea8f0988d268e7bd726581042613ee246fcd7d0b15c5976e318"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/work/revision-notes.r5.md",
+          "sha256": "8eec756e33979522a437455993c21f77b3753728f1eb8705d2c5b15d42971426"
+        }
+      ],
+      "id": "review-9-qa",
+      "submittedAt": "2026-10-25T08:21:16.631Z"
     }
   ],
   "parentDecisions": [],
@@ -1083,6 +1163,16 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 5 (story v5) passed automated validation"
+    },
+    {
+      "at": "2026-10-25T08:21:16.631Z",
+      "from": "in-review",
+      "to": "changes-requested",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "A reviewer requested changes"
     }
   ]
 }

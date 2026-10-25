@@ -1,0 +1,49 @@
+{
+  "role": "literacy",
+  "reviewer": { "name": "literacy-specialist", "kind": "ai-agent", "agent": "literacy-specialist" },
+  "revision": 6,
+  "draftSha256": "ede654f1beae05194766f89b612ecb59309e49b89b5a06d625f9c2401653414d",
+  "verdict": "changes-requested",
+  "findings": [
+    {
+      "severity": "moderate",
+      "message": "The round-2 fix (r6) added nine small passages so every r5 connector would itself have two choices: how-to-go-down, last-look-at-the-gate, settle-in-the-mud, watch-the-hill, watch-the-frog-hop, look-back-at-the-marsh, last-step-up, steady-your-nerves, one-more-breath. Together with the nine r5 connectors (call-to-the-cat, call-for-help, check-the-book, look-at-the-moss, thank-the-frog, careful-hop, show-lira-the-prints, check-on-ash, help-lira-up), that is 18 new passages. I read all 18 against the three word sets: only 'look-at-the-moss' contains an ing-word-set word ('glowing', 'running'); the other 17 contain none of running/jumping/hiding/climbing/glowing/ringing. Two passages, 'how-to-go-down' and 'watch-the-hill', contain no word-set word from any of the three sets at all. I then enumerated every complete start-to-ending path through the r6 graph by script (132,224 paths, respecting the reed-net/claw-prints gates) and summed word-set occurrences per path. The brief's minimums (blend 10, closed-syllable 8, ing 8) are still met on every single path I found (worst case: blend 10, closed-syllable 21, ing 9), so this is not an automated-check failure and not a 'missing from a route' failure. But the margin on suffix-ing is now thin (9 against a floor of 8) specifically because of this new content, and one of only three target concepts in the brief is carried almost entirely by pre-existing r4 material rather than by any of the passages r6 added. I recommend the narrative designer weave at least a couple of ing-set words into a few of these 18 passages (several have an easy, natural fit, see next finding) rather than leaving them as pure structural filler.",
+      "passage": "how-to-go-down"
+    },
+    {
+      "severity": "moderate",
+      "message": "'watch-the-hill' (new in r6) actually removes a pattern-practice opportunity rather than adding one. The passages on either side of it both use the exact ing-set word for this scene: 'varro' has the choice label 'Wave to the girl running down the hill', and the passage this new one branches off, 'look-at-the-moss', says 'A girl was running down the hill.' 'watch-the-hill' describes the same beat as 'Eli watched the girl run closer down the hill' and 'He could wave first, or wait for her to speak' - dropping the -ing form at the one new passage inserted into this exact scene. Since this passage exists purely to give 'look-at-the-moss' a second choice, it is a natural, low-risk place to keep 'running' rather than paraphrase it away (for example 'Eli watched the girl, still running, come closer down the hill'). Please pass this to the narrative designer as a wording fix, not a story-logic fix.",
+      "passage": "watch-the-hill"
+    },
+    {
+      "severity": "minor",
+      "message": "Comprehension/craft note on the same 18 passages: seven of the nine round-2 (r6) passages share one template - one or two scene-setting sentences, then '[Eli/they] could [A], or [B]', where A and B are cosmetic (jump fast vs. ease down slowly; wave first vs. wait quietly; step in slowly vs. step in boldly) and both lead to the identical target with no difference in text, item, or consequence afterward. This satisfies the graph validator's 'two real choices' rule, but a reader who samples more than one of these will notice the repetition, and none of the nine advance plot, character or clue - which cuts against the brief's own instruction that reading should feel like an adventure rather than a lesson. This is a quality note, not a blocker: I'd ask the narrative designer to give at least a few of these a small narrative payoff (a sentence of world or character detail, as 'careful-hop' and 'last-look-at-the-gate' already do reasonably well) instead of a bare consequence-free fork, and to use the chance to pick up more word-set words per the two findings above.",
+      "passage": "watch-the-hill"
+    },
+    {
+      "severity": "minor",
+      "message": "Pre-existing, not introduced by r6, but worth re-stating since the stale r4 reviews should not be read as covering this: the closed-syllable word 'bus' occurs exactly once in the whole story (perWord in reports/literacy.r6.json), in 'the-gate' - 'A bus rumbled by without stopping.' A reader who chooses 'Squeeze through the gap after the cat' at the very first fork (into 'through-the-gap' instead of 'the-gate') never meets this word anywhere in the story. Likewise 'jumping' (ing set) is concentrated in 'stone-hop', one branch of the marsh detour, and is skippable via 'hop-stones' being avoided or via taking the stairs path instead of the marsh. The r4 literacy review (stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/work/literacy-review.r4.json) already flagged both of these as known and allowed under the set-level rule ('each set should appear on every route', not each word); r6 does not change this, for better or worse. Flagging again only because I was asked for a full review of r6, not a diff from r4.",
+      "passage": "the-gate"
+    },
+    {
+      "severity": "minor",
+      "message": "Carried over and unchanged from r4/r5, and correctly left out of scope per the r6 revision notes (which state the fix was single-choice passages only): three sentences remain one word over the brief's maxSentenceWords of 16. 'late-for-school': \"Eli's library book had a map in it, and he was meant to show it in class.\" (17 words). 'frog-helped': \"She was waiting at the start of the stairs, and she gave him a small, surprised smile.\" (17 words). 'home-too-soon': \"He looked at his muddy shoes and thought of the marsh, the stairs and the dark hatch.\" (17 words). The automated sentence-length check only flags sentences over 20 words, so it reports ok; these are below that hard limit but above the brief's own stated target. Non-blocking, listed for completeness.",
+      "passage": "late-for-school"
+    },
+    {
+      "severity": "minor",
+      "message": "Limits of automated detection, restated for this revision: reports/literacy.r6.json and .md detect spelling patterns, not sound. For example the 'Digraph th' and 'Vowel team syllable' concept lists include 'anything' and 'nothing', which are compounds ('any'/'no' + 'thing'), not the targeted phonics pattern applied to a free base; the 'Suffix -ing' concept count (51 tokens) is a general spelling-pattern count across the whole story and is larger than, and partly independent of, the specific six-word ing-word-set the brief asks for. Syllable counts are estimates from vowel groups, not from how the words actually sound. None of this report, and nothing in this review, substitutes for a qualified human literacy or structured-literacy reviewer confirming decodability for the child's own program; my review is recorded with reviewer.kind 'ai-agent' and does not satisfy the human literacy review the publication policy requires.",
+      "passage": "varro"
+    },
+    {
+      "severity": "note",
+      "message": "Skills practised: reading this story end to end, a child decodes in natural context short words with beginning consonant blends (step, stone, frog, plan, spin, trip, crab, drum), closed-syllable words (cat, map, net, lid, hop, mud, bus) and -ing words (running, jumping, hiding, climbing, glowing, ringing), meeting each set well above its stated minimum on every complete path I could find through the graph (lowest observed: blend 10, closed-syllable 21, ing 9, against floors of 10/8/8). Beyond phonics, the child follows cause and effect and sequence across the fall, the marsh, the stairs and the tower; makes inferences from clues (the small wet marks that lead up, the shivering crab, Lira's doubt about the 'hero') that gate some of the later choices; tracks who is speaking across multi-character dialogue; and meets new vocabulary in context with a glossary (lantern, manhole, marsh, hatch, creature, villain, library, promised). The gentle theme of kindness and courage, short average sentence length (about 8 words) and five distinct endings of different emotional weight (triumph x3, bittersweet, setback) suit the stated 10-to-13 age range without talking down to the reader.",
+      "passage": "late-for-school"
+    }
+  ],
+  "evidence": [
+    { "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r6.json", "sha256": "ede654f1beae05194766f89b612ecb59309e49b89b5a06d625f9c2401653414d" },
+    { "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/literacy.r6.json", "sha256": "282f54919b9e6f57e871cd92d117d2cf905acac79b62c1f9fe0cc65f60a7084f" },
+    { "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/weave-comparison.r6.json", "sha256": "cb263eaa8945684a298aed476256e30414f6a37cac4d2b10bb71e909ae485635" }
+  ]
+}
