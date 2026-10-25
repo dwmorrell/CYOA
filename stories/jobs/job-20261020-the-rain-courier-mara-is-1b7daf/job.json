@@ -4,7 +4,7 @@
   "storyId": "the-rain-courier",
   "state": "in-review",
   "createdAt": "2026-10-20T23:23:22.800Z",
-  "updatedAt": "2026-10-25T08:23:15.094Z",
+  "updatedAt": "2026-10-25T08:26:45.552Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/request.json",
@@ -970,6 +970,160 @@
       "id": "review-7-qa",
       "submittedAt": "2026-10-25T08:19:26.708Z",
       "invalidatedBy": 10
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 10,
+      "draftSha256": "cd47470280e067bdee10c78b40a6190558b42d7fa385fb3bad1b251d66b933e8",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "Skills practised: Reading this story practises decoding closed-syllable words (bag, lock, mask, dash), sh words (shop, shade, flash, shell) and ch words (chip, chill, lunch, chain) in running text and in choice labels, plus -ing endings (blinking, pounding, giving). The reader sequences events across branches (gathering's 'First came the cab stand. Then came the shop or the alley. Now came the crossing,' Nine's 'First the gate, then the track, then the far light,' and the new catch-breath passage's own place in the dash-past-to-threshold sequence), infers who to trust from clues (the flood stamp, Vex's grey mask, Tam's warning to 'check what they tell you'), and works out new words such as broker, courier and drone from context and the glossary. The branching itself rewards checking evidence before acting and lets the reader feel a moment of exhaustion and choice (push on or give up) from two different routes, which keeps comprehension and inference central rather than incidental."
+        },
+        {
+          "severity": "note",
+          "message": "Word sets meet their minimums on r10 (literacy.r10.json): closed-syllable-words 47/10, sh-words 29/8, ch-words 29/8. Every listed word appears (missingWords: [] on all three sets) and the word-sets-on-every-route check passes: each set appears on the shortest route to all five endings (closed-syllable 16-22 per route, sh 12-14, ch 8-10). By spelling, every word-set word carries its declared pattern with no conceptMismatches: cab, bag, pick, lock, mask, sack, dash, hack are closed syllables (one vowel, ends in a consonant); shop, shade, shot, shut, flash, shell contain sh; chip, chase, chill, much, lunch, chain contain ch. All four target concepts are present in running text: closed-syllable 626 tokens, digraph-sh 69, digraph-ch 41, suffix-ing 23."
+        },
+        {
+          "severity": "note",
+          "message": "The new catch-breath passage (dash-past's dash-duck choice now targets it instead of hide-shade) reads naturally and keeps the weave intact rather than diluting it. Its five short paragraphs reuse 'dash' twice ('still heaved from the dash'; 'easier than one more dash'), 'shaded' and 'shell' (sh-words: 'the shaded doorway'; 'the chip's hard shell'), 'bag' (closed-syllable: 'her hands shook on the bag's strap'), and 'giving' (suffix-ing: 'giving up felt easier'), all as ordinary narration, not a word list. It has a genuine antecedent for its setting: dash-past already ends with 'the other had a shaded doorway,' so catch-breath's 'Mara slipped into the shaded doorway' is the same doorway, not an unintroduced object (the continuity defect r9's hide-shade reuse had). Nine's line 'The hum is gone' matches dash-past's own 'the hum fell behind her,' so there is no contradiction about whether drones are still active. catch-breath offers a real fork (catch-onward to threshold, catch-give-up to ending-5), confirmed in graph.r10.json, and does not just rejoin the main path as filler. I traced both exits by hand against the edge list and both are reachable and distinct, consistent with the validator's '5/5 endings reachable.'"
+        },
+        {
+          "severity": "note",
+          "message": "Age fit (10 to 13) and sentence length: average sentence length across the story is 7.5 words, and literacy.r10.json reports 0 sentences over 20 words. I checked catch-breath's five sentences by hand; the longest ('Her chest still heaved from the dash, and her hands shook on the bag's strap') is 15 words, under the brief's 16-word maxSentenceWords, matching the revision notes' own count. Peril in the new passage stays mild and consistent with the brief's avoid list (a winded courier catching her breath, not injury or threat of violence). No new unsupported vocabulary is introduced in catch-breath; its wording (hum, strap, shell, breath) is already seeded or supported by context elsewhere in the story.",
+          "passage": "catch-breath"
+        },
+        {
+          "severity": "minor",
+          "message": "Still unresolved from r8/r9, and not touched by this revision: stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/word-weave-plan.json still lists 'patch' in the ch-words placements (path-a, path-b, ending-2 through ending-5), while brief.json and the r10 draft's word set both use 'chill' instead. This does not block r10 (weave-comparison.r10.json only compares set totals, and it passes with all three sets well over minimum), but the plan and draft still disagree word-for-word. Recommend the orchestrator regenerate the plan so it names 'chill', not 'patch', and have the parent confirm that substitution.",
+          "passage": "dash-past"
+        },
+        {
+          "severity": "minor",
+          "message": "Still unresolved from r9, and not touched by this revision (dash-past's own text is unchanged from r9; only its dash-duck choice target changed): 'A drone swung round, and its flash lit the whole street. The chain on her bike sang as she turned. A chill ran down her back, but her wheel held.' joins 'A chill ran down her back' and 'her wheel held' with 'but', though fear and a wheel holding are not in contrast. Suggest narrative-designer split it, e.g. 'A chill ran down her back. Her wheel held.' Not a blocker.",
+          "passage": "dash-past"
+        },
+        {
+          "severity": "minor",
+          "message": "Still unresolved from r9: two set words get only one occurrence each in running prose, both in drone-street: 'shot' ('It shot a white flash over the wet street, back and forth') and 'chase' ('They were on a chase for any courier with a sealed chip'). Set totals pass comfortably without more repetition (ch-words totals 29 against a minimum of 8), and drone-street sits on every route to every ending, so both words do reach every reader at least once. A second natural use of each would give more practice, but this is not a blocker and was out of scope for a revision aimed at the dash-duck continuity fix.",
+          "passage": "drone-street"
+        },
+        {
+          "severity": "note",
+          "message": "Limits of this review: the analyzer detects spelling, not sound, so its counts include some false positives (for example 'the' and 'she' counted under digraph th/sh, and silent-e or vowel-team words that also happen to contain 'sh' or 'ch', such as 'shade', 'chase' and 'chain'). It does not judge decodability, vocabulary level, or story quality, and I have not tested the story aloud with a child or checked sound-level pronunciation. 'grey' (British spelling) and the names Ila and Nine remain tricky/sight words outside the stated target patterns. I read the r10 draft and reports/literacy.r10.json directly, read revision-notes.r10.md, and independently traced the graph (edges in graph.r10.json) for the new catch-breath passage and its two exits rather than taking the author's account on faith. A qualified literacy reviewer or the parent should still confirm these linguistic claims; this AI review is the literacy gate only, not the human literacy review the publication policy ultimately requires, and the parent decides on approval."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/drafts/story.r10.json",
+          "sha256": "cd47470280e067bdee10c78b40a6190558b42d7fa385fb3bad1b251d66b933e8"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/literacy.r10.json",
+          "sha256": "01423a6c44692ff8779bb896c7aca5f43244391702abea1ac4ab10df1f26aed0"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/literacy.r10.md",
+          "sha256": "a56f716434e5dc21a7b5a67434a063aacb88c3952431d99c1b889656f34d7cc4"
+        }
+      ],
+      "shelfSummary": {
+        "blurb": "A cyberpunk delivery adventure about a courier learning who to trust before she acts, including a moment of catching her breath mid-chase to decide whether to push on or give up. It practises closed syllables, sh, ch and -ing words in running text and choice labels. Readers practise sequencing events, following a clue, and working out new words from context.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "vocabulary"
+        ],
+        "wordTypes": [
+          {
+            "concept": "closed-syllable",
+            "examples": [
+              "bag",
+              "lock",
+              "dash",
+              "mask"
+            ]
+          },
+          {
+            "concept": "digraph-sh",
+            "examples": [
+              "shop",
+              "shade",
+              "flash",
+              "shell"
+            ]
+          },
+          {
+            "concept": "digraph-ch",
+            "examples": [
+              "chip",
+              "much",
+              "lunch",
+              "chill"
+            ]
+          },
+          {
+            "concept": "suffix-ing",
+            "examples": [
+              "blinking",
+              "pounding",
+              "giving",
+              "raining"
+            ]
+          },
+          {
+            "concept": "digraph-ck",
+            "examples": [
+              "lock",
+              "pick",
+              "back",
+              "click"
+            ]
+          },
+          {
+            "concept": "floss",
+            "examples": [
+              "bell",
+              "shell",
+              "still",
+              "tell"
+            ]
+          },
+          {
+            "concept": "initial-blend",
+            "examples": [
+              "black",
+              "bridge",
+              "broker",
+              "cloth"
+            ]
+          },
+          {
+            "concept": "suffix-ed",
+            "examples": [
+              "asked",
+              "called",
+              "checked",
+              "crossed"
+            ]
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Spelling rules",
+          "Morphology",
+          "Comprehension"
+        ]
+      },
+      "id": "review-8-literacy",
+      "submittedAt": "2026-10-25T08:26:45.552Z"
     }
   ],
   "parentDecisions": [],

@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-cat-who-took-the-wrong-turn",
   "title": "The Cat Who Took the Wrong Turn",
-  "version": 6,
+  "version": 7,
   "metadata": {
     "genre": "Fantasy adventure with a hero from another world",
     "theme": "Courage, kindness to strangers, and finding out who you are",
@@ -107,12 +107,12 @@
       "title": "Which Way Down",
       "paragraphs": [
         "Eli looked at the dark, wet hole.",
-        "He could jump in fast, or go down slow."
+        "He could try jumping in fast, or ease down slow instead."
       ],
       "learningTargets": ["sequencing", "engagement"],
       "choices": [
-        { "id": "jump-in-fast", "label": "Jump in fast, feet first", "target": "the-fall" },
-        { "id": "go-down-slow", "label": "Ease yourself down slowly instead", "target": "the-fall" }
+        { "id": "jump-in-fast", "label": "Jump in fast, feet first", "target": "the-quick-slip" },
+        { "id": "go-down-slow", "label": "Ease yourself down slowly instead", "target": "the-slow-slip" }
       ]
     },
     {
@@ -151,12 +151,44 @@
       "title": "One Last Look",
       "paragraphs": [
         "Eli glanced back at the locked gate one more time.",
-        "It was still shut tight. The hole was the only way."
+        "It was shut tight. Climbing down through the hole was the only way now."
       ],
       "learningTargets": ["sequencing", "inference"],
       "choices": [
-        { "id": "trust-the-cat", "label": "Trust the cat and climb down", "target": "the-fall" },
-        { "id": "go-anyway", "label": "Decide to follow the cat anyway", "target": "the-fall" }
+        { "id": "trust-the-cat", "label": "Trust the cat and climb down", "target": "the-slow-slip" },
+        { "id": "go-anyway", "label": "Decide to follow the cat anyway", "target": "the-quick-slip" }
+      ]
+    },
+    {
+      "id": "the-quick-slip",
+      "title": "A Quick Slip",
+      "paragraphs": [
+        "Eli did not wait. He was ready for jumping in, fast and bold.",
+        "But the rim was wet. His feet slid before he could jump at all.",
+        "Down he went in a quick spin, faster than he had planned.",
+        "He landed in soft, warm mud with a squelch. It did not hurt.",
+        "Eli sat up and wiped his eyes. Where was he?"
+      ],
+      "learningTargets": ["sequencing", "engagement"],
+      "choices": [
+        { "id": "look-around-quick", "label": "Stand up and look around", "target": "varro" },
+        { "id": "check-bag-quick", "label": "Check your bag before standing up", "target": "check-the-book", "learningTargets": ["detail"] }
+      ]
+    },
+    {
+      "id": "the-slow-slip",
+      "title": "A Careful Climb",
+      "paragraphs": [
+        "Eli trusted the cat. He went slow, climbing down with care.",
+        "But the rim was wet too. His foot slid, and down he went anyway.",
+        "Down he went in a slow spin, gentler than he had planned.",
+        "He landed in soft, warm mud with a splash. It did not hurt.",
+        "Eli sat up and wiped his eyes. Where was he?"
+      ],
+      "learningTargets": ["sequencing", "engagement"],
+      "choices": [
+        { "id": "look-around-slow", "label": "Stand up and look around", "target": "varro" },
+        { "id": "check-bag-slow", "label": "Check your bag before standing up", "target": "check-the-book", "learningTargets": ["detail"] }
       ]
     },
     {
@@ -235,7 +267,7 @@
       "id": "watch-the-hill",
       "title": "Down the Hill",
       "paragraphs": [
-        "Eli watched the girl run closer down the hill.",
+        "Eli watched the girl, still running, come closer down the hill.",
         "He could wave first, or wait for her to speak."
       ],
       "learningTargets": ["detail", "engagement"],

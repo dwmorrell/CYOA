@@ -1,0 +1,775 @@
+{
+  "storyId": "the-cat-who-took-the-wrong-turn",
+  "version": 7,
+  "start": "late-for-school",
+  "nodes": [
+    {
+      "id": "late-for-school",
+      "title": "Late for School",
+      "ending": null
+    },
+    {
+      "id": "through-the-gap",
+      "title": "Through the Gap",
+      "ending": null
+    },
+    {
+      "id": "call-to-the-cat",
+      "title": "A Soft Call",
+      "ending": null
+    },
+    {
+      "id": "how-to-go-down",
+      "title": "Which Way Down",
+      "ending": null
+    },
+    {
+      "id": "the-gate",
+      "title": "The Gate",
+      "ending": null
+    },
+    {
+      "id": "call-for-help",
+      "title": "Calling for Help",
+      "ending": null
+    },
+    {
+      "id": "last-look-at-the-gate",
+      "title": "One Last Look",
+      "ending": null
+    },
+    {
+      "id": "the-quick-slip",
+      "title": "A Quick Slip",
+      "ending": null
+    },
+    {
+      "id": "the-slow-slip",
+      "title": "A Careful Climb",
+      "ending": null
+    },
+    {
+      "id": "the-fall",
+      "title": "The Long Fall",
+      "ending": null
+    },
+    {
+      "id": "check-the-book",
+      "title": "A Muddy Map",
+      "ending": null
+    },
+    {
+      "id": "settle-in-the-mud",
+      "title": "A Moment in the Mud",
+      "ending": null
+    },
+    {
+      "id": "varro",
+      "title": "The Land of Varro",
+      "ending": null
+    },
+    {
+      "id": "look-at-the-moss",
+      "title": "Glowing Moss",
+      "ending": null
+    },
+    {
+      "id": "watch-the-hill",
+      "title": "Down the Hill",
+      "ending": null
+    },
+    {
+      "id": "meet-lira",
+      "title": "A Guide Named Lira",
+      "ending": null
+    },
+    {
+      "id": "the-marsh",
+      "title": "The Marsh Path",
+      "ending": null
+    },
+    {
+      "id": "frog-helped",
+      "title": "A Small Kindness",
+      "ending": null
+    },
+    {
+      "id": "thank-the-frog",
+      "title": "A Small Thank You",
+      "ending": null
+    },
+    {
+      "id": "watch-the-frog-hop",
+      "title": "One Last Hop",
+      "ending": null
+    },
+    {
+      "id": "stone-hop",
+      "title": "Hop and Trip",
+      "ending": null
+    },
+    {
+      "id": "careful-hop",
+      "title": "A Second Try",
+      "ending": null
+    },
+    {
+      "id": "look-back-at-the-marsh",
+      "title": "One Last Look at the Marsh",
+      "ending": null
+    },
+    {
+      "id": "the-stairs",
+      "title": "The Stone Stairs",
+      "ending": null
+    },
+    {
+      "id": "the-prints",
+      "title": "Small Marks",
+      "ending": null
+    },
+    {
+      "id": "show-lira-the-prints",
+      "title": "Two Guesses",
+      "ending": null
+    },
+    {
+      "id": "last-step-up",
+      "title": "The Last Step",
+      "ending": null
+    },
+    {
+      "id": "tower-hall",
+      "title": "The Tower Hall",
+      "ending": null
+    },
+    {
+      "id": "net-lid",
+      "title": "The Net and the Lid",
+      "ending": null
+    },
+    {
+      "id": "check-on-ash",
+      "title": "A Nervous Cat",
+      "ending": null
+    },
+    {
+      "id": "steady-your-nerves",
+      "title": "At the Edge",
+      "ending": null
+    },
+    {
+      "id": "ladder-climb",
+      "title": "The Long Ladder",
+      "ending": null
+    },
+    {
+      "id": "help-lira-up",
+      "title": "A Helping Hand",
+      "ending": null
+    },
+    {
+      "id": "one-more-breath",
+      "title": "One More Breath",
+      "ending": null
+    },
+    {
+      "id": "lantern-room",
+      "title": "The Lantern Room",
+      "ending": null
+    },
+    {
+      "id": "ending-warm-den",
+      "title": "The Warm Den",
+      "ending": {
+        "id": "warm-den",
+        "kind": "triumph",
+        "title": "The Warm Den"
+      }
+    },
+    {
+      "id": "ending-drum-song",
+      "title": "The Drum Song",
+      "ending": {
+        "id": "drum-song",
+        "kind": "triumph",
+        "title": "The Drum Song"
+      }
+    },
+    {
+      "id": "ending-the-grab",
+      "title": "A Quick Grab",
+      "ending": {
+        "id": "the-grab",
+        "kind": "bittersweet",
+        "title": "A Quick Grab"
+      }
+    },
+    {
+      "id": "ending-two-heads",
+      "title": "Two Heads",
+      "ending": {
+        "id": "two-heads",
+        "kind": "triumph",
+        "title": "Two Heads"
+      }
+    },
+    {
+      "id": "home-too-soon",
+      "title": "Home Too Soon",
+      "ending": {
+        "id": "home-too-soon",
+        "kind": "setback",
+        "title": "Home Too Soon"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "late-for-school",
+      "to": "through-the-gap",
+      "choice": "squeeze-through",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "late-for-school",
+      "to": "the-gate",
+      "choice": "try-the-gate",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "through-the-gap",
+      "to": "the-fall",
+      "choice": "lean-over",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "through-the-gap",
+      "to": "call-to-the-cat",
+      "choice": "call-first",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "call-to-the-cat",
+      "to": "the-fall",
+      "choice": "lean-after-call",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "call-to-the-cat",
+      "to": "how-to-go-down",
+      "choice": "weigh-the-drop",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "how-to-go-down",
+      "to": "the-quick-slip",
+      "choice": "jump-in-fast",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "how-to-go-down",
+      "to": "the-slow-slip",
+      "choice": "go-down-slow",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-gate",
+      "to": "the-fall",
+      "choice": "lean-over-gate",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-gate",
+      "to": "call-for-help",
+      "choice": "shout-for-help",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "call-for-help",
+      "to": "the-fall",
+      "choice": "lean-after-call-help",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "call-for-help",
+      "to": "last-look-at-the-gate",
+      "choice": "last-look",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "last-look-at-the-gate",
+      "to": "the-slow-slip",
+      "choice": "trust-the-cat",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "last-look-at-the-gate",
+      "to": "the-quick-slip",
+      "choice": "go-anyway",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-quick-slip",
+      "to": "varro",
+      "choice": "look-around-quick",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-quick-slip",
+      "to": "check-the-book",
+      "choice": "check-bag-quick",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-slow-slip",
+      "to": "varro",
+      "choice": "look-around-slow",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-slow-slip",
+      "to": "check-the-book",
+      "choice": "check-bag-slow",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-fall",
+      "to": "varro",
+      "choice": "look-around",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-fall",
+      "to": "check-the-book",
+      "choice": "check-bag",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "check-the-book",
+      "to": "varro",
+      "choice": "stand-after-check",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "check-the-book",
+      "to": "settle-in-the-mud",
+      "choice": "settle-moment",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "settle-in-the-mud",
+      "to": "varro",
+      "choice": "sit-moment",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "settle-in-the-mud",
+      "to": "varro",
+      "choice": "stand-right-up",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "varro",
+      "to": "meet-lira",
+      "choice": "meet-lira",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "varro",
+      "to": "look-at-the-moss",
+      "choice": "look-moss",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "look-at-the-moss",
+      "to": "meet-lira",
+      "choice": "wave-after-moss",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "look-at-the-moss",
+      "to": "watch-the-hill",
+      "choice": "watch-hill",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "watch-the-hill",
+      "to": "meet-lira",
+      "choice": "wave-first",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "watch-the-hill",
+      "to": "meet-lira",
+      "choice": "wait-quiet",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "meet-lira",
+      "to": "the-marsh",
+      "choice": "take-marsh",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "meet-lira",
+      "to": "the-stairs",
+      "choice": "take-stairs",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-marsh",
+      "to": "frog-helped",
+      "choice": "help-frog",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-marsh",
+      "to": "stone-hop",
+      "choice": "hop-stones",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "frog-helped",
+      "to": "the-stairs",
+      "choice": "to-stairs-kind",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "frog-helped",
+      "to": "thank-the-frog",
+      "choice": "thank-frog",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "thank-the-frog",
+      "to": "the-stairs",
+      "choice": "to-stairs-crumb",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "thank-the-frog",
+      "to": "watch-the-frog-hop",
+      "choice": "watch-frog-hop",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "watch-the-frog-hop",
+      "to": "the-stairs",
+      "choice": "call-thanks",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "watch-the-frog-hop",
+      "to": "the-stairs",
+      "choice": "smile-and-go",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "stone-hop",
+      "to": "the-stairs",
+      "choice": "to-stairs-fast",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "stone-hop",
+      "to": "careful-hop",
+      "choice": "retry-hop",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "careful-hop",
+      "to": "the-stairs",
+      "choice": "to-stairs-careful",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "careful-hop",
+      "to": "look-back-at-the-marsh",
+      "choice": "look-back-marsh",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "look-back-at-the-marsh",
+      "to": "the-stairs",
+      "choice": "nod-to-frog",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "look-back-at-the-marsh",
+      "to": "the-stairs",
+      "choice": "turn-to-stairs",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-stairs",
+      "to": "the-prints",
+      "choice": "study-prints",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-stairs",
+      "to": "tower-hall",
+      "choice": "keep-climbing",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-prints",
+      "to": "tower-hall",
+      "choice": "up-after-prints",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-prints",
+      "to": "show-lira-the-prints",
+      "choice": "show-lira",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "show-lira-the-prints",
+      "to": "tower-hall",
+      "choice": "up-after-showing",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "show-lira-the-prints",
+      "to": "last-step-up",
+      "choice": "last-step",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "last-step-up",
+      "to": "tower-hall",
+      "choice": "climb-steady",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "last-step-up",
+      "to": "tower-hall",
+      "choice": "climb-fast",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "tower-hall",
+      "to": "net-lid",
+      "choice": "net-the-lid",
+      "locked": true,
+      "requires": {
+        "items": [
+          "reed-net"
+        ]
+      }
+    },
+    {
+      "from": "tower-hall",
+      "to": "ladder-climb",
+      "choice": "climb-ladder",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "tower-hall",
+      "to": "home-too-soon",
+      "choice": "ask-home",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "net-lid",
+      "to": "lantern-room",
+      "choice": "up-net",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "net-lid",
+      "to": "check-on-ash",
+      "choice": "check-ash",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "check-on-ash",
+      "to": "lantern-room",
+      "choice": "step-in-after-ash",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "check-on-ash",
+      "to": "steady-your-nerves",
+      "choice": "steady-nerves",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "steady-your-nerves",
+      "to": "lantern-room",
+      "choice": "step-slow",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "steady-your-nerves",
+      "to": "lantern-room",
+      "choice": "step-bold",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "ladder-climb",
+      "to": "lantern-room",
+      "choice": "up-ladder",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "ladder-climb",
+      "to": "help-lira-up",
+      "choice": "help-lira",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "help-lira-up",
+      "to": "lantern-room",
+      "choice": "step-in-after-helping",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "help-lira-up",
+      "to": "one-more-breath",
+      "choice": "one-more-breath",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "one-more-breath",
+      "to": "lantern-room",
+      "choice": "side-by-side",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "one-more-breath",
+      "to": "lantern-room",
+      "choice": "go-first",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "lantern-room",
+      "to": "ending-warm-den",
+      "choice": "offer-den",
+      "locked": true,
+      "requires": {
+        "clues": [
+          "claw-prints"
+        ]
+      }
+    },
+    {
+      "from": "lantern-room",
+      "to": "ending-drum-song",
+      "choice": "tap-drum",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "lantern-room",
+      "to": "ending-the-grab",
+      "choice": "grab-stone",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "lantern-room",
+      "to": "ending-two-heads",
+      "choice": "ask-lira",
+      "locked": false,
+      "requires": null
+    }
+  ],
+  "validation": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "passages": 40,
+      "choices": 73,
+      "endings": [
+        "warm-den",
+        "drum-song",
+        "the-grab",
+        "two-heads",
+        "home-too-soon"
+      ],
+      "reachableEndings": [
+        "drum-song",
+        "home-too-soon",
+        "the-grab",
+        "two-heads",
+        "warm-den"
+      ],
+      "exploredStates": 75,
+      "stateSearchComplete": true,
+      "shortestPathToEnding": 8,
+      "longestSimplePathToEnding": 25
+    }
+  }
+}

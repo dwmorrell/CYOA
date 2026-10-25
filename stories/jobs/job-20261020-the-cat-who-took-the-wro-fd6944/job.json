@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-cat-who-took-the-wro-fd6944",
   "storyId": "the-cat-who-took-the-wrong-turn",
-  "state": "changes-requested",
+  "state": "in-review",
   "createdAt": "2026-10-20T23:23:24.700Z",
-  "updatedAt": "2026-10-25T08:19:54.426Z",
+  "updatedAt": "2026-10-25T08:26:25.263Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/request.json",
@@ -235,6 +235,41 @@
         ]
       },
       "revision": 6
+    },
+    {
+      "storyVersion": 7,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r7.json",
+        "sha256": "3a05d6f751b2e994f53f09ceb1dca50fd6140bc5b054bf849cbf5547882ab0d2"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-25T08:26:25.263Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/validation.r7.json",
+          "sha256": "90bf0b7772cebdd8ecaccd14ec1df02f706cd978dea3c9dae135b1197772c34e"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/literacy.r7.json",
+          "sha256": "0c68ba7e4529a4c4e5b7ba193e7d0fefdbff89be08f1db1f6ee6a67cdd3dc475"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/graph.r7.json",
+          "sha256": "193029ab27d5c86198b5e6d1096e5fe9ee4e5304ce7648524d06cc78ad00e0cc"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 7
     }
   ],
   "reviews": [
@@ -700,7 +735,8 @@
         }
       ],
       "id": "review-6-qa",
-      "submittedAt": "2026-10-25T08:17:47.777Z"
+      "submittedAt": "2026-10-25T08:17:47.777Z",
+      "invalidatedBy": 7
     },
     {
       "role": "literacy",
@@ -764,7 +800,8 @@
         }
       ],
       "id": "review-7-literacy",
-      "submittedAt": "2026-10-25T08:19:54.426Z"
+      "submittedAt": "2026-10-25T08:19:54.426Z",
+      "invalidatedBy": 7
     }
   ],
   "parentDecisions": [],
@@ -914,6 +951,17 @@
         "kind": "automation"
       },
       "note": "A reviewer requested changes"
+    },
+    {
+      "at": "2026-10-25T08:26:25.263Z",
+      "from": "changes-requested",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 7 (story v7) passed automated validation"
     }
   ]
 }
