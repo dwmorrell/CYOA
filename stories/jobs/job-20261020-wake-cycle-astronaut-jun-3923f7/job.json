@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-wake-cycle-astronaut-jun-3923f7",
   "storyId": "wake-cycle",
-  "state": "in-review",
+  "state": "awaiting-parent-approval",
   "createdAt": "2026-10-20T23:23:25.399Z",
-  "updatedAt": "2026-10-25T08:34:36.469Z",
+  "updatedAt": "2026-10-25T08:35:21.985Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/request.json",
@@ -1204,6 +1204,68 @@
       },
       "id": "review-10-literacy",
       "submittedAt": "2026-10-25T08:34:36.469Z"
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 6,
+      "draftSha256": "b64c4e09a41c26640d13c9a0e97af0582e61a0ba5e4e483e6eb0f6ebe1a17970",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "minor",
+          "passage": "storm-engine-together",
+          "message": "Carried over from review-7-qa (r4) and review-9-qa (r5), unchanged by this revision: storm-engine (line 341) places the backup wheel 'on the wall' in the engine room, but the bring-dex-along branch at storm-engine-together (lines 353-357) has Jun and Dex 'climbed the steps together... At the top, the dust storm filled the window in a wall of white' before reaching the same threshold passage, implying a different location for the same wheel. Not blocking."
+        },
+        {
+          "severity": "minor",
+          "passage": "bridge",
+          "message": "Carried over from review-3-qa/review-7-qa/review-9-qa, unchanged by this revision: lines 128-143. Oru states the pod order ('First the latch. Then the switch. Last the hatch', line 134) immediately before the three-way choice, so picking switch-first or hatch-first (lines 140, 142) requires no real inference. The not-yet/not-yet-why loop that follows a wrong guess is a reasonable mitigation and is now a genuine branch (see below), but the original three-way choice is still not a real inference test."
+        },
+        {
+          "severity": "minor",
+          "passage": "captain-wakes",
+          "message": "Carried over from review-3-qa/review-7-qa/review-9-qa, unchanged by this revision: captain-wakes (lines 186-188) has the Captain say calls to far decks 'cannot get through' and the comm panel stays dark, but storm-bridge (line 204, Dex's voice on the inside speaker), storm-engine (line 340, Captain Holm's voice reaching the engine room) and ending-1 (line 439, Captain Holm and Dex cheering over the speaker) all have voice communication working shortly after. Not blocking, but the comms logic is inconsistent across routes."
+        },
+        {
+          "severity": "minor",
+          "passage": "oru-log / dex-chart / storm-bridge",
+          "message": "Carried over from review-3-qa/review-7-qa/review-9-qa, unchanged by this revision: oru-log (line 85) says the dust 'bends the sensors' so 'maps may not match what is real,' yet storm-bridge's study-ghosts branch (lines 206-210) has the correct clear lane visible directly on the bent screen, while dex-chart (lines 320-331) praises the hand-drawn paper chart specifically because it does not match the (same) bent screen. The two routes make opposite claims about whether the live screen can be trusted. Not blocking, but worth reconciling."
+        },
+        {
+          "severity": "minor",
+          "passage": "dex-lamp-watch / dex-tools-sort / dex-chart",
+          "message": "New in this revision: dex-lamp-watch (lines 251-254) and dex-tools-sort (lines 285-290) both add 'Across the room, a paper chart hung on the wall' and let Jun 'Glance at the wall chart' (choices go-to-chart / go-to-chart-tools, lines 258-264 and 295-301) before Dex has even finished the repair. Both routes then pass through dex-fixed and on to dex-chart (lines 320-326), where the same chart is narrated as a first-time discovery ('Dex tapped a paper chart pinned to the wall... Paper does not lie, he said. I drew this from the old logs.'). On these two routes the reader is told they already glanced at the chart, then the story re-introduces it as new. Mechanically harmless (dust-map is granted idempotently and the clue notebook shows its description regardless of route, per src/ui/Reader.tsx lines 229-240), but a continuity nit worth a line of differentiation in dex-chart for readers arriving via these two choices."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r6.json",
+          "sha256": "b64c4e09a41c26640d13c9a0e97af0582e61a0ba5e4e483e6eb0f6ebe1a17970"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r6.json",
+          "sha256": "4579fe4d17959eed3bdb9495f13afa789cc0de67897af49b729d2fdff7a03437"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r6.json",
+          "sha256": "e61cddd7ea85b444b8a2416c88f142b472f9205e913deca1081ff89966183ba9"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/brief.json",
+          "sha256": "fdc2fc24ea875ea8f0988d268e7bd726581042613ee246fcd7d0b15c5976e318"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/work/revision-notes.r6.md",
+          "sha256": "af340361d4efa1144449b4f35a3e11dfb233030a35a00495ff013310a45f261f"
+        }
+      ],
+      "id": "review-11-qa",
+      "submittedAt": "2026-10-25T08:35:21.985Z"
     }
   ],
   "parentDecisions": [],
@@ -1354,6 +1416,16 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 6 (story v6) passed automated validation"
+    },
+    {
+      "at": "2026-10-25T08:35:21.985Z",
+      "from": "in-review",
+      "to": "awaiting-parent-approval",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "All required reviews passed"
     }
   ]
 }

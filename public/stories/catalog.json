@@ -3,133 +3,6 @@
   "published": [],
   "previews": [
     {
-      "id": "the-derelict-salvage",
-      "title": "The Derelict Salvage",
-      "version": 6,
-      "path": "previews/the-derelict-salvage.json",
-      "sha256": "53cab9802e1f709b5a215a972da3cc3a66764eeeac17aa1f808416ad4ea54df3",
-      "jobId": "job-20261020-the-derelict-salvage-cap-f8f7ea",
-      "literacySummary": {
-        "blurb": "A space salvage mystery with five endings. Readers practise vowel team, silent-e and th words, with r-controlled, blend, -ed and ck words too, while using clues, sequencing and vocabulary from context to decide how to open a sealed hold.",
-        "skills": [
-          "comprehension",
-          "inference",
-          "sequencing",
-          "vocabulary",
-          "detail"
-        ],
-        "wordTypes": [
-          {
-            "concept": "vowel-team",
-            "examples": [
-              "boat",
-              "road",
-              "team",
-              "deep"
-            ],
-            "label": "Vowel digraph / vowel team"
-          },
-          {
-            "concept": "silent-e",
-            "examples": [
-              "cave",
-              "dome",
-              "tube",
-              "note"
-            ],
-            "label": "Magic e / VCe syllable"
-          },
-          {
-            "concept": "digraph-th",
-            "examples": [
-              "moth",
-              "path",
-              "thin",
-              "thud"
-            ],
-            "label": "Consonant digraph /th/"
-          },
-          {
-            "concept": "r-controlled",
-            "examples": [
-              "cargo",
-              "carry",
-              "arm"
-            ],
-            "label": "Bossy r / r-controlled vowel"
-          },
-          {
-            "concept": "initial-blend",
-            "examples": [
-              "bright",
-              "bring",
-              "climbed"
-            ],
-            "label": "Initial consonant blend"
-          },
-          {
-            "concept": "suffix-ed",
-            "examples": [
-              "checked",
-              "climbed",
-              "drifted"
-            ],
-            "label": "Vowel suffix -ed"
-          },
-          {
-            "concept": "digraph-ck",
-            "examples": [
-              "lock",
-              "dock",
-              "back"
-            ],
-            "label": "-ck rule"
-          }
-        ],
-        "ogCategories": [
-          "Phonics",
-          "Syllable types",
-          "Morphology",
-          "Comprehension",
-          "Vocabulary"
-        ]
-      },
-      "jobState": "awaiting-parent-approval",
-      "gates": [
-        {
-          "id": "draft-exists",
-          "ok": true,
-          "detail": "Revision 6, story v6"
-        },
-        {
-          "id": "automated-validation",
-          "ok": true,
-          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
-        },
-        {
-          "id": "review:qa",
-          "ok": true,
-          "detail": "qa passed by qa-engineer (ai-agent)"
-        },
-        {
-          "id": "review:literacy",
-          "ok": true,
-          "detail": "literacy passed by literacy-specialist (ai-agent)"
-        },
-        {
-          "id": "story-literacy-claim",
-          "ok": true,
-          "detail": "Story literacy review is \"pending\""
-        },
-        {
-          "id": "parent-approval",
-          "ok": false,
-          "detail": "Waiting for a parent decision"
-        }
-      ],
-      "updatedAt": "2026-10-21T18:37:41.487Z"
-    },
-    {
       "id": "wake-cycle",
       "title": "Wake Cycle",
       "version": 3,
@@ -738,6 +611,95 @@
         }
       ],
       "updatedAt": "2026-10-25T08:32:25.758Z"
+    },
+    {
+      "id": "the-derelict-salvage",
+      "title": "The Derelict Salvage",
+      "version": 9,
+      "path": "previews/the-derelict-salvage.json",
+      "sha256": "58fc5be9f572f3e03a35c2045d3dce83e620c28e788420cc5827e5d29405ae15",
+      "jobId": "job-20261020-the-derelict-salvage-cap-f8f7ea",
+      "literacySummary": {
+        "blurb": "A salvage crew finds a drifting ship, a sealed cargo door and a log note written years after the ship went silent. Reading the clues and going slowly pays off; rushing in brings a setback instead.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "detail"
+        ],
+        "wordTypes": [
+          {
+            "concept": "vowel-team",
+            "examples": [
+              "rain",
+              "boat",
+              "team",
+              "keep"
+            ],
+            "label": "Vowel digraph / vowel team"
+          },
+          {
+            "concept": "silent-e",
+            "examples": [
+              "cave",
+              "dome",
+              "tube",
+              "note"
+            ],
+            "label": "Magic e / VCe syllable"
+          },
+          {
+            "concept": "digraph-th",
+            "examples": [
+              "thin",
+              "moth",
+              "path",
+              "that"
+            ],
+            "label": "Consonant digraph /th/"
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Syllable types",
+          "Comprehension",
+          "Vocabulary"
+        ]
+      },
+      "jobState": "awaiting-parent-approval",
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": true,
+          "detail": "Revision 9, story v9"
+        },
+        {
+          "id": "automated-validation",
+          "ok": true,
+          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
+        },
+        {
+          "id": "review:qa",
+          "ok": true,
+          "detail": "qa passed by qa-engineer (ai-agent)"
+        },
+        {
+          "id": "review:literacy",
+          "ok": true,
+          "detail": "literacy passed by literacy-specialist (ai-agent)"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ],
+      "updatedAt": "2026-10-25T08:35:10.686Z"
     }
   ]
 }
