@@ -1,0 +1,46 @@
+{
+  "role": "qa",
+  "reviewer": { "name": "qa-engineer", "kind": "ai-agent", "agent": "qa-engineer" },
+  "revision": 9,
+  "draftSha256": "58fc5be9f572f3e03a35c2045d3dce83e620c28e788420cc5827e5d29405ae15",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "The new clue \"blink-code\" (story.r9.json lines 66-68: \"When Ivy called out, the little box blinked and thudded twice, slow and quick. Something was listening.\") describes the box's blink-and-thud as a response to Ivy calling out. But the passage text that precedes the choice already narrates the same thud unconditionally for both branches (line 381: \"Then it gave a soft thud, twice, like a secret code.\"), before either choice is picked. So the clue's own causal claim (\"when Ivy called out\") contradicts the passage, which shows the thud happening on its own, not as a reaction to the call-out choice. Reword the clue text (or move the thud into the call-out branch only) so the clue does not assert a cause-and-effect that the passage itself does not show.",
+      "passage": "engine-trace"
+    },
+    {
+      "severity": "minor",
+      "message": "Both new collectibles added in this revision (item \"chalk-note\", lines 54-56; clue \"blink-code\", lines 66-68) are picked up via engine-trace's \"call-out\" and nib-ask's \"promise-nib\" and then never referenced again anywhere in the draft (confirmed by searching the full r9 draft for \"chalk-note\" and \"blink-code\": each appears only in its item/clue definition and its one addItems/addClues effect). This differs from the story's existing pattern, where every other item/clue (hook-pole, late-log) is both collectible and later paid off - gating the open-careful locked choice and being named again in climax-careful's text (\"Bo held the hook-pole. Ivy read the last note aloud.\"). Leaving the two new collectibles with no later narrative or mechanical payoff is not a blocker (they do not gate anything, so they cannot cause a soft-lock or change ending reachability - confirmed by graph.r9.json, 5/5 endings reachable, and by grep showing no `requires` block anywhere references either id), but it is a content-integrity gap worth closing before the next pass: either reference the chalk note or the blinking code again later (an ending line, or a beat at threshold/climax-careful), or rewrite the two choice labels so they read as pure atmosphere rather than a kept \"promise\"/discovered \"code\" that the story then drops. This is the same root cause on both passages: nib-ask's unconditional line 435 (\"Nib snapped off a small chalk note and held it out, like a gift\") happens before the choice, so the nib-ask-on branch silently ignores an already-offered gift with no acknowledgement either way.",
+      "passage": "nib-ask"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/drafts/story.r9.json",
+      "sha256": "58fc5be9f572f3e03a35c2045d3dce83e620c28e788420cc5827e5d29405ae15"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/validation.r9.json",
+      "sha256": "e3ca71b24b907e00723583caac318c86544ad8f1dcfb401b76f5998648dbd4eb"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/graph.r9.json",
+      "sha256": "4c2773c04af9112cdd87b131ca21546b14643fd0f9634186c9f9af6c961b0716"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/brief.json",
+      "sha256": "e9174c367099452e01fb068a43750c1b898737c5fff8b809be808174c20ed1be"
+    }
+  ],
+  "notes": [
+    "Verified both r8 major findings are genuinely fixed in r9, independent of revision-notes.r9.md's self-report: engine-trace (lines 374-400) now has trace-on (no effects) vs call-out (effects.addClues: [\"blink-code\"], lines 385-399) - a real, player-visible inventory difference, not a relabel. nib-ask (lines 428-454) now has nib-ask-on (no effects) vs promise-nib (effects.addItems: [\"chalk-note\"], lines 439-453) - same genuine difference. Both still converge on the same target (nib / threshold respectively), which is fine per the r8 review's own standard: a real difference in what the reader walks away with satisfies the bar, a different target is not required.",
+    "Checked the two new collectibles cannot create a soft-lock, change reachability, or interact with the existing locked choice: grepped the full r9 draft for chalk-note and blink-code and found no `requires` block anywhere references either id; the only locked choice in the story, open-careful at threshold (lines 466-476: requires items [hook-pole], clues [late-log], lockedHint \"Find a long pole and read the last log note first.\"), is byte-for-byte unchanged from r8's requires/target/lockedHint and still gated only by hook-pole (from locker, line 234-236) and late-log (from log-read, line 134-136), both still collectible on a forward-only route before threshold.",
+    "Re-read reports/validation.r9.json and reports/graph.r9.json directly (not just `story status`): schema ok; graph ok, 24 passages, 40 choices, 5/5 endings reachable (ending-garden, ending-carry, ending-tow, ending-closed, ending-rush), exploredStates 159, stateSearchComplete true; literacy checks ok (vowel-team 33/10, silent-e 50/8, th-words 59/8, all word sets present on the shortest route to every ending, 0 sentences over 20 words); brief ok. This matches revision-notes.r9.md's reported word-count deltas.",
+    "Traced at least one forward-only route (no revisiting an already-read passage) to every ending, including routes that exercise both new choices together: start -> to-tube -> tube -> open-locker -> locker (item hook-pole) -> locker-on -> inside -> to-engine -> engine -> trace-cable -> engine-trace -> call-out (clue blink-code) -> nib -> ask-nib -> nib-ask -> promise-nib (item chalk-note) -> threshold -> open-team -> climax-team -> tow-lark / carry-moths (ending-tow / ending-carry). Also confirmed the careful route still works end to end: start -> to-scan -> scan -> read-log (clue late-log) -> log-dock -> tube -> open-locker -> locker (item hook-pole) -> locker-on -> inside -> to-dome -> dome -> dome-on -> nib -> to-door -> threshold -> open-careful (unlocked: hook-pole + late-log held) -> climax-careful -> cool-first -> hold-open -> step-in / call-crew (ending-garden / ending-carry); climax-careful -> lift-first and threshold -> open-rush both reach ending-rush; threshold -> leave-shut reaches ending-closed directly. All 5 endings confirmed reachable without backtracking, consistent with graph.r9.json's reachableEndings and stateSearchComplete:true.",
+    "Content integrity: no sexual content, violence/gore, self-harm or real-religion references in the two touched passages or anywhere else in the 24-passage draft; no real brands/places; the characters and facts in the two new closing lines (Nib's chalk note; the blinking box's thud) stay consistent with brief.json's continuity block and with Nib's established characterisation (a bot that communicates by chalk board and small sounds). The two findings above are about narrative follow-through, not about anything unsafe or age-inappropriate.",
+    "`npm run check` was run and genuinely fails at the validate:stories step (exit code 1). Root cause verified directly: public/stories/previews/the-derelict-salvage.json is a stale catalog preview snapshot last touched in commit bc7ce22, well before the r9 (and r8) connector-passage fixes in stories/jobs/.../drafts/story.r9.json (commit de4e989), and still has the pre-r8 single-choice passages (log-read, hull-check, locker, lit-path, dome, engine, nib, hold-open). This is the same repo-wide preview-sync gap the r8 QA review already identified and reported (it also affects public/stories/previews/wake-cycle.json for an unrelated job), not a defect in story.r9.json itself; previews are out of scope for this review and were not touched. Lint, typecheck and the full Vitest suite (191/191 passed, 12 files) printed a clean pass before validate:stories ran and failed the chain; agents:check and the production build were never reached because npm run check chains steps with && and stops at the first failure, so they are reported as not run, not as passing.",
+    "Author of r9 is narrative-designer (AI agent) per story.r9.json metadata.authorship and revision-notes.r9.md; this reviewer (qa-engineer) did not author the draft, so there is no self-review conflict."
+  ]
+}

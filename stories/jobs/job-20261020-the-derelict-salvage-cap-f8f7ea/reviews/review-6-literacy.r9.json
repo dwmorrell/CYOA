@@ -1,0 +1,107 @@
+{
+  "role": "literacy",
+  "reviewer": {
+    "name": "literacy-specialist",
+    "kind": "ai-agent",
+    "agent": "literacy-specialist"
+  },
+  "revision": 9,
+  "draftSha256": "58fc5be9f572f3e03a35c2045d3dce83e620c28e788420cc5827e5d29405ae15",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Skills practised: the story practises decoding in context (vowel-team, silent-e and th-digraph words recur on the shortest route to every one of the five endings, and I re-traced routes through the two passages this revision touched, 'engine-trace' and 'nib-ask', confirming word-set words still carry through them), recognising set words in both narration and choice labels, and following a three-step sequence (Nib's chalk steps: cool the lock with the blue tube, turn the valve, lift the door) where order matters. Readers also infer from clues (a log note four days old on a ship lost eleven years ago; a soft repeating thud behind a blinking box), learn words such as corridor, valve and beacon from context and the glossary, and weigh evidence before choosing one of five endings. Limits: this review and the automated report both detect patterns by spelling, not sound, so a match (for example 'th' in 'thud' versus 'that') does not prove a given reader pronounces it as intended, and nothing here substitutes for a human reading check with an actual learner."
+    },
+    {
+      "severity": "minor",
+      "message": "Verified independently against reports/literacy.r8.json and reports/literacy.r9.json (not just the author's revision notes): vowel-team-words rose 31->33 (perWord 'keep' 4->6), silent-e-words rose 48->50 (perWord 'note' 10->12), th-words rose 57->59 (perWord 'thud' 4->5, 'path' 7->8). No word fell below the brief's per-set minimums (10/8/8) and none dropped out; the automated report confirms meetsMinimum:true and missingWords:[] for all three sets on r9, and perEndingRoute shows every set still present on all five routes (ending-garden/-carry/-tow/-closed/-rush). The new words read naturally and carry their declared pattern in context: 'thud' in 'Then it gave a soft thud, twice, like a secret code.' (engine-trace), 'path' in the relabelled choice 'Follow the cable's path to the light' (engine-trace, trace-on), 'keep' in 'Call out, and keep listening for an answer' (engine-trace, call-out), and 'note'/'keep' in the relabelled choice 'Promise to keep the chalk note safe, then take it' (nib-ask, promise-nib). conceptMismatches is empty for all three sets, confirming the automated spelling check as well.",
+      "passage": "engine-trace"
+    },
+    {
+      "severity": "minor",
+      "message": "The revision notes attribute the vowel-team increase to the new 'keep' in engine-trace's call-out label only, but there is a second new 'keep' in nib-ask's relabelled promise-nib choice ('Promise to keep the chalk note safe, then take it'), which is where the +2 total actually comes from. This is a documentation gap in the notes, not a defect in the story: both instances are natural and correctly carry the vowel-team pattern, and the reported totals (33/50/59) are correct either way.",
+      "passage": "nib-ask"
+    },
+    {
+      "severity": "minor",
+      "message": "The two new state-bearing effects read as genuine, player-visible differences rather than cosmetic filler, resolving the QA findings on r8. In engine-trace, only 'call-out' grants the clue 'blink-code' ('The blinking code'); 'trace-on' does not. In nib-ask, only 'promise-nib' grants the item 'chalk-note' (\"Nib's chalk note\"); 'nib-ask-on' does not. Both additions are flavour/collectible only (neither is referenced by any 'requires'), so they cannot create a new soft-lock, matching the author's stated intent. This is a QA/engine-trace concern more than a literacy one, but it is relevant to comprehension: the new closing line in each passage ('a soft thud, twice, like a secret code' and 'Nib snapped off a small chalk note and held it out, like a gift') is what motivates the new choice, so the branch now makes narrative sense as well as mechanical sense.",
+      "passage": "nib-ask"
+    },
+    {
+      "severity": "minor",
+      "message": "Carried over from the r8 literacy review (work/literacy-review.r8.json) and still present, unchanged, in r9 because neither passage was touched by this revision: (1) 'the blue tube' is used as the tool that cools the cargo-door lock (in 'nib', the choice label in 'climax-careful', and the narration in 'hold-open'/'climax-team'), but it is never introduced or found as an item anywhere in the story, and it risks being read as the same object as the unrelated 'dock tube' from 'start'/'tube'. (2) 'Carry the moths home in the Kestrel's dome' (climax-team) and 'packed the moths into the Kestrel's dome' (ending-carry) assume the tug Kestrel has a glass dome, but only the Lark's dome is established elsewhere in the story. Neither issue is a word-set defect and neither blocks this pass, but both remain open comprehension/continuity gaps for the narrative designer.",
+      "passage": "ending-carry"
+    },
+    {
+      "severity": "minor",
+      "message": "Also carried over and unchanged: the 'late-log' clue is only granted in 'log-read', reachable only via start->scan->log-read. A reader who takes scan->check-hull, or skips 'scan' via start->tube, can never collect 'late-log' and so can never take the locked choice 'open-careful' at 'threshold', even though its lockedHint ('Find a long pole and read the last log note first.') reads as still achievable from any route. This is a branching design question for the narrative designer, not a word-set defect; the other four endings remain fully reachable with full word-set coverage regardless.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "minor",
+      "message": "Coverage is comfortably above minimum on all three sets (33/10, 50/8, 59/8) but a few individual words are still thin and unchanged by this revision: 'rain' (2 occurrences: 'scan', 'climax-team'), 'boat' (2: 'nib', 'ending-tow') and 'cave' (2: 'threshold', 'ending-garden'). This does not block the pass; every set still appears well before its minimum on every route, including the two rewritten connectors.",
+      "passage": "scan"
+    },
+    {
+      "severity": "minor",
+      "message": "The declared th-words set mixes two different 'th' sounds under one spelling pattern: voiceless in 'thin', 'thud', 'path' and 'moth', voiced in 'that' and 'them'. Both the automated report and my own reading detect spelling only, so a pass on this word set confirms the spelling pattern, not that a given reader will hear or produce the same sound for every instance (for example the new 'thud' and the pre-existing 'that' are spelled alike but sound different). A structured-literacy program that teaches these as two separate sounds may want to split 'that'/'them' from the four voiceless words when mapping this story to its own terms."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/drafts/story.r9.json",
+      "sha256": "58fc5be9f572f3e03a35c2045d3dce83e620c28e788420cc5827e5d29405ae15"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/literacy.r9.json",
+      "sha256": "399accdc5fd4612e639c362b216c805077420a70ac71868f7ed5e4819620071b"
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "A salvage crew finds a drifting ship, a sealed cargo door and a log note written years after the ship went silent. Reading the clues and going slowly pays off; rushing in brings a setback instead.",
+    "skills": [
+      "comprehension",
+      "inference",
+      "sequencing",
+      "detail"
+    ],
+    "wordTypes": [
+      {
+        "concept": "vowel-team",
+        "examples": [
+          "rain",
+          "boat",
+          "team",
+          "keep"
+        ]
+      },
+      {
+        "concept": "silent-e",
+        "examples": [
+          "cave",
+          "dome",
+          "tube",
+          "note"
+        ]
+      },
+      {
+        "concept": "digraph-th",
+        "examples": [
+          "thin",
+          "moth",
+          "path",
+          "that"
+        ]
+      }
+    ],
+    "ogCategories": [
+      "Phonics",
+      "Syllable types",
+      "Comprehension",
+      "Vocabulary"
+    ]
+  },
+  "id": "review-6-literacy",
+  "submittedAt": "2026-10-25T08:34:04.469Z"
+}

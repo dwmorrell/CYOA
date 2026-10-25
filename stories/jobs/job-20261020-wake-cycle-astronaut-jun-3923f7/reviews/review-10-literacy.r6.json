@@ -1,0 +1,133 @@
+{
+  "role": "literacy",
+  "reviewer": {
+    "name": "literacy-specialist",
+    "kind": "ai-agent",
+    "agent": "literacy-specialist"
+  },
+  "revision": 6,
+  "draftSha256": "b64c4e09a41c26640d13c9a0e97af0582e61a0ba5e4e483e6eb0f6ebe1a17970",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Skills practised: following Jun through the pod bay, the engine room and the dust storm practises sequencing (the 'latch, switch, hatch' pod-opening order at bridge/not-yet/not-yet-why/captain-wakes; tools sorted and passed to Dex in order at dex-tools/dex-tools-sort), inference (the whistle in the vents that signals the dust is closer at locker-listen; the crew's last call naming the engine room at oru-log-crew; green vs amber pod lights; bent sensors that make maps untrustworthy; the thin, clear dust lane glimpsed on Dex's handheld sensor), vocabulary from context (sensors, coolant, anomaly, navigator, and what a latch, switch and hatch each do), detail (ten-then-twenty pod checks, the tool pack's clicker light paying off at the climax, the wall chart and panel noticed in the engine-room scenes) and comprehension/engagement across the five branching endings. The wh/ck/tch word sets are not decoration: 'pack', 'click'/'clicker' and 'latch'/'switch'/'hatch' are load-bearing plot nouns (the inventory item, the climax tool, the pod puzzle), so decoding practice and story comprehension reinforce each other rather than competing."
+    },
+    {
+      "severity": "note",
+      "message": "Read all four passages touched by this revision directly in story.r6.json and diffed each against story.r5.json. `not-yet-why` adds one sentence ('A small panel by the pod blinked. Thin white lines crossed it, like the dust on Oru's big screen.') and splits the fork on that detail: 'Check the panel, then open the pod step by step' now carries addClues:[dust-map] and learningTargets detail/sequencing, while 'Skip the panel and lift the latch now' is an informed decline that keeps 'latch'. `storm-engine-together` adds 'Dex's handheld sensor blinked. A thin, clear lane flickered on its tiny screen.' and gives 'double-check-sensors' (label unchanged) the matching addClues:[dust-map] payoff; 'Face the storm together' stays the open alternative. `dex-lamp-watch` and `dex-tools-sort` each add one near-identical sentence ('Across the room, a paper chart hung on the wall.' / 'Across the room, Dex's paper chart hung on the wall.') and retarget their second choice from `dex-chart` to `dex-fixed` with addClues:[dust-map], closing the silent bypass QA found. These two passages are mutually exclusive branches reached from different earlier choices (dex-lamp vs. dex-tools), so a single playthrough never sees both near-identical sentences back to back. All four new sentences are at or under 13 words, read as natural scene detail (not an inserted word list), and do not force any rhyme or filler to hit a target word. The one target word in the new text, 'white' (storm-engine-together already had it in r5's final line; the genuinely new instance is 'white' in not-yet-why's panel sentence), is spelled with wh at the start exactly as digraph-wh requires -- a correct match, not a false friend.",
+      "passage": "not-yet-why"
+    },
+    {
+      "severity": "note",
+      "message": "The six-way dust-map idiom used across this story (not-yet-why/after-not-yet-why, storm-bridge/study-ghosts, dex-lamp-watch/go-to-chart, dex-tools-sort/go-to-chart-tools, dex-chart/copy-lane, storm-engine-together/double-check-sensors, all gating threshold/thin-lane) is internally consistent: the clue's own description ('a thin, clear lane runs left of the big rock') matches the new sensor-blink and chart sentences that motivate each gain. Verified with `npm run story -- evidence` and a direct trace of the graph that every route QA flagged (wake -> ask-log -> ask-oru-more -> hurry-to-engine-crew -> engine -> pass-tools -> sort-tools -> go-to-chart-tools -> dex-fixed -> dex-chart -> storm-engine -> ... -> threshold) now passes through dex-fixed, so the tool-pack offer is no longer skippable and ending-1 stays reachable on that route, as the revision notes describe.",
+      "passage": "storm-engine-together"
+    },
+    {
+      "severity": "minor",
+      "message": "The revision notes' self-reported full-text scan ('wh 37, ck 42, tch 33') does not match the actual generated report: reports/literacy.r6.json and reports/weave-comparison.r6.json both show wh 39, ck 46, tch 36 (identical to literacy.r6.json's automatedChecks detail string). The discrepancy is in the safe direction -- the real counts are higher than claimed, so no minimum is at risk -- but the author should cite the generated report rather than a manual scan that undercounts by 2 to 4 per set. This does not affect the pass verdict since every set clears its minimum with a wide margin (10/8/8) either way.",
+      "passage": "not-yet-why"
+    },
+    {
+      "severity": "minor",
+      "message": "Unchanged from the r5 review and not touched by this revision: 'catch' and 'match' remain thinly used (2 occurrences each, vs. 7-9 for hatch/watch/switch/latch), and dex-tools's 'He gave a whip of his wrist' is still the least natural use of a set word in the story (an idiom rather than a concrete action). Neither blocks this revision; flagging again so a future pass considers evening out tch-word practice.",
+      "passage": "dex-tools"
+    },
+    {
+      "severity": "note",
+      "message": "Independently checked the brief's 16-word sentence cap by hand against every paragraph in the four touched passages plus the longest sentences elsewhere in story.r6.json; the longest sentence in the whole draft remains 15 words (ending-2), and all four new sentences in this revision are 13 words or fewer. This agrees with reports/validation.r6.json, whose brief.warnings is empty. Note that the literacy analyzer's own 'sentence-length' automated check uses a fixed 20-word cutoff (src/literacy/analyzer.ts LONG_SENTENCE), not the brief's 16-word limit -- the brief-specific 16-word check lives separately in checkAgainstBrief, which is where I actually verified the claim, since the analyzer's 0/20 result alone would not have confirmed the brief's tighter limit.",
+      "passage": "dex-lamp-watch"
+    },
+    {
+      "severity": "note",
+      "message": "Limits of this review: the analyzer in literacy.r6.json detects spelling patterns, not sound -- it would treat any 'wh' word the same regardless of how a child actually pronounces it, and it does not judge decodability, vocabulary level or story quality on its own. Its route check only follows the shortest path to each ending, not every path through the graph, so I separately traced the specific bypass route QA identified by hand. I read every passage and choice in story.r6.json myself, including all four passages changed in this revision, and compared r5 and r6 directly; I did not play the story in the app. I am an AI agent and this is a pre-review: it is not a human literacy review, and a qualified human reviewer must still confirm these linguistic claims before this story can be marked as having passed literacy review."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r6.json",
+      "sha256": "b64c4e09a41c26640d13c9a0e97af0582e61a0ba5e4e483e6eb0f6ebe1a17970"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r6.json",
+      "sha256": "c6797d96d504400f8acede68070e933332b6040ccb2da001db17cb027df6bf63"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/weave-comparison.r6.json",
+      "sha256": "800e2fcc63f87adc9bad59cc2344c65a77dd0486a651ee50054ad81949782930"
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "A space survival mystery: a navigator wakes early on a drifting ship and must wake the crew and steer clear of a dust storm. It practises wh, ck and tch words, plus -ed endings, beginning blends and FLOSS words. Readers also practise sequencing, inference and vocabulary from context.",
+    "skills": [
+      "comprehension",
+      "inference",
+      "sequencing",
+      "vocabulary"
+    ],
+    "wordTypes": [
+      {
+        "concept": "digraph-wh",
+        "examples": [
+          "when",
+          "white",
+          "wheel",
+          "whistle"
+        ]
+      },
+      {
+        "concept": "digraph-ck",
+        "examples": [
+          "back",
+          "deck",
+          "click",
+          "rock"
+        ]
+      },
+      {
+        "concept": "trigraph-tch",
+        "examples": [
+          "catch",
+          "latch",
+          "hatch",
+          "switch"
+        ]
+      },
+      {
+        "concept": "suffix-ed",
+        "examples": [
+          "asked",
+          "climbed",
+          "answered",
+          "cleared"
+        ]
+      },
+      {
+        "concept": "initial-blend",
+        "examples": [
+          "clamp",
+          "bridge",
+          "climb",
+          "clear"
+        ]
+      },
+      {
+        "concept": "floss",
+        "examples": [
+          "hall",
+          "buzz",
+          "hiss",
+          "glass"
+        ]
+      }
+    ],
+    "ogCategories": [
+      "Phonics",
+      "Spelling rules",
+      "Morphology",
+      "Comprehension"
+    ]
+  },
+  "id": "review-10-literacy",
+  "submittedAt": "2026-10-25T08:34:36.469Z"
+}
