@@ -3,132 +3,6 @@
   "published": [],
   "previews": [
     {
-      "id": "the-cat-who-took-the-wrong-turn",
-      "title": "The Cat Who Took the Wrong Turn",
-      "version": 4,
-      "path": "previews/the-cat-who-took-the-wrong-turn.json",
-      "sha256": "2b301c292efdc30b797b3c627cd601a035a21dfb0491d2d923d5d50db89fe36e",
-      "jobId": "job-20261020-the-cat-who-took-the-wro-fd6944",
-      "literacySummary": {
-        "blurb": "A gentle fantasy adventure in which a boy follows a cat into a land whose tower light is fading. It practises beginning blends, closed syllables and -ing endings, with sequencing, inference and vocabulary from context.",
-        "skills": [
-          "comprehension",
-          "inference",
-          "sequencing",
-          "vocabulary"
-        ],
-        "wordTypes": [
-          {
-            "concept": "initial-blend",
-            "examples": [
-              "step",
-              "frog",
-              "crab",
-              "drum"
-            ],
-            "label": "Initial consonant blend"
-          },
-          {
-            "concept": "closed-syllable",
-            "examples": [
-              "cat",
-              "map",
-              "mud",
-              "hop"
-            ],
-            "label": "Closed syllable (short vowel)"
-          },
-          {
-            "concept": "suffix-ing",
-            "examples": [
-              "climbing",
-              "glowing",
-              "hiding",
-              "ringing"
-            ],
-            "label": "Vowel suffix -ing"
-          },
-          {
-            "concept": "digraph-sh",
-            "examples": [
-              "ash",
-              "marsh",
-              "shook"
-            ],
-            "label": "Consonant digraph /sh/"
-          },
-          {
-            "concept": "floss",
-            "examples": [
-              "bell",
-              "hill",
-              "moss",
-              "fell"
-            ],
-            "label": "Floss rule"
-          },
-          {
-            "concept": "silent-e",
-            "examples": [
-              "gate",
-              "gave",
-              "came"
-            ],
-            "label": "Magic e / VCe syllable"
-          },
-          {
-            "concept": "digraph-th",
-            "examples": [
-              "path",
-              "that",
-              "fifth"
-            ],
-            "label": "Consonant digraph /th/"
-          }
-        ],
-        "ogCategories": [
-          "Phonics",
-          "Syllable types",
-          "Morphology",
-          "Comprehension"
-        ]
-      },
-      "jobState": "awaiting-parent-approval",
-      "gates": [
-        {
-          "id": "draft-exists",
-          "ok": true,
-          "detail": "Revision 4, story v4"
-        },
-        {
-          "id": "automated-validation",
-          "ok": true,
-          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
-        },
-        {
-          "id": "review:qa",
-          "ok": true,
-          "detail": "qa passed by qa-engineer (ai-agent)"
-        },
-        {
-          "id": "review:literacy",
-          "ok": true,
-          "detail": "literacy passed by literacy-specialist (ai-agent)"
-        },
-        {
-          "id": "story-literacy-claim",
-          "ok": true,
-          "detail": "Story literacy review is \"pending\""
-        },
-        {
-          "id": "parent-approval",
-          "ok": false,
-          "detail": "Waiting for a parent decision"
-        }
-      ],
-      "updatedAt": "2026-10-21T18:37:40.760Z"
-    },
-    {
       "id": "the-derelict-salvage",
       "title": "The Derelict Salvage",
       "version": 6,
@@ -773,6 +647,97 @@
         }
       ],
       "updatedAt": "2026-10-25T08:28:52.483Z"
+    },
+    {
+      "id": "the-cat-who-took-the-wrong-turn",
+      "title": "The Cat Who Took the Wrong Turn",
+      "version": 7,
+      "path": "previews/the-cat-who-took-the-wrong-turn.json",
+      "sha256": "3a05d6f751b2e994f53f09ceb1dca50fd6140bc5b054bf849cbf5547882ab0d2",
+      "jobId": "job-20261020-the-cat-who-took-the-wro-fd6944",
+      "literacySummary": {
+        "blurb": "Eli follows a stray cat down a manhole into a fading magical land and must decide how to help its people, choosing his own path through a marsh, a stairway and a tower toward one of five endings. Along the way he reads and meets, again and again, words with beginning blends, short closed-syllable words and -ing words, in natural sentences rather than a word list.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "vocabulary",
+          "detail",
+          "engagement"
+        ],
+        "wordTypes": [
+          {
+            "concept": "initial-blend",
+            "examples": [
+              "step",
+              "stone",
+              "frog",
+              "crab"
+            ],
+            "label": "Initial consonant blend"
+          },
+          {
+            "concept": "closed-syllable",
+            "examples": [
+              "cat",
+              "mud",
+              "hop",
+              "map"
+            ],
+            "label": "Closed syllable (short vowel)"
+          },
+          {
+            "concept": "suffix-ing",
+            "examples": [
+              "running",
+              "jumping",
+              "climbing",
+              "glowing"
+            ],
+            "label": "Vowel suffix -ing"
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Syllable types",
+          "Morphology",
+          "Comprehension"
+        ]
+      },
+      "jobState": "awaiting-parent-approval",
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": true,
+          "detail": "Revision 7, story v7"
+        },
+        {
+          "id": "automated-validation",
+          "ok": true,
+          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
+        },
+        {
+          "id": "review:qa",
+          "ok": true,
+          "detail": "qa passed by qa-engineer (ai-agent)"
+        },
+        {
+          "id": "review:literacy",
+          "ok": true,
+          "detail": "literacy passed by literacy-specialist (ai-agent)"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ],
+      "updatedAt": "2026-10-25T08:32:25.758Z"
     }
   ]
 }

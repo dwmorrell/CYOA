@@ -1,0 +1,110 @@
+{
+  "role": "literacy",
+  "reviewer": {
+    "name": "literacy-specialist",
+    "kind": "ai-agent",
+    "agent": "literacy-specialist"
+  },
+  "revision": 7,
+  "draftSha256": "3a05d6f751b2e994f53f09ceb1dca50fd6140bc5b054bf849cbf5547882ab0d2",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "Verified fix for the r6 'moderate' finding on how-to-go-down / the-quick-slip / last-look-at-the-gate / the-slow-slip. Read all four passages in story.r7.json directly: how-to-go-down now reads 'He could try jumping in fast, or ease down slow instead.' and last-look-at-the-gate reads 'Climbing down through the hole was the only way now.' - both natural, in-voice sentences, not forced insertions. The two new passages each open with the same word again in a different sentence: the-quick-slip, 'He was ready for jumping in, fast and bold. But the rim was wet. His feet slid before he could jump at all.'; the-slow-slip, 'Eli trusted the cat. He went slow, climbing down with care. But the rim was wet too.' Both read as ordinary narration of the choice the reader just made, not as word-list filler. reports/literacy.r7.json confirms 'jumping' and 'climbing' carry the declared suffix-ing pattern with no conceptMismatches, and the per-word counts (jumping 3, climbing 5) show these two words are no longer concentrated in a single skippable branch (stone-hop) the way the r6 review flagged for a different word.",
+      "passage": "how-to-go-down"
+    },
+    {
+      "severity": "minor",
+      "message": "Verified fix for the r6 finding that watch-the-hill dropped the -ing form. The passage now reads 'Eli watched the girl, still running, come closer down the hill.' - exactly the wording the prior review suggested, grammatically sound, and consistent with 'running' in the neighbouring passages 'varro' (choice label 'Wave to the girl running down the hill') and 'look-at-the-moss' ('A girl was running down the hill.'). This scene's three passages now agree on the word rather than paraphrasing it away.",
+      "passage": "watch-the-hill"
+    },
+    {
+      "severity": "minor",
+      "message": "Independently re-ran the full-path enumeration the r6 review used (not just the shortest-route sample reports/literacy.r7.json reports), walking every complete start-to-ending path through the r7 graph (respecting the reed-net item gate on 'net-the-lid' and the claw-prints clue gate on 'offer-den'): 132,224 complete paths, same count as r6 (the graph's choice count is unchanged; how-to-go-down and last-look-at-the-gate already had two choices in r6, now pointing at two distinct passages instead of a shared one). All three word sets meet their brief minimum on every single path: worst case blend-words 10, closed-syllable-words 21, suffix-ing 9 (floors 10/8/8). The worst-case suffix-ing path (9, ending home-too-soon) does not change from r6's reported worst case of 9, because that particular path goes through 'the-gate' -> 'call-for-help' -> 'the-fall', bypassing the four passages this revision edited (through-the-gap -> call-to-the-cat -> how-to-go-down -> the-quick-slip/the-slow-slip). That is fine - 9 is still above the floor of 8 on every path, not just the shortest one per ending - but it means this revision's fix added real, non-forced coverage to the specific passages the review named without moving the story's global worst-case margin, since the global worst-case route never visits them. Worth knowing if a future revision trims suffix-ing content elsewhere.",
+      "passage": "the-quick-slip"
+    },
+    {
+      "severity": "minor",
+      "message": "Carried over, unchanged by this revision, and correctly left out of scope per the revision notes: three sentences remain one word over the brief's 16-word soft limit, confirmed again in reports/validation.r7.json ('3 sentence(s) exceed the brief's 16-word limit') and by direct count in story.r7.json - late-for-school ('Eli's library book had a map in it, and he was meant to show it in class.', 17 words), frog-helped ('She was waiting at the start of the stairs, and she gave him a small, surprised smile.', 17 words), home-too-soon ('He looked at his muddy shoes and thought of the marsh, the stairs and the dark hatch.', 17 words). Also still true from r4/r6: the closed-syllable word 'bus' occurs exactly once in the whole story (in 'the-gate', skippable via the 'through-the-gap' opening choice), and 'jumping' remains concentrated enough that a reader can skip the marsh branch where 'stone-hop' lives - both allowed under the set-level rule ('each set should appear on every route', not every word). Non-blocking, listed for completeness since a fresh review of the full revision was requested.",
+      "passage": "late-for-school"
+    },
+    {
+      "severity": "minor",
+      "message": "The r6 'decorative-fork template' note (seven of the round-2 connector passages share a bare 'could do A, or B' shape with no narrative payoff) is explicitly, and per the revision notes correctly, only partly addressed: how-to-go-down, last-look-at-the-gate and watch-the-hill gained real texture as a side effect of the word-set fixes above, but settle-in-the-mud, watch-the-frog-hop, look-back-at-the-marsh, last-step-up, steady-your-nerves and one-more-breath are untouched and still fit that template. This was flagged as optional and non-blocking in the r6 review and stays that way; repeating it only so it is not mistaken for resolved.",
+      "passage": "settle-in-the-mud"
+    },
+    {
+      "severity": "minor",
+      "message": "Limits of automated detection, restated for this revision: reports/literacy.r7.json and the analyzer behind it detect spelling patterns, not sound. The broader 'Suffix -ing' concept count (58 tokens, distinct from the targeted six-word ing-word-set) and lists like 'Digraph th' still catch compounds such as 'anything' and 'nothing' ('any'/'no' + 'thing'), which are not the phonics pattern being targeted when applied to a free base; syllable counts in the glossary and readability metrics are estimates from vowel groups, not from how the words actually sound; and none of the automated checks judge whether a given child, with their own program's terminology and their own ear for these patterns, will find these specific words decodable. This review, and the report it checks, are not a substitute for a qualified human structured-literacy reviewer confirming decodability for the child's own program. My review is recorded with reviewer.kind 'ai-agent' and is the literacy gate the parent's approval decision depends on, not a replacement for that decision.",
+      "passage": "varro"
+    },
+    {
+      "severity": "note",
+      "message": "Skills practised: reading this story end to end, a child decodes in natural context short words with beginning consonant blends (step, stone, frog, plan, spin, trip, crab, drum), closed-syllable words (cat, map, net, lid, hop, mud, bus) and -ing words (running, jumping, hiding, climbing, glowing, ringing), meeting each set above its stated minimum on every complete path through the story I could enumerate (worst case: blend 10, closed-syllable 21, suffix-ing 9, against floors of 10/8/8). Beyond phonics, the child follows cause and effect and sequence across the fall, the marsh, the stairs and the tower (including two new 'tried to do X, but Y happened' passages that honour the reader's own choice before the shared outcome); makes inferences from clues (the small wet marks that lead up, the shivering crab, Lira's doubt about the 'hero') that gate some of the later choices; tracks who is speaking across multi-character dialogue; and meets new vocabulary in context with a glossary (lantern, manhole, marsh, hatch, creature, villain, library, promised). The gentle theme of kindness and courage, short average sentence length (about 8 words) and five distinct endings of different emotional weight (triumph x3, bittersweet, setback) suit the stated 10-to-13 age range without talking down to the reader.",
+      "passage": "late-for-school"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r7.json",
+      "sha256": "3a05d6f751b2e994f53f09ceb1dca50fd6140bc5b054bf849cbf5547882ab0d2"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/literacy.r7.json",
+      "sha256": "0c68ba7e4529a4c4e5b7ba193e7d0fefdbff89be08f1db1f6ee6a67cdd3dc475"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/weave-comparison.r7.json",
+      "sha256": "4654bd5abc4aa99cefd9aa44f286a6e7dc74b720fedffbd740c9848c68013942"
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "Eli follows a stray cat down a manhole into a fading magical land and must decide how to help its people, choosing his own path through a marsh, a stairway and a tower toward one of five endings. Along the way he reads and meets, again and again, words with beginning blends, short closed-syllable words and -ing words, in natural sentences rather than a word list.",
+    "skills": [
+      "comprehension",
+      "inference",
+      "sequencing",
+      "vocabulary",
+      "detail",
+      "engagement"
+    ],
+    "wordTypes": [
+      {
+        "concept": "initial-blend",
+        "examples": [
+          "step",
+          "stone",
+          "frog",
+          "crab"
+        ]
+      },
+      {
+        "concept": "closed-syllable",
+        "examples": [
+          "cat",
+          "mud",
+          "hop",
+          "map"
+        ]
+      },
+      {
+        "concept": "suffix-ing",
+        "examples": [
+          "running",
+          "jumping",
+          "climbing",
+          "glowing"
+        ]
+      }
+    ],
+    "ogCategories": [
+      "Phonics",
+      "Syllable types",
+      "Morphology",
+      "Comprehension"
+    ]
+  },
+  "id": "review-8-literacy",
+  "submittedAt": "2026-10-25T08:31:40.714Z"
+}
