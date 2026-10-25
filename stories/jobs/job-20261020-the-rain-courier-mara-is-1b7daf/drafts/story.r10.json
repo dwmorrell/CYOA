@@ -1,0 +1,515 @@
+{
+  "schemaVersion": "1.0",
+  "id": "the-rain-courier",
+  "title": "The Rain Courier",
+  "version": 10,
+  "metadata": {
+    "genre": "Cyberpunk delivery adventure",
+    "theme": "Trust, choosing who to believe, and keeping a promise",
+    "premise": "Mara is a rain-soaked courier, paid to carry a sealed data chip across the flooded city before the midnight handover. Gangs and corporate drones want the chip too, and a voice inside it seems to know her name.",
+    "estimatedMinutes": 20,
+    "authorship": {
+      "narrative": "narrative-designer (AI agent)",
+      "origin": "ai-generated"
+    },
+    "createdAt": "2026-10-20"
+  },
+  "literacy": {
+    "targetConcepts": ["closed-syllable", "digraph-sh", "digraph-ch", "suffix-ing"],
+    "wordSets": [
+      {
+        "id": "closed-syllable-words",
+        "label": "closed syllable words",
+        "concept": "closed-syllable",
+        "words": ["cab", "bag", "pick", "lock", "mask", "sack", "dash", "hack"],
+        "minOccurrences": 10
+      },
+      {
+        "id": "sh-words",
+        "label": "sh words",
+        "concept": "digraph-sh",
+        "words": ["shop", "shade", "shot", "shut", "flash", "shell"],
+        "minOccurrences": 8
+      },
+      {
+        "id": "ch-words",
+        "label": "ch words",
+        "concept": "digraph-ch",
+        "words": ["chip", "chase", "chill", "much", "lunch", "chain"],
+        "minOccurrences": 8
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  },
+  "start": "start",
+  "items": [
+    {
+      "id": "lock-pick",
+      "name": "Tam's pick set",
+      "description": "A tin of thin steel tools. A pick can open a simple lock if you are gentle."
+    }
+  ],
+  "clues": [
+    {
+      "id": "flood-stamp",
+      "name": "Flood stamp",
+      "description": "A water drop and the words FLOOD GATE NINE are stamped on the chip's shell. Vex said it held party music."
+    }
+  ],
+  "passages": [
+    {
+      "id": "start",
+      "title": "The Cab Stand",
+      "paragraphs": [
+        "Rain fell on the old cab stand. It had been raining for as long as Mara could remember.",
+        "Mara sat on her patched old bike. Her coat was soaked, and she felt a chill.",
+        "Vex waited under a dripping roof. He was a broker, and he wore a grey mask. No courier had ever seen his face.",
+        "\"One job, Mara,\" he said. \"Take this bag to the old rail bridge. Be there by midnight.\"",
+        "Inside the bag lay a small black chip. It was sealed in a hard shell. \"Do not open it. Do not lose it. Do not stop for anyone,\" said Vex.",
+        "Mara tucked the bag under her coat. Far off, the tower lights were blinking through the fog. Then a tiny voice spoke from the bag. \"Hello, Mara,\" it said. \"My name is Nine. Your aunt Ila made me. I have been waiting for you.\""
+      ],
+      "learningTargets": ["detail", "engagement"],
+      "choices": [
+        {
+          "id": "to-shop",
+          "label": "Ride to the market and find a friendly shop",
+          "target": "shop"
+        },
+        {
+          "id": "to-alley",
+          "label": "Slip into a dark alley and talk to the voice",
+          "target": "alley"
+        }
+      ]
+    },
+    {
+      "id": "shop",
+      "title": "Tam's Repair Shop",
+      "paragraphs": [
+        "Mara rode to the market. Rain drummed on the stalls.",
+        "Old Tam ran a repair shop at the end of the row. A warm light shone from his door.",
+        "\"You look soaked,\" said Tam. \"Sit down. I have lunch in my sack, and plenty of it.\"",
+        "Mara ate fast. She had not stopped since dawn, and the soup was hot.",
+        "The bag hummed on her knee. Tam raised one eyebrow but said nothing.",
+        "Then he picked up a thin tin box. \"Couriers get stuck at locked gates,\" he said."
+      ],
+      "learningTargets": ["comprehension", "detail"],
+      "choices": [
+        {
+          "id": "ask-tam",
+          "label": "Ask Tam what is in the tin box",
+          "target": "shop-pick"
+        },
+        {
+          "id": "leave-shop",
+          "label": "Say thanks and ride on without the box",
+          "target": "gathering"
+        }
+      ]
+    },
+    {
+      "id": "shop-pick",
+      "title": "The Tin Box",
+      "paragraphs": [
+        "Inside the tin lay a set of thin steel tools.",
+        "\"A pick set,\" said Tam. \"It will open a simple lock. Be gentle with it.\"",
+        "He looked at the humming bag. \"That voice. Does it know you?\"",
+        "\"It said my name,\" said Mara.",
+        "\"Then listen close,\" said Tam. \"But do not trust it or anyone too much. Check what they tell you.\"",
+        "Mara put the pick set in her pocket. Down the row, a dark alley caught her eye. She could duck into its shade, or ride on to the crossing."
+      ],
+      "learningTargets": ["inference", "vocabulary", "sequencing"],
+      "effects": {
+        "addItems": ["lock-pick"]
+      },
+      "choices": [
+        {
+          "id": "pick-onward",
+          "label": "Duck into the dark alley",
+          "target": "alley"
+        },
+        {
+          "id": "pick-skip-alley",
+          "label": "Ride straight on to the crossing",
+          "target": "gathering",
+          "learningTargets": ["sequencing"]
+        }
+      ]
+    },
+    {
+      "id": "alley",
+      "title": "The Dark Alley",
+      "paragraphs": [
+        "The alley was narrow and dark. Water ran down the walls in thin streams.",
+        "Mara stopped her bike in the shade of a fire stair. She took the chip from the bag.",
+        "It glowed a soft blue. \"My name is Nine,\" said the voice. \"I know you from long ago.\"",
+        "\"Why did Ila make you?\" asked Mara.",
+        "\"To keep a secret safe. Look at my shell, Mara. Do not just take my word.\""
+      ],
+      "learningTargets": ["comprehension", "engagement"],
+      "choices": [
+        {
+          "id": "turn-chip",
+          "label": "Turn the chip over and look at its shell",
+          "target": "alley-clue"
+        },
+        {
+          "id": "alley-leave",
+          "label": "Put the chip away and ride on",
+          "target": "gathering"
+        }
+      ]
+    },
+    {
+      "id": "alley-clue",
+      "title": "The Little Stamp",
+      "paragraphs": [
+        "On the back of the shell was a tiny stamp. It showed a water drop and three words: FLOOD GATE NINE.",
+        "Mara frowned. Vex had told her the chip held music for a party.",
+        "A music file does not need a flood stamp.",
+        "\"Vex did not tell you the whole truth,\" said Nine. \"I cannot say what he wants. Watch what he does.\"",
+        "Mara said nothing. She wrapped the chip in cloth and put it back in the bag.",
+        "A back lane cut toward the bridge. The crossing was the longer way round."
+      ],
+      "learningTargets": ["inference", "detail", "sequencing"],
+      "effects": {
+        "addClues": ["flood-stamp"]
+      },
+      "choices": [
+        {
+          "id": "clue-onward",
+          "label": "Ride on to the tower lights",
+          "target": "gathering"
+        },
+        {
+          "id": "clue-shortcut",
+          "label": "Slip down the back lane toward the bridge",
+          "target": "drone-street",
+          "learningTargets": ["sequencing"]
+        }
+      ]
+    },
+    {
+      "id": "gathering",
+      "title": "Under the Tower Lights",
+      "paragraphs": [
+        "Mara reached a crossing where four streets met. The tower lights blinked through the fog like slow, tired eyes.",
+        "She thought about her night. First came the cab stand. Then came the shop or the alley. Now came the crossing.",
+        "The old rail bridge was two streets away. There was still time to look around."
+      ],
+      "learningTargets": ["sequencing"],
+      "choices": [
+        {
+          "id": "gather-shop",
+          "label": "Ride back to Tam's shop",
+          "target": "shop"
+        },
+        {
+          "id": "gather-alley",
+          "label": "Ride back to the dark alley",
+          "target": "alley"
+        },
+        {
+          "id": "gather-lane",
+          "label": "Take the lane toward the bridge",
+          "target": "drone-street"
+        }
+      ]
+    },
+    {
+      "id": "drone-street",
+      "title": "The Drone Lane",
+      "paragraphs": [
+        "A drone hummed over the lane. It shot a white flash over the wet street, back and forth.",
+        "Two more drones followed. They were on a chase for any courier with a sealed chip.",
+        "Mara pulled up her rain mask. Nine whispered, \"Do not be seen.\""
+      ],
+      "learningTargets": ["engagement", "vocabulary"],
+      "choices": [
+        {
+          "id": "hide-in-shade",
+          "label": "Hide in the shade of a bus shelter",
+          "target": "hide-shade"
+        },
+        {
+          "id": "dash-past",
+          "label": "Make a dash past the drones",
+          "target": "dash-past"
+        }
+      ]
+    },
+    {
+      "id": "hide-shade",
+      "title": "Still as Stone",
+      "paragraphs": [
+        "Mara slid off her bike and crouched in the shade. She held her breath.",
+        "The drones passed so close that the wind from them stirred her hair. Their flash slid over the shelter and moved on.",
+        "\"Good,\" whispered Nine. \"Slow is quiet.\"",
+        "When the hum faded, Mara pushed her bike toward the rail bridge.",
+        "Nine warned that more drones might wait at the bridge. For a moment, Mara wondered if giving up was easier."
+      ],
+      "learningTargets": ["comprehension", "inference"],
+      "choices": [
+        {
+          "id": "shade-onward",
+          "label": "Walk the bike to the bridge gate",
+          "target": "threshold"
+        },
+        {
+          "id": "shade-give-up",
+          "label": "Wave the drone down and give up the bag",
+          "target": "ending-5",
+          "learningTargets": ["inference"]
+        }
+      ]
+    },
+    {
+      "id": "dash-past",
+      "title": "The Fast Way",
+      "paragraphs": [
+        "Mara pushed hard and made her dash. Her old bike rattled over the stones.",
+        "A drone swung round, and its flash lit the whole street. The chain on her bike sang as she turned. A chill ran down her back, but her wheel held. She pressed the chip to her chest.",
+        "She cut into a tunnel and the hum fell behind her. Her heart was pounding.",
+        "\"That was loud,\" said Nine. \"They may be waiting at the bridge now.\"",
+        "Ahead, the street forked. One way led straight to the bridge gate. The other had a shaded doorway."
+      ],
+      "learningTargets": ["sequencing", "engagement"],
+      "choices": [
+        {
+          "id": "dash-onward",
+          "label": "Ride on to the bridge gate",
+          "target": "threshold"
+        },
+        {
+          "id": "dash-duck",
+          "label": "Duck into the shaded doorway to catch her breath",
+          "target": "catch-breath",
+          "learningTargets": ["sequencing"]
+        }
+      ]
+    },
+    {
+      "id": "catch-breath",
+      "title": "Catching Her Breath",
+      "paragraphs": [
+        "Mara slipped into the shaded doorway and leaned on the cold brick wall.",
+        "Her chest still heaved from the dash, and her hands shook on the bag's strap.",
+        "\"The hum is gone,\" said Nine. \"But the bridge gate may still be watched.\"",
+        "Mara pressed the chip's hard shell to her chest and caught her breath.",
+        "For a moment, giving up felt easier than one more dash."
+      ],
+      "learningTargets": ["inference", "engagement"],
+      "choices": [
+        {
+          "id": "catch-onward",
+          "label": "Push on to the bridge gate",
+          "target": "threshold"
+        },
+        {
+          "id": "catch-give-up",
+          "label": "Wave down a drone and give up the bag",
+          "target": "ending-5",
+          "learningTargets": ["inference"]
+        }
+      ]
+    },
+    {
+      "id": "threshold",
+      "title": "The Bridge Gate",
+      "paragraphs": [
+        "The old rail bridge rose out of the fog. A tall iron gate stood shut at the foot of the track.",
+        "A big lock hung on the gate. It had a water drop stamped on it, just like the chip.",
+        "On the far side of the bridge, a small light blinked three times.",
+        "Behind Mara, a cab engine growled. Vex had come early.",
+        "Above, a drone hummed. It was watching the gate."
+      ],
+      "learningTargets": ["inference", "detail"],
+      "choices": [
+        {
+          "id": "pick-the-lock",
+          "label": "Pick the lock quietly with Tam's tools",
+          "target": "climax-gate",
+          "requires": {
+            "items": ["lock-pick"],
+            "clues": ["flood-stamp"]
+          },
+          "lockedHint": "Find Tam's pick set at the shop and the chip's stamp in the alley."
+        },
+        {
+          "id": "ask-nine-hack",
+          "label": "Ask Nine to hack the lock",
+          "target": "climax-hack"
+        },
+        {
+          "id": "call-drone",
+          "label": "Wave at the drone and call for help",
+          "target": "ending-5"
+        }
+      ]
+    },
+    {
+      "id": "climax-gate",
+      "title": "Click",
+      "paragraphs": [
+        "Mara slid the pick into the lock and listened. She turned it a little. Click.",
+        "The lock fell open. She slipped through and eased the gate shut behind her.",
+        "\"First the gate, then the track, then the far light,\" said Nine. \"You are doing it in the right order.\"",
+        "Halfway across the bridge, Vex stepped out of the fog. A drone captain stood beside him.",
+        "\"Give me the chip, Mara,\" said Vex. \"I will pay you twice.\"",
+        "Mara looked at his grey mask. Then she looked at the small light on the far side."
+      ],
+      "learningTargets": ["sequencing", "inference"],
+      "choices": [
+        {
+          "id": "walk-to-light",
+          "label": "Walk on to the far light",
+          "target": "ending-1"
+        },
+        {
+          "id": "nine-hacks-drones",
+          "label": "Ask Nine to hack the drones' link",
+          "target": "ending-2"
+        }
+      ]
+    },
+    {
+      "id": "climax-hack",
+      "title": "The Loud Bell",
+      "paragraphs": [
+        "\"Hold still,\" said Nine. \"I will hack the lock.\"",
+        "The lock clicked open. But a loud bell rang out, and lights began to flash along the whole bridge.",
+        "Drones swung toward Mara. Vex ran up through the rain, his mask dripping.",
+        "\"Give me the chip,\" he said. \"It is the only way you get paid and stay safe.\"",
+        "Mara held the bag tight. Her mind raced."
+      ],
+      "learningTargets": ["comprehension", "engagement"],
+      "choices": [
+        {
+          "id": "give-to-vex",
+          "label": "Hand the chip to Vex",
+          "target": "ending-3"
+        },
+        {
+          "id": "dash-over-bridge",
+          "label": "Dash over the bridge with the chip",
+          "target": "ending-4"
+        }
+      ]
+    },
+    {
+      "id": "ending-1",
+      "title": "The Promise Kept",
+      "paragraphs": [
+        "Mara walked on. Vex called her name, but she did not turn round.",
+        "The drone captain looked at the stamp on the gate. It looked at Vex. Then it lifted into the fog and left.",
+        "At the far end, a woman stood in a lit booth. A water drop was painted on its door.",
+        "\"Aunt Ila?\" said Mara. Ila took the chip and slid it into a slot. Far below, a huge gate groaned and swung shut. The flood water stopped rising.",
+        "\"Hello, Ila,\" said Nine. \"I kept the secret.\"",
+        "Mara smiled. She had checked the clue, picked the right person to believe, and kept her promise."
+      ],
+      "learningTargets": ["comprehension", "engagement"],
+      "choices": [],
+      "ending": {
+        "id": "ending-1",
+        "kind": "triumph",
+        "title": "The Promise Kept"
+      }
+    },
+    {
+      "id": "ending-2",
+      "title": "Nine Takes Control",
+      "paragraphs": [
+        "\"Done,\" said Nine. The lights on the drones turned from red to green.",
+        "Every drone spun round and flew back to its tower. The captain went with them.",
+        "Vex stood alone on the bridge with his hands empty. He turned and walked into the fog.",
+        "Mara crossed to the far light. Ila took the chip and shut the flood gate for the night.",
+        "\"Nine is a good partner,\" said Ila. \"Would you like to keep her in your bag?\"",
+        "So Mara and Nine rode the wet streets together. They became the best courier team in the city."
+      ],
+      "learningTargets": ["comprehension", "vocabulary"],
+      "choices": [],
+      "ending": {
+        "id": "ending-2",
+        "kind": "triumph",
+        "title": "A Courier and Her Voice"
+      }
+    },
+    {
+      "id": "ending-3",
+      "title": "The Quiet Chip",
+      "paragraphs": [
+        "Mara gave the chip to Vex. He took it with a nod and dropped a coin pouch in her hand.",
+        "The bell stopped. The drones flew off with him, and the bridge fell quiet.",
+        "Nine said nothing more. The tiny voice had gone silent.",
+        "By morning, the low streets stood deep in water. The market shops were shut for a week.",
+        "No one was hurt, but Mara felt the weight of her choice. She had not checked the clue.",
+        "She kept the pouch and the old bike. Next time, she would ask who she should believe."
+      ],
+      "learningTargets": ["inference", "comprehension"],
+      "choices": [],
+      "ending": {
+        "id": "ending-3",
+        "kind": "bittersweet",
+        "title": "The Weight of a Choice"
+      }
+    },
+    {
+      "id": "ending-4",
+      "title": "Across the Bridge",
+      "paragraphs": [
+        "Mara dashed over the bridge. The drones swung after her. Their flash lit the rails like day.",
+        "Halfway over, the chain on her bike snapped. The bike slid sideways and fell into the river with a splash.",
+        "Mara ran the last of the way on foot, with the bag held tight.",
+        "At the far end, a woman in a lit booth pulled her inside and shut the door. It was Aunt Ila.",
+        "The chip went into its slot. Far below, a huge gate groaned and closed. The flood water stopped rising.",
+        "Mara had lost her old bike. But the city was safe, and she had kept her promise."
+      ],
+      "learningTargets": ["comprehension", "engagement"],
+      "choices": [],
+      "ending": {
+        "id": "ending-4",
+        "kind": "bittersweet",
+        "title": "A Promise and a Lost Bike"
+      }
+    },
+    {
+      "id": "ending-5",
+      "title": "The Drone's Light",
+      "paragraphs": [
+        "Mara waved at the drone. Its white flash locked on her.",
+        "A cold voice said, \"Courier. Hand over the bag.\" A metal arm lowered and lifted the bag out of her hands.",
+        "The drone rose into the fog and was gone. Mara stood in the rain with empty hands.",
+        "Nobody was hurt, but it had cost her much. Now the bag, the chip and Nine had all been taken.",
+        "She walked to the market. Old Tam ran a repair shop there. He gave her hot soup, some lunch from his sack and a seat by the fire.",
+        "\"You can try again,\" said Tam. \"This time, listen close, and check what you see.\""
+      ],
+      "learningTargets": ["comprehension", "inference"],
+      "choices": [],
+      "ending": {
+        "id": "ending-5",
+        "kind": "setback",
+        "title": "Try Again Tomorrow"
+      }
+    }
+  ],
+  "glossary": {
+    "courier": {
+      "syllables": ["cou", "ri", "er"],
+      "definition": "A person who carries parcels or messages from one place to another."
+    },
+    "broker": {
+      "syllables": ["bro", "ker"],
+      "definition": "A person who arranges jobs and pays others to do them."
+    },
+    "handover": {
+      "syllables": ["hand", "o", "ver"],
+      "definition": "The moment when something is given from one person to another."
+    },
+    "drone": {
+      "syllables": ["drone"],
+      "definition": "A small flying machine that moves without a pilot inside."
+    }
+  }
+}

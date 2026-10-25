@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-rain-courier",
   "title": "The Rain Courier",
-  "version": 9,
+  "version": 10,
   "metadata": {
     "genre": "Cyberpunk delivery adventure",
     "theme": "Trust, choosing who to believe, and keeping a promise",
@@ -285,8 +285,33 @@
         {
           "id": "dash-duck",
           "label": "Duck into the shaded doorway to catch her breath",
-          "target": "hide-shade",
+          "target": "catch-breath",
           "learningTargets": ["sequencing"]
+        }
+      ]
+    },
+    {
+      "id": "catch-breath",
+      "title": "Catching Her Breath",
+      "paragraphs": [
+        "Mara slipped into the shaded doorway and leaned on the cold brick wall.",
+        "Her chest still heaved from the dash, and her hands shook on the bag's strap.",
+        "\"The hum is gone,\" said Nine. \"But the bridge gate may still be watched.\"",
+        "Mara pressed the chip's hard shell to her chest and caught her breath.",
+        "For a moment, giving up felt easier than one more dash."
+      ],
+      "learningTargets": ["inference", "engagement"],
+      "choices": [
+        {
+          "id": "catch-onward",
+          "label": "Push on to the bridge gate",
+          "target": "threshold"
+        },
+        {
+          "id": "catch-give-up",
+          "label": "Wave down a drone and give up the bag",
+          "target": "ending-5",
+          "learningTargets": ["inference"]
         }
       ]
     },
