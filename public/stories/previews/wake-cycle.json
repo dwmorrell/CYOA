@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "wake-cycle",
   "title": "Wake Cycle",
-  "version": 3,
+  "version": 6,
   "metadata": {
     "genre": "Space survival mystery",
     "theme": "Staying calm under pressure, working with others, and thinking a problem through",
@@ -57,7 +57,25 @@
       ],
       "effects": { "addItems": ["tool-pack"] },
       "learningTargets": ["inference", "detail"],
-      "choices": [{ "id": "to-hall-a", "label": "Walk out into the pod hall", "target": "hall" }]
+      "choices": [
+        { "id": "to-hall-a", "label": "Walk out into the pod hall", "target": "hall" },
+        { "id": "listen-at-door", "label": "Listen at the door before you go", "target": "locker-listen", "learningTargets": ["inference"] }
+      ]
+    },
+    {
+      "id": "locker-listen",
+      "title": "A Whistle In The Vents",
+      "paragraphs": [
+        "Jun paused and listened at the door.",
+        "A thin whistle moved through the vents. It rose, then fell, like slow breath.",
+        "\"That is the dust,\" said Oru. \"It is closer than before.\"",
+        "Jun's neck prickled. Time to move, but stay steady."
+      ],
+      "learningTargets": ["inference", "engagement"],
+      "choices": [
+        { "id": "to-hall-listen", "label": "Walk out into the pod hall", "target": "hall" },
+        { "id": "hurry-to-engine", "label": "Hurry down to the engine room instead", "target": "engine", "learningTargets": ["engagement"] }
+      ]
     },
     {
       "id": "oru-log",
@@ -71,7 +89,25 @@
       ],
       "effects": { "addClues": ["dust-map"] },
       "learningTargets": ["detail", "comprehension"],
-      "choices": [{ "id": "to-hall-b", "label": "Walk out into the pod hall", "target": "hall" }]
+      "choices": [
+        { "id": "to-hall-b", "label": "Walk out into the pod hall", "target": "hall" },
+        { "id": "ask-oru-more", "label": "Ask Oru about the crew's last call", "target": "oru-log-crew", "learningTargets": ["inference"] }
+      ]
+    },
+    {
+      "id": "oru-log-crew",
+      "title": "The Last Call",
+      "paragraphs": [
+        "\"What was the crew's last call?\" Jun asked.",
+        "\"A short message,\" said Oru. \"Check the engine room. Then static.\"",
+        "Jun's stomach tightened. Someone down there might need help.",
+        "The white screen flickered, then went still."
+      ],
+      "learningTargets": ["inference", "detail"],
+      "choices": [
+        { "id": "to-hall-crew", "label": "Walk out into the pod hall", "target": "hall" },
+        { "id": "hurry-to-engine-crew", "label": "Hurry straight to the engine room", "target": "engine", "learningTargets": ["inference"] }
+      ]
     },
     {
       "id": "hall",
@@ -111,11 +147,35 @@
       "title": "Not Yet",
       "paragraphs": [
         "The pod gave a sad buzz. Nothing broke. The pod just waited.",
-        "\"Order matters,\" said Oru. \"Latch, switch, hatch.\"",
-        "Jun did not rush. Jun lifted the latch first. Then Jun pressed the switch. Last, Jun eased the hatch up."
+        "\"Order matters,\" said Oru. \"Latch, switch, hatch.\""
       ],
       "learningTargets": ["sequencing", "engagement"],
-      "choices": [{ "id": "after-not-yet", "label": "Wait for the Captain to wake", "target": "captain-wakes" }]
+      "choices": [
+        { "id": "after-not-yet", "label": "Try again, in the right order", "target": "captain-wakes" },
+        { "id": "ask-oru-why", "label": "Ask Oru why the order matters", "target": "not-yet-why", "learningTargets": ["vocabulary"] }
+      ]
+    },
+    {
+      "id": "not-yet-why",
+      "title": "Latch, Switch, Hatch",
+      "paragraphs": [
+        "\"Why does order matter?\" Jun asked.",
+        "\"The latch unlocks,\" said Oru. \"The switch wakes the heartbeat. The hatch lets in air.\"",
+        "\"Skip a step, and the pod just waits. It will not break.\"",
+        "A small panel by the pod blinked. Thin white lines crossed it, like the dust on Oru's big screen.",
+        "Jun nodded, ready to try again, slow and sure."
+      ],
+      "learningTargets": ["vocabulary", "comprehension"],
+      "choices": [
+        {
+          "id": "after-not-yet-why",
+          "label": "Check the panel, then open the pod step by step",
+          "target": "captain-wakes",
+          "effects": { "addClues": ["dust-map"] },
+          "learningTargets": ["detail", "sequencing"]
+        },
+        { "id": "skip-explanation", "label": "Skip the panel and lift the latch now", "target": "captain-wakes", "learningTargets": ["engagement"] }
+      ]
     },
     {
       "id": "captain-wakes",
@@ -177,7 +237,32 @@
         "\"Now,\" said Jun. \"It stopped when you turned it left.\""
       ],
       "learningTargets": ["sequencing", "detail"],
-      "choices": [{ "id": "lamp-on", "label": "Ask Dex what is next", "target": "dex-fixed" }]
+      "choices": [
+        { "id": "lamp-on", "label": "Ask Dex what is next", "target": "dex-fixed" },
+        { "id": "steady-lamp", "label": "Keep the lamp steady and watch for sparks", "target": "dex-lamp-watch", "learningTargets": ["detail"] }
+      ]
+    },
+    {
+      "id": "dex-lamp-watch",
+      "title": "A Spark By The Wire",
+      "paragraphs": [
+        "Jun kept the lamp steady and watched the wire close.",
+        "A spark snapped near the switch. \"Back up a little,\" said Dex.",
+        "Jun stepped back. The spark faded, and Dex gave a quick nod.",
+        "Across the room, a paper chart hung on the wall.",
+        "\"Good catch,\" said Dex. \"Now, let's see what is next.\""
+      ],
+      "learningTargets": ["detail", "engagement"],
+      "choices": [
+        { "id": "after-lamp-watch", "label": "Ask Dex what is next", "target": "dex-fixed" },
+        {
+          "id": "go-to-chart",
+          "label": "Glance at the wall chart while Dex wraps up",
+          "target": "dex-fixed",
+          "effects": { "addClues": ["dust-map"] },
+          "learningTargets": ["detail"]
+        }
+      ]
     },
     {
       "id": "dex-tools",
@@ -189,7 +274,32 @@
         "\"Tools in order,\" said Dex. \"That is how you catch a leak.\""
       ],
       "learningTargets": ["sequencing", "comprehension"],
-      "choices": [{ "id": "tools-on", "label": "Ask Dex what is next", "target": "dex-fixed" }]
+      "choices": [
+        { "id": "tools-on", "label": "Ask Dex what is next", "target": "dex-fixed" },
+        { "id": "sort-tools", "label": "Sort the spare tools while Dex checks the valve", "target": "dex-tools-sort", "learningTargets": ["sequencing"] }
+      ]
+    },
+    {
+      "id": "dex-tools-sort",
+      "title": "Tools In A Row",
+      "paragraphs": [
+        "Jun sorted the spare tools into the pack.",
+        "Click. Click. Each tool found its place.",
+        "Dex checked the valve once more. \"All steady,\" he said.",
+        "Across the room, Dex's paper chart hung on the wall.",
+        "\"Nice work. Now, let's see what is next.\""
+      ],
+      "learningTargets": ["sequencing", "engagement"],
+      "choices": [
+        { "id": "after-tools-sort", "label": "Ask Dex what is next", "target": "dex-fixed" },
+        {
+          "id": "go-to-chart-tools",
+          "label": "Glance at the wall chart while Dex checks the valve",
+          "target": "dex-fixed",
+          "effects": { "addClues": ["dust-map"] },
+          "learningTargets": ["detail"]
+        }
+      ]
     },
     {
       "id": "dex-fixed",
@@ -231,7 +341,32 @@
         "Dex pointed to a backup wheel on the wall. \"The ship needs a steady hand. That is you.\""
       ],
       "learningTargets": ["comprehension"],
-      "choices": [{ "id": "take-backup-wheel", "label": "Take the backup wheel", "target": "threshold" }]
+      "choices": [
+        { "id": "take-backup-wheel", "label": "Take the backup wheel yourself", "target": "threshold" },
+        { "id": "bring-dex-along", "label": "Ask Dex to come up and help at the wheel", "target": "storm-engine-together", "learningTargets": ["engagement"] }
+      ]
+    },
+    {
+      "id": "storm-engine-together",
+      "title": "Two Heads Are Better",
+      "paragraphs": [
+        "\"Come with me,\" said Jun. \"Two heads are better than one.\"",
+        "Dex grabbed a spare lamp and a coil of wire. \"Lead the way.\"",
+        "They climbed the steps together as the ship rattled around them.",
+        "At the top, the dust storm filled the window in a wall of white.",
+        "Dex's handheld sensor blinked. A thin, clear lane flickered on its tiny screen."
+      ],
+      "learningTargets": ["engagement", "comprehension"],
+      "choices": [
+        { "id": "to-threshold-together", "label": "Face the storm together", "target": "threshold" },
+        {
+          "id": "double-check-sensors",
+          "label": "Ask Dex to check the sensors once more first",
+          "target": "threshold",
+          "effects": { "addClues": ["dust-map"] },
+          "learningTargets": ["detail"]
+        }
+      ]
     },
     {
       "id": "threshold",
