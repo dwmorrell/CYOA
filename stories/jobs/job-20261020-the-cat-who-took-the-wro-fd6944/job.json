@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-cat-who-took-the-wro-fd6944",
   "storyId": "the-cat-who-took-the-wrong-turn",
-  "state": "in-review",
+  "state": "changes-requested",
   "createdAt": "2026-10-20T23:23:24.700Z",
-  "updatedAt": "2026-10-24T23:34:07.268Z",
+  "updatedAt": "2026-10-25T08:17:47.777Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/request.json",
@@ -636,6 +636,71 @@
       "id": "review-5-literacy",
       "submittedAt": "2026-10-21T18:37:06.758Z",
       "invalidatedBy": 5
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 6,
+      "draftSha256": "ede654f1beae05194766f89b612ecb59309e49b89b5a06d625f9c2401653414d",
+      "verdict": "changes-requested",
+      "findings": [
+        {
+          "severity": "major",
+          "passage": "how-to-go-down",
+          "message": "The new branch choice added to fix the single-choice error is not a genuine branch, and it contradicts the passage it leads to. how-to-go-down (story.r6.json lines 106-117, tagged learningTargets ['sequencing','engagement']) offers 'Jump in fast, feet first' (jump-in-fast, line 114) versus 'Ease yourself down slowly instead' (go-down-slow, line 115) -- both deliberate, different actions -- but both target the-fall, whose opening line (line 166) is 'The rim was wet. Eli's shoe slid, and down he went.' That is an accidental slip, not a deliberate jump or a slow, controlled descent. A reader who picks either new choice gets a next page that denies the choice they just made. This also undercuts the 'sequencing' learning target the passage is tagged with. Fix: either give the-fall two short variant openings keyed to how he went down, or rewrite the two new choice labels/outcomes so they are consistent with 'his shoe slid' (e.g. both describe different flavors of the same slip) rather than implying full control."
+        },
+        {
+          "severity": "major",
+          "passage": "last-look-at-the-gate",
+          "message": "Same contradiction as how-to-go-down. last-look-at-the-gate (lines 150-161) offers 'Trust the cat and climb down' (trust-the-cat, line 158), which explicitly describes a controlled climb, and 'Decide to follow the cat anyway' (go-anyway, line 159); both target the-fall, whose text (line 166) is an accidental slide ('his shoe slid, and down he went'), not a climb. 'trust-the-cat' in particular reads as a deliberate, careful descent and is flatly contradicted by the next passage. Needs the same fix approach as how-to-go-down: either branch the-fall's opening or rewrite the choice outcome so it does not promise a controlled climb that never happens."
+        },
+        {
+          "severity": "minor",
+          "passage": "watch-the-hill",
+          "message": "Minor, not blocking: watch-the-hill (lines 235-246) offers 'Wave first, before she gets close' (wave-first) vs 'Wait quietly for her to speak' (wait-quiet), both targeting meet-lira. meet-lira's text (lines 248-263) has Lira speak first regardless ('\"That is Ash,\" she said'), with no acknowledgement of whether Eli waved. Not a hard contradiction since the two can coexist, but the choice has no visible effect on the following text, so it reads as cosmetic rather than a genuine branch. Same pattern (a choice with no visible narrative effect) appears in several of the round-2 connector passages added in this revision (watch-the-frog-hop, look-back-at-the-marsh, last-step-up, steady-your-nerves, one-more-breath, settle-in-the-mud) -- none of these have continuity errors like how-to-go-down/last-look-at-the-gate, but none of them change any text, item, clue or ending outcome either. They satisfy the graph validator's 'at least two choices' rule, but most are decorative forks that immediately rejoin with no acknowledgement of which fork was taken. Worth a narrative pass to give at least a couple of these a one-clause callback in the passage they rejoin, so the extra choices read as real decisions rather than validator filler."
+        },
+        {
+          "severity": "note",
+          "passage": "npm run check",
+          "message": "I ran `npm run check` myself (lint, typecheck, 191 unit tests, validate:stories, agents:check, build). Lint, typecheck, tests and build all passed. `npm run validate:stories` FAILED overall (exit code 1): it reports 'public/stories/previews/the-cat-who-took-the-wrong-turn.json: schema: ok; graph: 9 error(s), 0/5 endings reachable' with the same nine single-choice passage ids this job's r5/r6 fixed (through-the-gap, the-gate, the-fall, varro, frog-helped, stone-hop, the-prints, net-lid, ladder-climb). That file is a stale, separate demo/preview snapshot at story version 4 (checked with grep), not the job's draft; it is unrelated to narrative-designer's work on this job and I did not and must not edit it per my task's scope (no touching public/stories/previews). The same validate:stories run also fails on four other, unrelated jobs' stale preview snapshots (the-derelict-salvage, the-rain-courier, the-tomb-of-ameru, wake-cycle), so this looks like a pre-existing, repo-wide staleness issue, not something introduced by this revision. I am reporting the real `npm run check` output rather than claiming a pass: as of this review, `npm run check` does not pass for the repository as a whole, for reasons outside this job's draft. This should be escalated (orchestrator/release-manager) separately from this story's content review. The job's own automated-validation gate (reports/validation.r6.json) is ok: true, schema ok, graph ok with 5/5 endings reachable, which I verified directly against the r6 draft."
+        },
+        {
+          "severity": "note",
+          "message": "Routes traced against story.r6.json and graph.r6.json (choice ids; item/clue gates checked): (1) ending-warm-den (triumph, requires clue claw-prints): late-for-school--squeeze-through-->through-the-gap--lean-over-->the-fall--look-around-->varro--meet-lira-->meet-lira--take-stairs-->the-stairs--study-prints-->the-prints [+claw-prints]--up-after-prints-->tower-hall--climb-ladder-->ladder-climb--up-ladder-->lantern-room--offer-den (clue held)-->ending-warm-den. (2) ending-drum-song (triumph): any route to lantern-room--tap-drum-->ending-drum-song. (3) ending-the-grab (bittersweet): lantern-room--grab-stone-->ending-the-grab. (4) ending-two-heads (triumph): lantern-room--ask-lira-->ending-two-heads. (5) ending-home-too-soon (setback, no items needed): late-for-school--try-the-gate-->the-gate--lean-over-gate-->the-fall--check-bag-->check-the-book--stand-after-check-->varro--look-moss-->look-at-the-moss--wave-after-moss-->meet-lira--take-marsh-->the-marsh--hop-stones-->stone-hop--to-stairs-fast-->the-stairs--keep-climbing-->tower-hall--ask-home-->home-too-soon. All five endings are reachable this way, matching graph.r6.json's reachableEndings. The reed-net item (granted only by frog-helped, line 288) correctly gates the locked net-the-lid choice in tower-hall, with a fair lockedHint ('You need something light and woven to catch the lid.', line 440) that matches the item's description. The claw-prints clue (granted only by the-prints, line 389) correctly gates the locked offer-den choice in lantern-room, with a fair lockedHint ('Think about the small wet marks you saw on the stairs.', line 549). No item or clue is referenced before it is granted, and no route backtracks through a passage already read (every edge in graph.r6.json moves forward through the late-for-school -> through-the-gap/the-gate -> the-fall -> varro -> meet-lira -> marsh/stairs -> tower-hall -> lantern-room -> ending spine, with the new connector/second-choice detours rejoining the same spine rather than looping back)."
+        },
+        {
+          "severity": "note",
+          "message": "Content integrity and literacy word sets: the story reads as original, age-appropriate content with no violence, real brands, romance or religion, matching the brief's 'avoid' list; the crab reveal in lantern-room (lines 536-540) is gentle (cold and shivering, not a villain), consistent across all four lantern-room endings. Characters (Eli, Ash, Lira, the Lantern Tower) and facts (land of Varro, Eli wants to go home) match brief.json's continuity block. reports/validation.r6.json confirms all three word sets meet their minOccurrences and appear on the shortest route to every ending (word-sets-on-every-route: ok), and all three target concepts (initial-blend, closed-syllable, suffix-ing) are present with no concept mismatches. Pre-existing, non-blocking: three sentences carried over unchanged since revision 4 are one word over the brief's 16-word maxSentenceWords (not the automated 20-word hard limit): late-for-school line 67 ('Eli's library book had a map in it, and he was meant to show it in class.' -- 17 words), frog-helped line 286 ('She was waiting at the start of the stairs, and she gave him a small, surprised smile.' -- 17 words), and home-too-soon line 625 ('He looked at his muddy shoes and thought of the marsh, the stairs and the dark hatch.' -- 17 words). These were already flagged as minor by the r4 literacy review and are outside this revision's scope (single-choice fixes only); flagging again for the literacy stage, not as a QA blocker."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r6.json",
+          "sha256": "ede654f1beae05194766f89b612ecb59309e49b89b5a06d625f9c2401653414d"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/validation.r6.json",
+          "sha256": "4cdda599fd8abdd25a78b19bb680260e10d89140979f6356797a617275705922"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/graph.r6.json",
+          "sha256": "4a0762d3784d96b7fbfb7f34da98132388183ba5404990d9f4e5777f092c4499"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/brief.json",
+          "sha256": "081e7b2afa16a7f4188de600bb0ab98a6f522a9d5d6ad1a0676282e1147bddd5"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/work/revision-notes.r6.md",
+          "sha256": "e044ba3232d0bfbbe1e418cb47d68e495a139d9046252f0f7d34458a15493302"
+        }
+      ],
+      "id": "review-6-qa",
+      "submittedAt": "2026-10-25T08:17:47.777Z"
     }
   ],
   "parentDecisions": [],
@@ -775,6 +840,16 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 6 (story v6) passed automated validation"
+    },
+    {
+      "at": "2026-10-25T08:17:47.777Z",
+      "from": "in-review",
+      "to": "changes-requested",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "A reviewer requested changes"
     }
   ]
 }

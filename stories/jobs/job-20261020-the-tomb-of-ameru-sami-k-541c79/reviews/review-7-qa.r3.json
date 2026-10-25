@@ -1,0 +1,77 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 3,
+  "draftSha256": "0d4f50948b2098d6d1fe3a4c229e2820812cb9d9a48320abf20b2142cc51a7fb",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "Carried over from review-5-qa, still not addressed by revision 3 (confirmed by diffing r2 vs r3: water-dusted itself was not edited in this revision). water-dusted's last line still says the team 'climbed the ladder, one rung at a time, and rested on the ledge' (drafts/story.r3.json line 254), and the choice 'Rest a moment on the ledge first' (line 260) still leads to dusted-ledge, whose first line (line 267) narrates resting on the ledge again. Low impact, not blocking, but still worth a line edit.",
+      "passage": "water-dusted"
+    },
+    {
+      "severity": "minor",
+      "message": "Carried over from review-5-qa, still not addressed. fire-big still ends 'Then they walked on with one small lamp' (drafts/story.r3.json line 461), and the choice 'Check the scorch mark before leaving' (line 466) still sends the reader into big-scorch (line 473), which opens with Sami examining the wall as if still in the room they just narrated leaving.",
+      "passage": "fire-big"
+    },
+    {
+      "severity": "minor",
+      "message": "Carried over from review-5-qa, still not addressed. sand-slip still ends 'Everyone walked on the pale tiles after that' (drafts/story.r3.json line 201), reading as resolved, and the choice 'Look at the tile that tipped, before moving on' (line 206) still sends the reader into slip-bird (line 213), where Ren is still crouched at the same tile.",
+      "passage": "sand-slip"
+    },
+    {
+      "severity": "minor",
+      "message": "Carried over from review-5-qa, still not addressed. song-horn still ends 'Everyone slipped through, a bit shaky but safe' (drafts/story.r3.json line 369), i.e. already through the door, and the choice 'Look at the horn you just blew' (line 374) still sends the reader into horn-crack (line 381), where Hollis is still examining the horn in the room they just narrated leaving.",
+      "passage": "song-horn"
+    },
+    {
+      "severity": "minor",
+      "message": "Carried over from review-1-qa and review-5-qa, still not addressed, not in this revision's scope (which only gave the ten r2 detour passages a second choice): (a) 'Hollis lifted the horn' (song-horn, drafts/story.r3.json line 365) vs. hall-song's 'a bronze horn set in the wall' (line 313) is a verb mismatch for a carving fixed into the wall. (b) ending-seal's 'Sami closed the door with three slow taps' (line 573) is reachable on routes that never pick up tap-card or visit door-tap/map-nook; traced route: camp -> cart -> door-front -> door-push -> hall-sand -> sand-slip -> hall-water -> water-skip -> hall-song -> song-horn -> fork -> hall-fire -> fire-big -> hall-sleeper -> sleeper-read -> read-seal -> ending-seal, which never shows the reader the tapping card yet the ending narrates Sami doing the tap sequence. (c) hall-water's water-brush lockedHint ('A soft brush from the cart would clear this dust', line 240) and hall-sleeper's sleeper-brush lockedHint (line 502) point back to the cart/soft-brush pickup, which is unreachable once a forward-only route has passed it (e.g. camp -> map-nook -> door-front -> ... -> hall-water never visits cart).",
+      "passage": "song-horn"
+    },
+    {
+      "severity": "minor",
+      "message": "New in this revision: map-copy's new second choice 'copy-leave' (drafts/story.r3.json line 94) now reaches ending-setback ('Another Day') from the earliest possible point in the story, right after the team looks at Ren's map and before they ever approach the sealed door (map-nook shows no travel away from camp). ending-setback's reworded text ('The team packed up carefully and started back toward camp,' 'Soon they reached the cart,' '\"We got far today,\" said Sami. \"We have good notes, and that matters,\"' lines 587-589) reads as a day of exploration and travel that is inconsistent with stopping this early. The genericization intentionally serves the 10 deeper stopping points well (fork-leave, careful-leave, bird-leave, ledge-leave, hollis-leave, keeper-leave, crack-leave, flame-leave, scorch-leave, adjust-leave); only the shallowest one (copy-leave) reads as a mismatch.",
+      "passage": "map-copy"
+    },
+    {
+      "severity": "info",
+      "message": "Confirmed fixed in this revision: the brief's 16-word sentence-length warning that review-5-qa carried over from revision 1 (ending-setback, old lines 568/571 in r2: 'Sami sat on the cart and looked at the hill, past the dry bank of the old river...' at 17+ words) is gone. ending-setback was reworded in r3 (drafts/story.r3.json lines 587-591); reports/validation.r3.json brief.warnings is now empty and brief.ok is true.",
+      "passage": "ending-setback"
+    },
+    {
+      "severity": "info",
+      "message": "npm run check exits non-zero only because npm run validate:stories flags stale public preview snapshots (public/stories/previews/*.json) for six jobs, including the-tomb-of-ameru.json, which still has the original ten single-choice passages. Previews only sync at story publish, and this job has not been published, so this is the same pre-existing, repo-wide condition review-5-qa already noted on r2, unrelated to this revision. The job's own reports/validation.r3.json and reports/graph.r3.json are the correct sources of truth before publication, and both report ok (schema ok, graph ok, 5/5 endings reachable). npm run lint, npm run typecheck, npm test (191/191), npm run agents:check and npm run build were run separately after the check chain stopped at validate:stories, and all passed.",
+      "passage": "n/a"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/drafts/story.r3.json",
+      "sha256": "0d4f50948b2098d6d1fe3a4c229e2820812cb9d9a48320abf20b2142cc51a7fb"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/validation.r3.json",
+      "sha256": "7531c523c91d431692bfd719a1fcd326e97a84f836eaa72047ebe7a280193db6"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/graph.r3.json",
+      "sha256": "8c901bdd34fb7e66b55982beaa35bcbeffe545a907176b75ed99e3ec9d1c9241"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/brief.json",
+      "sha256": "7443ae1c50cfb230f4a51c5b7d65c0e2dff42faf687006ca909af3addb0e4f0a"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/work/revision-notes.r3.md",
+      "sha256": "3a45411202f52f5411897281bc5d85650aa58315448dbd74d81e7f3219d2d2b3"
+    }
+  ],
+  "id": "review-7-qa",
+  "submittedAt": "2026-10-25T08:18:22.706Z"
+}

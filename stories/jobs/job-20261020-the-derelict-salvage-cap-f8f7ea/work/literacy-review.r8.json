@@ -1,0 +1,62 @@
+{
+  "role": "literacy",
+  "reviewer": { "name": "literacy-specialist", "kind": "ai-agent", "agent": "literacy-specialist" },
+  "revision": 8,
+  "draftSha256": "7d815d2ee8f6e28e5c5083b81ec5f9a7dce449b6846e72ce2b307d24f861a9b5",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Skills practised: the story practises decoding in context (vowel-team, silent-e and th-digraph words recur on the shortest route to every one of the five endings, and I traced several full routes by hand, including ones through the four passages rewritten in this revision — 'hull-marks', 'porthole', 'engine-trace' and 'nib-ask' — and confirmed the same word-set words carry through them), recognising set words in both narration and choice labels, and following a three-step sequence (Nib's chalk steps: cool the lock, turn the valve, lift the door) where order matters. Readers also infer from clues (a log note dated four days ago on a ship lost eleven years ago; one live cable running to the cargo door), learn words such as corridor, valve and beacon from context and the glossary, and weigh evidence before choosing an ending. Limits: this review and the automated report both detect patterns by spelling, not sound, so a match (for example 'th' in 'that' and 'thin') does not prove a given reader pronounces it as intended, and nothing here is a substitute for a human reading check with an actual learner."
+    },
+    {
+      "severity": "minor",
+      "message": "The four newly rewritten connector passages carry real word-set practice rather than diluting it. 'hull-marks' adds 'thin', 'that', 'team' and 'tube'; 'porthole' adds 'dome', 'moth' and 'keep' (all three target patterns in one short passage); 'engine-trace' adds 'thin', 'pole' and 'hope'; 'nib-ask' adds 'keep', 'them' and 'that'. Each word still carries its declared pattern and reads naturally in the new sentences (e.g. porthole: \"Let's keep moving\"). The second choice added to each of these four passages (to satisfy the graph validator's two-choice rule) does not introduce any new word-set word that fails its pattern, and does not remove set words from the passages that already existed in r6. Per-word totals actually improved slightly from the prior reviewed revision: 'keep' rose from roughly 2 to 4 occurrences because of 'porthole' and 'nib-ask'.",
+      "passage": "hull-marks"
+    },
+    {
+      "severity": "minor",
+      "message": "Comprehension gap, carried over from the r6 review and still present in r8: 'the blue tube' is used as a tool to cool the cargo-door lock (Nib's step one in 'nib'; the choice label 'Cool the lock with the blue tube first' in 'climax-careful'; Bo cooling the lock with it in 'hold-open' and 'climax-team'), but this tool is never introduced, found or named as an item anywhere in the story — it only appears in dialogue and steps. This also collides with the unrelated 'dock tube' the crew already crawled through in 'start' and 'tube', so an attentive reader may expect it to be the same object. Suggest the narrative designer introduce a tool called the blue tube (for example in 'locker', alongside the hook-pole) or rename one of the two tubes.",
+      "passage": "nib"
+    },
+    {
+      "severity": "minor",
+      "message": "Continuity slip, carried over from r6 and still present in r8: the choice 'Carry the moths home in the Kestrel's dome' (climax-team) and the line 'packed the moths into the Kestrel's dome' (ending-carry) both assume the salvage tug Kestrel has a glass dome, but only the Lark's dome is established anywhere in the story ('dome', 'inside'). Suggest 'a glass case' or similar on the Kestrel, or an earlier line establishing the Kestrel also has one.",
+      "passage": "ending-carry"
+    },
+    {
+      "severity": "minor",
+      "message": "Design gap, carried over from r6 and still present in r8: the 'late-log' clue is only granted in 'log-read' (reached only via scan -> read-log). A reader who instead takes scan -> check-hull, or skips 'scan' entirely via start -> tube, can never collect 'late-log' and so can never satisfy the locked choice 'open-careful' at 'threshold', even though its lockedHint ('Find a long pole and read the last log note first.') reads as still achievable. This is a plot/branching design question for the narrative designer, not a word-set defect, and it does not block this review, since the other four endings remain fully reachable with full word-set coverage.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "minor",
+      "message": "Word coverage is met with a wide margin (vowel-team 31/10, silent-e 48/8, th 57/8) but still thin for a few individual words: 'rain' (2: 'scan', 'climax-team'), 'boat' (2: 'nib', 'ending-tow') and 'cave' (2: 'threshold', 'ending-garden'). These are unchanged from the r6 review; the r7/r8 connector fixes added occurrences of 'keep', 'dome', 'thin', 'that', 'them' and 'tube' but did not touch 'rain', 'boat' or 'cave'. This does not block the pass; I confirm (by my own hand-trace of several routes, not only the automated report) that every set still appears well before the minimum on every route I checked, including the four rewritten connectors.",
+      "passage": "scan"
+    },
+    {
+      "severity": "minor",
+      "message": "The declared th-words set mixes two different 'th' sounds under one spelling: voiceless in 'thin', 'thud', 'path' and 'moth', voiced in 'that' and 'them'. Spelling-pattern detection (both the automated report and my own reading) cannot tell these apart, so a pass on this word set confirms the spelling pattern only, not that a given reader will hear or produce the same sound for every instance. A program that teaches these as two separate sounds may want to treat 'that'/'them' and the four voiceless words as separate practice sets when mapping this story to its own terms."
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "A salvage crew finds a drifting ship, a sealed cargo door and a log note written years after the ship went silent. Reading the clues and going slowly pays off; rushing in brings a setback instead.",
+    "skills": ["comprehension", "inference", "sequencing", "detail"],
+    "wordTypes": [
+      { "concept": "vowel-team", "examples": ["rain", "boat", "team", "deep"] },
+      { "concept": "silent-e", "examples": ["cave", "dome", "tube", "hope"] },
+      { "concept": "digraph-th", "examples": ["thin", "moth", "path", "that"] }
+    ],
+    "ogCategories": ["Phonics", "Syllable types", "Comprehension", "Vocabulary"]
+  },
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/drafts/story.r8.json",
+      "sha256": "7d815d2ee8f6e28e5c5083b81ec5f9a7dce449b6846e72ce2b307d24f861a9b5"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/literacy.r8.json",
+      "sha256": "679fc329c519a1cf5d820553a3b999195c71d194df434d994689702e1d5dbdf5"
+    }
+  ]
+}

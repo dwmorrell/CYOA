@@ -1,0 +1,48 @@
+{
+  "role": "qa",
+  "reviewer": { "name": "qa-engineer", "kind": "ai-agent", "agent": "qa-engineer" },
+  "revision": 8,
+  "draftSha256": "7d815d2ee8f6e28e5c5083b81ec5f9a7dce449b6846e72ce2b307d24f861a9b5",
+  "verdict": "changes-requested",
+  "findings": [
+    {
+      "severity": "major",
+      "message": "The two new choices added to fix the engine-trace single-choice error (story.r8.json lines 373-385, choices \"trace-on\" and \"call-out\") both target \"nib\" with no requires/effects difference between them. They are not a genuine branch point: whichever label the reader picks, the next passage, state, items and clues are identical. This clears the automated graph check but not the underlying problem it was flagging (give the reader a real decision), and it does not match the stated intent of revision 8 (\"connector passages fixed, zero single-choice\" implying real branching, not a cosmetic duplicate).",
+      "passage": "engine-trace"
+    },
+    {
+      "severity": "major",
+      "message": "Same defect in the nib-ask connector (story.r8.json lines 423-435, choices \"nib-ask-on\" and \"promise-nib\"): both target \"threshold\" with no state difference. The \"promise-nib\" label (\"Promise Nib you will be careful, then go to the door\") implies a consequence, but no flag, item, clue or later passage ever reflects the promise - it is cosmetic filler added only to satisfy the single-choice validator, not a real decision.",
+      "passage": "nib-ask"
+    },
+    {
+      "severity": "minor",
+      "message": "By contrast, the other two passages revision 8 was meant to fix are genuine fixes: hull-marks (lines 164-186) now forks to \"tube\" vs \"locker\" (a real shortcut that changes which passages are read and whether hook-pole is picked up on that path), and porthole (lines ~243-262) forks to \"inside\" vs \"dome\" (skips the quiet-corridor passage). These two are fine and should be the model for fixing engine-trace and nib-ask the same way, e.g. by giving one option a distinct destination or a distinct item/clue/flag effect.",
+      "passage": "hull-marks"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/drafts/story.r8.json",
+      "sha256": "7d815d2ee8f6e28e5c5083b81ec5f9a7dce449b6846e72ce2b307d24f861a9b5"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/validation.r8.json",
+      "sha256": "484d8a1d97527d321942a97e4ee6f6a2b117f1df3cc3b23a2278a6eb739a71b5"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/graph.r8.json",
+      "sha256": "4f3edf42d885c1aeb3e5d75c01260060fbedb2dab3d48b069c183ad967cf3689"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/brief.json",
+      "sha256": "e9174c367099452e01fb068a43750c1b898737c5fff8b809be808174c20ed1be"
+    }
+  ],
+  "notes": [
+    "Automated gates on r8 are genuinely green: schema ok, graph ok with 0 structural single-choice/dead-end/unreachable errors, 5/5 endings reachable (ending-garden, ending-carry, ending-tow, ending-closed, ending-rush), literacy checks ok, brief ok (confirmed by re-reading reports/validation.r8.json and reports/graph.r8.json, not just trusting `story status`).",
+    "Traced at least one forward-only route to every ending with no backtracking over an already-read passage: ending-garden and ending-carry via start->scan->log-read(clue late-log)->tube->locker(item hook-pole)->inside->dome->nib->threshold->open-careful->climax-careful->cool-first->hold-open->step-in/call-crew; ending-tow and ending-carry via start->tube->locker->inside->engine->nib->threshold->open-team->climax-team->tow-lark/carry-moths; ending-closed via threshold->leave-shut; ending-rush via threshold->open-rush (and also via climax-careful->lift-first). The locked choice open-careful (threshold, requires item hook-pole + clue late-log) has a fair, specific lockedHint (\"Find a long pole and read the last log note first.\") and both the item (locker passage effects.addItems) and clue (log-read passage effects.addClues) are collectible before the door without revisiting any earlier passage.",
+    "Content integrity: no sexual content, violence/gore, self-harm or real-religion references found; no real brands/places; characters (Odessa Rin, Bo, Tam, Ivy, Nib) and facts (Kestrel, the Lark lost eleven years ago) stay consistent with brief.json's continuity block across all 24 passages, including the four newly-touched connectors. hull-marks' \"N, I, B\" scratches plausibly foreshadow the bot's name revealed at the nib passage, and porthole's glow/moth-wing imagery foreshadows the dome; both fit the story and the age range.",
+    "`npm run check` was run and genuinely fails at the `validate:stories` step (exit code 1), but the failure is pre-existing and unrelated to this job: public/stories/previews/the-derelict-salvage.json is a stale catalog preview snapshot from before the connector-passage fix (last touched in commit 198ff7c, before 551ec6f which produced r8) and still has the old-style single-choice passages (log-read, hull-check, locker, lit-path, dome, engine, nib, hold-open) that revision 6/7 had, not the four this review covers. The same stale-preview pattern fails validate:stories for four other unrelated jobs' previews too (the-cat-who-took-the-wrong-turn, the-rain-courier, the-tomb-of-ameru, wake-cycle), confirming this is a repo-wide preview-sync gap, not a defect in story.r8.json. Lint, typecheck, the full Vitest suite (191/191 passed, 12 files) and the production build were not reached/blocked by this and were exercised; the npm run check command stops the whole pipeline at validate:stories so build output after that step was not independently re-verified in isolation, but typecheck and lint and test all printed a clean pass before that step. This is reported as-is per the no-self-fix-of-prose/no-touching-previews instruction; it is not scored as a finding against r8's own content, but the repo-wide `npm run check` is not currently green and that is reported honestly rather than claimed as a pass."
+  ]
+}

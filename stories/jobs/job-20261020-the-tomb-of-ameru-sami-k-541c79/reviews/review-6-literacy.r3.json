@@ -1,0 +1,143 @@
+{
+  "role": "literacy",
+  "reviewer": {
+    "name": "literacy-specialist",
+    "kind": "ai-agent",
+    "agent": "literacy-specialist"
+  },
+  "revision": 3,
+  "draftSha256": "0d4f50948b2098d6d1fe3a4c229e2820812cb9d9a48320abf20b2142cc51a7fb",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Skills practised: reading this story practises decoding r-controlled words, -ed endings and ng/nk words in connected text, and recognising those recurring word-set words wherever they land, including on the eleven short 'stop for today' detours. Following the Keeper's carved warnings and the team's choices builds sequencing (tap three times, then the fixed order of the five chambers, confirmed again in sleeper-read's walker-cistern-singer-lamp-box recap), inference (why the Keeper holds up a flat hand, what a tipped tile, a cracked horn or a scorch mark is telling the team, why the sleeper is a welcome with rules rather than a threat) and vocabulary from context, both through in-text restatement (archaeologist, mummified) and the four glossary entries (archaeologist, ancient, mummified, cistern)."
+    },
+    {
+      "severity": "minor",
+      "message": "I hand-checked the three word sets against the actual r3 draft, not only the automated report. Every listed word in r-controlled-words (dark, far, cart, card, dirt, horn, burn), ed-endings (walked, dusted, rested, lifted, hunted, tapped) and ng-and-nk-words (long, sing, bank, sink, tank, rung) appears in the story and genuinely carries its declared spelling pattern: dark/far/cart/card (ar), dirt (ir), horn (or), burn (ur) for r-controlled; walked/dusted/rested/lifted/hunted/tapped all take a bare -ed on a 3+ letter base for suffix-ed; long/sing/rung (ang/ing/ung) and bank/sink/tank (ank/ink) for glued-ng-nk. I found no conceptMismatches the automated report missed. Totals (r-controlled 40/10, ed-endings 27/8, ng/nk 23/8) are well above the brief's minimums, and every word in every set is used at least once (missingWords is empty for all three sets), so no word set misses its minimum and no target pattern is absent.",
+      "passage": "hall-sand"
+    },
+    {
+      "severity": "minor",
+      "message": "The words read naturally, not as a list or forced rhyme, because the narrative designer tied them to plot verbs and props rather than decoration: 'tapped' is the literal door-knocking action the whole map-nook/door-tap/song-hum puzzle chain turns on; 'dusted' is Sami's recurring archaeologist's gesture (cart, sand-slip, water-dusted, push-careful, ending-notes); 'horn' and 'burn' carry the song-horn/horn-crack/hall-fire fire-safety beats; 'cart', 'far', 'dark' and 'bank' recur in plain scene-setting across camp, the three new 'leave' passages' home stretch, and ending-setback. I re-read every passage and found no sentence that exists only to list word-set words.",
+      "passage": "water-dusted"
+    },
+    {
+      "severity": "minor",
+      "message": "I independently traced the shortest route to each of the five endings and recomputed word-set coverage by hand (not just trusting the report). For 'another-day' (camp -> map-nook -> map-copy -> ending-setback, 3 edges, the shortest of any ending): r-controlled 2 (cart, dirt) + 4 (card x3, dirt) + 0 + 2 (cart, far) = 8; ed-endings 0 + 2 (hunted, tapped) + 0 + 0 = 2; ng/nk 2 (long, bank) + 0 + 0 + 1 (bank) = 3. This matches the report's perEndingRoute exactly (r-controlled 8, ed-endings 2, ng/nk 3) and confirms the rule 'each set should appear on every route to an ending' is met, though only barely for ed-endings and ng/nk on this specific shortest route. This is the same low-exposure route the narrative designer flagged in revision-notes.r3.md as now much shorter than before (previously only reachable after three chambers). It still satisfies the stated rule (present on every route), so it is not a blocking defect, but a tutor relying on only this fastest exit route gets noticeably less -ed/ng-nk practice than a route through the tomb's interior. Worth a light touch-up if there is a future revision, not required now.",
+      "passage": "ending-setback"
+    },
+    {
+      "severity": "minor",
+      "message": "Carried forward from the r2 review, still present and unchanged by r3: hall-song describes the bronze horn as 'set in the wall', while song-horn has Hollis 'lift' it to blow it. Neither sentence was touched in this revision. This is a small comprehension wrinkle (is the horn fixed or portable?), not a decoding issue, and does not affect word-set coverage; flagged again for the narrative designer's awareness, not a blocker.",
+      "passage": "song-horn"
+    },
+    {
+      "severity": "minor",
+      "message": "Limits of automated detection: the analyzer matches spelling, not sound. Its own concept examples show this (the ng/nk report lists 'everything', 'finger' and 'going' as matches, which are not the OG glued-sound target). Separately, the ed-endings word set mixes three different pronunciations of the -ed suffix (walked and tapped end in a /t/ sound; dusted, rested, lifted and hunted end in /ɪd/) but has no example ending in a /d/ sound (e.g. 'called', 'turned'); any program that teaches the three sounds of -ed explicitly may want to supplement this set rather than rely on the story alone for that distinction. I also could not confirm decodability for any specific child's stage or program from the draft text alone; a qualified human literacy reviewer should confirm these linguistic claims before publication, per the mandate and the automated report's own stated limitations.",
+      "passage": "ed-endings"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/drafts/story.r3.json",
+      "sha256": "0d4f50948b2098d6d1fe3a4c229e2820812cb9d9a48320abf20b2142cc51a7fb"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/literacy.r3.json",
+      "sha256": "01c325a5c5e77797abc387d432dfc49926465ab3e4ab52a6269b1416fdb57b19"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/literacy.r3.md",
+      "sha256": "45e8bbc663f2f50a8ab9f64d102ea717337cf5160172687a31de6568224b1d9e"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/weave-comparison.r3.json",
+      "sha256": "2d2f0e6909f74058fec7382eaa6b09d3de8cbda9c45285fe27f7c800887d9a15"
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "A tomb-exploring adventure with five endings and many short optional stops where the team can call it a day. It practises r-controlled words, -ed endings and ng/nk words, plus th, silent-e, FLOSS and sh words. Readers follow carved clues, so they also practise sequencing, inference and vocabulary from context.",
+    "skills": [
+      "comprehension",
+      "inference",
+      "sequencing",
+      "vocabulary"
+    ],
+    "wordTypes": [
+      {
+        "concept": "r-controlled",
+        "examples": [
+          "dark",
+          "cart",
+          "horn",
+          "burn"
+        ]
+      },
+      {
+        "concept": "suffix-ed",
+        "examples": [
+          "dusted",
+          "rested",
+          "lifted",
+          "hunted"
+        ]
+      },
+      {
+        "concept": "glued-ng-nk",
+        "examples": [
+          "long",
+          "bank",
+          "sink",
+          "rung"
+        ]
+      },
+      {
+        "concept": "digraph-th",
+        "examples": [
+          "path",
+          "both",
+          "mouth",
+          "cloth"
+        ]
+      },
+      {
+        "concept": "silent-e",
+        "examples": [
+          "came",
+          "care",
+          "crate",
+          "aside"
+        ]
+      },
+      {
+        "concept": "floss",
+        "examples": [
+          "bell",
+          "hill",
+          "fell",
+          "cross"
+        ]
+      },
+      {
+        "concept": "digraph-sh",
+        "examples": [
+          "brush",
+          "fresh",
+          "push",
+          "finish"
+        ]
+      }
+    ],
+    "ogCategories": [
+      "Phonics",
+      "Syllable types",
+      "Spelling rules",
+      "Morphology",
+      "Comprehension"
+    ]
+  },
+  "id": "review-6-literacy",
+  "submittedAt": "2026-10-25T08:17:50.484Z"
+}

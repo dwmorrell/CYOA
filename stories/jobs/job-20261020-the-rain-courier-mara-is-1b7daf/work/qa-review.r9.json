@@ -1,0 +1,58 @@
+{
+  "role": "qa",
+  "reviewer": { "name": "qa-engineer", "kind": "ai-agent", "agent": "qa-engineer" },
+  "revision": 9,
+  "draftSha256": "840950d8f2d442c6ec43ed5051e620b6682da7c5595a24c6002940d53f58bbd5",
+  "verdict": "changes-requested",
+  "findings": [
+    {
+      "severity": "major",
+      "message": "The new 'dash-duck' choice added to fix dash-past's single-choice flag reuses 'hide-shade' for a context it was not written for, producing a continuity break. dash-past's new fork text (lines 276, 286-290) sets up 'a shaded doorway' and has Mara duck in 'to catch her breath' after she has already lost the drones ('the hum fell behind her', line 274). hide-shade's text, written for the drone-street entry, instead opens with an active, close drone pass ('The drones passed so close that the wind from them stirred her hair. Their flash slid over the shelter and moved on.', line 248) and refers to 'the shelter' -- an object only ever named by drone-street's 'bus shelter' choice label (line 233), never by dash-past's 'doorway' wording. A reader who takes drone-street > dash-past > dash-duck > hide-shade meets an object with no antecedent on their route and a drone threat that contradicts the escape they just read two paragraphs earlier. This is a new defect introduced by this revision's fix, not present before dash-past linked into hide-shade. The other three r9 fixes (shop-pick's 'pick-skip-alley', alley-clue's 'clue-shortcut', hide-shade's 'shade-give-up') are genuine, non-filler branch points that fit the setting and reuse target word-set vocabulary ('pick', 'shade' in shop-pick; the sh/ch word sets are otherwise untouched) without this kind of mismatch.",
+      "passage": "hide-shade"
+    },
+    {
+      "severity": "minor",
+      "message": "Carried over from the r8 QA pass (not addressed in this content-only revision): 'gathering' still labels choices 'Ride back to Tam's shop' and 'Ride back to the dark alley' (lines 206, 211), which presume a visit that not every route makes (e.g. start > alley > alley-leave > gathering never visits the shop; start > shop > leave-shop > gathering never visits the alley). Neutral wording ('Ride to...') would fit all routes.",
+      "passage": "gathering"
+    },
+    {
+      "severity": "minor",
+      "message": "Carried over from the r8 QA pass (not addressed in this content-only revision): at climax-gate, Mara picks the lock and 'eased the gate shut behind her' (line 332), then Vex 'stepped out of the fog' already on the bridge (line 334) with no explanation of how he got past the shut, locked gate, even though a cab engine growling behind her at threshold (line 300) implies he followed her there.",
+      "passage": "climax-gate"
+    },
+    {
+      "severity": "minor",
+      "message": "validation.r9.json brief.warnings flags '1 sentence(s) exceed the brief's 16-word limit' (brief.json maxSentenceWords=16). Hand count confirms: ending-4, 'At the far end, a woman in a lit booth pulled her inside and shut the door.' is 17 words. Pre-existing, unrelated to this revision's four fixes; flagging for the literacy reviewer since it is still open.",
+      "passage": "ending-4"
+    }
+  ],
+  "routesTraced": [
+    "start > to-shop > shop > ask-tam > shop-pick > pick-onward > alley > turn-chip > alley-clue > clue-onward > gathering > gather-lane > drone-street > hide-in-shade > hide-shade > shade-onward > threshold > pick-the-lock (lock-pick + flood-stamp held) > climax-gate > walk-to-light > ending-1",
+    "same prefix to climax-gate > nine-hacks-drones > ending-2",
+    "start > to-alley > alley > alley-leave > gathering > gather-lane > drone-street > dash-past > dash-onward > threshold > ask-nine-hack > climax-hack > give-to-vex > ending-3",
+    "climax-hack > dash-over-bridge > ending-4",
+    "start > to-alley > alley > turn-chip > alley-clue > clue-shortcut > drone-street > hide-in-shade > hide-shade > shade-give-up > ending-5 (new r9 route to an existing ending; also reachable via threshold > call-drone > ending-5 as before)"
+  ],
+  "checksRun": [
+    "npm run check: FAILED. lint, typecheck and `npm test` (191/191) passed, but `npm run validate:stories` exited 1 and stopped the chain before agents:check/build ran. The failure is in public/stories/previews/the-rain-courier.json, a stale parent-preview snapshot that still has the pre-r9 single-choice errors on shop-pick, alley-clue, hide-shade and dash-past (and 4 other jobs' previews are likewise stale) -- i.e. `story -- preview` has not been re-run since this job's draft advanced past r6. This is a preview-sync/process gap, not a defect in draft r9 itself: `npm run story -- status` shows automated-validation on revision 9 itself (schema/graph/literacy/brief) passes, matching reports/validation.r9.json. Per instructions I did not touch public/stories/previews to fix this; flagging for the orchestrator/release-manager.",
+    "npm run story -- status job-20261020-the-rain-courier-mara-is-1b7daf: confirms revision 9 draft-exists and automated-validation gates PASS; review:qa and review:literacy were WAIT prior to this review."
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/drafts/story.r9.json",
+      "sha256": "840950d8f2d442c6ec43ed5051e620b6682da7c5595a24c6002940d53f58bbd5"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/validation.r9.json",
+      "sha256": "289faa8a49f43316f344f6e3196dbec75fde7f03dce9807d1361a1474c537912"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/graph.r9.json",
+      "sha256": "b6818da737c24d199a924c722840106d41c63d881fb3416095fd7e52db2ccb1d"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/brief.json",
+      "sha256": "1653592bbed568e759c73b0747e1583d95a46dc6036f41ea5e72cb8bd792a2e8"
+    }
+  ]
+}

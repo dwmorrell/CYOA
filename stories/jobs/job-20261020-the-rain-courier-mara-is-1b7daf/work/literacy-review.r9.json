@@ -1,0 +1,73 @@
+{
+  "role": "literacy",
+  "reviewer": { "name": "literacy-specialist", "kind": "ai-agent", "agent": "literacy-specialist" },
+  "revision": 9,
+  "draftSha256": "840950d8f2d442c6ec43ed5051e620b6682da7c5595a24c6002940d53f58bbd5",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Skills practised: Reading this story practises decoding closed-syllable words (bag, lock, mask, dash), sh words (shop, shade, flash) and ch words (chip, chill, lunch) in running text and in choice labels, plus -ing endings (blinking, pounding, watching). The reader sequences events across branches (gathering's 'First came the cab stand. Then came the shop or the alley. Now came the crossing', and Nine's 'First the gate, then the track, then the far light'), infers who to trust from clues (the flood stamp, Vex's grey mask, Tam's warning to 'check what they tell you') and works out new words such as broker, courier and drone from context and the glossary. The branching itself rewards checking evidence before acting, which keeps comprehension and inference central rather than incidental."
+    },
+    {
+      "severity": "note",
+      "message": "Word sets meet their minimums on r9 (literacy.r9): closed-syllable-words 43/10, sh-words 28/8, ch-words 28/8. Every listed word appears (no missingWords) and literacy.r9.json's word-sets-on-every-route check passes: each set appears on the shortest route to all five endings (closed-syllable 16-22 per route, sh 12-14, ch 8-10). By spelling, every word-set word carries its declared pattern with no conceptMismatches: cab, bag, pick, lock, mask, sack, dash, hack are closed syllables (one vowel, ends in a consonant); shop, shade, shot, shut, flash, shell contain sh; chip, chase, chill, much, lunch, chain contain ch. All four target concepts are present in running text: closed-syllable 595 tokens, digraph-sh 63, digraph-ch 38, suffix-ing 21."
+    },
+    {
+      "severity": "note",
+      "message": "The four single-choice fixes from revision-notes.r9.md read naturally and keep the word sets intact rather than diluting them. shop-pick's new line 'She could duck into its shade, or ride on to the crossing' reuses 'shade' (sh-words) in prose, not just the choice label. hide-shade's new choice label itself, 'Wave the drone down and give up the bag', reuses 'bag' (closed-syllable) as reading, per the Word Weave Plan's rule that choice labels count. alley-clue's new shortcut to drone-street and dash-past's new fork to hide-shade add a back lane and a shaded doorway without removing any existing sentence, so nothing that previously carried a word-set word was cut. Because climax-gate still requires both lock-pick (from shop-pick) and the flood-stamp clue (from alley-clue), every route to endings 1 and 2 still passes through those two passages regardless of which shortcut a reader takes, so the richest sh/ch/closed-syllable passages are not skippable on the way to the 'best' endings."
+    },
+    {
+      "severity": "note",
+      "message": "Age fit (10 to 13): average sentence length is 7.4 words, no sentence exceeds the 16-word limit the brief sets, and the new sentences added in r9 (e.g. 'Ahead, the street forked.', 'Nine warned that more drones might wait at the bridge.') are all well under it. The longest passage (start, 148 words) is still reasonable for this age. Peril stays mild and consistent with the brief's 'avoid' list across all five endings, including the newly reachable ending-5 route through hide-shade ('Nobody was hurt'). Tricky vocabulary (broker, courier, crouched, eased) is supported by context and the four glossary entries; the new text in r9 introduces no new unsupported vocabulary."
+    },
+    {
+      "severity": "minor",
+      "message": "Unresolved from the r8 review: config/literacy-profiles.json aside, stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/word-weave-plan.json still lists 'patch' in the ch-words placements (path-a, path-b, ending-2 through ending-5), while brief.json and the r9 draft use 'chill' instead. This did not block r9 (weave-comparison.r9.json only compares set totals, and it passes), but the plan and draft still disagree word-for-word. Recommend the orchestrator regenerate the plan so it names 'chill', not 'patch', and have the parent confirm that substitution.",
+      "passage": "dash-past"
+    },
+    {
+      "severity": "minor",
+      "message": "Unresolved from the r8 review: in dash-past, 'A drone swung round, and its flash lit the whole street. The chain on her bike sang as she turned. A chill ran down her back, but her wheel held.' still joins 'A chill ran down her back' and 'her wheel held' with 'but', though fear and a wheel holding are not in contrast. This passage was touched in r9 (a new fork was appended after it) but this sentence itself was left as in r8. Suggest narrative-designer split it, e.g. 'A chill ran down her back. Her wheel held.'",
+      "passage": "dash-past"
+    },
+    {
+      "severity": "minor",
+      "message": "Two set words still get only one occurrence each in running prose: 'shot' (drone-street: 'It shot a white flash over the wet street, back and forth') and 'chase' (drone-street: 'They were on a chase for any courier with a sealed chip'). Set totals pass comfortably without more repetition, but a second natural use of each (drone-street is read on every route, so any addition there reaches every reader) would give the reader more practice with these two words specifically. Not a blocker for this revision, which was scoped to the graph fix.",
+      "passage": "drone-street"
+    },
+    {
+      "severity": "note",
+      "message": "Limits of this review: the analyzer detects spelling, not sound, so its counts include some false positives (for example 'the' and 'she' under the th/sh digraph counts, and silent-e or vowel-team words that also happen to contain 'sh' or 'ch', such as 'shade', 'chase' and 'chain'). It does not judge decodability, vocabulary level or story quality, and I have not tested the story with a child or checked sound-level pronunciation. 'grey' (British spelling) and the names Ila and Nine are not decodable by the stated target patterns and should be treated as tricky/sight words. I read the r9 draft and reports/literacy.r9.json directly and traced the graph by hand for the four newly-fixed passages; a qualified literacy reviewer or the parent should still confirm these linguistic claims. This AI review is the literacy gate only, not the human literacy review the publication policy requires; the parent decides on approval."
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "A cyberpunk delivery adventure about a courier learning who to trust before she acts. It practises closed syllables, sh, ch and -ing words in running text and choice labels. Readers practise sequencing events, following a clue, and working out new words from context.",
+    "skills": ["comprehension", "inference", "sequencing", "vocabulary"],
+    "wordTypes": [
+      { "concept": "closed-syllable", "examples": ["bag", "lock", "dash", "mask"] },
+      { "concept": "digraph-sh", "examples": ["shop", "shade", "flash", "shell"] },
+      { "concept": "digraph-ch", "examples": ["chip", "much", "lunch", "chill"] },
+      { "concept": "suffix-ing", "examples": ["blinking", "pounding", "watching", "raining"] },
+      { "concept": "digraph-ck", "examples": ["lock", "pick", "back", "click"] },
+      { "concept": "floss", "examples": ["bell", "shell", "still", "tell"] },
+      { "concept": "initial-blend", "examples": ["black", "bridge", "broker", "cloth"] },
+      { "concept": "suffix-ed", "examples": ["asked", "called", "checked", "crossed"] }
+    ],
+    "ogCategories": ["Phonics", "Spelling rules", "Morphology", "Comprehension"]
+  },
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/drafts/story.r9.json",
+      "sha256": "840950d8f2d442c6ec43ed5051e620b6682da7c5595a24c6002940d53f58bbd5"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/literacy.r9.json",
+      "sha256": "b31fbdc288961308d9fe7505015781b3506b97d59412e6c928e2742eea3d0aca"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/literacy.r9.md",
+      "sha256": "d0b71178d860d322fcb9f674f5dc57748a306768e797e839891014efc0233328"
+    }
+  ]
+}

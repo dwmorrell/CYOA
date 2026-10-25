@@ -1,0 +1,59 @@
+{
+  "role": "literacy",
+  "reviewer": { "name": "literacy-specialist", "kind": "ai-agent", "agent": "literacy-specialist" },
+  "revision": 5,
+  "draftSha256": "529b38788b8ff0d76727aef208c560c0ad7a06c17d905e8f0c098319da155a38",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Skills practised: following Jun through the pod bay, the engine room and the dust storm practises sequencing (the 'latch, switch, hatch' pod-opening order at bridge/not-yet/not-yet-why/captain-wakes; tools sorted and passed to Dex in order at dex-tools/dex-tools-sort), inference (the whistle in the vents that signals the dust is closer at locker-listen; the crew's last call naming the engine room at oru-log-crew; green vs amber pod lights; bent sensors that make maps untrustworthy), vocabulary from context (sensors, coolant, anomaly, navigator, and what a latch, switch and hatch each do), detail (ten-then-twenty pod checks, the tool pack's clicker light paying off at the climax) and comprehension/engagement across the five branching endings. The wh/ck/tch word sets are not decoration: 'pack', 'click'/'clicker' and 'latch'/'switch'/'hatch' are load-bearing plot nouns (the inventory item, the climax tool, the pod puzzle), so decoding practice and story comprehension reinforce each other rather than competing."
+    },
+    {
+      "severity": "note",
+      "message": "Verified the six passages fixed for the single-choice defect in this revision (locker-listen, oru-log-crew, not-yet-why, dex-lamp-watch, dex-tools-sort, storm-engine-together) by reading them directly and diffing r4 against r5: the only changes are the six new choices plus one label tweak ('Open the pod in the right order, step by step'), exactly as the revision notes describe. Each new choice reads naturally and several reinforce target words in context rather than diluting them: 'Skip the talk and lift the latch now' (not-yet-why, reinforces 'latch'), 'Go straight to Dex's wall chart' / 'Head over to Dex's wall chart' (dex-lamp-watch/dex-tools-sort, no target word but no false pattern either), 'Hurry down to the engine room instead' / 'Hurry straight to the engine room' (locker-listen/oru-log-crew), 'Ask Dex to check the sensors once more first' (storm-engine-together). None of the six new choices introduce a word that merely looks like a target pattern without carrying it (no 'who'/'ache' style false friends).",
+      "passage": "not-yet-why"
+    },
+    {
+      "severity": "note",
+      "message": "literacy.r5.json's automated checks all read ok (word-set minimums wh 38/10, ck 46/8, tch 36/8; every listed word used; no concept mismatches; each set on the shortest route to all five endings; target concepts present; 0 sentences over the analyzer's 20-word cutoff). I cross-checked this by hand: the per-ending-route counts in literacy.r5.json are byte-identical to literacy.r4.json (wh 10-13, ck 20-25, tch 13-17 across the five endings), confirming the six new r5 choices did not shorten any route or remove a target word from any path to an ending — the fix added real alternatives without touching word-set coverage. I also manually counted every sentence in the draft (not just the analyzer's 20-word threshold): the longest sentence in the whole story is 15 words ('Next time, Jun thought, a clear plan and the right tools would help even more.', ending-2), inside the brief's 16-word limit, including in the newly-touched passages.",
+      "passage": "storm-engine-together"
+    },
+    {
+      "severity": "minor",
+      "message": "Two tch set words are thinly used: 'catch' and 'match' appear only twice each (vs. 7-9 for hatch/watch/switch/latch), unchanged from earlier revisions. The set total (36) clears the minimum (8) with room, so this does not block, but a future pass could give 'catch' or 'match' one more natural use to even out the practice. Also unchanged: 'He gave a whip of his wrist' (dex-tools) is still the single least natural use of a set word in the story (a literary idiom rather than a concrete action), though it is not incorrect.",
+      "passage": "dex-tools"
+    },
+    {
+      "severity": "note",
+      "message": "Limits of this review: the analyzer in literacy.r5.json detects spelling patterns, not sound — it would, for example, treat any 'wh' word the same regardless of how a child actually pronounces it, and it does not judge decodability, vocabulary level or story quality on its own. Its route check only follows the shortest path to each ending, not every possible path through the graph (I separately traced the specific new-r5 bypass routes, e.g. wake→locker→locker-listen→engine, by hand to confirm word-set words still appear). I read every passage and choice in story.r5.json myself, including all six passages changed in this revision, and compared r4 and r5 directly; I did not play the story in the app. I am an AI agent and this is a pre-review: it is not the human literacy review the publication policy requires, and a qualified human reviewer must still confirm these linguistic claims before the story can be marked passed."
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "A space survival mystery: a navigator wakes early on a drifting ship and must wake the crew and steer clear of a dust storm. It practises wh, ck and tch words, plus -ed endings, beginning blends and FLOSS words. Readers also practise sequencing, inference and vocabulary from context.",
+    "skills": ["comprehension", "inference", "sequencing", "vocabulary"],
+    "wordTypes": [
+      { "concept": "digraph-wh", "examples": ["when", "white", "wheel", "whistle"] },
+      { "concept": "digraph-ck", "examples": ["back", "deck", "click", "rock"] },
+      { "concept": "trigraph-tch", "examples": ["catch", "latch", "hatch", "switch"] },
+      { "concept": "suffix-ed", "examples": ["asked", "climbed", "answered", "cleared"] },
+      { "concept": "initial-blend", "examples": ["clamp", "bridge", "climb", "clear"] },
+      { "concept": "floss", "examples": ["hall", "buzz", "hiss", "glass"] }
+    ],
+    "ogCategories": ["Phonics", "Spelling rules", "Morphology", "Comprehension"]
+  },
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r5.json",
+      "sha256": "529b38788b8ff0d76727aef208c560c0ad7a06c17d905e8f0c098319da155a38"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r5.json",
+      "sha256": "a726acaad4dc1fe05c78910ce54481546fa5dd62bac8c9a8cadcb4ab88480da2"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/weave-comparison.r5.json",
+      "sha256": "55ecbcf41529410da61ee951986696f7f2110b21081f5dc005c001be8bd354d1"
+    }
+  ]
+}
