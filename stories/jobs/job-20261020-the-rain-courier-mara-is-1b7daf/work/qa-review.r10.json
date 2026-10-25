@@ -1,0 +1,52 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 10,
+  "draftSha256": "cd47470280e067bdee10c78b40a6190558b42d7fa385fb3bad1b251d66b933e8",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "Carried over from the r7/r9 QA passes (not addressed in this revision, which only touched dash-past and added catch-breath): 'gathering' still labels choices 'Ride back to Tam's shop' and 'Ride back to the dark alley' (lines 206, 211), which presume a visit that not every route makes (e.g. start > alley > alley-leave > gathering never visits the shop). Neutral wording ('Ride to...') would fit all routes. Unchanged text, not worsened.",
+      "passage": "gathering"
+    },
+    {
+      "severity": "minor",
+      "message": "Carried over from the r7/r9 QA passes (not addressed in this revision): at climax-gate, Mara picks the lock and 'eased the gate shut behind her' (paragraph 2), then Vex 'stepped out of the fog' already on the bridge (paragraph 4) with no explanation of how he got past the shut, locked gate, even though a cab engine growling behind her at threshold implies he followed her there. Unchanged text, not worsened.",
+      "passage": "climax-gate"
+    },
+    {
+      "severity": "minor",
+      "message": "Carried over from the r7/r9 QA passes: validation.r10.json brief.warnings still flags '1 sentence(s) exceed the brief's 16-word limit'. Hand count confirms: ending-4, 'At the far end, a woman in a lit booth pulled her inside and shut the door.' is 17 words. Unchanged, pre-existing, flagged again for the literacy reviewer.",
+      "passage": "ending-4"
+    },
+    {
+      "severity": "minor",
+      "message": "New in this revision but not a continuity defect: catch-breath's give-up choice label ('Wave down a drone and give up the bag') is a near word-for-word reorder of hide-shade's existing give-up label ('Wave the drone down and give up the bag'). The two choices are mutually exclusive within a single playthrough (a reader reaches one or the other depending on hide-in-shade vs. dash-past at drone-street, never both), so this is only visible to a reader who replays the other branch. Cosmetic; does not affect routing, items, or endings.",
+      "passage": "catch-breath"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/drafts/story.r10.json",
+      "sha256": "cd47470280e067bdee10c78b40a6190558b42d7fa385fb3bad1b251d66b933e8"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/validation.r10.json",
+      "sha256": "b9ce0245fbc8a9161952887939dbf8a29291fabaa71526f3ed34c0c14447b02b"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/graph.r10.json",
+      "sha256": "1d77de4649f5d6c97e4e9f914e54bbe2430e4498b862d464ca9555cc0e74baf8"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/brief.json",
+      "sha256": "1653592bbed568e759c73b0747e1583d95a46dc6036f41ea5e72cb8bd792a2e8"
+    }
+  ],
+  "notes": "Verified the r9 major finding (dash-duck wrongly retargeted into hide-shade, reusing text written for the drone-street entry) is fixed. Full diff of story.r9.json vs story.r10.json shows the only changes are: dash-past's dash-duck choice target changed from hide-shade to a new passage catch-breath, and the new catch-breath passage inserted; hide-shade, gathering, climax-gate, climax-hack and the five ending passages are byte-for-byte unchanged. catch-breath's text is written for the dash-past entry specifically ('The hum is gone,' said Nine) with no leftover active-drone-threat language and no reference to 'the shelter' (an object with no antecedent on this route, which was the r9 defect). hide-shade keeps its original two entry points only (drone-street's hide-in-shade, and alley-clue's clue-shortcut via drone-street), both matching its active-drone text; it was not touched. catch-breath offers a genuine fork, not a filler rejoin: catch-onward continues to threshold (same destination as dash-onward), catch-give-up routes to ending-5. Traced one route to each ending: start>to-shop>shop>ask-tam>shop-pick>pick-onward>alley>turn-chip>alley-clue>clue-onward>gathering>gather-lane>drone-street>dash-past>dash-onward>threshold>pick-the-lock>climax-gate>walk-to-light>ending-1 (and ...>nine-hacks-drones>ending-2); threshold>ask-nine-hack>climax-hack>give-to-vex>ending-3 (and ...>dash-over-bridge>ending-4); drone-street>dash-past>dash-duck>catch-breath>catch-give-up>ending-5 (also reachable via hide-shade>shade-give-up and threshold>call-drone). All consistent with graph.r10.json's stats (18 passages, 28 choices, 5/5 endings reachable, state search complete). Sentence-length check on the new passage by hand: longest sentence is 15 words, under the brief's 16-word limit, matching validation.r10.json's single remaining brief warning (ending-4, pre-existing). npm run check was run: lint, typecheck and `npm test` (191/191 tests passed) are clean; `npm run validate:stories` fails, but only on four unrelated, stale public preview snapshots (public/stories/previews/the-cat-who-took-the-wrong-turn.json, the-derelict-salvage.json, the-rain-courier.json, wake-cycle.json) that are frozen at story version 8, from an earlier demo-seeding commit (bc7ce22), predating and unrelated to this job's drafts under stories/jobs/; the same single-choice defects these stale previews show were already fixed in this job's own r9/r10 drafts. This job's own draft (story.r10.json) and its own validation/graph reports are ok:true throughout. Because npm run validate:stories fails overall, `npm run check` as a whole did not complete (exits 1 at the validate:stories step, before agents:check/build run), reported here per the no-false-pass rule; this is an escalation-worthy repo-wide/preview-sync issue out of scope for this story job and not a defect in the reviewed draft."
+}

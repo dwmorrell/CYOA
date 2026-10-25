@@ -1,0 +1,53 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 10,
+  "draftSha256": "cd47470280e067bdee10c78b40a6190558b42d7fa385fb3bad1b251d66b933e8",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "Carried over from the r7/r9 QA passes (not addressed in this revision, which only touched dash-past and added catch-breath): 'gathering' still labels choices 'Ride back to Tam's shop' and 'Ride back to the dark alley' (lines 206, 211), which presume a visit that not every route makes (e.g. start > alley > alley-leave > gathering never visits the shop). Neutral wording ('Ride to...') would fit all routes. Unchanged text, not worsened.",
+      "passage": "gathering"
+    },
+    {
+      "severity": "minor",
+      "message": "Carried over from the r7/r9 QA passes (not addressed in this revision): at climax-gate, Mara picks the lock and 'eased the gate shut behind her' (paragraph 2), then Vex 'stepped out of the fog' already on the bridge (paragraph 4) with no explanation of how he got past the shut, locked gate, even though a cab engine growling behind her at threshold implies he followed her there. Unchanged text, not worsened.",
+      "passage": "climax-gate"
+    },
+    {
+      "severity": "minor",
+      "message": "Carried over from the r7/r9 QA passes: validation.r10.json brief.warnings still flags '1 sentence(s) exceed the brief's 16-word limit'. Hand count confirms: ending-4, 'At the far end, a woman in a lit booth pulled her inside and shut the door.' is 17 words. Unchanged, pre-existing, flagged again for the literacy reviewer.",
+      "passage": "ending-4"
+    },
+    {
+      "severity": "minor",
+      "message": "New in this revision but not a continuity defect: catch-breath's give-up choice label ('Wave down a drone and give up the bag') is a near word-for-word reorder of hide-shade's existing give-up label ('Wave the drone down and give up the bag'). The two choices are mutually exclusive within a single playthrough (a reader reaches one or the other depending on hide-in-shade vs. dash-past at drone-street, never both), so this is only visible to a reader who replays the other branch. Cosmetic; does not affect routing, items, or endings.",
+      "passage": "catch-breath"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/drafts/story.r10.json",
+      "sha256": "cd47470280e067bdee10c78b40a6190558b42d7fa385fb3bad1b251d66b933e8"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/validation.r10.json",
+      "sha256": "b9ce0245fbc8a9161952887939dbf8a29291fabaa71526f3ed34c0c14447b02b"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/graph.r10.json",
+      "sha256": "1d77de4649f5d6c97e4e9f914e54bbe2430e4498b862d464ca9555cc0e74baf8"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/brief.json",
+      "sha256": "1653592bbed568e759c73b0747e1583d95a46dc6036f41ea5e72cb8bd792a2e8"
+    }
+  ],
+  "id": "review-9-qa",
+  "submittedAt": "2026-10-25T08:28:10.649Z"
+}

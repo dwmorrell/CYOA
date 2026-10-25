@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "wake-cycle",
   "title": "Wake Cycle",
-  "version": 5,
+  "version": 6,
   "metadata": {
     "genre": "Space survival mystery",
     "theme": "Staying calm under pressure, working with others, and thinking a problem through",
@@ -162,12 +162,19 @@
         "\"Why does order matter?\" Jun asked.",
         "\"The latch unlocks,\" said Oru. \"The switch wakes the heartbeat. The hatch lets in air.\"",
         "\"Skip a step, and the pod just waits. It will not break.\"",
+        "A small panel by the pod blinked. Thin white lines crossed it, like the dust on Oru's big screen.",
         "Jun nodded, ready to try again, slow and sure."
       ],
       "learningTargets": ["vocabulary", "comprehension"],
       "choices": [
-        { "id": "after-not-yet-why", "label": "Open the pod in the right order, step by step", "target": "captain-wakes" },
-        { "id": "skip-explanation", "label": "Skip the talk and lift the latch now", "target": "captain-wakes", "learningTargets": ["engagement"] }
+        {
+          "id": "after-not-yet-why",
+          "label": "Check the panel, then open the pod step by step",
+          "target": "captain-wakes",
+          "effects": { "addClues": ["dust-map"] },
+          "learningTargets": ["detail", "sequencing"]
+        },
+        { "id": "skip-explanation", "label": "Skip the panel and lift the latch now", "target": "captain-wakes", "learningTargets": ["engagement"] }
       ]
     },
     {
@@ -242,12 +249,19 @@
         "Jun kept the lamp steady and watched the wire close.",
         "A spark snapped near the switch. \"Back up a little,\" said Dex.",
         "Jun stepped back. The spark faded, and Dex gave a quick nod.",
+        "Across the room, a paper chart hung on the wall.",
         "\"Good catch,\" said Dex. \"Now, let's see what is next.\""
       ],
       "learningTargets": ["detail", "engagement"],
       "choices": [
         { "id": "after-lamp-watch", "label": "Ask Dex what is next", "target": "dex-fixed" },
-        { "id": "go-to-chart", "label": "Go straight to Dex's wall chart", "target": "dex-chart", "learningTargets": ["detail"] }
+        {
+          "id": "go-to-chart",
+          "label": "Glance at the wall chart while Dex wraps up",
+          "target": "dex-fixed",
+          "effects": { "addClues": ["dust-map"] },
+          "learningTargets": ["detail"]
+        }
       ]
     },
     {
@@ -272,12 +286,19 @@
         "Jun sorted the spare tools into the pack.",
         "Click. Click. Each tool found its place.",
         "Dex checked the valve once more. \"All steady,\" he said.",
+        "Across the room, Dex's paper chart hung on the wall.",
         "\"Nice work. Now, let's see what is next.\""
       ],
       "learningTargets": ["sequencing", "engagement"],
       "choices": [
         { "id": "after-tools-sort", "label": "Ask Dex what is next", "target": "dex-fixed" },
-        { "id": "go-to-chart-tools", "label": "Head over to Dex's wall chart", "target": "dex-chart", "learningTargets": ["detail"] }
+        {
+          "id": "go-to-chart-tools",
+          "label": "Glance at the wall chart while Dex checks the valve",
+          "target": "dex-fixed",
+          "effects": { "addClues": ["dust-map"] },
+          "learningTargets": ["detail"]
+        }
       ]
     },
     {
@@ -332,12 +353,19 @@
         "\"Come with me,\" said Jun. \"Two heads are better than one.\"",
         "Dex grabbed a spare lamp and a coil of wire. \"Lead the way.\"",
         "They climbed the steps together as the ship rattled around them.",
-        "At the top, the dust storm filled the window in a wall of white."
+        "At the top, the dust storm filled the window in a wall of white.",
+        "Dex's handheld sensor blinked. A thin, clear lane flickered on its tiny screen."
       ],
       "learningTargets": ["engagement", "comprehension"],
       "choices": [
         { "id": "to-threshold-together", "label": "Face the storm together", "target": "threshold" },
-        { "id": "double-check-sensors", "label": "Ask Dex to check the sensors once more first", "target": "threshold", "learningTargets": ["detail"] }
+        {
+          "id": "double-check-sensors",
+          "label": "Ask Dex to check the sensors once more first",
+          "target": "threshold",
+          "effects": { "addClues": ["dust-map"] },
+          "learningTargets": ["detail"]
+        }
       ]
     },
     {
