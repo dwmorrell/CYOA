@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T23:29:19.171Z",
+  "generatedAt": "2026-10-26T08:05:59.254Z",
   "order": [
     "WI-01",
     "WI-02",
@@ -21,12 +21,12 @@
     {
       "id": "job-20261020-the-cat-who-took-the-wro-fd6944",
       "state": "awaiting-parent-approval",
-      "revisions": 4,
+      "revisions": 7,
       "gates": [
         {
           "id": "draft-exists",
           "ok": true,
-          "detail": "Revision 4, story v4"
+          "detail": "Revision 7, story v7"
         },
         {
           "id": "automated-validation",
@@ -57,6 +57,154 @@
     },
     {
       "id": "job-20261020-the-derelict-salvage-cap-f8f7ea",
+      "state": "awaiting-parent-approval",
+      "revisions": 9,
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": true,
+          "detail": "Revision 9, story v9"
+        },
+        {
+          "id": "automated-validation",
+          "ok": true,
+          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
+        },
+        {
+          "id": "review:qa",
+          "ok": true,
+          "detail": "qa passed by qa-engineer (ai-agent)"
+        },
+        {
+          "id": "review:literacy",
+          "ok": true,
+          "detail": "literacy passed by literacy-specialist (ai-agent)"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ]
+    },
+    {
+      "id": "job-20261020-the-fog-over-pebble-bay-ec899d",
+      "state": "awaiting-parent-approval",
+      "revisions": 10,
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": true,
+          "detail": "Revision 10, story v10"
+        },
+        {
+          "id": "automated-validation",
+          "ok": true,
+          "detail": "schema: ok; graph: ok, 3/3 endings reachable; literacy checks: ok; brief: ok"
+        },
+        {
+          "id": "review:qa",
+          "ok": true,
+          "detail": "qa passed by qa-engineer (ai-agent)"
+        },
+        {
+          "id": "review:literacy",
+          "ok": true,
+          "detail": "literacy passed by literacy-specialist (ai-agent)"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ]
+    },
+    {
+      "id": "job-20261020-the-rain-courier-mara-is-1b7daf",
+      "state": "awaiting-parent-approval",
+      "revisions": 10,
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": true,
+          "detail": "Revision 10, story v10"
+        },
+        {
+          "id": "automated-validation",
+          "ok": true,
+          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
+        },
+        {
+          "id": "review:qa",
+          "ok": true,
+          "detail": "qa passed by qa-engineer (ai-agent)"
+        },
+        {
+          "id": "review:literacy",
+          "ok": true,
+          "detail": "literacy passed by literacy-specialist (ai-agent)"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ]
+    },
+    {
+      "id": "job-20261020-the-tomb-of-ameru-sami-k-541c79",
+      "state": "awaiting-parent-approval",
+      "revisions": 3,
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": true,
+          "detail": "Revision 3, story v3"
+        },
+        {
+          "id": "automated-validation",
+          "ok": true,
+          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
+        },
+        {
+          "id": "review:qa",
+          "ok": true,
+          "detail": "qa passed by qa-engineer (ai-agent)"
+        },
+        {
+          "id": "review:literacy",
+          "ok": true,
+          "detail": "literacy passed by literacy-specialist (ai-agent)"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ]
+    },
+    {
+      "id": "job-20261020-wake-cycle-astronaut-jun-3923f7",
       "state": "awaiting-parent-approval",
       "revisions": 6,
       "gates": [
@@ -91,155 +239,11 @@
           "detail": "Waiting for a parent decision"
         }
       ]
-    },
-    {
-      "id": "job-20261020-the-fog-over-pebble-bay-ec899d",
-      "state": "in-review",
-      "revisions": 10,
-      "gates": [
-        {
-          "id": "draft-exists",
-          "ok": true,
-          "detail": "Revision 10, story v10"
-        },
-        {
-          "id": "automated-validation",
-          "ok": true,
-          "detail": "schema: ok; graph: ok, 3/3 endings reachable; literacy checks: ok; brief: ok"
-        },
-        {
-          "id": "review:qa",
-          "ok": false,
-          "detail": "No qa review on revision 10"
-        },
-        {
-          "id": "review:literacy",
-          "ok": false,
-          "detail": "No literacy review on revision 10"
-        },
-        {
-          "id": "story-literacy-claim",
-          "ok": true,
-          "detail": "Story literacy review is \"pending\""
-        },
-        {
-          "id": "parent-approval",
-          "ok": false,
-          "detail": "Waiting for a parent decision"
-        }
-      ]
-    },
-    {
-      "id": "job-20261020-the-rain-courier-mara-is-1b7daf",
-      "state": "awaiting-parent-approval",
-      "revisions": 8,
-      "gates": [
-        {
-          "id": "draft-exists",
-          "ok": true,
-          "detail": "Revision 8, story v8"
-        },
-        {
-          "id": "automated-validation",
-          "ok": true,
-          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
-        },
-        {
-          "id": "review:qa",
-          "ok": true,
-          "detail": "qa passed by qa-engineer (ai-agent)"
-        },
-        {
-          "id": "review:literacy",
-          "ok": true,
-          "detail": "literacy passed by literacy-specialist (ai-agent)"
-        },
-        {
-          "id": "story-literacy-claim",
-          "ok": true,
-          "detail": "Story literacy review is \"pending\""
-        },
-        {
-          "id": "parent-approval",
-          "ok": false,
-          "detail": "Waiting for a parent decision"
-        }
-      ]
-    },
-    {
-      "id": "job-20261020-the-tomb-of-ameru-sami-k-541c79",
-      "state": "in-review",
-      "revisions": 2,
-      "gates": [
-        {
-          "id": "draft-exists",
-          "ok": true,
-          "detail": "Revision 2, story v2"
-        },
-        {
-          "id": "automated-validation",
-          "ok": true,
-          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
-        },
-        {
-          "id": "review:qa",
-          "ok": false,
-          "detail": "No qa review on revision 2"
-        },
-        {
-          "id": "review:literacy",
-          "ok": false,
-          "detail": "No literacy review on revision 2"
-        },
-        {
-          "id": "story-literacy-claim",
-          "ok": true,
-          "detail": "Story literacy review is \"pending\""
-        },
-        {
-          "id": "parent-approval",
-          "ok": false,
-          "detail": "Waiting for a parent decision"
-        }
-      ]
-    },
-    {
-      "id": "job-20261020-wake-cycle-astronaut-jun-3923f7",
-      "state": "in-review",
-      "revisions": 4,
-      "gates": [
-        {
-          "id": "draft-exists",
-          "ok": true,
-          "detail": "Revision 4, story v4"
-        },
-        {
-          "id": "automated-validation",
-          "ok": true,
-          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
-        },
-        {
-          "id": "review:qa",
-          "ok": false,
-          "detail": "No qa review on revision 4"
-        },
-        {
-          "id": "review:literacy",
-          "ok": false,
-          "detail": "No literacy review on revision 4"
-        },
-        {
-          "id": "story-literacy-claim",
-          "ok": true,
-          "detail": "Story literacy review is \"pending\""
-        },
-        {
-          "id": "parent-approval",
-          "ok": false,
-          "detail": "Waiting for a parent decision"
-        }
-      ]
     }
   ],
-  "problems": []
+  "problems": [
+    "R28: test \"the car starts on the line at the top and runs clockwise on screen\" not found in tests/",
+    "R28: test \"a finished lap leaves the car back on the start line\" not found in tests/",
+    "R28: test \"each race track keeps its own high scores, and changing track starts a new lap\" not found in tests/"
+  ]
 }

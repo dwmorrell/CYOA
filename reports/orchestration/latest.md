@@ -1,6 +1,6 @@
 # Orchestration report
 
-Generated 2026-10-24T23:29:19.168Z by `npm run orchestrate`.
+Generated 2026-10-26T08:05:59.252Z by `npm run orchestrate`.
 
 ## Software work items (dependency order)
 
@@ -27,52 +27,54 @@ Generated 2026-10-24T23:29:19.168Z by `npm run orchestrate`.
 
 ## Story production jobs
 
-- job-20261020-the-cat-who-took-the-wro-fd6944: **awaiting-parent-approval**, 4 revision(s)
-  - pass: draft-exists, Revision 4, story v4
+- job-20261020-the-cat-who-took-the-wro-fd6944: **awaiting-parent-approval**, 7 revision(s)
+  - pass: draft-exists, Revision 7, story v7
   - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
   - pass: review:qa, qa passed by qa-engineer (ai-agent)
   - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
   - pass: story-literacy-claim, Story literacy review is "pending"
   - waiting: parent-approval, Waiting for a parent decision
-- job-20261020-the-derelict-salvage-cap-f8f7ea: **awaiting-parent-approval**, 6 revision(s)
+- job-20261020-the-derelict-salvage-cap-f8f7ea: **awaiting-parent-approval**, 9 revision(s)
+  - pass: draft-exists, Revision 9, story v9
+  - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
+  - pass: review:qa, qa passed by qa-engineer (ai-agent)
+  - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
+  - pass: story-literacy-claim, Story literacy review is "pending"
+  - waiting: parent-approval, Waiting for a parent decision
+- job-20261020-the-fog-over-pebble-bay-ec899d: **awaiting-parent-approval**, 10 revision(s)
+  - pass: draft-exists, Revision 10, story v10
+  - pass: automated-validation, schema: ok; graph: ok, 3/3 endings reachable; literacy checks: ok; brief: ok
+  - pass: review:qa, qa passed by qa-engineer (ai-agent)
+  - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
+  - pass: story-literacy-claim, Story literacy review is "pending"
+  - waiting: parent-approval, Waiting for a parent decision
+- job-20261020-the-rain-courier-mara-is-1b7daf: **awaiting-parent-approval**, 10 revision(s)
+  - pass: draft-exists, Revision 10, story v10
+  - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
+  - pass: review:qa, qa passed by qa-engineer (ai-agent)
+  - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
+  - pass: story-literacy-claim, Story literacy review is "pending"
+  - waiting: parent-approval, Waiting for a parent decision
+- job-20261020-the-tomb-of-ameru-sami-k-541c79: **awaiting-parent-approval**, 3 revision(s)
+  - pass: draft-exists, Revision 3, story v3
+  - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
+  - pass: review:qa, qa passed by qa-engineer (ai-agent)
+  - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
+  - pass: story-literacy-claim, Story literacy review is "pending"
+  - waiting: parent-approval, Waiting for a parent decision
+- job-20261020-wake-cycle-astronaut-jun-3923f7: **awaiting-parent-approval**, 6 revision(s)
   - pass: draft-exists, Revision 6, story v6
   - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
   - pass: review:qa, qa passed by qa-engineer (ai-agent)
   - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
   - pass: story-literacy-claim, Story literacy review is "pending"
   - waiting: parent-approval, Waiting for a parent decision
-- job-20261020-the-fog-over-pebble-bay-ec899d: **in-review**, 10 revision(s)
-  - pass: draft-exists, Revision 10, story v10
-  - pass: automated-validation, schema: ok; graph: ok, 3/3 endings reachable; literacy checks: ok; brief: ok
-  - waiting: review:qa, No qa review on revision 10
-  - waiting: review:literacy, No literacy review on revision 10
-  - pass: story-literacy-claim, Story literacy review is "pending"
-  - waiting: parent-approval, Waiting for a parent decision
-- job-20261020-the-rain-courier-mara-is-1b7daf: **awaiting-parent-approval**, 8 revision(s)
-  - pass: draft-exists, Revision 8, story v8
-  - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
-  - pass: review:qa, qa passed by qa-engineer (ai-agent)
-  - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
-  - pass: story-literacy-claim, Story literacy review is "pending"
-  - waiting: parent-approval, Waiting for a parent decision
-- job-20261020-the-tomb-of-ameru-sami-k-541c79: **in-review**, 2 revision(s)
-  - pass: draft-exists, Revision 2, story v2
-  - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
-  - waiting: review:qa, No qa review on revision 2
-  - waiting: review:literacy, No literacy review on revision 2
-  - pass: story-literacy-claim, Story literacy review is "pending"
-  - waiting: parent-approval, Waiting for a parent decision
-- job-20261020-wake-cycle-astronaut-jun-3923f7: **in-review**, 4 revision(s)
-  - pass: draft-exists, Revision 4, story v4
-  - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
-  - waiting: review:qa, No qa review on revision 4
-  - waiting: review:literacy, No literacy review on revision 4
-  - pass: story-literacy-claim, Story literacy review is "pending"
-  - waiting: parent-approval, Waiting for a parent decision
 
 ## Problems found
 
-None.
+- R28: test "the car starts on the line at the top and runs clockwise on screen" not found in tests/
+- R28: test "a finished lap leaves the car back on the start line" not found in tests/
+- R28: test "each race track keeps its own high scores, and changing track starts a new lap" not found in tests/
 
 ## Executable today vs planned
 
