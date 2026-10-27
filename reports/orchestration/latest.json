@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T08:06:58.158Z",
+  "generatedAt": "2026-10-27T19:43:41.797Z",
   "order": [
     "WI-01",
     "WI-02",
@@ -241,9 +241,5 @@
       ]
     }
   ],
-  "problems": [
-    "R28: test \"the car starts on the line at the top and runs clockwise on screen\" not found in tests/",
-    "R28: test \"a finished lap leaves the car back on the start line\" not found in tests/",
-    "R28: test \"each race track keeps its own high scores, and changing track starts a new lap\" not found in tests/"
-  ]
+  "problems": []
 }

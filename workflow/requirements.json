@@ -487,9 +487,9 @@
         "a faster typist finishes the same lap in less time",
         "keeps a high score list for each race track, separate from the others",
         "types the words from the list, shows speed and accuracy, and finishes the lap",
-        "the car starts on the line at the top and runs clockwise on screen",
-        "a finished lap leaves the car back on the start line",
-        "each race track keeps its own high scores, and changing track starts a new lap"
+        "the car starts on the line at the left and drives to the right",
+        "a finished lap leaves the car at the finish line, the far end of the road",
+        "each road keeps its own high scores, and changing road starts a new lap"
       ],
       "gaps": [
         "Speed is measured to the latest key, so it does not fall while the reader pauses",

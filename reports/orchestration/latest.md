@@ -1,6 +1,6 @@
 # Orchestration report
 
-Generated 2026-10-27T08:06:58.153Z by `npm run orchestrate`.
+Generated 2026-10-27T19:43:41.795Z by `npm run orchestrate`.
 
 ## Software work items (dependency order)
 
@@ -72,9 +72,7 @@ Generated 2026-10-27T08:06:58.153Z by `npm run orchestrate`.
 
 ## Problems found
 
-- R28: test "the car starts on the line at the top and runs clockwise on screen" not found in tests/
-- R28: test "a finished lap leaves the car back on the start line" not found in tests/
-- R28: test "each race track keeps its own high scores, and changing track starts a new lap" not found in tests/
+None.
 
 ## Executable today vs planned
 
