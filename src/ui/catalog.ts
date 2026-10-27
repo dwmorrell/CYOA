@@ -26,6 +26,11 @@ export interface Catalog {
   previews: PreviewEntry[];
 }
 
+/** True once every gate but the parent's own decision has passed, so the shelf can flag it as ready for review. */
+export function readyForParentReview(entry: PreviewEntry): boolean {
+  return entry.gates.every((g) => g.id === 'parent-approval' || g.ok);
+}
+
 const BASE = './stories/';
 
 export async function fetchCatalog(fetcher: typeof fetch = fetch): Promise<Catalog> {

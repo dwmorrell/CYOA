@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { DEFAULT_PREFS } from '../../src/engine/persistence';
 import { newGame } from '../../src/engine/story-engine';
@@ -166,6 +166,27 @@ describe('parent approval controls the child library', () => {
     fireEvent.click(button('Start the new version'));
     expect(await screen.findByRole('heading', { level: 1, name: 'The windy hill' })).toBeTruthy();
     await waitFor(async () => expect((await repo.loadSave(child.id, story.id))?.save.storyVersion).toBe(2));
+  });
+
+  it('flags a pending draft as ready for review, and distinguishes a fresh draft from an update to an approved story', async () => {
+    const repo = await readyRepo();
+    await repo.saveDraft(story, 'Sam', 'import');
+    location.hash = '#/parent';
+    render(<App repo={repo} catalog={emptyCatalog} />);
+    fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
+    fireEvent.click(button('Open'));
+    expect(await screen.findByText('Ready for review')).toBeTruthy();
+
+    fireEvent.click(await screen.findByLabelText(/AI literacy review and the AI QA review for this version have passed/));
+    fireEvent.click(await screen.findByRole('button', { name: 'Approve version 1' }));
+    await screen.findByText(/is now in the reader’s library/);
+    expect(screen.queryByText('Ready for review')).toBeNull();
+    expect(screen.queryByText('Updated — ready for review')).toBeNull();
+
+    await repo.saveDraft({ ...story, title: 'The Lost Kite, revised', version: 2 }, 'Sam', 'editor');
+    await navigate('#/');
+    await navigate('#/parent');
+    expect(await screen.findByText('Updated — ready for review')).toBeTruthy();
   });
 
   it('archiving moves a story off the main list without touching approval, and it can be restored', async () => {
@@ -371,6 +392,38 @@ describe('typing practice add-on', () => {
     expect(screen.queryByRole('heading', { name: 'The Rain Courier' })).toBeNull();
     expect(screen.queryByRole('heading', { name: 'Fog' })).toBeNull();
     expect(screen.getByRole('heading', { name: 'The Tomb' })).toBeTruthy();
+  });
+
+  it('flags a workshop story as ready for review once every gate but the parent decision has passed', async () => {
+    const repo = await readyRepo();
+    const gatesFor = (reviewsPassed: boolean): PreviewEntry['gates'] => [
+      { id: 'draft-exists', ok: true, detail: '' },
+      { id: 'automated-validation', ok: true, detail: '' },
+      { id: 'review:qa', ok: reviewsPassed, detail: '' },
+      { id: 'review:literacy', ok: reviewsPassed, detail: '' },
+      { id: 'parent-approval', ok: false, detail: 'Waiting for a parent decision' },
+    ];
+    const entry = (id: string, title: string, reviewsPassed: boolean): PreviewEntry => ({
+      id,
+      title,
+      version: 1,
+      path: `previews/${id}.json`,
+      sha256: 'x',
+      jobId: `job-${id}`,
+      jobState: reviewsPassed ? 'awaiting-parent-approval' : 'in-review',
+      gates: gatesFor(reviewsPassed),
+      updatedAt: '2026-10-21T00:00:00Z',
+    });
+    const catalog: Catalog = { catalogVersion: 1, published: [], previews: [entry('done', 'Finished Story', true), entry('pending', 'Pending Story', false)] };
+    render(<App repo={repo} catalog={catalog} />);
+    await screen.findByText(/Hi Ada/);
+    await navigate('#/parent');
+    fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
+    fireEvent.click(button('Open'));
+    const finished = (await screen.findByRole('heading', { name: 'Finished Story' })).closest('li')!;
+    const pending = screen.getByRole('heading', { name: 'Pending Story' }).closest('li')!;
+    expect(within(finished).getByText('Ready for review')).toBeTruthy();
+    expect(within(pending).queryByText('Ready for review')).toBeNull();
   });
 
   it('a grown-up writes a word list, and words with other characters are reported and left out', async () => {

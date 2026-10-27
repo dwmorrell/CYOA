@@ -4,7 +4,7 @@ import { AI_REVIEWS_NOT_CONFIRMED, type LibraryEntry, type Repo } from '../../st
 import { blankStory, downloadJson, exportStory, parseImport } from '../../storage/transfer';
 import { slugify } from '../../production/request';
 import { validateDraft, validationIssues } from '../../production/validate-draft';
-import { fetchStory, type CatalogEntry } from '../catalog';
+import { fetchStory, readyForParentReview, type CatalogEntry, type PreviewEntry } from '../catalog';
 import { Page } from '../common';
 import { useApp } from '../context';
 import { focusOptions, LiteracySummary, matchesFocus } from './LiteracySummary';
@@ -159,6 +159,7 @@ function LibraryCard({
   return (
     <li className="card">
       <h3>{entry.title}</h3>
+      {entry.draftHash && <p className="ready-tag">{entry.approved ? 'Updated — ready for review' : 'Ready for review'}</p>}
       <p>
         {entry.approved ? `In the reader’s library: version ${entry.approved.version} (approved by ${entry.approved.by})` : 'Not in the reader’s library'}
         {draftVersion !== undefined && ` · Draft: version ${draftVersion}`}
@@ -400,6 +401,7 @@ export default function ParentHome() {
             {shown.map(({ e, kind }) => (
               <li key={`${kind}:${e.id}`} className="card">
                 <h3>{e.title}</h3>
+                {kind === 'workshop' && readyForParentReview(e as PreviewEntry) && <p className="ready-tag">Ready for review</p>}
                 <p>
                   {kind === 'packaged' ? 'Packaged and approved' : `Workshop draft, status: ${'jobState' in e ? e.jobState : ''}`} · version {e.version}
                 </p>

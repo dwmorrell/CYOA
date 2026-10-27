@@ -548,6 +548,17 @@ textarea.input {
   border-color: var(--accent);
   border-width: 2px;
 }
+.ready-tag {
+  display: inline-block;
+  margin: 2px 0 8px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 2px solid var(--ok);
+  color: var(--ok);
+  background: var(--surface);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
 .font-sample.font-lexend {
   font-family: 'Lexend', Verdana, sans-serif;
 }
