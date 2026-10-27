@@ -1,8 +1,10 @@
-name: Prepare deployment (no publish)
+name: Deploy to GitHub Pages
 
-# Builds a release artifact only. Hosting has not been selected, so there is
-# deliberately no deploy step. Story publication is a separate, gated process
-# (npm run story -- publish) and is never performed by any workflow.
+# Builds a release artifact and, after a human approves the protected
+# `production` environment, publishes it to GitHub Pages. Story publication
+# is a separate, gated process (npm run story -- publish) and is never
+# performed by any workflow - this only ships whatever code and catalog are
+# already on the deployed branch.
 
 on:
   workflow_dispatch:
@@ -13,6 +15,8 @@ on:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -40,5 +44,17 @@ jobs:
           name: story-quest-dist-${{ github.sha }}
           path: dist/
           retention-days: 30
-      # When hosting is chosen: add a job here with `environment: production`
-      # (protected, required reviewers) that deploys the uploaded artifact.
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
