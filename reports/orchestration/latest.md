@@ -1,6 +1,6 @@
 # Orchestration report
 
-Generated 2026-10-29T08:06:29.404Z by `npm run orchestrate`.
+Generated 2026-10-30T08:44:27.779Z by `npm run orchestrate`.
 
 ## Software work items (dependency order)
 
@@ -27,15 +27,15 @@ Generated 2026-10-29T08:06:29.404Z by `npm run orchestrate`.
 
 ## Story production jobs
 
-- job-20261020-the-cat-who-took-the-wro-fd6944: **awaiting-parent-approval**, 7 revision(s)
-  - pass: draft-exists, Revision 7, story v7
+- job-20261020-the-cat-who-took-the-wro-fd6944: **awaiting-parent-approval**, 9 revision(s)
+  - pass: draft-exists, Revision 9, story v9
   - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
   - pass: review:qa, qa passed by qa-engineer (ai-agent)
   - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
   - pass: story-literacy-claim, Story literacy review is "pending"
   - waiting: parent-approval, Waiting for a parent decision
-- job-20261020-the-derelict-salvage-cap-f8f7ea: **awaiting-parent-approval**, 9 revision(s)
-  - pass: draft-exists, Revision 9, story v9
+- job-20261020-the-derelict-salvage-cap-f8f7ea: **awaiting-parent-approval**, 10 revision(s)
+  - pass: draft-exists, Revision 10, story v10
   - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
   - pass: review:qa, qa passed by qa-engineer (ai-agent)
   - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
@@ -55,9 +55,9 @@ Generated 2026-10-29T08:06:29.404Z by `npm run orchestrate`.
   - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
   - pass: story-literacy-claim, Story literacy review is "pending"
   - waiting: parent-approval, Waiting for a parent decision
-- job-20261020-the-tomb-of-ameru-sami-k-541c79: **awaiting-parent-approval**, 3 revision(s)
-  - pass: draft-exists, Revision 3, story v3
-  - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
+- job-20261020-the-tomb-of-ameru-sami-k-541c79: **awaiting-parent-approval**, 4 revision(s)
+  - pass: draft-exists, Revision 4, story v4
+  - pass: automated-validation, schema: ok; graph: ok, 6/6 endings reachable; literacy checks: ok; brief: ok
   - pass: review:qa, qa passed by qa-engineer (ai-agent)
   - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
   - pass: story-literacy-claim, Story literacy review is "pending"

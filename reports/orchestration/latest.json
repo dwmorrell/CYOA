@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T08:06:29.406Z",
+  "generatedAt": "2026-10-30T08:44:27.780Z",
   "order": [
     "WI-01",
     "WI-02",
@@ -21,12 +21,12 @@
     {
       "id": "job-20261020-the-cat-who-took-the-wro-fd6944",
       "state": "awaiting-parent-approval",
-      "revisions": 7,
+      "revisions": 9,
       "gates": [
         {
           "id": "draft-exists",
           "ok": true,
-          "detail": "Revision 7, story v7"
+          "detail": "Revision 9, story v9"
         },
         {
           "id": "automated-validation",
@@ -58,12 +58,12 @@
     {
       "id": "job-20261020-the-derelict-salvage-cap-f8f7ea",
       "state": "awaiting-parent-approval",
-      "revisions": 9,
+      "revisions": 10,
       "gates": [
         {
           "id": "draft-exists",
           "ok": true,
-          "detail": "Revision 9, story v9"
+          "detail": "Revision 10, story v10"
         },
         {
           "id": "automated-validation",
@@ -169,17 +169,17 @@
     {
       "id": "job-20261020-the-tomb-of-ameru-sami-k-541c79",
       "state": "awaiting-parent-approval",
-      "revisions": 3,
+      "revisions": 4,
       "gates": [
         {
           "id": "draft-exists",
           "ok": true,
-          "detail": "Revision 3, story v3"
+          "detail": "Revision 4, story v4"
         },
         {
           "id": "automated-validation",
           "ok": true,
-          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
+          "detail": "schema: ok; graph: ok, 6/6 endings reachable; literacy checks: ok; brief: ok"
         },
         {
           "id": "review:qa",
