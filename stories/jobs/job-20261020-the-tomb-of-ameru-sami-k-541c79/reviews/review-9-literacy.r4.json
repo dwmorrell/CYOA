@@ -1,0 +1,148 @@
+{
+  "role": "literacy",
+  "reviewer": {
+    "name": "literacy-specialist",
+    "kind": "ai-agent",
+    "agent": "literacy-specialist"
+  },
+  "revision": 4,
+  "draftSha256": "7eb447562dfa324df5e91fa947d7d9775b7f5c3d55f3f1ad7b79f629c6908fa4",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Skills practised: reading this story practises decoding r-controlled words, -ed endings and ng/nk words in connected text, and recognising those recurring word-set words wherever they land, including on the now twelve short 'stop for today' detours. Following the Keeper's carved warnings and the team's choices builds sequencing (tap three times, then the fixed order of the five chambers, confirmed again in sleeper-read's recap), inference (why the Keeper holds up a flat hand, what a tipped tile, a cracked horn or a scorch mark is telling the team, why the sleeper is a welcome with rules rather than a threat) and vocabulary from context, both through in-text restatement (archaeologist, mummified) and the four glossary entries (archaeologist, ancient, mummified, cistern)."
+    },
+    {
+      "severity": "minor",
+      "message": "I hand-checked the three word sets against the actual r4 draft, not only the automated report. Every listed word in r-controlled-words (dark, far, cart, card, dirt, horn, burn), ed-endings (walked, dusted, rested, lifted, hunted, tapped) and ng-and-nk-words (long, sing, bank, sink, tank, rung) still appears in the story and still genuinely carries its declared spelling pattern. I found no conceptMismatches the automated report missed, matching reports/literacy.r4.json's empty conceptMismatches for all three sets. Totals rose slightly from r3 (r-controlled 44/10, ed-endings 24/8, ng/nk 24/8, all well above the brief's minimums), and every word in every set is still used at least once (missingWords empty for all three), so no word set misses its minimum and no target pattern is absent after this revision's edits.",
+      "passage": "literacy.r4.json"
+    },
+    {
+      "severity": "minor",
+      "message": "I re-traced the shortest route to all six endings, including the brand-new 'another-day-early' ending, and recomputed word-set coverage by hand rather than trusting the report alone. Shortest route to ending-setback-early is camp -> map-nook -> map-copy -> ending-setback-early (3 edges): r-controlled 2 (cart, dirt) + 4 (card x3, dirt) + 0 + 3 (far, cart, card) = 9; ed-endings 0 + 2 (hunted, tapped) + 0 + 0 = 2; ng/nk 2 (long, bank) + 0 + 0 + 1 (long) = 3. This matches reports/weave-comparison.r4.json's and reports/literacy.r4.json's perEndingRoute figures exactly (9, 2, 3) and confirms the rule 'each set should appear on every route to an ending' is met for the new route, on the same low-but-present pattern already flagged for the sibling 'another-day' route in the r3 review (8/2/3 there, 15/4/7 now that it has moved one edge later). Not a blocker, since the rule only requires presence, but a reader who always takes the earliest exit gets noticeably less -ed/ng-nk practice than one who explores further.",
+      "passage": "ending-setback-early"
+    },
+    {
+      "severity": "minor",
+      "message": "The five reworded lines and the new ending read naturally, not as a word-set checklist. water-dusted now stops at 'toward the ledge above', so the rest is narrated exactly once, by dusted-ledge's 'They rested on the ledge and drank a little water'; I checked both the dusted-on and dusted-rest branches and found no duplicated or missing rest. fire-big ('still standing near the scorch mark on the wall'), sand-slip ('everyone stood on the pale tiles to catch a breath') and song-horn ('still catching their breath by the horn') no longer claim the party already left the room before the detour choices (big-check, slip-look, horn-check) that follow, which removes a location contradiction without adding any decoration-only word-set usage. song-horn's 'Hollis pressed his lips to the horn and blew' also resolves the wrinkle I carried forward through the last two reviews: hall-song's horn is 'set in the wall', and pressing lips to a fixed horn is consistent with that, where the old 'lifted the horn' was not. I consider that finding closed.",
+      "passage": "song-horn"
+    },
+    {
+      "severity": "minor",
+      "message": "The new ending-setback-early passage fits the brief's tone and limits. Its longest sentence ('Tomorrow, with the card copied twice, we can tap on the sealed door together,\" said Ren.') is 16 words, at but not over the brief's maxSentenceWords of 16, and reports/validation.r4.json shows brief.ok with no warnings. Vocabulary (rushed, secrets, longer) matches the reading level used elsewhere in the story, the reflective closing line ('For now, the tomb could keep its secrets a little longer') matches the register of the other two quieter endings (ending-setback, ending-seal) without talking down, and nothing in it touches the brief's avoid-list (no violence, no real religion, the sleeper is not mentioned). One phrase is awkward for comprehension rather than decoding: 'with the card copied twice' is ambiguous about whether the team copied the card once (in map-copy) or will copy it again tomorrow; a young reader could plausibly read this as a continuity slip even though it is not one. Worth a one-word fix (e.g. 'with the card copied' or 'with our copy of the card') but not a blocker.",
+      "passage": "ending-setback-early"
+    },
+    {
+      "severity": "minor",
+      "message": "ending-seal's reworded line ('Sami eased the door shut and tapped it closed, slow and careful') keeps 'tapped' for the ed-endings word set (an improvement on r3's 'three slow taps', which did not actually match the -ed word form), but it drops the explicit callback to the 'three taps' rule the reader learned at map-nook/tap-card ('Tap three times. Do not push'). This is a loss of a satisfying payoff, not a contradiction (it does not claim a different number of taps), so it is not blocking, but the narrative designer may want to restore the count for stronger closure.",
+      "passage": "ending-seal"
+    },
+    {
+      "severity": "minor",
+      "message": "Limits of automated detection, unchanged from prior reviews in this job: the analyzer matches spelling, not sound. Its own concept examples still show this (the ng/nk concept list includes 'everything', 'finger' and 'going', which are not the OG glued-sound target, and are only informational since glued-ng-nk's targeted word-set words are a separate, hand-checked list). The ed-endings word set still mixes two different pronunciations of the -ed suffix (walked and tapped end in /t/; dusted, rested, lifted and hunted end in /ɪd/) with no /d/-sound example; a program teaching the three sounds of -ed explicitly should supplement this set. I cannot confirm decodability for any specific child's stage or program from the draft text alone; a qualified human literacy reviewer should confirm these linguistic claims before publication.",
+      "passage": "ed-endings"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/drafts/story.r4.json",
+      "sha256": "7eb447562dfa324df5e91fa947d7d9775b7f5c3d55f3f1ad7b79f629c6908fa4"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/literacy.r4.json",
+      "sha256": "68437c1fc424627561bb20ffadc846d87a56657178176f6b20abef3f97746fc1"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/literacy.r4.md",
+      "sha256": "c9a810df4c8be96dd7eaaed7ff12e89f12d47f8fd1fef58e8b67eda19612b1e8"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/weave-comparison.r4.json",
+      "sha256": "3ce32d11dd0243b96f8ffd9d2e6c1d2d230c82b828789849bf378ba1aeb6f421"
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "A tomb-exploring adventure with six endings and many short optional stops where the team can call it a day. It practises r-controlled words, -ed endings and ng/nk words, plus th, silent-e, FLOSS and sh words. Readers follow carved clues, so they also practise sequencing, inference and vocabulary from context.",
+    "skills": [
+      "comprehension",
+      "inference",
+      "sequencing",
+      "vocabulary"
+    ],
+    "wordTypes": [
+      {
+        "concept": "r-controlled",
+        "examples": [
+          "dark",
+          "cart",
+          "horn",
+          "burn"
+        ]
+      },
+      {
+        "concept": "suffix-ed",
+        "examples": [
+          "dusted",
+          "rested",
+          "lifted",
+          "hunted"
+        ]
+      },
+      {
+        "concept": "glued-ng-nk",
+        "examples": [
+          "long",
+          "bank",
+          "sink",
+          "rung"
+        ]
+      },
+      {
+        "concept": "digraph-th",
+        "examples": [
+          "path",
+          "both",
+          "mouth",
+          "cloth"
+        ]
+      },
+      {
+        "concept": "silent-e",
+        "examples": [
+          "came",
+          "care",
+          "crate",
+          "aside"
+        ]
+      },
+      {
+        "concept": "floss",
+        "examples": [
+          "bell",
+          "hill",
+          "fell",
+          "cross"
+        ]
+      },
+      {
+        "concept": "digraph-sh",
+        "examples": [
+          "brush",
+          "fresh",
+          "push",
+          "finish"
+        ]
+      }
+    ],
+    "ogCategories": [
+      "Phonics",
+      "Syllable types",
+      "Spelling rules",
+      "Morphology",
+      "Comprehension"
+    ]
+  },
+  "id": "review-9-literacy",
+  "submittedAt": "2026-10-30T08:19:07.547Z"
+}

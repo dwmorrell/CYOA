@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-tomb-of-ameru-sami-k-541c79",
   "storyId": "the-tomb-of-ameru",
-  "state": "in-review",
+  "state": "awaiting-parent-approval",
   "createdAt": "2026-10-20T23:23:24.018Z",
-  "updatedAt": "2026-10-30T08:12:01.869Z",
+  "updatedAt": "2026-10-30T08:19:07.547Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/request.json",
@@ -885,6 +885,245 @@
       "id": "review-7-qa",
       "submittedAt": "2026-10-25T08:18:22.706Z",
       "invalidatedBy": 4
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 4,
+      "draftSha256": "7eb447562dfa324df5e91fa947d7d9775b7f5c3d55f3f1ad7b79f629c6908fa4",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "info",
+          "message": "Fix 1 confirmed: water-dusted's last line no longer claims the ledge rest happened ('They climbed the ladder, one rung at a time, toward the ledge above.', drafts/story.r4.json line 254). dusted-ledge's opening line ('They rested on the ledge and drank a little water.', line 267) is now the only place the rest is narrated, on both the dusted-on and dusted-rest branches. No double-rest.",
+          "passage": "water-dusted"
+        },
+        {
+          "severity": "info",
+          "message": "Fix 2 confirmed for all three pairs, by direct diff of story.r3.json vs story.r4.json: sand-slip's closing line changed from 'Everyone walked on the pale tiles after that' to 'The sand settled, and everyone stood on the pale tiles to catch a breath' (line 201), so slip-bird's 'Ren bent down and looked at the tile that had tipped' (line 213) is no longer a location contradiction. song-horn's closing line changed from 'Everyone slipped through, a bit shaky but safe' to 'Everyone was shaky but safe, still catching their breath by the horn' (line 369), so horn-crack (line 381) examining the horn is consistent with still being in the room. fire-big's closing line changed from 'Then they walked on with one small lamp' to 'Everyone was quiet, still standing near the scorch mark on the wall' (line 461), so big-scorch (line 473) is consistent. Checked the other seven detour pairs in the story (push-careful, tap-adjust, skip-hollis, hum-keeper, small-flame) for the same pattern; none show the contradiction, confirming the fix was not needed and not applied elsewhere.",
+          "passage": "sand-slip"
+        },
+        {
+          "severity": "info",
+          "message": "Fix 3 confirmed: song-horn's action changed from 'Hollis lifted the horn and blew' to 'Hollis pressed his lips to the horn and blew' (drafts/story.r4.json line 365), consistent with hall-song's 'a bronze horn set in the wall' (line 313, unchanged). No verb implies the horn is portable.",
+          "passage": "song-horn"
+        },
+        {
+          "severity": "info",
+          "message": "Fix 4 confirmed: map-copy's copy-leave choice now targets the new ending-setback-early passage ('Enough For Today', drafts/story.r4.json lines 598-610) instead of ending-setback. Traced route camp -> map-nook -> map-copy -> copy-leave -> ending-setback-early: the new text ('Ren tucked the notebook under one arm... Hollis hummed... as he waited by the cart... For now, the tomb could keep its secrets a little longer') reads as a short, early stop consistent with never having left camp, unlike ending-setback's 'full day of travel' text which is unchanged and still correctly used by the other ten deeper stopping points (fork-leave, careful-leave, bird-leave, ledge-leave, hollis-leave, keeper-leave, crack-leave, flame-leave, scorch-leave, adjust-leave). graph.r4.json confirms 6/6 endings reachable, including the new another-day-early ending, and validation.r4.json brief.ok is true with no sentence-length warnings (longest sentence in the new passage is 16 words, within the brief's 16-word maximum).",
+          "passage": "map-copy"
+        },
+        {
+          "severity": "minor",
+          "message": "ending-setback-early's line '\"Tomorrow, with the card copied twice, we can tap on the sealed door together,\" said Ren' (drafts/story.r4.json line 604) is a slightly confusing turn of phrase: the team copied the tapping picture once (in map-copy, not twice), and 'the card copied twice' reads ambiguously (a second copy for backup? or a mistaken count?). Not a blocker; a one-word edit (e.g. 'with the card copied' or 'with our copy of the card') would remove the ambiguity.",
+          "passage": "ending-setback-early"
+        },
+        {
+          "severity": "info",
+          "message": "Fix 5 confirmed: ending-seal's line changed from 'Sami closed the door with three slow taps' to 'Sami eased the door shut and tapped it closed, slow and careful' (drafts/story.r4.json line 573), removing the implication of the specific three-tap sequence learned from tap-card. Re-traced the same route review-7-qa used, which never visits map-nook or door-tap: camp -> cart -> door-front -> door-push -> hall-sand -> sand-dark(sand-slip) -> slip-on -> hall-water -> water-skip -> skip-on -> hall-song -> song-horn -> horn-on -> fork -> fork-on -> hall-fire -> fire-big -> big-on -> hall-sleeper -> sleeper-read -> read-seal -> ending-seal. The reworded line reads naturally on this route since it no longer claims the specific learned sequence, and 'tapped' is retained for the ed-endings word set.",
+          "passage": "ending-seal"
+        },
+        {
+          "severity": "minor",
+          "message": "Carried over from review-7-qa part (c), still not in scope and still not fixed in this revision (consistent with the revision notes, which only claim the five listed findings): hall-water's water-brush lockedHint ('A soft brush from the cart would clear this dust.', line 240) and hall-sleeper's sleeper-brush lockedHint (line 502) point back to the cart/soft-brush pickup, which is unreachable once a forward-only route has passed it (e.g. camp -> map-nook -> door-front -> door-push -> hall-sand -> sand-pale -> hall-water never visits cart, and there is no edge back to cart from any later node). This does not block any ending (ending-keeper is one optional ending among six, all reachable by other routes, and no route is ever forced backward to collect it), so it remains a minor finding, not a blocker. The same shape of issue exists for door-tap's lockedHint ('Is there a card that shows how to knock?') when tap-card was skipped by going camp -> cart -> door-front directly, but door-push is a complete, non-punishing alternate route, so this is likewise minor/cosmetic rather than a fairness defect.",
+          "passage": "hall-water"
+        },
+        {
+          "severity": "info",
+          "message": "Diffed story.r3.json against story.r4.json field-by-field (normalized JSON diff). Exactly eight lines changed: the five fixed passage lines above, one retargeted edge (copy-leave), one new ending passage (ending-setback-early) and the version bump 3 -> 4. No other passage, choice, item, clue or metadata was touched. This is a scoped revision, not a rewrite, matching the revision notes at work/revision-notes.r4.md.",
+          "passage": "n/a"
+        },
+        {
+          "severity": "info",
+          "message": "Content integrity re-checked against brief.json's continuity.avoid list across all 36 passages: no violence/gore, no real brands/companies/places/people, no sex/romance/suicide, no reference to any real religion or sacred rite, and the mummified sleeper is never shown harming anyone in any of the six endings (ending-keeper, ending-lid, ending-notes, ending-seal, ending-setback, ending-setback-early). Ameru remains a fictional desert city. Characters (Sami Kade, Ren, Hollis, the carved Keeper) and facts (five chambers, stone box, mummified sleeper) match continuity.json, which reports ok with no issues.",
+          "passage": "n/a"
+        },
+        {
+          "severity": "info",
+          "message": "npm run check run in full: lint ok, typecheck ok, vitest 193/193 tests passed (12 files), npm run validate:stories reports 'ok' for all 6 previews, the mini-story fixture, and this job (schema ok, graph ok 5/5 endings reachable for the stale unpublished preview, which is expected since public/stories/previews/ only syncs at story publish and this job has not been published), npm run agents:check ok for all 9 agents, and npm run build succeeded. Exit code 0. This job's own reports/validation.r4.json and reports/graph.r4.json (the correct pre-publication source of truth) both report ok: schema ok, graph ok with 6/6 endings reachable, literacy checks ok, brief ok.",
+          "passage": "n/a"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/drafts/story.r4.json",
+          "sha256": "7eb447562dfa324df5e91fa947d7d9775b7f5c3d55f3f1ad7b79f629c6908fa4"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/validation.r4.json",
+          "sha256": "08dbb88aafdf1bdf846abb6df94a8f3306d3ade2720c660a2b22304848981211"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/graph.r4.json",
+          "sha256": "e77182c257744be11ca356d9f5d182b8bf9048eede3dc9c572425c6841fe9829"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/brief.json",
+          "sha256": "7443ae1c50cfb230f4a51c5b7d65c0e2dff42faf687006ca909af3addb0e4f0a"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/work/revision-notes.r4.md",
+          "sha256": "b9275f26a6bf8edcdbbc6a20d91beb73ae664668030ddd267909cef494321b94"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/weave-comparison.r4.json",
+          "sha256": "3ce32d11dd0243b96f8ffd9d2e6c1d2d230c82b828789849bf378ba1aeb6f421"
+        }
+      ],
+      "id": "review-8-qa",
+      "submittedAt": "2026-10-30T08:17:57.944Z"
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 4,
+      "draftSha256": "7eb447562dfa324df5e91fa947d7d9775b7f5c3d55f3f1ad7b79f629c6908fa4",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "Skills practised: reading this story practises decoding r-controlled words, -ed endings and ng/nk words in connected text, and recognising those recurring word-set words wherever they land, including on the now twelve short 'stop for today' detours. Following the Keeper's carved warnings and the team's choices builds sequencing (tap three times, then the fixed order of the five chambers, confirmed again in sleeper-read's recap), inference (why the Keeper holds up a flat hand, what a tipped tile, a cracked horn or a scorch mark is telling the team, why the sleeper is a welcome with rules rather than a threat) and vocabulary from context, both through in-text restatement (archaeologist, mummified) and the four glossary entries (archaeologist, ancient, mummified, cistern)."
+        },
+        {
+          "severity": "minor",
+          "message": "I hand-checked the three word sets against the actual r4 draft, not only the automated report. Every listed word in r-controlled-words (dark, far, cart, card, dirt, horn, burn), ed-endings (walked, dusted, rested, lifted, hunted, tapped) and ng-and-nk-words (long, sing, bank, sink, tank, rung) still appears in the story and still genuinely carries its declared spelling pattern. I found no conceptMismatches the automated report missed, matching reports/literacy.r4.json's empty conceptMismatches for all three sets. Totals rose slightly from r3 (r-controlled 44/10, ed-endings 24/8, ng/nk 24/8, all well above the brief's minimums), and every word in every set is still used at least once (missingWords empty for all three), so no word set misses its minimum and no target pattern is absent after this revision's edits.",
+          "passage": "literacy.r4.json"
+        },
+        {
+          "severity": "minor",
+          "message": "I re-traced the shortest route to all six endings, including the brand-new 'another-day-early' ending, and recomputed word-set coverage by hand rather than trusting the report alone. Shortest route to ending-setback-early is camp -> map-nook -> map-copy -> ending-setback-early (3 edges): r-controlled 2 (cart, dirt) + 4 (card x3, dirt) + 0 + 3 (far, cart, card) = 9; ed-endings 0 + 2 (hunted, tapped) + 0 + 0 = 2; ng/nk 2 (long, bank) + 0 + 0 + 1 (long) = 3. This matches reports/weave-comparison.r4.json's and reports/literacy.r4.json's perEndingRoute figures exactly (9, 2, 3) and confirms the rule 'each set should appear on every route to an ending' is met for the new route, on the same low-but-present pattern already flagged for the sibling 'another-day' route in the r3 review (8/2/3 there, 15/4/7 now that it has moved one edge later). Not a blocker, since the rule only requires presence, but a reader who always takes the earliest exit gets noticeably less -ed/ng-nk practice than one who explores further.",
+          "passage": "ending-setback-early"
+        },
+        {
+          "severity": "minor",
+          "message": "The five reworded lines and the new ending read naturally, not as a word-set checklist. water-dusted now stops at 'toward the ledge above', so the rest is narrated exactly once, by dusted-ledge's 'They rested on the ledge and drank a little water'; I checked both the dusted-on and dusted-rest branches and found no duplicated or missing rest. fire-big ('still standing near the scorch mark on the wall'), sand-slip ('everyone stood on the pale tiles to catch a breath') and song-horn ('still catching their breath by the horn') no longer claim the party already left the room before the detour choices (big-check, slip-look, horn-check) that follow, which removes a location contradiction without adding any decoration-only word-set usage. song-horn's 'Hollis pressed his lips to the horn and blew' also resolves the wrinkle I carried forward through the last two reviews: hall-song's horn is 'set in the wall', and pressing lips to a fixed horn is consistent with that, where the old 'lifted the horn' was not. I consider that finding closed.",
+          "passage": "song-horn"
+        },
+        {
+          "severity": "minor",
+          "message": "The new ending-setback-early passage fits the brief's tone and limits. Its longest sentence ('Tomorrow, with the card copied twice, we can tap on the sealed door together,\" said Ren.') is 16 words, at but not over the brief's maxSentenceWords of 16, and reports/validation.r4.json shows brief.ok with no warnings. Vocabulary (rushed, secrets, longer) matches the reading level used elsewhere in the story, the reflective closing line ('For now, the tomb could keep its secrets a little longer') matches the register of the other two quieter endings (ending-setback, ending-seal) without talking down, and nothing in it touches the brief's avoid-list (no violence, no real religion, the sleeper is not mentioned). One phrase is awkward for comprehension rather than decoding: 'with the card copied twice' is ambiguous about whether the team copied the card once (in map-copy) or will copy it again tomorrow; a young reader could plausibly read this as a continuity slip even though it is not one. Worth a one-word fix (e.g. 'with the card copied' or 'with our copy of the card') but not a blocker.",
+          "passage": "ending-setback-early"
+        },
+        {
+          "severity": "minor",
+          "message": "ending-seal's reworded line ('Sami eased the door shut and tapped it closed, slow and careful') keeps 'tapped' for the ed-endings word set (an improvement on r3's 'three slow taps', which did not actually match the -ed word form), but it drops the explicit callback to the 'three taps' rule the reader learned at map-nook/tap-card ('Tap three times. Do not push'). This is a loss of a satisfying payoff, not a contradiction (it does not claim a different number of taps), so it is not blocking, but the narrative designer may want to restore the count for stronger closure.",
+          "passage": "ending-seal"
+        },
+        {
+          "severity": "minor",
+          "message": "Limits of automated detection, unchanged from prior reviews in this job: the analyzer matches spelling, not sound. Its own concept examples still show this (the ng/nk concept list includes 'everything', 'finger' and 'going', which are not the OG glued-sound target, and are only informational since glued-ng-nk's targeted word-set words are a separate, hand-checked list). The ed-endings word set still mixes two different pronunciations of the -ed suffix (walked and tapped end in /t/; dusted, rested, lifted and hunted end in /ɪd/) with no /d/-sound example; a program teaching the three sounds of -ed explicitly should supplement this set. I cannot confirm decodability for any specific child's stage or program from the draft text alone; a qualified human literacy reviewer should confirm these linguistic claims before publication.",
+          "passage": "ed-endings"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/drafts/story.r4.json",
+          "sha256": "7eb447562dfa324df5e91fa947d7d9775b7f5c3d55f3f1ad7b79f629c6908fa4"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/literacy.r4.json",
+          "sha256": "68437c1fc424627561bb20ffadc846d87a56657178176f6b20abef3f97746fc1"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/literacy.r4.md",
+          "sha256": "c9a810df4c8be96dd7eaaed7ff12e89f12d47f8fd1fef58e8b67eda19612b1e8"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/weave-comparison.r4.json",
+          "sha256": "3ce32d11dd0243b96f8ffd9d2e6c1d2d230c82b828789849bf378ba1aeb6f421"
+        }
+      ],
+      "shelfSummary": {
+        "blurb": "A tomb-exploring adventure with six endings and many short optional stops where the team can call it a day. It practises r-controlled words, -ed endings and ng/nk words, plus th, silent-e, FLOSS and sh words. Readers follow carved clues, so they also practise sequencing, inference and vocabulary from context.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "vocabulary"
+        ],
+        "wordTypes": [
+          {
+            "concept": "r-controlled",
+            "examples": [
+              "dark",
+              "cart",
+              "horn",
+              "burn"
+            ]
+          },
+          {
+            "concept": "suffix-ed",
+            "examples": [
+              "dusted",
+              "rested",
+              "lifted",
+              "hunted"
+            ]
+          },
+          {
+            "concept": "glued-ng-nk",
+            "examples": [
+              "long",
+              "bank",
+              "sink",
+              "rung"
+            ]
+          },
+          {
+            "concept": "digraph-th",
+            "examples": [
+              "path",
+              "both",
+              "mouth",
+              "cloth"
+            ]
+          },
+          {
+            "concept": "silent-e",
+            "examples": [
+              "came",
+              "care",
+              "crate",
+              "aside"
+            ]
+          },
+          {
+            "concept": "floss",
+            "examples": [
+              "bell",
+              "hill",
+              "fell",
+              "cross"
+            ]
+          },
+          {
+            "concept": "digraph-sh",
+            "examples": [
+              "brush",
+              "fresh",
+              "push",
+              "finish"
+            ]
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Syllable types",
+          "Spelling rules",
+          "Morphology",
+          "Comprehension"
+        ]
+      },
+      "id": "review-9-literacy",
+      "submittedAt": "2026-10-30T08:19:07.547Z"
     }
   ],
   "parentDecisions": [],
@@ -993,6 +1232,16 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 4 (story v4) passed automated validation"
+    },
+    {
+      "at": "2026-10-30T08:19:07.547Z",
+      "from": "in-review",
+      "to": "awaiting-parent-approval",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "All required reviews passed"
     }
   ]
 }
