@@ -1,0 +1,43 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 10,
+  "draftSha256": "0c22648dda9ba2983f8d43d4f4b8a4aea5e69a8b3159e95cfd4e2ee6b6d8fa8f",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "Resolved (verified): review-7-qa's finding on the 'blink-code' clue (engine-trace). The clue description in story.r10.json (lines 66-68) now reads \"The little box blinked and thudded twice, slow and quick, like a secret code.\" with no causal claim about Ivy's call-out, matching the passage's own unconditional narration (line 381, \"Then it gave a soft thud, twice, like a secret code.\") that occurs before either choice. Diffing story.r9.json against story.r10.json confirms only this description string, the 'call-out' choice label, and the version number changed on this passage; requires/target/effects are untouched.",
+      "passage": "engine-trace"
+    },
+    {
+      "severity": "minor",
+      "message": "Resolved (verified): review-7-qa's finding that the 'chalk-note' item and 'blink-code' clue were dead ends with no later payoff (unlike hook-pole/late-log, which gate 'open-careful' and are named again in climax-careful). Narrative-designer determined a genuine narrative callback is not possible without restructuring the graph (both choices converge to the same next passage before any branch-specific text exists, so there is no later point that can distinguish a reader who took the branch from one who did not), and instead removed the implied future payoff from the surrounding text: nib-ask's unconditional line (\"Nib snapped off a small chalk note. It lay there, like a tiny gift.\") and the 'promise-nib' choice label (now \"Pick up the small chalk note to keep\") no longer frame the note as a kept promise, and the 'call-out' label no longer implies an answer is coming. This was one of the two resolutions review-7-qa itself proposed as acceptable (reword to pure atmosphere) and I confirm it was applied consistently: grep across the full r10 draft for 'promise', 'chalk-note', 'blink-code' and 'secret code' shows no remaining promise/payoff framing attached to either collectible. The items/clues remain mechanically inert (no requires block references them, confirmed by the unchanged graph report), which is by design and was already assessed as not a soft-lock risk.",
+      "passage": "nib-ask"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/drafts/story.r10.json",
+      "sha256": "0c22648dda9ba2983f8d43d4f4b8a4aea5e69a8b3159e95cfd4e2ee6b6d8fa8f"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/validation.r10.json",
+      "sha256": "54b8b5530c90cc84b23866a76048b8e7e393a9c8a8a35f0c9c025327b485c1a4"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/graph.r10.json",
+      "sha256": "f40ecfd9ce3f5e3f8bbb29d3f93ad5517b706a314419883153f4cc02982cf039"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/brief.json",
+      "sha256": "e9174c367099452e01fb068a43750c1b898737c5fff8b809be808174c20ed1be"
+    }
+  ],
+  "id": "review-9-qa",
+  "submittedAt": "2026-10-30T08:22:11.844Z"
+}

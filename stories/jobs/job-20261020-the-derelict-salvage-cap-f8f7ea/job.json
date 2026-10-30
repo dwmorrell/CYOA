@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-derelict-salvage-cap-f8f7ea",
   "storyId": "the-derelict-salvage",
-  "state": "in-review",
+  "state": "awaiting-parent-approval",
   "createdAt": "2026-10-20T23:23:23.408Z",
-  "updatedAt": "2026-10-30T08:17:01.470Z",
+  "updatedAt": "2026-10-30T08:22:11.844Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/request.json",
@@ -948,6 +948,155 @@
       "id": "review-7-qa",
       "submittedAt": "2026-10-25T08:34:59.458Z",
       "invalidatedBy": 10
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 10,
+      "draftSha256": "0c22648dda9ba2983f8d43d4f4b8a4aea5e69a8b3159e95cfd4e2ee6b6d8fa8f",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "Skills practised: the story practises decoding in context (vowel-team, silent-e and th-digraph words recur on the shortest route to every one of the five endings, including through the two passages this revision touched, 'engine-trace' and 'nib-ask'), recognising set words in both narration and choice labels, and following a three-step sequence (Nib's chalk steps: cool the lock with the blue tube, turn the valve, lift the door) where order matters. Readers also infer from clues (a log note four days old on a ship lost eleven years ago; a soft repeating thud behind a blinking box), learn words such as corridor, valve and beacon from context and the glossary, and weigh evidence before choosing one of five endings. Limits: this review and the automated report both detect patterns by spelling, not sound, so a match (for example 'th' in 'thud' versus 'that') does not prove a given reader pronounces it as intended, and nothing here substitutes for a human reading check with an actual learner."
+        },
+        {
+          "severity": "minor",
+          "message": "Verified independently that the four wording edits in this revision are text-only: diffing story.r9.json against story.r10.json shows exactly four changed lines (the 'blink-code' clue description, the 'call-out' choice label in 'engine-trace', the 'nib-ask' passage text, and the 'promise-nib' choice label), no other field touched. Diffing reports/literacy.r9.json against reports/literacy.r10.json confirms the three targeted word-set blocks (vowel-team-words, silent-e-words, th-words) are byte-for-byte identical except for the storyHash/storyVersion header: totalOccurrences stay at 33/50/59, perWord counts are unchanged ('keep' 6, 'note' 12, 'thud' 5, 'path' 8 among them), missingWords is empty, meetsMinimum is true, perEndingRoute is unchanged across all five endings, and conceptMismatches is empty for all three sets. reports/weave-comparison.r10.json confirms the same actual totals (33/10, 50/8, 59/8) against the plan. The author's stated intent, that 'keep' and 'note' stay in each edit so totals don't move, is correct and verified from the reports rather than taken on trust. The small shifts visible elsewhere in the diff (closed-syllable, digraph-ck, r-controlled, and the general, non-word-set silent-e/vowel-team/th concept totals moving by one or two) are the expected side effect of swapping incidental words like 'answer', 'for' and 'held it out' for 'to the box', 'lay there' and 'tiny'; none of those concepts are targeted word sets and none of the four changed lines removed or added a word-set word.",
+          "passage": "engine-trace"
+        },
+        {
+          "severity": "minor",
+          "message": "Read all four changed lines directly against the surrounding passage text. (1) The reworded 'blink-code' description ('The little box blinked and thudded twice, slow and quick, like a secret code.') is an improvement over r9's wording, not just a neutral rephrase: r9 said 'When Ivy called out, the little box blinked and thudded twice... Something was listening,' which implied the thud was a response to the call-out choice, but the thud is narrated unconditionally in the passage's last paragraph before any choice is made, so it could not actually be caused by calling out. Dropping that causal claim fixes a small logic gap that the r9 review did not catch, and the new wording now echoes the passage's own closing line ('like a secret code') word for word, which is good for comprehension. (2) The 'call-out' label change ('...keep listening to the box') similarly drops the implication that the box might answer back, matching the fact that nothing in the story gives the box a voice; 'to the box' is a clear, concrete referent to the blinking box named two paragraphs earlier. (3) 'Nib snapped off a small chalk note. It lay there, like a tiny gift.' and (4) 'Pick up the small chalk note to keep' are internally consistent with each other: in r9, Nib 'held it out' and the choice was to 'promise to keep [it] safe, then take it,' which cast the note as being handed over and accepted with a verbal promise; in r10 the note simply rests after being snapped off, and the choice is the plainer physical act of picking it up, with no promise invented for the player. This removes a small unearned emotional beat (a one-sided promise to a robot) without losing anything the story needs. The only soft spot is that 'It lay there' does not say where (floor, workbench, Nib's own panel); a careful reader can infer it is wherever Nib is standing, but a slightly more concrete verb or location would remove the ambiguity. This is a style note, not a comprehension blocker.",
+          "passage": "nib-ask"
+        },
+        {
+          "severity": "minor",
+          "message": "Carried over from review-6-literacy (r9) and still present, unchanged, in r10 because neither passage was touched by this revision: (1) 'the blue tube' is used as the tool that cools the cargo-door lock (in 'nib', the choice label in 'climax-careful', and the narration in 'hold-open'/'climax-team'), but it is never introduced or found as an item anywhere in the story, and it risks being read as the same object as the unrelated 'dock tube' from 'start'/'tube'. (2) 'Carry the moths home in the Kestrel's dome' (climax-team) and 'packed the moths into the Kestrel's dome' (ending-carry) assume the tug Kestrel has a glass dome, but only the Lark's dome is established elsewhere in the story. Neither issue is a word-set defect and neither blocks this pass, but both remain open comprehension/continuity gaps for the narrative designer.",
+          "passage": "ending-carry"
+        },
+        {
+          "severity": "minor",
+          "message": "Also carried over and unchanged: the 'late-log' clue is only granted in 'log-read', reachable only via start->scan->log-read. A reader who takes scan->check-hull, or skips 'scan' via start->tube, can never collect 'late-log' and so can never take the locked choice 'open-careful' at 'threshold', even though its lockedHint ('Find a long pole and read the last log note first.') reads as still achievable from any route. This is a branching design question for the narrative designer, not a word-set defect; the other four endings remain fully reachable with full word-set coverage regardless. This revision did not touch 'scan', 'log-read', 'check-hull', 'tube' or 'threshold', so the question stands exactly as before.",
+          "passage": "threshold"
+        },
+        {
+          "severity": "minor",
+          "message": "Coverage remains comfortably above minimum on all three sets (33/10, 50/8, 59/8), unchanged by this revision, but a few individual words are still thin: 'rain' (2 occurrences: 'scan', 'climax-team'), 'boat' (2: 'nib', 'ending-tow') and 'cave' (2: 'threshold', 'ending-garden'). This does not block the pass; every set still appears well before its minimum on every route.",
+          "passage": "scan"
+        },
+        {
+          "severity": "minor",
+          "message": "Also carried over and unchanged: the declared th-words set mixes two different 'th' sounds under one spelling pattern: voiceless in 'thin', 'thud', 'path' and 'moth', voiced in 'that' and 'them'. Both the automated report and my own reading detect spelling only, so a pass on this word set confirms the spelling pattern, not that a given reader will hear or produce the same sound for every instance. A structured-literacy program that teaches these as two separate sounds may want to split 'that'/'them' from the four voiceless words when mapping this story to its own terms."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/drafts/story.r10.json",
+          "sha256": "0c22648dda9ba2983f8d43d4f4b8a4aea5e69a8b3159e95cfd4e2ee6b6d8fa8f"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/literacy.r10.json",
+          "sha256": "4a3c4733971bbd2ea4649c046c549eb6107917c1a71d43c7c52cbc9f000b41ee"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/weave-comparison.r10.json",
+          "sha256": "7a8e35eb4e3cf71f715f67db837af434c126bf01b456e6c4412635b6bfe2b096"
+        }
+      ],
+      "shelfSummary": {
+        "blurb": "A salvage crew finds a drifting ship, a sealed cargo door and a log note written years after the ship went silent. Reading the clues and going slowly pays off; rushing in brings a setback instead.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "detail"
+        ],
+        "wordTypes": [
+          {
+            "concept": "vowel-team",
+            "examples": [
+              "rain",
+              "boat",
+              "team",
+              "keep"
+            ]
+          },
+          {
+            "concept": "silent-e",
+            "examples": [
+              "cave",
+              "dome",
+              "tube",
+              "note"
+            ]
+          },
+          {
+            "concept": "digraph-th",
+            "examples": [
+              "thin",
+              "moth",
+              "path",
+              "that"
+            ]
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Syllable types",
+          "Comprehension",
+          "Vocabulary"
+        ]
+      },
+      "id": "review-8-literacy",
+      "submittedAt": "2026-10-30T08:22:05.960Z"
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 10,
+      "draftSha256": "0c22648dda9ba2983f8d43d4f4b8a4aea5e69a8b3159e95cfd4e2ee6b6d8fa8f",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "minor",
+          "message": "Resolved (verified): review-7-qa's finding on the 'blink-code' clue (engine-trace). The clue description in story.r10.json (lines 66-68) now reads \"The little box blinked and thudded twice, slow and quick, like a secret code.\" with no causal claim about Ivy's call-out, matching the passage's own unconditional narration (line 381, \"Then it gave a soft thud, twice, like a secret code.\") that occurs before either choice. Diffing story.r9.json against story.r10.json confirms only this description string, the 'call-out' choice label, and the version number changed on this passage; requires/target/effects are untouched.",
+          "passage": "engine-trace"
+        },
+        {
+          "severity": "minor",
+          "message": "Resolved (verified): review-7-qa's finding that the 'chalk-note' item and 'blink-code' clue were dead ends with no later payoff (unlike hook-pole/late-log, which gate 'open-careful' and are named again in climax-careful). Narrative-designer determined a genuine narrative callback is not possible without restructuring the graph (both choices converge to the same next passage before any branch-specific text exists, so there is no later point that can distinguish a reader who took the branch from one who did not), and instead removed the implied future payoff from the surrounding text: nib-ask's unconditional line (\"Nib snapped off a small chalk note. It lay there, like a tiny gift.\") and the 'promise-nib' choice label (now \"Pick up the small chalk note to keep\") no longer frame the note as a kept promise, and the 'call-out' label no longer implies an answer is coming. This was one of the two resolutions review-7-qa itself proposed as acceptable (reword to pure atmosphere) and I confirm it was applied consistently: grep across the full r10 draft for 'promise', 'chalk-note', 'blink-code' and 'secret code' shows no remaining promise/payoff framing attached to either collectible. The items/clues remain mechanically inert (no requires block references them, confirmed by the unchanged graph report), which is by design and was already assessed as not a soft-lock risk.",
+          "passage": "nib-ask"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/drafts/story.r10.json",
+          "sha256": "0c22648dda9ba2983f8d43d4f4b8a4aea5e69a8b3159e95cfd4e2ee6b6d8fa8f"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/validation.r10.json",
+          "sha256": "54b8b5530c90cc84b23866a76048b8e7e393a9c8a8a35f0c9c025327b485c1a4"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/reports/graph.r10.json",
+          "sha256": "f40ecfd9ce3f5e3f8bbb29d3f93ad5517b706a314419883153f4cc02982cf039"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-derelict-salvage-cap-f8f7ea/brief.json",
+          "sha256": "e9174c367099452e01fb068a43750c1b898737c5fff8b809be808174c20ed1be"
+        }
+      ],
+      "id": "review-9-qa",
+      "submittedAt": "2026-10-30T08:22:11.844Z"
     }
   ],
   "parentDecisions": [],
@@ -1177,6 +1326,16 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 10 (story v10) passed automated validation"
+    },
+    {
+      "at": "2026-10-30T08:22:11.844Z",
+      "from": "in-review",
+      "to": "awaiting-parent-approval",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "All required reviews passed"
     }
   ]
 }
