@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-cat-who-took-the-wrong-turn",
   "title": "The Cat Who Took the Wrong Turn",
-  "version": 7,
+  "version": 8,
   "metadata": {
     "genre": "Fantasy adventure with a hero from another world",
     "theme": "Courage, kindness to strangers, and finding out who you are",
@@ -230,15 +230,15 @@
       ],
       "learningTargets": ["sequencing", "engagement"],
       "choices": [
-        { "id": "sit-moment", "label": "Sit a moment longer in the mud", "target": "varro" },
-        { "id": "stand-right-up", "label": "Stand right up and brush off", "target": "varro" }
+        { "id": "sit-moment", "label": "Sit a moment longer in the cool mud", "target": "varro" },
+        { "id": "stand-right-up", "label": "Stand right up fast, and brush off the mud", "target": "varro" }
       ]
     },
     {
       "id": "varro",
       "title": "The Land of Varro",
       "paragraphs": [
-        "A purple sky arched over rolling hills. Glowing moss lit the ground like tiny lamps.",
+        "However he'd done it, Eli was back on his feet. A purple sky arched over rolling hills. Glowing moss lit the ground like tiny lamps.",
         "On the tallest hill stood a tower. It was the Lantern Tower. But its top was dim and grey, with only a weak glow.",
         "The grey cat sat on a flat stone nearby and licked its paw.",
         "Eli picked up his lunch box and his library book. He was muddy, but not hurt. He wanted to go home."
@@ -347,8 +347,8 @@
       ],
       "learningTargets": ["engagement", "sequencing"],
       "choices": [
-        { "id": "call-thanks", "label": "Call out one more thank you", "target": "the-stairs" },
-        { "id": "smile-and-go", "label": "Just smile, and walk on to Lira", "target": "the-stairs" }
+        { "id": "call-thanks", "label": "Call out one more thank you, feeling glad", "target": "the-stairs" },
+        { "id": "smile-and-go", "label": "Just smile to yourself, and walk on to Lira", "target": "the-stairs" }
       ]
     },
     {
@@ -390,15 +390,15 @@
       ],
       "learningTargets": ["detail", "engagement"],
       "choices": [
-        { "id": "nod-to-frog", "label": "Give the frog a small nod", "target": "the-stairs" },
-        { "id": "turn-to-stairs", "label": "Turn and walk on to the stairs", "target": "the-stairs" }
+        { "id": "nod-to-frog", "label": "Give the frog one more small, friendly nod", "target": "the-stairs" },
+        { "id": "turn-to-stairs", "label": "Turn away, and walk on to the stairs", "target": "the-stairs" }
       ]
     },
     {
       "id": "the-stairs",
       "title": "The Stone Stairs",
       "paragraphs": [
-        "The stone stairs wound around the hill. Climbing was slow, and Eli's legs began to ache.",
+        "Whatever Eli had just decided, he turned to climb the stairs. The stone stairs wound around the hill. Climbing was slow, and Eli's legs began to ache.",
         "Ash waited at every bend, a grey shape in the glowing moss.",
         "On the fifth step, Eli stopped. There were tiny wet marks on the stone. They were like little claws.",
         "They climbed the stairs, one by one, toward the Tower. Each one shone with a speck of glow dust."
@@ -449,15 +449,15 @@
       ],
       "learningTargets": ["sequencing", "engagement"],
       "choices": [
-        { "id": "climb-steady", "label": "Climb on steadily, one step at a time", "target": "tower-hall" },
-        { "id": "climb-fast", "label": "Take the last steps two at a time", "target": "tower-hall" }
+        { "id": "climb-steady", "label": "Keep climbing steadily, one step at a time", "target": "tower-hall" },
+        { "id": "climb-fast", "label": "Keep climbing fast, two steps at a time", "target": "tower-hall" }
       ]
     },
     {
       "id": "tower-hall",
       "title": "The Tower Hall",
       "paragraphs": [
-        "The great hall was cold and dim. A huge drum sat silent by the wall. Its sound once kept the light alive.",
+        "However he had climbed those last steps, Eli reached the top at last. The great hall was cold and dim. A huge drum sat silent by the wall. Its sound once kept the light alive.",
         "High above, a round hatch with a heavy lid shut off the lantern room. The glow stone lived up there. It had gone missing three nights ago.",
         "\"Now the light is nearly gone,\" Lira whispered. \"Can you do something? Anything?\"",
         "Eli looked at the hatch. A long, old ladder leaned against the wall. A tall hook hung by the hatch lid."
@@ -514,8 +514,8 @@
       ],
       "learningTargets": ["engagement", "sequencing"],
       "choices": [
-        { "id": "step-slow", "label": "Step in slowly, one foot first", "target": "lantern-room" },
-        { "id": "step-bold", "label": "Step in boldly, all at once", "target": "lantern-room" }
+        { "id": "step-slow", "label": "Step in slowly, one careful foot first", "target": "lantern-room" },
+        { "id": "step-bold", "label": "Step in boldly, all at once, feeling brave", "target": "lantern-room" }
       ]
     },
     {
@@ -557,15 +557,15 @@
       ],
       "learningTargets": ["engagement", "comprehension"],
       "choices": [
-        { "id": "side-by-side", "label": "Step in side by side with Lira", "target": "lantern-room" },
-        { "id": "go-first", "label": "Go in first, and wave Lira forward", "target": "lantern-room" }
+        { "id": "side-by-side", "label": "Step in side by side with Lira, hand in hand", "target": "lantern-room" },
+        { "id": "go-first", "label": "Go in first, brave, and wave Lira forward", "target": "lantern-room" }
       ]
     },
     {
       "id": "lantern-room",
       "title": "The Lantern Room",
       "paragraphs": [
-        "The lantern room was round, with big dark glass all the way round. In the middle stood a small drum, the twin of the great one below.",
+        "Whichever way he'd stepped in, Eli was here now. The lantern room was round, with big dark glass all the way round. In the middle stood a small drum, the twin of the great one below.",
         "Something was hiding behind it. Eli saw two small eyes, and a pair of tiny claws holding a glowing stone.",
         "It was a crab. It was no bigger than a plate, and it was shivering.",
         "The wet marks on the stairs had led here. Whatever was in the Tower's heart was not a villain. It was a small, cold creature.",
