@@ -1,0 +1,73 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 9,
+  "draftSha256": "91991c826aadc4fd143ba196ffc8de8631b16413f71097ac6c0011a001c698e1",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Diffed story.r8.json against story.r9.json myself with a Python json comparison (not just the revision notes). Only difference at top level is 'version' (8 -> 9). Exactly 12 passages added (bold-foot-in, cool-mud-moment, eyes-on-the-path, frog-wave-back, holding-on, leading-the-way, one-more-nod, pocket-the-smile, quick-count, quick-stand, slow-foot-in, steady-count), none removed. Exactly 8 existing passages changed: the six connectors (watch-the-frog-hop, look-back-at-the-marsh, last-step-up, steady-your-nerves, one-more-breath, settle-in-the-mud) each have only their two choices' 'target' fields retargeted from the shared hub to the matching new passage -- ids, labels, requires, lockedHints and paragraphs byte-identical to r8 -- and lantern-room/varro each have only their opening sentence reworded (lantern-room: \"Whichever way he'd stepped in,...\" -> \"By one path or the other,...\"; varro: \"However he'd done it,...\" -> \"However he had done it,...\"); every other paragraph in both is byte-identical. the-stairs and tower-hall are byte-identical to r8. I also diffed every shared passage's requires/effects/lockedHints/learningTargets/ending/title arrays programmatically and found zero changes anywhere outside the above. This matches the revision notes' claimed scope exactly."
+    },
+    {
+      "severity": "note",
+      "message": "Read all 12 new passages in full. Each pair is genuinely different in content, not a reworded restatement: e.g. frog-wave-back ('Eli called out his thanks, loud and glad. The frog's throat puffed once, like a small answer back.') vs pocket-the-smile ('Eli smiled to himself and said nothing more. He liked keeping the small moment just for himself.') are a different action and a different internal reaction, not synonyms of one beat. Same holds for all five other pairs (one-more-nod/eyes-on-the-path, steady-count/quick-count, slow-foot-in/bold-foot-in, holding-on/leading-the-way, cool-mud-moment/quick-stand). Prose reads naturally and fits the story's register. Each new passage's own two forward choices are deliberately plain and share one target (the original hub) -- this mirrors the pre-existing, previously unflagged watch-the-hill pattern and is explicitly out of scope for this revision; it does not undermine the fix since the real differentiation already happened one step earlier, at the new passage itself."
+    },
+    {
+      "severity": "note",
+      "message": "Independently re-derived the full predecessor list of all four hubs from story.r9.json (not trusting the notes' counts) and read every predecessor's closing text against each hub's opening sentence. the-stairs: 13 incoming (5 pre-existing unchanged from r7/r8, plus 2 each from frog-wave-back/pocket-the-smile/one-more-nod/eyes-on-the-path). tower-hall: 7 incoming (3 pre-existing, plus 2 each from steady-count/quick-count). lantern-room: 12 incoming (4 pre-existing, plus 2 each from slow-foot-in/bold-foot-in/holding-on/leading-the-way). varro: 8 incoming (4 pre-existing, plus 2 each from cool-mud-moment/quick-stand). Counts and membership match the revision notes exactly. Re-checked stone-hop's 'Eli did not look back' against the-stairs's new opening ('Whatever Eli had just decided, he turned to climb the stairs') -- it still makes no claim about looking back either way, so no contradiction, matching both of my r8 checks. Also re-checked eyes-on-the-path's own 'Eli turned away and did not look back again' against look-back-at-the-marsh's framing ('Eli looked back at the marsh one last time') -- consistent (one last look, then turning away for good) and on a route that never touches stone-hop, so no cross-route contradiction. Found no passage that claims something contradicted by arriving via the sibling branch or by any hub's unrelated predecessors."
+    },
+    {
+      "severity": "note",
+      "message": "This genuinely resolves my r8 major finding. Re-read src/ui/Reader.tsx: the 'story so far' journey list (line 110-112) still maps state.history to each visited passage's *title*, exactly as I found in r8. The difference now is that the two choices at each of the six connectors lead to 12 distinct passages with 12 distinct titles ('A Small Answer' vs 'A Secret Smile', 'Slow and Steady' vs 'Two at a Time', etc.), each of which is pushed onto state.history and rendered on screen with its own distinct paragraph text before the reader reaches the hub. So unlike r8 (where the only difference was a label phrase on the choice button, discarded the instant the click fired, with both choices landing on the same passage id/title), a reader who replays one of these six forks and picks the other option now reads a different title and different paragraph text, and that difference is persisted in the visible journey history -- not just a fleeting label. The underlying constraint I verified in r8 (a hub sentence must stay true for predecessors that never faced the fork, so it can't contain a specific callback) still holds and is correctly left alone; the fix instead adds the real difference one step earlier, which is sufficient and does not require the hub text itself to vary."
+    },
+    {
+      "severity": "note",
+      "message": "Ran npm run check myself, in full: eslint clean; tsc --noEmit clean; vitest 193/193 tests passed across 12 files; npm run validate:stories reported 'All story checks passed' for all 6 preview snapshots and all 6 production jobs including this one (job-20261020-the-cat-who-took-the-wro-fd6944: in-review, revision 9, story v9); agents:check ok for all 9 agents; vite build succeeded (dist generated, PWA service worker emitted). No failures anywhere."
+    },
+    {
+      "severity": "note",
+      "message": "reports/validation.r9.json and reports/graph.r9.json (this job's own reports) are both ok: true. Schema ok. Graph: 52 passages (was 40, +12), 97 choices (was 73, +24), 5/5 endings reachable (warm-den, drum-song, the-grab, two-heads, home-too-soon), stateSearchComplete true, matching brief.json's endingTarget of 5. shortestPathToEnding unchanged at 8; longestSimplePathToEnding moved from 25 to 27 (one extra beat on routes using these connectors), well inside any structural limit. Literacy: blend-words 105/10, closed-syllable-words 66/8, ing-words 30/8, all meeting minOccurrences and clearing the per-ending-route floor for all 5 endings; word-sets-on-every-route ok. Brief ok, with only the pre-existing, unchanged warning (3 sentences over the 16-word soft limit in late-for-school/frog-helped/home-too-soon, none touched this revision -- confirmed by my own diff). I independently scanned all 12 new passages' sentences by word count: every one is at or under 16 words (actual range 7-12), and a full-text scan for verb contractions ('ve/'d/'ll/'re/'m/n't) across the entire r9 story found zero remaining matches, confirming both flagged 'he'd' instances are gone and no new passage introduced a contraction."
+    },
+    {
+      "severity": "note",
+      "message": "Content integrity: read all 12 new passages in full against brief.json's continuity.avoid list. All are plain, age-appropriate, non-violent beats about feelings, pacing and small physical actions (climbing, waiting, smiling, holding hands as platonic friend support, resting in mud) -- no sexual or romantic content, no violence or gore, no self-harm, no real brand/place/person, no real religion. No new characters, items or facts are introduced that are inconsistent with the rest of the story (Eli, Ash, Lira, Varro, the Lantern Tower, the glow stone/crab, wanting to go home all remain as previously established)."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r9.json",
+      "sha256": "91991c826aadc4fd143ba196ffc8de8631b16413f71097ac6c0011a001c698e1"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r8.json",
+      "sha256": "76d39b92d3180b99ce7ef9e524b83bff6225bd766350d1357d5cc17734baf002"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/validation.r9.json",
+      "sha256": "0540d52169907b007703c178b5aee7ca5fb73651fedfc9295051521957bc2e85"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/graph.r9.json",
+      "sha256": "29163f2822b546f3a9d7384379b4c38df3dd367b3fae4df63832e145bf753d1c"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/brief.json",
+      "sha256": "081e7b2afa16a7f4188de600bb0ab98a6f522a9d5d6ad1a0676282e1147bddd5"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/work/revision-notes.r9.md",
+      "sha256": "0dd908b124e9cd0f9de63235f15997b28ac71fa511a455eac84c5807d9d9d7e1"
+    },
+    {
+      "path": "src/ui/Reader.tsx",
+      "sha256": "808817979afa8e114e04b950a249f3f584493e0a455053e54180995e00be57c3"
+    }
+  ],
+  "id": "review-12-qa",
+  "submittedAt": "2026-10-30T08:42:15.515Z"
+}
