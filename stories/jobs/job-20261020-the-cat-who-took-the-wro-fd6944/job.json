@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-cat-who-took-the-wro-fd6944",
   "storyId": "the-cat-who-took-the-wrong-turn",
-  "state": "in-review",
+  "state": "changes-requested",
   "createdAt": "2026-10-20T23:23:24.700Z",
-  "updatedAt": "2026-10-30T08:22:30.774Z",
+  "updatedAt": "2026-10-30T08:28:57.463Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/request.json",
@@ -1019,6 +1019,72 @@
       "id": "review-9-qa",
       "submittedAt": "2026-10-25T08:32:17.404Z",
       "invalidatedBy": 8
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 8,
+      "draftSha256": "76d39b92d3180b99ce7ef9e524b83bff6225bd766350d1357d5cc17734baf002",
+      "verdict": "changes-requested",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "Diffed story.r7.json against story.r8.json myself (python json compare, not just revision-notes.r8.md): the only differences are the top-level 'version' field (7 -> 8) and exactly ten passages. Six connector passages (watch-the-frog-hop, look-back-at-the-marsh, last-step-up, steady-your-nerves, one-more-breath, settle-in-the-mud) each have only their two choice 'label' strings edited; all ids, targets, requires, lockedHints and paragraphs are byte-identical to r7. Four hub passages (the-stairs, tower-hall, lantern-room, varro) each have exactly one new sentence prepended to their first paragraph; every other paragraph, every choice (id/label/target/requires/learningTargets) is byte-identical to r7. No other passage changed. This matches the claimed scope exactly: no choice target, item/clue effect, requires gate, or ending changed anywhere in the story."
+        },
+        {
+          "severity": "note",
+          "message": "Independently re-derived every incoming edge to the four hubs from story.r8.json (not trusting the notes' counts) and read the full text of every predecessor passage. the-stairs: meet-lira/take-stairs, frog-helped/to-stairs-kind, thank-the-frog/to-stairs-crumb, stone-hop/to-stairs-fast, careful-hop/to-stairs-careful, plus the two flagged connectors. tower-hall: the-stairs/keep-climbing, the-prints/up-after-prints, show-lira-the-prints/up-after-showing, plus last-step-up's two. lantern-room: net-lid/up-net, check-on-ash/step-in-after-ash, ladder-climb/up-ladder, help-lira-up/step-in-after-helping, plus steady-your-nerves' and one-more-breath's four. varro: the-quick-slip, the-slow-slip, the-fall (each via 'look around...'), check-the-book/stand-after-check, plus settle-in-the-mud's two. The narrative-designer's core architectural claim is correct and I confirm it independently: stone-hop literally says 'Eli did not look back' when leaving the marsh, so any backward-glance-specific callback at the-stairs would have contradicted it, and the designer's chosen phrasing avoids this ('Whatever Eli had just decided, he turned to climb the stairs' makes no claim about looking back or not). I checked each new hub sentence against every predecessor listed above (including ones that never faced the flagged binary choice, e.g. meet-lira's direct take-stairs, the-prints/show-lira-the-prints into tower-hall, net-lid/check-on-ash/ladder-climb/help-lira-up into lantern-room, and the three fall variants/check-the-book into varro) and found no sentence that misstates or contradicts any of them."
+        },
+        {
+          "severity": "major",
+          "passage": "watch-the-frog-hop / look-back-at-the-marsh / last-step-up / steady-your-nerves / one-more-breath / settle-in-the-mud; the-stairs / tower-hall / lantern-room / varro",
+          "message": "The fix is safe (no contradiction, confirmed above) but it does not actually resolve the 'decorative fork, no visible effect' finding it claims to close, and I disagree with the revision notes' characterization of it as giving each fork 'a real beat' rather than 'two identical buttons.' Two things keep the forks decorative in practice: (1) the only text that differs between the two choices at each of the six connectors is the choice *label* itself (e.g. 'feeling glad' vs. plain, 'to yourself' vs. plain). I checked src/ui/Reader.tsx: the app's 'story so far' / journey list (state.history, line ~110) records visited passage *titles*, not the choice labels clicked, and there is no other persistent record of which option was chosen. So once the reader clicks past the connector, the flavor phrase is gone for good -- it never appears again, not in a recap, not in the destination text, not anywhere a second reader (or the same reader re-reading) can see it except by re-visiting that exact choice screen. (2) The new hub sentences ('Whatever Eli had just decided...', 'However he had climbed those last steps...', 'Whichever way he'd stepped in...', 'However he'd done it...') are, by the designer's own design requirement, true of literally any route into the hub, including routes that never saw the flagged choice at all (verified above). A sentence that must be equally true for a reader who never faced the fork carries no information about which option was actually taken, so it cannot function as an acknowledgement of a specific choice in the way careful-hop and last-look-at-the-gate (the cited successful models, which split to different destinations) do. Net effect: for a reader who replays one of these six passages and picks the other option, the entire rest of the book they then read is character-for-character identical to the first time, just as before this revision. This is exactly the 'added choices must be genuine branch points, not filler' failure mode this review was asked to watch for. I verified the architecture rationale (no literal per-choice callback is possible here without contradicting other predecessors) and it holds, but that only shows why a *bigger* fix is hard, not that this smaller fix succeeds. Given the explicit coordinator instruction ruling out graph restructuring, a genuine resolution within that constraint likely needs an engine capability the notes correctly identify is missing (per-incoming-choice conditional text) -- which the notes correctly scope to a future app-engineer item rather than attempting here. Until a real difference exists for the reader after the click (not just a fleeting label phrase), this should stay open rather than be marked resolved; I am raising it to major (rather than carrying it forward as the prior minor) because this revision's entire scope was dedicated to closing it and, on independent reading, it is not closed, so leaving it at 'minor/non-blocking' would let it be dropped permanently."
+        },
+        {
+          "severity": "note",
+          "message": "I ran npm run check myself this time, in full: eslint clean; tsc --noEmit clean; vitest 193/193 tests passed across 12 files; npm run validate:stories reported 'All story checks passed' for all 6 preview snapshots, this job (in-review, revision 8, story v8) and the other 5 production jobs -- unlike the r7 review, there was no stale-preview failure this run; agents:check ok for all 9 agents; vite build succeeded (dist output generated, including the PWA service worker). No failures anywhere in the pipeline."
+        },
+        {
+          "severity": "note",
+          "message": "reports/validation.r8.json and reports/graph.r8.json (this job's own reports) are both ok: true. Schema ok. Graph: 40 passages, 73 choices, 5/5 endings reachable (warm-den, drum-song, the-grab, two-heads, home-too-soon), stateSearchComplete true -- matching brief.json's endingTarget of 5. Literacy: all three word sets still meet minOccurrences and appear on the shortest route to every ending (blend-words 95/10, closed-syllable-words 64/8, ing-words 29/8, each slightly up from r7 due to the new text's own blend/closed-syllable/ing words, e.g. 'climbing' and 'brave'). Brief: ok, with only the pre-existing, unchanged warning that late-for-school, frog-helped and home-too-soon are each one word over the 16-word soft limit -- those three passages were not touched this revision, confirmed by the diff in the first finding."
+        },
+        {
+          "severity": "note",
+          "message": "Content integrity: read the ten changed passages in full against brief.json's continuity.avoid list (no violence/gore, no real brands/places/people, no sex/romance/suicide, no real religion, danger stays gentle). The new label phrases ('feeling glad', 'to yourself', 'one more small, friendly nod', 'feeling brave', 'hand in hand', 'brave', 'cool mud', 'fast') and the four new hub sentences are plain, age-appropriate, non-violent and introduce no new character, place, item or fact -- they only reference the already-established acknowledgement of 'a choice was made,' not any new content. No sexual, violent, self-harm or religious material anywhere in the revision. Characters/facts (Eli, Ash, Lira, Varro, the Lantern Tower, wanting to go home) remain consistent with the unchanged rest of the story."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r8.json",
+          "sha256": "76d39b92d3180b99ce7ef9e524b83bff6225bd766350d1357d5cc17734baf002"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r7.json",
+          "sha256": "3a05d6f751b2e994f53f09ceb1dca50fd6140bc5b054bf849cbf5547882ab0d2"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/validation.r8.json",
+          "sha256": "0337210e219d023e709afd19c5f60f80e2c8a147b1290d90ab4ed8eab3e414d3"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/graph.r8.json",
+          "sha256": "86eca09e9987b5f839dded76f2ded799613a82a49c5eaa6c7ede3738ce591bf1"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/brief.json",
+          "sha256": "081e7b2afa16a7f4188de600bb0ab98a6f522a9d5d6ad1a0676282e1147bddd5"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/work/revision-notes.r8.md",
+          "sha256": "3ee33360099544942c9d7e088a608f24fadb268f67f02b1316c2a23274369848"
+        }
+      ],
+      "id": "review-10-qa",
+      "submittedAt": "2026-10-30T08:28:57.463Z"
     }
   ],
   "parentDecisions": [],
@@ -1200,6 +1266,16 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 8 (story v8) passed automated validation"
+    },
+    {
+      "at": "2026-10-30T08:28:57.463Z",
+      "from": "in-review",
+      "to": "changes-requested",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "A reviewer requested changes"
     }
   ]
 }
