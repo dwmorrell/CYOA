@@ -134,136 +134,6 @@
       "updatedAt": "2026-10-24T23:36:28.219Z"
     },
     {
-      "id": "the-tomb-of-ameru",
-      "title": "The Tomb of Ameru",
-      "version": 3,
-      "path": "previews/the-tomb-of-ameru.json",
-      "sha256": "0d4f50948b2098d6d1fe3a4c229e2820812cb9d9a48320abf20b2142cc51a7fb",
-      "jobId": "job-20261020-the-tomb-of-ameru-sami-k-541c79",
-      "literacySummary": {
-        "blurb": "A tomb-exploring adventure with five endings and many short optional stops where the team can call it a day. It practises r-controlled words, -ed endings and ng/nk words, plus th, silent-e, FLOSS and sh words. Readers follow carved clues, so they also practise sequencing, inference and vocabulary from context.",
-        "skills": [
-          "comprehension",
-          "inference",
-          "sequencing",
-          "vocabulary"
-        ],
-        "wordTypes": [
-          {
-            "concept": "r-controlled",
-            "examples": [
-              "dark",
-              "cart",
-              "horn",
-              "burn"
-            ],
-            "label": "Bossy r / r-controlled vowel"
-          },
-          {
-            "concept": "suffix-ed",
-            "examples": [
-              "dusted",
-              "rested",
-              "lifted",
-              "hunted"
-            ],
-            "label": "Vowel suffix -ed"
-          },
-          {
-            "concept": "glued-ng-nk",
-            "examples": [
-              "long",
-              "bank",
-              "sink",
-              "rung"
-            ],
-            "label": "Welded / glued sounds"
-          },
-          {
-            "concept": "digraph-th",
-            "examples": [
-              "path",
-              "both",
-              "mouth",
-              "cloth"
-            ],
-            "label": "Consonant digraph /th/"
-          },
-          {
-            "concept": "silent-e",
-            "examples": [
-              "came",
-              "care",
-              "crate",
-              "aside"
-            ],
-            "label": "Magic e / VCe syllable"
-          },
-          {
-            "concept": "floss",
-            "examples": [
-              "bell",
-              "hill",
-              "fell",
-              "cross"
-            ],
-            "label": "Floss rule"
-          },
-          {
-            "concept": "digraph-sh",
-            "examples": [
-              "brush",
-              "fresh",
-              "push",
-              "finish"
-            ],
-            "label": "Consonant digraph /sh/"
-          }
-        ],
-        "ogCategories": [
-          "Phonics",
-          "Syllable types",
-          "Spelling rules",
-          "Morphology",
-          "Comprehension"
-        ]
-      },
-      "jobState": "awaiting-parent-approval",
-      "gates": [
-        {
-          "id": "draft-exists",
-          "ok": true,
-          "detail": "Revision 3, story v3"
-        },
-        {
-          "id": "automated-validation",
-          "ok": true,
-          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
-        },
-        {
-          "id": "review:qa",
-          "ok": true,
-          "detail": "qa passed by qa-engineer (ai-agent)"
-        },
-        {
-          "id": "review:literacy",
-          "ok": true,
-          "detail": "literacy passed by literacy-specialist (ai-agent)"
-        },
-        {
-          "id": "story-literacy-claim",
-          "ok": true,
-          "detail": "Story literacy review is \"pending\""
-        },
-        {
-          "id": "parent-approval",
-          "ok": false,
-          "detail": "Waiting for a parent decision"
-        }
-      ],
-      "updatedAt": "2026-10-25T08:19:15.585Z"
-    },
-    {
       "id": "the-rain-courier",
       "title": "The Rain Courier",
       "version": 10,
@@ -700,6 +570,136 @@
         }
       ],
       "updatedAt": "2026-10-25T08:35:37.014Z"
+    },
+    {
+      "id": "the-tomb-of-ameru",
+      "title": "The Tomb of Ameru",
+      "version": 4,
+      "path": "previews/the-tomb-of-ameru.json",
+      "sha256": "7eb447562dfa324df5e91fa947d7d9775b7f5c3d55f3f1ad7b79f629c6908fa4",
+      "jobId": "job-20261020-the-tomb-of-ameru-sami-k-541c79",
+      "literacySummary": {
+        "blurb": "A tomb-exploring adventure with six endings and many short optional stops where the team can call it a day. It practises r-controlled words, -ed endings and ng/nk words, plus th, silent-e, FLOSS and sh words. Readers follow carved clues, so they also practise sequencing, inference and vocabulary from context.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "vocabulary"
+        ],
+        "wordTypes": [
+          {
+            "concept": "r-controlled",
+            "examples": [
+              "dark",
+              "cart",
+              "horn",
+              "burn"
+            ],
+            "label": "Bossy r / r-controlled vowel"
+          },
+          {
+            "concept": "suffix-ed",
+            "examples": [
+              "dusted",
+              "rested",
+              "lifted",
+              "hunted"
+            ],
+            "label": "Vowel suffix -ed"
+          },
+          {
+            "concept": "glued-ng-nk",
+            "examples": [
+              "long",
+              "bank",
+              "sink",
+              "rung"
+            ],
+            "label": "Welded / glued sounds"
+          },
+          {
+            "concept": "digraph-th",
+            "examples": [
+              "path",
+              "both",
+              "mouth",
+              "cloth"
+            ],
+            "label": "Consonant digraph /th/"
+          },
+          {
+            "concept": "silent-e",
+            "examples": [
+              "came",
+              "care",
+              "crate",
+              "aside"
+            ],
+            "label": "Magic e / VCe syllable"
+          },
+          {
+            "concept": "floss",
+            "examples": [
+              "bell",
+              "hill",
+              "fell",
+              "cross"
+            ],
+            "label": "Floss rule"
+          },
+          {
+            "concept": "digraph-sh",
+            "examples": [
+              "brush",
+              "fresh",
+              "push",
+              "finish"
+            ],
+            "label": "Consonant digraph /sh/"
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Syllable types",
+          "Spelling rules",
+          "Morphology",
+          "Comprehension"
+        ]
+      },
+      "jobState": "awaiting-parent-approval",
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": true,
+          "detail": "Revision 4, story v4"
+        },
+        {
+          "id": "automated-validation",
+          "ok": true,
+          "detail": "schema: ok; graph: ok, 6/6 endings reachable; literacy checks: ok; brief: ok"
+        },
+        {
+          "id": "review:qa",
+          "ok": true,
+          "detail": "qa passed by qa-engineer (ai-agent)"
+        },
+        {
+          "id": "review:literacy",
+          "ok": true,
+          "detail": "literacy passed by literacy-specialist (ai-agent)"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ],
+      "updatedAt": "2026-10-30T08:19:45.264Z"
     }
   ]
 }

@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-tomb-of-ameru",
   "title": "The Tomb of Ameru",
-  "version": 3,
+  "version": 4,
   "metadata": {
     "genre": "Tomb and archaeology adventure",
     "theme": "Curiosity with care, reading clues closely, and respecting the past",
@@ -91,7 +91,7 @@
       "learningTargets": ["detail", "sequencing"],
       "choices": [
         { "id": "copy-door", "label": "Walk to the door with the card", "target": "door-front" },
-        { "id": "copy-leave", "label": "Decide to come back another day instead", "target": "ending-setback", "learningTargets": ["comprehension", "engagement"] }
+        { "id": "copy-leave", "label": "Decide to come back another day instead", "target": "ending-setback-early", "learningTargets": ["comprehension", "engagement"] }
       ]
     },
     {
@@ -198,7 +198,7 @@
         "A dark tile tipped under Hollis. A bank of sand slid out like water.",
         "Hollis felt his boots sink. He sat down in the dirt with a bump. He was not hurt, only very dusty.",
         "Sami dusted off his hat. \"The tiles told us,\" said Sami. \"We should have read them.\"",
-        "The sand settled. Everyone walked on the pale tiles after that."
+        "The sand settled, and everyone stood on the pale tiles to catch a breath."
       ],
       "learningTargets": ["inference", "sequencing"],
       "choices": [
@@ -251,7 +251,7 @@
         "A song was carved beneath the Keeper. Music notes ran from high to low.",
         "\"A long, low note,\" said Ren. \"It ends on the lowest one. Write it down.\"",
         "Sami smiled. \"A careful look gives us a gift,\" said Sami.",
-        "They climbed the ladder, one rung at a time, and rested on the ledge."
+        "They climbed the ladder, one rung at a time, toward the ledge above."
       ],
       "effects": { "addClues": ["low-note"] },
       "learningTargets": ["detail", "inference", "sequencing"],
@@ -362,11 +362,11 @@
       "id": "song-horn",
       "title": "The Big Blow",
       "paragraphs": [
-        "Hollis lifted the horn and blew. A huge, rough bark filled the hall.",
+        "Hollis pressed his lips to the horn and blew. A huge, rough bark filled the hall.",
         "The sound bounced from wall to wall. Dust drifted from the roof.",
         "At last the door shuddered and opened a crack. It was only just wide enough.",
         "\"That was loud,\" whispered Ren. \"I think the door was asking for a softer voice.\"",
-        "Everyone slipped through, a bit shaky but safe."
+        "Everyone was shaky but safe, still catching their breath by the horn."
       ],
       "learningTargets": ["comprehension", "inference"],
       "choices": [
@@ -458,7 +458,7 @@
         "A black mark crept up the wall. Sami snatched the torch and dipped it in the sand.",
         "\"We could burn this room,\" said Sami. \"Old paint does not grow back.\"",
         "The smoke thinned. The wall had a small scorch, but nothing more.",
-        "Everyone was quiet. Then they walked on with one small lamp."
+        "Everyone was quiet, still standing near the scorch mark on the wall."
       ],
       "learningTargets": ["comprehension", "inference"],
       "choices": [
@@ -570,7 +570,7 @@
       "id": "ending-seal",
       "title": "The Door Sealed Again",
       "paragraphs": [
-        "Sami closed the door with three slow taps. The stone sank back into place.",
+        "Sami eased the door shut and tapped it closed, slow and careful. The stone sank back into place.",
         "In town, the team told the city leaders what they had found. A guard was set to watch the hill.",
         "It took a whole year to plan the next visit. Ren drew a new map for the people who would come.",
         "Hollis said the wait was long, but the tomb was worth it.",
@@ -593,6 +593,20 @@
       "learningTargets": ["comprehension", "engagement"],
       "choices": [],
       "ending": { "id": "another-day", "kind": "setback", "title": "Another Day" }
+    },
+    {
+      "id": "ending-setback-early",
+      "title": "Enough For Today",
+      "paragraphs": [
+        "Ren tucked the notebook under one arm. The copied picture would keep until tomorrow.",
+        "\"Good notes do not need to be rushed,\" said Sami. \"We have come far enough for one day.\"",
+        "Hollis hummed a long, low tune as he waited by the cart.",
+        "\"Tomorrow, with the card copied twice, we can tap on the sealed door together,\" said Ren.",
+        "For now, the tomb could keep its secrets a little longer."
+      ],
+      "learningTargets": ["comprehension", "engagement"],
+      "choices": [],
+      "ending": { "id": "another-day-early", "kind": "setback", "title": "Enough For Today" }
     }
   ],
   "glossary": {
