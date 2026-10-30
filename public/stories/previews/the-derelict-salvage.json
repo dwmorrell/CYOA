@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-derelict-salvage",
   "title": "The Derelict Salvage",
-  "version": 9,
+  "version": 10,
   "metadata": {
     "genre": "Space salvage adventure",
     "theme": "Working as a team, reading the evidence, and deciding what is worth the risk",
@@ -65,7 +65,7 @@
     {
       "id": "blink-code",
       "name": "The blinking code",
-      "description": "When Ivy called out, the little box blinked and thudded twice, slow and quick. Something was listening."
+      "description": "The little box blinked and thudded twice, slow and quick, like a secret code."
     }
   ],
   "passages": [
@@ -389,7 +389,7 @@
         },
         {
           "id": "call-out",
-          "label": "Call out, and keep listening for an answer",
+          "label": "Call out, and keep listening to the box",
           "target": "nib",
           "effects": {
             "addClues": ["blink-code"]
@@ -432,7 +432,7 @@
         "Nib wrote on its chalk board. \"Someone had to keep them safe.\"",
         "\"The moths?\" Ivy asked. Nib bobbed its small round head, yes.",
         "Captain Rin touched the bot's cold shell. \"That took real heart,\" she said.",
-        "Nib snapped off a small chalk note and held it out, like a gift."
+        "Nib snapped off a small chalk note. It lay there, like a tiny gift."
       ],
       "learningTargets": ["inference", "engagement", "comprehension"],
       "choices": [
@@ -443,7 +443,7 @@
         },
         {
           "id": "promise-nib",
-          "label": "Promise to keep the chalk note safe, then take it",
+          "label": "Pick up the small chalk note to keep",
           "target": "threshold",
           "effects": {
             "addItems": ["chalk-note"]
