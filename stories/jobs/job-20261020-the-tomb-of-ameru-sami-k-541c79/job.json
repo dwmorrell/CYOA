@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-tomb-of-ameru-sami-k-541c79",
   "storyId": "the-tomb-of-ameru",
-  "state": "awaiting-parent-approval",
+  "state": "in-review",
   "createdAt": "2026-10-20T23:23:24.018Z",
-  "updatedAt": "2026-10-25T08:18:22.706Z",
+  "updatedAt": "2026-10-30T08:12:01.869Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/request.json",
@@ -136,6 +136,41 @@
         ]
       },
       "revision": 3
+    },
+    {
+      "storyVersion": 4,
+      "draft": {
+        "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/drafts/story.r4.json",
+        "sha256": "7eb447562dfa324df5e91fa947d7d9775b7f5c3d55f3f1ad7b79f629c6908fa4"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-10-30T08:12:01.869Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/validation.r4.json",
+          "sha256": "08dbb88aafdf1bdf846abb6df94a8f3306d3ade2720c660a2b22304848981211"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/literacy.r4.json",
+          "sha256": "68437c1fc424627561bb20ffadc846d87a56657178176f6b20abef3f97746fc1"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-the-tomb-of-ameru-sami-k-541c79/reports/graph.r4.json",
+          "sha256": "e77182c257744be11ca356d9f5d182b8bf9048eede3dc9c572425c6841fe9829"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 6/6 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 4
     }
   ],
   "reviews": [
@@ -770,7 +805,8 @@
         ]
       },
       "id": "review-6-literacy",
-      "submittedAt": "2026-10-25T08:17:50.484Z"
+      "submittedAt": "2026-10-25T08:17:50.484Z",
+      "invalidatedBy": 4
     },
     {
       "role": "qa",
@@ -847,7 +883,8 @@
         }
       ],
       "id": "review-7-qa",
-      "submittedAt": "2026-10-25T08:18:22.706Z"
+      "submittedAt": "2026-10-25T08:18:22.706Z",
+      "invalidatedBy": 4
     }
   ],
   "parentDecisions": [],
@@ -945,6 +982,17 @@
         "kind": "automation"
       },
       "note": "All required reviews passed"
+    },
+    {
+      "at": "2026-10-30T08:12:01.869Z",
+      "from": "awaiting-parent-approval",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 4 (story v4) passed automated validation"
     }
   ]
 }
