@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-cat-who-took-the-wro-fd6944",
   "storyId": "the-cat-who-took-the-wrong-turn",
-  "state": "in-review",
+  "state": "awaiting-parent-approval",
   "createdAt": "2026-10-20T23:23:24.700Z",
-  "updatedAt": "2026-10-30T08:42:15.515Z",
+  "updatedAt": "2026-10-30T08:43:05.253Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/request.json",
@@ -1310,6 +1310,138 @@
       ],
       "id": "review-12-qa",
       "submittedAt": "2026-10-30T08:42:15.515Z"
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 9,
+      "draftSha256": "91991c826aadc4fd143ba196ffc8de8631b16413f71097ac6c0011a001c698e1",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "minor",
+          "message": "Independently re-derived the word-set totals rather than trusting the revision notes. Diffing reports/literacy.r8.json's perWord against reports/literacy.r9.json's confirms the exact deltas: blend-words 95->105 (step 23->29, frog 13->16, trip 3->4, the rest unchanged), closed-syllable-words 64->66 (mud 13->15 only), ing-words 29->30 (climbing 7->8 only). reports/weave-comparison.r9.json shows the same three totals against the plan with ok:true, and reports/validation.r9.json's automatedChecks confirm word-set-minimums, every-word-used, word-sets-on-every-route and word-set-concepts-match-spelling all ok. perEndingRoute in literacy.r9.json shows every set still clears its floor on the shortest route to all 5 endings (blend-words 11-24, closed-syllable-words 18-27, ing-words 8-12), the same spread as r8 shifted by the new passages' own words; the tightest case is still ing-words on home-too-soon at exactly 8 against a floor of 8, unchanged from r8, still a pass. I spot-checked the new occurrences directly in story.r9.json's text: 'trip' in steady-count ('climbing on without a trip') is a free tr- blend before a short vowel and single final consonant, matching initial-blend; 'mud' in cool-mud-moment and quick-stand is a single short vowel between two consonants, matching closed-syllable; 'climbing' in steady-count has a free three-letter base plus -ing, matching suffix-ing. conceptMismatches is empty for all three sets, consistent with my own check.",
+          "passage": "steady-count"
+        },
+        {
+          "severity": "minor",
+          "message": "Read all 12 new passages directly in story.r9.json (not just the revision notes' summaries) and judged them against the book's established voice and the 10-13 age band. All 12 are short (2 sentences, 7-13 words each by direct count), plain-syntax, decodable for this book's level, and age-appropriate: no content outside brief.json's continuity.avoid list. More importantly for comprehension design, each of the six pairs is genuinely distinct in content, not a reworded label: frog-wave-back's audible 'the frog's throat puffed once, like a small answer back' versus pocket-the-smile's inward 'he liked keeping the small moment just for himself'; steady-count's deliberate counting versus quick-count's rushed heartbeat; slow-foot-in's 'cool and still' room versus bold-foot-in's 'heart... pounding fast'; holding-on's 'made the dark room feel less scary' versus leading-the-way's forward, lead-first action; cool-mud-moment's resting introspection versus quick-stand's brisk 'ready to see where he had landed'. One-more-nod and eyes-on-the-path are the thinnest of the six pairs (a friendly nod vs. simply not looking back) but still carry a real, opposite emotional beat rather than padding. None of the 12 merely restates the parent passage's choice label.",
+          "passage": "frog-wave-back"
+        },
+        {
+          "severity": "minor",
+          "message": "Checked the two carried-over wording nits from review-11-literacy.r8.json landed correctly and introduced nothing new. varro: 'However he'd done it' -> 'However he had done it, Eli was back on his feet.' - only the contraction changed, the rest of the sentence and paragraph is byte-identical to r8, confirmed by diffing story.r8.json against story.r9.json directly; it reads naturally and matches the sibling hub sentences' 'he had' form. lantern-room: the stacked '-ever' problem is resolved by dropping the construction entirely rather than patching it - 'By one path or the other, Eli was here now.' no longer uses 'Whichever', so it no longer sits next to the pre-existing fourth paragraph's 'Whatever was in the Tower's heart was not a villain.' and the two uncertainties can no longer be blended by a fast reader. I re-read the full lantern-room passage in order and it flows naturally; the new opening clause is actually simpler syntax than r8's 'Whichever way he'd stepped in,' (no embedded subject+verb before the comma), which also mitigates the separate 'fronted subordinate clause' comprehension-load note I raised on tower-hall in r8 (that note was about tower-hall and the-stairs specifically, which were not touched this revision and still use the harder construction - see next finding). A full-text scan of story.r9.json for 've/'d/'ll/'re/'m/n't confirms zero verb contractions remain anywhere, matching the revision notes' own claim.",
+          "passage": "lantern-room"
+        },
+        {
+          "severity": "minor",
+          "message": "The comprehension-load note from review-11-literacy.r8.json about the fronted-subordinate-clause pattern ('Whatever Eli had just decided,' / 'However he had climbed those last steps,') was about the-stairs and tower-hall specifically, not lantern-room or varro, and this revision correctly did not touch those two passages (confirmed byte-identical in the story.r8.json vs story.r9.json diff). That note therefore still stands for the-stairs and tower-hall, now narrowed to two instances instead of four since lantern-room's was reworded away and varro's contraction fix did not change its sentence shape ('However he had done it,' is the same fronted-clause shape as before, just without the contraction). Carrying this forward as unresolved and out of scope for this revision, not a new finding.",
+          "passage": "tower-hall"
+        },
+        {
+          "severity": "minor",
+          "message": "Confirmed the explicitly out-of-scope carry-overs are genuinely untouched: reports/validation.r9.json still reports '3 sentence(s) exceed the brief's 16-word limit', and direct count in story.r9.json confirms the same three 17-word sentences as r8 (late-for-school, frog-helped, home-too-soon) - none of the three appear in the added/changed passage list I derived independently (added: the 12 new passages; changed: the 6 connectors retargeted plus lantern-room and varro; the-stairs and tower-hall byte-identical). reports/literacy.r9.json's perWord also confirms 'bus' still occurs exactly once and 'jumping' is still at 3 occurrences, both unchanged from r8, still allowed under the set-level rule.",
+          "passage": "late-for-school"
+        },
+        {
+          "severity": "minor",
+          "message": "On the structural question this revision was dedicated to, and on which my own r8 review was explicitly weaker than qa-engineer's: I read src/ui/Reader.tsx myself this time (lines ~110-112), where the 'story so far' journey list maps state.history's passage ids to each passage's title, deduped by consecutive id. Each of the six original connectors' two choices now target two different new passage ids with two different titles ('A Small Answer' vs. 'A Secret Smile', 'Slow and Steady' vs. 'Two at a Time', 'One Foot First' vs. 'All at Once', 'Hand in Hand' vs. 'Leading the Way', 'A Moment to Rest' vs. 'Up in a Flash', 'A Small Nod Back' vs. 'Eyes Ahead'). Because the journey list is keyed off passage id/title, not choice label, a reader's visible history now genuinely differs depending on which of the two options was taken at each of the six connectors - this is the exact persistence gap qa-engineer's r8 finding identified in the same file and line range, and it is now closed by construction, not just by label text. Independently re-derived the incoming-edge counts to all four hubs from story.r9.json itself (the-stairs: 13, tower-hall: 7, lantern-room: 12, varro: 8) and they match the revision notes exactly; re-read every predecessor's closing text against each hub's unchanged-or-reworded opening sentence and found no contradiction, including for predecessors that never faced the originally flagged forks.",
+          "passage": "watch-the-frog-hop"
+        },
+        {
+          "severity": "minor",
+          "message": "One residual observation, not a new instance of the resolved problem: each of the 12 new passages still ends in two choices that both lead to the same hub (a schema requirement, since no non-ending passage may have fewer than two choices), and those two forward choices are deliberately plain and nearly interchangeable (e.g. frog-wave-back's 'Walk on to the stairs, still smiling' vs. 'Walk on to the stairs, feeling light inside'). This is not decorative-fork padding in the same sense as the original complaint, because the real differentiation already happened one step earlier - which of the two new passages, with their genuinely different text and title, the reader landed on - and it mirrors an existing, previously unflagged pattern elsewhere in the story (watch-the-hill's two choices, both to meet-lira). Noting this only so a future revision doesn't mistake it for an unresolved case of the same issue.",
+          "passage": "frog-wave-back"
+        },
+        {
+          "severity": "minor",
+          "message": "Limits of automated detection, restated for this revision: reports/literacy.r9.json and the analyzer behind it detect spelling patterns, not sound. The 'Digraph wh' concept list still includes 'whatever'/'however' (compounds, not the targeted free-base pattern) and the general 62+-token 'Suffix -ing' concept count is distinct from, and larger than, the specific six-word ing-word set the brief targets. Syllable counts are estimates from vowel groups, not from how words actually sound, and none of the automated checks judge whether a given child, with their own program's terminology and their own ear, will find any specific word in the 12 new passages decodable. This review, and the report it checks, remain an AI pre-review, not a substitute for a qualified human structured-literacy reviewer confirming decodability for the child's own program; it is recorded with reviewer.kind 'ai-agent' and is the literacy gate the parent's approval decision depends on, not a replacement for that decision.",
+          "passage": "varro"
+        },
+        {
+          "severity": "note",
+          "message": "Skills practised: reading this story end to end, a child decodes in natural context short words with beginning consonant blends (step, stone, frog, plan, spin, trip, crab, drum), closed-syllable words (cat, map, net, lid, hop, mud, bus) and -ing words (running, jumping, hiding, climbing, glowing, ringing), meeting each set above its stated minimum on every complete route I checked to every one of the 5 endings. Beyond phonics, the child follows cause and effect and sequence across the fall, the marsh, the stairs and the tower, including six round-2 forks that now each lead to one of two genuinely different short passages - a feeling, a sensation or a small action - before rejoining a shared scene, so following which path was taken is itself a small sequencing and attention task. The child also makes inferences from clues (the small wet marks that lead up, the shivering crab, Lira's doubt about the 'hero') that gate some of the later choices, tracks who is speaking across multi-character dialogue, and meets new vocabulary in context with a glossary (lantern, manhole, marsh, hatch, creature, villain, library, promised). The gentle theme of kindness and courage, short average sentence length (about 8 words), and five distinct endings of different emotional weight (triumph x3, bittersweet, setback) suit the stated 10-to-13 age range without talking down to the reader.",
+          "passage": "late-for-school"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r9.json",
+          "sha256": "91991c826aadc4fd143ba196ffc8de8631b16413f71097ac6c0011a001c698e1"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/literacy.r9.json",
+          "sha256": "dd3fe4a3fde2597bb1fd2b06e97a5ece204469af23e90451bbc055babcf895d5"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/weave-comparison.r9.json",
+          "sha256": "7c8f954c83b477acb4ec0fa1c9f9ff45bc4db06db52721977e6f711e70f3961c"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r8.json",
+          "sha256": "76d39b92d3180b99ce7ef9e524b83bff6225bd766350d1357d5cc17734baf002"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/work/revision-notes.r9.md",
+          "sha256": "0dd908b124e9cd0f9de63235f15997b28ac71fa511a455eac84c5807d9d9d7e1"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/validation.r9.json",
+          "sha256": "0540d52169907b007703c178b5aee7ca5fb73651fedfc9295051521957bc2e85"
+        }
+      ],
+      "shelfSummary": {
+        "blurb": "Eli follows a stray cat down a manhole into a fading magical land and must decide how to help its people, choosing his own path through a marsh, a stairway and a tower toward one of five endings. Along the way he reads and meets, again and again, words with beginning blends, short closed-syllable words and -ing words, in natural sentences rather than a word list.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "vocabulary",
+          "detail",
+          "engagement"
+        ],
+        "wordTypes": [
+          {
+            "concept": "initial-blend",
+            "examples": [
+              "step",
+              "stone",
+              "frog",
+              "crab"
+            ]
+          },
+          {
+            "concept": "closed-syllable",
+            "examples": [
+              "cat",
+              "mud",
+              "hop",
+              "map"
+            ]
+          },
+          {
+            "concept": "suffix-ing",
+            "examples": [
+              "running",
+              "jumping",
+              "climbing",
+              "glowing"
+            ]
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Syllable types",
+          "Morphology",
+          "Comprehension"
+        ]
+      },
+      "id": "review-13-literacy",
+      "submittedAt": "2026-10-30T08:43:05.253Z"
     }
   ],
   "parentDecisions": [],
@@ -1512,6 +1644,16 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 9 (story v9) passed automated validation"
+    },
+    {
+      "at": "2026-10-30T08:43:05.253Z",
+      "from": "in-review",
+      "to": "awaiting-parent-approval",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "All required reviews passed"
     }
   ]
 }
