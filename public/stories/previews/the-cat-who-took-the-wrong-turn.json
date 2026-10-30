@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-cat-who-took-the-wrong-turn",
   "title": "The Cat Who Took the Wrong Turn",
-  "version": 7,
+  "version": 9,
   "metadata": {
     "genre": "Fantasy adventure with a hero from another world",
     "theme": "Courage, kindness to strangers, and finding out who you are",
@@ -15,31 +15,61 @@
     "createdAt": "2026-10-20"
   },
   "literacy": {
-    "targetConcepts": ["initial-blend", "closed-syllable", "suffix-ing"],
+    "targetConcepts": [
+      "initial-blend",
+      "closed-syllable",
+      "suffix-ing"
+    ],
     "wordSets": [
       {
         "id": "blend-words",
         "label": "blend words",
         "concept": "initial-blend",
-        "words": ["step", "stone", "frog", "plan", "spin", "trip", "crab", "drum"],
+        "words": [
+          "step",
+          "stone",
+          "frog",
+          "plan",
+          "spin",
+          "trip",
+          "crab",
+          "drum"
+        ],
         "minOccurrences": 10
       },
       {
         "id": "closed-syllable-words",
         "label": "closed syllable words",
         "concept": "closed-syllable",
-        "words": ["cat", "map", "net", "lid", "hop", "mud", "bus"],
+        "words": [
+          "cat",
+          "map",
+          "net",
+          "lid",
+          "hop",
+          "mud",
+          "bus"
+        ],
         "minOccurrences": 8
       },
       {
         "id": "ing-words",
         "label": "ing words",
         "concept": "suffix-ing",
-        "words": ["running", "jumping", "hiding", "climbing", "glowing", "ringing"],
+        "words": [
+          "running",
+          "jumping",
+          "hiding",
+          "climbing",
+          "glowing",
+          "ringing"
+        ],
         "minOccurrences": 8
       }
     ],
-    "review": { "status": "pending" }
+    "review": {
+      "status": "pending"
+    }
   },
   "start": "late-for-school",
   "items": [
@@ -66,10 +96,27 @@
         "The cat slipped through a gap in the fence. It did not look back.",
         "Eli's library book had a map in it, and he was meant to show it in class. But he wanted to see where the cat went."
       ],
-      "learningTargets": ["engagement", "comprehension"],
+      "learningTargets": [
+        "engagement",
+        "comprehension"
+      ],
       "choices": [
-        { "id": "squeeze-through", "label": "Squeeze through the gap after the cat", "target": "through-the-gap", "learningTargets": ["sequencing"] },
-        { "id": "try-the-gate", "label": "Walk on to the gate, as a good student should", "target": "the-gate", "learningTargets": ["inference"] }
+        {
+          "id": "squeeze-through",
+          "label": "Squeeze through the gap after the cat",
+          "target": "through-the-gap",
+          "learningTargets": [
+            "sequencing"
+          ]
+        },
+        {
+          "id": "try-the-gate",
+          "label": "Walk on to the gate, as a good student should",
+          "target": "the-gate",
+          "learningTargets": [
+            "inference"
+          ]
+        }
       ]
     },
     {
@@ -81,10 +128,24 @@
         "The lid was off the manhole. Cold air came up from the dark hole.",
         "The cat sprang into the dark."
       ],
-      "learningTargets": ["detail", "comprehension"],
+      "learningTargets": [
+        "detail",
+        "comprehension"
+      ],
       "choices": [
-        { "id": "lean-over", "label": "Lean over the edge to look down", "target": "the-fall" },
-        { "id": "call-first", "label": "Call softly to the cat first", "target": "call-to-the-cat", "learningTargets": ["engagement"] }
+        {
+          "id": "lean-over",
+          "label": "Lean over the edge to look down",
+          "target": "the-fall"
+        },
+        {
+          "id": "call-first",
+          "label": "Call softly to the cat first",
+          "target": "call-to-the-cat",
+          "learningTargets": [
+            "engagement"
+          ]
+        }
       ]
     },
     {
@@ -96,10 +157,24 @@
         "It did not sound scared. Eli felt a little braver.",
         "He leaned over the rim to look down."
       ],
-      "learningTargets": ["engagement", "inference"],
+      "learningTargets": [
+        "engagement",
+        "inference"
+      ],
       "choices": [
-        { "id": "lean-after-call", "label": "Lean over the rim and look", "target": "the-fall" },
-        { "id": "weigh-the-drop", "label": "Think about how to go down", "target": "how-to-go-down", "learningTargets": ["sequencing"] }
+        {
+          "id": "lean-after-call",
+          "label": "Lean over the rim and look",
+          "target": "the-fall"
+        },
+        {
+          "id": "weigh-the-drop",
+          "label": "Think about how to go down",
+          "target": "how-to-go-down",
+          "learningTargets": [
+            "sequencing"
+          ]
+        }
       ]
     },
     {
@@ -109,10 +184,21 @@
         "Eli looked at the dark, wet hole.",
         "He could try jumping in fast, or ease down slow instead."
       ],
-      "learningTargets": ["sequencing", "engagement"],
+      "learningTargets": [
+        "sequencing",
+        "engagement"
+      ],
       "choices": [
-        { "id": "jump-in-fast", "label": "Jump in fast, feet first", "target": "the-quick-slip" },
-        { "id": "go-down-slow", "label": "Ease yourself down slowly instead", "target": "the-slow-slip" }
+        {
+          "id": "jump-in-fast",
+          "label": "Jump in fast, feet first",
+          "target": "the-quick-slip"
+        },
+        {
+          "id": "go-down-slow",
+          "label": "Ease yourself down slowly instead",
+          "target": "the-slow-slip"
+        }
       ]
     },
     {
@@ -125,10 +211,24 @@
         "Eli followed it through. His foot caught on a stone and he gave a little trip. The cat sat by a round hole in the yard.",
         "The lid was off the manhole. The cat hopped in."
       ],
-      "learningTargets": ["sequencing", "inference"],
+      "learningTargets": [
+        "sequencing",
+        "inference"
+      ],
       "choices": [
-        { "id": "lean-over-gate", "label": "Lean over the edge to look down", "target": "the-fall" },
-        { "id": "shout-for-help", "label": "Call for help over the fence", "target": "call-for-help", "learningTargets": ["engagement"] }
+        {
+          "id": "lean-over-gate",
+          "label": "Lean over the edge to look down",
+          "target": "the-fall"
+        },
+        {
+          "id": "shout-for-help",
+          "label": "Call for help over the fence",
+          "target": "call-for-help",
+          "learningTargets": [
+            "engagement"
+          ]
+        }
       ]
     },
     {
@@ -140,10 +240,24 @@
         "He walked back to the gap in the fence.",
         "The cat sat by the open hole, waiting."
       ],
-      "learningTargets": ["engagement", "sequencing"],
+      "learningTargets": [
+        "engagement",
+        "sequencing"
+      ],
       "choices": [
-        { "id": "lean-after-call-help", "label": "Crouch down and look into the hole", "target": "the-fall" },
-        { "id": "last-look", "label": "Look back at the locked gate once more", "target": "last-look-at-the-gate", "learningTargets": ["sequencing"] }
+        {
+          "id": "lean-after-call-help",
+          "label": "Crouch down and look into the hole",
+          "target": "the-fall"
+        },
+        {
+          "id": "last-look",
+          "label": "Look back at the locked gate once more",
+          "target": "last-look-at-the-gate",
+          "learningTargets": [
+            "sequencing"
+          ]
+        }
       ]
     },
     {
@@ -153,10 +267,21 @@
         "Eli glanced back at the locked gate one more time.",
         "It was shut tight. Climbing down through the hole was the only way now."
       ],
-      "learningTargets": ["sequencing", "inference"],
+      "learningTargets": [
+        "sequencing",
+        "inference"
+      ],
       "choices": [
-        { "id": "trust-the-cat", "label": "Trust the cat and climb down", "target": "the-slow-slip" },
-        { "id": "go-anyway", "label": "Decide to follow the cat anyway", "target": "the-quick-slip" }
+        {
+          "id": "trust-the-cat",
+          "label": "Trust the cat and climb down",
+          "target": "the-slow-slip"
+        },
+        {
+          "id": "go-anyway",
+          "label": "Decide to follow the cat anyway",
+          "target": "the-quick-slip"
+        }
       ]
     },
     {
@@ -169,10 +294,24 @@
         "He landed in soft, warm mud with a squelch. It did not hurt.",
         "Eli sat up and wiped his eyes. Where was he?"
       ],
-      "learningTargets": ["sequencing", "engagement"],
+      "learningTargets": [
+        "sequencing",
+        "engagement"
+      ],
       "choices": [
-        { "id": "look-around-quick", "label": "Stand up and look around", "target": "varro" },
-        { "id": "check-bag-quick", "label": "Check your bag before standing up", "target": "check-the-book", "learningTargets": ["detail"] }
+        {
+          "id": "look-around-quick",
+          "label": "Stand up and look around",
+          "target": "varro"
+        },
+        {
+          "id": "check-bag-quick",
+          "label": "Check your bag before standing up",
+          "target": "check-the-book",
+          "learningTargets": [
+            "detail"
+          ]
+        }
       ]
     },
     {
@@ -185,10 +324,24 @@
         "He landed in soft, warm mud with a splash. It did not hurt.",
         "Eli sat up and wiped his eyes. Where was he?"
       ],
-      "learningTargets": ["sequencing", "engagement"],
+      "learningTargets": [
+        "sequencing",
+        "engagement"
+      ],
       "choices": [
-        { "id": "look-around-slow", "label": "Stand up and look around", "target": "varro" },
-        { "id": "check-bag-slow", "label": "Check your bag before standing up", "target": "check-the-book", "learningTargets": ["detail"] }
+        {
+          "id": "look-around-slow",
+          "label": "Stand up and look around",
+          "target": "varro"
+        },
+        {
+          "id": "check-bag-slow",
+          "label": "Check your bag before standing up",
+          "target": "check-the-book",
+          "learningTargets": [
+            "detail"
+          ]
+        }
       ]
     },
     {
@@ -200,10 +353,24 @@
         "He landed in soft, warm mud with a squelch. The mud was deep, but it did not hurt.",
         "Eli sat up and wiped his eyes. Where was he?"
       ],
-      "learningTargets": ["sequencing", "engagement"],
+      "learningTargets": [
+        "sequencing",
+        "engagement"
+      ],
       "choices": [
-        { "id": "look-around", "label": "Stand up and look around", "target": "varro" },
-        { "id": "check-bag", "label": "Check your bag before standing up", "target": "check-the-book", "learningTargets": ["detail"] }
+        {
+          "id": "look-around",
+          "label": "Stand up and look around",
+          "target": "varro"
+        },
+        {
+          "id": "check-bag",
+          "label": "Check your bag before standing up",
+          "target": "check-the-book",
+          "learningTargets": [
+            "detail"
+          ]
+        }
       ]
     },
     {
@@ -215,10 +382,24 @@
         "The map inside had a small wet spot on it.",
         "He tucked the book away safely and stood up."
       ],
-      "learningTargets": ["detail", "sequencing"],
+      "learningTargets": [
+        "detail",
+        "sequencing"
+      ],
       "choices": [
-        { "id": "stand-after-check", "label": "Stand up and look around", "target": "varro" },
-        { "id": "settle-moment", "label": "Sit a moment longer before standing", "target": "settle-in-the-mud", "learningTargets": ["sequencing"] }
+        {
+          "id": "stand-after-check",
+          "label": "Stand up and look around",
+          "target": "varro"
+        },
+        {
+          "id": "settle-moment",
+          "label": "Sit a moment longer before standing",
+          "target": "settle-in-the-mud",
+          "learningTargets": [
+            "sequencing"
+          ]
+        }
       ]
     },
     {
@@ -228,25 +409,50 @@
         "Eli wiped mud from his hands onto his trousers.",
         "He could sit a moment longer, or stand right up."
       ],
-      "learningTargets": ["sequencing", "engagement"],
+      "learningTargets": [
+        "sequencing",
+        "engagement"
+      ],
       "choices": [
-        { "id": "sit-moment", "label": "Sit a moment longer in the mud", "target": "varro" },
-        { "id": "stand-right-up", "label": "Stand right up and brush off", "target": "varro" }
+        {
+          "id": "sit-moment",
+          "label": "Sit a moment longer in the cool mud",
+          "target": "cool-mud-moment"
+        },
+        {
+          "id": "stand-right-up",
+          "label": "Stand right up fast, and brush off the mud",
+          "target": "quick-stand"
+        }
       ]
     },
     {
       "id": "varro",
       "title": "The Land of Varro",
       "paragraphs": [
-        "A purple sky arched over rolling hills. Glowing moss lit the ground like tiny lamps.",
+        "However he had done it, Eli was back on his feet. A purple sky arched over rolling hills. Glowing moss lit the ground like tiny lamps.",
         "On the tallest hill stood a tower. It was the Lantern Tower. But its top was dim and grey, with only a weak glow.",
         "The grey cat sat on a flat stone nearby and licked its paw.",
         "Eli picked up his lunch box and his library book. He was muddy, but not hurt. He wanted to go home."
       ],
-      "learningTargets": ["detail", "vocabulary"],
+      "learningTargets": [
+        "detail",
+        "vocabulary"
+      ],
       "choices": [
-        { "id": "meet-lira", "label": "Wave to the girl running down the hill", "target": "meet-lira" },
-        { "id": "look-moss", "label": "Kneel down and look at the glowing moss", "target": "look-at-the-moss", "learningTargets": ["vocabulary"] }
+        {
+          "id": "meet-lira",
+          "label": "Wave to the girl running down the hill",
+          "target": "meet-lira"
+        },
+        {
+          "id": "look-moss",
+          "label": "Kneel down and look at the glowing moss",
+          "target": "look-at-the-moss",
+          "learningTargets": [
+            "vocabulary"
+          ]
+        }
       ]
     },
     {
@@ -257,10 +463,24 @@
         "Each tiny light blinked slowly, like a small heartbeat.",
         "He looked up. A girl was running down the hill."
       ],
-      "learningTargets": ["detail", "vocabulary"],
+      "learningTargets": [
+        "detail",
+        "vocabulary"
+      ],
       "choices": [
-        { "id": "wave-after-moss", "label": "Wave to the girl with the lamp", "target": "meet-lira" },
-        { "id": "watch-hill", "label": "Watch the hill a moment longer", "target": "watch-the-hill", "learningTargets": ["detail"] }
+        {
+          "id": "wave-after-moss",
+          "label": "Wave to the girl with the lamp",
+          "target": "meet-lira"
+        },
+        {
+          "id": "watch-hill",
+          "label": "Watch the hill a moment longer",
+          "target": "watch-the-hill",
+          "learningTargets": [
+            "detail"
+          ]
+        }
       ]
     },
     {
@@ -270,10 +490,21 @@
         "Eli watched the girl, still running, come closer down the hill.",
         "He could wave first, or wait for her to speak."
       ],
-      "learningTargets": ["detail", "engagement"],
+      "learningTargets": [
+        "detail",
+        "engagement"
+      ],
       "choices": [
-        { "id": "wave-first", "label": "Wave first, before she gets close", "target": "meet-lira" },
-        { "id": "wait-quiet", "label": "Wait quietly for her to speak", "target": "meet-lira" }
+        {
+          "id": "wave-first",
+          "label": "Wave first, before she gets close",
+          "target": "meet-lira"
+        },
+        {
+          "id": "wait-quiet",
+          "label": "Wait quietly for her to speak",
+          "target": "meet-lira"
+        }
       ]
     },
     {
@@ -287,10 +518,25 @@
         "Lira frowned and looked at his muddy shoes. \"I am not sure you are the hero, either,\" she said. \"But the way home is through the Tower.\"",
         "She drew a quick map in the dust. There was a path through the marsh, and a path up the stone stairs."
       ],
-      "learningTargets": ["comprehension", "inference", "vocabulary"],
+      "learningTargets": [
+        "comprehension",
+        "inference",
+        "vocabulary"
+      ],
       "choices": [
-        { "id": "take-marsh", "label": "Take the marsh path where the frogs live", "target": "the-marsh", "learningTargets": ["sequencing"] },
-        { "id": "take-stairs", "label": "Take the stone stairs straight up the hill", "target": "the-stairs" }
+        {
+          "id": "take-marsh",
+          "label": "Take the marsh path where the frogs live",
+          "target": "the-marsh",
+          "learningTargets": [
+            "sequencing"
+          ]
+        },
+        {
+          "id": "take-stairs",
+          "label": "Take the stone stairs straight up the hill",
+          "target": "the-stairs"
+        }
       ]
     },
     {
@@ -302,10 +548,24 @@
         "Lira was ahead. She did not see it. Only Eli did.",
         "A line of stones led on across the water. Eli could hop across it and catch up."
       ],
-      "learningTargets": ["detail", "engagement"],
+      "learningTargets": [
+        "detail",
+        "engagement"
+      ],
       "choices": [
-        { "id": "help-frog", "label": "Stop and help the small frog", "target": "frog-helped", "learningTargets": ["inference"] },
-        { "id": "hop-stones", "label": "Hop across the stones to catch up with Lira", "target": "stone-hop" }
+        {
+          "id": "help-frog",
+          "label": "Stop and help the small frog",
+          "target": "frog-helped",
+          "learningTargets": [
+            "inference"
+          ]
+        },
+        {
+          "id": "hop-stones",
+          "label": "Hop across the stones to catch up with Lira",
+          "target": "stone-hop"
+        }
       ]
     },
     {
@@ -317,11 +577,29 @@
         "The net hung there as if it had been left for him. Eli took it. The frog blinked, as if to say yes.",
         "Then he ran to catch up with Lira. She was waiting at the start of the stairs, and she gave him a small, surprised smile."
       ],
-      "effects": { "addItems": ["reed-net"] },
-      "learningTargets": ["inference", "sequencing"],
+      "effects": {
+        "addItems": [
+          "reed-net"
+        ]
+      },
+      "learningTargets": [
+        "inference",
+        "sequencing"
+      ],
       "choices": [
-        { "id": "to-stairs-kind", "label": "Follow Lira up the stairs", "target": "the-stairs" },
-        { "id": "thank-frog", "label": "Leave the frog a crumb before you go", "target": "thank-the-frog", "learningTargets": ["engagement"] }
+        {
+          "id": "to-stairs-kind",
+          "label": "Follow Lira up the stairs",
+          "target": "the-stairs"
+        },
+        {
+          "id": "thank-frog",
+          "label": "Leave the frog a crumb before you go",
+          "target": "thank-the-frog",
+          "learningTargets": [
+            "engagement"
+          ]
+        }
       ]
     },
     {
@@ -332,10 +610,24 @@
         "The frog gave a happy croak and hopped onto it.",
         "Eli grinned, then ran to catch up with Lira."
       ],
-      "learningTargets": ["engagement", "inference"],
+      "learningTargets": [
+        "engagement",
+        "inference"
+      ],
       "choices": [
-        { "id": "to-stairs-crumb", "label": "Follow Lira up the stairs", "target": "the-stairs" },
-        { "id": "watch-frog-hop", "label": "Watch the frog hop away first", "target": "watch-the-frog-hop", "learningTargets": ["engagement"] }
+        {
+          "id": "to-stairs-crumb",
+          "label": "Follow Lira up the stairs",
+          "target": "the-stairs"
+        },
+        {
+          "id": "watch-frog-hop",
+          "label": "Watch the frog hop away first",
+          "target": "watch-the-frog-hop",
+          "learningTargets": [
+            "engagement"
+          ]
+        }
       ]
     },
     {
@@ -345,10 +637,21 @@
         "Eli watched the frog hop away through the reeds.",
         "He could call out one more thank you, or just smile."
       ],
-      "learningTargets": ["engagement", "sequencing"],
+      "learningTargets": [
+        "engagement",
+        "sequencing"
+      ],
       "choices": [
-        { "id": "call-thanks", "label": "Call out one more thank you", "target": "the-stairs" },
-        { "id": "smile-and-go", "label": "Just smile, and walk on to Lira", "target": "the-stairs" }
+        {
+          "id": "call-thanks",
+          "label": "Call out one more thank you, feeling glad",
+          "target": "frog-wave-back"
+        },
+        {
+          "id": "smile-and-go",
+          "label": "Just smile to yourself, and walk on to Lira",
+          "target": "pocket-the-smile"
+        }
       ]
     },
     {
@@ -360,10 +663,24 @@
         "Lira laughed, but not in a mean way. She helped him up. \"Mud is just part of Varro,\" she said.",
         "Behind them, the small frog was still kicking in the reeds. Eli did not look back. They went on to the stairs."
       ],
-      "learningTargets": ["sequencing", "detail"],
+      "learningTargets": [
+        "sequencing",
+        "detail"
+      ],
       "choices": [
-        { "id": "to-stairs-fast", "label": "Walk on to the stairs", "target": "the-stairs" },
-        { "id": "retry-hop", "label": "Try the last stones again, more carefully", "target": "careful-hop", "learningTargets": ["sequencing"] }
+        {
+          "id": "to-stairs-fast",
+          "label": "Walk on to the stairs",
+          "target": "the-stairs"
+        },
+        {
+          "id": "retry-hop",
+          "label": "Try the last stones again, more carefully",
+          "target": "careful-hop",
+          "learningTargets": [
+            "sequencing"
+          ]
+        }
       ]
     },
     {
@@ -375,10 +692,24 @@
         "\"Second try is the charm,\" said Lira, grinning.",
         "They walked on together to the stairs."
       ],
-      "learningTargets": ["sequencing", "engagement"],
+      "learningTargets": [
+        "sequencing",
+        "engagement"
+      ],
       "choices": [
-        { "id": "to-stairs-careful", "label": "Walk on to the stairs with Lira", "target": "the-stairs" },
-        { "id": "look-back-marsh", "label": "Look back at the marsh once more", "target": "look-back-at-the-marsh", "learningTargets": ["detail"] }
+        {
+          "id": "to-stairs-careful",
+          "label": "Walk on to the stairs with Lira",
+          "target": "the-stairs"
+        },
+        {
+          "id": "look-back-marsh",
+          "label": "Look back at the marsh once more",
+          "target": "look-back-at-the-marsh",
+          "learningTargets": [
+            "detail"
+          ]
+        }
       ]
     },
     {
@@ -388,25 +719,50 @@
         "Eli looked back at the marsh one last time.",
         "The frog still sat in the reeds, watching him go."
       ],
-      "learningTargets": ["detail", "engagement"],
+      "learningTargets": [
+        "detail",
+        "engagement"
+      ],
       "choices": [
-        { "id": "nod-to-frog", "label": "Give the frog a small nod", "target": "the-stairs" },
-        { "id": "turn-to-stairs", "label": "Turn and walk on to the stairs", "target": "the-stairs" }
+        {
+          "id": "nod-to-frog",
+          "label": "Give the frog one more small, friendly nod",
+          "target": "one-more-nod"
+        },
+        {
+          "id": "turn-to-stairs",
+          "label": "Turn away, and walk on to the stairs",
+          "target": "eyes-on-the-path"
+        }
       ]
     },
     {
       "id": "the-stairs",
       "title": "The Stone Stairs",
       "paragraphs": [
-        "The stone stairs wound around the hill. Climbing was slow, and Eli's legs began to ache.",
+        "Whatever Eli had just decided, he turned to climb the stairs. The stone stairs wound around the hill. Climbing was slow, and Eli's legs began to ache.",
         "Ash waited at every bend, a grey shape in the glowing moss.",
         "On the fifth step, Eli stopped. There were tiny wet marks on the stone. They were like little claws.",
         "They climbed the stairs, one by one, toward the Tower. Each one shone with a speck of glow dust."
       ],
-      "learningTargets": ["detail", "inference"],
+      "learningTargets": [
+        "detail",
+        "inference"
+      ],
       "choices": [
-        { "id": "study-prints", "label": "Kneel and look at the marks closely", "target": "the-prints", "learningTargets": ["detail"] },
-        { "id": "keep-climbing", "label": "Keep climbing to the top", "target": "tower-hall" }
+        {
+          "id": "study-prints",
+          "label": "Kneel and look at the marks closely",
+          "target": "the-prints",
+          "learningTargets": [
+            "detail"
+          ]
+        },
+        {
+          "id": "keep-climbing",
+          "label": "Keep climbing to the top",
+          "target": "tower-hall"
+        }
       ]
     },
     {
@@ -418,11 +774,29 @@
         "The marks went up, not down. Something small had gone up to the Tower, and had not come back.",
         "Eli kept that in his mind and went on up."
       ],
-      "effects": { "addClues": ["claw-prints"] },
-      "learningTargets": ["inference", "detail"],
+      "effects": {
+        "addClues": [
+          "claw-prints"
+        ]
+      },
+      "learningTargets": [
+        "inference",
+        "detail"
+      ],
       "choices": [
-        { "id": "up-after-prints", "label": "Climb on to the top", "target": "tower-hall" },
-        { "id": "show-lira", "label": "Show Lira the marks before going up", "target": "show-lira-the-prints", "learningTargets": ["inference"] }
+        {
+          "id": "up-after-prints",
+          "label": "Climb on to the top",
+          "target": "tower-hall"
+        },
+        {
+          "id": "show-lira",
+          "label": "Show Lira the marks before going up",
+          "target": "show-lira-the-prints",
+          "learningTargets": [
+            "inference"
+          ]
+        }
       ]
     },
     {
@@ -434,10 +808,24 @@
         "Eli was not sure. The marks looked like claws to him.",
         "They climbed on, both thinking about what they had seen."
       ],
-      "learningTargets": ["inference", "detail"],
+      "learningTargets": [
+        "inference",
+        "detail"
+      ],
       "choices": [
-        { "id": "up-after-showing", "label": "Climb on to the top", "target": "tower-hall" },
-        { "id": "last-step", "label": "Pause on the last step before the hall", "target": "last-step-up", "learningTargets": ["sequencing"] }
+        {
+          "id": "up-after-showing",
+          "label": "Climb on to the top",
+          "target": "tower-hall"
+        },
+        {
+          "id": "last-step",
+          "label": "Pause on the last step before the hall",
+          "target": "last-step-up",
+          "learningTargets": [
+            "sequencing"
+          ]
+        }
       ]
     },
     {
@@ -447,33 +835,64 @@
         "Eli stood at the last step before the hall.",
         "He could climb on steadily, or take it two steps at a time."
       ],
-      "learningTargets": ["sequencing", "engagement"],
+      "learningTargets": [
+        "sequencing",
+        "engagement"
+      ],
       "choices": [
-        { "id": "climb-steady", "label": "Climb on steadily, one step at a time", "target": "tower-hall" },
-        { "id": "climb-fast", "label": "Take the last steps two at a time", "target": "tower-hall" }
+        {
+          "id": "climb-steady",
+          "label": "Keep climbing steadily, one step at a time",
+          "target": "steady-count"
+        },
+        {
+          "id": "climb-fast",
+          "label": "Keep climbing fast, two steps at a time",
+          "target": "quick-count"
+        }
       ]
     },
     {
       "id": "tower-hall",
       "title": "The Tower Hall",
       "paragraphs": [
-        "The great hall was cold and dim. A huge drum sat silent by the wall. Its sound once kept the light alive.",
+        "However he had climbed those last steps, Eli reached the top at last. The great hall was cold and dim. A huge drum sat silent by the wall. Its sound once kept the light alive.",
         "High above, a round hatch with a heavy lid shut off the lantern room. The glow stone lived up there. It had gone missing three nights ago.",
         "\"Now the light is nearly gone,\" Lira whispered. \"Can you do something? Anything?\"",
         "Eli looked at the hatch. A long, old ladder leaned against the wall. A tall hook hung by the hatch lid."
       ],
-      "learningTargets": ["comprehension", "detail"],
+      "learningTargets": [
+        "comprehension",
+        "detail"
+      ],
       "choices": [
         {
           "id": "net-the-lid",
           "label": "Use the reed net to hook the hatch lid",
           "target": "net-lid",
-          "requires": { "items": ["reed-net"] },
+          "requires": {
+            "items": [
+              "reed-net"
+            ]
+          },
           "lockedHint": "You need something light and woven to catch the lid.",
-          "learningTargets": ["detail"]
+          "learningTargets": [
+            "detail"
+          ]
         },
-        { "id": "climb-ladder", "label": "Climb the old ladder, hand over hand", "target": "ladder-climb" },
-        { "id": "ask-home", "label": "Say you cannot help, and ask to go home", "target": "home-too-soon", "learningTargets": ["engagement"] }
+        {
+          "id": "climb-ladder",
+          "label": "Climb the old ladder, hand over hand",
+          "target": "ladder-climb"
+        },
+        {
+          "id": "ask-home",
+          "label": "Say you cannot help, and ask to go home",
+          "target": "home-too-soon",
+          "learningTargets": [
+            "engagement"
+          ]
+        }
       ]
     },
     {
@@ -485,10 +904,24 @@
         "\"I would not have thought of that,\" said Lira. She looked at him in a new way.",
         "Eli climbed through the hatch with the net on his back. Lira came up behind him, and Ash went first."
       ],
-      "learningTargets": ["inference", "comprehension"],
+      "learningTargets": [
+        "inference",
+        "comprehension"
+      ],
       "choices": [
-        { "id": "up-net", "label": "Step into the lantern room", "target": "lantern-room" },
-        { "id": "check-ash", "label": "Check on Ash before stepping in", "target": "check-on-ash", "learningTargets": ["inference"] }
+        {
+          "id": "up-net",
+          "label": "Step into the lantern room",
+          "target": "lantern-room"
+        },
+        {
+          "id": "check-ash",
+          "label": "Check on Ash before stepping in",
+          "target": "check-on-ash",
+          "learningTargets": [
+            "inference"
+          ]
+        }
       ]
     },
     {
@@ -499,10 +932,24 @@
         "\"It is okay,\" Eli whispered, giving him a quick pat.",
         "Ash settled down, and Eli stood to look ahead."
       ],
-      "learningTargets": ["inference", "engagement"],
+      "learningTargets": [
+        "inference",
+        "engagement"
+      ],
       "choices": [
-        { "id": "step-in-after-ash", "label": "Step into the lantern room", "target": "lantern-room" },
-        { "id": "steady-nerves", "label": "Take a moment at the edge of the room", "target": "steady-your-nerves", "learningTargets": ["engagement"] }
+        {
+          "id": "step-in-after-ash",
+          "label": "Step into the lantern room",
+          "target": "lantern-room"
+        },
+        {
+          "id": "steady-nerves",
+          "label": "Take a moment at the edge of the room",
+          "target": "steady-your-nerves",
+          "learningTargets": [
+            "engagement"
+          ]
+        }
       ]
     },
     {
@@ -512,10 +959,21 @@
         "Eli stood at the edge of the lantern room.",
         "He could step in slowly, or step in all at once."
       ],
-      "learningTargets": ["engagement", "sequencing"],
+      "learningTargets": [
+        "engagement",
+        "sequencing"
+      ],
       "choices": [
-        { "id": "step-slow", "label": "Step in slowly, one foot first", "target": "lantern-room" },
-        { "id": "step-bold", "label": "Step in boldly, all at once", "target": "lantern-room" }
+        {
+          "id": "step-slow",
+          "label": "Step in slowly, one careful foot first",
+          "target": "slow-foot-in"
+        },
+        {
+          "id": "step-bold",
+          "label": "Step in boldly, all at once, feeling brave",
+          "target": "bold-foot-in"
+        }
       ]
     },
     {
@@ -527,10 +985,24 @@
         "\"Step on the sides!\" called Lira from below. It was good advice.",
         "At the top he pushed the heavy lid with both hands. It scraped open. Lira and Ash climbed up after him."
       ],
-      "learningTargets": ["sequencing", "comprehension"],
+      "learningTargets": [
+        "sequencing",
+        "comprehension"
+      ],
       "choices": [
-        { "id": "up-ladder", "label": "Step into the lantern room", "target": "lantern-room" },
-        { "id": "help-lira", "label": "Reach down and help Lira up", "target": "help-lira-up", "learningTargets": ["engagement"] }
+        {
+          "id": "up-ladder",
+          "label": "Step into the lantern room",
+          "target": "lantern-room"
+        },
+        {
+          "id": "help-lira",
+          "label": "Reach down and help Lira up",
+          "target": "help-lira-up",
+          "learningTargets": [
+            "engagement"
+          ]
+        }
       ]
     },
     {
@@ -542,10 +1014,24 @@
         "\"Thanks,\" she said, smiling, a little out of breath.",
         "Together, they turned to face the lantern room."
       ],
-      "learningTargets": ["engagement", "comprehension"],
+      "learningTargets": [
+        "engagement",
+        "comprehension"
+      ],
       "choices": [
-        { "id": "step-in-after-helping", "label": "Step into the lantern room", "target": "lantern-room" },
-        { "id": "one-more-breath", "label": "Take one more breath together first", "target": "one-more-breath", "learningTargets": ["engagement"] }
+        {
+          "id": "step-in-after-helping",
+          "label": "Step into the lantern room",
+          "target": "lantern-room"
+        },
+        {
+          "id": "one-more-breath",
+          "label": "Take one more breath together first",
+          "target": "one-more-breath",
+          "learningTargets": [
+            "engagement"
+          ]
+        }
       ]
     },
     {
@@ -555,35 +1041,68 @@
         "Eli and Lira stood together at the hatch.",
         "They could step in side by side, or Eli could go first."
       ],
-      "learningTargets": ["engagement", "comprehension"],
+      "learningTargets": [
+        "engagement",
+        "comprehension"
+      ],
       "choices": [
-        { "id": "side-by-side", "label": "Step in side by side with Lira", "target": "lantern-room" },
-        { "id": "go-first", "label": "Go in first, and wave Lira forward", "target": "lantern-room" }
+        {
+          "id": "side-by-side",
+          "label": "Step in side by side with Lira, hand in hand",
+          "target": "holding-on"
+        },
+        {
+          "id": "go-first",
+          "label": "Go in first, brave, and wave Lira forward",
+          "target": "leading-the-way"
+        }
       ]
     },
     {
       "id": "lantern-room",
       "title": "The Lantern Room",
       "paragraphs": [
-        "The lantern room was round, with big dark glass all the way round. In the middle stood a small drum, the twin of the great one below.",
+        "By one path or the other, Eli was here now. The lantern room was round, with big dark glass all the way round. In the middle stood a small drum, the twin of the great one below.",
         "Something was hiding behind it. Eli saw two small eyes, and a pair of tiny claws holding a glowing stone.",
         "It was a crab. It was no bigger than a plate, and it was shivering.",
         "The wet marks on the stairs had led here. Whatever was in the Tower's heart was not a villain. It was a small, cold creature.",
         "Lira stayed still. \"I do not know what to do,\" she whispered. \"What do you think?\""
       ],
-      "learningTargets": ["inference", "comprehension", "vocabulary"],
+      "learningTargets": [
+        "inference",
+        "comprehension",
+        "vocabulary"
+      ],
       "choices": [
         {
           "id": "offer-den",
           "label": "Open your lunch box, and offer the crab a warm den",
           "target": "ending-warm-den",
-          "requires": { "clues": ["claw-prints"] },
+          "requires": {
+            "clues": [
+              "claw-prints"
+            ]
+          },
           "lockedHint": "Think about the small wet marks you saw on the stairs.",
-          "learningTargets": ["inference"]
+          "learningTargets": [
+            "inference"
+          ]
         },
-        { "id": "tap-drum", "label": "Tap the small drum, very softly", "target": "ending-drum-song" },
-        { "id": "grab-stone", "label": "Reach in and grab the glowing stone", "target": "ending-the-grab" },
-        { "id": "ask-lira", "label": "Ask Lira what she thinks, and make a plan together", "target": "ending-two-heads" }
+        {
+          "id": "tap-drum",
+          "label": "Tap the small drum, very softly",
+          "target": "ending-drum-song"
+        },
+        {
+          "id": "grab-stone",
+          "label": "Reach in and grab the glowing stone",
+          "target": "ending-the-grab"
+        },
+        {
+          "id": "ask-lira",
+          "label": "Ask Lira what she thinks, and make a plan together",
+          "target": "ending-two-heads"
+        }
       ]
     },
     {
@@ -597,8 +1116,16 @@
         "\"I am just a boy who followed a cat,\" said Eli. \"But I think I know who I am now.\"",
         "Ash led him down to a round door of light. Eli stepped through it into the school yard, with the bell ringing. He was not even late."
       ],
-      "learningTargets": ["inference", "comprehension", "engagement"],
-      "ending": { "id": "warm-den", "kind": "triumph", "title": "The Warm Den" },
+      "learningTargets": [
+        "inference",
+        "comprehension",
+        "engagement"
+      ],
+      "ending": {
+        "id": "warm-den",
+        "kind": "triumph",
+        "title": "The Warm Den"
+      },
       "choices": []
     },
     {
@@ -612,8 +1139,15 @@
         "The crab scuttled to the warm side of the drum and curled up. Eli stayed with it for a while.",
         "Then Ash led him to a round door. Eli stepped through, and found himself in the school yard. He was not sure if he was a hero. But he knew he had been kind."
       ],
-      "learningTargets": ["comprehension", "engagement"],
-      "ending": { "id": "drum-song", "kind": "triumph", "title": "The Drum Song" },
+      "learningTargets": [
+        "comprehension",
+        "engagement"
+      ],
+      "ending": {
+        "id": "drum-song",
+        "kind": "triumph",
+        "title": "The Drum Song"
+      },
       "choices": []
     },
     {
@@ -627,8 +1161,15 @@
         "Ash led him home, through a round door. In the school yard, Eli thought of the little crab.",
         "Next time, he thought, he would look at the small clues first."
       ],
-      "learningTargets": ["inference", "engagement"],
-      "ending": { "id": "the-grab", "kind": "bittersweet", "title": "A Quick Grab" },
+      "learningTargets": [
+        "inference",
+        "engagement"
+      ],
+      "ending": {
+        "id": "the-grab",
+        "kind": "bittersweet",
+        "title": "A Quick Grab"
+      },
       "choices": []
     },
     {
@@ -642,8 +1183,16 @@
         "The Lantern Tower woke, and the whole land lit up. Lira smiled. \"A hero does not have to do it alone,\" she said.",
         "Eli promised to visit. Ash led him down to a round door, and out into the school yard."
       ],
-      "learningTargets": ["comprehension", "sequencing", "engagement"],
-      "ending": { "id": "two-heads", "kind": "triumph", "title": "Two Heads" },
+      "learningTargets": [
+        "comprehension",
+        "sequencing",
+        "engagement"
+      ],
+      "ending": {
+        "id": "two-heads",
+        "kind": "triumph",
+        "title": "Two Heads"
+      },
       "choices": []
     },
     {
@@ -657,19 +1206,361 @@
         "He looked at his muddy shoes and thought of the marsh, the stairs and the dark hatch.",
         "Perhaps there was a way to be braver. Perhaps the grey cat would be back at the gap tomorrow."
       ],
-      "learningTargets": ["comprehension", "engagement"],
-      "ending": { "id": "home-too-soon", "kind": "setback", "title": "Home Too Soon" },
+      "learningTargets": [
+        "comprehension",
+        "engagement"
+      ],
+      "ending": {
+        "id": "home-too-soon",
+        "kind": "setback",
+        "title": "Home Too Soon"
+      },
       "choices": []
+    },
+    {
+      "id": "frog-wave-back",
+      "title": "A Small Answer",
+      "paragraphs": [
+        "Eli called out his thanks, loud and glad.",
+        "The frog's throat puffed once, like a small answer back."
+      ],
+      "learningTargets": [
+        "engagement",
+        "detail"
+      ],
+      "choices": [
+        {
+          "id": "to-stairs-smiling",
+          "label": "Walk on to the stairs, still smiling",
+          "target": "the-stairs"
+        },
+        {
+          "id": "to-stairs-light",
+          "label": "Walk on to the stairs, feeling light inside",
+          "target": "the-stairs"
+        }
+      ]
+    },
+    {
+      "id": "pocket-the-smile",
+      "title": "A Secret Smile",
+      "paragraphs": [
+        "Eli smiled to himself and said nothing more.",
+        "He liked keeping the small moment just for himself."
+      ],
+      "learningTargets": [
+        "engagement",
+        "detail"
+      ],
+      "choices": [
+        {
+          "id": "to-stairs-quiet",
+          "label": "Walk on to the stairs, quiet and glad",
+          "target": "the-stairs"
+        },
+        {
+          "id": "to-stairs-secret",
+          "label": "Walk on to the stairs, keeping the secret smile",
+          "target": "the-stairs"
+        }
+      ]
+    },
+    {
+      "id": "one-more-nod",
+      "title": "A Small Nod Back",
+      "paragraphs": [
+        "Eli gave the frog a small, friendly nod.",
+        "The frog blinked slowly back, as if it understood."
+      ],
+      "learningTargets": [
+        "detail",
+        "engagement"
+      ],
+      "choices": [
+        {
+          "id": "to-stairs-nodded",
+          "label": "Walk on to the stairs",
+          "target": "the-stairs"
+        },
+        {
+          "id": "to-stairs-less-alone",
+          "label": "Walk on to the stairs, feeling a little less alone",
+          "target": "the-stairs"
+        }
+      ]
+    },
+    {
+      "id": "eyes-on-the-path",
+      "title": "Eyes Ahead",
+      "paragraphs": [
+        "Eli turned away and did not look back again.",
+        "He kept his eyes on the path ahead."
+      ],
+      "learningTargets": [
+        "detail",
+        "sequencing"
+      ],
+      "choices": [
+        {
+          "id": "to-stairs-ahead",
+          "label": "Walk on to the stairs",
+          "target": "the-stairs"
+        },
+        {
+          "id": "to-stairs-steady",
+          "label": "Walk on to the stairs, step by step",
+          "target": "the-stairs"
+        }
+      ]
+    },
+    {
+      "id": "steady-count",
+      "title": "Slow and Steady",
+      "paragraphs": [
+        "Eli counted his steps, slow and steady.",
+        "One, two, three, climbing on without a trip."
+      ],
+      "learningTargets": [
+        "sequencing",
+        "engagement"
+      ],
+      "choices": [
+        {
+          "id": "to-hall-easy",
+          "label": "Reach the top of the stairs, breathing easy",
+          "target": "tower-hall"
+        },
+        {
+          "id": "to-hall-calm",
+          "label": "Reach the top of the stairs, calm and sure",
+          "target": "tower-hall"
+        }
+      ]
+    },
+    {
+      "id": "quick-count",
+      "title": "Two at a Time",
+      "paragraphs": [
+        "Eli took the steps two at a time, fast and bold.",
+        "His heart beat quick by the time he reached the top."
+      ],
+      "learningTargets": [
+        "sequencing",
+        "engagement"
+      ],
+      "choices": [
+        {
+          "id": "to-hall-breathless",
+          "label": "Step into the tower hall, a little out of breath",
+          "target": "tower-hall"
+        },
+        {
+          "id": "to-hall-fast",
+          "label": "Step into the tower hall, still catching his breath",
+          "target": "tower-hall"
+        }
+      ]
+    },
+    {
+      "id": "slow-foot-in",
+      "title": "One Foot First",
+      "paragraphs": [
+        "Eli set one foot down slowly, then the other.",
+        "The lantern room felt cool and still around him."
+      ],
+      "learningTargets": [
+        "engagement",
+        "detail"
+      ],
+      "choices": [
+        {
+          "id": "look-around-calm",
+          "label": "Look around the lantern room, calm and careful",
+          "target": "lantern-room"
+        },
+        {
+          "id": "look-around-slowly",
+          "label": "Look around the lantern room, slowly and quietly",
+          "target": "lantern-room"
+        }
+      ]
+    },
+    {
+      "id": "bold-foot-in",
+      "title": "All at Once",
+      "paragraphs": [
+        "Eli stepped in all at once, feeling brave and bold.",
+        "His heart was still pounding fast when he landed inside."
+      ],
+      "learningTargets": [
+        "engagement",
+        "detail"
+      ],
+      "choices": [
+        {
+          "id": "look-around-racing",
+          "label": "Look around the lantern room, heart still racing",
+          "target": "lantern-room"
+        },
+        {
+          "id": "look-around-bold",
+          "label": "Look around the lantern room, still feeling bold",
+          "target": "lantern-room"
+        }
+      ]
+    },
+    {
+      "id": "holding-on",
+      "title": "Hand in Hand",
+      "paragraphs": [
+        "Eli and Lira stepped in together, hand in hand.",
+        "Holding on to a friend made the dark room feel less scary."
+      ],
+      "learningTargets": [
+        "engagement",
+        "comprehension"
+      ],
+      "choices": [
+        {
+          "id": "look-around-together",
+          "label": "Look around the lantern room together",
+          "target": "lantern-room"
+        },
+        {
+          "id": "look-around-side",
+          "label": "Look around the lantern room, side by side",
+          "target": "lantern-room"
+        }
+      ]
+    },
+    {
+      "id": "leading-the-way",
+      "title": "Leading the Way",
+      "paragraphs": [
+        "Eli went in first, brave and quick.",
+        "He turned and waved for Lira to follow."
+      ],
+      "learningTargets": [
+        "engagement",
+        "sequencing"
+      ],
+      "choices": [
+        {
+          "id": "look-around-waiting",
+          "label": "Look around the lantern room, waiting for Lira",
+          "target": "lantern-room"
+        },
+        {
+          "id": "look-around-ahead",
+          "label": "Look around the lantern room, just ahead of Lira",
+          "target": "lantern-room"
+        }
+      ]
+    },
+    {
+      "id": "cool-mud-moment",
+      "title": "A Moment to Rest",
+      "paragraphs": [
+        "Eli sat a moment longer in the cool, soft mud.",
+        "It felt strange, but not bad, to rest there."
+      ],
+      "learningTargets": [
+        "engagement",
+        "detail"
+      ],
+      "choices": [
+        {
+          "id": "stand-slowly-varro",
+          "label": "Stand up slowly, and look at Varro",
+          "target": "varro"
+        },
+        {
+          "id": "stand-calm-varro",
+          "label": "Stand up calm and ready, and look at Varro",
+          "target": "varro"
+        }
+      ]
+    },
+    {
+      "id": "quick-stand",
+      "title": "Up in a Flash",
+      "paragraphs": [
+        "Eli jumped right up and brushed the mud from his hands.",
+        "He was ready to see where he had landed."
+      ],
+      "learningTargets": [
+        "engagement",
+        "sequencing"
+      ],
+      "choices": [
+        {
+          "id": "stand-fast-varro",
+          "label": "Stand up fast, and look at Varro",
+          "target": "varro"
+        },
+        {
+          "id": "stand-ready-varro",
+          "label": "Jump up ready, and look at Varro",
+          "target": "varro"
+        }
+      ]
     }
   ],
   "glossary": {
-    "lantern": { "syllables": ["lan", "tern"], "definition": "A lamp in a case that lets the light shine out." },
-    "manhole": { "syllables": ["man", "hole"], "definition": "A round hole in the ground with a heavy lid, used to reach pipes below." },
-    "promised": { "syllables": ["prom", "ised"], "definition": "Told that something would happen for sure." },
-    "marsh": { "syllables": ["marsh"], "definition": "Wet, soft land with reeds and puddles." },
-    "library": { "syllables": ["li", "brar", "y"], "definition": "A place that lends books." },
-    "hatch": { "syllables": ["hatch"], "definition": "A small door in a floor or ceiling." },
-    "villain": { "syllables": ["vil", "lain"], "definition": "A bad person in a story who wants to cause harm." },
-    "creature": { "syllables": ["crea", "ture"], "definition": "A living animal, real or imagined." }
+    "lantern": {
+      "syllables": [
+        "lan",
+        "tern"
+      ],
+      "definition": "A lamp in a case that lets the light shine out."
+    },
+    "manhole": {
+      "syllables": [
+        "man",
+        "hole"
+      ],
+      "definition": "A round hole in the ground with a heavy lid, used to reach pipes below."
+    },
+    "promised": {
+      "syllables": [
+        "prom",
+        "ised"
+      ],
+      "definition": "Told that something would happen for sure."
+    },
+    "marsh": {
+      "syllables": [
+        "marsh"
+      ],
+      "definition": "Wet, soft land with reeds and puddles."
+    },
+    "library": {
+      "syllables": [
+        "li",
+        "brar",
+        "y"
+      ],
+      "definition": "A place that lends books."
+    },
+    "hatch": {
+      "syllables": [
+        "hatch"
+      ],
+      "definition": "A small door in a floor or ceiling."
+    },
+    "villain": {
+      "syllables": [
+        "vil",
+        "lain"
+      ],
+      "definition": "A bad person in a story who wants to cause harm."
+    },
+    "creature": {
+      "syllables": [
+        "crea",
+        "ture"
+      ],
+      "definition": "A living animal, real or imagined."
+    }
   }
 }
