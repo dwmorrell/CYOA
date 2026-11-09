@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-wake-cycle-astronaut-jun-3923f7",
   "storyId": "wake-cycle",
-  "state": "awaiting-parent-approval",
+  "state": "in-review",
   "createdAt": "2026-10-20T23:23:25.399Z",
-  "updatedAt": "2026-10-25T08:35:21.985Z",
+  "updatedAt": "2026-11-09T08:13:53.110Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/request.json",
@@ -238,6 +238,73 @@
         ]
       },
       "revision": 6
+    },
+    {
+      "storyVersion": 7,
+      "draft": {
+        "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r7.json",
+        "sha256": "b7acf7bdae213c1ca4e9575fb68a54d44c74b2747dd5307bb77aef59ca44aeb5"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-11-09T08:13:14.802Z",
+      "validation": {
+        "ok": false,
+        "report": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r7.json",
+          "sha256": "efad767f59028b7064e077eaec4b8ad85d2c547382b5dae2b49915bdfd772462"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r7.json",
+          "sha256": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r7.json",
+          "sha256": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed"
+        },
+        "summary": [
+          "schema: 1 error(s)"
+        ]
+      },
+      "revision": 7
+    },
+    {
+      "storyVersion": 8,
+      "draft": {
+        "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r8.json",
+        "sha256": "4993b072a89feda5b60266f8669ffa32a474ec2ea3f02592d72a1031eb159af0"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-11-09T08:13:53.110Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r8.json",
+          "sha256": "98a32c546cb81c8515bbe9b1aabfa877803e2b1412eb3dbfaeb45308512841d7"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r8.json",
+          "sha256": "3ccb4e6802c29a361fa31d8b2b6ed9521ec7565defaee6c8fd10d4c0879f7c2e"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r8.json",
+          "sha256": "7bbf330a53e0ccb4b2bc9ce2b31721f0d30b6cfebf8260431ce2620cfd2990d3"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 8
     }
   ],
   "reviews": [
@@ -1203,7 +1270,8 @@
         ]
       },
       "id": "review-10-literacy",
-      "submittedAt": "2026-10-25T08:34:36.469Z"
+      "submittedAt": "2026-10-25T08:34:36.469Z",
+      "invalidatedBy": 7
     },
     {
       "role": "qa",
@@ -1265,7 +1333,8 @@
         }
       ],
       "id": "review-11-qa",
-      "submittedAt": "2026-10-25T08:35:21.985Z"
+      "submittedAt": "2026-10-25T08:35:21.985Z",
+      "invalidatedBy": 7
     }
   ],
   "parentDecisions": [],
@@ -1278,6 +1347,26 @@
         "name": "story-cli",
         "kind": "automation"
       }
+    },
+    {
+      "stage": "validation",
+      "error": "Revision 7: /passages/10/paragraphs must NOT have more than 6 items; schema invalid; brief not checked",
+      "at": "2026-11-09T08:13:14.802Z",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      }
+    },
+    {
+      "stage": "draft",
+      "error": "Story version 7 must be higher than 7",
+      "at": "2026-11-09T08:13:43.521Z",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "recovered": "revision 8 validated"
     }
   ],
   "history": [
@@ -1426,6 +1515,28 @@
         "kind": "automation"
       },
       "note": "All required reviews passed"
+    },
+    {
+      "at": "2026-11-09T08:13:14.802Z",
+      "from": "awaiting-parent-approval",
+      "to": "validation-failed",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 7 (story v7) failed automated validation"
+    },
+    {
+      "at": "2026-11-09T08:13:53.110Z",
+      "from": "validation-failed",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 8 (story v8) passed automated validation"
     }
   ]
 }
