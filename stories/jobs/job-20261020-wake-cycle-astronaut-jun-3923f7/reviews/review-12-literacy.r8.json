@@ -1,0 +1,134 @@
+{
+  "role": "literacy",
+  "reviewer": {
+    "name": "literacy-specialist",
+    "kind": "ai-agent",
+    "agent": "literacy-specialist"
+  },
+  "revision": 8,
+  "draftSha256": "4993b072a89feda5b60266f8669ffa32a474ec2ea3f02592d72a1031eb159af0",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Skills practised: following Jun from the sleep pod through the engine room, the bridge pod puzzle and the dust storm to one of five endings practises sequencing (opening the pod in latch-then-switch-then-hatch order at bridge/not-yet/not-yet-why/captain-wakes; sorting tools in order at dex-tools/dex-tools-sort), inference (reasoning out the pod order from where each part sits rather than being told it; reading a bent screen's one brief true glimpse against a paper chart that does not match a different bent screen; green vs amber pod lights; a crackling comm panel implying intermittent, not dead, contact), vocabulary from context (navigator, anomaly, sensors, coolant, and what a latch, switch and hatch physically do), decoding in context and recognising word-set words as load-bearing plot nouns (the backup wheel, the tool pack and its clicker light, the hatch/latch/switch of the pod), and comprehension/engagement sustained across the five branching endings."
+    },
+    {
+      "severity": "note",
+      "message": "Verified every claim in revision-notes.r8.md against story.r6.json and story.r8.json directly rather than trusting the notes, for all eight named passages (storm-engine, storm-engine-together, bridge, captain-wakes, storm-bridge, dex-chart, dex-lamp-watch, dex-tools-sort). Findings 2, 3 and 5's edits (bridge's setup line, captain-wakes's comm line, and the dex-lamp-watch/dex-tools-sort 'something pale' wording) touch no wh/ck/tch word-set word and no target-concept pattern. Finding 1's edit adds 'wheel' twice in storm-engine-together ('Jun lifted the backup wheel from its mount on the wall' and 'the wheel between them'); Finding 4's edit adds 'white' once in dex-chart ('The engine room's screen still showed one wall of white'); both are genuine, naturally-placed wh-words, not forced filler. Finding 2's edit removes one each of 'latch', 'switch' and 'hatch' from bridge's Oru dialogue (the old 'First the latch. Then the switch. Last the hatch.' line is gone, replaced by 'Skip one, and the pod will just wait.'), while the very next paragraph still names all three once each ('The latch sat at the foot of the pod... The switch glowed by the glass... The hatch was the lid...'), so no word-set word or target concept was removed from the story, only one repeated occurrence of three of them.",
+      "passage": "bridge"
+    },
+    {
+      "severity": "note",
+      "message": "Word-set floors remain comfortably clear after these edits. reports/literacy.r8.json vs the prior passing reports/literacy.r6.json: wh-words total rose 39→42 (wheel 15→17, white 15→16 — matches the two additions above exactly), ck-words held flat at 46 (none of the touched passages contain back/deck/click/neck/pack/rock), and tch-words fell 36→33 (latch 9→8, hatch 7→6, switch 9→8 — exactly the three removed from bridge's dialogue, no more). Because bridge sits on the shortest route to every ending, every route's tch count dropped by exactly 3 (e.g. clear-road 13→10, many-hands 17→14). The new per-route tch minimum is 10 (clear-road, steady-hands, drifting-quiet), still well above the brief's floor of 8, and automated check word-sets-on-every-route still passes. Margin is tighter than before but not at risk; flagging the mechanism so a future revision that touches bridge again does not push any route under 8.",
+      "passage": "bridge"
+    },
+    {
+      "severity": "note",
+      "message": "Checked the deliberately vaguer wording in dex-lamp-watch and dex-tools-sort ('Across the room, something pale hung on the far wall.' and the matching choice labels 'Glance at the far wall while Dex wraps up/checks the valve') for clarity and decodability at the target age/stage. All words are short, closed-syllable or silent-e words already well attested elsewhere in the story (pale — silent-e, same pattern as 'care'/'close'/'came'; far — r-controlled, same pattern as 'air'/'are'; hung — glued ng unit, same pattern as 'along'/'long'; wall — FLOSS -ll, same pattern as 'all'/'hall'/'call'). The sentence stays a concrete, visualisable image (something pale seen at a distance) rather than an abstract or ambiguous one, and dex-fixed leads from both of this passage's choices into dex-chart regardless of whether the reader glanced at the wall, so the vaguer wording does not create a comprehension gap — it only delays naming the object, which dex-chart alone now does ('Dex tapped a paper chart pinned to the wall'), removing the prior same-object-introduced-twice contradiction QA flagged. Both sentences are well under the brief's 16-word cap (10 words each) and the analyzer's 20-word cutoff.",
+      "passage": "dex-lamp-watch"
+    },
+    {
+      "severity": "minor",
+      "message": "Unchanged from the r6 review and not touched by this revision: 'catch' and 'match' remain thinly used (2 occurrences each, vs. 6-8 for hatch/switch/latch/watch), and dex-tools's 'He gave a whip of his wrist' is still the least natural use of a set word (an idiom rather than a concrete action). Neither blocks this revision; repeating the flag so a future pass considers evening out tch-word practice.",
+      "passage": "dex-tools"
+    },
+    {
+      "severity": "note",
+      "message": "Did a normal full read of story.r8.json beyond the touched passages: graph, readability (1820 words, 6.2-word average sentence, longest sentence well under the brief's 16-word cap, longest passage captain-wakes at 106 words), the nine glossary definitions, and all five endings. Found nothing else to flag; the eight passages named in revision-notes.r8.md are the only substantive text changes from r6 to r8 (the r7 draft between them only existed to fix a schema paragraph-count overage and is not part of the reviewed content).",
+      "passage": null
+    },
+    {
+      "severity": "note",
+      "message": "Limits of this review: the automated analyzer in reports/literacy.r8.json detects spelling patterns, not sound, so a 'wh' or 'tch' match is not a guarantee of how a given child will decode or pronounce it, and it does not judge decodability, vocabulary level or story quality on its own; its route check also only follows the shortest path to each ending, not every path, so I separately read all eight touched passages and the surrounding graph by hand. I compared story.r6.json and story.r8.json directly rather than relying on revision-notes.r8.md's own description, and did not play the story in the app. I am an AI agent; this is a pre-review, not a human literacy review, and a qualified human reviewer must still confirm these linguistic claims before this story can be marked as having passed literacy review.",
+      "passage": null
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r8.json",
+      "sha256": "4993b072a89feda5b60266f8669ffa32a474ec2ea3f02592d72a1031eb159af0"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/literacy.r8.json",
+      "sha256": "3ccb4e6802c29a361fa31d8b2b6ed9521ec7565defaee6c8fd10d4c0879f7c2e"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/weave-comparison.r8.json",
+      "sha256": "707a8aeede77dc9ae93f64dc74f49956f8403ef964fe0972796cb336c3c809c4"
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "A space survival mystery: a navigator wakes early on a drifting ship and must wake the crew and steer clear of a dust storm. It practises wh, ck and tch words, plus -ed endings, beginning blends and FLOSS words. Readers also practise sequencing, inference and vocabulary from context.",
+    "skills": [
+      "comprehension",
+      "inference",
+      "sequencing",
+      "vocabulary"
+    ],
+    "wordTypes": [
+      {
+        "concept": "digraph-wh",
+        "examples": [
+          "when",
+          "white",
+          "wheel",
+          "whistle"
+        ]
+      },
+      {
+        "concept": "digraph-ck",
+        "examples": [
+          "back",
+          "deck",
+          "click",
+          "rock"
+        ]
+      },
+      {
+        "concept": "trigraph-tch",
+        "examples": [
+          "catch",
+          "latch",
+          "hatch",
+          "switch"
+        ]
+      },
+      {
+        "concept": "suffix-ed",
+        "examples": [
+          "asked",
+          "climbed",
+          "answered",
+          "cleared"
+        ]
+      },
+      {
+        "concept": "initial-blend",
+        "examples": [
+          "clamp",
+          "bridge",
+          "climb",
+          "clear"
+        ]
+      },
+      {
+        "concept": "floss",
+        "examples": [
+          "hall",
+          "buzz",
+          "hiss",
+          "glass"
+        ]
+      }
+    ],
+    "ogCategories": [
+      "Phonics",
+      "Spelling rules",
+      "Morphology",
+      "Comprehension"
+    ]
+  },
+  "id": "review-12-literacy",
+  "submittedAt": "2026-11-09T08:18:21.509Z"
+}
