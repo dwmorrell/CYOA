@@ -1,6 +1,6 @@
 # Orchestration report
 
-Generated 2026-11-08T08:06:09.082Z by `npm run orchestrate`.
+Generated 2026-11-09T08:21:20.710Z by `npm run orchestrate`.
 
 ## Software work items (dependency order)
 
@@ -27,8 +27,8 @@ Generated 2026-11-08T08:06:09.082Z by `npm run orchestrate`.
 
 ## Story production jobs
 
-- job-20261020-the-cat-who-took-the-wro-fd6944: **awaiting-parent-approval**, 9 revision(s)
-  - pass: draft-exists, Revision 9, story v9
+- job-20261020-the-cat-who-took-the-wro-fd6944: **awaiting-parent-approval**, 10 revision(s)
+  - pass: draft-exists, Revision 10, story v10
   - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
   - pass: review:qa, qa passed by qa-engineer (ai-agent)
   - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
@@ -48,8 +48,8 @@ Generated 2026-11-08T08:06:09.082Z by `npm run orchestrate`.
   - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
   - pass: story-literacy-claim, Story literacy review is "pending"
   - waiting: parent-approval, Waiting for a parent decision
-- job-20261020-the-rain-courier-mara-is-1b7daf: **awaiting-parent-approval**, 10 revision(s)
-  - pass: draft-exists, Revision 10, story v10
+- job-20261020-the-rain-courier-mara-is-1b7daf: **awaiting-parent-approval**, 12 revision(s)
+  - pass: draft-exists, Revision 12, story v12
   - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
   - pass: review:qa, qa passed by qa-engineer (ai-agent)
   - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
@@ -62,8 +62,8 @@ Generated 2026-11-08T08:06:09.082Z by `npm run orchestrate`.
   - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
   - pass: story-literacy-claim, Story literacy review is "pending"
   - waiting: parent-approval, Waiting for a parent decision
-- job-20261020-wake-cycle-astronaut-jun-3923f7: **awaiting-parent-approval**, 6 revision(s)
-  - pass: draft-exists, Revision 6, story v6
+- job-20261020-wake-cycle-astronaut-jun-3923f7: **awaiting-parent-approval**, 8 revision(s)
+  - pass: draft-exists, Revision 8, story v8
   - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
   - pass: review:qa, qa passed by qa-engineer (ai-agent)
   - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)

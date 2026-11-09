@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T08:06:09.084Z",
+  "generatedAt": "2026-11-09T08:21:20.711Z",
   "order": [
     "WI-01",
     "WI-02",
@@ -21,12 +21,12 @@
     {
       "id": "job-20261020-the-cat-who-took-the-wro-fd6944",
       "state": "awaiting-parent-approval",
-      "revisions": 9,
+      "revisions": 10,
       "gates": [
         {
           "id": "draft-exists",
           "ok": true,
-          "detail": "Revision 9, story v9"
+          "detail": "Revision 10, story v10"
         },
         {
           "id": "automated-validation",
@@ -132,12 +132,12 @@
     {
       "id": "job-20261020-the-rain-courier-mara-is-1b7daf",
       "state": "awaiting-parent-approval",
-      "revisions": 10,
+      "revisions": 12,
       "gates": [
         {
           "id": "draft-exists",
           "ok": true,
-          "detail": "Revision 10, story v10"
+          "detail": "Revision 12, story v12"
         },
         {
           "id": "automated-validation",
@@ -206,12 +206,12 @@
     {
       "id": "job-20261020-wake-cycle-astronaut-jun-3923f7",
       "state": "awaiting-parent-approval",
-      "revisions": 6,
+      "revisions": 8,
       "gates": [
         {
           "id": "draft-exists",
           "ok": true,
-          "detail": "Revision 6, story v6"
+          "detail": "Revision 8, story v8"
         },
         {
           "id": "automated-validation",
