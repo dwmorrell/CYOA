@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-cat-who-took-the-wrong-turn",
   "title": "The Cat Who Took the Wrong Turn",
-  "version": 9,
+  "version": 10,
   "metadata": {
     "genre": "Fantasy adventure with a hero from another world",
     "theme": "Courage, kindness to strangers, and finding out who you are",
@@ -94,7 +94,7 @@
         "Eli was late for school. He was running down Mill Lane with his lunch box banging at his side.",
         "A grey cat sat on a wall. It looked right at him. Then it gave a hop and trotted off.",
         "The cat slipped through a gap in the fence. It did not look back.",
-        "Eli's library book had a map in it, and he was meant to show it in class. But he wanted to see where the cat went."
+        "Eli's library book had a map, and he was meant to show it in class. But he wanted to see where the cat went."
       ],
       "learningTargets": [
         "engagement",
@@ -575,7 +575,7 @@
         "Eli knelt in the mud. He pulled the reeds apart, one by one, with slow hands.",
         "The frog gave a loud croak and made a big hop. It landed on a post, next to a light reed net.",
         "The net hung there as if it had been left for him. Eli took it. The frog blinked, as if to say yes.",
-        "Then he ran to catch up with Lira. She was waiting at the start of the stairs, and she gave him a small, surprised smile."
+        "Then he ran to catch up with Lira. She was waiting at the stairs, and she gave him a small, surprised smile."
       ],
       "effects": {
         "addItems": [
@@ -740,7 +740,7 @@
       "id": "the-stairs",
       "title": "The Stone Stairs",
       "paragraphs": [
-        "Whatever Eli had just decided, he turned to climb the stairs. The stone stairs wound around the hill. Climbing was slow, and Eli's legs began to ache.",
+        "Either way, Eli turned to climb the stairs. The stone stairs wound around the hill. Climbing was slow, and Eli's legs began to ache.",
         "Ash waited at every bend, a grey shape in the glowing moss.",
         "On the fifth step, Eli stopped. There were tiny wet marks on the stone. They were like little claws.",
         "They climbed the stairs, one by one, toward the Tower. Each one shone with a speck of glow dust."
@@ -856,7 +856,7 @@
       "id": "tower-hall",
       "title": "The Tower Hall",
       "paragraphs": [
-        "However he had climbed those last steps, Eli reached the top at last. The great hall was cold and dim. A huge drum sat silent by the wall. Its sound once kept the light alive.",
+        "By one path or another, Eli reached the top at last. The great hall was cold and dim. A huge drum sat silent by the wall. Its sound once kept the light alive.",
         "High above, a round hatch with a heavy lid shut off the lantern room. The glow stone lived up there. It had gone missing three nights ago.",
         "\"Now the light is nearly gone,\" Lira whispered. \"Can you do something? Anything?\"",
         "Eli looked at the hatch. A long, old ladder leaned against the wall. A tall hook hung by the hatch lid."
@@ -1203,7 +1203,7 @@
         "Lira let out a long sigh, but she nodded. \"I told you I was not sure,\" she said kindly.",
         "Ash led him down the stairs to a round door. Behind him, the Tower stayed dim and grey.",
         "Eli stepped out into the school yard. The bell was ringing, and he was late.",
-        "He looked at his muddy shoes and thought of the marsh, the stairs and the dark hatch.",
+        "He looked at his muddy shoes and thought of the marsh, the stairs and the hatch.",
         "Perhaps there was a way to be braver. Perhaps the grey cat would be back at the gap tomorrow."
       ],
       "learningTargets": [

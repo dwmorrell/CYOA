@@ -1,0 +1,86 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 10,
+  "draftSha256": "cd6009fecf76bea5a0f62c8c1f427451bef8f9e887d2d9ffc59ccafaa9452067",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Diffed story.r9.json against story.r10.json myself with a Python json comparison, not just the revision notes. The only differences anywhere in the file are 'version' (9 -> 10) and exactly five sentences, matching the five edits the revision notes claim and nothing else: late-for-school paragraph 4 ('Eli's library book had a map in it, and...' -> 'Eli's library book had a map, and...'), frog-helped paragraph 4 ('She was waiting at the start of the stairs,...' -> 'She was waiting at the stairs,...'), home-too-soon paragraph 5 ('...the marsh, the stairs and the dark hatch.' -> '...the marsh, the stairs and the hatch.'), tower-hall paragraph 1 opening ('However he had climbed those last steps, Eli reached the top at last.' -> 'By one path or another, Eli reached the top at last.'), the-stairs paragraph 1 opening ('Whatever Eli had just decided, he turned to climb the stairs.' -> 'Either way, Eli turned to climb the stairs.'). No choice, target, requires, effects, item, clue, learningTargets, title or ending field changed on any passage, and no passage was added or removed (52 before and after)."
+    },
+    {
+      "severity": "note",
+      "message": "Independently re-counted words in every sentence of the whole draft (regex word count, same method as src/production/validate-draft.ts:41 which brief.json's maxSentenceWords=16 check uses), not just the five touched sentences. Zero sentences anywhere in story.r10.json exceed 16 words, and zero choice labels exceed 16 words. The five edited sentences land at 15, 14, 16, 10 and 8 words respectively (counting the full sentence containing each edit) -- all at or under the limit, matching the revision notes' own counts. This matches reports/validation.r10.json's brief.warnings being empty, versus reports/validation.r9.json's 'warnings: [\"3 sentence(s) exceed the brief's 16-word limit\"]', which I also checked directly and confirms the three carried-over overages (late-for-school, frog-helped, home-too-soon) were real before this revision and are gone now."
+    },
+    {
+      "severity": "note",
+      "message": "Confirmed the fronted-subordinate-clause fix on tower-hall and the-stairs reads naturally and is consistent with every incoming edge. Independently rebuilt the edge list from reports/graph.r10.json: tower-hall has 7 incoming edges (up-after-prints, up-after-showing, to-hall-easy, to-hall-calm, to-hall-breathless, to-hall-fast, plus the direct keep-climbing from the-stairs) and the-stairs has 13. 'By one path or another,' and 'Either way,' are both short prepositional/adverbial openers with no embedded subject+verb before the comma (the exact pattern review-13-literacy.r9.json's carried-over finding asked for, modelled on lantern-room's r9 fix 'By one path or the other,...'), and both are true regardless of which predecessor the reader arrived from, including direct single-choice arrivals (e.g. meet-lira's take-stairs choice lands straight on the-stairs, and 'Either way' still reads fine there since a choice between take-marsh/take-stairs was still just made)."
+    },
+    {
+      "severity": "minor",
+      "message": "The revision notes' justification for dropping 'dark' from home-too-soon ('the hatch was already described as dark earlier in the story, at tower-hall's 2nd paragraph') does not match the draft. I read tower-hall's 2nd paragraph directly: 'High above, a round hatch with a heavy lid shut off the lantern room. The glow stone lived up there. It had gone missing three nights ago.' -- it does not call the hatch dark. A full-text, case-insensitive search of story.r10.json for 'dark' returns zero matches anywhere in the story (the word existed only in this one sentence before the edit and in the unrelated premise/manhole/lantern-room-glass lines, none of which describe the hatch). This does not change my verdict: the hatch is independently and repeatedly established as a concrete object in tower-hall ('a round hatch with a heavy lid', 'a tall hook hung by the hatch lid', 'Eli looked at the hatch') and home-too-soon itself ('a round door'), so no reader-facing information is actually lost and the resulting sentence reads naturally. But the stated rationale for this specific word cut is factually wrong and should not be reused as a precedent in a future revision without re-checking it.",
+      "passage": "home-too-soon"
+    },
+    {
+      "severity": "note",
+      "message": "Traced routes to all 5 endings myself by replaying reports/graph.r10.json's edges with a breadth-first search that respects each locked choice's requires against items/clues granted by story.r10.json's passage effects (not trusting reachableEndings at face value). All 5 endings (warm-den, drum-song, the-grab, two-heads, home-too-soon) are reachable, matching reports/graph.r10.json's reachableEndings and stateSearchComplete:true. Walked two routes in full by hand: late-for-school -> through-the-gap -> the-fall -> varro -> meet-lira -> the-stairs -> the-prints (grants claw-prints) -> tower-hall -> ladder-climb -> lantern-room -> offer-den (requires claw-prints, satisfied) -> ending-warm-den; and late-for-school -> through-the-gap -> the-fall -> varro -> meet-lira -> the-stairs -> tower-hall -> ask-home -> home-too-soon. Both routes pass through at least one of the five edited passages (the second passes through the-stairs, tower-hall and home-too-soon, exercising three of the five edits in sequence) and read coherently start to finish; the locked net-the-lid (requires reed-net, granted by frog-helped) and offer-den (requires claw-prints, granted by the-prints) choices still gate correctly."
+    },
+    {
+      "severity": "note",
+      "message": "Ran npm run check in full myself: eslint clean; tsc --noEmit clean; vitest 193/193 tests passed across 12 files; npm run validate:stories reported 'All story checks passed' for all 6 preview snapshots and all 6 production jobs including this one (job-20261020-the-cat-who-took-the-wro-fd6944: in-review, revision 10, story v10); agents:check ok for all 9 agents; vite build succeeded. reports/validation.r10.json and reports/graph.r10.json (read directly, not summarized): schema ok; graph ok, 52 passages, 97 choices, 5/5 endings reachable, exploredStates 97 (state search complete); literacy checks ok (blend-words 104/10, closed-syllable-words 66/8, ing-words 30/8, all meeting their floor on the shortest route to every ending per perEndingRoute); brief ok with no warnings. src/ui/Reader.tsx is byte-identical to the copy reviewed for r9 (same sha256 808817979...), so the previously-resolved journey-history finding is unaffected by this revision."
+    },
+    {
+      "severity": "note",
+      "message": "Content integrity: the five edits only removed redundant or already-established words ('in it', 'the start of', 'dark') or replaced one fronted-clause opener with another short, non-clausal one; no character, item, clue, fact or continuity detail was added, removed or contradicted. Checked the brief's continuity.avoid list against the edited sentences and the passages around them: no violence, no romance, no real brands/places/people, no real religion -- unchanged from the pass I would independently expect given these are the smallest possible literacy-driven word cuts. No word-set target word was touched (perWord counts for map, hatch, stairs etc. are unchanged between reports/literacy.r9.json and reports/literacy.r10.json except where expected)."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r10.json",
+      "sha256": "cd6009fecf76bea5a0f62c8c1f427451bef8f9e887d2d9ffc59ccafaa9452067"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/drafts/story.r9.json",
+      "sha256": "91991c826aadc4fd143ba196ffc8de8631b16413f71097ac6c0011a001c698e1"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/validation.r10.json",
+      "sha256": "9ab78ef3957bf1324c816873c66a9c6044eb4db741ccd0b2dea6fcb5b896391e"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reports/graph.r10.json",
+      "sha256": "4b8b9f6c66b1d7d9c43b2448b0d3a85baafa76e9262e17f34bd9c72555047eb5"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/brief.json",
+      "sha256": "081e7b2afa16a7f4188de600bb0ab98a6f522a9d5d6ad1a0676282e1147bddd5"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/work/revision-notes.r10.md",
+      "sha256": "5e6f034bf6ee3898f321cb94ca1ff4180749ab1ab836b01f1ee5aecdbbf7b54c"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reviews/review-13-literacy.r9.json",
+      "sha256": "e293091f415fee2f96fc2714e745d5fe3245d8e23ba013746f60a55bab9d7207"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-cat-who-took-the-wro-fd6944/reviews/review-12-qa.r9.json",
+      "sha256": "2f5816fd6314732f9e583206601973bb2bd5af410a4f1196e3f50b05874c258f"
+    },
+    {
+      "path": "src/ui/Reader.tsx",
+      "sha256": "808817979afa8e114e04b950a249f3f584493e0a455053e54180995e00be57c3"
+    },
+    {
+      "path": "src/production/validate-draft.ts",
+      "sha256": "d9668a651285884576d9bf4b565f88ecc671481e3ab7e23264d5f6bf820daacf"
+    }
+  ],
+  "id": "review-14-qa",
+  "submittedAt": "2026-11-09T08:17:05.774Z"
+}
