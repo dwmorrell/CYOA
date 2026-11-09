@@ -1,0 +1,37 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 12,
+  "draftSha256": "38766c6ef726850d644ef1432b93aa29f88755e21726306ab9f2e2513194585b",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "The glossary word-help entry 'handover' (and its definition) never appears anywhere in any passage paragraph or choice label; it only occurs in metadata.premise and in its own glossary definition. A reader can never trigger this word-help entry in play. Pre-existing (present unchanged since at least r10, not touched by this revision's diff), not a blocker, but worth fixing in a future pass.",
+      "passage": "glossary.handover"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/drafts/story.r12.json",
+      "sha256": "38766c6ef726850d644ef1432b93aa29f88755e21726306ab9f2e2513194585b"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/validation.r12.json",
+      "sha256": "ee22144de13b2353eb547c94baf33aedc0c5cbdda28e46a9475a81dab965872c"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/graph.r12.json",
+      "sha256": "3f0ed0a8f80dc10d7711d57cbeb395c02d8f11738f9973ceb558dbf5ff74bd35"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/brief.json",
+      "sha256": "1653592bbed568e759c73b0747e1583d95a46dc6036f41ea5e72cb8bd792a2e8"
+    }
+  ],
+  "notes": "Verified all four carried-over findings from review-9-qa.r10.json are fixed in r12, by reading drafts/story.r12.json directly (not just revision-notes.r12.md). (1) gathering: gather-shop now 'Ride to Tam's shop' (line 206), gather-alley now 'Ride to the dark alley' (line 211); targets unchanged (shop, alley); both labels are now true regardless of whether that location was already visited on the current route. (2) climax-gate paragraph 4 (line 359) now reads 'A loose fence panel stood beside the old gate. Vex always slipped through there, unseen. Halfway across the bridge, he stepped out of the fog. A drone captain stood beside him.' This explains Vex's presence on the far side of a gate Mara just locked behind her, consistent with the cab engine heard behind Mara at threshold (line 325, he was already close by) and with his established character as someone who deals in hidden routes; the passage still has exactly 6 paragraphs (schema max), confirmed by direct count. (3) ending-4 (line 465): 'At the far end, a woman pulled her into a lit booth and shut the door.' is 16 words (programmatic word count across every sentence in every passage confirms 0 sentences over 16 words anywhere in the story); validation.r12.json brief.warnings is empty, matching. (4) catch-breath/catch-give-up (line 312) now 'Call a drone and hand over the bag', no longer a near-reorder of hide-shade/shade-give-up's 'Wave the drone down and give up the bag' (line 262); it echoes ending-5's drone line 'Hand over the bag' (line 482) as intended and is also distinct from threshold's call-drone label 'Wave at the drone and call for help' (line 347). A byte diff of story.r10.json vs story.r12.json confirms these four text edits are the *only* content changes between revisions -- no targets, items, clues, flags, learningTargets or endings changed, so none of the fixes introduced routing regressions. Re-verified graph/validation reports: schema ok, 5/5 endings reachable, literacy checks ok, brief ok, 0 warnings. Traced a route to every ending by hand against reports/graph.r12.json's edge list: ending-1/ending-2 via start>to-shop>shop>ask-tam>shop-pick(+lock-pick)>pick-onward>alley>turn-chip>alley-clue(+flood-stamp)>clue-onward>gathering>gather-lane>drone-street>hide-in-shade>hide-shade>shade-onward>threshold>pick-the-lock(requires lock-pick+flood-stamp, satisfied)>climax-gate>walk-to-light|nine-hacks-drones; ending-3/ending-4 via start>to-alley>alley>alley-leave>gathering>gather-lane>drone-street>dash-past>dash-onward>threshold>ask-nine-hack>climax-hack>give-to-vex|dash-over-bridge; ending-5 via start>to-alley>alley>alley-leave>gathering>gather-lane>drone-street>hide-in-shade>hide-shade>shade-give-up (also reachable via catch-give-up and call-drone). The pick-the-lock lockedHint ('Find Tam's pick set at the shop and the chip's stamp in the alley') is accurate and fair. General integrity re-check beyond the four fixes: continuity facts (always raining, tower lights, bridge handover location, Vex's hidden face) consistent throughout; the brief's avoid list (violence, real brands, romance, religion) is respected everywhere, including endings 3 and 5 explicitly stating no one was hurt; items/clues are each granted exactly once and gated correctly; checked all 28 choice labels pairwise for similarity and found no new near-duplicates introduced by this revision -- remaining overlaps are generic 'to the bridge gate' phrasing across different, non-confusable passages, not reorders of each other. Ran npm run check on the full repo: lint, typecheck, 193 tests (12 files) pass, validate:stories ok for all previews and all production jobs including this one, agents:check ok, build ok. One new minor finding unrelated to the four carried-over fixes: the glossary word 'handover' never appears in any passage or choice text (only in metadata.premise and its own glossary.handover definition), so the word-help entry is unreachable in play; pre-existing (unchanged by the r10->r12 diff), does not affect routing, schema, or brief validation, flagged for a future pass rather than blocking this revision."
+}

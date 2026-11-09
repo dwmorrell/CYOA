@@ -1,0 +1,38 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 12,
+  "draftSha256": "38766c6ef726850d644ef1432b93aa29f88755e21726306ab9f2e2513194585b",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "The glossary word-help entry 'handover' (and its definition) never appears anywhere in any passage paragraph or choice label; it only occurs in metadata.premise and in its own glossary definition. A reader can never trigger this word-help entry in play. Pre-existing (present unchanged since at least r10, not touched by this revision's diff), not a blocker, but worth fixing in a future pass.",
+      "passage": "glossary.handover"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/drafts/story.r12.json",
+      "sha256": "38766c6ef726850d644ef1432b93aa29f88755e21726306ab9f2e2513194585b"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/validation.r12.json",
+      "sha256": "ee22144de13b2353eb547c94baf33aedc0c5cbdda28e46a9475a81dab965872c"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/graph.r12.json",
+      "sha256": "3f0ed0a8f80dc10d7711d57cbeb395c02d8f11738f9973ceb558dbf5ff74bd35"
+    },
+    {
+      "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/brief.json",
+      "sha256": "1653592bbed568e759c73b0747e1583d95a46dc6036f41ea5e72cb8bd792a2e8"
+    }
+  ],
+  "id": "review-11-qa",
+  "submittedAt": "2026-11-09T08:15:46.910Z"
+}

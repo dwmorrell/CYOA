@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-the-rain-courier-mara-is-1b7daf",
   "storyId": "the-rain-courier",
-  "state": "in-review",
+  "state": "awaiting-parent-approval",
   "createdAt": "2026-10-20T23:23:22.800Z",
-  "updatedAt": "2026-11-09T08:11:11.651Z",
+  "updatedAt": "2026-11-09T08:15:46.910Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/request.json",
@@ -1246,6 +1246,191 @@
       "id": "review-9-qa",
       "submittedAt": "2026-10-25T08:28:10.649Z",
       "invalidatedBy": 11
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 12,
+      "draftSha256": "38766c6ef726850d644ef1432b93aa29f88755e21726306ab9f2e2513194585b",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "Skills practised: reading this story practises decoding closed-syllable words (bag, lock, mask, dash), sh words (shop, shade, flash, shell) and ch words (chip, chill, lunch, chain) in running text and in choice labels, plus -ing endings (blinking, pounding, giving). The reader sequences events across branches (gathering's 'First came the cab stand. Then came the shop or the alley. Now came the crossing,' Nine's 'First the gate, then the track, then the far light'), infers who to trust from clues (the flood stamp, Vex's grey mask, Tam's warning to 'check what they tell you'), and works out new words such as broker, courier and handover from context and the glossary. The branching rewards checking evidence before acting and lets the reader feel a moment of exhaustion and choice (push on or give up) from two parallel routes (hide-shade and catch-breath), which keeps comprehension and inference central."
+        },
+        {
+          "severity": "note",
+          "message": "Word sets are unaffected by the four r12 edits, verified independently rather than taken from revision-notes.r12.md. None of the removed words ('back' in both gathering labels, 'down' in the catch-breath label) are word-set words. The one 17-word sentence that was shortened in ending-4 kept its word-set word ('shut') and the catch-breath label kept 'bag'; the climax-gate addition ('A loose fence panel stood beside the old gate. Vex always slipped through there, unseen.') contains no word-set word. literacy.r12.json confirms minimums hold: closed-syllable-words 47/10, sh-words 29/8, ch-words 29/8, missingWords: [] on all three sets, word-sets-on-every-route passes (closed-syllable 16-22 per ending route, sh 12-14, ch 8-10), and all four target concepts (closed-syllable, digraph-sh, digraph-ch, suffix-ing) are present with no conceptMismatches. weave-comparison.r12.json agrees: planned 22 vs actual 47/29/29, all ok. I also re-ran a word-set-word spot check by hand against the r12 draft text rather than only reading the report."
+        },
+        {
+          "severity": "note",
+          "message": "Age fit (10 to 13), decodability and sentence length on the four changed passages, checked against the actual r12 draft text, not just the revision notes' before/after: gathering's 'Ride to Tam's shop' / 'Ride to the dark alley' are simple and decodable, and now read correctly whether the player has already visited that location or is heading there for the first time. climax-gate's added sentences ('A loose fence panel stood beside the old gate. Vex always slipped through there, unseen.') use ordinary, age-appropriate vocabulary (loose, fence, panel, unseen) consistent with the silent-e, vowel-team and r-controlled patterns already common elsewhere in the story, and the passage still has 6 paragraphs, within the schema limit. ending-4's revised sentence ('At the far end, a woman pulled her into a lit booth and shut the door.') is 16 words by my own count, at the brief's maxSentenceWords limit, and keeps the same scene and meaning. catch-breath's 'Call a drone and hand over the bag' is simple and decodable, no longer a near-duplicate of hide-shade's 'Wave the drone down and give up the bag', and its 'hand over' now echoes the drone's own line in ending-5 ('Hand over the bag'), which is a genuine improvement in voice distinction. I independently scanned every sentence and choice label in the r12 draft with a word-count script and confirmed 0 exceed 16 words, matching literacy.r12.json's sentence-length check (0 over the analyzer's own 20-word hard limit) and the submission's reported 'brief: ok'. None of the four edits introduce peril, violence or content against the brief's avoid list."
+        },
+        {
+          "severity": "minor",
+          "message": "Pre-existing, not touched by r12 and not a blocker: word-weave-plan.json's ch-words placements (path-a, path-b, ending-2 through ending-5) still list 'patch', while brief.json and the r12 draft's actual word set use 'chill' instead. The plan and draft still disagree word-for-word; this was already flagged in literacy-review.r10.json. Recommend the orchestrator regenerate the plan to name 'chill'."
+        },
+        {
+          "severity": "minor",
+          "message": "Pre-existing, not touched by r12 and not a blocker: 'shot' and 'chase' each get only one occurrence in running prose, both in drone-street ('It shot a white flash...'; 'They were on a chase for any courier...'). Set totals pass comfortably (ch-words 29 against a minimum of 8) and drone-street sits on every route to every ending, so both words reach every reader at least once, but a second natural use of each would give more practice. Also still present and not a blocker: dash-past's 'A chill ran down her back, but her wheel held' joins fear and the wheel holding with 'but', though they are not in contrast; consider 'A chill ran down her back. Her wheel held.' Both were already flagged in literacy-review.r10.json and are outside the scope of this revision's four edits.",
+          "passage": "drone-street"
+        },
+        {
+          "severity": "note",
+          "message": "Pre-existing, worth a light mention though not introduced by r12: the gathering choice label 'Ride to Tam's shop' names Tam before he has been met on the route that never visits the shop (start -> alley -> alley-leave -> gathering -> gather-shop). This was already true of the prior wording ('Ride back to Tam's shop'), so it is not a regression from this revision, and the destination passage introduces Tam properly on arrival. Not a blocker."
+        },
+        {
+          "severity": "note",
+          "message": "Limits of this review: the analyzer detects spelling, not sound, so its counts include false positives (for example 'the' and 'she' under digraph th/sh, and silent-e or vowel-team words that also happen to contain 'sh' or 'ch', such as 'shade', 'chase' and 'chain'). It does not judge decodability, vocabulary level or story quality, and I have not tested the story aloud with a child or checked sound-level pronunciation. 'grey' (British spelling) and the names Ila and Nine remain sight words outside the stated target patterns. I read the r12 draft and reports/literacy.r12.json and .md directly, read revision-notes.r12.md, and independently verified its four claimed before/after edits against the actual draft text and against literacy.r12.json / weave-comparison.r12.json rather than taking the author's account on faith. This AI review is the literacy pre-review gate only, not the human literacy review the publication policy requires; it never sets literacy.review.status to \"passed\". The human literacy reviewer and the parent must still confirm these linguistic claims before any approval or publication."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/drafts/story.r12.json",
+          "sha256": "38766c6ef726850d644ef1432b93aa29f88755e21726306ab9f2e2513194585b"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/literacy.r12.json",
+          "sha256": "2f5d8c1bca67e5a3c9db108b56616dac363fd5b9f84c6a6703b60b766d99aa98"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/literacy.r12.md",
+          "sha256": "81bc92fe52ed37097dec28740ce068dd9f9ccac5b22f4ae5b9ee20825f26bdd9"
+        }
+      ],
+      "shelfSummary": {
+        "blurb": "A cyberpunk delivery adventure about a courier learning who to trust before she acts, including a moment of catching her breath mid-chase to decide whether to push on or give up. It practises closed syllables, sh, ch and -ing words in running text and choice labels. Readers practise sequencing events, following a clue, and working out new words from context.",
+        "skills": [
+          "comprehension",
+          "inference",
+          "sequencing",
+          "vocabulary"
+        ],
+        "wordTypes": [
+          {
+            "concept": "closed-syllable",
+            "examples": [
+              "bag",
+              "lock",
+              "dash",
+              "mask"
+            ]
+          },
+          {
+            "concept": "digraph-sh",
+            "examples": [
+              "shop",
+              "shade",
+              "flash",
+              "shell"
+            ]
+          },
+          {
+            "concept": "digraph-ch",
+            "examples": [
+              "chip",
+              "much",
+              "lunch",
+              "chill"
+            ]
+          },
+          {
+            "concept": "suffix-ing",
+            "examples": [
+              "blinking",
+              "pounding",
+              "giving",
+              "raining"
+            ]
+          },
+          {
+            "concept": "digraph-ck",
+            "examples": [
+              "lock",
+              "pick",
+              "back",
+              "click"
+            ]
+          },
+          {
+            "concept": "floss",
+            "examples": [
+              "bell",
+              "shell",
+              "still",
+              "tell"
+            ]
+          },
+          {
+            "concept": "initial-blend",
+            "examples": [
+              "black",
+              "bridge",
+              "broker",
+              "cloth"
+            ]
+          },
+          {
+            "concept": "suffix-ed",
+            "examples": [
+              "asked",
+              "called",
+              "checked",
+              "crossed"
+            ]
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Spelling rules",
+          "Morphology",
+          "Comprehension"
+        ]
+      },
+      "id": "review-10-literacy",
+      "submittedAt": "2026-11-09T08:15:22.373Z"
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 12,
+      "draftSha256": "38766c6ef726850d644ef1432b93aa29f88755e21726306ab9f2e2513194585b",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "minor",
+          "message": "The glossary word-help entry 'handover' (and its definition) never appears anywhere in any passage paragraph or choice label; it only occurs in metadata.premise and in its own glossary definition. A reader can never trigger this word-help entry in play. Pre-existing (present unchanged since at least r10, not touched by this revision's diff), not a blocker, but worth fixing in a future pass.",
+          "passage": "glossary.handover"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/drafts/story.r12.json",
+          "sha256": "38766c6ef726850d644ef1432b93aa29f88755e21726306ab9f2e2513194585b"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/validation.r12.json",
+          "sha256": "ee22144de13b2353eb547c94baf33aedc0c5cbdda28e46a9475a81dab965872c"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/reports/graph.r12.json",
+          "sha256": "3f0ed0a8f80dc10d7711d57cbeb395c02d8f11738f9973ceb558dbf5ff74bd35"
+        },
+        {
+          "path": "stories/jobs/job-20261020-the-rain-courier-mara-is-1b7daf/brief.json",
+          "sha256": "1653592bbed568e759c73b0747e1583d95a46dc6036f41ea5e72cb8bd792a2e8"
+        }
+      ],
+      "id": "review-11-qa",
+      "submittedAt": "2026-11-09T08:15:46.910Z"
     }
   ],
   "parentDecisions": [],
@@ -1527,6 +1712,16 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 12 (story v12) passed automated validation"
+    },
+    {
+      "at": "2026-11-09T08:15:46.910Z",
+      "from": "in-review",
+      "to": "awaiting-parent-approval",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "All required reviews passed"
     }
   ]
 }
