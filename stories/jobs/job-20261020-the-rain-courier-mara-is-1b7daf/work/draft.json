@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "the-rain-courier",
   "title": "The Rain Courier",
-  "version": 10,
+  "version": 12,
   "metadata": {
     "genre": "Cyberpunk delivery adventure",
     "theme": "Trust, choosing who to believe, and keeping a promise",
@@ -203,12 +203,12 @@
       "choices": [
         {
           "id": "gather-shop",
-          "label": "Ride back to Tam's shop",
+          "label": "Ride to Tam's shop",
           "target": "shop"
         },
         {
           "id": "gather-alley",
-          "label": "Ride back to the dark alley",
+          "label": "Ride to the dark alley",
           "target": "alley"
         },
         {
@@ -309,7 +309,7 @@
         },
         {
           "id": "catch-give-up",
-          "label": "Wave down a drone and give up the bag",
+          "label": "Call a drone and hand over the bag",
           "target": "ending-5",
           "learningTargets": ["inference"]
         }
@@ -356,7 +356,7 @@
         "Mara slid the pick into the lock and listened. She turned it a little. Click.",
         "The lock fell open. She slipped through and eased the gate shut behind her.",
         "\"First the gate, then the track, then the far light,\" said Nine. \"You are doing it in the right order.\"",
-        "Halfway across the bridge, Vex stepped out of the fog. A drone captain stood beside him.",
+        "A loose fence panel stood beside the old gate. Vex always slipped through there, unseen. Halfway across the bridge, he stepped out of the fog. A drone captain stood beside him.",
         "\"Give me the chip, Mara,\" said Vex. \"I will pay you twice.\"",
         "Mara looked at his grey mask. Then she looked at the small light on the far side."
       ],
@@ -462,7 +462,7 @@
         "Mara dashed over the bridge. The drones swung after her. Their flash lit the rails like day.",
         "Halfway over, the chain on her bike snapped. The bike slid sideways and fell into the river with a splash.",
         "Mara ran the last of the way on foot, with the bag held tight.",
-        "At the far end, a woman in a lit booth pulled her inside and shut the door. It was Aunt Ila.",
+        "At the far end, a woman pulled her into a lit booth and shut the door. It was Aunt Ila.",
         "The chip went into its slot. Far below, a huge gate groaned and closed. The flood water stopped rising.",
         "Mara had lost her old bike. But the city was safe, and she had kept her promise."
       ],
