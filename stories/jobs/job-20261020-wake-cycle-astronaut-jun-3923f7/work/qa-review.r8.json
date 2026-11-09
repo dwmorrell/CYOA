@@ -1,0 +1,52 @@
+{
+  "role": "qa",
+  "reviewer": { "name": "qa-engineer", "kind": "ai-agent", "agent": "qa-engineer" },
+  "revision": 8,
+  "draftSha256": "4993b072a89feda5b60266f8669ffa32a474ec2ea3f02592d72a1031eb159af0",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "passage": "dex-lamp-watch / dex-tools-sort / dex-chart",
+      "message": "Side effect of this revision's fix for the chart-named-twice finding (review-11-qa, finding 5): dex-lamp-watch (line 252) and dex-tools-sort (line 289) now say only 'Across the room, something pale hung on the far wall,' and their go-to-chart / go-to-chart-tools choices (lines 259-263, 296-300) are relabelled 'Glance at the far wall...'. That removes the double-naming problem, but both choices still carry effects.addClues:[dust-map] (lines 262, 299) on a glance at an object the text itself has not yet identified as a chart or map -- the player receives the specific clue text ('a thin, clear lane runs left of the big rock') from looking at an unidentified pale shape. This is mitigated because every route through these two passages is forced through dex-fixed into dex-chart shortly after (confirmed in reports/graph.r8.json edges), where the shape is finally revealed as Dex's paper chart and the lane is explained, so the reader is not left with a permanent unexplained clue -- just a brief, reversed-order reveal. Not blocking."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r8.json",
+      "sha256": "4993b072a89feda5b60266f8669ffa32a474ec2ea3f02592d72a1031eb159af0"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r8.json",
+      "sha256": "98a32c546cb81c8515bbe9b1aabfa877803e2b1412eb3dbfaeb45308512841d7"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r8.json",
+      "sha256": "7bbf330a53e0ccb4b2bc9ce2b31721f0d30b6cfebf8260431ce2620cfd2990d3"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/brief.json",
+      "sha256": "fdc2fc24ea875ea8f0988d268e7bd726581042613ee246fcd7d0b15c5976e318"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/work/revision-notes.r8.md",
+      "sha256": "93b7aed870d2a60138dcb46448e1c0318aef2e556b9c54cbb4a7d4db732cfdc9"
+    },
+    {
+      "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reviews/review-11-qa.r6.json",
+      "sha256": "a4ae71dd3396b748578540becc74e02380fd58e330d218e38f535989e8a146aa"
+    }
+  ],
+  "notes": [
+    "Verified finding 1 (backup wheel) fixed: storm-engine (line 341) 'Dex pointed to a backup wheel on the wall'; storm-engine-together (line 354) 'Jun lifted the backup wheel from its mount on the wall. Dex grabbed a spare lamp and a coil of wire,' and line 355 'They climbed the steps together, the wheel between them.' Both the take-backup-wheel and bring-dex-along routes now agree on one wheel, mounted on the engine-room wall, carried to the bridge. No remaining contradiction.",
+    "Verified finding 2 (bridge pod-order) fixed: Oru's line (134) no longer states the order ('Pod steps must go in order... Skip one, and the pod will just wait'); the setup paragraph (135) gives only physical cues (latch low/at the foot, switch 'waiting for power', hatch 'the lid, shut tight on top') from which the first step is inferable (unlock before power before air), matching not-yet-why's functional explanation (163) rather than repeating it. Confirmed the three choices/targets and the not-yet / not-yet-why fallback loop (edges switch-first/hatch-first -> not-yet -> ask-oru-why -> not-yet-why -> captain-wakes) are unchanged and still work, per reports/graph.r8.json.",
+    "Verified finding 3 (comms) fixed: captain-wakes (187-188) now has the panel 'flickered, crackled, then went quiet' and 'Calls to far decks keep breaking up,' consistent with storm-bridge's working-but-crackly speaker (204), engine's 'My calls just hit static!' (221), oru-log-crew's 'Then static' (102), storm-engine's Oru-woken Captain voice once power steadied (340), and ending-1's clean cheering once the crisis resolves (439). No remaining flat-dead-vs-working contradiction on any route.",
+    "Verified finding 4 (screen reliability) fixed: dex-chart (326) now distinguishes 'The engine room's screen still showed one wall of white' (stays wrong, so the paper chart earns trust) from storm-bridge's bridge screen (206), which gets one explicit 'short peek' that 'might not show it again.' oru-log's general warning ('maps may not match what is real,' line 85) is consistent with both: a bent sensor system that is wrong on the engine screen and only briefly, luckily right on the bridge screen.",
+    "Finding 5 (chart named twice) structurally fixed -- see new minor finding above for a residual, non-blocking side effect.",
+    "Traced routes to all 5 endings on revision 8: (a) wake -> open-locker -> to-hall-a -> hall -> go-engine -> engine -> pass-tools -> dex-tools -> sort-tools -> dex-tools-sort -> go-to-chart-tools -> dex-fixed -> take-bench-pack -> dex-chart -> copy-lane -> storm-engine -> bring-dex-along -> storm-engine-together -> double-check-sensors -> threshold -> thin-lane -> climax-lane -> use-clicker -> ending-1/clear-road (covers bring-dex-along and the dex-tools-sort->dex-chart route, and both tool-pack/dust-map gates); (b) same up to climax-lane -> steer-by-eye -> ending-2/steady-hands; (c) wake -> ask-log -> oru-log -> to-hall-b -> hall -> go-engine -> engine -> hold-lamp -> dex-lamp -> steady-lamp -> dex-lamp-watch -> go-to-chart -> dex-fixed -> skip-bench-pack -> dex-chart -> skip-lane -> storm-engine -> take-backup-wheel -> threshold -> shield-sensors -> climax-team -> send-dex -> ending-3/sensor-mast (covers the dex-lamp-watch->dex-chart route); (d) same to climax-team -> wake-watch -> ending-4/many-hands; (e) wake -> ... -> hall -> go-bridge -> bridge -> latch-first -> captain-wakes -> skip-rack-pack -> storm-bridge -> wheel-now-b -> threshold -> cut-engines -> ending-5/drifting-quiet. Also walked the switch-first/hatch-first -> not-yet -> ask-oru-why -> not-yet-why fallback loop into captain-wakes. All match reports/graph.r8.json's reachableEndings (5/5) and stateSearchComplete:true; no route requires revisiting an already-read passage to collect an item/clue or reach an ending.",
+    "Content integrity: read every passage in story.r8.json directly. No sexual content, no violence/gore, no suicide or self-harm, no reference to any specific religion; no crew member dies or is badly hurt on the page, matching brief.json's avoid-list. tool-pack and dust-map descriptions and grant points stay consistent across every route that grants them. threshold's thin-lane lockedHint and climax-lane's use-clicker lockedHint fairly describe where the gated clue/item can be found without naming them outright.",
+    "endingTarget (brief.json: 5) is met: 5/5 endings present and reachable, so no finding on ending count. Route diversity for a second read is good: hall (bridge/engine), bridge's 3-way pod-order choice plus fallback loop, dex-lamp/dex-tools and their watch/sort side branches, storm-engine/storm-engine-together, and threshold's 3-way plus climax-lane/climax-team branches.",
+    "reports/validation.r8.json and reports/graph.r8.json (read directly, hashes above) show ok:true throughout: schema ok, graph ok with 5/5 endings reachable, literacy automated checks ok (wh-words 42/10, ck-words 46/8, tch-words 33/8, all words present, all sets on every shortest route, sentence-length ok), brief ok. Consistent with my own trace.",
+    "Ran npm run check myself in the working tree and read the output directly: eslint passed, tsc --noEmit passed, vitest run passed 193/193 tests (12 files), validate:stories passed for all 6 previews and all 6 production jobs including this job's own draft ('job job-20261020-wake-cycle-astronaut-jun-3923f7: in-review, revision 8 (story v8)', no FAIL), agents:check passed for all 9 agents, and the production build succeeded. No stale-preview failures this time (the public/stories/previews/wake-cycle.json issue flagged in review-11-qa's predecessor notes is no longer present)."
+  ]
+}

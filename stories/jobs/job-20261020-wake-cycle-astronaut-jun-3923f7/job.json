@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261020-wake-cycle-astronaut-jun-3923f7",
   "storyId": "wake-cycle",
-  "state": "in-review",
+  "state": "awaiting-parent-approval",
   "createdAt": "2026-10-20T23:23:25.399Z",
-  "updatedAt": "2026-11-09T08:18:21.509Z",
+  "updatedAt": "2026-11-09T08:19:52.767Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/request.json",
@@ -1469,6 +1469,52 @@
       },
       "id": "review-12-literacy",
       "submittedAt": "2026-11-09T08:18:21.509Z"
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 8,
+      "draftSha256": "4993b072a89feda5b60266f8669ffa32a474ec2ea3f02592d72a1031eb159af0",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "minor",
+          "passage": "dex-lamp-watch / dex-tools-sort / dex-chart",
+          "message": "Side effect of this revision's fix for the chart-named-twice finding (review-11-qa, finding 5): dex-lamp-watch (line 252) and dex-tools-sort (line 289) now say only 'Across the room, something pale hung on the far wall,' and their go-to-chart / go-to-chart-tools choices (lines 259-263, 296-300) are relabelled 'Glance at the far wall...'. That removes the double-naming problem, but both choices still carry effects.addClues:[dust-map] (lines 262, 299) on a glance at an object the text itself has not yet identified as a chart or map -- the player receives the specific clue text ('a thin, clear lane runs left of the big rock') from looking at an unidentified pale shape. This is mitigated because every route through these two passages is forced through dex-fixed into dex-chart shortly after (confirmed in reports/graph.r8.json edges), where the shape is finally revealed as Dex's paper chart and the lane is explained, so the reader is not left with a permanent unexplained clue -- just a brief, reversed-order reveal. Not blocking."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/drafts/story.r8.json",
+          "sha256": "4993b072a89feda5b60266f8669ffa32a474ec2ea3f02592d72a1031eb159af0"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/validation.r8.json",
+          "sha256": "98a32c546cb81c8515bbe9b1aabfa877803e2b1412eb3dbfaeb45308512841d7"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reports/graph.r8.json",
+          "sha256": "7bbf330a53e0ccb4b2bc9ce2b31721f0d30b6cfebf8260431ce2620cfd2990d3"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/brief.json",
+          "sha256": "fdc2fc24ea875ea8f0988d268e7bd726581042613ee246fcd7d0b15c5976e318"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/work/revision-notes.r8.md",
+          "sha256": "93b7aed870d2a60138dcb46448e1c0318aef2e556b9c54cbb4a7d4db732cfdc9"
+        },
+        {
+          "path": "stories/jobs/job-20261020-wake-cycle-astronaut-jun-3923f7/reviews/review-11-qa.r6.json",
+          "sha256": "a4ae71dd3396b748578540becc74e02380fd58e330d218e38f535989e8a146aa"
+        }
+      ],
+      "id": "review-13-qa",
+      "submittedAt": "2026-11-09T08:19:52.767Z"
     }
   ],
   "parentDecisions": [],
@@ -1671,6 +1717,16 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 8 (story v8) passed automated validation"
+    },
+    {
+      "at": "2026-11-09T08:19:52.767Z",
+      "from": "in-review",
+      "to": "awaiting-parent-approval",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "All required reviews passed"
     }
   ]
 }
