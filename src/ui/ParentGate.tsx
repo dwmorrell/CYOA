@@ -15,7 +15,7 @@ export function ParentGate() {
     }
   };
   return (
-    <Page title="Grown-up area" nav={<BackBar />}>
+    <Page title="Settings" nav={<BackBar />}>
       <form className="form" onSubmit={submit}>
         <label htmlFor="gate-pin">Enter the grown-up PIN</label>
         <input id="gate-pin" className="input" type="password" inputMode="numeric" autoComplete="current-password" value={pin} onChange={(e) => setPin(e.target.value)} />

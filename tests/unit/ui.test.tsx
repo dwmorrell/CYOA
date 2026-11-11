@@ -61,7 +61,7 @@ describe('first run and profiles', () => {
     expect(await screen.findByText('That PIN is not right.')).toBeTruthy();
     fireEvent.change(screen.getByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
     fireEvent.click(button('Open'));
-    expect(await screen.findByRole('heading', { level: 1, name: 'Grown-up area' })).toBeTruthy();
+    expect(await screen.findByRole('heading', { level: 1, name: 'Settings' })).toBeTruthy();
     expect(await screen.findByText(/No stories yet/)).toBeTruthy();
   });
 
@@ -159,7 +159,7 @@ describe('parent approval controls the child library', () => {
     fireEvent.click(await screen.findByRole('button', { name: 'Approve version 2' }));
     await screen.findByText(/Version 2 is now in the reader’s library/);
 
-    fireEvent.click(button('← Grown-up area'));
+    fireEvent.click(button('← Settings'));
     fireEvent.click(await screen.findByRole('button', { name: 'Lock and return to play' }));
     expect(await screen.findByText(/Your adventure is saved in version 1/)).toBeTruthy();
     expect((await repo.loadSave(child.id, story.id))?.story.title).toBe(story.title);

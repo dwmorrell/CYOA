@@ -89,7 +89,7 @@ export function PlayPreview({ storyId, source }: { storyId: string; source: 'dev
       state={state}
       onState={(s) => setState(s)}
       onExit={() => go('#/parent')}
-      exitLabel="Grown-up area"
+      exitLabel="Settings"
       banner={`Grown-up preview of version ${story.version}. Nothing here is saved. Literacy review: ${story.literacy.review.status}.`}
     />
   );

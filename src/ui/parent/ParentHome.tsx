@@ -309,7 +309,7 @@ export default function ParentHome() {
 
   return (
     <Page
-      title="Grown-up area"
+      title="Settings"
       className="studio"
       nav={
         <nav className="reader-bar" aria-label="Grown-up controls">

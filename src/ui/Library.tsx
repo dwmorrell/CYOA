@@ -100,7 +100,7 @@ export function Library() {
           </button>
         )}
         <button type="button" className="btn" onClick={() => go('#/parent')}>
-          Grown-ups
+          Settings
         </button>
       </div>
     </Page>

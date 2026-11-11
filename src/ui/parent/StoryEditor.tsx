@@ -319,7 +319,7 @@ export default function StoryEditor({ storyId }: { storyId: string }) {
       nav={
         <nav className="reader-bar" aria-label="Editor controls">
           <button type="button" className="btn small" onClick={() => go('#/parent')}>
-            ← Grown-up area
+            ← Settings
           </button>
         </nav>
       }
