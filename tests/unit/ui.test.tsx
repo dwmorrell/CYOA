@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
-import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { DEFAULT_PREFS } from '../../src/engine/persistence';
 import { newGame } from '../../src/engine/story-engine';
 import type { GameState, Story } from '../../src/engine/types';
@@ -13,6 +13,7 @@ import { AppContext, type AppCtx } from '../../src/ui/context';
 import { applyPrefs } from '../../src/ui/prefs';
 import { pageSpeech } from '../../src/ui/speech';
 import { Reader } from '../../src/ui/Reader';
+import { contentHash, sha256 } from '../../src/util/hash';
 import { fixture } from '../helpers';
 
 const story = fixture();
@@ -21,7 +22,10 @@ const emptyCatalog: Catalog = { catalogVersion: 1, published: [], previews: [] }
 beforeEach(() => {
   location.hash = '';
 });
-afterEach(cleanup);
+afterEach(() => {
+  cleanup();
+  vi.unstubAllGlobals();
+});
 
 const button = (name: string | RegExp) => screen.getByRole('button', { name });
 const navigate = async (hash: string) => {
@@ -437,6 +441,147 @@ describe('typing practice add-on', () => {
     fireEvent.click(button('Save word lists'));
     expect(await screen.findByText(/Left out: 3d/)).toBeTruthy();
     expect((await repo.typingLists())[0]!.words).toEqual(['pebble', 'sea', 'boat', 'cove']);
+  });
+});
+
+describe('downloading from the story workshop shelf', () => {
+  /**
+   * A catalog with one shelf entry for `s`, and a fake `fetch` that serves its
+   * file, so `fetchStory` checks the bytes against the catalog hash for real.
+   */
+  function shelfFor(s: Story, kind: 'workshop' | 'packaged' = 'workshop'): Catalog {
+    const text = JSON.stringify(s);
+    const base = { id: s.id, title: s.title, version: s.version, sha256: sha256(text), jobId: `job-${s.id}` };
+    const path = kind === 'workshop' ? `previews/${s.id}.json` : `published/${s.id}.json`;
+    vi.stubGlobal('fetch', async (url: unknown) => {
+      const found = String(url).endsWith(path);
+      return { ok: found, status: found ? 200 : 404, text: async () => (found ? text : '') };
+    });
+    if (kind === 'packaged') return { catalogVersion: 1, published: [{ ...base, path, publishedAt: '2026-10-21T00:00:00Z' }], previews: [] };
+    return { catalogVersion: 1, published: [], previews: [{ ...base, path, jobState: 'awaiting-parent-approval', gates: [], updatedAt: '2026-10-21T00:00:00Z' }] };
+  }
+
+  async function openGrownUpArea(repo: Repo, catalog: Catalog) {
+    location.hash = '#/parent';
+    render(<App repo={repo} catalog={catalog} />);
+    fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
+    fireEvent.click(button('Open'));
+    await screen.findByRole('heading', { level: 2, name: 'From the story workshop' });
+  }
+
+  const download = (title: string) => fireEvent.click(button(`Download ${title} to this device`));
+  const shelfCard = (title: string) => button(`Download ${title} to this device`).closest('li')!;
+  const downloaded = (title: string, version: number) => `Downloaded "${title}" to this device as a draft (version ${version}). Find it under "Stories on this device" to edit or approve it.`;
+
+  it('downloading a workshop story saves it on this device as an unapproved draft that the reader is not offered', async () => {
+    const repo = await readyRepo();
+    await openGrownUpArea(repo, shelfFor(story));
+    expect(await screen.findByText('No stories yet. Import one, download one from the story workshop below, or start a new one.')).toBeTruthy();
+    expect(within(shelfCard(story.title)).queryByText(/On this device/)).toBeNull();
+
+    download(story.title);
+    expect(await screen.findByText(downloaded(story.title, 1))).toBeTruthy();
+    const deviceCard = (await screen.findByRole('button', { name: `Edit ${story.title}` })).closest('li')!;
+    expect(within(deviceCard).getByText('Ready for review')).toBeTruthy();
+    expect(within(deviceCard).getByText(/Not in the reader’s library/)).toBeTruthy();
+    expect(within(shelfCard(story.title)).getByText('On this device: version 1.')).toBeTruthy();
+
+    const [entry, ...others] = await repo.library();
+    expect(others).toEqual([]);
+    expect(entry?.draftHash).toBe(contentHash(story));
+    expect(entry?.approved).toBeUndefined();
+    expect(entry?.versions.map((v) => v.source)).toEqual(['workshop-draft']);
+
+    await navigate('#/');
+    expect(await screen.findByText('No adventures yet')).toBeTruthy();
+    expect(screen.queryByRole('button', { name: `Start ${story.title}` })).toBeNull();
+  });
+
+  it('a downloaded workshop story can be edited and then approved in the editor, and only then is it offered to the reader', async () => {
+    const repo = await readyRepo();
+    await openGrownUpArea(repo, shelfFor(story));
+    download(story.title);
+    await screen.findByText(downloaded(story.title, 1));
+
+    fireEvent.click(await screen.findByRole('button', { name: `Edit ${story.title}` }));
+    fireEvent.change(await screen.findByLabelText('Title'), { target: { value: 'The Lost Kite, my edit' } });
+    fireEvent.click(button('Save draft'));
+    expect(await screen.findByText('Draft saved as version 1.')).toBeTruthy();
+    expect((await repo.library())[0]?.approved).toBeUndefined();
+
+    fireEvent.click(await screen.findByLabelText(/AI literacy review and the AI QA review for this version have passed/));
+    fireEvent.click(await screen.findByRole('button', { name: 'Approve version 1' }));
+    expect(await screen.findByText('Version 1 is now in the reader’s library.')).toBeTruthy();
+    const entry = (await repo.library())[0]!;
+    expect(entry.draftHash).toBeUndefined();
+    expect((await repo.snapshot(story.id, entry.approved!.hash))?.title).toBe('The Lost Kite, my edit');
+
+    await navigate('#/');
+    expect(await screen.findByRole('button', { name: 'Start The Lost Kite, my edit' })).toBeTruthy();
+  });
+
+  it('downloading over a different unapproved draft asks first: Keep my draft leaves it untouched and Replace my draft saves the downloaded story', async () => {
+    const repo = await readyRepo();
+    const mine: Story = { ...story, title: 'The Lost Kite, my edit' };
+    const onShelf: Story = { ...story, version: 3 };
+    await repo.saveDraft(mine, 'Sam', 'editor');
+    await openGrownUpArea(repo, shelfFor(onShelf));
+    expect(await within(shelfCard(story.title)).findByText('On this device: version 1. A newer version (3) is on the shelf.')).toBeTruthy();
+
+    download(story.title);
+    expect(await screen.findByText(/This device has an unapproved draft of "The Lost Kite" \(version 1\) that is different from the copy on the shelf\. Downloading replaces it as the working draft, and the app cannot open the earlier draft again\./)).toBeTruthy();
+    expect((await repo.library())[0]?.draftHash).toBe(contentHash(mine));
+
+    fireEvent.click(button('Keep my draft'));
+    expect(await screen.findByText('Kept your draft of "The Lost Kite". Nothing was downloaded.')).toBeTruthy();
+    expect(screen.queryByText(/This device has an unapproved draft/)).toBeNull();
+    expect((await repo.library())[0]).toMatchObject({ draftHash: contentHash(mine), versions: [{ version: 1, source: 'editor' }] });
+    expect((await repo.draft(story.id))?.title).toBe('The Lost Kite, my edit');
+
+    download(story.title);
+    fireEvent.click(await screen.findByRole('button', { name: 'Replace my draft' }));
+    expect(await screen.findByText(downloaded(story.title, 3))).toBeTruthy();
+    expect(screen.queryByText(/This device has an unapproved draft/)).toBeNull();
+    const entry = (await repo.library())[0]!;
+    expect(entry.draftHash).toBe(contentHash(onShelf));
+    expect(entry.approved).toBeUndefined();
+    expect(entry.versions.map((v) => [v.version, v.source])).toEqual([[1, 'editor'], [3, 'workshop-draft']]);
+    expect(await repo.draft(story.id)).toEqual(onShelf);
+    expect(within(shelfCard(story.title)).getByText('On this device: version 3.')).toBeTruthy();
+  });
+
+  it('downloading a story whose exact copy is already the draft on this device saves nothing new', async () => {
+    const repo = await readyRepo();
+    await openGrownUpArea(repo, shelfFor(story, 'packaged'));
+    download(story.title);
+    await screen.findByText(downloaded(story.title, 1));
+    download(story.title);
+    expect(await screen.findByText(`"${story.title}" is already on this device as a draft (version 1). Find it under "Stories on this device" to edit or approve it.`)).toBeTruthy();
+    expect(screen.queryByText(/This device has an unapproved draft/)).toBeNull();
+    const entry = (await repo.library())[0]!;
+    expect(entry.versions.map((v) => [v.version, v.source])).toEqual([[1, 'bundled-copy']]);
+    expect(entry.approved).toBeUndefined();
+  });
+
+  it('Check and approve on the shelf still copies the story to this device and approves it in one step, and Download then leaves the approved copy alone', async () => {
+    const repo = await readyRepo();
+    await openGrownUpArea(repo, shelfFor(story));
+    const card = button('Check and approve').closest('li')!;
+    fireEvent.click(button('Check and approve'));
+    fireEvent.click(await within(card).findByLabelText(/AI literacy review and the AI QA review for this version have passed/));
+    fireEvent.click(within(card).getByRole('button', { name: 'Approve version 1' }));
+    expect(await screen.findByText(`Version 1 of "${story.title}" is now in the reader’s library.`)).toBeTruthy();
+    const approved = (await repo.library())[0]!;
+    expect(approved).toMatchObject({ approved: { version: 1, hash: contentHash(story), by: 'Sam' }, versions: [{ version: 1, source: 'workshop-draft' }] });
+    expect(approved.draftHash).toBeUndefined();
+    expect(await screen.findByText('In the reader’s library: version 1 (approved by Sam)')).toBeTruthy();
+
+    download(story.title);
+    expect(await screen.findByText(`Version 1 of "${story.title}" is already on this device and in the reader’s library. Nothing was downloaded. Find it under "Stories on this device" to edit it.`)).toBeTruthy();
+    expect(await repo.library()).toEqual([approved]);
+
+    await navigate('#/');
+    expect(await screen.findByRole('button', { name: `Start ${story.title}` })).toBeTruthy();
   });
 });
 

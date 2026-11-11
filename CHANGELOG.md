@@ -25,6 +25,14 @@
   the literacy review and is checked against the story text when recorded.
 - Grown-up area: edit typing word lists. The starter list is the default.
 - The Codebreaker badge and "Puzzles solved" count are removed from the log.
+- Story shelf: "Download to this device" on each workshop story saves it on the
+  device as an unapproved draft, to edit and then approve under "Stories on this
+  device". It never approves. If the device has a different unapproved draft of
+  that story, it asks before replacing it; the app cannot open a replaced draft
+  again, so export it first. An identical copy already on the device is left
+  alone. The card shows the version on the device and whether the shelf has a
+  newer one. After "Check and approve", the card under "Stories on this device"
+  now shows the approved version straight away.
 
 ## Unreleased: master specification gaps
 
