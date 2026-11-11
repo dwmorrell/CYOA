@@ -4,6 +4,7 @@ import { AI_REVIEWS_NOT_CONFIRMED, type LibraryEntry, type Repo } from '../../st
 import { blankStory, downloadJson, exportStory, parseImport } from '../../storage/transfer';
 import { slugify } from '../../production/request';
 import { validateDraft, validationIssues } from '../../production/validate-draft';
+import { contentHash } from '../../util/hash';
 import { fetchStory, readyForParentReview, type CatalogEntry, type PreviewEntry } from '../catalog';
 import { Page } from '../common';
 import { useApp } from '../context';
@@ -235,6 +236,10 @@ export default function ParentHome() {
   const [focus, setFocus] = useState('');
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null);
   const [showArchived, setShowArchived] = useState(false);
+  /** The shelf card being downloaded, so its button cannot be pressed twice. */
+  const [downloading, setDownloading] = useState<string | null>(null);
+  /** A shelf download held back until the parent agrees to replace a different unapproved draft on this device. */
+  const [confirmDownload, setConfirmDownload] = useState<{ key: string; story: Story; kind: 'packaged' | 'workshop'; draftVersion?: number } | null>(null);
 
   const refresh = useCallback(async () => setLibrary(await repo.library()), [repo]);
   useEffect(() => void refresh(), [refresh]);
@@ -254,6 +259,38 @@ export default function ParentHome() {
     await repo.saveDraft(bumped, parentName, source);
     await refresh();
     return bumped;
+  };
+
+  const saveDownload = async (story: Story, kind: 'packaged' | 'workshop') => {
+    const saved = await addDraft(story, kind === 'packaged' ? 'bundled-copy' : 'workshop-draft');
+    report(`Downloaded "${saved.title}" to this device as a draft (version ${saved.version}). Find it under "Stories on this device" to edit or approve it.`);
+  };
+
+  /** Copies a shelf story to this device as an unapproved draft. It never approves, and it asks before replacing a different unapproved draft. */
+  const onDownload = async (e: CatalogEntry, kind: 'packaged' | 'workshop') => {
+    const key = `${kind}:${e.id}`;
+    setDownloading(key);
+    setConfirmDownload(null);
+    try {
+      const story = await fetchStory(e);
+      const hash = contentHash(story);
+      const existing = (await repo.library()).find((x) => x.storyId === story.id);
+      const where = existing?.archived ? '"Archived stories"' : '"Stories on this device"';
+      if (existing?.draftHash === hash) {
+        // The working draft already is this exact story: saving again would only add a renumbered duplicate.
+        report(`"${story.title}" is already on this device as a draft (version ${story.version}). Find it under ${where} to edit or approve it.`);
+      } else if (existing?.draftHash) {
+        setConfirmDownload({ key, story, kind, draftVersion: existing.versions.find((v) => v.hash === existing.draftHash)?.version });
+      } else if (existing?.approved?.hash === hash) {
+        report(`Version ${story.version} of "${story.title}" is already on this device and in the reader’s library. Nothing was downloaded. Find it under ${where} to edit it.`);
+      } else {
+        await saveDownload(story, kind);
+      }
+    } catch (err) {
+      fail(err);
+    } finally {
+      setDownloading(null);
+    }
   };
 
   const onImport = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -335,7 +372,7 @@ export default function ParentHome() {
       {library === null ? (
         <p role="status">Loading…</p>
       ) : library.length === 0 ? (
-        <p>No stories yet. Import one, copy a packaged story, or start a new one.</p>
+        <p>No stories yet. Import one, {workshop.length > 0 && 'download one from the story workshop below, '}or start a new one.</p>
       ) : (
         (() => {
           const active = library.filter((e) => !e.archived);
@@ -347,7 +384,7 @@ export default function ParentHome() {
           return (
             <>
               {active.length === 0 ? (
-                <p>No stories on the main list. Import one, copy a packaged story, start a new one, or restore an archived one below.</p>
+                <p>No stories on the main list. Import one, {workshop.length > 0 && 'download one from the story workshop below, '}start a new one, or restore an archived one below.</p>
               ) : (
                 <ul className="cards">
                   {active.map((entry) => (
@@ -398,31 +435,78 @@ export default function ParentHome() {
           )}
           {shown.length === 0 && <p className="empty">No story on the shelf practises that yet.</p>}
           <ul className="cards">
-            {shown.map(({ e, kind }) => (
-              <li key={`${kind}:${e.id}`} className="card">
-                <h3>{e.title}</h3>
-                {kind === 'workshop' && readyForParentReview(e as PreviewEntry) && <p className="ready-tag">Ready for review</p>}
-                <p>
-                  {kind === 'packaged' ? 'Packaged and approved' : `Workshop draft, status: ${'jobState' in e ? e.jobState : ''}`} · version {e.version}
-                </p>
-                <LiteracySummary summary={e.literacySummary} />
-                {kind === 'workshop' && (
+            {shown.map(({ e, kind }) => {
+              const key = `${kind}:${e.id}`;
+              const onDevice = library?.find((x) => x.storyId === e.id);
+              const deviceVersion = onDevice && onDevice.versions.length > 0 ? Math.max(...onDevice.versions.map((v) => v.version)) : undefined;
+              const pending = confirmDownload?.key === key ? confirmDownload : null;
+              return (
+                <li key={key} className="card">
+                  <h3>{e.title}</h3>
+                  {kind === 'workshop' && readyForParentReview(e as PreviewEntry) && <p className="ready-tag">Ready for review</p>}
+                  <p>
+                    {kind === 'packaged' ? 'Packaged and approved' : `Workshop draft, status: ${'jobState' in e ? e.jobState : ''}`} · version {e.version}
+                  </p>
+                  {deviceVersion !== undefined && (
+                    <p className="muted">
+                      On this device: version {deviceVersion}.{e.version > deviceVersion && ` A newer version (${e.version}) is on the shelf.`}
+                    </p>
+                  )}
+                  <LiteracySummary summary={e.literacySummary} />
                   <div className="row">
-                    <button type="button" className="btn" aria-label={`Preview ${e.title}`} onClick={() => go(`#/preview/workshop/${encodeURIComponent(e.id)}`)}>
-                      Preview
+                    {kind === 'workshop' && (
+                      <button type="button" className="btn" aria-label={`Preview ${e.title}`} onClick={() => go(`#/preview/workshop/${encodeURIComponent(e.id)}`)}>
+                        Preview
+                      </button>
+                    )}
+                    <button type="button" className="btn" aria-label={`Download ${e.title} to this device`} disabled={downloading === key} onClick={() => void onDownload(e, kind)}>
+                      Download to this device
                     </button>
                   </div>
-                )}
-                <WorkshopApproval
-                  entry={e}
-                  kind={kind}
-                  repo={repo}
-                  parentName={parentName}
-                  addDraft={addDraft}
-                  onApproved={(updated, title) => report(`Version ${updated.approved?.version} of "${title}" is now in the reader’s library.`)}
-                />
-              </li>
-            ))}
+                  {pending && (
+                    <div className="form">
+                      <p role="status" className="status bad">
+                        This device has an unapproved draft of "{pending.story.title}"{pending.draftVersion !== undefined && ` (version ${pending.draftVersion})`} that is different from the copy on the shelf. Downloading replaces it as the working draft, and the app cannot open the earlier draft again. To keep a copy, choose "Keep my draft", then use Export on its card under "Stories on this device".
+                      </p>
+                      <div className="row">
+                        <button
+                          type="button"
+                          className="btn danger"
+                          onClick={() => {
+                            setConfirmDownload(null);
+                            void saveDownload(pending.story, pending.kind).catch(fail);
+                          }}
+                        >
+                          Replace my draft
+                        </button>
+                        <button
+                          type="button"
+                          className="btn"
+                          onClick={() => {
+                            setConfirmDownload(null);
+                            report(`Kept your draft of "${pending.story.title}". Nothing was downloaded.`);
+                          }}
+                        >
+                          Keep my draft
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                  <WorkshopApproval
+                    entry={e}
+                    kind={kind}
+                    repo={repo}
+                    parentName={parentName}
+                    addDraft={addDraft}
+                    onApproved={(updated, title) => {
+                      // The device card was drawn from the draft saved just before approval, so reload it.
+                      void refresh();
+                      report(`Version ${updated.approved?.version} of "${title}" is now in the reader’s library.`);
+                    }}
+                  />
+                </li>
+              );
+            })}
           </ul>
         </>
       )}
