@@ -157,6 +157,7 @@ function LibraryCard({
 }) {
   const draftVersion = entry.draftHash ? entry.versions.find((v) => v.hash === entry.draftHash)?.version : undefined;
   const confirming = confirmDelete === entry.storyId;
+  const [showMore, setShowMore] = useState(false);
   return (
     <li className="card">
       <h3>{entry.title}</h3>
@@ -173,26 +174,33 @@ function LibraryCard({
         <button type="button" className="btn" aria-label={`Preview ${entry.title}`} onClick={() => go(`#/preview/device/${encodeURIComponent(entry.storyId)}`)}>
           Preview
         </button>
-        <button type="button" className="btn" aria-label={`Export ${entry.title}`} onClick={() => onExport(entry)}>
-          Export
-        </button>
-        {entry.approved && (
-          <button type="button" className="btn" aria-label={`Remove ${entry.title} from the reader’s library`} onClick={() => void repo.withdraw(entry.storyId).then(refresh)}>
-            Remove from reader’s library
-          </button>
-        )}
-        <button
-          type="button"
-          className="btn"
-          aria-label={entry.archived ? `Restore ${entry.title} to the main list` : `Archive ${entry.title}`}
-          onClick={() => void repo.setArchived(entry.storyId, !entry.archived).then(refresh)}
-        >
-          {entry.archived ? 'Restore' : 'Archive'}
-        </button>
-        <button type="button" className="btn danger" aria-label={`Delete ${entry.title}`} onClick={() => setConfirmDelete(entry.storyId)}>
-          Delete
+        <button type="button" className="btn small" aria-expanded={showMore} onClick={() => setShowMore(!showMore)}>
+          {showMore ? 'Fewer options' : 'More options'}
         </button>
       </div>
+      {showMore && (
+        <div className="row">
+          <button type="button" className="btn" aria-label={`Export ${entry.title}`} onClick={() => onExport(entry)}>
+            Export
+          </button>
+          {entry.approved && (
+            <button type="button" className="btn" aria-label={`Remove ${entry.title} from the reader’s library`} onClick={() => void repo.withdraw(entry.storyId).then(refresh)}>
+              Remove from reader’s library
+            </button>
+          )}
+          <button
+            type="button"
+            className="btn"
+            aria-label={entry.archived ? `Restore ${entry.title} to the main list` : `Archive ${entry.title}`}
+            onClick={() => void repo.setArchived(entry.storyId, !entry.archived).then(refresh)}
+          >
+            {entry.archived ? 'Restore' : 'Archive'}
+          </button>
+          <button type="button" className="btn danger" aria-label={`Delete ${entry.title}`} onClick={() => setConfirmDelete(entry.storyId)}>
+            Delete
+          </button>
+        </div>
+      )}
       {confirming && (
         <div className="form">
           <p className="status bad">

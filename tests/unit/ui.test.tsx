@@ -6,6 +6,7 @@ import { newGame } from '../../src/engine/story-engine';
 import type { GameState, Story } from '../../src/engine/types';
 import { memoryKv } from '../../src/storage/kv';
 import { Repo } from '../../src/storage/repo';
+import { LESSONS } from '../../src/typing/lessons';
 
 import { App } from '../../src/ui/App';
 import type { Catalog, PreviewEntry } from '../../src/ui/catalog';
@@ -201,11 +202,14 @@ describe('parent approval controls the child library', () => {
     render(<App repo={repo} catalog={emptyCatalog} />);
     fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
     fireEvent.click(button('Open'));
+    fireEvent.click(await screen.findByRole('button', { name: 'More options' }));
     fireEvent.click(await screen.findByRole('button', { name: `Archive ${story.title}` }));
     expect(await screen.findByText('No stories on the main list.', { exact: false })).toBeTruthy();
     fireEvent.click(screen.getByText('Archived stories (1)'));
     expect((await repo.library())[0]?.approved?.version).toBe(1);
+    fireEvent.click(button('More options'));
     fireEvent.click(await screen.findByRole('button', { name: `Restore ${story.title} to the main list` }));
+    fireEvent.click(await screen.findByRole('button', { name: 'More options' }));
     expect(await screen.findByRole('button', { name: `Archive ${story.title}` })).toBeTruthy();
   });
 
@@ -216,6 +220,7 @@ describe('parent approval controls the child library', () => {
     render(<App repo={repo} catalog={emptyCatalog} />);
     fireEvent.change(await screen.findByLabelText('Enter the grown-up PIN'), { target: { value: '2468' } });
     fireEvent.click(button('Open'));
+    fireEvent.click(await screen.findByRole('button', { name: 'More options' }));
     fireEvent.click(await screen.findByRole('button', { name: `Delete ${story.title}` }));
     expect(await screen.findByText(/This cannot be undone/)).toBeTruthy();
     fireEvent.click(button('Cancel'));
@@ -329,11 +334,26 @@ describe('typing practice add-on', () => {
     expect(await screen.findByRole('heading', { name: 'Typing practice' })).toBeTruthy();
   });
 
+  it('starts on the first built-in lesson, shows its phonics focus, and advances with "Next lesson"', async () => {
+    const repo = await readyRepo();
+    render(<App repo={repo} catalog={emptyCatalog} />);
+    await navigate('#/typing');
+    const input = await screen.findByLabelText('Type here');
+    expect(screen.getByLabelText(`Words to type: ${LESSONS[0]!.words.join(' ')}`)).toBeTruthy();
+    expect(screen.getByText(/This lesson practises:/)).toBeTruthy();
+    fireEvent.change(input, { target: { value: LESSONS[0]!.words.join(' ') } });
+    await screen.findByText(/Lap 1 done in/);
+    fireEvent.click(button(`Next lesson: ${LESSONS[1]!.name}`));
+    expect(screen.getByLabelText(`Words to type: ${LESSONS[1]!.words.join(' ')}`)).toBeTruthy();
+  });
+
   it('types the words from the list, shows speed and accuracy, and finishes the lap', async () => {
     const repo = await readyRepo();
     render(<App repo={repo} catalog={emptyCatalog} />);
     await navigate('#/typing');
     const input = await screen.findByLabelText('Type here');
+    await screen.findByRole('option', { name: /Starter words/ });
+    fireEvent.change(screen.getByLabelText('Word list'), { target: { value: 'starter' } });
     expect(screen.getByLabelText(`Words to type: ${target}`)).toBeTruthy();
     fireEvent.change(input, { target: { value: 'cax' } });
     expect(screen.getByText(/Accuracy 67 percent/)).toBeTruthy();
@@ -350,7 +370,10 @@ describe('typing practice add-on', () => {
     const repo = await readyRepo();
     render(<App repo={repo} catalog={emptyCatalog} />);
     await navigate('#/typing');
-    fireEvent.change(await screen.findByLabelText('Type here'), { target: { value: target } });
+    const input = await screen.findByLabelText('Type here');
+    await screen.findByRole('option', { name: /Starter words/ });
+    fireEvent.change(screen.getByLabelText('Word list'), { target: { value: 'starter' } });
+    fireEvent.change(input, { target: { value: target } });
     await screen.findByText(/That is place 1 on this track/);
     fireEvent.change(screen.getByLabelText('Road'), { target: { value: 'mountain-pass' } });
     expect(await screen.findByRole('heading', { name: 'High scores: Mountain pass' })).toBeTruthy();
