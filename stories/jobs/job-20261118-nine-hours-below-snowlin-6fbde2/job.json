@@ -1,0 +1,70 @@
+{
+  "jobVersion": 1,
+  "id": "job-20261118-nine-hours-below-snowlin-6fbde2",
+  "storyId": "nine-hours-below-snowline",
+  "state": "planned",
+  "createdAt": "2026-11-18T22:36:36.582Z",
+  "updatedAt": "2026-11-18T22:36:36.582Z",
+  "artifacts": {
+    "request": {
+      "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/request.json",
+      "sha256": "24c0e0b48ecb9633a8ac31c5b278422fbb8f38d0ff932d7a0d3bf8333f94bb0d"
+    },
+    "brief": {
+      "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/brief.json",
+      "sha256": "884f10ca90e3922ad840762fc58c95f75641a4a2668fd0a72dff237e58a47741"
+    },
+    "continuity": {
+      "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/continuity.json",
+      "sha256": "96f1323d411472e1a8899e33d136bff5a8facc889a7f3e0180ca8be5841af575"
+    },
+    "outline": {
+      "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/outline.json",
+      "sha256": "19981c108f63f75010a529814772da82fc3b0b20c6d1ee786065b8a35547f1f9"
+    },
+    "weavePlan": {
+      "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/word-weave-plan.json",
+      "sha256": "2d28c9c194f2af1ec45fb73bc4af937302c9497dbe43321ee397e00d9af71771"
+    },
+    "generationPrompt": {
+      "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/generation-prompt.md",
+      "sha256": "229491c180ec5c316039fce1a4404f703e2020afadcb1508047a5917e5a65b86"
+    }
+  },
+  "revisions": [],
+  "reviews": [],
+  "parentDecisions": [],
+  "failures": [],
+  "history": [
+    {
+      "at": "2026-11-18T22:36:36.582Z",
+      "from": null,
+      "to": "requested",
+      "actor": {
+        "name": "Davis (project owner)",
+        "kind": "human"
+      },
+      "note": "Story request recorded"
+    },
+    {
+      "at": "2026-11-18T22:36:36.582Z",
+      "from": "requested",
+      "to": "briefed",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Request validated and normalized into a brief"
+    },
+    {
+      "at": "2026-11-18T22:36:36.582Z",
+      "from": "briefed",
+      "to": "planned",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Continuity assessed; outline, Word Weave Plan and generation prompt written"
+    }
+  ]
+}

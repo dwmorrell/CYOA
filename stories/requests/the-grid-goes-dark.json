@@ -1,0 +1,71 @@
+{
+  "genre": "Near-future light sci-fi mystery",
+  "theme": "Thinking through a problem with evidence instead of blame, and looking out for neighbors who need extra help",
+  "premise": "The Grid Goes Dark. When the town of Harlow Crossing loses power all at once during a heat wave, thirteen-year-old Nico Varga and his friend Essie Kwan have only a few hours before the hospital's backup batteries run out. Everyone blames a hacker, but the real cause is hiding in the grid's own wiring, and Nico has to find it before dark.",
+  "targetMinutes": 25,
+  "literacy": {
+    "profile": "structured-literacy",
+    "targetConcepts": [
+      "digraph-wh",
+      "glued-ng-nk"
+    ],
+    "maxSentenceWords": 18
+  },
+  "wordSettings": {
+    "sets": [
+      {
+        "label": "wh words",
+        "concept": "digraph-wh",
+        "words": [
+          "when",
+          "white",
+          "while",
+          "which",
+          "wheel",
+          "whirl",
+          "whistle",
+          "why"
+        ],
+        "minOccurrences": 10
+      },
+      {
+        "label": "ng/nk words",
+        "concept": "glued-ng-nk",
+        "words": [
+          "think",
+          "bring",
+          "bank",
+          "wrong",
+          "blink",
+          "thank",
+          "strong",
+          "drink",
+          "link",
+          "spring"
+        ],
+        "minOccurrences": 12
+      }
+    ]
+  },
+  "continuity": {
+    "characters": [
+      "Nico Varga, thirteen, fixes small appliances in his family's repair shop",
+      "Essie Kwan, Nico's best friend, who keeps a notebook of every clue",
+      "Reva Varga, Nico's older sister, who works at the town grid control room",
+      "Mr. Okafor, the town engineer trying to find the fault in time"
+    ],
+    "facts": [
+      "Harlow Crossing is an invented town whose power, water and streetlights run through one shared system called the Lumen Grid",
+      "The hospital's backup batteries will fail in about nine hours unless the main grid comes back on",
+      "Many neighbors suspect a hacker, but no evidence of an outside attack has turned up yet"
+    ],
+    "avoid": [
+      "violence, gore or anyone being badly hurt",
+      "real brands, companies, places or real people",
+      "sex, romance or suicide",
+      "any real religion, god or sacred rite",
+      "no patient is harmed on the page and no real power grid, city or hacking group is named; the danger is solved by careful checking, not a chase or a fight"
+    ]
+  },
+  "requestedBy": "Davis (project owner)"
+}

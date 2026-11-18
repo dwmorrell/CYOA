@@ -1,0 +1,84 @@
+{
+  "title": "Nine Hours Below Snowline",
+  "genre": "Wilderness survival thriller",
+  "theme": "Staying level-headed when a plan falls apart, sharing hard decisions fairly, and asking for help instead of going it alone",
+  "premise": "Nine Hours Below Snowline. On a wilderness-skills trip above the timberline, a sudden snow slide traps thirteen-year-old Vale Ortiz, two classmates and their guide below a new wall of snow, with the radio crushed and the temperature dropping fast. Vale has to help the group ration gear, treat a bad sprain, and decide whether to wait for rescue or move before dark.",
+  "targetMinutes": 25,
+  "passageTarget": {
+    "min": 20,
+    "max": 50
+  },
+  "endingTarget": 5,
+  "maxSentenceWords": 18,
+  "profile": "structured-literacy",
+  "targetConcepts": [
+    "floss",
+    "initial-blend"
+  ],
+  "reviewConcepts": [],
+  "wordSets": [
+    {
+      "id": "floss-words",
+      "label": "floss words",
+      "concept": "floss",
+      "words": [
+        "fall",
+        "chill",
+        "pass",
+        "cliff",
+        "mess",
+        "grass",
+        "spill",
+        "class",
+        "cross",
+        "small"
+      ],
+      "minOccurrences": 10
+    },
+    {
+      "id": "initial-blend-words",
+      "label": "initial-blend words",
+      "concept": "initial-blend",
+      "words": [
+        "trail",
+        "storm",
+        "frost",
+        "sled",
+        "crack",
+        "slope",
+        "bright",
+        "snow",
+        "climb",
+        "track",
+        "drift"
+      ],
+      "minOccurrences": 12
+    }
+  ],
+  "continuity": {
+    "characters": [
+      "Vale Ortiz, thirteen, careful and good at noticing small details",
+      "Priya Nandan, Vale's classmate, fast on her feet but quick to panic",
+      "Tomas Beck, Vale's classmate, strong and steady but stubborn",
+      "Mr. Dax Russo, the trip's wilderness guide, who twists his ankle in the slide"
+    ],
+    "facts": [
+      "The trip is a wilderness-skills elective run by Fernridge Middle School, not a real school",
+      "The group was hiking a marked ridge trail above a valley called Snowline Hollow when the slide cut them off from the main path",
+      "Their packs hold a stove, one tent, a first-aid kit and three days of food between four people"
+    ],
+    "avoid": [
+      "violence, gore or anyone being badly hurt",
+      "real brands, companies, places or real people",
+      "sex, romance or suicide",
+      "any real religion, god or sacred rite",
+      "no one dies, gets frostbite, or is left behind on the page; the danger is a problem the group solves together, not a fight or a tragedy"
+    ]
+  },
+  "requiredMechanics": [
+    "choices",
+    "clues",
+    "inventory",
+    "multiple-endings"
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "sets": [
+    {
+      "id": "floss-words",
+      "label": "floss words",
+      "minOccurrences": 10,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "fall",
+            "chill"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "chill",
+            "pass"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "pass",
+            "cliff"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "cliff",
+            "mess"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "mess",
+            "grass"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "grass",
+            "spill"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "spill",
+            "class"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "class",
+            "cross"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "cross",
+            "small"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "small",
+            "fall"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "fall",
+            "chill"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "initial-blend-words",
+      "label": "initial-blend words",
+      "minOccurrences": 12,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "trail",
+            "storm"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "storm",
+            "frost"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "frost",
+            "sled"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "sled",
+            "crack"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "crack",
+            "slope"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "slope",
+            "bright"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "bright",
+            "snow"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "snow",
+            "climb"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "climb",
+            "track"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "track",
+            "drift"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "drift",
+            "trail"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "Words must read naturally in context: no lists of target words and no forced rhymes.",
+    "Each set should appear on every route to an ending, not only on one branch.",
+    "Choice labels count as reading, so use set words there too when it fits."
+  ]
+}

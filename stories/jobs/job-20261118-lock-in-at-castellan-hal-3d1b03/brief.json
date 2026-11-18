@@ -1,0 +1,83 @@
+{
+  "title": "Lock-In at Castellan Hall",
+  "genre": "Mild adventure thriller",
+  "theme": "Dyslexia-friendly design choice, not a single phonics concept: the key vocabulary (character names and the recurring nouns and verbs the reader must track) strictly avoids the commonly-confused letter pairs b/d and p/q, and sentences stay short and built from a small, tightly controlled, highly repeated word list. Letters that mirror or rotate into each other (b/d, p/q) are the reversals dyslexic readers report most often, and a reader who is still unsure of those letters should not have to hold a main character's name or a repeated plot object in working memory while also decoding it. Ordinary short function words that are nearly impossible to avoid in English (and, had, said, down) still appear, but every noun or verb the story leans on again and again was chosen to have no b, d, p or q in it at all.",
+  "premise": "Lock-In at Castellan Hall. A storm traps Finn Oster, Suri Lane and Theo Voss inside the old Castellan Hall theater after a tour, and the one gate out has locked itself tight. Water is rising fast under the stage, so the three friends follow a trail of notes and small mechanisms left by the theater's late founder, Wren Castellan, to find the one other way out before the water reaches the stairs.",
+  "targetMinutes": 25,
+  "passageTarget": {
+    "min": 20,
+    "max": 50
+  },
+  "endingTarget": 5,
+  "maxSentenceWords": 13,
+  "profile": "structured-literacy",
+  "targetConcepts": [
+    "digraph-sh",
+    "closed-syllable"
+  ],
+  "reviewConcepts": [],
+  "wordSets": [
+    {
+      "id": "sh-words",
+      "label": "sh words",
+      "concept": "digraph-sh",
+      "words": [
+        "wish",
+        "shine",
+        "flash",
+        "crash",
+        "shelf",
+        "rush",
+        "hush",
+        "shut",
+        "shock"
+      ],
+      "minOccurrences": 10
+    },
+    {
+      "id": "closed-syllable-words",
+      "label": "closed-syllable words",
+      "concept": "closed-syllable",
+      "words": [
+        "lock",
+        "key",
+        "chest",
+        "stage",
+        "exit",
+        "gate",
+        "steps",
+        "clock",
+        "coin"
+      ],
+      "minOccurrences": 12
+    }
+  ],
+  "continuity": {
+    "characters": [
+      "Finn Oster, thirteen, notices small sounds and small details first",
+      "Suri Lane, Finn's friend, calm under pressure and good with locks and latches",
+      "Theo Voss, Finn's friend, strong and fast but quick to rush ahead",
+      "Wren Castellan, the theater's late founder, who left the trail of clues years ago and never appears in person"
+    ],
+    "facts": [
+      "Castellan Hall is an invented old community theater, not a real building",
+      "The storm has knocked out the phone line, and the one front gate locked itself when the power flickered",
+      "Wren Castellan built the theater full of small mechanical tricks: hidden levers, a false shelf, a trick step",
+      "Key recurring nouns and verbs in the story (names, the lock, the key, the chest, the stage, the steps, the gate, the clock, the coin, rush, shut, wish) contain no letter b, d, p or q; short, hard-to-avoid function words like and, had and said may still appear"
+    ],
+    "avoid": [
+      "violence, gore or anyone being badly hurt",
+      "real brands, companies, places or real people",
+      "sex, romance or suicide",
+      "any real religion, god or sacred rite",
+      "no one is trapped underwater or truly in danger of drowning; the risk is cold, wet, and losing time, solved by working the clues, not a fight",
+      "do not introduce a new recurring character name, object noun or action verb that contains the letter b, d, p or q; if one is unavoidable, keep it to a single one-off mention, never a repeated or tracked word"
+    ]
+  },
+  "requiredMechanics": [
+    "choices",
+    "clues",
+    "inventory",
+    "multiple-endings"
+  ]
+}

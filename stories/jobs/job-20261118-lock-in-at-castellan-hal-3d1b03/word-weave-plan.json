@@ -1,0 +1,179 @@
+{
+  "sets": [
+    {
+      "id": "sh-words",
+      "label": "sh words",
+      "minOccurrences": 10,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "wish",
+            "shine"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "shine",
+            "flash"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "flash",
+            "crash"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "crash",
+            "shelf"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "shelf",
+            "rush"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "rush",
+            "hush"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "hush",
+            "shut"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "shut",
+            "shock"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "shock",
+            "wish"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "wish",
+            "shine"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "shine",
+            "flash"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "closed-syllable-words",
+      "label": "closed-syllable words",
+      "minOccurrences": 12,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "lock",
+            "key"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "key",
+            "chest"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "chest",
+            "stage"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "stage",
+            "exit"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "exit",
+            "gate"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "gate",
+            "steps"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "steps",
+            "clock"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "clock",
+            "coin"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "coin",
+            "lock"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "lock",
+            "key"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "key",
+            "chest"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "Words must read naturally in context: no lists of target words and no forced rhymes.",
+    "Each set should appear on every route to an ending, not only on one branch.",
+    "Choice labels count as reading, so use set words there too when it fits."
+  ]
+}

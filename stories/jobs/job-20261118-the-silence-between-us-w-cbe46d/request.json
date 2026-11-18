@@ -1,0 +1,70 @@
+{
+  "genre": "Contemporary friendship drama",
+  "theme": "Owning a mistake instead of letting a rumor speak for you, and knowing the difference between winning and keeping a friend",
+  "premise": "The Silence Between Us. When Maya Lindqvist makes the regional debate team and her best friend Jordan Cole does not, a rumor spreads that Maya talked the coach out of picking Jordan. Maya knows the rumor is wrong, but staying quiet is easier than facing Jordan, and the longer she waits the more it costs their friendship before the final round.",
+  "targetMinutes": 25,
+  "literacy": {
+    "profile": "structured-literacy",
+    "targetConcepts": [
+      "silent-e",
+      "suffix-ed"
+    ],
+    "maxSentenceWords": 18
+  },
+  "wordSettings": {
+    "sets": [
+      {
+        "label": "silent-e words",
+        "concept": "silent-e",
+        "words": [
+          "name",
+          "hope",
+          "invite",
+          "decide",
+          "smile",
+          "promise",
+          "surprise",
+          "aside"
+        ],
+        "minOccurrences": 10
+      },
+      {
+        "label": "suffix -ed words",
+        "concept": "suffix-ed",
+        "words": [
+          "decided",
+          "invited",
+          "promised",
+          "smiled",
+          "noticed",
+          "shared",
+          "ignored",
+          "worried",
+          "replied"
+        ],
+        "minOccurrences": 12
+      }
+    ]
+  },
+  "continuity": {
+    "characters": [
+      "Maya Lindqvist, thirteen, careful with words but slow to use them when it matters most",
+      "Jordan Cole, Maya's best friend since third grade, proud and quick to feel shut out",
+      "Nadia Brooks, the teammate who actually started the rumor without meaning real harm",
+      "Coach Alvarez, the debate coach, who picked the team on argument skill alone"
+    ],
+    "facts": [
+      "Maya and Jordan go to Fernridge Middle School, an invented school",
+      "The regional debate final is in two weeks, and Jordan still helps Maya practice even while hurt",
+      "Nadia repeated something she half-heard outside the coach's office and did not check it first"
+    ],
+    "avoid": [
+      "violence, gore or anyone being badly hurt",
+      "real brands, companies, places or real people",
+      "sex, romance or suicide",
+      "any real religion, god or sacred rite",
+      "the conflict stays social, not physical; no bullying that turns into a fight, and no adult is cruel on the page"
+    ]
+  },
+  "requestedBy": "Davis (project owner)"
+}

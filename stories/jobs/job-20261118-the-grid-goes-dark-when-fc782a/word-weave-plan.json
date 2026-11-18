@@ -1,0 +1,179 @@
+{
+  "sets": [
+    {
+      "id": "wh-words",
+      "label": "wh words",
+      "minOccurrences": 10,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "when",
+            "white"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "white",
+            "while"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "while",
+            "which"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "which",
+            "wheel"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "wheel",
+            "whirl"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "whirl",
+            "whistle"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "whistle",
+            "why"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "why",
+            "when"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "when",
+            "white"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "white",
+            "while"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "while",
+            "which"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ng-nk-words",
+      "label": "ng/nk words",
+      "minOccurrences": 12,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "think",
+            "bring"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "bring",
+            "bank"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "bank",
+            "wrong"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "wrong",
+            "blink"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "blink",
+            "thank"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "thank",
+            "strong"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "strong",
+            "drink"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "drink",
+            "link"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "link",
+            "spring"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "spring",
+            "think"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "think",
+            "bring"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "Words must read naturally in context: no lists of target words and no forced rhymes.",
+    "Each set should appear on every route to an ending, not only on one branch.",
+    "Choice labels count as reading, so use set words there too when it fits."
+  ]
+}

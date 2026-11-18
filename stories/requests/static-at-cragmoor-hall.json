@@ -1,0 +1,69 @@
+{
+  "genre": "Boarding-school mystery",
+  "theme": "Looking for the real explanation before jumping to the scary one, and judging people by what they do rather than rumor",
+  "premise": "Static at Cragmoor Hall. New transfer student Rowan Finch hears a steady knocking in the old dorm wing at Cragmoor Hall every night at the same hour, and the other students swear the building is haunted. Rowan and roommate Dessa Okafor trace the sound through the walls, turning up a founder's hidden workshop and a secret that a current student has been guarding, not a ghost.",
+  "targetMinutes": 25,
+  "literacy": {
+    "profile": "structured-literacy",
+    "targetConcepts": [
+      "r-controlled",
+      "digraph-ck"
+    ],
+    "maxSentenceWords": 18
+  },
+  "wordSettings": {
+    "sets": [
+      {
+        "label": "r-controlled words",
+        "concept": "r-controlled",
+        "words": [
+          "dark",
+          "door",
+          "storm",
+          "corner",
+          "turn",
+          "further",
+          "carve",
+          "torch"
+        ],
+        "minOccurrences": 10
+      },
+      {
+        "label": "ck words",
+        "concept": "digraph-ck",
+        "words": [
+          "rock",
+          "lock",
+          "trick",
+          "clock",
+          "knock",
+          "crack",
+          "stack",
+          "pocket"
+        ],
+        "minOccurrences": 12
+      }
+    ]
+  },
+  "continuity": {
+    "characters": [
+      "Rowan Finch, thirteen, a new transfer who likes puzzles more than people",
+      "Dessa Okafor, Rowan's roommate, who has lived at the school for years",
+      "Theo Marsh, an older student who keeps to himself and knows more than he says",
+      "Mr. Pell, the groundskeeper who has worked at Cragmoor Hall longest"
+    ],
+    "facts": [
+      "Cragmoor Hall is an invented boarding school on a foggy mountain, built over a hundred years ago by a founder named Augusta Cragmoor",
+      "The knocking comes from the old dorm wing's wall, always at the same hour each night",
+      "The school keeps old maintenance tunnels that most students are not told about"
+    ],
+    "avoid": [
+      "violence, gore or anyone being badly hurt",
+      "real brands, companies, places or real people",
+      "sex, romance or suicide",
+      "any real religion, god, sacred rite, ghost or other supernatural being presented as real",
+      "the mystery resolves with a real, human, physical explanation; nothing in the story is ever confirmed to be a ghost or curse"
+    ]
+  },
+  "requestedBy": "Davis (project owner)"
+}

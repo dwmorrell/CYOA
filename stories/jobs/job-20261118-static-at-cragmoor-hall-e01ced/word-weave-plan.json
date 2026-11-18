@@ -1,0 +1,179 @@
+{
+  "sets": [
+    {
+      "id": "r-controlled-words",
+      "label": "r-controlled words",
+      "minOccurrences": 10,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "dark",
+            "door"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "door",
+            "storm"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "storm",
+            "corner"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "corner",
+            "turn"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "turn",
+            "further"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "further",
+            "carve"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "carve",
+            "torch"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "torch",
+            "dark"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "dark",
+            "door"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "door",
+            "storm"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "storm",
+            "corner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ck-words",
+      "label": "ck words",
+      "minOccurrences": 12,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "rock",
+            "lock"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "lock",
+            "trick"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "trick",
+            "clock"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "clock",
+            "knock"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "knock",
+            "crack"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "crack",
+            "stack"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "stack",
+            "pocket"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "pocket",
+            "rock"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "rock",
+            "lock"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "lock",
+            "trick"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "trick",
+            "clock"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "Words must read naturally in context: no lists of target words and no forced rhymes.",
+    "Each set should appear on every route to an ending, not only on one branch.",
+    "Choice labels count as reading, so use set words there too when it fits."
+  ]
+}
