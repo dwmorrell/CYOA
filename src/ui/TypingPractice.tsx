@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+import { conceptById } from '../literacy/taxonomy';
 import { accuracy, carProgress, formatLapTime, lapSeconds, lapTimeSeconds, netWpm, scoreFor, startLap, typeInto, type Lap, type ScoreEntry, type TypingList } from '../typing/engine';
+import { LESSONS, type TypingLesson } from '../typing/lessons';
 import { finishLine, startLine, TRACKS, trackPointAt, type Point, type Track } from '../typing/tracks';
 import { BackBar, Page } from './common';
 import { useApp } from './context';
@@ -102,24 +104,17 @@ function Target({ lap }: { lap: Lap }) {
 
 export function TypingPractice() {
   const { repo, child } = useApp();
-  const [lists, setLists] = useState<TypingList[] | null>(null);
-  const [listId, setListId] = useState('');
+  const [customLists, setCustomLists] = useState<TypingList[] | null>(null);
+  const [listId, setListId] = useState(LESSONS[0]!.id);
   const [trackId, setTrackId] = useState(TRACKS[0]!.id);
-  const [lap, setLap] = useState<Lap | null>(null);
+  const [lap, setLap] = useState<Lap | null>(startLap(LESSONS[0]!.words));
   const [laps, setLaps] = useState<Lap[]>([]);
   const [scores, setScores] = useState<ScoreEntry[]>([]);
   const [place, setPlace] = useState<number | null>(null);
 
   useEffect(() => {
     let live = true;
-    void repo.typingLists().then((all) => {
-      if (!live) return;
-      setLists(all);
-      if (all[0]) {
-        setListId(all[0].id);
-        setLap(startLap(all[0].words));
-      }
-    });
+    void repo.typingLists().then((all) => live && setCustomLists(all));
     return () => {
       live = false;
     };
@@ -136,10 +131,13 @@ export function TypingPractice() {
     };
   }, [repo, trackId]);
 
-  const current = lists?.find((l) => l.id === listId);
+  const lists: TypingList[] = [...LESSONS, ...(customLists ?? [])];
+  const current = lists.find((l) => l.id === listId);
   const track = TRACKS.find((t) => t.id === trackId) ?? TRACKS[0]!;
+  const lessonIndex = LESSONS.findIndex((l) => l.id === listId);
+  const nextLesson = lessonIndex >= 0 ? LESSONS[lessonIndex + 1] : undefined;
   const chooseList = (id: string) => {
-    const next = lists?.find((l) => l.id === id);
+    const next = lists.find((l) => l.id === id);
     if (!next) return;
     setListId(id);
     setLap(startLap(next.words));
@@ -176,29 +174,35 @@ export function TypingPractice() {
   const wpm = lap ? netWpm(lap) : 0;
   const finished = lap?.finishedAt !== undefined;
   const estimate = lap ? lapSeconds(lap.target, wpm) : undefined;
+  const currentConcept = (current as TypingLesson | undefined)?.concept ? conceptById.get((current as TypingLesson).concept!) : undefined;
 
   return (
     <Page title="Typing practice" nav={<BackBar />} className="library typing">
       <p>Type each word as it appears. Your speed and your accuracy drive the car down the road, from the start line to the checkered finish. Typing practice is separate from the story, and there is no time limit.</p>
-      {lists === null && <p role="status">Loading…</p>}
-      {lists?.length === 0 && (
-        <div className="empty">
-          <h2>No word lists yet</h2>
-          <p>A grown-up can add a word list in the grown-up area.</p>
-        </div>
-      )}
       {lap && current && (
         <>
           <div className="row">
             <label htmlFor="typing-list">Word list</label>
             <select id="typing-list" className="input" value={listId} onChange={(e) => chooseList(e.target.value)}>
-              {lists?.map((l) => (
-                <option key={l.id} value={l.id}>
-                  {l.name} ({l.words.length} {l.words.length === 1 ? 'word' : 'words'})
-                </option>
-              ))}
+              <optgroup label="Lessons">
+                {LESSONS.map((l) => (
+                  <option key={l.id} value={l.id}>
+                    {l.name} ({l.words.length} {l.words.length === 1 ? 'word' : 'words'})
+                  </option>
+                ))}
+              </optgroup>
+              {customLists && customLists.length > 0 && (
+                <optgroup label="My word lists">
+                  {customLists.map((l) => (
+                    <option key={l.id} value={l.id}>
+                      {l.name} ({l.words.length} {l.words.length === 1 ? 'word' : 'words'})
+                    </option>
+                  ))}
+                </optgroup>
+              )}
             </select>
           </div>
+          {currentConcept && <p className="muted">This lesson practises: {currentConcept.description}.</p>}
           <div className="row">
             <label htmlFor="typing-track">Road</label>
             <select id="typing-track" className="input" value={trackId} onChange={(e) => chooseTrack(e.target.value)}>
@@ -247,6 +251,11 @@ export function TypingPractice() {
               <button type="button" className="btn primary" onClick={goAgain}>
                 Go again
               </button>
+              {nextLesson && (
+                <button type="button" className="btn" onClick={() => chooseList(nextLesson.id)}>
+                  Next lesson: {nextLesson.name}
+                </button>
+              )}
             </section>
           )}
 

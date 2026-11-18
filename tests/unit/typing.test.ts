@@ -3,6 +3,8 @@ import {
   accuracy,
   addScore,
   MAX_SCORES,
+  MAX_WORD_LENGTH,
+  MAX_WORDS,
   scoreFor,
   carProgress,
   correctLength,
@@ -14,8 +16,11 @@ import {
   parseWordList,
   startLap,
   typeInto,
+  WORD_PATTERN,
   type Lap,
 } from '../../src/typing/engine';
+import { LESSONS } from '../../src/typing/lessons';
+import { conceptById } from '../../src/literacy/taxonomy';
 import { finishLine, startLine, TRACKS, trackPointAt } from '../../src/typing/tracks';
 
 const WORDS = ['cat', 'dog'];
@@ -228,5 +233,34 @@ describe('high scores per track', () => {
     expect(list).toHaveLength(MAX_SCORES);
     expect(list[0]!.wpm).toBe(MAX_SCORES + 3);
     expect(list.at(-1)!.wpm).toBe(4);
+  });
+});
+
+describe('built-in typing lessons', () => {
+  it('has a unique id for every lesson, ordered by teaching stage', () => {
+    const ids = LESSONS.map((l) => l.id);
+    expect(new Set(ids).size).toBe(ids.length);
+    const stages = LESSONS.map((l) => l.stage);
+    expect(stages).toEqual([...stages].sort((a, b) => a - b));
+  });
+
+  it('every lesson stays inside the word-list limits the engine enforces', () => {
+    for (const lesson of LESSONS) {
+      expect(lesson.words.length).toBeGreaterThan(0);
+      expect(lesson.words.length).toBeLessThanOrEqual(MAX_WORDS);
+      for (const word of lesson.words) {
+        expect(word).toMatch(WORD_PATTERN);
+        expect(word.length).toBeLessThanOrEqual(MAX_WORD_LENGTH);
+      }
+    }
+  });
+
+  it('every word in a concept lesson actually matches that concept’s spelling pattern', () => {
+    for (const lesson of LESSONS) {
+      if (!lesson.concept) continue;
+      const concept = conceptById.get(lesson.concept);
+      expect(concept, `lesson "${lesson.id}" references unknown concept "${lesson.concept}"`).toBeTruthy();
+      for (const word of lesson.words) expect(concept!.detect(word), `"${word}" in lesson "${lesson.id}" does not match ${lesson.concept}'s pattern`).toBe(true);
+    }
   });
 });
