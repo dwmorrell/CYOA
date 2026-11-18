@@ -1,0 +1,179 @@
+{
+  "sets": [
+    {
+      "id": "silent-e-words",
+      "label": "silent-e words",
+      "minOccurrences": 10,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "name",
+            "hope"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "hope",
+            "invite"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "invite",
+            "decide"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "decide",
+            "smile"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "smile",
+            "promise"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "promise",
+            "surprise"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "surprise",
+            "aside"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "aside",
+            "name"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "name",
+            "hope"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "hope",
+            "invite"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "invite",
+            "decide"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suffix-ed-words",
+      "label": "suffix -ed words",
+      "minOccurrences": 12,
+      "plannedOccurrences": 22,
+      "placements": [
+        {
+          "beat": "opening",
+          "words": [
+            "decided",
+            "invited"
+          ]
+        },
+        {
+          "beat": "path-a",
+          "words": [
+            "invited",
+            "promised"
+          ]
+        },
+        {
+          "beat": "path-b",
+          "words": [
+            "promised",
+            "smiled"
+          ]
+        },
+        {
+          "beat": "gathering",
+          "words": [
+            "smiled",
+            "noticed"
+          ]
+        },
+        {
+          "beat": "threshold",
+          "words": [
+            "noticed",
+            "shared"
+          ]
+        },
+        {
+          "beat": "climax",
+          "words": [
+            "shared",
+            "ignored"
+          ]
+        },
+        {
+          "beat": "ending-1",
+          "words": [
+            "ignored",
+            "worried"
+          ]
+        },
+        {
+          "beat": "ending-2",
+          "words": [
+            "worried",
+            "replied"
+          ]
+        },
+        {
+          "beat": "ending-3",
+          "words": [
+            "replied",
+            "decided"
+          ]
+        },
+        {
+          "beat": "ending-4",
+          "words": [
+            "decided",
+            "invited"
+          ]
+        },
+        {
+          "beat": "ending-5",
+          "words": [
+            "invited",
+            "promised"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "Words must read naturally in context: no lists of target words and no forced rhymes.",
+    "Each set should appear on every route to an ending, not only on one branch.",
+    "Choice labels count as reading, so use set words there too when it fits."
+  ]
+}

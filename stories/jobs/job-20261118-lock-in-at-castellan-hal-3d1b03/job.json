@@ -1,0 +1,70 @@
+{
+  "jobVersion": 1,
+  "id": "job-20261118-lock-in-at-castellan-hal-3d1b03",
+  "storyId": "lock-in-at-castellan-hall",
+  "state": "planned",
+  "createdAt": "2026-11-18T22:36:38.247Z",
+  "updatedAt": "2026-11-18T22:36:38.247Z",
+  "artifacts": {
+    "request": {
+      "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/request.json",
+      "sha256": "c8e0f000d3f1e8d39c3474f9363eda06aeb9d4249aec4a948f01ee809a21f9cb"
+    },
+    "brief": {
+      "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/brief.json",
+      "sha256": "e0b140361ecac48b88ef4fbc026561cfe45c8fc36bf84eb49e38f1b294b58dcd"
+    },
+    "continuity": {
+      "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/continuity.json",
+      "sha256": "96f1323d411472e1a8899e33d136bff5a8facc889a7f3e0180ca8be5841af575"
+    },
+    "outline": {
+      "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/outline.json",
+      "sha256": "c0f84cdd93613a2f62528115f22286fef551292ba26fc46bcfd3f00db538b4fa"
+    },
+    "weavePlan": {
+      "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/word-weave-plan.json",
+      "sha256": "6462236e97856ab6afcc359a6f74be908453b09f967e75ea6c861c587926da0e"
+    },
+    "generationPrompt": {
+      "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/generation-prompt.md",
+      "sha256": "c2d3bcd05c40cfdf6d7ffc4296cd8cd50b82c8ae1edee9c0def365675c0c5f16"
+    }
+  },
+  "revisions": [],
+  "reviews": [],
+  "parentDecisions": [],
+  "failures": [],
+  "history": [
+    {
+      "at": "2026-11-18T22:36:38.247Z",
+      "from": null,
+      "to": "requested",
+      "actor": {
+        "name": "Davis (project owner)",
+        "kind": "human"
+      },
+      "note": "Story request recorded"
+    },
+    {
+      "at": "2026-11-18T22:36:38.247Z",
+      "from": "requested",
+      "to": "briefed",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Request validated and normalized into a brief"
+    },
+    {
+      "at": "2026-11-18T22:36:38.247Z",
+      "from": "briefed",
+      "to": "planned",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Continuity assessed; outline, Word Weave Plan and generation prompt written"
+    }
+  ]
+}

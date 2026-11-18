@@ -1,0 +1,70 @@
+{
+  "jobVersion": 1,
+  "id": "job-20261118-the-silence-between-us-w-cbe46d",
+  "storyId": "the-silence-between-us",
+  "state": "planned",
+  "createdAt": "2026-11-18T22:36:37.861Z",
+  "updatedAt": "2026-11-18T22:36:37.861Z",
+  "artifacts": {
+    "request": {
+      "path": "stories/jobs/job-20261118-the-silence-between-us-w-cbe46d/request.json",
+      "sha256": "e98e5882d7ff016433496fe5017c021b9fe2c1c43eacf4b7a75929d79deb371a"
+    },
+    "brief": {
+      "path": "stories/jobs/job-20261118-the-silence-between-us-w-cbe46d/brief.json",
+      "sha256": "44074fe419d33fd9d9d03a6c26459cb6ea9c44fdf70f2a11ecfbb26a1cc3866f"
+    },
+    "continuity": {
+      "path": "stories/jobs/job-20261118-the-silence-between-us-w-cbe46d/continuity.json",
+      "sha256": "96f1323d411472e1a8899e33d136bff5a8facc889a7f3e0180ca8be5841af575"
+    },
+    "outline": {
+      "path": "stories/jobs/job-20261118-the-silence-between-us-w-cbe46d/outline.json",
+      "sha256": "d5e36a80b8d1a662442b83cd7ab407a20ebcf366d7a6cefcd638a16506440a3b"
+    },
+    "weavePlan": {
+      "path": "stories/jobs/job-20261118-the-silence-between-us-w-cbe46d/word-weave-plan.json",
+      "sha256": "1ba536e07f6fa59ed4513669b94114d3b3e4ffa9d13d492b75fba2e085bb4b61"
+    },
+    "generationPrompt": {
+      "path": "stories/jobs/job-20261118-the-silence-between-us-w-cbe46d/generation-prompt.md",
+      "sha256": "564009d3b94c8b016650160337c15449cccbfc345d523d7d0bdf85d9b8d3674b"
+    }
+  },
+  "revisions": [],
+  "reviews": [],
+  "parentDecisions": [],
+  "failures": [],
+  "history": [
+    {
+      "at": "2026-11-18T22:36:37.861Z",
+      "from": null,
+      "to": "requested",
+      "actor": {
+        "name": "Davis (project owner)",
+        "kind": "human"
+      },
+      "note": "Story request recorded"
+    },
+    {
+      "at": "2026-11-18T22:36:37.861Z",
+      "from": "requested",
+      "to": "briefed",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Request validated and normalized into a brief"
+    },
+    {
+      "at": "2026-11-18T22:36:37.861Z",
+      "from": "briefed",
+      "to": "planned",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Continuity assessed; outline, Word Weave Plan and generation prompt written"
+    }
+  ]
+}

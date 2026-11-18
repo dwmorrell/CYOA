@@ -1,0 +1,103 @@
+{
+  "briefTitle": "Lock-In at Castellan Hall",
+  "beats": [
+    {
+      "id": "opening",
+      "purpose": "Hook: introduce the hero, the place and the problem.",
+      "next": [
+        "path-a",
+        "path-b"
+      ]
+    },
+    {
+      "id": "path-a",
+      "purpose": "First branch. Find an item that matters later.",
+      "next": [
+        "gathering"
+      ],
+      "mechanic": "item"
+    },
+    {
+      "id": "path-b",
+      "purpose": "Second branch. Learn a clue.",
+      "next": [
+        "gathering"
+      ],
+      "mechanic": "clue"
+    },
+    {
+      "id": "gathering",
+      "purpose": "Paths meet. The hero may go back for what was missed.",
+      "next": [
+        "path-a",
+        "path-b",
+        "threshold"
+      ]
+    },
+    {
+      "id": "threshold",
+      "purpose": "A choice that is locked without the item or clue, with a hint, plus an open alternative.",
+      "next": [
+        "climax",
+        "ending-5"
+      ],
+      "mechanic": "locked-choice"
+    },
+    {
+      "id": "climax",
+      "purpose": "The big moment. Choices lead to different endings.",
+      "next": [
+        "ending-1",
+        "ending-2",
+        "ending-3",
+        "ending-4"
+      ]
+    },
+    {
+      "id": "ending-1",
+      "purpose": "Best ending: earned with clue and item.",
+      "next": [],
+      "mechanic": "ending"
+    },
+    {
+      "id": "ending-2",
+      "purpose": "Different, satisfying ending.",
+      "next": [],
+      "mechanic": "ending"
+    },
+    {
+      "id": "ending-3",
+      "purpose": "Different, satisfying ending.",
+      "next": [],
+      "mechanic": "ending"
+    },
+    {
+      "id": "ending-4",
+      "purpose": "Different, satisfying ending.",
+      "next": [],
+      "mechanic": "ending"
+    },
+    {
+      "id": "ending-5",
+      "purpose": "Gentle setback ending that invites another try.",
+      "next": [],
+      "mechanic": "ending"
+    }
+  ],
+  "endings": 5,
+  "notes": [
+    "Aim for 20-50 passages and 5 endings.",
+    "Keep sentences at or under 13 words.",
+    "Every ending must be reachable; no passage may trap the reader.",
+    "Continuity fact: Castellan Hall is an invented old community theater, not a real building",
+    "Continuity fact: The storm has knocked out the phone line, and the one front gate locked itself when the power flickered",
+    "Continuity fact: Wren Castellan built the theater full of small mechanical tricks: hidden levers, a false shelf, a trick step",
+    "Continuity fact: Key recurring nouns and verbs in the story (names, the lock, the key, the chest, the stage, the steps, the gate, the clock, the coin, rush, shut, wish) contain no letter b, d, p or q; short, hard-to-avoid function words like and, had and said may still appear",
+    "Avoid: violence, gore or anyone being badly hurt",
+    "Avoid: real brands, companies, places or real people",
+    "Avoid: sex, romance or suicide",
+    "Avoid: any real religion, god or sacred rite",
+    "Avoid: no one is trapped underwater or truly in danger of drowning; the risk is cold, wet, and losing time, solved by working the clues, not a fight",
+    "Avoid: do not introduce a new recurring character name, object noun or action verb that contains the letter b, d, p or q; if one is unavoidable, keep it to a single one-off mention, never a repeated or tracked word"
+  ]
+}

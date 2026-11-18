@@ -1,0 +1,70 @@
+{
+  "jobVersion": 1,
+  "id": "job-20261118-the-grid-goes-dark-when-fc782a",
+  "storyId": "the-grid-goes-dark",
+  "state": "planned",
+  "createdAt": "2026-11-18T22:36:37.014Z",
+  "updatedAt": "2026-11-18T22:36:37.014Z",
+  "artifacts": {
+    "request": {
+      "path": "stories/jobs/job-20261118-the-grid-goes-dark-when-fc782a/request.json",
+      "sha256": "10748e6ce5c604df3159b9f9dea6b9124d928c12ad1f4183161de93016710b08"
+    },
+    "brief": {
+      "path": "stories/jobs/job-20261118-the-grid-goes-dark-when-fc782a/brief.json",
+      "sha256": "eec43f8d5b315ac1c2c5474e29ebc0aaa726f029ae5fd89beeb5ce28a0df09e7"
+    },
+    "continuity": {
+      "path": "stories/jobs/job-20261118-the-grid-goes-dark-when-fc782a/continuity.json",
+      "sha256": "96f1323d411472e1a8899e33d136bff5a8facc889a7f3e0180ca8be5841af575"
+    },
+    "outline": {
+      "path": "stories/jobs/job-20261118-the-grid-goes-dark-when-fc782a/outline.json",
+      "sha256": "7cbdb731004af647fc07594ed1625c63f80eda9440cfc825ed224ca77c8eb458"
+    },
+    "weavePlan": {
+      "path": "stories/jobs/job-20261118-the-grid-goes-dark-when-fc782a/word-weave-plan.json",
+      "sha256": "3f4395847886e584270eb0a865004e1fa26a9c372291b1ae1784e9edd359520f"
+    },
+    "generationPrompt": {
+      "path": "stories/jobs/job-20261118-the-grid-goes-dark-when-fc782a/generation-prompt.md",
+      "sha256": "a67902ff204bc0cb79d7e71434b3ce2efa7d875f099999d0c5ec7bb6bb47ba5a"
+    }
+  },
+  "revisions": [],
+  "reviews": [],
+  "parentDecisions": [],
+  "failures": [],
+  "history": [
+    {
+      "at": "2026-11-18T22:36:37.014Z",
+      "from": null,
+      "to": "requested",
+      "actor": {
+        "name": "Davis (project owner)",
+        "kind": "human"
+      },
+      "note": "Story request recorded"
+    },
+    {
+      "at": "2026-11-18T22:36:37.014Z",
+      "from": "requested",
+      "to": "briefed",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Request validated and normalized into a brief"
+    },
+    {
+      "at": "2026-11-18T22:36:37.014Z",
+      "from": "briefed",
+      "to": "planned",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "Continuity assessed; outline, Word Weave Plan and generation prompt written"
+    }
+  ]
+}
