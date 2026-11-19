@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T08:05:10.373Z",
+  "generatedAt": "2026-11-19T08:06:28.114Z",
   "order": [
     "WI-01",
     "WI-02",
@@ -232,6 +232,166 @@
           "id": "story-literacy-claim",
           "ok": true,
           "detail": "Story literacy review is \"pending\""
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ]
+    },
+    {
+      "id": "job-20261118-lock-in-at-castellan-hal-3d1b03",
+      "state": "planned",
+      "revisions": 0,
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": false,
+          "detail": "No draft submitted"
+        },
+        {
+          "id": "automated-validation",
+          "ok": false,
+          "detail": "not run"
+        },
+        {
+          "id": "review:qa",
+          "ok": false,
+          "detail": "No qa review on revision -"
+        },
+        {
+          "id": "review:literacy",
+          "ok": false,
+          "detail": "No literacy review on revision -"
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ]
+    },
+    {
+      "id": "job-20261118-nine-hours-below-snowlin-6fbde2",
+      "state": "planned",
+      "revisions": 0,
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": false,
+          "detail": "No draft submitted"
+        },
+        {
+          "id": "automated-validation",
+          "ok": false,
+          "detail": "not run"
+        },
+        {
+          "id": "review:qa",
+          "ok": false,
+          "detail": "No qa review on revision -"
+        },
+        {
+          "id": "review:literacy",
+          "ok": false,
+          "detail": "No literacy review on revision -"
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ]
+    },
+    {
+      "id": "job-20261118-static-at-cragmoor-hall-e01ced",
+      "state": "planned",
+      "revisions": 0,
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": false,
+          "detail": "No draft submitted"
+        },
+        {
+          "id": "automated-validation",
+          "ok": false,
+          "detail": "not run"
+        },
+        {
+          "id": "review:qa",
+          "ok": false,
+          "detail": "No qa review on revision -"
+        },
+        {
+          "id": "review:literacy",
+          "ok": false,
+          "detail": "No literacy review on revision -"
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ]
+    },
+    {
+      "id": "job-20261118-the-grid-goes-dark-when-fc782a",
+      "state": "planned",
+      "revisions": 0,
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": false,
+          "detail": "No draft submitted"
+        },
+        {
+          "id": "automated-validation",
+          "ok": false,
+          "detail": "not run"
+        },
+        {
+          "id": "review:qa",
+          "ok": false,
+          "detail": "No qa review on revision -"
+        },
+        {
+          "id": "review:literacy",
+          "ok": false,
+          "detail": "No literacy review on revision -"
+        },
+        {
+          "id": "parent-approval",
+          "ok": false,
+          "detail": "Waiting for a parent decision"
+        }
+      ]
+    },
+    {
+      "id": "job-20261118-the-silence-between-us-w-cbe46d",
+      "state": "planned",
+      "revisions": 0,
+      "gates": [
+        {
+          "id": "draft-exists",
+          "ok": false,
+          "detail": "No draft submitted"
+        },
+        {
+          "id": "automated-validation",
+          "ok": false,
+          "detail": "not run"
+        },
+        {
+          "id": "review:qa",
+          "ok": false,
+          "detail": "No qa review on revision -"
+        },
+        {
+          "id": "review:literacy",
+          "ok": false,
+          "detail": "No literacy review on revision -"
         },
         {
           "id": "parent-approval",

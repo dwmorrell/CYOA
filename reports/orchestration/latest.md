@@ -1,6 +1,6 @@
 # Orchestration report
 
-Generated 2026-11-18T08:05:10.372Z by `npm run orchestrate`.
+Generated 2026-11-19T08:06:28.113Z by `npm run orchestrate`.
 
 ## Software work items (dependency order)
 
@@ -68,6 +68,36 @@ Generated 2026-11-18T08:05:10.372Z by `npm run orchestrate`.
   - pass: review:qa, qa passed by qa-engineer (ai-agent)
   - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
   - pass: story-literacy-claim, Story literacy review is "pending"
+  - waiting: parent-approval, Waiting for a parent decision
+- job-20261118-lock-in-at-castellan-hal-3d1b03: **planned**, 0 revision(s)
+  - waiting: draft-exists, No draft submitted
+  - waiting: automated-validation, not run
+  - waiting: review:qa, No qa review on revision -
+  - waiting: review:literacy, No literacy review on revision -
+  - waiting: parent-approval, Waiting for a parent decision
+- job-20261118-nine-hours-below-snowlin-6fbde2: **planned**, 0 revision(s)
+  - waiting: draft-exists, No draft submitted
+  - waiting: automated-validation, not run
+  - waiting: review:qa, No qa review on revision -
+  - waiting: review:literacy, No literacy review on revision -
+  - waiting: parent-approval, Waiting for a parent decision
+- job-20261118-static-at-cragmoor-hall-e01ced: **planned**, 0 revision(s)
+  - waiting: draft-exists, No draft submitted
+  - waiting: automated-validation, not run
+  - waiting: review:qa, No qa review on revision -
+  - waiting: review:literacy, No literacy review on revision -
+  - waiting: parent-approval, Waiting for a parent decision
+- job-20261118-the-grid-goes-dark-when-fc782a: **planned**, 0 revision(s)
+  - waiting: draft-exists, No draft submitted
+  - waiting: automated-validation, not run
+  - waiting: review:qa, No qa review on revision -
+  - waiting: review:literacy, No literacy review on revision -
+  - waiting: parent-approval, Waiting for a parent decision
+- job-20261118-the-silence-between-us-w-cbe46d: **planned**, 0 revision(s)
+  - waiting: draft-exists, No draft submitted
+  - waiting: automated-validation, not run
+  - waiting: review:qa, No qa review on revision -
+  - waiting: review:literacy, No literacy review on revision -
   - waiting: parent-approval, Waiting for a parent decision
 
 ## Problems found
