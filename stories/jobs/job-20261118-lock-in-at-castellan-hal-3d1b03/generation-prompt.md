@@ -125,16 +125,23 @@ and submit again. Do not edit files in `drafts/` or `reports/` by hand.
       "concept": "closed-syllable",
       "words": [
         "lock",
-        "key",
         "chest",
+        "steps",
+        "clock"
+      ],
+      "minOccurrences": 30
+    },
+    {
+      "id": "castle-key-words",
+      "label": "key story words",
+      "words": [
+        "key",
         "stage",
         "exit",
         "gate",
-        "steps",
-        "clock",
         "coin"
       ],
-      "minOccurrences": 12
+      "minOccurrences": 40
     }
   ],
   "continuity": {
