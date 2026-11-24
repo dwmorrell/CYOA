@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "lock-in-at-castellan-hall",
   "title": "Lock-In at Castellan Hall",
-  "version": 4,
+  "version": 5,
   "metadata": {
     "genre": "Mild adventure thriller",
     "theme": "Dyslexia-friendly design choice, not a single phonics concept: the key vocabulary (character names and the recurring nouns and verbs the reader must track) strictly avoids the commonly-confused letter pairs b/d and p/q, and sentences stay short and built from a small, tightly controlled, highly repeated word list. Letters that mirror or rotate into each other (b/d, p/q) are the reversals dyslexic readers report most often, and a reader who is still unsure of those letters should not have to hold a main character's name or a repeated plot object in working memory while also decoding it. Ordinary short function words that are nearly impossible to avoid in English (and, had, said, down) still appear, but every noun or verb the story leans on again and again was chosen to have no b, d, p or q in it at all.",
@@ -361,12 +361,12 @@
     {
       "id": "ending-5",
       "paragraphs": [
-        "Without the key and the note, the lock would not give way.",
+        "Trying it alone, the lock would not give way.",
         "Theo gave the gate a few hard tugs. It still held shut.",
         "They sat on the steps and waited. The water rose a little, but stayed well below them.",
         "At last the storm let up. The lock let go on its own, with a soft click.",
         "The gate swung wide and the three went out into calm, clean air.",
-        "They never did find Wren Castellan's secret way out. Next time, they would look for the note and the key first."
+        "They never did open Wren Castellan's secret way out. Next time, they would try the key and the note together."
       ],
       "choices": [],
       "ending": { "id": "ending-5", "kind": "setback", "title": "Wait Out the Storm" }

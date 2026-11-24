@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "sets": [
+    {
+      "id": "sh-words",
+      "planned": 22,
+      "minimum": 10,
+      "actual": 40,
+      "ok": true
+    },
+    {
+      "id": "closed-syllable-words",
+      "planned": 22,
+      "minimum": 12,
+      "actual": 42,
+      "ok": true
+    }
+  ]
+}

@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261118-lock-in-at-castellan-hal-3d1b03",
   "storyId": "lock-in-at-castellan-hall",
-  "state": "changes-requested",
+  "state": "in-review",
   "createdAt": "2026-11-18T22:36:38.247Z",
-  "updatedAt": "2026-11-24T19:43:03.289Z",
+  "updatedAt": "2026-11-24T19:44:55.881Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/request.json",
@@ -171,6 +171,41 @@
         ]
       },
       "revision": 4
+    },
+    {
+      "storyVersion": 5,
+      "draft": {
+        "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/drafts/story.r5.json",
+        "sha256": "cac3a849a4b3c6b51f4bb59c4b7e28d72ffd612da7526578c9de1aed1f71ac66"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-11-24T19:44:55.881Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/validation.r5.json",
+          "sha256": "af882c30ebfa516a9b1d570796b9b49cce0f2d7b81a41e419f9adf17969afd73"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/literacy.r5.json",
+          "sha256": "e206d39405f7e91ca89708b39cf4334f7ef38111736c84057a5e6ad54702bcee"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/graph.r5.json",
+          "sha256": "f8dc85d80e1eaac8ec7762470c657a8c34f9d55e8635b47601bc4c4847beab19"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 5
     }
   ],
   "reviews": [
@@ -351,7 +386,8 @@
         }
       ],
       "id": "review-3-qa",
-      "submittedAt": "2026-11-24T19:42:57.160Z"
+      "submittedAt": "2026-11-24T19:42:57.160Z",
+      "invalidatedBy": 5
     },
     {
       "role": "literacy",
@@ -422,7 +458,8 @@
         }
       ],
       "id": "review-4-literacy",
-      "submittedAt": "2026-11-24T19:43:03.289Z"
+      "submittedAt": "2026-11-24T19:43:03.289Z",
+      "invalidatedBy": 5
     }
   ],
   "parentDecisions": [],
@@ -457,6 +494,17 @@
         "agent": "narrative-designer"
       },
       "recovered": "revision 4 validated"
+    },
+    {
+      "stage": "draft",
+      "error": "Story version 4 must be higher than 4",
+      "at": "2026-11-24T19:44:48.970Z",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "recovered": "revision 5 validated"
     }
   ],
   "history": [
@@ -553,6 +601,17 @@
         "kind": "automation"
       },
       "note": "A reviewer requested changes"
+    },
+    {
+      "at": "2026-11-24T19:44:55.881Z",
+      "from": "changes-requested",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 5 (story v5) passed automated validation"
     }
   ]
 }
