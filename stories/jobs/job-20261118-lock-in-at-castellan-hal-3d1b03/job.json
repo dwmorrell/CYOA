@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261118-lock-in-at-castellan-hal-3d1b03",
   "storyId": "lock-in-at-castellan-hall",
-  "state": "changes-requested",
+  "state": "in-review",
   "createdAt": "2026-11-18T22:36:38.247Z",
-  "updatedAt": "2026-11-24T19:29:00.294Z",
+  "updatedAt": "2026-11-24T19:34:38.061Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/request.json",
@@ -101,6 +101,41 @@
         ]
       },
       "revision": 2
+    },
+    {
+      "storyVersion": 3,
+      "draft": {
+        "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/drafts/story.r3.json",
+        "sha256": "7319f4dcd682568011ddc9ffa192c4c2cebf3619fae444daecc2e731e393b75a"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-11-24T19:34:38.061Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/validation.r3.json",
+          "sha256": "40983940e1e162914655644ec4ecb2f12c2c4cbac4a3000136f2607d93fe75f2"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/literacy.r3.json",
+          "sha256": "aceed4fc3dcad6edbeab71b73a37d03bb118d09f85dfb8dd7f9d72cbfcbc9b01"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/graph.r3.json",
+          "sha256": "ef12036f3105a0e91c32d7efad385154f4124f3d39f8436e8ce091398bcd1680"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 3
     }
   ],
   "reviews": [
@@ -155,7 +190,80 @@
         }
       ],
       "id": "review-1-qa",
-      "submittedAt": "2026-11-24T19:29:00.294Z"
+      "submittedAt": "2026-11-24T19:29:00.294Z",
+      "invalidatedBy": 3
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 2,
+      "draftSha256": "0d90441a59c490fdc5aeff2531d07aa3e30c1de55288d6a8da607b7daa202975",
+      "verdict": "changes-requested",
+      "findings": [
+        {
+          "severity": "major",
+          "message": "drafts/story.r2.json literacy.wordSets[1] (\"closed-syllable-words\") is missing the \"concept\" field that brief.json and word-weave-plan.json both carry for this set (concept: \"closed-syllable\"). Because src/literacy/analyzer.ts only runs the per-word spelling-pattern check when a word set names a concept (conceptMismatches: concept ? set.words.filter(w => !concept.detect(w)) : []), the whole-set mismatch check never ran for this set and silently reported conceptMismatches: [] in reports/literacy.r2.json/.md and automatedChecks 'word-set-concepts-match-spelling'. This let a real defect through: re-running the actual closed-syllable detector from src/literacy/taxonomy.ts against this exact word list gives key=false, stage=false, exit=false, gate=false, coin=false (only lock, chest, steps, clock match). Five of the nine target words for the declared 'closed-syllable' concept do not carry a closed-syllable spelling pattern at all: 'key' is a long-vowel vowel-team/y-as-vowel word (not closed), 'gate' and 'stage' are silent-e / vowel-consonant-e syllables (confirmed independently -- both appear as examples under the report's own 'silent-e' concept match list), 'coin' is an oi vowel-team/diphthong word, and 'exit' is two syllables (ex-it) so it falls outside this single-syllable detector and is a materially harder decoding task than the one-vowel closed-syllable words it is grouped with. A dyslexic reader drilling this labelled set (e.g. in path-a-find: 'The key had a faint shine in the torch light.'; the-gate: 'the old lock sat shut tight'; climax-clock: 'the hands moved to the hour') would be told these words share one decoding pattern when they do not. This is the acceptance-gate condition for changes-requested ('a word-set word does not carry the declared pattern'). Fix requires either (a) restoring the concept field so the gate re-runs and fails loudly, and (b) the narrative-designer/product-architect choosing a word-weave-plan word list for the closed-syllable set that is phonetically consistent (true single-syllable closed-syllable words such as lock, chest, steps, clock, plus replacements for key/gate/stage/coin/exit), since swapping words also changes which other taxonomy concept those replaced words would need to serve instead.",
+          "passage": "drafts/story.r2.json#literacy.wordSets[1]"
+        },
+        {
+          "severity": "major",
+          "message": "The brief's own dyslexia-specific design goal (continuity.facts: 'the lock, the key, the chest, the stage, the steps, the gate, the clock, the coin, rush, shut, wish ... contain no letter b, d, p or q') is false for 'steps'/'step' as written: s-t-e-p-s contains a 'p'. The word appears 16 times across both singular and plural forms on passages that sit on the route to every ending (e.g. path-b-find: '\"The steps will show the way out.\"'; climax-clock: 'showing steps down and out'; ending-1: 'went down the secret steps'; ending-5 implicitly via 'sat on the steps'), so this is not a one-off slip but the story's central tracked escape-route object, repeated on every route, carrying exactly the kind of letter a dyslexic reader is asked never to have to hold in memory while decoding a plot-critical word. I confirm qa-engineer's review-1-qa finding on this point (plus their 'second'/'a second gate' catch) from the literacy side: this is a brief-level contradiction, not something the narrative-designer could have avoided while still meeting the word-weave-plan's requirement to use 'steps' as a closed-syllable-words target word. Escalate to product-architect/continuity to resolve the brief (either drop the b/d/p/q claim for 'steps' and acknowledge it as an accepted, deliberate single exception, or replace 'steps' in both the continuity facts and the closed-syllable word set with a genuinely p/b/d/q-free closed-syllable word and rebalance occurrence counts).",
+          "passage": "path-b-find"
+        },
+        {
+          "severity": "minor",
+          "message": "path-a-shelf introduces 'rod' ('A thin rod sat inside, set at an angle.' / 'Tug the thin rod slowly') as a new object noun containing 'd'. It is not tracked as an item and is confined to one optional branch, so it is low-impact, but it is mentioned twice rather than the single one-off mention the brief's avoid-list asks for when a new b/d/p/q word is unavoidable.",
+          "passage": "path-a-shelf"
+        },
+        {
+          "severity": "minor",
+          "message": "reports/literacy.r2.json's automated 'sentence-length' check uses a fixed 20-word threshold, not the brief's maxSentenceWords: 13. I hand-counted every sentence in drafts/story.r2.json and found none over 13 words (longest is the 13-word 'Theo ran to the gate, the main exit, and gave it a tug.' in the opening passage), so there is no current violation, but the automated check as configured would not catch a future 14-20 word sentence against this brief's tighter limit. Flagging only as a detection-limit note, consistent with qa-engineer's separate tokenizer-artifact note on reports/validation.r2.json.",
+          "passage": "opening"
+        },
+        {
+          "severity": "note",
+          "message": "Skills practised: read start to finish on any route, this story gives practice in decoding short-vowel closed-syllable words and the sh digraph in natural sentence context (lock, chest, steps, clock, shelf, flash, crash, rush, hush, shut all recur across the opening, both search branches, the gathering, the gate, the climax and all five endings); recognising and re-encountering the same small set of plot-critical words repeatedly builds sight-word fluency for exactly those words. The branching clue-and-inventory structure (finding the key, finding Wren's note, choosing whether to set the clock or turn the key first) gives practice in sequencing a short set of ordered steps and in inference (working out that the key and the note are meant to be used together, and what happens if a step is skipped or done out of order). The short glossary entries (theater, curious, furious, founder, castellan) with syllable breakdowns support vocabulary growth from context rather than requiring the reader to stop and look words up elsewhere.",
+          "passage": "whole-story"
+        },
+        {
+          "severity": "note",
+          "message": "Limits of automated detection: reports/literacy.r2.json and reports/literacy.r2.md both state their method plainly -- deterministic token counts plus ORTHOGRAPHIC (spelling-pattern) detectors, not phonological ones. A detector match means a word's letters fit a regex, not that a human has confirmed the sound a reader would actually produce ('ea' matches both 'bread' and 'bead'). This revision is a clear illustration of why that distinction matters in practice: the automated 'word-set-concepts-match-spelling' check reported no mismatches for the closed-syllable-words set only because a required 'concept' field was missing from the draft (see the first major finding above), and even the real detector only checks spelling -- it took a human judgement call to confirm that 'key', 'gate', 'stage', 'coin' and 'exit' do not actually sound like the closed-syllable words they are grouped with. Minimum-occurrence counts, every-word-used and per-route coverage, by contrast, are reliable deterministic counts; I independently spot-checked those against the draft text and they are not in question. I am an AI-assisted reviewer, not a certified literacy professional; a qualified human should confirm the phonological judgements in this review before publication.",
+          "passage": "whole-story"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/drafts/story.r2.json",
+          "sha256": "0d90441a59c490fdc5aeff2531d07aa3e30c1de55288d6a8da607b7daa202975"
+        },
+        {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/literacy.r2.json",
+          "sha256": "78d0abc2bca37659bbf98d86423e37d9e306b87b997a5e4625d635751fa5785d"
+        },
+        {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/literacy.r2.md",
+          "sha256": "a95e51c0bb1e8b15590e618245d94aea50e18b16af2ca5babac245545808dec7"
+        },
+        {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/weave-comparison.r2.json",
+          "sha256": "58117afbff47b98466eb407ea2667bce4ef01fa098423c70ca33e10da83c78b0"
+        },
+        {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/brief.json",
+          "sha256": "e0b140361ecac48b88ef4fbc026561cfe45c8fc36bf84eb49e38f1b294b58dcd"
+        },
+        {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/word-weave-plan.json",
+          "sha256": "6462236e97856ab6afcc359a6f74be908453b09f967e75ea6c861c587926da0e"
+        }
+      ],
+      "id": "review-2-literacy",
+      "submittedAt": "2026-11-24T19:31:39.265Z",
+      "invalidatedBy": 3
     }
   ],
   "parentDecisions": [],
@@ -168,6 +276,17 @@
         "name": "story-cli",
         "kind": "automation"
       }
+    },
+    {
+      "stage": "draft",
+      "error": "Story version 2 must be higher than 2",
+      "at": "2026-11-24T19:34:31.936Z",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "recovered": "revision 3 validated"
     }
   ],
   "history": [
@@ -232,6 +351,17 @@
         "kind": "automation"
       },
       "note": "A reviewer requested changes"
+    },
+    {
+      "at": "2026-11-24T19:34:38.061Z",
+      "from": "changes-requested",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 3 (story v3) passed automated validation"
     }
   ]
 }

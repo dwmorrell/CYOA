@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "lock-in-at-castellan-hall",
   "title": "Lock-In at Castellan Hall",
-  "version": 2,
+  "version": 3,
   "metadata": {
     "genre": "Mild adventure thriller",
     "theme": "Dyslexia-friendly design choice, not a single phonics concept: the key vocabulary (character names and the recurring nouns and verbs the reader must track) strictly avoids the commonly-confused letter pairs b/d and p/q, and sentences stay short and built from a small, tightly controlled, highly repeated word list. Letters that mirror or rotate into each other (b/d, p/q) are the reversals dyslexic readers report most often, and a reader who is still unsure of those letters should not have to hold a main character's name or a repeated plot object in working memory while also decoding it. Ordinary short function words that are nearly impossible to avoid in English (and, had, said, down) still appear, but every noun or verb the story leans on again and again was chosen to have no b, d, p or q in it at all.",
@@ -39,6 +39,11 @@
       "id": "rusty-key",
       "name": "Rusty Key",
       "description": "A small, rusty key that Finn, Suri, and Theo got from the old stage chest."
+    },
+    {
+      "id": "worn-coin",
+      "name": "Worn Coin",
+      "description": "A small, worn coin that Finn, Suri, and Theo found next to the key in the old stage chest."
     }
   ],
   "clues": [
@@ -128,9 +133,9 @@
       "paragraphs": [
         "The three of them looked inside the old chest. Inside sat an old rusty key and a worn coin.",
         "The key had a faint shine in the torch light.",
-        "Finn said, 'This must unlock something.' Suri put the key in her coat."
+        "Finn said, 'This must unlock something.' Suri put the key in her coat. Theo took the coin."
       ],
-      "effects": { "addItems": ["rusty-key"], "setFlags": ["has-item"] },
+      "effects": { "addItems": ["rusty-key", "worn-coin"], "setFlags": ["has-item"] },
       "learningTargets": ["inference"],
       "choices": [
         { "id": "keep-key-a", "label": "Take the key and go join the others", "target": "gathering" },
@@ -213,10 +218,10 @@
     {
       "id": "detour-item",
       "paragraphs": [
-        "They returned to the stage and looked in the old chest. It held a rusty key and a worn coin.",
-        "Finn held the key up. It had a faint shine in the torch light."
+        "They returned to the stage and looked in the old chest again. It still held a rusty key and a worn coin.",
+        "Finn held the key up. It had a faint shine in the torch light. Theo tucked the coin in his hand."
       ],
-      "effects": { "addItems": ["rusty-key"], "setFlags": ["has-item"] },
+      "effects": { "addItems": ["rusty-key", "worn-coin"], "setFlags": ["has-item"] },
       "choices": [
         { "id": "with-key-a", "label": "Take the key and go to the gate", "target": "the-gate" },
         { "id": "with-key-b", "label": "Take the key and give it a careful look", "target": "the-gate" }
@@ -225,7 +230,7 @@
     {
       "id": "detour-clue",
       "paragraphs": [
-        "They returned to the front hall shelf and got the note, shut tight.",
+        "They went back to the shelf and got the note, shut tight.",
         "It said: 'Set the clock. Then turn the key. The steps will show the way out.'"
       ],
       "effects": { "addClues": ["wren-note"], "setFlags": ["has-clue"] },
@@ -303,7 +308,7 @@
       "id": "ending-1",
       "paragraphs": [
         "The three friends went down the secret steps. Cool, dry air met them at the bottom.",
-        "The steps led out to a second gate, far from the water. It swung wide with one soft shove.",
+        "The steps led out to another gate, far from the water. It swung wide with one soft shove.",
         "Outside, the storm had slowed to a hush. They stood in the rain, safe and glad.",
         "The rusty key stayed with Finn, to remember the day. Suri still had Wren Castellan's note, safe in her coat.",
         "They had used the clock and the key. The note had helped too, just as Wren meant."
@@ -316,10 +321,11 @@
       "paragraphs": [
         "Theo rushed down the new steps before the others and lost his footing.",
         "The old coin fell from his hand and was gone.",
-        "Finn and Suri helped him up again. They got to the second gate and gave it a shove.",
+        "Finn and Suri helped him up again. They got to the other gate and gave it a shove.",
         "It swung wide into the rain. They were safe, but the coin was lost.",
         "Finn said losing the coin was worth getting out safe. Suri agreed, with a tired smile."
       ],
+      "effects": { "removeItems": ["worn-coin"] },
       "choices": [],
       "ending": { "id": "ending-2", "kind": "bittersweet", "title": "A Small Loss" }
     },
@@ -327,7 +333,7 @@
       "id": "ending-3",
       "paragraphs": [
         "They went slowly along the narrow trail by the shelf. It led along a low hall, lit by small gaps in the wall.",
-        "At the end stood a second gate, old but not locked. They gave it a shove and it swung wide.",
+        "At the end stood another gate, old but not locked. They gave it a shove and it swung wide.",
         "Outside, the storm had eased into a soft rain. They stood on wet grass, safe and glad.",
         "They never did set the old clock. Still, the shelf trail had worked just as well."
       ],
