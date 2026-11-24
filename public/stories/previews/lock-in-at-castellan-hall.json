@@ -1,0 +1,375 @@
+{
+  "schemaVersion": "1.0",
+  "id": "lock-in-at-castellan-hall",
+  "title": "Lock-In at Castellan Hall",
+  "version": 5,
+  "metadata": {
+    "genre": "Mild adventure thriller",
+    "theme": "Dyslexia-friendly design choice, not a single phonics concept: the key vocabulary (character names and the recurring nouns and verbs the reader must track) strictly avoids the commonly-confused letter pairs b/d and p/q, and sentences stay short and built from a small, tightly controlled, highly repeated word list. Letters that mirror or rotate into each other (b/d, p/q) are the reversals dyslexic readers report most often, and a reader who is still unsure of those letters should not have to hold a main character's name or a repeated plot object in working memory while also decoding it. Ordinary short function words that are nearly impossible to avoid in English (and, had, said, down) still appear, but every noun or verb the story leans on again and again was chosen to have no b, d, p or q in it at all.",
+    "premise": "Lock-In at Castellan Hall. A storm traps Finn Oster, Suri Lane and Theo Voss inside the old Castellan Hall theater after a tour, and the one gate out has locked itself tight. Water is rising fast under the stage, so the three friends follow a trail of notes and small mechanisms left by the theater's late founder, Wren Castellan, to find the one other way out before the water reaches the stairs.",
+    "estimatedMinutes": 25,
+    "authorship": {
+      "narrative": "narrative-designer (AI agent)",
+      "origin": "ai-generated"
+    },
+    "createdAt": "2026-11-24"
+  },
+  "literacy": {
+    "targetConcepts": ["digraph-sh", "closed-syllable"],
+    "wordSets": [
+      {
+        "id": "sh-words",
+        "label": "sh words",
+        "concept": "digraph-sh",
+        "words": ["wish", "shine", "flash", "crash", "shelf", "rush", "hush", "shut", "shock"],
+        "minOccurrences": 10
+      },
+      {
+        "id": "closed-syllable-words",
+        "label": "closed-syllable words",
+        "concept": "closed-syllable",
+        "words": ["lock", "chest", "steps", "clock"],
+        "minOccurrences": 30
+      },
+      {
+        "id": "castle-key-words",
+        "label": "key story words",
+        "words": ["key", "stage", "exit", "gate", "coin"],
+        "minOccurrences": 40
+      }
+    ],
+    "review": { "status": "pending" }
+  },
+  "start": "opening",
+  "items": [
+    {
+      "id": "rusty-key",
+      "name": "Rusty Key",
+      "description": "A small, rusty key that Finn, Suri, and Theo got from the old stage chest."
+    },
+    {
+      "id": "worn-coin",
+      "name": "Worn Coin",
+      "description": "A small, worn coin that Finn, Suri, and Theo found next to the key in the old stage chest."
+    }
+  ],
+  "clues": [
+    {
+      "id": "wren-note",
+      "name": "Wren's Note",
+      "description": "A short note left by Wren Castellan, with a clue about the clock and the key."
+    }
+  ],
+  "glossary": {
+    "castellan": {
+      "syllables": ["Cas", "tel", "lan"],
+      "definition": "The last name of the theater's founder, Wren Castellan."
+    },
+    "theater": {
+      "syllables": ["The", "a", "ter"],
+      "definition": "A big room with a stage, built for shows."
+    },
+    "curious": {
+      "syllables": ["Cu", "ri", "ous"],
+      "definition": "Wanting to know more about something."
+    },
+    "furious": {
+      "syllables": ["Fu", "ri", "ous"],
+      "definition": "Very strong and wild, like an angry storm."
+    },
+    "founder": {
+      "syllables": ["Found", "er"],
+      "definition": "A person who starts or builds something, like a theater."
+    }
+  },
+  "passages": [
+    {
+      "id": "opening",
+      "paragraphs": [
+        "Finn Oster stood in the old theater. The school tour was over. Rain hit the tall windows in hard flashes.",
+        "The storm felt furious and loud. His friends Suri Lane and Theo Voss stood near the stage.",
+        "Suri said she had a wish to stay and look around. Theo said he had a wish to go home.",
+        "Then the lights went out for one second. When they came on again, a loud crash rang out. It came from the front gate.",
+        "Theo ran to the gate, the main exit, and gave it a tug. It would not move. The lock held fast.",
+        "A sign on the wall said: Wren Castellan, Founder. This theater is full of small tricks. Finn felt a little shock."
+      ],
+      "learningTargets": ["engagement"],
+      "choices": [
+        { "id": "go-stage", "label": "Go to the stage and the old chest", "target": "path-a" },
+        { "id": "go-lobby", "label": "Check the front hall shelf for a way out", "target": "path-b" }
+      ]
+    },
+    {
+      "id": "path-a",
+      "paragraphs": [
+        "Finn, Suri, and Theo went to the stage. A big wood chest sat near the old curtain.",
+        "Finn saw a shelf above it, set at a strange slant.",
+        "Theo wanted to rush at the chest and tug it right away. Suri said to look first, not just rush in."
+      ],
+      "learningTargets": ["comprehension"],
+      "choices": [
+        { "id": "check-shelf", "label": "Check the strange shelf first", "target": "path-a-shelf" },
+        { "id": "listen-sound", "label": "Listen for the sound Finn heard", "target": "path-a-listen", "learningTargets": ["detail"] }
+      ]
+    },
+    {
+      "id": "path-a-shelf",
+      "paragraphs": [
+        "Finn gave the shelf a gentle shove. It did not move at first.",
+        "Then it gave way with a soft click. Behind it was a small hole in the wall. A thin rod sat inside, set at an angle."
+      ],
+      "choices": [
+        { "id": "shove-back", "label": "Shove the shelf back and watch it move", "target": "path-a-find" },
+        { "id": "tug-rod", "label": "Tug the thin rod slowly", "target": "path-a-find" }
+      ]
+    },
+    {
+      "id": "path-a-listen",
+      "paragraphs": [
+        "Finn held still and listened. He felt curious about the sound under the floor.",
+        "It was rain. It fell through a crack, right over the chest. Under the stage, a little water had begun to pool."
+      ],
+      "learningTargets": ["detail", "vocabulary"],
+      "choices": [
+        { "id": "follow-sound", "label": "Follow the sound to the chest", "target": "path-a-find" },
+        { "id": "check-chest", "label": "Check the chest without waiting", "target": "path-a-find" }
+      ]
+    },
+    {
+      "id": "path-a-find",
+      "paragraphs": [
+        "The three of them looked inside the old chest. Inside sat an old rusty key and a worn coin.",
+        "The key had a faint shine in the torch light.",
+        "Finn said, 'This must unlock something.' Suri put the key in her coat. Theo took the coin."
+      ],
+      "effects": { "addItems": ["rusty-key", "worn-coin"], "setFlags": ["has-item"] },
+      "learningTargets": ["inference"],
+      "choices": [
+        { "id": "keep-key-a", "label": "Take the key and go join the others", "target": "gathering" },
+        { "id": "keep-key-b", "label": "Take the key and look once more at the stage", "target": "gathering" }
+      ]
+    },
+    {
+      "id": "path-b",
+      "paragraphs": [
+        "Finn, Suri, and Theo went to the front hall. An old ticket counter stood near the big front gate.",
+        "A tall shelf stood behind the counter. It was full of old notes and show times.",
+        "An old phone sat there too, dead and silent."
+      ],
+      "choices": [
+        { "id": "look-shelf", "label": "Look at the shelf of notes", "target": "path-b-desk" },
+        { "id": "watch-storm", "label": "Watch the storm flash through the window", "target": "path-b-watch" }
+      ]
+    },
+    {
+      "id": "path-b-desk",
+      "paragraphs": [
+        "Suri looked through the old notes on the shelf. Most were just old tickets and show times.",
+        "One note stood out. It was shut tight and tucked at the end of the shelf."
+      ],
+      "choices": [
+        { "id": "tug-note", "label": "Tug the note out", "target": "path-b-find" },
+        { "id": "ask-theo", "label": "Ask Theo to look too", "target": "path-b-find" }
+      ]
+    },
+    {
+      "id": "path-b-watch",
+      "paragraphs": [
+        "Theo looked out at the storm. A flash of lightning lit up the stage curtain for one second.",
+        "In that flash, he saw a small note. It was fixed low on the curtain."
+      ],
+      "choices": [
+        { "id": "get-note", "label": "Run and get the note", "target": "path-b-find" },
+        { "id": "call-others", "label": "Call Finn and Suri over first", "target": "path-b-find" }
+      ]
+    },
+    {
+      "id": "path-b-find",
+      "paragraphs": [
+        "The note was from Wren Castellan. It was old but still easy to read.",
+        "It said: 'Set the clock. Then turn the key. The steps will show the way out.'",
+        "Suri said this must be a clue. Finn felt a hush fall over the three of them."
+      ],
+      "effects": { "addClues": ["wren-note"], "setFlags": ["has-clue"] },
+      "learningTargets": ["comprehension", "sequencing"],
+      "choices": [
+        { "id": "keep-note-a", "label": "Take the note and go join the others", "target": "gathering" },
+        { "id": "keep-note-b", "label": "Read the note once more before you go", "target": "gathering" }
+      ]
+    },
+    {
+      "id": "gathering",
+      "paragraphs": [
+        "Finn, Suri, and Theo met near the stage again. Rain still hit the windows in long flashes.",
+        "Water had crawled up a few steps under the stage. It was cold, but not deep yet.",
+        "They had a little time, but not a lot. It was best to be ready before the gate."
+      ],
+      "choices": [
+        {
+          "id": "back-item",
+          "label": "Return to the chest for the key",
+          "target": "detour-item",
+          "requires": { "notFlags": ["has-item"] },
+          "lockedHint": "You already have the key."
+        },
+        {
+          "id": "back-clue",
+          "label": "Return to the shelf for the note",
+          "target": "detour-clue",
+          "requires": { "notFlags": ["has-clue"] },
+          "lockedHint": "You already have that note."
+        },
+        { "id": "to-gate", "label": "Go to the front gate now", "target": "the-gate" }
+      ]
+    },
+    {
+      "id": "detour-item",
+      "paragraphs": [
+        "They returned to the stage and looked in the old chest again. It still held a rusty key and a worn coin.",
+        "Finn held the key up. It had a faint shine in the torch light. Theo tucked the coin in his hand."
+      ],
+      "effects": { "addItems": ["rusty-key", "worn-coin"], "setFlags": ["has-item"] },
+      "choices": [
+        { "id": "with-key-a", "label": "Take the key and go to the gate", "target": "the-gate" },
+        { "id": "with-key-b", "label": "Take the key and give it a careful look", "target": "the-gate" }
+      ]
+    },
+    {
+      "id": "detour-clue",
+      "paragraphs": [
+        "They went back to the shelf and got the note, shut tight.",
+        "It said: 'Set the clock. Then turn the key. The steps will show the way out.'"
+      ],
+      "effects": { "addClues": ["wren-note"], "setFlags": ["has-clue"] },
+      "choices": [
+        { "id": "with-note-a", "label": "Take the note and go to the gate", "target": "the-gate" },
+        { "id": "with-note-b", "label": "Read the note once more and go on", "target": "the-gate" }
+      ]
+    },
+    {
+      "id": "the-gate",
+      "paragraphs": [
+        "At the front gate, the old lock sat shut tight. A small clock ticked on the wall beside it.",
+        "An old sign above it still said EXIT. Steps led down past the gate to a lower hall.",
+        "Water had not yet reached the highest step."
+      ],
+      "choices": [
+        { "id": "shine-torch", "label": "Shine the torch on the lock", "target": "threshold" },
+        { "id": "tug-gate", "label": "Give the gate one more hard tug", "target": "threshold" }
+      ]
+    },
+    {
+      "id": "threshold",
+      "paragraphs": [
+        "This was the one other way out. Wren Castellan had left a clue and a key for a reason.",
+        "Suri felt sure the key and the note would work together. They just needed both."
+      ],
+      "learningTargets": ["inference"],
+      "choices": [
+        {
+          "id": "use-both",
+          "label": "Use the key and the note on the lock",
+          "target": "climax",
+          "requires": { "items": ["rusty-key"], "clues": ["wren-note"] },
+          "lockedHint": "You need the key and the note first."
+        },
+        { "id": "try-alone", "label": "Try the gate on your own", "target": "ending-5" }
+      ]
+    },
+    {
+      "id": "climax",
+      "paragraphs": [
+        "Behind the gate's lock was a second, smaller lock. Next to it sat a small clock, stuck at one time.",
+        "Suri read the note out loud: 'Set the clock. Then turn the key.'",
+        "Theo wanted to rush and turn the key first. Suri said to set the clock first, just as the note said."
+      ],
+      "learningTargets": ["sequencing", "inference"],
+      "choices": [
+        { "id": "clock-first", "label": "Set the clock first, as the note said", "target": "climax-clock" },
+        { "id": "key-first", "label": "Let Theo rush and turn the key first", "target": "climax-key" }
+      ]
+    },
+    {
+      "id": "climax-clock",
+      "paragraphs": [
+        "Finn set the old clock. It gave a soft click and the hands moved to the hour.",
+        "The small lock gave way. A secret step swung wide, showing steps down and out."
+      ],
+      "choices": [
+        { "id": "calm-step", "label": "Step onto the secret step calmly", "target": "ending-1" },
+        { "id": "rush-step", "label": "Let Theo rush down the new steps first", "target": "ending-2" }
+      ]
+    },
+    {
+      "id": "climax-key",
+      "paragraphs": [
+        "Theo turned the key first, fast and sure. The small lock stuck for a moment, then let go.",
+        "The clock did not move. Still, some of the shelf slid to the side on its own."
+      ],
+      "choices": [
+        { "id": "shelf-trail", "label": "Take the narrow trail by the shelf", "target": "ending-3" },
+        { "id": "wind-too", "label": "Set the clock too, just to be safe", "target": "ending-4" }
+      ]
+    },
+    {
+      "id": "ending-1",
+      "paragraphs": [
+        "The three friends went down the secret steps. Cool, dry air met them at the bottom.",
+        "The steps led out to another gate, far from the water. It swung wide with one soft shove.",
+        "Outside, the storm had slowed to a hush. They stood in the rain, safe and glad.",
+        "The rusty key stayed with Finn, to remember the day. Suri still had Wren Castellan's note, safe in her coat.",
+        "They had used the clock and the key. The note had helped too, just as Wren meant."
+      ],
+      "choices": [],
+      "ending": { "id": "ending-1", "kind": "triumph", "title": "The Secret Steps" }
+    },
+    {
+      "id": "ending-2",
+      "paragraphs": [
+        "Theo rushed down the new steps before the others and lost his footing.",
+        "The old coin fell from his hand and was gone.",
+        "Finn and Suri helped him up again. They got to the other gate and gave it a shove.",
+        "It swung wide into the rain. They were safe, but the coin was lost.",
+        "Finn said losing the coin was worth getting out safe. Suri agreed, with a tired smile."
+      ],
+      "effects": { "removeItems": ["worn-coin"] },
+      "choices": [],
+      "ending": { "id": "ending-2", "kind": "bittersweet", "title": "A Small Loss" }
+    },
+    {
+      "id": "ending-3",
+      "paragraphs": [
+        "They went slowly along the narrow trail by the shelf. It led along a low hall, lit by small gaps in the wall.",
+        "At the end stood another gate, old but not locked. They gave it a shove and it swung wide.",
+        "Outside, the storm had eased into a soft rain. They stood on wet grass, safe and glad.",
+        "They never did set the old clock. Still, the shelf trail had worked just as well."
+      ],
+      "choices": [],
+      "ending": { "id": "ending-3", "kind": "triumph", "title": "The Shelf Trail" }
+    },
+    {
+      "id": "ending-4",
+      "paragraphs": [
+        "Theo turned the key and Finn set the clock, just to be sure.",
+        "Both the shelf and the secret step gave way at once. Water crawled close to their feet.",
+        "They chose the shelf trail, quick and sure. They left the secret step for next time.",
+        "Outside, the rain had slowed. A theater worker met them at the gate, glad to see them safe."
+      ],
+      "choices": [],
+      "ending": { "id": "ending-4", "kind": "triumph", "title": "Two Trails at Once" }
+    },
+    {
+      "id": "ending-5",
+      "paragraphs": [
+        "Trying it alone, the lock would not give way.",
+        "Theo gave the gate a few hard tugs. It still held shut.",
+        "They sat on the steps and waited. The water rose a little, but stayed well below them.",
+        "At last the storm let up. The lock let go on its own, with a soft click.",
+        "The gate swung wide and the three went out into calm, clean air.",
+        "They never did open Wren Castellan's secret way out. Next time, they would try the key and the note together."
+      ],
+      "choices": [],
+      "ending": { "id": "ending-5", "kind": "setback", "title": "Wait Out the Storm" }
+    }
+  ]
+}
