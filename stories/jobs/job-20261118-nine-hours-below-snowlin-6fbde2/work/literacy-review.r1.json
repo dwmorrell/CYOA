@@ -1,0 +1,62 @@
+{
+  "role": "literacy",
+  "reviewer": { "name": "literacy-specialist", "kind": "ai-agent", "agent": "literacy-specialist" },
+  "revision": 1,
+  "draftSha256": "6600433a923bae1dbc79e234769328c93fd668679edb61a540f19f5c127dace0",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Skills practised: the story practises decoding FLOSS words (fall, chill, pass, cliff, mess, grass, spill, class, cross, small) and initial-blend words (trail, storm, frost, sled, crack, slope, bright, snow, climb, track, drift) in natural sentences, repeated across every branch rather than drilled as a list. Readers build sequencing by following an ordered rescue plan (splint the ankle, ration the food, scout or search, cross the gap, choose an ending), inference by reading the crack-line clue and the bent-pole item to judge whether crossing the gap is safe, vocabulary from context through the glossary entries and in-text explanations (e.g. \"It is a sprain, not a break\"), and comprehension through branching choices whose consequences depend on earlier decisions. The five endings and recurring clue/item mechanics also give sustained engagement and rereading value."
+    },
+    {
+      "severity": "note",
+      "message": "Automated-detection limits: the literacy report's concept and word-set checks (and my own spot check against src/literacy/taxonomy.ts) match spelling patterns, not sounds, so they cannot confirm pronunciation, syllable stress or true decodability for a given child's program. For example the FLOSS and initial-blend detectors would flag a word with the right letters even if it were pronounced differently; a human structured-literacy tutor should still confirm the phonological claims for the specific learner before use."
+    },
+    {
+      "severity": "note",
+      "message": "Independent concept-match check (requested because a sibling job, job-20261118-lock-in-at-castellan-hal-3d1b03, had a concept/word mismatch in its brief): I hand-checked every word in brief.json's wordSets against the detectors in src/literacy/taxonomy.ts. floss-words (fall, chill, pass, cliff, mess, grass, spill, class, cross, small) are each single-syllable with a short vowel + doubled ff/ll/ss at the end, matching the floss detector (vowelGroups length 1 and /[aeiou](ff|ll|ss|zz)$/). initial-blend-words (trail, storm, frost, sled, crack, slope, bright, snow, climb, track, drift) each start with one of the listed two-letter blends followed immediately by a vowel, matching the initial-blend detector. No mismatches found; this brief does not repeat the sibling job's defect. This agrees with the automated report's word-set-concepts-match-spelling check (ok, no mismatches)."
+    },
+    {
+      "severity": "minor",
+      "message": "\"small\" is reused heavily (14 of the floss set's 37 total occurrences, e.g. \"a small ranger shelter\" in climax-approach, \"a small ranger station\" in ending-3, \"small details\" in ending-1, \"small, even shares\" in ration-the-food) because it doubles as a generic adjective. It still reads naturally everywhere I checked, but the narrative designer could trade one or two instances for a currently under-used set word (spill and drift each appear only once) if a future revision wants more variety."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/drafts/story.r1.json",
+      "sha256": "6600433a923bae1dbc79e234769328c93fd668679edb61a540f19f5c127dace0"
+    },
+    {
+      "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/reports/literacy.r1.json",
+      "sha256": "1aeb11e31dca8473f4d4847cc29b3418aa9f6200b001b0572b5bccfd45445cc0"
+    },
+    {
+      "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/reports/literacy.r1.md",
+      "sha256": "5fe4610a6d33d924cf72fe14b6d46a0b334a8b1aa5efa9732e8c681ccedec012"
+    },
+    {
+      "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/reports/weave-comparison.r1.json",
+      "sha256": "aa3713d95f048952cfc6816e89616421638b73153020fbfc3c11fcfd262e8097"
+    },
+    {
+      "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/brief.json",
+      "sha256": "884f10ca90e3922ad840762fc58c95f75641a4a2668fd0a72dff237e58a47741"
+    },
+    {
+      "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/word-weave-plan.json",
+      "sha256": "2d28c9c194f2af1ec45fb73bc4af937302c9497dbe43321ee397e00d9af71771"
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "When a snow slide traps Vale, two classmates and their injured guide above the timberline, Vale splints a sprained ankle, rations food fairly, and decides when it is safe to cross to a ranger shelter. The story practises FLOSS and blend words like fall, chill, trail and snow, sequencing a rescue plan, and reading clues to infer whether a risky crossing is safe.",
+    "skills": ["comprehension", "inference", "sequencing", "vocabulary", "detail"],
+    "wordTypes": [
+      { "concept": "floss", "examples": ["fall", "chill", "cliff", "small"] },
+      { "concept": "initial-blend", "examples": ["trail", "storm", "crack", "climb"] },
+      { "concept": "digraph-ck", "examples": ["rock", "check", "pack", "track"] },
+      { "concept": "suffix-ed", "examples": ["climbed", "crossed", "wrapped", "crushed"] }
+    ],
+    "ogCategories": ["Phonics", "Spelling rules", "Morphology", "Comprehension", "Vocabulary"]
+  }
+}
