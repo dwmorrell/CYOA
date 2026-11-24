@@ -1,0 +1,106 @@
+{
+  "role": "literacy",
+  "reviewer": {
+    "name": "literacy-specialist",
+    "kind": "ai-agent",
+    "agent": "literacy-specialist"
+  },
+  "revision": 5,
+  "draftSha256": "cac3a849a4b3c6b51f4bb59c4b7e28d72ffd612da7526578c9de1aed1f71ac66",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "The sole major blocker from my revision-4 review (literacy-review.r4.json finding 2) is resolved. brief.json's theme now reads '...and nearly every noun or verb the story leans on again and again was chosen to have no b, d, p or q in it at all. The one deliberate, documented exception is \"steps\": it is the story's central escape-route object and was kept for its closed-syllable decodability, a conscious trade-off against the letter-reversal goal for this single word, not an oversight.' and continuity.facts now reads '...contain no letter b, d, p or q; short, hard-to-avoid function words like and, had and said may still appear. The single documented exception is \"steps\", the central escape-route object, kept despite its \"p\" because closed-syllable decodability took priority for this one word.' Neither sentence makes the old blanket 'contain no letter b, d, p or q' claim unqualified any more; both now name 'steps' explicitly as a conscious, acknowledged exception rather than an unstated contradiction. I compared this wording byte-for-byte against generation-prompt.md's normalized-brief block and request.json's continuity.facts entry and both carry the identical corrected sentence, so the fix is consistent across all three files, not just brief.json. The design claim is no longer self-contradicting. I also checked the 'avoid' list's forward-looking instruction ('do not introduce a new recurring... word that contains b/d/p/q... never a repeated or tracked word'): this reads as guidance for words the author might add later, not retroactively over 'steps', which is a pre-mandated word-weave-plan word that predates and is now explicitly carved out from that rule; I see no residual contradiction here worth blocking on, but flag it so a future reviewer knows I considered it.",
+      "passage": "brief.json#theme; brief.json#continuity.facts; generation-prompt.md normalized brief; request.json#continuity.facts"
+    },
+    {
+      "severity": "note",
+      "message": "Word-set minimums, concept classification and route coverage re-verified fresh on revision 5, not merely carried over from my r4 sign-off. reports/literacy.r5.json: sh-words 40/10 (minimum), closed-syllable-words 42/30, castle-key-words 59/40, missingWords: [] and conceptMismatches: [] for all three. These are within 1 occurrence of the r4 totals (sh-words 40 in both; closed-syllable-words 42 in both; castle-key-words 60 -> 59, key 24 -> 23), which matches the only textual change in this revision: narrative-designer's rewrite of two ending-5 sentences removed one incidental 'key' token ('Without the key and the note...' became 'Trying it alone...') while the closing sentence still carries 'key' ('...try the key and the note together'), and 'steps' is untouched at 10 occurrences in both revisions since the edited passage (ending-5) never contained it. I re-ran the taxonomy's closed-syllable detector by hand on lock/chest/steps/clock and the digraph-sh substring check on all nine sh-words words again against the current word lists in brief.json and word-weave-plan.json (word-weave-plan.json's sha256 is unchanged from r4, confirming the plan itself was not touched) and confirm the same result as r4: all declared words genuinely carry their declared concept, and castle-key-words is correctly left without a concept field (key/stage/exit/gate/coin still don't share one taxonomy pattern -- gate/stage are silent-e, key is an untracked 'ey' spelling, exit is two syllables, coin is an untracked diphthong). reports/weave-comparison.r5.json confirms both target-concept sets (sh-words, closed-syllable-words) meet their minimums against the word-weave-plan's planned/actual counts. Every set still appears on the shortest route to every one of the five endings per literacy.r5.json's perEndingRoute (all nonzero).",
+      "passage": "stories/jobs/.../drafts/story.r5.json#literacy.wordSets; stories/jobs/.../reports/literacy.r5.json"
+    },
+    {
+      "severity": "minor",
+      "message": "The same tokenizer-artifact warning I flagged on r4 persists unchanged on r5: reports/validation.r5.json's brief check still warns '1 sentence(s) exceed the brief's 13-word limit' while literacy.r5.json's own fixed 20-word sentence-length check shows 0 violations. This is the identical, already-diagnosed false positive from path-a-find's \"Finn said, 'This must unlock something.' Suri put the key in her coat.\" -- a naive period-plus-whitespace splitter counts it as one 14-word run because the sentence-ending period sits inside a closing quote before the next capital letter; read correctly it is two sentences of 6 and 7 words. This passage was not touched in revision 5 (confirmed by diffing story.r4.json against story.r5.json, which shows only the two ending-5 sentences changed and the version bump). No real sentence over 13 words exists anywhere in the draft by my hand count, including the two newly rewritten ending-5 sentences (9, 9 and 11 words respectively, all under the 13-word limit). Repeating this note only so the warning is not mistaken for a new or real issue on this revision.",
+      "passage": "path-a-find"
+    },
+    {
+      "severity": "note",
+      "message": "Spot-checked the unrelated ending-5 fix narrative-designer made this revision (not a literacy-review requirement, but noting it since I read the full diff). The two rewritten sentences in ending-5 ('Trying it alone, the lock would not give way.' and 'They never did open Wren Castellan's secret way out. Next time, they would try the key and the note together.') read as natural, state-agnostic prose rather than a drilled word list, keep 'lock' and 'key' in ordinary sentence positions, and introduce no new vocabulary outside the existing glossary. I see no literacy regression from this change.",
+      "passage": "drafts/story.r5.json#ending-5"
+    },
+    {
+      "severity": "note",
+      "message": "Skills practised: read start to finish on any route, this story gives repeated decoding practice with short-vowel closed-syllable words (lock, chest, steps, clock) and the sh digraph (wish, shine, flash, crash, shelf, rush, hush, shut, shock) in natural sentence and dialogue context, plus heavy, naturally-repeated exposure to a small set of plot-critical sight words (key, stage, exit, gate, coin) that the reader must recognise quickly to follow the plot rather than decode fresh each time. The branching structure built around finding an inventory item (the key and coin) and a clue (Wren's note), then choosing whether to set the clock or turn the key first, gives practice in sequencing a short ordered set of steps and in inference (working out that the key and the note are meant to be used together, and what each possible order of operations costs or saves). The short glossary entries with syllable breakdowns (castellan, theater, curious, furious, founder) support vocabulary growth from context. Across the whole story, the deliberately small, controlled, highly repeated word list lets a developing reader meet the same words often enough, across the opening, both search branches, the gathering point, the gate, the climax and all five endings, to build fluency with them rather than meeting each only once.",
+      "passage": "whole-story"
+    },
+    {
+      "severity": "note",
+      "message": "Limits of automated detection, stated per this job's requirement for every review: reports/literacy.r5.json and reports/literacy.r5.md both say their method is deterministic token counts plus orthographic (spelling-pattern) detectors, not phonological ones -- a detector match means a word's letters fit a regex, not that a qualified human has confirmed the sound a reader would actually produce (the report's own example: 'ea' matches both 'bread' and 'bead'). I independently re-ran the actual closed-syllable and digraph-sh detectors from src/literacy/taxonomy.ts by hand against every word-set word in this revision rather than trusting conceptMismatches: [] on the report's face alone, consistent with my practice on every revision of this job. Minimum-occurrence counts, every-word-used and per-route coverage are reliable deterministic counts and I independently spot-checked those against the draft text; they are not in question. The brief's bespoke b/d/p/q letter-reversal design claim is outside what any automated check in this repository looks for -- it is accessibility-promise text in the brief, not a taxonomy concept, so only careful manual reading of brief.json catches it, which is why I re-verified its wording by hand again this revision rather than assuming the fix was applied correctly. I am an AI-assisted reviewer, not a certified literacy professional; a qualified human should confirm the phonological and decodability judgements in this review before publication.",
+      "passage": "whole-story"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/drafts/story.r5.json",
+      "sha256": "cac3a849a4b3c6b51f4bb59c4b7e28d72ffd612da7526578c9de1aed1f71ac66"
+    },
+    {
+      "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/literacy.r5.json",
+      "sha256": "e206d39405f7e91ca89708b39cf4334f7ef38111736c84057a5e6ad54702bcee"
+    },
+    {
+      "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/literacy.r5.md",
+      "sha256": "d65be8ee8b8a1d07860c2ccfbd39f8f82e59a6601625622ccd0d6d66032eac2b"
+    },
+    {
+      "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/weave-comparison.r5.json",
+      "sha256": "78ceb2fd735a6e8c450dca2dcc62f5d0a344124fb9b2104840eede502ee6b581"
+    },
+    {
+      "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/brief.json",
+      "sha256": "b78b917977a22ef560c14f20e935a1358f89138ebd677bfea1b62604af46082b"
+    },
+    {
+      "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/word-weave-plan.json",
+      "sha256": "6462236e97856ab6afcc359a6f74be908453b09f967e75ea6c861c587926da0e"
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "Three friends are locked inside an old theater during a storm and must follow a founder's clues, a key and a coin to find a hidden way out before the water rises. The story gives repeated practice with closed-syllable words like lock, chest and clock, and the sh digraph in wish, shine and shelf, plus sequencing and inference as the clues come together.",
+    "skills": [
+      "comprehension",
+      "inference",
+      "sequencing",
+      "vocabulary"
+    ],
+    "wordTypes": [
+      {
+        "concept": "closed-syllable",
+        "examples": [
+          "lock",
+          "chest",
+          "steps",
+          "clock"
+        ]
+      },
+      {
+        "concept": "digraph-sh",
+        "examples": [
+          "wish",
+          "shine",
+          "flash",
+          "shelf"
+        ]
+      }
+    ],
+    "ogCategories": [
+      "Phonics",
+      "Syllable types",
+      "Vocabulary",
+      "Comprehension"
+    ]
+  },
+  "id": "review-5-literacy",
+  "submittedAt": "2026-11-24T19:48:52.444Z"
+}
