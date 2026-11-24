@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261118-static-at-cragmoor-hall-e01ced",
   "storyId": "static-at-cragmoor-hall",
-  "state": "in-review",
+  "state": "changes-requested",
   "createdAt": "2026-11-18T22:36:37.461Z",
-  "updatedAt": "2026-11-24T19:56:07.450Z",
+  "updatedAt": "2026-11-24T19:59:49.468Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/request.json",
@@ -68,7 +68,154 @@
       "revision": 1
     }
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 1,
+      "draftSha256": "bb0861dc56e6b1ce8c6b4f67bdd22e8de77182a955179de4e5d0fc46b486888e",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "Independently re-checked brief.json's word-set concept fields against src/literacy/taxonomy.ts's detectors by hand (not just trusting the automated report). r-controlled-words (dark, door, storm, corner, turn, further, carve, torch) all contain ar/er/ir/or/ur, matching the r-controlled detector; ck-words (rock, lock, trick, clock, knock, crack, stack, pocket) all contain a vowel + ck, matching the digraph-ck detector. No concept/word mismatch in this job's brief (unlike the defect found and fixed in two sibling jobs this run)."
+        },
+        {
+          "severity": "note",
+          "message": "Spot-checked the analyzer's raw counts against the draft text by grep: exact-token counts for \"turn\" (4: loose-panel, old-logbook, into-the-walls, ending-rush-alone) and \"door\" (8: ask-around/three-knocks, pells-shed, gathering x2, into-the-walls, theo-marsh, ending-jump-to-ghost, ending-rush-alone) match reports/literacy.r1.json's perWord figures exactly, so I trust the rest of its per-word and per-route numbers rather than re-deriving all 16 words by hand."
+        },
+        {
+          "severity": "note",
+          "message": "Both word sets clear their minOccurrences (r-controlled 40/10, ck-words 56/12), every declared word appears at least twice, and every word is used naturally in varied senses (e.g. \"crack\" as a crack of space, a crack in the wall, and the sound of a panel opening; \"stack\" of chairs/cushions/tiles; \"lock\"/\"key\"/\"trick\" woven into the mystery's own vocabulary, not listed off). No forced rhymes or word-dump sentences."
+        },
+        {
+          "severity": "note",
+          "message": "Traced the passage graph by hand: reaching any ending other than ending-rush-alone requires passing through both the closet-search→loose-panel→find-brass-key branch (brass key) and the ask-around→pells-shed→old-logbook branch (logbook-page clue) before gathering→threshold→into-the-walls→theo-marsh, so both word sets genuinely appear on every route to every ending, not just on one branch; this matches the word-sets-on-every-route and perEndingRoute figures in the report."
+        },
+        {
+          "severity": "minor",
+          "message": "\"door\" is grouped under r-controlled via the spelling-pattern detector's substring match on \"or\", and it is pronounced with the same r-coloured vowel as \"for\"/\"storm\"/\"torch\", so it is a legitimate (if orthographically oor-spelled) r-controlled word, not a mismatch. A tutor whose program treats \"oor\" words as their own sub-pattern separate from ar/er/ir/or/ur may want to flag that distinction when mapping this story's word set to their own scope and sequence."
+        },
+        {
+          "severity": "note",
+          "message": "maxSentenceWords (18) is respected throughout; the longest sentences found by hand-count (e.g. in loose-panel, ask-around, into-the-walls, theo-marsh, ending-honest-ask) land at exactly 18 words, none over. Continuity constraints are honoured: no ghost, curse or other supernatural being is ever confirmed real; Theo Marsh winding Augusta Cragmoor's old clock is the human explanation; no violence, real brands or romance appear."
+        },
+        {
+          "severity": "note",
+          "message": "Skills practised: this story practises decoding r-controlled vowel words and ck-digraph words in natural mystery-solving context, holding and reusing a small set of recurring words (dark, door, further, lock, knock, crack, pocket, and others) across every branch so the patterns are met repeatedly rather than once. It also exercises sequencing (tracking a three-knock, one-knock pattern and a wind-rest-knock routine across several pages before the payoff matches), inference (reading Theo's tiredness, Mr. Pell's familiarity with the clock, and Augusta's journal entry to infer the real explanation before it is stated outright), vocabulary from context via the glossary (workshop, founder, corridor, headmaster and others, each defined where it first appears), and comprehension through choices that let the reader compare evidence (key vs. clue) before deciding how to approach Theo, with the four non-rush endings differing by how trusting or hasty that approach was."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/drafts/story.r1.json",
+          "sha256": "bb0861dc56e6b1ce8c6b4f67bdd22e8de77182a955179de4e5d0fc46b486888e"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/literacy.r1.json",
+          "sha256": "60d2363100a67831ca27f7a15a0a8c5070faeecf3a5bdf0747df7b674237ac04"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/literacy.r1.md",
+          "sha256": "0e69f29fd0861eb643634baa9495a3e9f432bb8ac13b7f521e242658e89c3bd2"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/weave-comparison.r1.json",
+          "sha256": "fe426dceb5e0de5b3d24c63827640907518daa598b522b5bcf6e5353d103794d"
+        }
+      ],
+      "shelfSummary": {
+        "blurb": "Rowan and Dessa trace a nightly knock through the walls of a foggy boarding school, finding a hidden workshop and a kept secret instead of a ghost. The story practises r-controlled vowel words and ck-digraph words throughout, alongside sequencing clues and inferring a character's motives before judging him.",
+        "skills": [
+          "sequencing",
+          "inference",
+          "comprehension",
+          "detail",
+          "vocabulary",
+          "engagement"
+        ],
+        "wordTypes": [
+          {
+            "concept": "r-controlled",
+            "examples": [
+              "dark",
+              "door",
+              "storm",
+              "further"
+            ]
+          },
+          {
+            "concept": "digraph-ck",
+            "examples": [
+              "knock",
+              "clock",
+              "lock",
+              "crack"
+            ]
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Syllable types",
+          "Vocabulary",
+          "Comprehension"
+        ]
+      },
+      "id": "review-1-literacy",
+      "submittedAt": "2026-11-24T19:59:25.278Z"
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 1,
+      "draftSha256": "bb0861dc56e6b1ce8c6b4f67bdd22e8de77182a955179de4e5d0fc46b486888e",
+      "verdict": "changes-requested",
+      "findings": [
+        {
+          "severity": "major",
+          "message": "The 'gathering' passage (Comparing Notes) is the only connector between the closet-search branch (which yields the brass-key item in find-brass-key) and the ask-around branch (which yields the logbook-page clue in old-logbook). Every exit from either branch routes back to 'gathering' and there is no edge from one branch straight into the other (confirmed in reports/graph.r1.json edges). The locked choice at threshold ('open-hatch-calm') requires both brass-key and logbook-page, which can only be collected by visiting both branches, which forces the reader to pass back through the identical, unchanged 'gathering' text at least twice (e.g. start -> closet-search -> loose-panel -> find-brass-key -> gathering [1st read] -> ask-around -> pells-shed -> old-logbook -> gathering [2nd read, same text] -> threshold). This is exactly the kind of forced re-read of already-seen pages, to collect an item/clue and reach the four 'good' endings reachable only via the locked choice (ending-trust, ending-honest-ask, ending-call-pell, ending-jump-to-ghost all sit behind into-the-walls/theo-marsh, which is only reachable through open-hatch-calm or by abandoning the key/clue path for ending-rush-alone). The 'gathering' passage text and choice set (gather-to-closet / gather-to-ask / gather-to-threshold) never change to reflect what the reader has already collected, so the second visit is a verbatim repeat. Recommend either letting a branch route directly into the other without returning through an unchanged hub, or varying the hub text/choices once an item/clue is already held, or dropping the two-item lock requirement so a single branch suffices.",
+          "passage": "gathering"
+        },
+        {
+          "severity": "minor",
+          "message": "Location naming is inconsistent between the start/closet-search passages, which always call this room the 'storage closet' (start choice 'to-closet': 'Search the storage closet at the end of the hall'; closet-search title 'Into the Storage Closet'), and the locked-choice hint at threshold, which calls it the 'storage room' ('You need the brass key from the storage room and the logbook page from the office.'). A reader using the hint to retrace which passage to revisit may be confused by the mismatched name.",
+          "passage": "threshold"
+        },
+        {
+          "severity": "minor",
+          "message": "loose-panel foreshadows that the hidden lock 'needed a key, not a trick, and the answer must lie further in these walls,' but the two choices offered are 'Pry the panel open anyway' (which succeeds immediately, by force, with no key) or go back. The panel is never actually unlocked with a key -- it is pried open despite the text's claim that a key (not force) was required, and the brass key found inside is instead used later on a different lock (the threshold hatch). This is a minor puzzle-logic inconsistency that could confuse an attentive young reader tracking cause and effect.",
+          "passage": "loose-panel"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/drafts/story.r1.json",
+          "sha256": "bb0861dc56e6b1ce8c6b4f67bdd22e8de77182a955179de4e5d0fc46b486888e"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/validation.r1.json",
+          "sha256": "3103bf5564f7fee888b7fa094d6fc1d80a40b075f8c4ea173043ce7b9d643ae5"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/graph.r1.json",
+          "sha256": "ebc99007b77ed45814e188c232dd130836f9935b9241ced2bb9f273dc8e9fb38"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/brief.json",
+          "sha256": "caffa2ba9b5333bd27cd710d5d600a8f8fdb84b1de60153db5f33a24d46fee85"
+        }
+      ],
+      "id": "review-2-qa",
+      "submittedAt": "2026-11-24T19:59:49.468Z"
+    }
+  ],
   "parentDecisions": [],
   "failures": [],
   "history": [
@@ -112,6 +259,16 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 1 (story v1) passed automated validation"
+    },
+    {
+      "at": "2026-11-24T19:59:49.468Z",
+      "from": "in-review",
+      "to": "changes-requested",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "A reviewer requested changes"
     }
   ]
 }

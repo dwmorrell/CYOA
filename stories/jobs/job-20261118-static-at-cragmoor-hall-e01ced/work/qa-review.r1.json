@@ -1,0 +1,30 @@
+{
+  "role": "qa",
+  "reviewer": { "name": "qa-engineer", "kind": "ai-agent", "agent": "qa-engineer" },
+  "revision": 1,
+  "draftSha256": "bb0861dc56e6b1ce8c6b4f67bdd22e8de77182a955179de4e5d0fc46b486888e",
+  "verdict": "changes-requested",
+  "findings": [
+    {
+      "severity": "major",
+      "message": "The 'gathering' passage (Comparing Notes) is the only connector between the closet-search branch (which yields the brass-key item in find-brass-key) and the ask-around branch (which yields the logbook-page clue in old-logbook). Every exit from either branch routes back to 'gathering' and there is no edge from one branch straight into the other (confirmed in reports/graph.r1.json edges). The locked choice at threshold ('open-hatch-calm') requires both brass-key and logbook-page, which can only be collected by visiting both branches, which forces the reader to pass back through the identical, unchanged 'gathering' text at least twice (e.g. start -> closet-search -> loose-panel -> find-brass-key -> gathering [1st read] -> ask-around -> pells-shed -> old-logbook -> gathering [2nd read, same text] -> threshold). This is exactly the kind of forced re-read of already-seen pages, to collect an item/clue and reach the four 'good' endings reachable only via the locked choice (ending-trust, ending-honest-ask, ending-call-pell, ending-jump-to-ghost all sit behind into-the-walls/theo-marsh, which is only reachable through open-hatch-calm or by abandoning the key/clue path for ending-rush-alone). The 'gathering' passage text and choice set (gather-to-closet / gather-to-ask / gather-to-threshold) never change to reflect what the reader has already collected, so the second visit is a verbatim repeat. Recommend either letting a branch route directly into the other without returning through an unchanged hub, or varying the hub text/choices once an item/clue is already held, or dropping the two-item lock requirement so a single branch suffices.",
+      "passage": "gathering"
+    },
+    {
+      "severity": "minor",
+      "message": "Location naming is inconsistent between the start/closet-search passages, which always call this room the 'storage closet' (start choice 'to-closet': 'Search the storage closet at the end of the hall'; closet-search title 'Into the Storage Closet'), and the locked-choice hint at threshold, which calls it the 'storage room' ('You need the brass key from the storage room and the logbook page from the office.'). A reader using the hint to retrace which passage to revisit may be confused by the mismatched name.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "minor",
+      "message": "loose-panel foreshadows that the hidden lock 'needed a key, not a trick, and the answer must lie further in these walls,' but the two choices offered are 'Pry the panel open anyway' (which succeeds immediately, by force, with no key) or go back. The panel is never actually unlocked with a key -- it is pried open despite the text's claim that a key (not force) was required, and the brass key found inside is instead used later on a different lock (the threshold hatch). This is a minor puzzle-logic inconsistency that could confuse an attentive young reader tracking cause and effect.",
+      "passage": "loose-panel"
+    }
+  ],
+  "evidence": [
+    { "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/drafts/story.r1.json", "sha256": "bb0861dc56e6b1ce8c6b4f67bdd22e8de77182a955179de4e5d0fc46b486888e" },
+    { "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/validation.r1.json", "sha256": "3103bf5564f7fee888b7fa094d6fc1d80a40b075f8c4ea173043ce7b9d643ae5" },
+    { "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/graph.r1.json", "sha256": "ebc99007b77ed45814e188c232dd130836f9935b9241ced2bb9f273dc8e9fb38" },
+    { "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/brief.json", "sha256": "caffa2ba9b5333bd27cd710d5d600a8f8fdb84b1de60153db5f33a24d46fee85" }
+  ]
+}
