@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261118-lock-in-at-castellan-hal-3d1b03",
   "storyId": "lock-in-at-castellan-hall",
-  "state": "planned",
+  "state": "in-review",
   "createdAt": "2026-11-18T22:36:38.247Z",
-  "updatedAt": "2026-11-18T22:36:38.247Z",
+  "updatedAt": "2026-11-24T19:25:11.238Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/request.json",
@@ -31,10 +31,91 @@
       "sha256": "c2d3bcd05c40cfdf6d7ffc4296cd8cd50b82c8ae1edee9c0def365675c0c5f16"
     }
   },
-  "revisions": [],
+  "revisions": [
+    {
+      "storyVersion": 1,
+      "draft": {
+        "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/drafts/story.r1.json",
+        "sha256": "d48ef8b579b237e35845e6db3f81b082c5f2cda9e1e06fe74726f86b7597762d"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-11-24T19:24:01.908Z",
+      "validation": {
+        "ok": false,
+        "report": {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/validation.r1.json",
+          "sha256": "90b0f65bb36f800416e927a8f7fb0fe8b7444f3983494e1131a749531f367e85"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/literacy.r1.json",
+          "sha256": "3487d36db2b60f4f97204d6d89b61ac0aebf9f675ee029cfe28b9a217092937b"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/graph.r1.json",
+          "sha256": "bef3ddc51ef4298218fbbe799d368f2b88c5d5a60de42bb98038b2cfc91ce57a"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: word-set-concepts-match-spelling failed",
+          "brief: ok"
+        ]
+      },
+      "revision": 1
+    },
+    {
+      "storyVersion": 2,
+      "draft": {
+        "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/drafts/story.r2.json",
+        "sha256": "0d90441a59c490fdc5aeff2531d07aa3e30c1de55288d6a8da607b7daa202975"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-11-24T19:25:11.238Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/validation.r2.json",
+          "sha256": "4c4cc6ba4f6687a999d2a7ddb3a5c559147b363f806dec4dffe87489258bf35c"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/literacy.r2.json",
+          "sha256": "78d0abc2bca37659bbf98d86423e37d9e306b87b997a5e4625d635751fa5785d"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/graph.r2.json",
+          "sha256": "57a42a9264664546522a9dd637a3e69eda300002a5cc6c185bffcec22473fd2a"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 2
+    }
+  ],
   "reviews": [],
   "parentDecisions": [],
-  "failures": [],
+  "failures": [
+    {
+      "stage": "validation",
+      "error": "Revision 1: ",
+      "at": "2026-11-24T19:24:01.908Z",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      }
+    }
+  ],
   "history": [
     {
       "at": "2026-11-18T22:36:38.247Z",
@@ -65,6 +146,28 @@
         "kind": "automation"
       },
       "note": "Continuity assessed; outline, Word Weave Plan and generation prompt written"
+    },
+    {
+      "at": "2026-11-24T19:24:01.908Z",
+      "from": "planned",
+      "to": "validation-failed",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 1 (story v1) failed automated validation"
+    },
+    {
+      "at": "2026-11-24T19:25:11.238Z",
+      "from": "validation-failed",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 2 (story v2) passed automated validation"
     }
   ]
 }
