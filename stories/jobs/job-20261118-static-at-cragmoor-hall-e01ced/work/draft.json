@@ -1,0 +1,417 @@
+{
+  "schemaVersion": "1.0",
+  "id": "static-at-cragmoor-hall",
+  "title": "Static at Cragmoor Hall",
+  "version": 1,
+  "metadata": {
+    "genre": "Boarding-school mystery",
+    "theme": "Looking for the real explanation before jumping to the scary one, and judging people by what they do rather than rumor",
+    "premise": "Static at Cragmoor Hall. New transfer student Rowan Finch hears a steady knock in the old dorm wing every night at nine o'clock. Everyone says the hall is haunted. Rowan and roommate Dessa Okafor trace the sound through the walls and find a founder's hidden workshop, and a secret a current student has been guarding alone.",
+    "estimatedMinutes": 25,
+    "authorship": {
+      "narrative": "narrative-designer (AI agent)",
+      "origin": "ai-generated"
+    },
+    "createdAt": "2026-11-24"
+  },
+  "literacy": {
+    "targetConcepts": ["r-controlled", "digraph-ck"],
+    "wordSets": [
+      {
+        "id": "r-controlled-words",
+        "label": "r-controlled words",
+        "concept": "r-controlled",
+        "words": ["dark", "door", "storm", "corner", "turn", "further", "carve", "torch"],
+        "minOccurrences": 10
+      },
+      {
+        "id": "ck-words",
+        "label": "ck words",
+        "concept": "digraph-ck",
+        "words": ["rock", "lock", "trick", "clock", "knock", "crack", "stack", "pocket"],
+        "minOccurrences": 12
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  },
+  "start": "start",
+  "items": [
+    {
+      "id": "brass-key",
+      "name": "Brass key",
+      "description": "A small brass key with the letters A and C cut into the side. It feels old and important."
+    }
+  ],
+  "clues": [
+    {
+      "id": "logbook-page",
+      "name": "Torn logbook page",
+      "description": "A page from Augusta Cragmoor's old logbook. It names a hidden second workshop behind the dorm wall."
+    }
+  ],
+  "passages": [
+    {
+      "id": "start",
+      "title": "The Knock at Nine",
+      "paragraphs": [
+        "Rowan Finch had been at Cragmoor Hall for three days. Already, one thing felt strange in the old dorm wing.",
+        "Every night at nine o'clock, a knock came from the dark wall by the window. Knock, knock, knock, slow and steady, like a clock keeping time.",
+        "Dessa Okafor, Rowan's roommate, pulled her blanket up to her chin. \"It's the ghost of old Cragmoor,\" she said. \"Everyone in this wing says so.\"",
+        "Rowan did not believe in ghosts. Rowan believed in puzzles, and a wall that knocked back felt like one.",
+        "Outside, fog rolled over the mountain and pressed against the glass. Somewhere past that wall, something real was making the sound."
+      ],
+      "learningTargets": ["engagement", "detail"],
+      "choices": [
+        { "id": "to-closet", "label": "Search the storage closet at the end of the hall", "target": "closet-search" },
+        { "id": "to-ask-around", "label": "Ask around the dorm to learn the wall's story first", "target": "ask-around" }
+      ]
+    },
+    {
+      "id": "closet-search",
+      "title": "Into the Storage Closet",
+      "paragraphs": [
+        "Rowan slipped out while Dessa pretended to be asleep. The storage closet sat at the end of the dark hall.",
+        "Old desks leaned against a stack of broken chairs. Dust covered every shelf.",
+        "The knock sounded again, closer than it had ever been in Rowan's own room.",
+        "In the far corner, a loose board stuck up out of the floor. Just beneath it was a crack of space."
+      ],
+      "learningTargets": ["detail"],
+      "choices": [
+        { "id": "pry-board", "label": "Pry the loose board up", "target": "loose-panel" },
+        { "id": "back-to-dessa-1", "label": "This room feels too creepy; go wake Dessa instead", "target": "gathering" }
+      ]
+    },
+    {
+      "id": "loose-panel",
+      "title": "The Loose Panel",
+      "paragraphs": [
+        "Rowan pulled the board back. Underneath sat a small wooden panel that did not match the rest of the wall.",
+        "Scratches ran across the panel in a pattern: three short knocks, a pause, then one long knock.",
+        "That was the exact pattern Rowan heard every night at nine o'clock.",
+        "A tiny lock sat in the middle of the panel, no bigger than a thumbnail. Something behind it needed a key, not a trick, and the answer must lie further in these walls.",
+        "Rowan traced the scratches with one finger, trying to remember their order."
+      ],
+      "learningTargets": ["detail", "sequencing"],
+      "choices": [
+        { "id": "pry-panel", "label": "Pry the panel open anyway", "target": "find-brass-key" },
+        { "id": "no-key-no-trick", "label": "This panel needs a key; go back and tell Dessa", "target": "gathering" }
+      ]
+    },
+    {
+      "id": "find-brass-key",
+      "title": "A Key in the Dark",
+      "paragraphs": [
+        "Rowan pried at the panel until it opened with a soft crack.",
+        "Inside sat a small brass key. Two letters were cut into its side: A and C.",
+        "Rowan would not turn the key yet. Augusta Cragmoor built this whole school. Could this truly be her own key?",
+        "Rowan slid the key into a pocket, careful not to lose it in the dark.",
+        "The knock came again, right on the far side of this very wall."
+      ],
+      "learningTargets": ["vocabulary", "inference"],
+      "effects": { "addItems": ["brass-key"] },
+      "choices": [
+        { "id": "key-to-dessa", "label": "Hurry to find Dessa with the key", "target": "gathering" },
+        { "id": "peek-crack", "label": "Peek through the crack in the wall first", "target": "crack-in-wall" }
+      ]
+    },
+    {
+      "id": "crack-in-wall",
+      "title": "A Crack in the Wall",
+      "paragraphs": [
+        "Rowan leaned close to the crack and looked through with one eye.",
+        "A thin torch beam moved on the other side, far off and small.",
+        "Something, or someone, was working back there, further than Rowan could reach tonight.",
+        "A shape passed the light for one second, then the torch beam flicked out."
+      ],
+      "learningTargets": ["inference", "engagement"],
+      "choices": [
+        { "id": "tell-dessa-light", "label": "Hurry to tell Dessa about the light", "target": "gathering" },
+        { "id": "listen-more", "label": "Stay a moment longer and listen to the knocks", "target": "three-knocks" }
+      ]
+    },
+    {
+      "id": "three-knocks",
+      "title": "Three Knocks, Then One",
+      "paragraphs": [
+        "Rowan counted the pattern again: three short knocks, a pause, then one long knock.",
+        "It was the same order as the scratches on the panel, every single night.",
+        "Someone was repeating these steps on purpose, right behind that very door.",
+        "That was not a ghost's trick. That was a steady habit, built on purpose."
+      ],
+      "learningTargets": ["sequencing", "comprehension"],
+      "choices": [
+        { "id": "to-gathering-a-end", "label": "Head back to find Dessa at last", "target": "gathering" },
+        { "id": "to-gathering-a-end2", "label": "Slip quietly to the common room instead", "target": "gathering" }
+      ]
+    },
+    {
+      "id": "ask-around",
+      "title": "Asking Around",
+      "paragraphs": [
+        "Rowan found Dessa in the common room, far from the dark hallway.",
+        "\"If it's not a ghost, then what is it?\" Dessa asked, sitting on the stack of old cushions.",
+        "\"Someone would know,\" Rowan said. \"Someone who has worked here a long time.\"",
+        "Dessa's eyes lit up. \"Mr. Pell. He has worked at Cragmoor Hall longer than anyone.\""
+      ],
+      "learningTargets": ["comprehension"],
+      "choices": [
+        { "id": "find-pell", "label": "Go find Mr. Pell in his garden shed", "target": "pells-shed" },
+        { "id": "skip-to-gathering-b", "label": "This feels silly; go back to the dorm instead", "target": "gathering" }
+      ]
+    },
+    {
+      "id": "pells-shed",
+      "title": "Mr. Pell's Shed",
+      "paragraphs": [
+        "Mr. Pell's shed sat at the edge of the yard, behind a stack of old roof tiles.",
+        "Rowan found him by the door, a knife in hand, ready to carve a small wooden bird.",
+        "\"The knocking,\" Mr. Pell said slowly. \"I have heard it for thirty years. It is not a ghost.\"",
+        "\"Augusta Cragmoor built more than this hall. She built a second workshop, hidden further in.\"",
+        "\"If you want proof, the old records might still carve out the truth. Ask in the office.\""
+      ],
+      "learningTargets": ["inference", "vocabulary"],
+      "choices": [
+        { "id": "see-records", "label": "Ask to see the old records in the office", "target": "old-logbook" },
+        { "id": "thanks-back", "label": "Say thanks and hurry back to Dessa", "target": "gathering" }
+      ]
+    },
+    {
+      "id": "old-logbook",
+      "title": "The Old Logbook",
+      "paragraphs": [
+        "The office smelled of dust and old paper. A thick logbook sat on the top shelf.",
+        "Rowan went through the pages slowly, careful to turn only one at a time.",
+        "One torn page near the back was titled: Augusta's Second Workshop, Behind the Old Dorm Wall.",
+        "Rowan tore a copy of the page free and folded it into a pocket.",
+        "Dessa would want to see this before Rowan went anywhere near that wall again."
+      ],
+      "learningTargets": ["detail", "comprehension"],
+      "effects": { "addClues": ["logbook-page"] },
+      "choices": [
+        { "id": "logbook-to-dessa", "label": "Take the page straight to Dessa", "target": "gathering" },
+        { "id": "read-more-logbook", "label": "Read a little more of the logbook first", "target": "augustas-words" }
+      ]
+    },
+    {
+      "id": "augustas-words",
+      "title": "Augusta's Own Words",
+      "paragraphs": [
+        "Further back in the logbook, Augusta Cragmoor had written in her own hand.",
+        "\"I built this school so quiet children could feel at home,\" she wrote. \"I built the second workshop so I could think.\"",
+        "\"Some people will call any lock a secret, and any secret a danger. They are rarely right.\"",
+        "Rowan read the line twice. It felt like good advice for right now."
+      ],
+      "learningTargets": ["comprehension", "inference"],
+      "choices": [
+        { "id": "enough-reading-to-gathering", "label": "That is enough reading; go find Dessa now", "target": "gathering" },
+        { "id": "check-sketch", "label": "Look at the sketch in the back pages", "target": "hand-drawn-clock" }
+      ]
+    },
+    {
+      "id": "hand-drawn-clock",
+      "title": "A Hand-Drawn Clock",
+      "paragraphs": [
+        "The last page held a careful drawing of gears and a long chain.",
+        "Beside it, in small writing: wind, then rest, then one clear knock on the hour.",
+        "Rowan read the three steps again, in order, until they stuck.",
+        "A rock paperweight held the drawing flat near the corner of the desk. Rowan set it back down with care."
+      ],
+      "learningTargets": ["sequencing"],
+      "choices": [
+        { "id": "to-gathering-b-end", "label": "Hurry to find Dessa with everything you learned", "target": "gathering" },
+        { "id": "to-gathering-b-end2", "label": "Slip out quietly before anyone notices", "target": "gathering" }
+      ]
+    },
+    {
+      "id": "gathering",
+      "title": "Comparing Notes",
+      "paragraphs": [
+        "Rowan found Dessa waiting by the common room door.",
+        "\"We should know everything before we go further,\" Dessa said. \"A key and a clue both help more than one alone.\"",
+        "The lock on the old dorm wing door was not going anywhere. There was still time to check the storage room, or to hear more from Mr. Pell. Or Rowan could head straight for the wall.",
+        "Outside, a small storm rattled the windows. Nine o'clock was getting close."
+      ],
+      "learningTargets": ["sequencing", "engagement"],
+      "choices": [
+        { "id": "gather-to-closet", "label": "Check the storage room for yourself", "target": "closet-search" },
+        { "id": "gather-to-ask", "label": "Go hear what Mr. Pell and the records say", "target": "ask-around" },
+        { "id": "gather-to-threshold", "label": "Head to the old dorm wall at nine o'clock", "target": "threshold" }
+      ]
+    },
+    {
+      "id": "threshold",
+      "title": "The Tunnel Hatch",
+      "paragraphs": [
+        "At nine o'clock sharp, Rowan and Dessa reached a small hatch. It hid behind a bookshelf in the old dorm wing.",
+        "The knock sounded right through the metal, steady as ever.",
+        "A heavy lock held the hatch shut. It looked built for a key, not a trick.",
+        "Rowan could open it calmly, with the right key and the right clue. Or Rowan could climb in fast and loud, through the storm vent above."
+      ],
+      "learningTargets": ["comprehension"],
+      "choices": [
+        {
+          "id": "open-hatch-calm",
+          "label": "Use the key and the page to open the hatch calmly",
+          "target": "into-the-walls",
+          "requires": { "items": ["brass-key"], "clues": ["logbook-page"] },
+          "lockedHint": "You need the brass key from the storage room and the logbook page from the office."
+        },
+        { "id": "climb-vent-alone", "label": "Climb through the storm vent alone, right now", "target": "ending-rush-alone" }
+      ]
+    },
+    {
+      "id": "into-the-walls",
+      "title": "Into the Walls",
+      "paragraphs": [
+        "Rowan did not force the key. It would turn easily, and the lock gave way with a soft click.",
+        "Rowan and Dessa stepped into a narrow space behind the old dorm wall.",
+        "A warm torch glow came from further down the passage, past a row of rock and old pipe.",
+        "The knock sounded again, closer than Rowan had ever heard it.",
+        "At the end of the passage stood a small wooden door, slightly open."
+      ],
+      "learningTargets": ["inference", "detail"],
+      "choices": [
+        { "id": "step-quiet", "label": "Step in quietly and watch first", "target": "theo-marsh" },
+        { "id": "call-out", "label": "Call out so whoever is there knows you're here", "target": "theo-marsh" }
+      ]
+    },
+    {
+      "id": "theo-marsh",
+      "title": "The Workshop Behind the Wall",
+      "paragraphs": [
+        "The small door opened into a round room, cut into the old rock of the mountain.",
+        "In the middle stood a tall clock, taller than Rowan, with a long chain and a brass wheel.",
+        "Theo Marsh stood beside it, one hand on the chain, caught right in the act.",
+        "\"You're not supposed to be here,\" Theo said quietly. He did not look angry. He looked tired.",
+        "\"This clock was Augusta Cragmoor's, the school's founder. I found this room last year, through the old tunnels, and I have wound it every night since. If anyone found out, they would lock this room for good.\"",
+        "Rowan remembered the order from the sketch: wind, then rest, then one knock on the hour. It matched exactly, and it was no ghost at all."
+      ],
+      "learningTargets": ["inference", "comprehension"],
+      "choices": [
+        { "id": "show-understanding", "label": "Tell Theo gently that you understand, and ask him to explain", "target": "ending-trust" },
+        { "id": "ask-direct", "label": "Ask Theo directly why he kept this a secret", "target": "ending-honest-ask" },
+        { "id": "fetch-pell", "label": "Go get Mr. Pell to help explain things properly", "target": "ending-call-pell" },
+        { "id": "assume-worst", "label": "Assume the worst and say you're telling the headmaster right now", "target": "ending-jump-to-ghost" }
+      ]
+    },
+    {
+      "id": "ending-trust",
+      "title": "The Hush Clock",
+      "paragraphs": [
+        "Rowan pulled the brass key from a pocket, along with the torn logbook page. \"We are not here to get you in trouble,\" Rowan said.",
+        "Theo let out a long breath. \"This clock kept me calm when I first came here, missing home. Winding it every night felt like keeping a quiet promise.\"",
+        "Dessa smiled. \"That is not spooky. That is kind.\"",
+        "Together, they told Mr. Pell, who already half-knew, in a quiet corner of the yard. He promised to help care for the clock properly, in the open.",
+        "No one ever called the old dorm wing haunted again. They called it the room with the hush clock, a steady, quiet secret, finally shared."
+      ],
+      "learningTargets": ["comprehension", "engagement"],
+      "choices": [],
+      "ending": { "id": "ending-trust", "kind": "triumph", "title": "The Hush Clock" }
+    },
+    {
+      "id": "ending-honest-ask",
+      "title": "A Straight Answer",
+      "paragraphs": [
+        "\"Why keep this a secret?\" Rowan asked, straight out, in the dark room, no key or page needed.",
+        "Theo looked at the clock, then at Rowan. \"Because secrets feel safer than questions, even bad ones.\"",
+        "He told them everything anyway: the tunnels, the clock, the nightly knock. Dessa listened without one gasp.",
+        "\"Thanks for just asking,\" Theo said. \"Nobody has done that in a long time.\"",
+        "They agreed to tell a teacher together, the next morning, as friends instead of strangers."
+      ],
+      "learningTargets": ["comprehension", "inference"],
+      "choices": [],
+      "ending": { "id": "ending-honest-ask", "kind": "triumph", "title": "A Straight Answer" }
+    },
+    {
+      "id": "ending-call-pell",
+      "title": "Two Who Knew",
+      "paragraphs": [
+        "Dessa ran for Mr. Pell through the dark corridor, while Rowan stayed with Theo by the tall clock.",
+        "Mr. Pell arrived, out of breath, and looked at the clock like an old friend.",
+        "\"I wondered when someone would find this room,\" he said. \"Augusta Cragmoor was my own grandmother's teacher, once.\"",
+        "\"Theo, you should have told me sooner. But you kept it safe, and that counts for something.\"",
+        "The three of them agreed on a plan. There would be a good lock on the hatch. And no more secrets, kept alone."
+      ],
+      "learningTargets": ["comprehension", "detail"],
+      "choices": [],
+      "ending": { "id": "ending-call-pell", "kind": "triumph", "title": "Two Who Knew" }
+    },
+    {
+      "id": "ending-jump-to-ghost",
+      "title": "Too Fast, Too Sure",
+      "paragraphs": [
+        "Rowan did not wait for an explanation. \"I'm telling the headmaster. This is too strange,\" Rowan said, backing toward the door.",
+        "Theo's face fell. \"Please, don't. You don't understand yet.\"",
+        "But Rowan had already decided it looked bad, and ran to fetch a teacher.",
+        "By morning, the whole school knew about the secret room. Theo would not talk to anyone for days.",
+        "Rowan felt a knock of guilt every time Theo walked past. Jumping to the scary answer had cost something real.",
+        "Weeks later, they finally talked. Theo forgave Rowan, slowly. Rowan learned to ask first, next time, before deciding what was true."
+      ],
+      "learningTargets": ["comprehension", "inference"],
+      "choices": [],
+      "ending": { "id": "ending-jump-to-ghost", "kind": "bittersweet", "title": "Too Fast, Too Sure" }
+    },
+    {
+      "id": "ending-rush-alone",
+      "title": "A Brave Try",
+      "paragraphs": [
+        "Rowan climbed into the storm vent alone, without the key or the page.",
+        "The space was tight and dark, and the knock seemed to come from everywhere at once.",
+        "Before long, Rowan chose to turn back. The little wooden door stayed hidden, somewhere further in the dark.",
+        "Dessa was waiting outside, worried. \"You didn't have to do this alone,\" she said.",
+        "Rowan agreed. Next time, the key and the page would come first. Then the real answer would be easy to find."
+      ],
+      "learningTargets": ["engagement", "comprehension"],
+      "choices": [],
+      "ending": { "id": "ending-rush-alone", "kind": "setback", "title": "A Brave Try" }
+    }
+  ],
+  "glossary": {
+    "tunnels": {
+      "syllables": ["tun", "nels"],
+      "definition": "Long underground paths. People can walk through them to get from one place to another."
+    },
+    "workshop": {
+      "syllables": ["work", "shop"],
+      "definition": "A room where someone builds or fixes things."
+    },
+    "founder": {
+      "syllables": ["found", "er"],
+      "definition": "The person who starts something, like a school."
+    },
+    "logbook": {
+      "syllables": ["log", "book"],
+      "definition": "A book where someone writes down notes or events in order."
+    },
+    "corridor": {
+      "syllables": ["cor", "ri", "dor"],
+      "definition": "A long, narrow hallway inside a building."
+    },
+    "headmaster": {
+      "syllables": ["head", "mas", "ter"],
+      "definition": "The person in charge of running a school."
+    },
+    "explanation": {
+      "syllables": ["ex", "pla", "na", "tion"],
+      "definition": "The reason why something happened, told in words."
+    },
+    "paperweight": {
+      "syllables": ["pa", "per", "weight"],
+      "definition": "A small heavy object used to hold papers flat."
+    },
+    "hatch": {
+      "syllables": ["hatch"],
+      "definition": "A small door, often in a floor, wall or ceiling."
+    },
+    "secret": {
+      "syllables": ["se", "cret"],
+      "definition": "Something kept hidden from most people."
+    },
+    "guilt": {
+      "syllables": ["guilt"],
+      "definition": "A bad feeling you get after doing something wrong."
+    }
+  }
+}

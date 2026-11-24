@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "sets": [
+    {
+      "id": "r-controlled-words",
+      "planned": 22,
+      "minimum": 10,
+      "actual": 40,
+      "ok": true
+    },
+    {
+      "id": "ck-words",
+      "planned": 22,
+      "minimum": 12,
+      "actual": 56,
+      "ok": true
+    }
+  ]
+}

@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261118-static-at-cragmoor-hall-e01ced",
   "storyId": "static-at-cragmoor-hall",
-  "state": "planned",
+  "state": "in-review",
   "createdAt": "2026-11-18T22:36:37.461Z",
-  "updatedAt": "2026-11-18T22:36:37.461Z",
+  "updatedAt": "2026-11-24T19:56:07.450Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/request.json",
@@ -31,7 +31,43 @@
       "sha256": "95449666552d5ef14f7780d687dc9f29380c8d51fdfee202482c1512b3fb9702"
     }
   },
-  "revisions": [],
+  "revisions": [
+    {
+      "storyVersion": 1,
+      "draft": {
+        "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/drafts/story.r1.json",
+        "sha256": "bb0861dc56e6b1ce8c6b4f67bdd22e8de77182a955179de4e5d0fc46b486888e"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-11-24T19:56:07.450Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/validation.r1.json",
+          "sha256": "3103bf5564f7fee888b7fa094d6fc1d80a40b075f8c4ea173043ce7b9d643ae5"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/literacy.r1.json",
+          "sha256": "60d2363100a67831ca27f7a15a0a8c5070faeecf3a5bdf0747df7b674237ac04"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/graph.r1.json",
+          "sha256": "ebc99007b77ed45814e188c232dd130836f9935b9241ced2bb9f273dc8e9fb38"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 1
+    }
+  ],
   "reviews": [],
   "parentDecisions": [],
   "failures": [],
@@ -65,6 +101,17 @@
         "kind": "automation"
       },
       "note": "Continuity assessed; outline, Word Weave Plan and generation prompt written"
+    },
+    {
+      "at": "2026-11-24T19:56:07.450Z",
+      "from": "planned",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 1 (story v1) passed automated validation"
     }
   ]
 }
