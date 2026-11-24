@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "lock-in-at-castellan-hall",
   "title": "Lock-In at Castellan Hall",
-  "version": 3,
+  "version": 4,
   "metadata": {
     "genre": "Mild adventure thriller",
     "theme": "Dyslexia-friendly design choice, not a single phonics concept: the key vocabulary (character names and the recurring nouns and verbs the reader must track) strictly avoids the commonly-confused letter pairs b/d and p/q, and sentences stay short and built from a small, tightly controlled, highly repeated word list. Letters that mirror or rotate into each other (b/d, p/q) are the reversals dyslexic readers report most often, and a reader who is still unsure of those letters should not have to hold a main character's name or a repeated plot object in working memory while also decoding it. Ordinary short function words that are nearly impossible to avoid in English (and, had, said, down) still appear, but every noun or verb the story leans on again and again was chosen to have no b, d, p or q in it at all.",
@@ -27,8 +27,15 @@
       {
         "id": "closed-syllable-words",
         "label": "closed-syllable words",
-        "words": ["lock", "key", "chest", "stage", "exit", "gate", "steps", "clock", "coin"],
-        "minOccurrences": 12
+        "concept": "closed-syllable",
+        "words": ["lock", "chest", "steps", "clock"],
+        "minOccurrences": 30
+      },
+      {
+        "id": "castle-key-words",
+        "label": "key story words",
+        "words": ["key", "stage", "exit", "gate", "coin"],
+        "minOccurrences": 40
       }
     ],
     "review": { "status": "pending" }

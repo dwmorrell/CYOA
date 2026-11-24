@@ -1,0 +1,426 @@
+{
+  "storyId": "lock-in-at-castellan-hall",
+  "version": 4,
+  "start": "opening",
+  "nodes": [
+    {
+      "id": "opening",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "path-a",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "path-a-shelf",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "path-a-listen",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "path-a-find",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "path-b",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "path-b-desk",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "path-b-watch",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "path-b-find",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "gathering",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "detour-item",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "detour-clue",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "the-gate",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "threshold",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "climax",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "climax-clock",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "climax-key",
+      "title": null,
+      "ending": null
+    },
+    {
+      "id": "ending-1",
+      "title": null,
+      "ending": {
+        "id": "ending-1",
+        "kind": "triumph",
+        "title": "The Secret Steps"
+      }
+    },
+    {
+      "id": "ending-2",
+      "title": null,
+      "ending": {
+        "id": "ending-2",
+        "kind": "bittersweet",
+        "title": "A Small Loss"
+      }
+    },
+    {
+      "id": "ending-3",
+      "title": null,
+      "ending": {
+        "id": "ending-3",
+        "kind": "triumph",
+        "title": "The Shelf Trail"
+      }
+    },
+    {
+      "id": "ending-4",
+      "title": null,
+      "ending": {
+        "id": "ending-4",
+        "kind": "triumph",
+        "title": "Two Trails at Once"
+      }
+    },
+    {
+      "id": "ending-5",
+      "title": null,
+      "ending": {
+        "id": "ending-5",
+        "kind": "setback",
+        "title": "Wait Out the Storm"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "opening",
+      "to": "path-a",
+      "choice": "go-stage",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "opening",
+      "to": "path-b",
+      "choice": "go-lobby",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "path-a",
+      "to": "path-a-shelf",
+      "choice": "check-shelf",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "path-a",
+      "to": "path-a-listen",
+      "choice": "listen-sound",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "path-a-shelf",
+      "to": "path-a-find",
+      "choice": "shove-back",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "path-a-shelf",
+      "to": "path-a-find",
+      "choice": "tug-rod",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "path-a-listen",
+      "to": "path-a-find",
+      "choice": "follow-sound",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "path-a-listen",
+      "to": "path-a-find",
+      "choice": "check-chest",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "path-a-find",
+      "to": "gathering",
+      "choice": "keep-key-a",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "path-a-find",
+      "to": "gathering",
+      "choice": "keep-key-b",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "path-b",
+      "to": "path-b-desk",
+      "choice": "look-shelf",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "path-b",
+      "to": "path-b-watch",
+      "choice": "watch-storm",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "path-b-desk",
+      "to": "path-b-find",
+      "choice": "tug-note",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "path-b-desk",
+      "to": "path-b-find",
+      "choice": "ask-theo",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "path-b-watch",
+      "to": "path-b-find",
+      "choice": "get-note",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "path-b-watch",
+      "to": "path-b-find",
+      "choice": "call-others",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "path-b-find",
+      "to": "gathering",
+      "choice": "keep-note-a",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "path-b-find",
+      "to": "gathering",
+      "choice": "keep-note-b",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "gathering",
+      "to": "detour-item",
+      "choice": "back-item",
+      "locked": true,
+      "requires": {
+        "notFlags": [
+          "has-item"
+        ]
+      }
+    },
+    {
+      "from": "gathering",
+      "to": "detour-clue",
+      "choice": "back-clue",
+      "locked": true,
+      "requires": {
+        "notFlags": [
+          "has-clue"
+        ]
+      }
+    },
+    {
+      "from": "gathering",
+      "to": "the-gate",
+      "choice": "to-gate",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "detour-item",
+      "to": "the-gate",
+      "choice": "with-key-a",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "detour-item",
+      "to": "the-gate",
+      "choice": "with-key-b",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "detour-clue",
+      "to": "the-gate",
+      "choice": "with-note-a",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "detour-clue",
+      "to": "the-gate",
+      "choice": "with-note-b",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-gate",
+      "to": "threshold",
+      "choice": "shine-torch",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-gate",
+      "to": "threshold",
+      "choice": "tug-gate",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "threshold",
+      "to": "climax",
+      "choice": "use-both",
+      "locked": true,
+      "requires": {
+        "items": [
+          "rusty-key"
+        ],
+        "clues": [
+          "wren-note"
+        ]
+      }
+    },
+    {
+      "from": "threshold",
+      "to": "ending-5",
+      "choice": "try-alone",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax",
+      "to": "climax-clock",
+      "choice": "clock-first",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax",
+      "to": "climax-key",
+      "choice": "key-first",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-clock",
+      "to": "ending-1",
+      "choice": "calm-step",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-clock",
+      "to": "ending-2",
+      "choice": "rush-step",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-key",
+      "to": "ending-3",
+      "choice": "shelf-trail",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-key",
+      "to": "ending-4",
+      "choice": "wind-too",
+      "locked": false,
+      "requires": null
+    }
+  ],
+  "validation": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "passages": 22,
+      "choices": 35,
+      "endings": [
+        "ending-1",
+        "ending-2",
+        "ending-3",
+        "ending-4",
+        "ending-5"
+      ],
+      "reachableEndings": [
+        "ending-1",
+        "ending-2",
+        "ending-3",
+        "ending-4",
+        "ending-5"
+      ],
+      "exploredStates": 29,
+      "stateSearchComplete": true,
+      "shortestPathToEnding": 8,
+      "longestSimplePathToEnding": 11
+    }
+  }
+}

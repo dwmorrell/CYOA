@@ -4,7 +4,7 @@
   "storyId": "lock-in-at-castellan-hall",
   "state": "in-review",
   "createdAt": "2026-11-18T22:36:38.247Z",
-  "updatedAt": "2026-11-24T19:34:38.061Z",
+  "updatedAt": "2026-11-24T19:37:23.638Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/request.json",
@@ -136,6 +136,41 @@
         ]
       },
       "revision": 3
+    },
+    {
+      "storyVersion": 4,
+      "draft": {
+        "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/drafts/story.r4.json",
+        "sha256": "ad71f7bc9049fd78f746279a0269e9388b93875ac4bf5cace7ed7c12bb3bf9f8"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-11-24T19:37:23.638Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/validation.r4.json",
+          "sha256": "6cf36f399b271549b390152cbcf48f8d375a66259243b74a0386e50ff7326e34"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/literacy.r4.json",
+          "sha256": "d8bb78a492afb95fc36a616d53e884fe294f918a7d65d05cc69eaea7bc6c00a0"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/graph.r4.json",
+          "sha256": "690dd44fa782e52b9a428cb092fe8b638d661a82ef2702f787a9ab3720860bf8"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 4
     }
   ],
   "reviews": [
@@ -287,6 +322,17 @@
         "agent": "narrative-designer"
       },
       "recovered": "revision 3 validated"
+    },
+    {
+      "stage": "draft",
+      "error": "Story version 3 must be higher than 3",
+      "at": "2026-11-24T19:37:18.493Z",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "recovered": "revision 4 validated"
     }
   ],
   "history": [
@@ -362,6 +408,17 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 3 (story v3) passed automated validation"
+    },
+    {
+      "at": "2026-11-24T19:37:23.638Z",
+      "from": "in-review",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 4 (story v4) passed automated validation"
     }
   ]
 }
