@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261118-lock-in-at-castellan-hal-3d1b03",
   "storyId": "lock-in-at-castellan-hall",
-  "state": "in-review",
+  "state": "awaiting-parent-approval",
   "createdAt": "2026-11-18T22:36:38.247Z",
-  "updatedAt": "2026-11-24T19:48:52.444Z",
+  "updatedAt": "2026-11-24T19:49:35.565Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/request.json",
@@ -566,6 +566,49 @@
       },
       "id": "review-5-literacy",
       "submittedAt": "2026-11-24T19:48:52.444Z"
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 5,
+      "draftSha256": "cac3a849a4b3c6b51f4bb59c4b7e28d72ffd612da7526578c9de1aed1f71ac66",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "minor",
+          "message": "reports/validation.r5.json brief check still reports '1 sentence(s) exceed the brief's 13-word limit', unchanged since revision 2. Re-reading every sentence in the draft manually, each individual sentence is under 13 words; the only candidate is the quoted dialogue in path-a-find ('Finn said, 'This must unlock something.' Suri put the key in her coat.'), which a naive sentence splitter likely merges across the quotation mark into one longer unit. brief.ok remains true (warning only) and this passage is unchanged from revision 4, which I already traced to the same conclusion. Not a blocker, carried forward for awareness.",
+          "passage": "path-a-find"
+        },
+        {
+          "severity": "minor",
+          "message": "'rod' in path-a-shelf ('A thin rod sat inside, set at an angle.' / choice label 'Tug the thin rod slowly') contains 'd'. It is not a brief-mandated, repeated, or tracked word (used only inside this single optional branch, never carried as an item or referenced elsewhere), so per brief.json's own exception rule ('if one is unavoidable, keep it to a single one-off mention, never a repeated or tracked word') it does not breach the letter-avoidance rule, but it is the same unaddressed note from my revision 4 review and still worth narrative-designer's awareness.",
+          "passage": "path-a-shelf"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/drafts/story.r5.json",
+          "sha256": "cac3a849a4b3c6b51f4bb59c4b7e28d72ffd612da7526578c9de1aed1f71ac66"
+        },
+        {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/validation.r5.json",
+          "sha256": "af882c30ebfa516a9b1d570796b9b49cce0f2d7b81a41e419f9adf17969afd73"
+        },
+        {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/graph.r5.json",
+          "sha256": "f8dc85d80e1eaac8ec7762470c657a8c34f9d55e8635b47601bc4c4847beab19"
+        },
+        {
+          "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/brief.json",
+          "sha256": "b78b917977a22ef560c14f20e935a1358f89138ebd677bfea1b62604af46082b"
+        }
+      ],
+      "id": "review-6-qa",
+      "submittedAt": "2026-11-24T19:49:35.565Z"
     }
   ],
   "parentDecisions": [],
@@ -718,6 +761,16 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 5 (story v5) passed automated validation"
+    },
+    {
+      "at": "2026-11-24T19:49:35.565Z",
+      "from": "in-review",
+      "to": "awaiting-parent-approval",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "All required reviews passed"
     }
   ]
 }

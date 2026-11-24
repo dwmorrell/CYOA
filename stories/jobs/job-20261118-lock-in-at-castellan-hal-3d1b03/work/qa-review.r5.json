@@ -1,0 +1,49 @@
+{
+  "role": "qa",
+  "reviewer": { "name": "qa-engineer", "kind": "ai-agent", "agent": "qa-engineer" },
+  "revision": 5,
+  "draftSha256": "cac3a849a4b3c6b51f4bb59c4b7e28d72ffd612da7526578c9de1aed1f71ac66",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "reports/validation.r5.json brief check still reports '1 sentence(s) exceed the brief's 13-word limit', unchanged since revision 2. Re-reading every sentence in the draft manually, each individual sentence is under 13 words; the only candidate is the quoted dialogue in path-a-find ('Finn said, 'This must unlock something.' Suri put the key in her coat.'), which a naive sentence splitter likely merges across the quotation mark into one longer unit. brief.ok remains true (warning only) and this passage is unchanged from revision 4, which I already traced to the same conclusion. Not a blocker, carried forward for awareness.",
+      "passage": "path-a-find"
+    },
+    {
+      "severity": "minor",
+      "message": "'rod' in path-a-shelf ('A thin rod sat inside, set at an angle.' / choice label 'Tug the thin rod slowly') contains 'd'. It is not a brief-mandated, repeated, or tracked word (used only inside this single optional branch, never carried as an item or referenced elsewhere), so per brief.json's own exception rule ('if one is unavoidable, keep it to a single one-off mention, never a repeated or tracked word') it does not breach the letter-avoidance rule, but it is the same unaddressed note from my revision 4 review and still worth narrative-designer's awareness.",
+      "passage": "path-a-shelf"
+    }
+  ],
+  "resolvedFromPriorReview": [
+    {
+      "revision": 4,
+      "severity": "major",
+      "summary": "ending-5 asserted the reader lacked the key and the note even on a traced route where both were already held, making the ending text false for that reader.",
+      "verification": "Confirmed fixed. drafts/story.r5.json ending-5 now reads 'Trying it alone, the lock would not give way.' ... 'They never did open Wren Castellan's secret way out. Next time, they would try the key and the note together.' Both sentences narrate the attempted action (using the gate alone, not pairing key+note) rather than asserting an inventory state, so they are true regardless of what the reader is carrying. Re-traced the exact route from my revision-4 review (opening -> go-stage -> path-a -> check-shelf -> path-a-shelf -> shove-back -> path-a-find -> keep-key-a -> gathering -> back-clue -> detour-clue -> with-note-a -> the-gate -> shine-torch -> threshold -> try-alone -> ending-5): at try-alone the reader holds both rusty-key and wren-note, and the rewritten ending-5 text no longer contradicts that. Also traced a second route that reaches try-alone holding only one of the two tracked items (opening -> go-stage -> path-a -> listen-sound -> path-a-listen -> check-chest -> path-a-find -> keep-key-a -> gathering -> to-gate (skipping the optional back-clue detour) -> the-gate -> tug-gate -> threshold -> try-alone -> ending-5): has-item true, has-clue false at that point, and the ending text still reads naturally and stays true. By the draft's structure a reader cannot reach 'threshold' holding neither tracked item (visiting path-a or path-b, which is mandatory before 'gathering', always grants that branch's item/clue via its effects), so the 'zero items' case is not reachable and needed no check. The brief/word list itself (rusty-key, worn-coin, wren-note definitions) is unchanged; only the two ending-5 sentences were rewritten, confirmed via diff against story.r4.json."
+    },
+    {
+      "revision": 4,
+      "severity": "major",
+      "summary": "brief.json's continuity.facts asserted no recurring/tracked noun or verb contains b/d/p/q, while the mandated word set requires >=30 occurrences of 'steps' (contains 'p'), a genuine contradiction in the brief rather than the draft.",
+      "verification": "Confirmed fixed at the brief level, as expected (narrative-designer's revision-notes.r5.md states this half was left for product-architect and the draft's word lists were not touched). brief.json metadata theme, continuity.facts, and the job's generation-prompt.md and request.json now all state the single documented exception: '\"steps\": it is the story's central escape-route object and was kept for its closed-syllable decodability, a conscious trade-off ... for this single word, not an oversight' / 'The single documented exception is steps, the central escape-route object, kept despite its p because closed-syllable decodability took priority for this one word.' I independently scanned every word across all three brief wordSets (sh-words, closed-syllable-words, castle-key-words) and all four character surnames/first names in drafts/story.r5.json: 'steps' is the only tracked word containing b/d/p/q, and it is now accurately documented rather than contradicted. The draft's actual word list and prose are unchanged from revision 4 on this point (confirmed by diff), which is correct: this was a documentation defect in brief.json, not a prose defect."
+    }
+  ],
+  "checks": [
+    "npm run check: lint ok, typecheck ok, 202/202 unit tests passed, validate:stories ok (job-20261118-lock-in-at-castellan-hal-3d1b03: in-review, revision 5, story v5), agents:check ok (9/9 agents), build ok.",
+    "reports/validation.r5.json and reports/graph.r5.json both report schema ok, graph ok with 5/5 endings reachable (ending-1..ending-5), literacy checks ok, brief ok (stateSearchComplete true, exploredStates 29, no graph errors or warnings).",
+    "Traced a full forward route to every ending by reading drafts/story.r5.json passage-by-passage and cross-checking against reports/graph.r5.json edges: opening -> go-stage -> path-a -> check-shelf -> path-a-shelf -> shove-back -> path-a-find -> keep-key-a -> gathering -> to-gate -> the-gate -> shine-torch -> threshold -> use-both -> climax -> clock-first -> climax-clock -> calm-step -> ending-1; climax-clock -> rush-step -> ending-2; climax -> key-first -> climax-key -> shelf-trail -> ending-3; climax-key -> wind-too -> ending-4; threshold -> try-alone -> ending-5 (both with full inventory and with partial inventory, see resolvedFromPriorReview above).",
+    "Checked locked choices: 'back-item' (requires notFlags has-item, hint 'You already have the key.'), 'back-clue' (requires notFlags has-clue, hint 'You already have that note.'), 'use-both' (requires items rusty-key + clues wren-note, hint 'You need the key and the note first.'). All three hints accurately describe the unmet condition.",
+    "Checked for forced re-reading: 'detour-item'/'detour-clue' from gathering are new passages with fresh prose, not revisits of already-shown passages, and no edge in graph.r5.json points back to an earlier-visited node within a single playthrough (exploredStates/stateSearchComplete confirm no unexpected cycles).",
+    "Content/age-appropriateness: read every passage; no sexual content, no violence or gore, no suicide/self-harm, no references to a specific real religion. Brief's 'avoid' list (no one truly drowning, cold/wet/time-pressure stakes only) is honored throughout, including in ending-5's gentle setback.",
+    "endingTarget 5 from brief.json is met exactly (5/5 endings), with four genuinely different routes to the four non-setback endings (via clock-first/rush-step/shelf-trail/wind-too) plus the alternate setback ending-5, giving real route variety for a second read.",
+    "Independently verified the corrected brief claim: scanned every word in all three literacy wordSets plus all four character names in drafts/story.r5.json for b/d/p/q; only 'steps' matches, and it is the documented exception. No other tracked/recurring word violates the rule."
+  ],
+  "evidence": [
+    { "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/drafts/story.r5.json", "sha256": "cac3a849a4b3c6b51f4bb59c4b7e28d72ffd612da7526578c9de1aed1f71ac66" },
+    { "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/validation.r5.json", "sha256": "af882c30ebfa516a9b1d570796b9b49cce0f2d7b81a41e419f9adf17969afd73" },
+    { "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/graph.r5.json", "sha256": "f8dc85d80e1eaac8ec7762470c657a8c34f9d55e8635b47601bc4c4847beab19" },
+    { "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/brief.json", "sha256": "b78b917977a22ef560c14f20e935a1358f89138ebd677bfea1b62604af46082b" }
+  ]
+}
