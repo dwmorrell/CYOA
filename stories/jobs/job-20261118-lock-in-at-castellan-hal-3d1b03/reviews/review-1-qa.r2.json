@@ -1,0 +1,53 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 2,
+  "draftSha256": "0d90441a59c490fdc5aeff2531d07aa3e30c1de55288d6a8da607b7daa202975",
+  "verdict": "changes-requested",
+  "findings": [
+    {
+      "severity": "major",
+      "message": "The story's core accessibility design goal (no recurring/tracked noun or verb contains b, d, p or q) is broken by two heavily repeated, plot-central words. 'steps'/'step' (the escape route the whole plot is built around; 10 occurrences across 8 passages, e.g. path-b-find: 'The steps will show the way out.', climax-clock: 'showing steps down and out.', ending-1, ending-5) contains 'p'. 'second' used as 'a second gate' (the alternate exit, central to endings 1, 2 and 3; opening: 'for one second', climax: 'a second, smaller lock', ending-1: 'a second gate', ending-2: 'the second gate', ending-3: 'a second gate') contains 'd'. continuity.facts in brief.json explicitly (and incorrectly) asserts 'the steps' already avoids b/d/p/q, and the brief's own closed-syllable-words word set mandates 'steps' (schemas/brief wordSets, closed-syllable-words), so this looks like a brief-level contradiction that the narrative-designer could not have avoided while also satisfying the literacy word-set requirement -- recommend escalating to product-architect/continuity to resolve the brief before the draft can satisfy the stated design goal.",
+      "passage": "path-b-find"
+    },
+    {
+      "severity": "major",
+      "message": "Inconsistent item tracking: path-a-find (and the repeated detour-item) narrate 'Inside sat an old rusty key and a worn coin' but only 'rusty-key' is ever added via effects.addItems -- the coin is never registered as a carried item. Ending-2 then narrates 'The old coin fell from his hand and was gone' as if the party had been carrying it the whole time, with no passage showing anyone taking the coin. A reader tracking items/clues (the review focus for consistency) cannot explain where the coin came from or why only Theo had it.",
+      "passage": "ending-2"
+    },
+    {
+      "severity": "minor",
+      "message": "reports/validation.r2.json brief check reports '1 sentence(s) exceed the brief's 13-word limit'. Manually re-reading every sentence in the draft, each individual sentence is under 13 words; the only candidate is the quoted dialogue in path-a-find ('Finn said, \\'This must unlock something.\\' Suri put the key in her coat.') which a naive sentence splitter merges into one 14-word unit across a quotation mark. Likely a tokenizer artifact rather than a real prose defect, but worth confirming with app-engineer/literacy-specialist.",
+      "passage": "path-a-find"
+    },
+    {
+      "severity": "minor",
+      "message": "detour-item and detour-clue repeat the chest/note text from path-a-find and path-b-find almost verbatim ('a rusty key and a worn coin ... faint shine in the torch light'; the full Wren note text) rather than giving fresh prose for the second visit. This does not force the reader to re-read an already-seen page (these are distinct passage ids and the graph has no edges back into previously visited nodes, confirmed in reports/graph.r2.json), so it is not a reread violation, but it is weak craft and it is the same spot where the untracked-coin inconsistency above repeats a second time.",
+      "passage": "detour-item"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/drafts/story.r2.json",
+      "sha256": "0d90441a59c490fdc5aeff2531d07aa3e30c1de55288d6a8da607b7daa202975"
+    },
+    {
+      "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/validation.r2.json",
+      "sha256": "4c4cc6ba4f6687a999d2a7ddb3a5c559147b363f806dec4dffe87489258bf35c"
+    },
+    {
+      "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/graph.r2.json",
+      "sha256": "57a42a9264664546522a9dd637a3e69eda300002a5cc6c185bffcec22473fd2a"
+    },
+    {
+      "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/brief.json",
+      "sha256": "e0b140361ecac48b88ef4fbc026561cfe45c8fc36bf84eb49e38f1b294b58dcd"
+    }
+  ],
+  "id": "review-1-qa",
+  "submittedAt": "2026-11-24T19:29:00.294Z"
+}
