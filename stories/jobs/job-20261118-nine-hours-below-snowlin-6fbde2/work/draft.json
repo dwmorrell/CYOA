@@ -1,0 +1,405 @@
+{
+  "schemaVersion": "1.0",
+  "id": "nine-hours-below-snowline",
+  "title": "Nine Hours Below Snowline",
+  "version": 1,
+  "metadata": {
+    "genre": "Wilderness survival thriller",
+    "theme": "Staying level-headed when a plan falls apart, sharing hard decisions fairly, and asking for help instead of going it alone",
+    "premise": "On a wilderness-skills trip above the timberline, a sudden snow slide traps thirteen-year-old Vale Ortiz, two classmates and their guide below a new wall of snow, with the radio crushed and the temperature dropping fast. Vale has to help the group ration gear, treat a bad sprain, and decide whether to wait for rescue or move before dark.",
+    "estimatedMinutes": 25,
+    "authorship": { "narrative": "narrative-designer (AI agent)", "origin": "ai-generated" },
+    "createdAt": "2026-11-24"
+  },
+  "literacy": {
+    "targetConcepts": ["floss", "initial-blend"],
+    "wordSets": [
+      {
+        "id": "floss-words",
+        "label": "floss words",
+        "concept": "floss",
+        "words": ["fall", "chill", "pass", "cliff", "mess", "grass", "spill", "class", "cross", "small"],
+        "minOccurrences": 10
+      },
+      {
+        "id": "initial-blend-words",
+        "label": "initial-blend words",
+        "concept": "initial-blend",
+        "words": ["trail", "storm", "frost", "sled", "crack", "slope", "bright", "snow", "climb", "track", "drift"],
+        "minOccurrences": 12
+      }
+    ],
+    "review": { "status": "pending" }
+  },
+  "start": "start",
+  "items": [
+    { "id": "ski-pole", "name": "Bent ski pole", "description": "A sturdy pole, bent but solid. It can test soft snow before you put your weight on it." }
+  ],
+  "clues": [
+    { "id": "crack-line", "name": "The crack line", "description": "A thin, dark line seen in new snow. It can mean the snow below is thin and weak." }
+  ],
+  "passages": [
+    {
+      "id": "start",
+      "title": "The Wall of Snow",
+      "paragraphs": [
+        "Vale Ortiz was on a wilderness-skills elective trip with Fernridge Middle School. Vale always noticed small things, even when everyone else was in a hurry.",
+        "High above the timberline, the ridge trail cut along the edge of Snowline Hollow.",
+        "A loud crack split the quiet air. Snow and rock came down in a sudden, roaring rush.",
+        "Grey clouds hung low, like a storm waiting its turn. When the snow finally stopped, a new white wall blocked the old trail home.",
+        "Mr. Russo tried to stand and winced hard. He had sprained his ankle in the fall.",
+        "Priya's hands shook, and her eyes went wide and worried. Tomas folded his arms and said they should climb straight up and go."
+      ],
+      "learningTargets": ["engagement", "detail"],
+      "choices": [
+        { "id": "tend-ankle", "label": "Help Mr. Russo with his hurt ankle first", "target": "tend-the-ankle" },
+        { "id": "calm-group", "label": "Calm Priya and Tomas before anything else", "target": "calm-the-group" }
+      ]
+    },
+    {
+      "id": "tend-the-ankle",
+      "title": "A Careful Splint",
+      "paragraphs": [
+        "Vale knelt down by Mr. Russo in the snow. His ankle was already swelling, puffy and tight.",
+        "\"It is a sprain, not a break,\" Vale said, trying hard to sound sure.",
+        "Priya passed over the first-aid kit with shaking hands, and Tomas held a flashlight steady.",
+        "Vale wrapped the ankle with a splint from the kit, snug but not too tight.",
+        "Mr. Russo let out a slow breath. \"That is much better,\" he said. \"Thank you, Vale.\"",
+        "There was still the food to sort, and a plan to make before the light got any lower."
+      ],
+      "learningTargets": ["sequencing", "comprehension"],
+      "choices": [
+        { "id": "wrap-snug", "label": "Wrap it snug, but leave room to move", "target": "ration-the-food" },
+        { "id": "wrap-firm", "label": "Wrap it firm so it will not shift", "target": "ration-the-food" }
+      ]
+    },
+    {
+      "id": "calm-the-group",
+      "title": "Steady Hands",
+      "paragraphs": [
+        "Vale went to Priya first. \"We are okay,\" Vale said. \"We just need a plan.\"",
+        "Priya's shoulders dropped a little, and she wiped her eyes on her sleeve.",
+        "Tomas still looked ready to charge straight up the new wall of snow alone.",
+        "\"Let's figure this out together,\" Vale said. \"That way, no one carries it alone.\"",
+        "Mr. Russo's ankle still needed care, and the food still needed to be shared fairly."
+      ],
+      "learningTargets": ["engagement", "inference"],
+      "choices": [
+        { "id": "steady-priya", "label": "Stay with Priya a moment longer", "target": "ration-the-food" },
+        { "id": "steady-tomas", "label": "Talk Tomas down from climbing alone", "target": "ration-the-food" }
+      ]
+    },
+    {
+      "id": "ration-the-food",
+      "title": "Sharing What They Had",
+      "paragraphs": [
+        "Four of them, and three days of food between them. Vale laid it all out on a flat rock.",
+        "Priya wanted to eat a big meal now, to feel better fast.",
+        "Tomas wanted to save almost everything, in case they were stuck a long time.",
+        "Vale split the food into small, even shares for each day instead.",
+        "Everyone agreed that felt fair. Sharing the choice, not just the food, felt right too."
+      ],
+      "learningTargets": ["comprehension", "vocabulary"],
+      "choices": [
+        { "id": "pack-away", "label": "Pack the shares away carefully", "target": "make-a-plan" },
+        { "id": "double-check", "label": "Double check the stove and tent too", "target": "make-a-plan" }
+      ]
+    },
+    {
+      "id": "make-a-plan",
+      "title": "Which Way First",
+      "paragraphs": [
+        "With the ankle wrapped and the food shared, the group looked hard at the new wall of snow.",
+        "The radio lay crushed under a rock, in pieces well beyond fixing.",
+        "The wall was too tall to climb straight up, and too wide to walk around fast.",
+        "Vale could search the scattered gear for anything useful, or scout along the wall for a safer line.",
+        "Either way, time was short before the last of the light faded."
+      ],
+      "learningTargets": ["sequencing"],
+      "choices": [
+        { "id": "check-gear-pile", "label": "Search the scattered gear pile", "target": "gear-search" },
+        { "id": "scout-the-wall", "label": "Scout along the new cliff wall", "target": "scout-ahead" }
+      ]
+    },
+    {
+      "id": "gear-search",
+      "title": "The Gear Pile",
+      "paragraphs": [
+        "Snow had made a small mess across the grass near the packs.",
+        "A stove, a tent, and the rest of the first-aid kit lay scattered about in the snow.",
+        "Under a torn pack flap, Vale spotted a bent ski pole, half buried in frost.",
+        "A pole like that could test soft snow before a foot did.",
+        "That might stop a bad fall on a hidden slope later on, once they were moving again."
+      ],
+      "learningTargets": ["detail", "vocabulary"],
+      "effects": { "addItems": ["ski-pole"], "setFlags": ["got-item"] },
+      "choices": [
+        { "id": "wrap-pole", "label": "Wrap the bent part so it will not slip", "target": "gear-search-notice" },
+        { "id": "grab-pole", "label": "Grab the pole fast before the chill gets worse", "target": "gear-search-notice" }
+      ]
+    },
+    {
+      "id": "gear-search-notice",
+      "title": "One More Thing",
+      "paragraphs": [
+        "Tucked beside the pole, Vale noticed a torn strip of bright orange cloth.",
+        "It must have come loose from a trail marker, ripped free in the slide.",
+        "Orange stood out well against the white snow. It might help somebody spot them later.",
+        "Vale tucked the cloth into a pocket, just in case, then turned back toward the others."
+      ],
+      "learningTargets": ["detail"],
+      "choices": [
+        { "id": "pocket-cloth", "label": "Keep the cloth safe in a pocket", "target": "gathering" },
+        { "id": "tie-cloth", "label": "Tie the cloth to the top of the pack", "target": "gathering" }
+      ]
+    },
+    {
+      "id": "scout-ahead",
+      "title": "The Crack in the Wall",
+      "paragraphs": [
+        "Vale walked along the new wall of snow, looking close at every patch.",
+        "A thin, dark line ran across one spot, like a crack through ice.",
+        "Below the ridge, hidden by brush, an old deer track crossed the open slope lower down.",
+        "It looked small and steep, but it might pass below the worst drop.",
+        "A guide had once told Vale that a crack like that meant thin, weak snow underneath."
+      ],
+      "learningTargets": ["inference", "detail"],
+      "effects": { "addClues": ["crack-line"], "setFlags": ["got-clue"] },
+      "choices": [
+        { "id": "tell-group", "label": "Hurry back to tell the others what you saw", "target": "scout-ahead-notice" },
+        { "id": "study-more", "label": "Study the crack a moment longer first", "target": "scout-ahead-notice" }
+      ]
+    },
+    {
+      "id": "scout-ahead-notice",
+      "title": "One More Thing",
+      "paragraphs": [
+        "On the way back, Vale passed a bent trail marker half covered in snow.",
+        "Its bright paint still showed through the white.",
+        "Vale remembered which way the marker had pointed, back toward the old main trail.",
+        "That small fact might matter later, once they were moving again."
+      ],
+      "learningTargets": ["sequencing"],
+      "choices": [
+        { "id": "mark-direction", "label": "Remember the marker's direction clearly", "target": "gathering" },
+        { "id": "hurry-on", "label": "Hurry on before losing the light", "target": "gathering" }
+      ]
+    },
+    {
+      "id": "gathering",
+      "title": "Regroup at the Wall",
+      "paragraphs": [
+        "Vale came back to the others at the flat rock.",
+        "Priya paced in a small, tight circle, and Tomas sat with his arms crossed on the ground.",
+        "Mr. Russo's splint held steady, and the food was packed fair and square.",
+        "There was still a little time before dark, but not much of it left.",
+        "Something else might still be worth checking before they moved on for good."
+      ],
+      "learningTargets": ["sequencing", "comprehension"],
+      "choices": [
+        {
+          "id": "go-get-item",
+          "label": "Go back and check the gear pile too",
+          "target": "late-gear-find",
+          "requires": { "notFlags": ["got-item"] },
+          "lockedHint": "You already checked the gear pile."
+        },
+        {
+          "id": "go-get-clue",
+          "label": "Go back and scout the cliff wall too",
+          "target": "late-clue-find",
+          "requires": { "notFlags": ["got-clue"] },
+          "lockedHint": "You already scouted the cliff wall."
+        },
+        { "id": "move-on", "label": "Decide together to head for the ridge gap", "target": "the-long-walk" }
+      ]
+    },
+    {
+      "id": "late-gear-find",
+      "title": "A Second Look",
+      "paragraphs": [
+        "Vale jogged back toward the gear, where snow still made a small mess across the grass.",
+        "Near a torn pack flap, half buried in frost, sat a bent ski pole.",
+        "Vale picked it up fast. It could test soft snow before anyone took a bad fall.",
+        "A bad slip on a hidden slope was a risk nobody wanted to take."
+      ],
+      "learningTargets": ["vocabulary"],
+      "effects": { "addItems": ["ski-pole"], "setFlags": ["got-item"] },
+      "choices": [
+        { "id": "wrap-pole2", "label": "Wrap the bent part before it slips", "target": "the-long-walk" },
+        { "id": "grab-pole2", "label": "Grab it fast before the chill gets worse", "target": "the-long-walk" }
+      ]
+    },
+    {
+      "id": "late-clue-find",
+      "title": "A Second Look at the Wall",
+      "paragraphs": [
+        "Vale jogged to the new wall of snow for one more look.",
+        "The thin, dark crack line still ran across the same patch.",
+        "Below the ridge, the old deer track still crossed the open slope lower down.",
+        "It looked small and steep, but it might pass below the worst drop."
+      ],
+      "learningTargets": ["inference"],
+      "effects": { "addClues": ["crack-line"], "setFlags": ["got-clue"] },
+      "choices": [
+        { "id": "note-crack", "label": "Fix the crack's spot firmly in mind", "target": "the-long-walk" },
+        { "id": "hurry-back2", "label": "Hurry back before the chill gets worse", "target": "the-long-walk" }
+      ]
+    },
+    {
+      "id": "the-long-walk",
+      "title": "Toward the Gap",
+      "paragraphs": [
+        "The group moved together along the base of the new snow wall.",
+        "Priya wanted to hurry on ahead, since she was fast on her feet.",
+        "Tomas matched his pace to Mr. Russo's slow, careful steps instead.",
+        "Little by little, the light over the ridge turned a deeper grey."
+      ],
+      "learningTargets": ["sequencing", "engagement"],
+      "choices": [
+        { "id": "let-priya-lead", "label": "Let Priya range a little ahead to look", "target": "threshold" },
+        { "id": "stay-close", "label": "Keep everyone close together at Mr. Russo's pace", "target": "threshold" }
+      ]
+    },
+    {
+      "id": "threshold",
+      "title": "The Ridge Gap",
+      "paragraphs": [
+        "The group reached a narrow gap in the new wall of snow.",
+        "Beyond it, the old deer track curved around the open slope.",
+        "Crossing the gap looked fast, but the snow near the edge looked soft.",
+        "Waiting here and raising a bright signal was slower, but safer if the gap was too risky."
+      ],
+      "learningTargets": ["comprehension", "inference"],
+      "choices": [
+        {
+          "id": "cross-gap",
+          "label": "Test the soft snow with the pole and cross",
+          "target": "climax-approach",
+          "requires": { "items": ["ski-pole"], "clues": ["crack-line"] },
+          "lockedHint": "You need the ski pole and the memory of the crack line to risk the gap."
+        },
+        { "id": "wait-signal", "label": "Stay put and raise a bright signal instead", "target": "ending-5" }
+      ]
+    },
+    {
+      "id": "climax-approach",
+      "title": "Across the Gap",
+      "paragraphs": [
+        "Vale pressed the pole into the snow before every step.",
+        "The crack line showed exactly where the crust turned thin and weak.",
+        "One by one, the group crossed the narrow gap and found the old deer track.",
+        "The track led to a small ranger shelter tucked under a rock overhang.",
+        "Daylight was fading fast now, and a choice still waited for them."
+      ],
+      "learningTargets": ["sequencing", "comprehension"],
+      "choices": [
+        { "id": "check-russo-first", "label": "Check on Mr. Russo before anything else", "target": "climax" },
+        { "id": "scan-ridge-first", "label": "Scan the ridge for any sign of rescue first", "target": "climax" }
+      ]
+    },
+    {
+      "id": "climax",
+      "title": "The Last Hour of Light",
+      "paragraphs": [
+        "Inside the shelter, out of the wind, the group looked at each other.",
+        "There was still time to choose, but not much time left to waste.",
+        "Mr. Russo's ankle needed care. The failing light needed a plan. The whole team needed a fair choice."
+      ],
+      "learningTargets": ["comprehension", "engagement"],
+      "choices": [
+        { "id": "splint-move", "label": "Splint the ankle well and keep moving together", "target": "ending-1" },
+        { "id": "signal-wait", "label": "Build a bright signal on open ground and wait", "target": "ending-2" },
+        { "id": "send-tomas", "label": "Let Tomas push ahead alone for faster help", "target": "ending-3" },
+        { "id": "split-team", "label": "Split into two small teams to rig a sled", "target": "ending-4" }
+      ]
+    },
+    {
+      "id": "ending-1",
+      "title": "Down Together",
+      "paragraphs": [
+        "Vale and Priya wrapped Mr. Russo's ankle tight with a fresh splint from the kit.",
+        "He gripped Tomas's arm, and together the four of them stood him up.",
+        "Step by step, the group moved down the old deer track. No one wanted to spill the last of their strength too soon.",
+        "Past the shelter, a bright patch of orange showed through the snow: a search team's flag.",
+        "The searchers had heard about the missed check-in from the wilderness class and had already started looking.",
+        "Everyone made it down together, cold but steady. Small details, and asking for help, had made the hard day easier."
+      ],
+      "learningTargets": ["engagement"],
+      "choices": [],
+      "ending": { "id": "ending-1", "kind": "triumph", "title": "Down Together" }
+    },
+    {
+      "id": "ending-2",
+      "title": "Seen From Above",
+      "paragraphs": [
+        "The group laid out every bright thing they owned in a big X shape on the open snow.",
+        "Priya and Tomas took turns to climb a low rock and watch the sky.",
+        "After a cold hour, a small plane dipped low and tipped its wings at them.",
+        "The search had begun the moment their wilderness class failed to cross the usual checkpoint.",
+        "Rescuers followed the bright signal and reached the shelter well before full dark.",
+        "Waiting together, calm and ready, had worked out just fine in the end."
+      ],
+      "learningTargets": ["engagement"],
+      "choices": [],
+      "ending": { "id": "ending-2", "kind": "triumph", "title": "Seen From Above" }
+    },
+    {
+      "id": "ending-3",
+      "title": "Faster Alone",
+      "paragraphs": [
+        "Tomas set off alone down the old deer track, moving fast over the packed snow.",
+        "He crossed the last ridge and found a small ranger station by dusk.",
+        "Rescuers climbed back up his tracks to find the others, tired but safe.",
+        "Tomas felt proud. But later he said the hardest part was not knowing if the others were okay.",
+        "Vale agreed that next time, the group should decide together, even when someone feels ready to run ahead."
+      ],
+      "learningTargets": ["engagement"],
+      "choices": [],
+      "ending": { "id": "ending-3", "kind": "bittersweet", "title": "Faster Alone" }
+    },
+    {
+      "id": "ending-4",
+      "title": "Working As One",
+      "paragraphs": [
+        "One team rigged a makeshift sled from a tent and poles, strapping Mr. Russo in gently.",
+        "The other team went ahead to track a safe line through a drift of soft snow.",
+        "No one made a wrong step, and no one took a bad fall on the way down.",
+        "By the time the last small patch of daylight faded, both teams met rescuers at the trail's end.",
+        "Splitting the work fairly had let them move fast and still stay safe."
+      ],
+      "learningTargets": ["engagement"],
+      "choices": [],
+      "ending": { "id": "ending-4", "kind": "triumph", "title": "Working As One" }
+    },
+    {
+      "id": "ending-5",
+      "title": "A Cold, Safe Wait",
+      "paragraphs": [
+        "The group chose to stay by the wall and wait it out.",
+        "They raised a bright flag and huddled close together against the chill.",
+        "Hours passed slowly. Snow kept drifting against their boots, and the cold crept in close.",
+        "No one tried the gap without the right gear, so no one took a bad fall.",
+        "Long after dark, a search team found their trail and reached them, cold but unhurt.",
+        "Next time, Vale thought, the right gear might get them home before the chill set in. For now, waiting together had kept everyone safe."
+      ],
+      "learningTargets": ["engagement"],
+      "choices": [],
+      "ending": { "id": "ending-5", "kind": "setback", "title": "A Cold, Safe Wait" }
+    }
+  ],
+  "glossary": {
+    "wilderness": { "syllables": ["wil", "der", "ness"], "definition": "Wild, natural land away from towns and roads." },
+    "elective": { "syllables": ["e", "lec", "tive"], "definition": "A class or trip you choose to take, not one you must take." },
+    "together": { "syllables": ["to", "geth", "er"], "definition": "All in the same place, doing something as a group." },
+    "overhang": { "syllables": ["o", "ver", "hang"], "definition": "A ledge of rock or snow that sticks out above, like a roof." },
+    "timberline": { "syllables": ["tim", "ber", "line"], "definition": "The high point on a mountain where trees stop growing." },
+    "radio": { "syllables": ["ra", "di", "o"], "definition": "A device used to send and hear voices over a distance." },
+    "rescuers": { "syllables": ["res", "cu", "ers"], "definition": "People who come to help and bring others to safety." },
+    "sprain": { "syllables": ["sprain"], "definition": "A twist that hurts a joint, without breaking a bone." },
+    "splint": { "syllables": ["splint"], "definition": "A stiff support that holds a hurt joint still." },
+    "signal": { "syllables": ["sig", "nal"], "definition": "A sign, like a light or flag, that shows people where you are." },
+    "shelter": { "syllables": ["shel", "ter"], "definition": "A safe place that blocks wind, snow or rain." },
+    "checkpoint": { "syllables": ["check", "point"], "definition": "A place where someone is expected to check in or be seen." }
+  }
+}

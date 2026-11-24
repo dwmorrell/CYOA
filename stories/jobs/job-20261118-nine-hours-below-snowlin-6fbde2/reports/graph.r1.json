@@ -1,0 +1,421 @@
+{
+  "storyId": "nine-hours-below-snowline",
+  "version": 1,
+  "start": "start",
+  "nodes": [
+    {
+      "id": "start",
+      "title": "The Wall of Snow",
+      "ending": null
+    },
+    {
+      "id": "tend-the-ankle",
+      "title": "A Careful Splint",
+      "ending": null
+    },
+    {
+      "id": "calm-the-group",
+      "title": "Steady Hands",
+      "ending": null
+    },
+    {
+      "id": "ration-the-food",
+      "title": "Sharing What They Had",
+      "ending": null
+    },
+    {
+      "id": "make-a-plan",
+      "title": "Which Way First",
+      "ending": null
+    },
+    {
+      "id": "gear-search",
+      "title": "The Gear Pile",
+      "ending": null
+    },
+    {
+      "id": "gear-search-notice",
+      "title": "One More Thing",
+      "ending": null
+    },
+    {
+      "id": "scout-ahead",
+      "title": "The Crack in the Wall",
+      "ending": null
+    },
+    {
+      "id": "scout-ahead-notice",
+      "title": "One More Thing",
+      "ending": null
+    },
+    {
+      "id": "gathering",
+      "title": "Regroup at the Wall",
+      "ending": null
+    },
+    {
+      "id": "late-gear-find",
+      "title": "A Second Look",
+      "ending": null
+    },
+    {
+      "id": "late-clue-find",
+      "title": "A Second Look at the Wall",
+      "ending": null
+    },
+    {
+      "id": "the-long-walk",
+      "title": "Toward the Gap",
+      "ending": null
+    },
+    {
+      "id": "threshold",
+      "title": "The Ridge Gap",
+      "ending": null
+    },
+    {
+      "id": "climax-approach",
+      "title": "Across the Gap",
+      "ending": null
+    },
+    {
+      "id": "climax",
+      "title": "The Last Hour of Light",
+      "ending": null
+    },
+    {
+      "id": "ending-1",
+      "title": "Down Together",
+      "ending": {
+        "id": "ending-1",
+        "kind": "triumph",
+        "title": "Down Together"
+      }
+    },
+    {
+      "id": "ending-2",
+      "title": "Seen From Above",
+      "ending": {
+        "id": "ending-2",
+        "kind": "triumph",
+        "title": "Seen From Above"
+      }
+    },
+    {
+      "id": "ending-3",
+      "title": "Faster Alone",
+      "ending": {
+        "id": "ending-3",
+        "kind": "bittersweet",
+        "title": "Faster Alone"
+      }
+    },
+    {
+      "id": "ending-4",
+      "title": "Working As One",
+      "ending": {
+        "id": "ending-4",
+        "kind": "triumph",
+        "title": "Working As One"
+      }
+    },
+    {
+      "id": "ending-5",
+      "title": "A Cold, Safe Wait",
+      "ending": {
+        "id": "ending-5",
+        "kind": "setback",
+        "title": "A Cold, Safe Wait"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "start",
+      "to": "tend-the-ankle",
+      "choice": "tend-ankle",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "start",
+      "to": "calm-the-group",
+      "choice": "calm-group",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "tend-the-ankle",
+      "to": "ration-the-food",
+      "choice": "wrap-snug",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "tend-the-ankle",
+      "to": "ration-the-food",
+      "choice": "wrap-firm",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "calm-the-group",
+      "to": "ration-the-food",
+      "choice": "steady-priya",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "calm-the-group",
+      "to": "ration-the-food",
+      "choice": "steady-tomas",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "ration-the-food",
+      "to": "make-a-plan",
+      "choice": "pack-away",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "ration-the-food",
+      "to": "make-a-plan",
+      "choice": "double-check",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "make-a-plan",
+      "to": "gear-search",
+      "choice": "check-gear-pile",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "make-a-plan",
+      "to": "scout-ahead",
+      "choice": "scout-the-wall",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "gear-search",
+      "to": "gear-search-notice",
+      "choice": "wrap-pole",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "gear-search",
+      "to": "gear-search-notice",
+      "choice": "grab-pole",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "gear-search-notice",
+      "to": "gathering",
+      "choice": "pocket-cloth",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "gear-search-notice",
+      "to": "gathering",
+      "choice": "tie-cloth",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "scout-ahead",
+      "to": "scout-ahead-notice",
+      "choice": "tell-group",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "scout-ahead",
+      "to": "scout-ahead-notice",
+      "choice": "study-more",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "scout-ahead-notice",
+      "to": "gathering",
+      "choice": "mark-direction",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "scout-ahead-notice",
+      "to": "gathering",
+      "choice": "hurry-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "gathering",
+      "to": "late-gear-find",
+      "choice": "go-get-item",
+      "locked": true,
+      "requires": {
+        "notFlags": [
+          "got-item"
+        ]
+      }
+    },
+    {
+      "from": "gathering",
+      "to": "late-clue-find",
+      "choice": "go-get-clue",
+      "locked": true,
+      "requires": {
+        "notFlags": [
+          "got-clue"
+        ]
+      }
+    },
+    {
+      "from": "gathering",
+      "to": "the-long-walk",
+      "choice": "move-on",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "late-gear-find",
+      "to": "the-long-walk",
+      "choice": "wrap-pole2",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "late-gear-find",
+      "to": "the-long-walk",
+      "choice": "grab-pole2",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "late-clue-find",
+      "to": "the-long-walk",
+      "choice": "note-crack",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "late-clue-find",
+      "to": "the-long-walk",
+      "choice": "hurry-back2",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-long-walk",
+      "to": "threshold",
+      "choice": "let-priya-lead",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "the-long-walk",
+      "to": "threshold",
+      "choice": "stay-close",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "threshold",
+      "to": "climax-approach",
+      "choice": "cross-gap",
+      "locked": true,
+      "requires": {
+        "items": [
+          "ski-pole"
+        ],
+        "clues": [
+          "crack-line"
+        ]
+      }
+    },
+    {
+      "from": "threshold",
+      "to": "ending-5",
+      "choice": "wait-signal",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-approach",
+      "to": "climax",
+      "choice": "check-russo-first",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax-approach",
+      "to": "climax",
+      "choice": "scan-ridge-first",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax",
+      "to": "ending-1",
+      "choice": "splint-move",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax",
+      "to": "ending-2",
+      "choice": "signal-wait",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax",
+      "to": "ending-3",
+      "choice": "send-tomas",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "climax",
+      "to": "ending-4",
+      "choice": "split-team",
+      "locked": false,
+      "requires": null
+    }
+  ],
+  "validation": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "passages": 21,
+      "choices": 35,
+      "endings": [
+        "ending-1",
+        "ending-2",
+        "ending-3",
+        "ending-4",
+        "ending-5"
+      ],
+      "reachableEndings": [
+        "ending-1",
+        "ending-2",
+        "ending-3",
+        "ending-4",
+        "ending-5"
+      ],
+      "exploredStates": 28,
+      "stateSearchComplete": true,
+      "shortestPathToEnding": 10,
+      "longestSimplePathToEnding": 13
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "sets": [
+    {
+      "id": "floss-words",
+      "planned": 22,
+      "minimum": 10,
+      "actual": 37,
+      "ok": true
+    },
+    {
+      "id": "initial-blend-words",
+      "planned": 22,
+      "minimum": 12,
+      "actual": 73,
+      "ok": true
+    }
+  ]
+}
