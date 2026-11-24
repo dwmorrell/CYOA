@@ -1,0 +1,35 @@
+{
+  "role": "qa",
+  "reviewer": { "name": "qa-engineer", "kind": "ai-agent", "agent": "qa-engineer" },
+  "revision": 4,
+  "draftSha256": "ad71f7bc9049fd78f746279a0269e9388b93875ac4bf5cace7ed7c12bb3bf9f8",
+  "verdict": "changes-requested",
+  "findings": [
+    {
+      "severity": "major",
+      "message": "The core accessibility design goal in metadata.theme and brief.json continuity.facts ('no recurring/tracked noun or verb contains b, d, p or q') is still broken by the word 'steps'/'step' (contains 'p'), unchanged since revision 2. This is the escape-route object the whole plot is built around: wren-note/path-b-find/detour-clue quote the clue 'The steps will show the way out.'; climax-clock says 'showing steps down and out'; ending-1 ('went down the secret steps'), ending-2 ('rushed down the new steps'), and ending-5 ('sat on the steps and waited') all repeat it -- 16 occurrences total across 8+ passages. revision-notes.r3.md (section 4, 'note, not fixed') explicitly says this half of the original r2 major finding was deliberately left unresolved and escalated to product-architect, because brief.json's own closed-syllable-words word set mandates >=30 occurrences of 'steps' while brief.json continuity.facts simultaneously (and incorrectly) asserts 'the steps' contains no b/d/p/q. I confirm brief.json is still unchanged on this point as of revision 4 (continuity.facts still lists 'the steps' among the letter-clean words, and the closed-syllable-words set still requires 'steps' with minOccurrences 30) -- revision 3/4 only fixed the 'second gate' half of the original bundled finding, never the 'steps' half. Only the coin-tracking finding and the 'second gate' finding from review-1-qa.r2.json are actually resolved; this part of that same finding remains open and needs a brief-level fix (drop 'steps' from the mandated word set, or amend continuity.facts to admit the exception) before it can be resolved in prose.",
+      "passage": "path-b-find"
+    },
+    {
+      "severity": "major",
+      "message": "Ending-5 ('Wait Out the Storm') does not reliably match the setup. At 'threshold', the 'try-alone' choice (target ending-5) is never locked and carries no requires/lockedHint tied to inventory, so a reader who already picked up both the rusty key (path-a-find or detour-item) and Wren's note (path-b-find or detour-clue) before reaching threshold can still choose it. Yet ending-5's text asserts the opposite of that reader's actual state: 'Without the key and the note, the lock would not give way' and 'They never did find Wren Castellan's secret way out. Next time, they would look for the note and the key first.' Traced route: opening -> go-stage -> path-a -> check-shelf -> path-a-shelf -> shove-back -> path-a-find (has-item) -> keep-key-a -> gathering -> back-clue -> detour-clue (has-clue) -> with-note-a -> the-gate -> shine-torch -> threshold -> try-alone -> ending-5. On this route the reader holds both tracked items (visible in the inventory UI) while the ending narrates that they never had them. This is a content-integrity defect in a reachable ending, not merely a flavour choice.",
+      "passage": "ending-5"
+    },
+    {
+      "severity": "minor",
+      "message": "reports/validation.r4.json brief check still reports '1 sentence(s) exceed the brief's 13-word limit', unchanged since revision 2/3. Re-reading every sentence in the draft manually, each individual sentence is under 13 words; the only candidate is the quoted dialogue in path-a-find ('Finn said, 'This must unlock something.' Suri put the key in her coat.'), which a naive sentence splitter likely merges across the quotation mark into one longer unit. Still looks like a tokenizer artifact rather than a real prose defect (brief.ok remains true, it is a warning only), but it has now persisted across three revisions without confirmation from app-engineer/literacy-specialist.",
+      "passage": "path-a-find"
+    },
+    {
+      "severity": "minor",
+      "message": "'rod' in path-a-shelf ('A thin rod sat inside, set at an angle.' / 'Tug the thin rod slowly') contains 'd'. It is not a brief-mandated, repeated, or tracked word (used twice, only inside this single optional branch, not carried as an item or referenced elsewhere), so it does not meet the bar of the other major finding above, but it is worth the narrative-designer's awareness given how sensitive this story's premise is to the b/d/p/q rule.",
+      "passage": "path-a-shelf"
+    }
+  ],
+  "evidence": [
+    { "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/drafts/story.r4.json", "sha256": "ad71f7bc9049fd78f746279a0269e9388b93875ac4bf5cace7ed7c12bb3bf9f8" },
+    { "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/validation.r4.json", "sha256": "6cf36f399b271549b390152cbcf48f8d375a66259243b74a0386e50ff7326e34" },
+    { "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/reports/graph.r4.json", "sha256": "690dd44fa782e52b9a428cb092fe8b638d661a82ef2702f787a9ab3720860bf8" },
+    { "path": "stories/jobs/job-20261118-lock-in-at-castellan-hal-3d1b03/brief.json", "sha256": "cd71f56a758aa2bb85d08c58bdc8c918a1c4a3571d9eabb864e98b3f367dc0c1" }
+  ]
+}
