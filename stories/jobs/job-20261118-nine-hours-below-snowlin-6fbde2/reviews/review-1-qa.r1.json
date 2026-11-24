@@ -1,0 +1,48 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 1,
+  "draftSha256": "6600433a923bae1dbc79e234769328c93fd668679edb61a540f19f5c127dace0",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "The torn orange trail-marker cloth found in gear-search-notice (picked up and pocketed 'just in case') is never referenced again; it is not tracked as an item and has no payoff. ending-1's 'bright patch of orange' is a separate search-team flag, not this cloth. Likewise the remembered marker direction in scout-ahead-notice ('that small fact might matter later') is never used. These read as loose threads for an attentive child reader. Not a blocker since no mechanic depends on them, but narrative-designer should either pay these off or remove the implication that they matter.",
+      "passage": "gear-search-notice"
+    },
+    {
+      "severity": "minor",
+      "message": "late-gear-find and late-clue-find largely re-describe the same scene and object in near-identical phrasing to gear-search and scout-ahead ('half buried in frost', 'the thin, dark crack line', 'the old deer track... might pass below the worst drop'). This is not a structural page revisit (no backward graph edge; these are distinct, newly-written passages, and the graph report confirms the route to every ending is a forward-only DAG with no re-reading of already-visited passages), but the heavy phrase reuse makes the second-look passages feel repetitive on a route that takes both.",
+      "passage": "late-clue-find"
+    },
+    {
+      "severity": "minor",
+      "message": "Several choice pairs (wrap-snug/wrap-firm, pack-away/double-check, tell-group/study-more, mark-direction/hurry-on, check-russo-first/scan-ridge-first) converge on an identical next passage with no state effect or textual difference. Fine for pacing on a first read, but reduces the sense of agency on a reread; flagging for awareness, not required to fix.",
+      "passage": "ration-the-food"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/drafts/story.r1.json",
+      "sha256": "6600433a923bae1dbc79e234769328c93fd668679edb61a540f19f5c127dace0"
+    },
+    {
+      "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/reports/validation.r1.json",
+      "sha256": "ad488f803578136abdae3b6e07149c6dae2e405db78e83ebb5a56843bd87d7fa"
+    },
+    {
+      "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/reports/graph.r1.json",
+      "sha256": "6679f1f8b7d528087cef65f20fc51f8d6fd16384c661f8a51466b6b4ff9a22b4"
+    },
+    {
+      "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/brief.json",
+      "sha256": "884f10ca90e3922ad840762fc58c95f75641a4a2668fd0a72dff237e58a47741"
+    }
+  ],
+  "id": "review-1-qa",
+  "submittedAt": "2026-11-24T19:40:24.979Z"
+}

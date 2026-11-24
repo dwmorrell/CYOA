@@ -1,0 +1,38 @@
+{
+  "role": "qa",
+  "reviewer": { "name": "qa-engineer", "kind": "ai-agent", "agent": "qa-engineer" },
+  "revision": 1,
+  "draftSha256": "6600433a923bae1dbc79e234769328c93fd668679edb61a540f19f5c127dace0",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "minor",
+      "message": "The torn orange trail-marker cloth found in gear-search-notice (picked up and pocketed 'just in case') is never referenced again; it is not tracked as an item and has no payoff. ending-1's 'bright patch of orange' is a separate search-team flag, not this cloth. Likewise the remembered marker direction in scout-ahead-notice ('that small fact might matter later') is never used. These read as loose threads for an attentive child reader. Not a blocker since no mechanic depends on them, but narrative-designer should either pay these off or remove the implication that they matter.",
+      "passage": "gear-search-notice"
+    },
+    {
+      "severity": "minor",
+      "message": "late-gear-find and late-clue-find largely re-describe the same scene and object in near-identical phrasing to gear-search and scout-ahead ('half buried in frost', 'the thin, dark crack line', 'the old deer track... might pass below the worst drop'). This is not a structural page revisit (no backward graph edge; these are distinct, newly-written passages, and the graph report confirms the route to every ending is a forward-only DAG with no re-reading of already-visited passages), but the heavy phrase reuse makes the second-look passages feel repetitive on a route that takes both.",
+      "passage": "late-clue-find"
+    },
+    {
+      "severity": "minor",
+      "message": "Several choice pairs (wrap-snug/wrap-firm, pack-away/double-check, tell-group/study-more, mark-direction/hurry-on, check-russo-first/scan-ridge-first) converge on an identical next passage with no state effect or textual difference. Fine for pacing on a first read, but reduces the sense of agency on a reread; flagging for awareness, not required to fix.",
+      "passage": "ration-the-food"
+    }
+  ],
+  "evidence": [
+    { "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/drafts/story.r1.json", "sha256": "6600433a923bae1dbc79e234769328c93fd668679edb61a540f19f5c127dace0" },
+    { "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/reports/validation.r1.json", "sha256": "ad488f803578136abdae3b6e07149c6dae2e405db78e83ebb5a56843bd87d7fa" },
+    { "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/reports/graph.r1.json", "sha256": "6679f1f8b7d528087cef65f20fc51f8d6fd16384c661f8a51466b6b4ff9a22b4" },
+    { "path": "stories/jobs/job-20261118-nine-hours-below-snowlin-6fbde2/brief.json", "sha256": "884f10ca90e3922ad840762fc58c95f75641a4a2668fd0a72dff237e58a47741" }
+  ],
+  "notes": [
+    "npm run check passed: 202/202 unit tests, story validation (all production jobs + previews ok), agents:check ok, typecheck+build ok. Full output captured in this review session.",
+    "Traced all 5 endings by hand through the passage graph: ending-1/2/3/4 via start -> (tend-the-ankle|calm-the-group) -> ration-the-food -> make-a-plan -> (gear-search or scout-ahead) -> notice passage -> gathering -> late-gear-find or late-clue-find (to obtain the one of ski-pole/crack-line not yet held) -> the-long-walk -> threshold -> cross-gap (requires both ski-pole and crack-line) -> climax-approach -> climax -> ending-1/2/3/4 by final choice. ending-5 via threshold -> wait-signal without the pole+clue combination. Confirmed example full route: start/tend-ankle -> tend-the-ankle/wrap-snug -> ration-the-food/pack-away -> make-a-plan/check-gear-pile -> gear-search/wrap-pole -> gear-search-notice/pocket-cloth -> gathering/go-get-clue -> late-clue-find/note-crack -> the-long-walk/let-priya-lead -> threshold/cross-gap -> climax-approach/check-russo-first -> climax/splint-move -> ending-1. No route revisits an already-visited passage id to collect an item, clue or reach an ending; graph.r1.json confirms a forward-only reachable DAG (28 explored states, stateSearchComplete true, 5/5 endings reachable, shortestPathToEnding 10, longestSimplePathToEnding 13).",
+    "Content integrity: no sexual content, violence/gore, suicide/self-harm or specific-religion references found. No character dies, is frostbitten, or is left behind, matching the brief's 'avoid' list. Vale/Priya/Tomas/Mr. Russo characterization is consistent with brief.continuity.characters throughout (Priya anxious-but-fast, Tomas stubborn-but-steady, Mr. Russo's sprained ankle). Items (ski-pole) and clues (crack-line) are described consistently everywhere they appear and are each meaningfully used at the 'cross-gap' choice, not just collected as filler. The 'go-get-item'/'go-get-clue' locked choices at gathering have fair, specific lockedHints naming exactly why they are locked ('You already checked the gear pile.'), and 'cross-gap' states exactly what is required to unlock it.",
+    "Ending count (5) meets the brief's endingTarget (5); route variety for a second read is adequate: two opening orders, two make-a-plan branches with materially different passages, an optional second-fetch decision, and a 4-way climax branch produce meaningfully different playthroughs, not just cosmetic ones.",
+    "Literacy/word-set numbers are automated-report output only (reports/validation.r1.json); the literacy.review.status is correctly still 'pending' and this review does not claim a literacy pass.",
+    "I am not the author of this draft (narrative-designer wrote it); independent review performed per QA scope."
+  ]
+}
