@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261118-static-at-cragmoor-hall-e01ced",
   "storyId": "static-at-cragmoor-hall",
-  "state": "in-review",
+  "state": "changes-requested",
   "createdAt": "2026-11-18T22:36:37.461Z",
-  "updatedAt": "2026-11-25T08:20:11.844Z",
+  "updatedAt": "2026-11-25T08:21:30.463Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/request.json",
@@ -361,6 +361,44 @@
       },
       "id": "review-3-literacy",
       "submittedAt": "2026-11-25T08:20:11.844Z"
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 2,
+      "draftSha256": "8f1e7c20535a235a1b54a36ab807859a2f1cb331f1222b82918d4b9343f18562",
+      "verdict": "changes-requested",
+      "findings": [
+        {
+          "severity": "major",
+          "message": "The r1 major finding about a forced duplicate read of the unchanged 'gathering' hub passage is not actually fixed. The fix adds requires.notFlags + lockedHint to gathering's 'gather-to-closet' and 'gather-to-ask' choices (gated on have-brass-key / have-logbook-page), which only stops the reader from re-entering an already-completed branch a second time -- that was never the problem described in review-2-qa.r1.json. The exact repro route quoted in that review is untouched and still the only way (besides the single-item-only ending-rush-alone path) to collect both brass-key and logbook-page for the dual-locked 'open-hatch-calm' choice at threshold and reach the four best endings: start -> to-closet -> closet-search -> pry-board -> loose-panel -> pry-panel -> find-brass-key (sets have-brass-key) -> key-to-dessa -> gathering [1st visit, reads the same 4 paragraphs] -> gather-to-ask -> ask-around -> find-pell -> pells-shed -> see-records -> old-logbook (sets have-logbook-page) -> logbook-to-dessa -> gathering [2nd visit, byte-for-byte identical paragraphs and the same gather-to-threshold/gather-to-closet/gather-to-ask choice set, confirmed by direct read of drafts/story.r2.json lines 228-254] -> gather-to-threshold -> threshold. Because gathering's paragraphs never vary by flag state (confirmed src/engine/story-engine.ts choicesFor/Reader.tsx render every choice, including locked ones with a disabled button and lockedHint, so the two visits render identically except one locked-choice hint), the reader still reads this passage's full text twice, verbatim, as a mandatory step to reach the dual-item lock and the 4 triumph/bittersweet endings gated behind it. This remains a major finding per the review criteria ('a route that makes the reader go back over pages already read ... to reach an ending'). Recommend one of the original suggestions that actually touches the hub content: let one branch feed into the other directly without an intermediate return to gathering, vary gathering's own paragraphs once a flag is already set (not just the branch choices), or drop the two-item requirement at threshold so a single branch suffices.",
+          "passage": "gathering"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/drafts/story.r2.json",
+          "sha256": "8f1e7c20535a235a1b54a36ab807859a2f1cb331f1222b82918d4b9343f18562"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/validation.r2.json",
+          "sha256": "b76e0738b0e60523ba222ddf6d14162400dba4f712393829842cd12416b34a9f"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/graph.r2.json",
+          "sha256": "c1fbe0a23b6fd0fac97cf2bb01f2cbbe07f45c6a01182c938d0660249b32c69b"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/brief.json",
+          "sha256": "caffa2ba9b5333bd27cd710d5d600a8f8fdb84b1de60153db5f33a24d46fee85"
+        }
+      ],
+      "id": "review-4-qa",
+      "submittedAt": "2026-11-25T08:21:30.463Z"
     }
   ],
   "parentDecisions": [],
@@ -427,6 +465,16 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 2 (story v2) passed automated validation"
+    },
+    {
+      "at": "2026-11-25T08:21:30.463Z",
+      "from": "in-review",
+      "to": "changes-requested",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "A reviewer requested changes"
     }
   ]
 }
