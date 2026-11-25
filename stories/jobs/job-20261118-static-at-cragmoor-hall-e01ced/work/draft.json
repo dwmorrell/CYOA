@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "static-at-cragmoor-hall",
   "title": "Static at Cragmoor Hall",
-  "version": 1,
+  "version": 2,
   "metadata": {
     "genre": "Boarding-school mystery",
     "theme": "Looking for the real explanation before jumping to the scary one, and judging people by what they do rather than rumor",
@@ -90,13 +90,14 @@
         "Rowan pulled the board back. Underneath sat a small wooden panel that did not match the rest of the wall.",
         "Scratches ran across the panel in a pattern: three short knocks, a pause, then one long knock.",
         "That was the exact pattern Rowan heard every night at nine o'clock.",
-        "A tiny lock sat in the middle of the panel, no bigger than a thumbnail. Something behind it needed a key, not a trick, and the answer must lie further in these walls.",
+        "A tiny lock sat in the middle of the panel, no bigger than a thumbnail. It looked too small for any real key.",
+        "Maybe a good, sharp trick would crack it open. The real answer still lay further inside, past this one small door.",
         "Rowan traced the scratches with one finger, trying to remember their order."
       ],
       "learningTargets": ["detail", "sequencing"],
       "choices": [
-        { "id": "pry-panel", "label": "Pry the panel open anyway", "target": "find-brass-key" },
-        { "id": "no-key-no-trick", "label": "This panel needs a key; go back and tell Dessa", "target": "gathering" }
+        { "id": "pry-panel", "label": "Try a trick and pry the panel open", "target": "find-brass-key" },
+        { "id": "no-key-no-trick", "label": "Leave the lock alone; go back and tell Dessa first", "target": "gathering" }
       ]
     },
     {
@@ -110,7 +111,7 @@
         "The knock came again, right on the far side of this very wall."
       ],
       "learningTargets": ["vocabulary", "inference"],
-      "effects": { "addItems": ["brass-key"] },
+      "effects": { "addItems": ["brass-key"], "setFlags": ["have-brass-key"] },
       "choices": [
         { "id": "key-to-dessa", "label": "Hurry to find Dessa with the key", "target": "gathering" },
         { "id": "peek-crack", "label": "Peek through the crack in the wall first", "target": "crack-in-wall" }
@@ -188,7 +189,7 @@
         "Dessa would want to see this before Rowan went anywhere near that wall again."
       ],
       "learningTargets": ["detail", "comprehension"],
-      "effects": { "addClues": ["logbook-page"] },
+      "effects": { "addClues": ["logbook-page"], "setFlags": ["have-logbook-page"] },
       "choices": [
         { "id": "logbook-to-dessa", "label": "Take the page straight to Dessa", "target": "gathering" },
         { "id": "read-more-logbook", "label": "Read a little more of the logbook first", "target": "augustas-words" }
@@ -229,14 +230,26 @@
       "title": "Comparing Notes",
       "paragraphs": [
         "Rowan found Dessa waiting by the common room door.",
-        "\"We should know everything before we go further,\" Dessa said. \"A key and a clue both help more than one alone.\"",
-        "The lock on the old dorm wing door was not going anywhere. There was still time to check the storage room, or to hear more from Mr. Pell. Or Rowan could head straight for the wall.",
+        "\"A key and a clue both help more than one alone,\" Dessa said. \"Let's see what else we can learn before we go further.\"",
+        "The lock on the old dorm wing door was not going anywhere yet. There was still the storage closet to search, or Mr. Pell to ask, or the wall itself.",
         "Outside, a small storm rattled the windows. Nine o'clock was getting close."
       ],
       "learningTargets": ["sequencing", "engagement"],
       "choices": [
-        { "id": "gather-to-closet", "label": "Check the storage room for yourself", "target": "closet-search" },
-        { "id": "gather-to-ask", "label": "Go hear what Mr. Pell and the records say", "target": "ask-around" },
+        {
+          "id": "gather-to-closet",
+          "label": "Check the storage closet for yourself",
+          "target": "closet-search",
+          "requires": { "notFlags": ["have-brass-key"] },
+          "lockedHint": "You already found the brass key in the storage closet."
+        },
+        {
+          "id": "gather-to-ask",
+          "label": "Go hear what Mr. Pell and the records say",
+          "target": "ask-around",
+          "requires": { "notFlags": ["have-logbook-page"] },
+          "lockedHint": "You already learned the clue from Mr. Pell and the old logbook."
+        },
         { "id": "gather-to-threshold", "label": "Head to the old dorm wall at nine o'clock", "target": "threshold" }
       ]
     },
@@ -256,7 +269,7 @@
           "label": "Use the key and the page to open the hatch calmly",
           "target": "into-the-walls",
           "requires": { "items": ["brass-key"], "clues": ["logbook-page"] },
-          "lockedHint": "You need the brass key from the storage room and the logbook page from the office."
+          "lockedHint": "You need the brass key from the storage closet and the logbook page from the office."
         },
         { "id": "climb-vent-alone", "label": "Climb through the storm vent alone, right now", "target": "ending-rush-alone" }
       ]

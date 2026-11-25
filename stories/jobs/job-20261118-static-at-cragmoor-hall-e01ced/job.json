@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261118-static-at-cragmoor-hall-e01ced",
   "storyId": "static-at-cragmoor-hall",
-  "state": "changes-requested",
+  "state": "in-review",
   "createdAt": "2026-11-18T22:36:37.461Z",
-  "updatedAt": "2026-11-24T19:59:49.468Z",
+  "updatedAt": "2026-11-25T08:16:33.225Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/request.json",
@@ -66,6 +66,41 @@
         ]
       },
       "revision": 1
+    },
+    {
+      "storyVersion": 2,
+      "draft": {
+        "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/drafts/story.r2.json",
+        "sha256": "8f1e7c20535a235a1b54a36ab807859a2f1cb331f1222b82918d4b9343f18562"
+      },
+      "author": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "submittedAt": "2026-11-25T08:16:33.225Z",
+      "validation": {
+        "ok": true,
+        "report": {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/validation.r2.json",
+          "sha256": "b76e0738b0e60523ba222ddf6d14162400dba4f712393829842cd12416b34a9f"
+        },
+        "literacyReport": {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/literacy.r2.json",
+          "sha256": "7c16d4937f473b03d478146a81204c63849ab1c73e42d772682f5db8d034036f"
+        },
+        "graph": {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/graph.r2.json",
+          "sha256": "c1fbe0a23b6fd0fac97cf2bb01f2cbbe07f45c6a01182c938d0660249b32c69b"
+        },
+        "summary": [
+          "schema: ok",
+          "graph: ok, 5/5 endings reachable",
+          "literacy checks: ok",
+          "brief: ok"
+        ]
+      },
+      "revision": 2
     }
   ],
   "reviews": [
@@ -165,7 +200,8 @@
         ]
       },
       "id": "review-1-literacy",
-      "submittedAt": "2026-11-24T19:59:25.278Z"
+      "submittedAt": "2026-11-24T19:59:25.278Z",
+      "invalidatedBy": 2
     },
     {
       "role": "qa",
@@ -213,7 +249,8 @@
         }
       ],
       "id": "review-2-qa",
-      "submittedAt": "2026-11-24T19:59:49.468Z"
+      "submittedAt": "2026-11-24T19:59:49.468Z",
+      "invalidatedBy": 2
     }
   ],
   "parentDecisions": [],
@@ -269,6 +306,17 @@
         "kind": "automation"
       },
       "note": "A reviewer requested changes"
+    },
+    {
+      "at": "2026-11-25T08:16:33.225Z",
+      "from": "changes-requested",
+      "to": "in-review",
+      "actor": {
+        "name": "narrative-designer",
+        "kind": "ai-agent",
+        "agent": "narrative-designer"
+      },
+      "note": "Revision 2 (story v2) passed automated validation"
     }
   ]
 }
