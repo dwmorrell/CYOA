@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "static-at-cragmoor-hall",
   "title": "Static at Cragmoor Hall",
-  "version": 2,
+  "version": 3,
   "metadata": {
     "genre": "Boarding-school mystery",
     "theme": "Looking for the real explanation before jumping to the scary one, and judging people by what they do rather than rumor",
@@ -80,7 +80,7 @@
       "learningTargets": ["detail"],
       "choices": [
         { "id": "pry-board", "label": "Pry the loose board up", "target": "loose-panel" },
-        { "id": "back-to-dessa-1", "label": "This room feels too creepy; go wake Dessa instead", "target": "gathering" }
+        { "id": "back-to-dessa-1", "label": "This room feels too creepy; go wake Dessa instead", "target": "closet-report" }
       ]
     },
     {
@@ -97,7 +97,7 @@
       "learningTargets": ["detail", "sequencing"],
       "choices": [
         { "id": "pry-panel", "label": "Try a trick and pry the panel open", "target": "find-brass-key" },
-        { "id": "no-key-no-trick", "label": "Leave the lock alone; go back and tell Dessa first", "target": "gathering" }
+        { "id": "no-key-no-trick", "label": "Leave the lock alone; go back and tell Dessa first", "target": "closet-report" }
       ]
     },
     {
@@ -113,7 +113,7 @@
       "learningTargets": ["vocabulary", "inference"],
       "effects": { "addItems": ["brass-key"], "setFlags": ["have-brass-key"] },
       "choices": [
-        { "id": "key-to-dessa", "label": "Hurry to find Dessa with the key", "target": "gathering" },
+        { "id": "key-to-dessa", "label": "Hurry to find Dessa with the key", "target": "closet-report" },
         { "id": "peek-crack", "label": "Peek through the crack in the wall first", "target": "crack-in-wall" }
       ]
     },
@@ -128,7 +128,7 @@
       ],
       "learningTargets": ["inference", "engagement"],
       "choices": [
-        { "id": "tell-dessa-light", "label": "Hurry to tell Dessa about the light", "target": "gathering" },
+        { "id": "tell-dessa-light", "label": "Hurry to tell Dessa about the light", "target": "closet-report" },
         { "id": "listen-more", "label": "Stay a moment longer and listen to the knocks", "target": "three-knocks" }
       ]
     },
@@ -143,8 +143,8 @@
       ],
       "learningTargets": ["sequencing", "comprehension"],
       "choices": [
-        { "id": "to-gathering-a-end", "label": "Head back to find Dessa at last", "target": "gathering" },
-        { "id": "to-gathering-a-end2", "label": "Slip quietly to the common room instead", "target": "gathering" }
+        { "id": "to-gathering-a-end", "label": "Head back to find Dessa at last", "target": "closet-report" },
+        { "id": "to-gathering-a-end2", "label": "Slip quietly to the common room instead", "target": "closet-report" }
       ]
     },
     {
@@ -159,7 +159,7 @@
       "learningTargets": ["comprehension"],
       "choices": [
         { "id": "find-pell", "label": "Go find Mr. Pell in his garden shed", "target": "pells-shed" },
-        { "id": "skip-to-gathering-b", "label": "This feels silly; go back to the dorm instead", "target": "gathering" }
+        { "id": "skip-to-gathering-b", "label": "This feels silly; go back to the dorm instead", "target": "clue-report" }
       ]
     },
     {
@@ -175,7 +175,7 @@
       "learningTargets": ["inference", "vocabulary"],
       "choices": [
         { "id": "see-records", "label": "Ask to see the old records in the office", "target": "old-logbook" },
-        { "id": "thanks-back", "label": "Say thanks and hurry back to Dessa", "target": "gathering" }
+        { "id": "thanks-back", "label": "Say thanks and hurry back to Dessa", "target": "clue-report" }
       ]
     },
     {
@@ -191,7 +191,7 @@
       "learningTargets": ["detail", "comprehension"],
       "effects": { "addClues": ["logbook-page"], "setFlags": ["have-logbook-page"] },
       "choices": [
-        { "id": "logbook-to-dessa", "label": "Take the page straight to Dessa", "target": "gathering" },
+        { "id": "logbook-to-dessa", "label": "Take the page straight to Dessa", "target": "clue-report" },
         { "id": "read-more-logbook", "label": "Read a little more of the logbook first", "target": "augustas-words" }
       ]
     },
@@ -206,7 +206,7 @@
       ],
       "learningTargets": ["comprehension", "inference"],
       "choices": [
-        { "id": "enough-reading-to-gathering", "label": "That is enough reading; go find Dessa now", "target": "gathering" },
+        { "id": "enough-reading-to-gathering", "label": "That is enough reading; go find Dessa now", "target": "clue-report" },
         { "id": "check-sketch", "label": "Look at the sketch in the back pages", "target": "hand-drawn-clock" }
       ]
     },
@@ -221,8 +221,60 @@
       ],
       "learningTargets": ["sequencing"],
       "choices": [
-        { "id": "to-gathering-b-end", "label": "Hurry to find Dessa with everything you learned", "target": "gathering" },
-        { "id": "to-gathering-b-end2", "label": "Slip out quietly before anyone notices", "target": "gathering" }
+        { "id": "to-gathering-b-end", "label": "Hurry to find Dessa with everything you learned", "target": "clue-report" },
+        { "id": "to-gathering-b-end2", "label": "Slip out quietly before anyone notices", "target": "clue-report" }
+      ]
+    },
+    {
+      "id": "closet-report",
+      "title": "Back From the Closet",
+      "paragraphs": [
+        "Rowan hurried out of the dark closet, away from the knock in the wall.",
+        "Dessa was waiting by the common room door, ready to hear every detail.",
+        "There was still more to learn before nine o'clock came again."
+      ],
+      "learningTargets": ["engagement", "detail"],
+      "choices": [
+        {
+          "id": "closet-report-to-gathering",
+          "label": "Go tell Dessa everything you found",
+          "target": "gathering",
+          "requires": { "notFlags": ["have-logbook-page"] },
+          "lockedHint": "You and Dessa already swapped notes; head to the wall instead."
+        },
+        {
+          "id": "closet-report-to-wall",
+          "label": "Skip ahead and head straight to the old dorm wall",
+          "target": "threshold",
+          "requires": { "flags": ["have-logbook-page"] },
+          "lockedHint": "Learn Mr. Pell's clue first, then head to the wall."
+        }
+      ]
+    },
+    {
+      "id": "clue-report",
+      "title": "Back With the Clue",
+      "paragraphs": [
+        "Rowan hurried back from Mr. Pell's shed, the torn page safe in a pocket.",
+        "Dessa was waiting by the common room door, eager to hear the whole story.",
+        "There was still more to learn before nine o'clock came again."
+      ],
+      "learningTargets": ["engagement", "comprehension"],
+      "choices": [
+        {
+          "id": "clue-report-to-gathering",
+          "label": "Go tell Dessa everything you learned",
+          "target": "gathering",
+          "requires": { "notFlags": ["have-brass-key"] },
+          "lockedHint": "You and Dessa already swapped notes; head to the wall instead."
+        },
+        {
+          "id": "clue-report-to-wall",
+          "label": "Skip ahead and head straight to the old dorm wall",
+          "target": "threshold",
+          "requires": { "flags": ["have-brass-key"] },
+          "lockedHint": "Find the brass key in the storage closet first, then head to the wall."
+        }
       ]
     },
     {

@@ -1,0 +1,456 @@
+{
+  "storyId": "static-at-cragmoor-hall",
+  "version": 3,
+  "start": "start",
+  "nodes": [
+    {
+      "id": "start",
+      "title": "The Knock at Nine",
+      "ending": null
+    },
+    {
+      "id": "closet-search",
+      "title": "Into the Storage Closet",
+      "ending": null
+    },
+    {
+      "id": "loose-panel",
+      "title": "The Loose Panel",
+      "ending": null
+    },
+    {
+      "id": "find-brass-key",
+      "title": "A Key in the Dark",
+      "ending": null
+    },
+    {
+      "id": "crack-in-wall",
+      "title": "A Crack in the Wall",
+      "ending": null
+    },
+    {
+      "id": "three-knocks",
+      "title": "Three Knocks, Then One",
+      "ending": null
+    },
+    {
+      "id": "ask-around",
+      "title": "Asking Around",
+      "ending": null
+    },
+    {
+      "id": "pells-shed",
+      "title": "Mr. Pell's Shed",
+      "ending": null
+    },
+    {
+      "id": "old-logbook",
+      "title": "The Old Logbook",
+      "ending": null
+    },
+    {
+      "id": "augustas-words",
+      "title": "Augusta's Own Words",
+      "ending": null
+    },
+    {
+      "id": "hand-drawn-clock",
+      "title": "A Hand-Drawn Clock",
+      "ending": null
+    },
+    {
+      "id": "closet-report",
+      "title": "Back From the Closet",
+      "ending": null
+    },
+    {
+      "id": "clue-report",
+      "title": "Back With the Clue",
+      "ending": null
+    },
+    {
+      "id": "gathering",
+      "title": "Comparing Notes",
+      "ending": null
+    },
+    {
+      "id": "threshold",
+      "title": "The Tunnel Hatch",
+      "ending": null
+    },
+    {
+      "id": "into-the-walls",
+      "title": "Into the Walls",
+      "ending": null
+    },
+    {
+      "id": "theo-marsh",
+      "title": "The Workshop Behind the Wall",
+      "ending": null
+    },
+    {
+      "id": "ending-trust",
+      "title": "The Hush Clock",
+      "ending": {
+        "id": "ending-trust",
+        "kind": "triumph",
+        "title": "The Hush Clock"
+      }
+    },
+    {
+      "id": "ending-honest-ask",
+      "title": "A Straight Answer",
+      "ending": {
+        "id": "ending-honest-ask",
+        "kind": "triumph",
+        "title": "A Straight Answer"
+      }
+    },
+    {
+      "id": "ending-call-pell",
+      "title": "Two Who Knew",
+      "ending": {
+        "id": "ending-call-pell",
+        "kind": "triumph",
+        "title": "Two Who Knew"
+      }
+    },
+    {
+      "id": "ending-jump-to-ghost",
+      "title": "Too Fast, Too Sure",
+      "ending": {
+        "id": "ending-jump-to-ghost",
+        "kind": "bittersweet",
+        "title": "Too Fast, Too Sure"
+      }
+    },
+    {
+      "id": "ending-rush-alone",
+      "title": "A Brave Try",
+      "ending": {
+        "id": "ending-rush-alone",
+        "kind": "setback",
+        "title": "A Brave Try"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "start",
+      "to": "closet-search",
+      "choice": "to-closet",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "start",
+      "to": "ask-around",
+      "choice": "to-ask-around",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "closet-search",
+      "to": "loose-panel",
+      "choice": "pry-board",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "closet-search",
+      "to": "closet-report",
+      "choice": "back-to-dessa-1",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "loose-panel",
+      "to": "find-brass-key",
+      "choice": "pry-panel",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "loose-panel",
+      "to": "closet-report",
+      "choice": "no-key-no-trick",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "find-brass-key",
+      "to": "closet-report",
+      "choice": "key-to-dessa",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "find-brass-key",
+      "to": "crack-in-wall",
+      "choice": "peek-crack",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "crack-in-wall",
+      "to": "closet-report",
+      "choice": "tell-dessa-light",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "crack-in-wall",
+      "to": "three-knocks",
+      "choice": "listen-more",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "three-knocks",
+      "to": "closet-report",
+      "choice": "to-gathering-a-end",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "three-knocks",
+      "to": "closet-report",
+      "choice": "to-gathering-a-end2",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "ask-around",
+      "to": "pells-shed",
+      "choice": "find-pell",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "ask-around",
+      "to": "clue-report",
+      "choice": "skip-to-gathering-b",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "pells-shed",
+      "to": "old-logbook",
+      "choice": "see-records",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "pells-shed",
+      "to": "clue-report",
+      "choice": "thanks-back",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "old-logbook",
+      "to": "clue-report",
+      "choice": "logbook-to-dessa",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "old-logbook",
+      "to": "augustas-words",
+      "choice": "read-more-logbook",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "augustas-words",
+      "to": "clue-report",
+      "choice": "enough-reading-to-gathering",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "augustas-words",
+      "to": "hand-drawn-clock",
+      "choice": "check-sketch",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hand-drawn-clock",
+      "to": "clue-report",
+      "choice": "to-gathering-b-end",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "hand-drawn-clock",
+      "to": "clue-report",
+      "choice": "to-gathering-b-end2",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "closet-report",
+      "to": "gathering",
+      "choice": "closet-report-to-gathering",
+      "locked": true,
+      "requires": {
+        "notFlags": [
+          "have-logbook-page"
+        ]
+      }
+    },
+    {
+      "from": "closet-report",
+      "to": "threshold",
+      "choice": "closet-report-to-wall",
+      "locked": true,
+      "requires": {
+        "flags": [
+          "have-logbook-page"
+        ]
+      }
+    },
+    {
+      "from": "clue-report",
+      "to": "gathering",
+      "choice": "clue-report-to-gathering",
+      "locked": true,
+      "requires": {
+        "notFlags": [
+          "have-brass-key"
+        ]
+      }
+    },
+    {
+      "from": "clue-report",
+      "to": "threshold",
+      "choice": "clue-report-to-wall",
+      "locked": true,
+      "requires": {
+        "flags": [
+          "have-brass-key"
+        ]
+      }
+    },
+    {
+      "from": "gathering",
+      "to": "closet-search",
+      "choice": "gather-to-closet",
+      "locked": true,
+      "requires": {
+        "notFlags": [
+          "have-brass-key"
+        ]
+      }
+    },
+    {
+      "from": "gathering",
+      "to": "ask-around",
+      "choice": "gather-to-ask",
+      "locked": true,
+      "requires": {
+        "notFlags": [
+          "have-logbook-page"
+        ]
+      }
+    },
+    {
+      "from": "gathering",
+      "to": "threshold",
+      "choice": "gather-to-threshold",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "threshold",
+      "to": "into-the-walls",
+      "choice": "open-hatch-calm",
+      "locked": true,
+      "requires": {
+        "items": [
+          "brass-key"
+        ],
+        "clues": [
+          "logbook-page"
+        ]
+      }
+    },
+    {
+      "from": "threshold",
+      "to": "ending-rush-alone",
+      "choice": "climb-vent-alone",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "into-the-walls",
+      "to": "theo-marsh",
+      "choice": "step-quiet",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "into-the-walls",
+      "to": "theo-marsh",
+      "choice": "call-out",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "theo-marsh",
+      "to": "ending-trust",
+      "choice": "show-understanding",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "theo-marsh",
+      "to": "ending-honest-ask",
+      "choice": "ask-direct",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "theo-marsh",
+      "to": "ending-call-pell",
+      "choice": "fetch-pell",
+      "locked": false,
+      "requires": null
+    },
+    {
+      "from": "theo-marsh",
+      "to": "ending-jump-to-ghost",
+      "choice": "assume-worst",
+      "locked": false,
+      "requires": null
+    }
+  ],
+  "validation": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "passages": 22,
+      "choices": 37,
+      "endings": [
+        "ending-trust",
+        "ending-honest-ask",
+        "ending-call-pell",
+        "ending-jump-to-ghost",
+        "ending-rush-alone"
+      ],
+      "reachableEndings": [
+        "ending-call-pell",
+        "ending-honest-ask",
+        "ending-jump-to-ghost",
+        "ending-rush-alone",
+        "ending-trust"
+      ],
+      "exploredStates": 46,
+      "stateSearchComplete": true,
+      "shortestPathToEnding": 6,
+      "longestSimplePathToEnding": 18
+    }
+  }
+}
