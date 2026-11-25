@@ -1,6 +1,6 @@
 # Orchestration report
 
-Generated 2026-11-24T08:06:45.032Z by `npm run orchestrate`.
+Generated 2026-11-25T08:05:04.689Z by `npm run orchestrate`.
 
 ## Software work items (dependency order)
 
@@ -69,23 +69,26 @@ Generated 2026-11-24T08:06:45.032Z by `npm run orchestrate`.
   - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
   - pass: story-literacy-claim, Story literacy review is "pending"
   - waiting: parent-approval, Waiting for a parent decision
-- job-20261118-lock-in-at-castellan-hal-3d1b03: **planned**, 0 revision(s)
-  - waiting: draft-exists, No draft submitted
-  - waiting: automated-validation, not run
-  - waiting: review:qa, No qa review on revision -
-  - waiting: review:literacy, No literacy review on revision -
+- job-20261118-lock-in-at-castellan-hal-3d1b03: **awaiting-parent-approval**, 5 revision(s)
+  - pass: draft-exists, Revision 5, story v5
+  - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
+  - pass: review:qa, qa passed by qa-engineer (ai-agent)
+  - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
+  - pass: story-literacy-claim, Story literacy review is "pending"
   - waiting: parent-approval, Waiting for a parent decision
-- job-20261118-nine-hours-below-snowlin-6fbde2: **planned**, 0 revision(s)
-  - waiting: draft-exists, No draft submitted
-  - waiting: automated-validation, not run
-  - waiting: review:qa, No qa review on revision -
-  - waiting: review:literacy, No literacy review on revision -
+- job-20261118-nine-hours-below-snowlin-6fbde2: **awaiting-parent-approval**, 1 revision(s)
+  - pass: draft-exists, Revision 1, story v1
+  - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
+  - pass: review:qa, qa passed by qa-engineer (ai-agent)
+  - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
+  - pass: story-literacy-claim, Story literacy review is "pending"
   - waiting: parent-approval, Waiting for a parent decision
-- job-20261118-static-at-cragmoor-hall-e01ced: **planned**, 0 revision(s)
-  - waiting: draft-exists, No draft submitted
-  - waiting: automated-validation, not run
-  - waiting: review:qa, No qa review on revision -
-  - waiting: review:literacy, No literacy review on revision -
+- job-20261118-static-at-cragmoor-hall-e01ced: **changes-requested**, 1 revision(s)
+  - pass: draft-exists, Revision 1, story v1
+  - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
+  - waiting: review:qa, qa review by qa-engineer requested changes
+  - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
+  - pass: story-literacy-claim, Story literacy review is "pending"
   - waiting: parent-approval, Waiting for a parent decision
 - job-20261118-the-grid-goes-dark-when-fc782a: **planned**, 0 revision(s)
   - waiting: draft-exists, No draft submitted

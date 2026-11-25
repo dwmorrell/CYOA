@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T08:06:45.034Z",
+  "generatedAt": "2026-11-25T08:05:04.690Z",
   "order": [
     "WI-01",
     "WI-02",
@@ -242,28 +242,33 @@
     },
     {
       "id": "job-20261118-lock-in-at-castellan-hal-3d1b03",
-      "state": "planned",
-      "revisions": 0,
+      "state": "awaiting-parent-approval",
+      "revisions": 5,
       "gates": [
         {
           "id": "draft-exists",
-          "ok": false,
-          "detail": "No draft submitted"
+          "ok": true,
+          "detail": "Revision 5, story v5"
         },
         {
           "id": "automated-validation",
-          "ok": false,
-          "detail": "not run"
+          "ok": true,
+          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
         },
         {
           "id": "review:qa",
-          "ok": false,
-          "detail": "No qa review on revision -"
+          "ok": true,
+          "detail": "qa passed by qa-engineer (ai-agent)"
         },
         {
           "id": "review:literacy",
-          "ok": false,
-          "detail": "No literacy review on revision -"
+          "ok": true,
+          "detail": "literacy passed by literacy-specialist (ai-agent)"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
         },
         {
           "id": "parent-approval",
@@ -274,28 +279,33 @@
     },
     {
       "id": "job-20261118-nine-hours-below-snowlin-6fbde2",
-      "state": "planned",
-      "revisions": 0,
+      "state": "awaiting-parent-approval",
+      "revisions": 1,
       "gates": [
         {
           "id": "draft-exists",
-          "ok": false,
-          "detail": "No draft submitted"
+          "ok": true,
+          "detail": "Revision 1, story v1"
         },
         {
           "id": "automated-validation",
-          "ok": false,
-          "detail": "not run"
+          "ok": true,
+          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
         },
         {
           "id": "review:qa",
-          "ok": false,
-          "detail": "No qa review on revision -"
+          "ok": true,
+          "detail": "qa passed by qa-engineer (ai-agent)"
         },
         {
           "id": "review:literacy",
-          "ok": false,
-          "detail": "No literacy review on revision -"
+          "ok": true,
+          "detail": "literacy passed by literacy-specialist (ai-agent)"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
         },
         {
           "id": "parent-approval",
@@ -306,28 +316,33 @@
     },
     {
       "id": "job-20261118-static-at-cragmoor-hall-e01ced",
-      "state": "planned",
-      "revisions": 0,
+      "state": "changes-requested",
+      "revisions": 1,
       "gates": [
         {
           "id": "draft-exists",
-          "ok": false,
-          "detail": "No draft submitted"
+          "ok": true,
+          "detail": "Revision 1, story v1"
         },
         {
           "id": "automated-validation",
-          "ok": false,
-          "detail": "not run"
+          "ok": true,
+          "detail": "schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok"
         },
         {
           "id": "review:qa",
           "ok": false,
-          "detail": "No qa review on revision -"
+          "detail": "qa review by qa-engineer requested changes"
         },
         {
           "id": "review:literacy",
-          "ok": false,
-          "detail": "No literacy review on revision -"
+          "ok": true,
+          "detail": "literacy passed by literacy-specialist (ai-agent)"
+        },
+        {
+          "id": "story-literacy-claim",
+          "ok": true,
+          "detail": "Story literacy review is \"pending\""
         },
         {
           "id": "parent-approval",
