@@ -1,6 +1,6 @@
 # Orchestration report
 
-Generated 2026-11-25T08:05:04.689Z by `npm run orchestrate`.
+Generated 2026-11-25T08:50:26.289Z by `npm run orchestrate`.
 
 ## Software work items (dependency order)
 
@@ -83,10 +83,10 @@ Generated 2026-11-25T08:05:04.689Z by `npm run orchestrate`.
   - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
   - pass: story-literacy-claim, Story literacy review is "pending"
   - waiting: parent-approval, Waiting for a parent decision
-- job-20261118-static-at-cragmoor-hall-e01ced: **changes-requested**, 1 revision(s)
-  - pass: draft-exists, Revision 1, story v1
+- job-20261118-static-at-cragmoor-hall-e01ced: **awaiting-parent-approval**, 4 revision(s)
+  - pass: draft-exists, Revision 4, story v4
   - pass: automated-validation, schema: ok; graph: ok, 5/5 endings reachable; literacy checks: ok; brief: ok
-  - waiting: review:qa, qa review by qa-engineer requested changes
+  - pass: review:qa, qa passed by qa-engineer (ai-agent)
   - pass: review:literacy, literacy passed by literacy-specialist (ai-agent)
   - pass: story-literacy-claim, Story literacy review is "pending"
   - waiting: parent-approval, Waiting for a parent decision

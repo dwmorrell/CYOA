@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T08:05:04.690Z",
+  "generatedAt": "2026-11-25T08:50:26.290Z",
   "order": [
     "WI-01",
     "WI-02",
@@ -316,13 +316,13 @@
     },
     {
       "id": "job-20261118-static-at-cragmoor-hall-e01ced",
-      "state": "changes-requested",
-      "revisions": 1,
+      "state": "awaiting-parent-approval",
+      "revisions": 4,
       "gates": [
         {
           "id": "draft-exists",
           "ok": true,
-          "detail": "Revision 1, story v1"
+          "detail": "Revision 4, story v4"
         },
         {
           "id": "automated-validation",
@@ -331,8 +331,8 @@
         },
         {
           "id": "review:qa",
-          "ok": false,
-          "detail": "qa review by qa-engineer requested changes"
+          "ok": true,
+          "detail": "qa passed by qa-engineer (ai-agent)"
         },
         {
           "id": "review:literacy",
