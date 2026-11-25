@@ -1,0 +1,110 @@
+{
+  "role": "literacy",
+  "reviewer": {
+    "name": "literacy-specialist",
+    "kind": "ai-agent",
+    "agent": "literacy-specialist"
+  },
+  "revision": 2,
+  "draftSha256": "8f1e7c20535a235a1b54a36ab807859a2f1cb331f1222b82918d4b9343f18562",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Diffed story.r1.json against story.r2.json by hand (structural JSON diff, not just the revision notes) to see the whole edit surface. The only changes are: loose-panel's two choice labels and its foreshadowing paragraph; new setFlags (have-brass-key, have-logbook-page) on find-brass-key and old-logbook; gathering's three choices gaining requires/lockedHint and its two narration paragraphs being reworded; threshold's open-hatch-calm lockedHint swapping \"storage room\" for \"storage closet\"; and the version bump. Nothing else moved, so my re-check below covers the full change set the brief described."
+    },
+    {
+      "severity": "note",
+      "message": "Re-checked brief.json's word-set concept fields against src/literacy/taxonomy.ts's detectors again on this revision (word lists are unchanged from r1): r-controlled-words (dark, door, storm, corner, turn, further, carve, torch) all contain ar/er/ir/or/ur; ck-words (rock, lock, trick, clock, knock, crack, stack, pocket) all contain a vowel + ck. Still no concept/word mismatch, confirmed again rather than carried over blindly from the r1 review."
+    },
+    {
+      "severity": "note",
+      "message": "Confirmed 'storage room' is gone from the draft entirely (grep for both terms finds only 'storage closet', in start's to-closet choice, closet-search's own text, gathering's reworded narration and its gather-to-closet lockedHint, and threshold's open-hatch-calm lockedHint). The naming inconsistency QA flagged on r1 is fixed everywhere, not just at the one site QA pointed to."
+    },
+    {
+      "severity": "note",
+      "message": "Loose-panel's rewritten foreshadowing ('It looked too small for any real key.' / 'Maybe a good, sharp trick would crack it open. The real answer still lay further inside, past this one small door.') now matches the actual by-force resolution at find-brass-key ('Rowan pried at the panel until it opened with a soft crack'); no key is used on that lock anywhere in the story. The two reworded choice labels ('Try a trick and pry the panel open' / 'Leave the lock alone; go back and tell Dessa first') agree with this and no longer assert the dropped 'needs a key' claim. Continuity holds: no ghost, curse or other supernatural being is confirmed real anywhere in r2, and Theo Marsh winding Augusta Cragmoor's old clock remains the sole, human resolution at theo-marsh and in all five endings."
+    },
+    {
+      "severity": "note",
+      "message": "maxSentenceWords (18) is respected in every new or reworded sentence: both loose-panel foreshadowing sentences (15, 8, 9, 12 words), both reworded gathering narration sentences (13, 11, 13, 17 words), and both new lockedHints (10 and 12 words) and the edited threshold lockedHint (16 words) all land under 18 by hand count. The rest of the story is untouched text already verified against the 18-word limit on r1. The analyzer's own sentence-length check uses a looser 20-word threshold and should not be read as confirming the brief's actual 18-word limit; hand-counting the changed text was necessary and it clears both thresholds."
+    },
+    {
+      "severity": "note",
+      "message": "Traced the passage graph by hand with the new flag gates at gathering. have-brass-key is set only by find-brass-key (reached only via closet-search -> loose-panel -> pry-panel); have-logbook-page is set only by old-logbook (reached only via ask-around -> pells-shed -> see-records). On a reader's first visit to gathering neither flag is set, so both branch choices are open; once a branch is completed, gathering's matching choice locks with its lockedHint and cannot be re-entered, while the other branch and gather-to-threshold stay open. Reaching threshold with both brass-key and logbook-page (required for every ending except ending-rush-alone) still forces passing through both branches exactly once each, so the word sets' presence on every route is structurally unchanged from r1; the forced identical-content repeat visit QA flagged is now mechanically impossible, confirmed by reading the choice graph, not just by trusting the revision notes."
+    },
+    {
+      "severity": "note",
+      "message": "Re-verified the word-set numbers against reports/literacy.r2.json rather than trusting the revision notes' self-reported figures: r-controlled-words 41/10 (up from 40 on r1), ck-words 59/12 (up from 56), no missing words, and perEndingRoute is identical across all 5 endings to r1's figures (e.g. ending-trust 14 r-controlled/26 ck, ending-rush-alone 15 r-controlled/14 ck), consistent with the edited passages (loose-panel, gathering) sitting off the shortest route to any ending. Both sets still clear their minimums on every route with margin."
+    },
+    {
+      "severity": "note",
+      "message": "The new lockedHint text itself ('You already found the brass key in the storage closet.' / 'You already learned the clue from Mr. Pell and the old logbook.') uses none of the two target word sets' words, unlike the threshold lockedHint it was modelled on, which also has none. This is informational only, not a defect: hint text is short, functional UI copy rather than narrative prose, and the story clears its minimums comfortably without it."
+    },
+    {
+      "severity": "minor",
+      "message": "On a reader's third visit to gathering (after both branches are done), the narration still says 'Let's see what else we can learn before we go further,' even though the only thing left to do is go to threshold; the locked choices and their lockedHints make this unambiguous mechanically, but a narrative pass that varied gathering's own line on that specific visit (e.g. once both flags are set) would read a little more naturally. This is a narrative polish note, not a literacy defect, and not blocking: comprehension and word-set properties are unaffected and the scene remains clear."
+    },
+    {
+      "severity": "note",
+      "message": "Skills practised: this story practises decoding r-controlled vowel words and ck-digraph words in natural mystery-solving context, holding and reusing a small set of recurring words (dark, door, further, lock, knock, crack, pocket, and others) across every branch so the patterns are met repeatedly rather than once. It also exercises sequencing (tracking a three-knock, one-knock pattern and a wind-rest-knock routine across several pages before the payoff matches), inference (reading Theo's tiredness, Mr. Pell's familiarity with the clock, and Augusta's journal entry to infer the real explanation before it is stated outright), vocabulary from context via the glossary (workshop, founder, corridor, headmaster and others, each defined where it first appears), and comprehension through choices that let the reader compare evidence (key vs. clue) before deciding how to approach Theo, with the four non-rush endings differing by how trusting or hasty that approach was."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/drafts/story.r2.json",
+      "sha256": "8f1e7c20535a235a1b54a36ab807859a2f1cb331f1222b82918d4b9343f18562"
+    },
+    {
+      "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/literacy.r2.json",
+      "sha256": "7c16d4937f473b03d478146a81204c63849ab1c73e42d772682f5db8d034036f"
+    },
+    {
+      "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/literacy.r2.md",
+      "sha256": "86901fbbcf31af5d93a694d793bc2c5ddf31b7630bf5908159a96a010bf881b3"
+    },
+    {
+      "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/weave-comparison.r2.json",
+      "sha256": "9aca6febdcb390a256c74350e3bcadce77c7c354b8d570f1a5a6eb51c9c1af6b"
+    }
+  ],
+  "shelfSummary": {
+    "blurb": "Rowan and Dessa trace a nightly knock through the walls of a foggy boarding school, finding a hidden workshop and a kept secret instead of a ghost. The story practises r-controlled vowel words and ck-digraph words throughout, alongside sequencing clues and inferring a character's motives before judging him.",
+    "skills": [
+      "sequencing",
+      "inference",
+      "comprehension",
+      "detail",
+      "vocabulary",
+      "engagement"
+    ],
+    "wordTypes": [
+      {
+        "concept": "r-controlled",
+        "examples": [
+          "dark",
+          "door",
+          "storm",
+          "further"
+        ]
+      },
+      {
+        "concept": "digraph-ck",
+        "examples": [
+          "knock",
+          "clock",
+          "lock",
+          "crack"
+        ]
+      }
+    ],
+    "ogCategories": [
+      "Phonics",
+      "Syllable types",
+      "Vocabulary",
+      "Comprehension"
+    ]
+  },
+  "id": "review-3-literacy",
+  "submittedAt": "2026-11-25T08:20:11.844Z"
+}
