@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "static-at-cragmoor-hall",
   "title": "Static at Cragmoor Hall",
-  "version": 3,
+  "version": 4,
   "metadata": {
     "genre": "Boarding-school mystery",
     "theme": "Looking for the real explanation before jumping to the scary one, and judging people by what they do rather than rumor",
@@ -64,8 +64,18 @@
       ],
       "learningTargets": ["engagement", "detail"],
       "choices": [
-        { "id": "to-closet", "label": "Search the storage closet at the end of the hall", "target": "closet-search" },
-        { "id": "to-ask-around", "label": "Ask around the dorm to learn the wall's story first", "target": "ask-around" }
+        {
+          "id": "to-closet",
+          "label": "Search the storage closet at the end of the hall",
+          "target": "closet-search",
+          "effects": { "setFlags": ["attempted-closet"] }
+        },
+        {
+          "id": "to-ask-around",
+          "label": "Ask around the dorm to learn the wall's story first",
+          "target": "ask-around",
+          "effects": { "setFlags": ["attempted-ask"] }
+        }
       ]
     },
     {
@@ -80,7 +90,7 @@
       "learningTargets": ["detail"],
       "choices": [
         { "id": "pry-board", "label": "Pry the loose board up", "target": "loose-panel" },
-        { "id": "back-to-dessa-1", "label": "This room feels too creepy; go wake Dessa instead", "target": "closet-report" }
+        { "id": "back-to-dessa-1", "label": "Give up on this closet for good and go wake Dessa instead", "target": "closet-report" }
       ]
     },
     {
@@ -97,7 +107,7 @@
       "learningTargets": ["detail", "sequencing"],
       "choices": [
         { "id": "pry-panel", "label": "Try a trick and pry the panel open", "target": "find-brass-key" },
-        { "id": "no-key-no-trick", "label": "Leave the lock alone; go back and tell Dessa first", "target": "closet-report" }
+        { "id": "no-key-no-trick", "label": "Leave this lock for good and go tell Dessa now", "target": "closet-report" }
       ]
     },
     {
@@ -159,7 +169,7 @@
       "learningTargets": ["comprehension"],
       "choices": [
         { "id": "find-pell", "label": "Go find Mr. Pell in his garden shed", "target": "pells-shed" },
-        { "id": "skip-to-gathering-b", "label": "This feels silly; go back to the dorm instead", "target": "clue-report" }
+        { "id": "skip-to-gathering-b", "label": "Give up on asking around for good and go back to the dorm", "target": "clue-report" }
       ]
     },
     {
@@ -175,7 +185,7 @@
       "learningTargets": ["inference", "vocabulary"],
       "choices": [
         { "id": "see-records", "label": "Ask to see the old records in the office", "target": "old-logbook" },
-        { "id": "thanks-back", "label": "Say thanks and hurry back to Dessa", "target": "clue-report" }
+        { "id": "thanks-back", "label": "Say thanks, but stop here for good, and hurry back to Dessa", "target": "clue-report" }
       ]
     },
     {
@@ -239,15 +249,15 @@
           "id": "closet-report-to-gathering",
           "label": "Go tell Dessa everything you found",
           "target": "gathering",
-          "requires": { "notFlags": ["have-logbook-page"] },
-          "lockedHint": "You and Dessa already swapped notes; head to the wall instead."
+          "requires": { "notFlags": ["attempted-ask"] },
+          "lockedHint": "You already went and asked around tonight; head to the wall instead."
         },
         {
           "id": "closet-report-to-wall",
           "label": "Skip ahead and head straight to the old dorm wall",
           "target": "threshold",
-          "requires": { "flags": ["have-logbook-page"] },
-          "lockedHint": "Learn Mr. Pell's clue first, then head to the wall."
+          "requires": { "flags": ["attempted-ask"] },
+          "lockedHint": "Go hear what Mr. Pell and the records say first, then head to the wall."
         }
       ]
     },
@@ -265,15 +275,15 @@
           "id": "clue-report-to-gathering",
           "label": "Go tell Dessa everything you learned",
           "target": "gathering",
-          "requires": { "notFlags": ["have-brass-key"] },
-          "lockedHint": "You and Dessa already swapped notes; head to the wall instead."
+          "requires": { "notFlags": ["attempted-closet"] },
+          "lockedHint": "You already searched the storage closet tonight; head to the wall instead."
         },
         {
           "id": "clue-report-to-wall",
           "label": "Skip ahead and head straight to the old dorm wall",
           "target": "threshold",
-          "requires": { "flags": ["have-brass-key"] },
-          "lockedHint": "Find the brass key in the storage closet first, then head to the wall."
+          "requires": { "flags": ["attempted-closet"] },
+          "lockedHint": "Search the storage closet first, then head to the wall."
         }
       ]
     },
@@ -292,15 +302,17 @@
           "id": "gather-to-closet",
           "label": "Check the storage closet for yourself",
           "target": "closet-search",
-          "requires": { "notFlags": ["have-brass-key"] },
-          "lockedHint": "You already found the brass key in the storage closet."
+          "requires": { "notFlags": ["attempted-closet"] },
+          "lockedHint": "You already searched the storage closet once tonight.",
+          "effects": { "setFlags": ["attempted-closet"] }
         },
         {
           "id": "gather-to-ask",
           "label": "Go hear what Mr. Pell and the records say",
           "target": "ask-around",
-          "requires": { "notFlags": ["have-logbook-page"] },
-          "lockedHint": "You already learned the clue from Mr. Pell and the old logbook."
+          "requires": { "notFlags": ["attempted-ask"] },
+          "lockedHint": "You already went and asked around once tonight.",
+          "effects": { "setFlags": ["attempted-ask"] }
         },
         { "id": "gather-to-threshold", "label": "Head to the old dorm wall at nine o'clock", "target": "threshold" }
       ]
