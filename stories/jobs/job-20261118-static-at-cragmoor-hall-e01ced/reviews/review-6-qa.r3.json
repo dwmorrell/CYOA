@@ -1,0 +1,43 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 3,
+  "draftSha256": "a3b5d25f09a3e72839b59a7528278fc68e78913a5139b020261b01211d13d5d2",
+  "verdict": "changes-requested",
+  "findings": [
+    {
+      "severity": "major",
+      "message": "The r3 self-report's central claim ('gathering is visited at most once on any route to any ending') is false. It only holds for the two routes the narrative-designer actually traced (finish closet branch completely, then finish ask-around branch completely, or vice versa). It does not hold if the reader uses either branch's own designed 'bail out early' choices before finishing it. Repro, reachable through the real engine with no out-of-range choices (checked choice-by-choice against drafts/story.r3.json and against src/engine/story-engine.ts's meetsCondition/applyEffects semantics -- flags/items/clues only ever accumulate, never clear, and choice availability has no memory of prior visits): start -[to-closet]-> closet-search -[back-to-dessa-1]-> closet-report (flags={}, so closet-report-to-gathering's requires.notFlags:[have-logbook-page] is satisfied) -[closet-report-to-gathering]-> gathering (VISIT #1, reads 'Comparing Notes' in full) -[gather-to-closet, unlocked because have-brass-key is still not set]-> closet-search (VISIT #2 of this exact passage, verbatim) -[pry-board]-> loose-panel -[pry-panel]-> find-brass-key (sets have-brass-key, adds brass-key) -[key-to-dessa]-> closet-report (VISIT #2 of this exact passage, verbatim; closet-report-to-gathering is still unlocked because have-logbook-page is still not set, regardless of have-brass-key) -[closet-report-to-gathering]-> gathering (VISIT #2, reads the identical 4 paragraphs again) -[gather-to-ask, unlocked because have-logbook-page is still not set]-> ask-around -[find-pell]-> pells-shed -[see-records]-> old-logbook (sets have-logbook-page, adds clue) -[logbook-to-dessa]-> clue-report (clue-report-to-wall is now unlocked because have-brass-key is set) -[clue-report-to-wall]-> threshold -[open-hatch-calm, both items held]-> into-the-walls -[step-quiet]-> theo-marsh -[show-understanding]-> ending-trust. On this single, legal route to one of the four best (triumph/bittersweet) endings, 'gathering' is read twice verbatim, and 'closet-search' and 'closet-report' are each also read twice verbatim -- i.e. the reader goes back over pages already read in order to collect the brass-key item and ultimately reach the ending. This is the same defect reported in review-2-qa.r1 (major) and review-4-qa.r2 (major), now reachable via the branches' own pre-existing bail choices ('back-to-dessa-1' at closet-search, 'no-key-no-trick' at loose-panel; symmetric bail choices 'skip-to-gathering-b' at ask-around and 'thanks-back' at pells-shed produce the mirror-image route with clue-report/ask-around duplicated instead). closet-report-to-gathering's and clue-report-to-gathering's requires only check the OTHER branch's flag (have-logbook-page / have-brass-key respectively), never whether gathering itself, or the branch just exited, has already been visited, so bailing out of a branch before collecting its item and finishing that branch on a later pass re-triggers the whole hub loop and re-reads the branch's own passages. Neither reports/graph.r3.json nor npm run validate:stories catches this because the graph validator only checks reachability/soft-locks/single-choice structurally, not whether a route re-reads passage text already seen -- confirmed by reading src/validation/graph.ts in full. Recommend tracking a 'visited-gathering' style flag (or one flag per branch-attempted, not per-item-collected) so a bailed branch cannot reopen the hub loop after the reader already passed through gathering once, or restructure so closet-report/clue-report route on 'has the OTHER branch been attempted/exhausted' rather than purely on item possession.",
+      "passage": "gathering"
+    },
+    {
+      "severity": "minor",
+      "message": "Both new transition passages define two choices structurally (so the automated 'single-choice' graph check in src/validation/graph.ts, which only counts raw choice array length, does not fire), but because closet-report-to-gathering/closet-report-to-wall carry exactly complementary requires (notFlags:[have-logbook-page] vs flags:[have-logbook-page], same for clue-report's pair on have-brass-key), exactly one of the two choices is ever actually selectable at runtime -- the reader always sees one live choice and one permanently grayed-out choice with a lockedHint on every visit to closet-report and clue-report. This mirrors the existing 'gathering' passage's own pattern (2 of its 3 choices are similarly flag-gated) so it is not a new convention, but it means these two 'new' passages do not in practice offer the reader two live options, which is worth the narrative-designer's awareness if the intent was genuine branching rather than a disguised one-way corridor.",
+      "passage": "closet-report"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/drafts/story.r3.json",
+      "sha256": "a3b5d25f09a3e72839b59a7528278fc68e78913a5139b020261b01211d13d5d2"
+    },
+    {
+      "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/validation.r3.json",
+      "sha256": "8cf90b509cafd43eb1d95fe84b56f9b335c19afb432c492670c5f2ceeca3268b"
+    },
+    {
+      "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/graph.r3.json",
+      "sha256": "d3cb6c8df67668be946b401fb0f578a85a2e5d4e3195778b9b9e6b8b3e433f95"
+    },
+    {
+      "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/brief.json",
+      "sha256": "caffa2ba9b5333bd27cd710d5d600a8f8fdb84b1de60153db5f33a24d46fee85"
+    }
+  ],
+  "id": "review-6-qa",
+  "submittedAt": "2026-11-25T08:35:02.978Z"
+}

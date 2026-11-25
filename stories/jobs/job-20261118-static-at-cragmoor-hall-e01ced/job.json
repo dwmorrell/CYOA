@@ -2,9 +2,9 @@
   "jobVersion": 1,
   "id": "job-20261118-static-at-cragmoor-hall-e01ced",
   "storyId": "static-at-cragmoor-hall",
-  "state": "in-review",
+  "state": "changes-requested",
   "createdAt": "2026-11-18T22:36:37.461Z",
-  "updatedAt": "2026-11-25T08:30:06.858Z",
+  "updatedAt": "2026-11-25T08:35:02.978Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/request.json",
@@ -436,6 +436,147 @@
       "id": "review-4-qa",
       "submittedAt": "2026-11-25T08:21:30.463Z",
       "invalidatedBy": 3
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 3,
+      "draftSha256": "a3b5d25f09a3e72839b59a7528278fc68e78913a5139b020261b01211d13d5d2",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "Diffed story.r2.json against story.r3.json by hand. The only structural change is the QA-driven restructuring: two new one-time transition passages, closet-report and clue-report, now receive the return choices that used to flow straight back into gathering from the closet-search branch (back-to-dessa-1, no-key-no-trick, key-to-dessa, tell-dessa-light, to-gathering-a-end, to-gathering-a-end2) and the ask-around branch (skip-to-gathering-b, thanks-back, logbook-to-dessa, enough-reading-to-gathering, to-gathering-b-end, to-gathering-b-end2). Each new passage has exactly two gated choices: one to gathering (open only while the other branch's flag is not yet set) and one straight to threshold (open only once it is). gathering's own narration, its three choices, threshold, both branches' existing passages, and both endings-side content are byte-for-byte unchanged from r2. Version bumped to 3."
+        },
+        {
+          "severity": "note",
+          "message": "Traced the full graph by hand in both branch orders to confirm the QA fix actually works. Closet-first order: start -> closet-search -> loose-panel -> find-brass-key (sets have-brass-key) -> closet-report -> gathering (first and only visit; closet-report-to-wall is locked here because have-logbook-page isn't set yet) -> ask-around -> pells-shed -> old-logbook (sets have-logbook-page) -> clue-report -> threshold (clue-report-to-gathering is now locked because have-brass-key is set, so clue-report-to-wall is the only option) -> into-the-walls -> theo-marsh -> ending. Clue-first order is the mirror image and also passes through gathering exactly once before reaching threshold. In both orders the reader reaches the four best endings (ending-trust, ending-honest-ask, ending-call-pell, ending-jump-to-ghost) having read gathering's unchanged narration exactly once, never twice verbatim. The short no-item route to the fifth ending (ending-rush-alone), e.g. start -> closet-search -> closet-report -> gathering -> threshold -> climb-vent-alone, also only visits gathering once, since neither flag is set and both closet-report-to-wall and clue-report-to-wall stay locked until the matching flag is set. The QA-flagged forced double verbatim read is mechanically eliminated in every route I traced, not just on the two routes the designer's report checked."
+        },
+        {
+          "severity": "minor",
+          "message": "closet-report and clue-report are reasonable one-time connective beats (Rowan returning to Dessa, a believable in-fiction reason to pause before the next branch), not degenerate 'you got an item, pick a destination' text, and they respect maxSentenceWords (18): closet-report's three sentences hand-count at 14, 13 and 11 words; clue-report's at 14, 14 and 11 words. However their closing line is verbatim identical in both passages: \"There was still more to learn before nine o'clock came again.\" Combined with how similar the rest of each passage is (\"Dessa was waiting by the common room door, ready/eager to hear...\"), a reader who takes one branch then the other will read two near-identical paragraphs back to back in the clue-first or closet-first full exploration order, which is milder than the QA-flagged bug but still a bit formulaic. Not a comprehension or word-set defect and not blocking, but worth a narrative pass to vary the closing line between the two passages (e.g. tie it to which clue is still missing) so the fix doesn't trade one repetition for a smaller one."
+        },
+        {
+          "severity": "note",
+          "message": "Checked closet-report and clue-report against the brief's continuity constraints. Neither passage confirms a ghost or any supernatural being; both stay strictly in the register of 'Rowan went to tell Dessa something.' Both read correctly regardless of which upstream passage the reader arrived from (closet-report is reachable from five different closet-branch exits, clue-report from five different ask-around-branch exits) because neither passage references specific items, clues or discoveries by name, so there is no risk of a passage claiming knowledge the reader doesn't yet have, or contradicting what happened on a shorter sub-path. No continuity violation found. Theo Marsh winding Augusta Cragmoor's clock remains the sole human resolution at theo-marsh and in all five endings, unchanged from r2."
+        },
+        {
+          "severity": "note",
+          "message": "Verified the restructuring's effect on word-set coverage against reports/literacy.r3.json rather than trusting the revision notes: r-controlled-words totalOccurrences is 44/10 (matches the designer's claimed rise from 41) and ck-words is 61/12 (matches the claimed rise from 59), both with missingWords: [] and meetsMinimum: true. perEndingRoute lists all five endings well above both minimums (r-controlled 12-13 per route, ck 14-26 per route). I hand-counted both word sets on two short routes to ending-rush-alone myself (closet-first: start/closet-search/closet-report/gathering/threshold/ending-rush-alone, and clue-first: start/ask-around/clue-report/gathering/threshold/ending-rush-alone) and got r-controlled totals in the 12-15 range and ck totals around 13, which lands close to the report's reported 13/14 for that ending (exact ties in 'shortest route' depend on BFS tie-breaking, so small differences from my manual count are expected) and confirms the figures are real, not stale or inflated. I also confirmed every word in both sets (dark, door, storm, corner, turn, further, carve, torch; rock, lock, trick, clock, knock, crack, stack, pocket) is still used naturally in the surviving, unchanged branch passages and in the two new transition passages contribute no new target-word occurrences themselves (closet-report and clue-report contain none of the eight target words in either set, by design, since they're short connective beats), which is consistent with the designer's totals being driven by the unchanged branch content, not by new text in the restructuring."
+        },
+        {
+          "severity": "note",
+          "message": "Re-checked brief.json's word-set concept fields against src/literacy/taxonomy.ts's detectors once more despite no expected change: r-controlled-words (dark, door, storm, corner, turn, further, carve, torch) each contain ar/er/ir/or/ur, matching concept r-controlled's detector /(ar|er|ir|or|ur)/; ck-words (rock, lock, trick, clock, knock, crack, stack, pocket) each contain a vowel + ck, matching concept digraph-ck's detector /[aeiou]ck/. Word lists and detectors are unchanged from r1/r2, confirmed fresh rather than carried over."
+        },
+        {
+          "severity": "note",
+          "message": "Skills practised: this story practises decoding r-controlled vowel words and ck-digraph words in natural mystery-solving context, holding and reusing a small set of recurring words (dark, door, further, lock, knock, crack, pocket, and others) across every branch and both read orders so the patterns are met repeatedly rather than once. It also exercises sequencing (tracking a three-knock, one-knock pattern and a wind-rest-knock routine across several pages before the payoff matches), inference (reading Theo's tiredness, Mr. Pell's familiarity with the clock, and Augusta's journal entry to infer the real explanation before it is stated outright), vocabulary from context via the glossary (workshop, founder, corridor, headmaster and others, each defined where it first appears), and comprehension through choices that let the reader compare evidence (key vs. clue) before deciding how to approach Theo, with the four non-rush endings differing by how trusting or hasty that approach was. The two new transition passages (closet-report, clue-report) add brief sequencing and engagement beats but don't change the skill set the story as a whole practises."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/drafts/story.r3.json",
+          "sha256": "a3b5d25f09a3e72839b59a7528278fc68e78913a5139b020261b01211d13d5d2"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/literacy.r3.json",
+          "sha256": "1f4b1324cbdf04e14b7c6990ced94318852e55c908c736a7e801a876254109cb"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/literacy.r3.md",
+          "sha256": "ee9bbdf4698d3e3c17d9fff34ba4577ca55e70c27c4589853131de38e0853adf"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/weave-comparison.r3.json",
+          "sha256": "3b33492c54f015f594de7bb7dc5d814f93e0a2389df8df37ed74b6114347efb7"
+        }
+      ],
+      "shelfSummary": {
+        "blurb": "Rowan and Dessa trace a nightly knock through the walls of a foggy boarding school, finding a hidden workshop and a kept secret instead of a ghost. The story practises r-controlled vowel words and ck-digraph words throughout, alongside sequencing clues and inferring a character's motives before judging him.",
+        "skills": [
+          "sequencing",
+          "inference",
+          "comprehension",
+          "detail",
+          "vocabulary",
+          "engagement"
+        ],
+        "wordTypes": [
+          {
+            "concept": "r-controlled",
+            "examples": [
+              "dark",
+              "door",
+              "storm",
+              "further"
+            ]
+          },
+          {
+            "concept": "digraph-ck",
+            "examples": [
+              "knock",
+              "clock",
+              "lock",
+              "crack"
+            ]
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Syllable types",
+          "Vocabulary",
+          "Comprehension"
+        ]
+      },
+      "id": "review-5-literacy",
+      "submittedAt": "2026-11-25T08:34:40.378Z"
+    },
+    {
+      "role": "qa",
+      "reviewer": {
+        "name": "qa-engineer",
+        "kind": "ai-agent",
+        "agent": "qa-engineer"
+      },
+      "revision": 3,
+      "draftSha256": "a3b5d25f09a3e72839b59a7528278fc68e78913a5139b020261b01211d13d5d2",
+      "verdict": "changes-requested",
+      "findings": [
+        {
+          "severity": "major",
+          "message": "The r3 self-report's central claim ('gathering is visited at most once on any route to any ending') is false. It only holds for the two routes the narrative-designer actually traced (finish closet branch completely, then finish ask-around branch completely, or vice versa). It does not hold if the reader uses either branch's own designed 'bail out early' choices before finishing it. Repro, reachable through the real engine with no out-of-range choices (checked choice-by-choice against drafts/story.r3.json and against src/engine/story-engine.ts's meetsCondition/applyEffects semantics -- flags/items/clues only ever accumulate, never clear, and choice availability has no memory of prior visits): start -[to-closet]-> closet-search -[back-to-dessa-1]-> closet-report (flags={}, so closet-report-to-gathering's requires.notFlags:[have-logbook-page] is satisfied) -[closet-report-to-gathering]-> gathering (VISIT #1, reads 'Comparing Notes' in full) -[gather-to-closet, unlocked because have-brass-key is still not set]-> closet-search (VISIT #2 of this exact passage, verbatim) -[pry-board]-> loose-panel -[pry-panel]-> find-brass-key (sets have-brass-key, adds brass-key) -[key-to-dessa]-> closet-report (VISIT #2 of this exact passage, verbatim; closet-report-to-gathering is still unlocked because have-logbook-page is still not set, regardless of have-brass-key) -[closet-report-to-gathering]-> gathering (VISIT #2, reads the identical 4 paragraphs again) -[gather-to-ask, unlocked because have-logbook-page is still not set]-> ask-around -[find-pell]-> pells-shed -[see-records]-> old-logbook (sets have-logbook-page, adds clue) -[logbook-to-dessa]-> clue-report (clue-report-to-wall is now unlocked because have-brass-key is set) -[clue-report-to-wall]-> threshold -[open-hatch-calm, both items held]-> into-the-walls -[step-quiet]-> theo-marsh -[show-understanding]-> ending-trust. On this single, legal route to one of the four best (triumph/bittersweet) endings, 'gathering' is read twice verbatim, and 'closet-search' and 'closet-report' are each also read twice verbatim -- i.e. the reader goes back over pages already read in order to collect the brass-key item and ultimately reach the ending. This is the same defect reported in review-2-qa.r1 (major) and review-4-qa.r2 (major), now reachable via the branches' own pre-existing bail choices ('back-to-dessa-1' at closet-search, 'no-key-no-trick' at loose-panel; symmetric bail choices 'skip-to-gathering-b' at ask-around and 'thanks-back' at pells-shed produce the mirror-image route with clue-report/ask-around duplicated instead). closet-report-to-gathering's and clue-report-to-gathering's requires only check the OTHER branch's flag (have-logbook-page / have-brass-key respectively), never whether gathering itself, or the branch just exited, has already been visited, so bailing out of a branch before collecting its item and finishing that branch on a later pass re-triggers the whole hub loop and re-reads the branch's own passages. Neither reports/graph.r3.json nor npm run validate:stories catches this because the graph validator only checks reachability/soft-locks/single-choice structurally, not whether a route re-reads passage text already seen -- confirmed by reading src/validation/graph.ts in full. Recommend tracking a 'visited-gathering' style flag (or one flag per branch-attempted, not per-item-collected) so a bailed branch cannot reopen the hub loop after the reader already passed through gathering once, or restructure so closet-report/clue-report route on 'has the OTHER branch been attempted/exhausted' rather than purely on item possession.",
+          "passage": "gathering"
+        },
+        {
+          "severity": "minor",
+          "message": "Both new transition passages define two choices structurally (so the automated 'single-choice' graph check in src/validation/graph.ts, which only counts raw choice array length, does not fire), but because closet-report-to-gathering/closet-report-to-wall carry exactly complementary requires (notFlags:[have-logbook-page] vs flags:[have-logbook-page], same for clue-report's pair on have-brass-key), exactly one of the two choices is ever actually selectable at runtime -- the reader always sees one live choice and one permanently grayed-out choice with a lockedHint on every visit to closet-report and clue-report. This mirrors the existing 'gathering' passage's own pattern (2 of its 3 choices are similarly flag-gated) so it is not a new convention, but it means these two 'new' passages do not in practice offer the reader two live options, which is worth the narrative-designer's awareness if the intent was genuine branching rather than a disguised one-way corridor.",
+          "passage": "closet-report"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/drafts/story.r3.json",
+          "sha256": "a3b5d25f09a3e72839b59a7528278fc68e78913a5139b020261b01211d13d5d2"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/validation.r3.json",
+          "sha256": "8cf90b509cafd43eb1d95fe84b56f9b335c19afb432c492670c5f2ceeca3268b"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/graph.r3.json",
+          "sha256": "d3cb6c8df67668be946b401fb0f578a85a2e5d4e3195778b9b9e6b8b3e433f95"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/brief.json",
+          "sha256": "caffa2ba9b5333bd27cd710d5d600a8f8fdb84b1de60153db5f33a24d46fee85"
+        }
+      ],
+      "id": "review-6-qa",
+      "submittedAt": "2026-11-25T08:35:02.978Z"
     }
   ],
   "parentDecisions": [],
@@ -523,6 +664,16 @@
         "agent": "narrative-designer"
       },
       "note": "Revision 3 (story v3) passed automated validation"
+    },
+    {
+      "at": "2026-11-25T08:35:02.978Z",
+      "from": "in-review",
+      "to": "changes-requested",
+      "actor": {
+        "name": "story-cli",
+        "kind": "automation"
+      },
+      "note": "A reviewer requested changes"
     }
   ]
 }
