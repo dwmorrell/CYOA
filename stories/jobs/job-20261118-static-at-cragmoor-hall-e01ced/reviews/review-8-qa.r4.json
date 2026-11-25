@@ -1,0 +1,58 @@
+{
+  "role": "qa",
+  "reviewer": {
+    "name": "qa-engineer",
+    "kind": "ai-agent",
+    "agent": "qa-engineer"
+  },
+  "revision": 4,
+  "draftSha256": "f4b4da57e2ae0bab3d08ba26754f7beecafbc0415c5e79b707ad0f7713ca71f2",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "note",
+      "message": "Independently re-verified the r4 hub-loop fix with a from-scratch DFS script written against the real engine (src/engine/story-engine.ts's choicesFor/choose/meetsCondition/applyEffects), not the narrative-designer's script and not re-using any prior review's tool. Exhaustive traversal from 'start' to every ending, following only choices the engine itself reports as available via choicesFor, recording the full passage-id path to each ending, flagging any path with a repeated passage id and separately flagging any cycle/infinite loop (via a loop guard on repeated (passage, items, clues, flags) state plus a generous depth bound). Result on story.r4.json: 340 complete paths, 0 paths with a repeated passage id, 0 infinite-loop/cycle detections. Ending distribution: ending-trust 64, ending-honest-ask 64, ending-call-pell 64, ending-jump-to-ghost 64, ending-rush-alone 84. This matches the narrative-designer's and literacy-specialist's reported figures exactly, from an independently written implementation. As a sanity check on the script itself, I ran the same unmodified script against story.r3.json: 940 complete paths, 624 with a repeated passage id, 12 infinite-loop detections -- this matches the previously reported r3 numbers (624/940 repeats, 12 loops) exactly, which gives confidence that r4's clean result reflects the draft, not a bug in my script.",
+      "passage": "gathering"
+    },
+    {
+      "severity": "note",
+      "message": "Hand-traced the fix mechanism against src/engine/story-engine.ts's real semantics (requires.flags = must have all listed flags; requires.notFlags = must have none of them; setFlags/addItems/addClues only ever accumulate, never clear; a choice with no requires is always available). attempted-closet/attempted-ask are now set the instant a branch is entered -- via 'to-closet'/'to-ask-around' from start, or 'gather-to-closet'/'gather-to-ask' from gathering -- before any in-branch bail choice (back-to-dessa-1, no-key-no-trick, skip-to-gathering-b, thanks-back) can run. closet-report/clue-report/gathering's branch choices all gate on these entry flags rather than on have-brass-key/have-logbook-page item possession as r3 did, so a branch that is bailed early can never be re-entered and can never reopen the gathering hub loop. This closes exactly the gap review-6-qa.r3 found (bailing out of a branch before finishing it, then returning to gathering and re-entering that same branch later). Also ran a second independent script that records, for every non-ending passage across the full traversal, how many distinct targets are ever actually reached in practice (not just the declared choice count): closet-report and clue-report each reach 2 distinct targets in practice, depending on which branch is attempted first, resolving review-6-qa.r3's minor finding that one of their two choices was never practically reachable.",
+      "passage": "closet-report"
+    },
+    {
+      "severity": "note",
+      "message": "Confirmed all 5 endings remain reachable with no new dead ends (reports/graph.r4.json's reachableEndings lists all 5; my own traversal above reaches all 5). Confirmed the dual-item lock at threshold is intact (open-hatch-calm requires items:[brass-key] and clues:[logbook-page], unchanged from r3). Confirmed both branches' core content is unchanged from r3 (loose-panel/find-brass-key/crack-in-wall/three-knocks on the closet side; pells-shed/old-logbook/augustas-words/hand-drawn-clock on the ask-around side) and both previously-fixed minor findings remain fixed: 'storage closet' naming is consistent everywhere (start, closet-search, gathering's and threshold's lockedHints), and loose-panel's foreshadowing ('too small for any real key... a good, sharp trick would crack it open') still matches the by-force resolution at find-brass-key, with no key ever used on that particular lock. Ran `npm run check` and saw it pass in full: eslint clean, `tsc --noEmit` clean, vitest 202/202 passed across 12 files, `npm run validate:stories` reports 'All story checks passed' (8 catalog previews plus this in-review job all ok), `npm run agents:check` ok for all 9 agents, and `vite build` succeeded. A content-integrity read of the full draft text found no sexual material, violence or gore, suicide or self-harm, or references to a specific real-world religion; the 'ghost' framing is resolved as non-supernatural throughout.",
+      "passage": "threshold"
+    },
+    {
+      "severity": "minor",
+      "message": "Three passages still offer two textually distinct choices that both lead to the same target, so the decision has no mechanical consequence: three-knocks ('to-gathering-a-end'/'to-gathering-a-end2', both -> closet-report), hand-drawn-clock ('to-gathering-b-end'/'to-gathering-b-end2', both -> clue-report), and into-the-walls ('step-quiet'/'call-out', both -> theo-marsh with identical downstream text). Confirmed by the exhaustive traversal above: across all 340 complete paths these three passages never reach more than 1 distinct target regardless of which option is picked. This is cosmetic/atmosphere flavor rather than a structural defect, predates r3's hub-loop fix, and is distinct from the two previously-fixed minor findings (storage closet naming, loose-panel foreshadowing), which both remain fixed. Not blocking; worth a narrative polish pass on a future revision.",
+      "passage": "three-knocks"
+    },
+    {
+      "severity": "minor",
+      "message": "The four reworded 'bail out' labels (back-to-dessa-1, no-key-no-trick, skip-to-gathering-b, thanks-back) read naturally for the target age, stay well under the 18-word sentence limit, and honestly signal that leaving the branch costs its item permanently, consistent with literacy-specialist's review-7-literacy.r4 note. All four share the idiom 'for good' to mean 'permanently' -- a plus for pattern recognition on a second read, but also the same word used in 4 of the story's choice labels, which is a mild formulaic-wording note rather than a defect. Not blocking.",
+      "passage": "closet-search"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/drafts/story.r4.json",
+      "sha256": "f4b4da57e2ae0bab3d08ba26754f7beecafbc0415c5e79b707ad0f7713ca71f2"
+    },
+    {
+      "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/validation.r4.json",
+      "sha256": "84974434d8ec2ec18cb68ad64a4800e0f0855775163506dd4809fe9bbc1c677d"
+    },
+    {
+      "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/graph.r4.json",
+      "sha256": "d160a3186cb55ffdf58626640ae9331ae37541fab2a0bf9e4a248a6a2597207f"
+    },
+    {
+      "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/brief.json",
+      "sha256": "caffa2ba9b5333bd27cd710d5d600a8f8fdb84b1de60153db5f33a24d46fee85"
+    }
+  ],
+  "id": "review-8-qa",
+  "submittedAt": "2026-11-25T08:49:25.436Z"
+}
