@@ -4,7 +4,7 @@
   "storyId": "static-at-cragmoor-hall",
   "state": "in-review",
   "createdAt": "2026-11-18T22:36:37.461Z",
-  "updatedAt": "2026-11-25T08:43:20.344Z",
+  "updatedAt": "2026-11-25T08:47:18.437Z",
   "artifacts": {
     "request": {
       "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/request.json",
@@ -614,6 +614,104 @@
       "id": "review-6-qa",
       "submittedAt": "2026-11-25T08:35:02.978Z",
       "invalidatedBy": 4
+    },
+    {
+      "role": "literacy",
+      "reviewer": {
+        "name": "literacy-specialist",
+        "kind": "ai-agent",
+        "agent": "literacy-specialist"
+      },
+      "revision": 4,
+      "draftSha256": "f4b4da57e2ae0bab3d08ba26754f7beecafbc0415c5e79b707ad0f7713ca71f2",
+      "verdict": "pass",
+      "findings": [
+        {
+          "severity": "note",
+          "message": "Diffed story.r3.json against story.r4.json by hand (not trusting the revision notes). The only changes are: (1) the two branch-entry choices in start (to-closet, to-ask-around) now set attempted-closet/attempted-ask on entry, and the two second-attempt choices in gathering (gather-to-closet, gather-to-ask) now also set those same flags on entry; (2) closet-report's and clue-report's gating requires switched from have-brass-key/have-logbook-page to attempted-closet/attempted-ask (so the gate now tracks whether a branch was entered at all, not whether its item was actually collected); (3) four 'give up' choice labels were reworded (back-to-dessa-1, no-key-no-trick, skip-to-gathering-b, thanks-back); (4) several lockedHint strings were reworded to match the new flag semantics. No paragraph text changed anywhere: every passage body, every ending, the glossary and both item/clue descriptions are byte-for-byte identical to r3. This matches reports/literacy.r4.json's readability and learningDesign blocks, which are identical to r3's (totalWords 1706, averageSentenceLength 9.7, passagesTagged 22, same targets counts) -- expected, since choice labels and lockedHints are not counted in that report's body-text metrics."
+        },
+        {
+          "severity": "note",
+          "message": "Independently re-ran the exhaustive path search myself rather than trusting the designer's figure: I wrote a small script that walks story.r4.json's full choice graph (respecting requires on flags/items/clues and setFlags/addItems/addClues effects at both passage and choice level) and enumerates every complete path from start to an ending. Result: 340 total complete paths, 0 paths that revisit a passage already on that same path, 0 loops or paths exceeding a generous depth bound. Ending distribution: ending-trust 64, ending-honest-ask 64, ending-call-pell 64, ending-jump-to-ghost 64, ending-rush-alone 84. These numbers match the QA-reported 340/0/0 exactly, confirmed from a from-scratch re-implementation, not a copy of QA's tool."
+        },
+        {
+          "severity": "note",
+          "message": "Verified the new permanent-forfeit mechanic actually does what the four reworded labels claim. attempted-closet is set the moment closet-search is entered (whether from start's to-closet or gathering's gather-to-closet), before the reader can reach find-brass-key; attempted-ask is set the same way on ask-around entry, before old-logbook. Because closet-report-to-gathering/gathering's gather-to-closet are gated on notFlags: attempted-closet (and the ask side mirrors this on attempted-ask), a reader who bails from closet-search (back-to-dessa-1) or loose-panel (no-key-no-trick) without ever adding brass-key to items can never re-enter closet-search later in that playthrough -- the branch, and its item, really is forfeited for good, exactly as the new label text says. Same check holds for skip-to-gathering-b and thanks-back on the ask-around/logbook-page side. A reader who forfeits both branches still reaches an ending: gathering's third choice, gather-to-threshold, carries no requires, so they proceed to threshold and (lacking both brass-key and logbook-page) are routed to climb-vent-alone -> ending-rush-alone, which is a real, intended ending, not a dead end."
+        },
+        {
+          "severity": "minor",
+          "message": "The four reworded labels read naturally for the target age (10-13) and stay within maxSentenceWords (18): 'Give up on this closet for good and go wake Dessa instead' (12 words), 'Leave this lock for good and go tell Dessa now' (10 words), 'Give up on asking around for good and go back to the dorm' (13 words), 'Say thanks, but stop here for good, and hurry back to Dessa' (12 words). All four use the idiom 'for good' to signal permanence rather than a blunter phrase like 'never go back' or a vaguer one like 'leave', which keeps the tone matter-of-fact and consistent with the story's plain narration rather than scary or alarmist -- there is no sense of danger or punishment, just a clear 'this choice is final' marker, appropriate since the in-fiction stakes are mild (missing an item, not a scary consequence). 'For good' is a common enough idiom at this age that I don't think it needs a glossary entry, but a reader who has only met the literal sense of 'good' could misparse it for a half-second before the surrounding clause ('give up... for good and go...') resolves the meaning; worth a narrative-designer sanity check with an actual 10-13-year-old reader if one becomes available, but not a comprehension blocker on its own. The two first-branch labels (back-to-dessa-1, skip-to-gathering-b) share the same 'Give up on X for good and go Y instead' template, which is a plus for comprehension (a reader who meets the pattern once recognizes it the second time), not a repetition defect like the one flagged in r3's review."
+        },
+        {
+          "severity": "note",
+          "message": "Checked all changed strings (four labels, five reworded lockedHints) against the brief's continuity constraints: none mention a ghost, curse or any supernatural being, and none claim knowledge the reader hasn't earned yet. theo-marsh and all five ending passages are unchanged text (confirmed by the diff) and Theo Marsh winding Augusta Cragmoor's clock remains the sole, human resolution. No continuity violation introduced by this revision."
+        },
+        {
+          "severity": "note",
+          "message": "Re-verified word-set numbers directly against reports/literacy.r4.json rather than trusting the narrative-designer's self-report, and they are unchanged from r3 as expected (no paragraph text changed): r-controlled-words totalOccurrences 44/10 minimum, missingWords [], meetsMinimum true, perEndingRoute 12-13 across all five endings; ck-words totalOccurrences 61/12 minimum, missingWords [], meetsMinimum true, perEndingRoute 14-26 across all five endings. Both sets clear their minimums on every one of the 340 enumerated complete paths, not just on the shortest route per ending, since the branch content that carries the target words (closet-search/loose-panel/find-brass-key/crack-in-wall/three-knocks and ask-around/pells-shed/old-logbook/augustas-words/hand-drawn-clock) is untouched and still reachable before every ending. automatedChecks in the report (word-set-minimums, every-word-used, word-sets-on-every-route, word-set-concepts-match-spelling) all report ok: true."
+        },
+        {
+          "severity": "note",
+          "message": "Skills practised: this story practises decoding r-controlled vowel words and ck-digraph words in natural mystery-solving context, holding and reusing a small set of recurring words (dark, door, further, lock, knock, crack, pocket, and others) across every branch and both read orders so the patterns are met repeatedly rather than once. It exercises sequencing (tracking a three-knock, one-knock pattern and a wind-rest-knock routine across several pages before the payoff matches), inference (reading Theo's tiredness, Mr. Pell's familiarity with the clock, and Augusta's journal entry to infer the real explanation before it is stated outright), vocabulary from context via the glossary (workshop, founder, corridor, headmaster and others, each defined where it first appears), and comprehension through choices that let the reader compare evidence (key vs. clue) before deciding how to approach Theo, with the four non-rush endings differing by how trusting or hasty that approach was. This revision's permanent-forfeit mechanic (giving up on a branch now costs its item for the rest of that playthrough, worded honestly in the four reworded choice labels) adds a small comprehension-of-consequences layer on top of that same evidence-weighing structure -- the reader has to understand what a choice costs before making it, not just what it unlocks -- but this is an extension of the existing comprehension skill already tagged throughout the story, not a new skill the story didn't previously practise, so I have not added anything to the shelfSummary's skills list for it."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/drafts/story.r4.json",
+          "sha256": "f4b4da57e2ae0bab3d08ba26754f7beecafbc0415c5e79b707ad0f7713ca71f2"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/literacy.r4.json",
+          "sha256": "5df5ff7ea5b51cf467de902fe846bb3c876ffc86a5e8ca367a3caa75fc3f30f2"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/literacy.r4.md",
+          "sha256": "2439d5062e5f3344e307929f434613ad2bc7de86de7001bc0b47e5d531fe1fce"
+        },
+        {
+          "path": "stories/jobs/job-20261118-static-at-cragmoor-hall-e01ced/reports/weave-comparison.r4.json",
+          "sha256": "3b33492c54f015f594de7bb7dc5d814f93e0a2389df8df37ed74b6114347efb7"
+        }
+      ],
+      "shelfSummary": {
+        "blurb": "Rowan and Dessa trace a nightly knock through the walls of a foggy boarding school, finding a hidden workshop and a kept secret instead of a ghost. The story practises r-controlled vowel words and ck-digraph words throughout, alongside sequencing clues and inferring a character's motives before judging him.",
+        "skills": [
+          "sequencing",
+          "inference",
+          "comprehension",
+          "detail",
+          "vocabulary",
+          "engagement"
+        ],
+        "wordTypes": [
+          {
+            "concept": "r-controlled",
+            "examples": [
+              "dark",
+              "door",
+              "storm",
+              "further"
+            ]
+          },
+          {
+            "concept": "digraph-ck",
+            "examples": [
+              "knock",
+              "clock",
+              "lock",
+              "crack"
+            ]
+          }
+        ],
+        "ogCategories": [
+          "Phonics",
+          "Syllable types",
+          "Vocabulary",
+          "Comprehension"
+        ]
+      },
+      "id": "review-7-literacy",
+      "submittedAt": "2026-11-25T08:47:18.437Z"
     }
   ],
   "parentDecisions": [],
